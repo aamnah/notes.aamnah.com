@@ -33,3 +33,13 @@ redcarpet:
     "strikethrough",
     "with_toc_data"
   ]
+
+# Site wide defaults
+defaults:
+-
+  scope:
+    path: "_posts" # an empty string here means all files in the project
+    type: "posts" 
+  values:
+    layout: "post"
+    author: "Aamnah"

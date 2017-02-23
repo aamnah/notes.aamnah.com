@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to sync an entire Amazon S3 bucket locally
 permalink: /howto-sync-entire-aws-s3-bucket-locally
 tags: ['aws', 's3', 'sync']
