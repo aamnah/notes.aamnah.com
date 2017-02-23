@@ -6,15 +6,15 @@
 </description>
     <link>http://tldrdevnotes.com/</link>
     <atom:link href="http://tldrdevnotes.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Feb 2017 12:13:03 +0500</pubDate>
-    <lastBuildDate>Thu, 23 Feb 2017 12:13:03 +0500</lastBuildDate>
+    <pubDate>Thu, 23 Feb 2017 12:43:32 +0500</pubDate>
+    <lastBuildDate>Thu, 23 Feb 2017 12:43:32 +0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
 
@@ -25,7 +25,6 @@
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 23 Feb 2017 09:21:04 +0500</pubDate>
         <link>http://tldrdevnotes.com/jekyll/update/2017/02/23/welcome-to-jekyll.html</link>
@@ -40,80 +39,56 @@
     
       <item>
         <title>How to sync an entire Amazon S3 bucket locally</title>
-        <description>&lt;h3 id=&quot;tldr&quot;&gt;tl;dr&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install awscli &lt;span class=&quot;c&quot;&gt;# MacOS&lt;/span&gt;
+        <description>&lt;h3&gt;tl;dr&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install awscli &lt;span class=&quot;c&quot;&gt;# MacOS&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# apt-get update &amp;amp;&amp;amp; apt install awscli -y # Ubuntu&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# pip install --upgrade --user awscli # Unix&lt;/span&gt;
 aws configure
 aws s3 ls 
 aws s3 sync s3://my-bucket . 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;install&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install --upgrade --user awscli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;to upgrade, run the same command above. To uninstall, &lt;code&gt;pip uninstall awscli&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;install&quot;&gt;install&lt;/h3&gt;
+&lt;h3&gt;Ubuntu install&lt;/h3&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install --upgrade --user awscli
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;to upgrade, run the same command above. To uninstall, &lt;code class=&quot;highlighter-rouge&quot;&gt;pip uninstall awscli&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ubuntu-install&quot;&gt;Ubuntu install&lt;/h3&gt;
 &lt;p&gt;this is on a fresh Ubuntu system.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;python --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pip --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;python --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pip --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;install pip&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -O https://bootstrap.pypa.io/get-pip.py &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; python get-pip.py &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pip --version
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl -O https://bootstrap.pypa.io/get-pip.py &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; python get-pip.py
+pip --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;install AWS CLI&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install awscli --upgrade --user
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;configuration&quot;&gt;configuration&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;aws configure
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install awscli --upgrade --user
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;configuration&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;aws configure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
 Default output format [None]: ENTER
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For Amazon S3, region doesn&amp;#39;t matter. But you must enter a value, so pick whichever you like from &lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;For Amazon S3, region doesn’t matter. But you must enter a value, so pick whichever you like from &lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Default output format can be either &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, or &lt;code&gt;table&lt;/code&gt;. If you don&amp;#39;t specify an output format, json will be used.  To skip having to specify anything hit ENTER.&lt;/p&gt;
 
-&lt;p&gt;Default output format can be either &lt;code class=&quot;highlighter-rouge&quot;&gt;json&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt;. If you don’t specify an output format, json will be used.  To skip having to specify anything hit ENTER.&lt;/p&gt;
+&lt;p&gt;You can change or update these later. The access_key and ID are stored in &lt;code&gt;~/.aws/credentials&lt;/code&gt; and the region and default format are saved in &lt;code&gt;~/.aws/config&lt;/code&gt;. You can also have multiple profiles with different configurations.&lt;/p&gt;
 
-&lt;p&gt;You can change or update these later. The access_key and ID are stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.aws/credentials&lt;/code&gt; and the region and default format are saved in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.aws/config&lt;/code&gt;. You can also have multiple profiles with different configurations.&lt;/p&gt;
-
-&lt;h3 id=&quot;list-and-sync-buckets&quot;&gt;List and sync buckets&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# List all buckets&lt;/span&gt;
+&lt;h3&gt;List and sync buckets&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# List all buckets&lt;/span&gt;
 aws s3 ls
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Sync the &#39;my-bucket&#39; bucket on S3 to current directory&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Sync the &#39;my-bucket&#39; bucket on S3 to current directory&lt;/span&gt;
 aws s3 sync s3://my-bucket . 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html&quot;&gt;AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html&quot;&gt;AWS CLI Command Reference: sync&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket&quot;&gt;StackOverflow: Downloading an entire S3 bucket?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html&quot;&gt;AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html&quot;&gt;AWS CLI Command Reference: sync&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket&quot;&gt;StackOverflow: Downloading an entire S3 bucket?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
@@ -124,29 +99,68 @@ aws s3 sync s3://my-bucket .
       </item>
     
       <item>
-        <title>Getting started with Jekyll</title>
-        <description>&lt;h3 id=&quot;installation&quot;&gt;installation&lt;/h3&gt;
+        <title>How-to use Redcarpet for syntax highlighting in Jekyll</title>
+        <description>&lt;p&gt;why?
+- because i don&amp;#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the &lt;em&gt;posts&lt;/em&gt; elsewhere
+- because Github uses Redcarpet for rendering &lt;code&gt;.md&lt;/code&gt; content
+- because it supports fenced code blocks.
+- because it makes working with imported/exported sites easy&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install jekyll
+&lt;h3&gt;install&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install redcarpet
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;configuration&lt;/h3&gt;
+
+&lt;p&gt;In your &lt;code&gt;_config.yml&lt;/code&gt; file, add the entry for &lt;code&gt;redcarpet&lt;/code&gt; and update the value for &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;s&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redcarpet&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;redcarpet&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;no_intra_emphasis&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;tables&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;autolink&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;strikethrough&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;with_toc_data&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fenced_code_blocks&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ```javascript ```&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;highlight&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ==highlight==&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;superscript&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 2^(nd)&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;footnotes&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# [^somesamplefootnote]&lt;/span&gt;
+
+  &lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vmg/redcarpet/&quot;&gt;Github: Redcarpet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html&quot;&gt;Redcarpet Extensions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Getting started with Jekyll</title>
+        <description>&lt;h3&gt;installation&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install jekyll
 jekyll new my-awesome-site
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;my-awesome-site
 jekyll serve &lt;span class=&quot;c&quot;&gt;# watches for changes by default&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# =&amp;gt; Now browse to http://localhost:4000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;jekyll serve&lt;/code&gt; &lt;em&gt;watches&lt;/em&gt; for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jekyll build --watch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;configuration&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt; &lt;em&gt;watches&lt;/em&gt; for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.&lt;/p&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll build --watch
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;configuration&quot;&gt;configuration&lt;/h3&gt;
-
-&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;https://jekyllrb.com/&lt;/li&gt;
-  &lt;li&gt;https://jekyllrb.com/docs/configuration/&lt;/li&gt;
+&lt;li&gt;https://jekyllrb.com/&lt;/li&gt;
+&lt;li&gt;https://jekyllrb.com/docs/configuration/&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>

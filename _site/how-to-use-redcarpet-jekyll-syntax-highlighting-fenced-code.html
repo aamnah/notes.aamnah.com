@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>How to sync an entire Amazon S3 bucket locally</title>
-  <meta name="description" content="tl;dr">
+  <title>How-to use Redcarpet for syntax highlighting in Jekyll</title>
+  <meta name="description" content="why?- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the posts elsewhere- beca...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/sync-entire-aws-s3-bucket-locally">
+  <link rel="canonical" href="http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
 </head>
 
@@ -57,61 +57,44 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">How to sync an entire Amazon S3 bucket locally</h1>
+    <h1 class="post-title" itemprop="name headline">How-to use Redcarpet for syntax highlighting in Jekyll</h1>
     <p class="post-meta"><time datetime="2017-02-23T00:00:00+05:00" itemprop="datePublished">Feb 23, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h3>tl;dr</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install awscli <span class="c"># MacOS</span>
-<span class="c"># apt-get update &amp;&amp; apt install awscli -y # Ubuntu</span>
-<span class="c"># pip install --upgrade --user awscli # Unix</span>
-aws configure
-aws s3 ls 
-aws s3 sync s3://my-bucket . 
-</code></pre></div>
+    <p>why?
+- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the <em>posts</em> elsewhere
+- because Github uses Redcarpet for rendering <code>.md</code> content
+- because it supports fenced code blocks.
+- because it makes working with imported/exported sites easy</p>
+
 <h3>install</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">pip install --upgrade --user awscli
-</code></pre></div>
-<p>to upgrade, run the same command above. To uninstall, <code>pip uninstall awscli</code></p>
-
-<h3>Ubuntu install</h3>
-
-<p>this is on a fresh Ubuntu system.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="sb">`</span>python --version<span class="sb">`</span> <span class="sb">`</span>pip --version<span class="sb">`</span>
-</code></pre></div>
-<p>install pip</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -O https://bootstrap.pypa.io/get-pip.py <span class="o">&amp;&amp;</span> python get-pip.py
-pip --version
-</code></pre></div>
-<p>install AWS CLI</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">pip install awscli --upgrade --user
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install redcarpet
 </code></pre></div>
 <h3>configuration</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">aws configure
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-Default region name [None]: us-west-2
-Default output format [None]: ENTER
-</code></pre></div>
-<p>For Amazon S3, region doesn&#39;t matter. But you must enter a value, so pick whichever you like from <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">here</a>.</p>
 
-<p>Default output format can be either <code>json</code>, <code>text</code>, or <code>table</code>. If you don&#39;t specify an output format, json will be used.  To skip having to specify anything hit ENTER.</p>
+<p>In your <code>_config.yml</code> file, add the entry for <code>redcarpet</code> and update the value for <code>markdown</code>.</p>
+<div class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="s">markdown</span><span class="pi">:</span> <span class="s">redcarpet</span>
 
-<p>You can change or update these later. The access_key and ID are stored in <code>~/.aws/credentials</code> and the region and default format are saved in <code>~/.aws/config</code>. You can also have multiple profiles with different configurations.</p>
+<span class="s">redcarpet</span><span class="pi">:</span>
+  <span class="s">extension</span><span class="pi">:</span> <span class="pi">[</span>
+    <span class="s2">"</span><span class="s">no_intra_emphasis"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">autolink"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">strikethrough"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">with_toc_data"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">fenced_code_blocks"</span><span class="pi">,</span> <span class="c1"># ```javascript ```</span>
+    <span class="s2">"</span><span class="s">highlight"</span><span class="pi">,</span> <span class="c1"># ==highlight==</span>
+    <span class="s2">"</span><span class="s">superscript"</span><span class="pi">,</span> <span class="c1"># 2^(nd)</span>
+    <span class="s2">"</span><span class="s">footnotes"</span><span class="pi">,</span> <span class="c1"># [^somesamplefootnote]</span>
 
-<h3>List and sync buckets</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># List all buckets</span>
-aws s3 ls
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Sync the 'my-bucket' bucket on S3 to current directory</span>
-aws s3 sync s3://my-bucket . 
+  <span class="pi">]</span>
 </code></pre></div>
 <h2>Links</h2>
 
 <ul>
-<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface</a></li>
-<li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html">AWS CLI Command Reference: sync</a></li>
-<li><a href="http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket">StackOverflow: Downloading an entire S3 bucket?</a></li>
+<li><a href="https://github.com/vmg/redcarpet/">Github: Redcarpet</a></li>
+<li><a href="https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html">Redcarpet Extensions</a></li>
 </ul>
 
   </div>

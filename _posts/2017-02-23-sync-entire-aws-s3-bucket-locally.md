@@ -35,7 +35,8 @@ echo `python --version` `pip --version`
 install pip
 
 ```bash
-curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py && pip --version
+curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+pip --version
 ```
 
 install AWS CLI
