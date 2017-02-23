@@ -34,12 +34,28 @@ redcarpet:
     "with_toc_data"
   ]
 
+# Collections
+collections:
+  - resource
+  - quote
+
 # Site wide defaults
 defaults:
--
-  scope:
+- scope:
     path: "_posts" # an empty string here means all files in the project
     type: "posts" 
   values:
     layout: "post"
     author: "Aamnah"
+
+- scope:
+    path: ""
+    type: "resource"
+  values:
+    layout: "resource"
+
+- scope:
+    path: ""
+    type: "quote"
+  values:
+    layout: "quote"
