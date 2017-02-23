@@ -1,7 +1,8 @@
 ---
 layout: post
-title: How-to use Redcarpet for syntax highlighting in Jekyll
-permalink: how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code
+title: How to use Redcarpet for syntax highlighting in Jekyll
+permalink: /howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code
+tags: ['jekyll']
 ---
 
 why?

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Getting started with Jekyll</title>
-  <meta name="description" content="installation">
+  <title>How to use Redcarpet for syntax highlighting in Jekyll</title>
+  <meta name="description" content="why?- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the posts elsewhere- beca...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/getting-started-jekyll">
+  <link rel="canonical" href="http://tldrdevnotes.com/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
 </head>
 
@@ -58,28 +58,44 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Getting started with Jekyll</h1>
+    <h1 class="post-title" itemprop="name headline">How to use Redcarpet for syntax highlighting in Jekyll</h1>
     <p class="post-meta"><time datetime="2017-02-23T00:00:00+05:00" itemprop="datePublished">Feb 23, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h3>installation</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install jekyll
-jekyll new my-awesome-site
-<span class="nb">cd </span>my-awesome-site
-jekyll serve <span class="c"># watches for changes by default</span>
-<span class="c"># =&gt; Now browse to http://localhost:4000</span>
-</code></pre></div>
-<p><code>jekyll serve</code> <em>watches</em> for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">jekyll build --watch
+    <p>why?
+- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the <em>posts</em> elsewhere
+- because Github uses Redcarpet for rendering <code>.md</code> content
+- because it supports fenced code blocks.
+- because it makes working with imported/exported sites easy</p>
+
+<h3>install</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install redcarpet
 </code></pre></div>
 <h3>configuration</h3>
 
+<p>In your <code>_config.yml</code> file, add the entry for <code>redcarpet</code> and update the value for <code>markdown</code>.</p>
+<div class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="s">markdown</span><span class="pi">:</span> <span class="s">redcarpet</span>
+
+<span class="s">redcarpet</span><span class="pi">:</span>
+  <span class="s">extension</span><span class="pi">:</span> <span class="pi">[</span>
+    <span class="s2">"</span><span class="s">no_intra_emphasis"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">autolink"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">strikethrough"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">with_toc_data"</span><span class="pi">,</span>
+    <span class="s2">"</span><span class="s">fenced_code_blocks"</span><span class="pi">,</span> <span class="c1"># ```javascript ```</span>
+    <span class="s2">"</span><span class="s">highlight"</span><span class="pi">,</span> <span class="c1"># ==highlight==</span>
+    <span class="s2">"</span><span class="s">superscript"</span><span class="pi">,</span> <span class="c1"># 2^(nd)</span>
+    <span class="s2">"</span><span class="s">footnotes"</span><span class="pi">,</span> <span class="c1"># [^somesamplefootnote]</span>
+
+  <span class="pi">]</span>
+</code></pre></div>
 <h2>Links</h2>
 
 <ul>
-<li>https://jekyllrb.com/</li>
-<li>https://jekyllrb.com/docs/configuration/</li>
+<li><a href="https://github.com/vmg/redcarpet/">Github: Redcarpet</a></li>
+<li><a href="https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html">Redcarpet Extensions</a></li>
 </ul>
 
   </div>

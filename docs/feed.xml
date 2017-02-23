@@ -6,8 +6,8 @@
 </description>
     <link>http://tldrdevnotes.com/</link>
     <atom:link href="http://tldrdevnotes.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Feb 2017 13:27:44 +0500</pubDate>
-    <lastBuildDate>Thu, 23 Feb 2017 13:27:44 +0500</lastBuildDate>
+    <pubDate>Thu, 23 Feb 2017 13:41:16 +0500</pubDate>
+    <lastBuildDate>Thu, 23 Feb 2017 13:41:16 +0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -65,14 +65,20 @@ aws s3 sync s3://my-bucket .
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/sync-entire-aws-s3-bucket-locally</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/sync-entire-aws-s3-bucket-locally</guid>
+        <link>http://tldrdevnotes.com/howto-sync-entire-aws-s3-bucket-locally</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/howto-sync-entire-aws-s3-bucket-locally</guid>
+        
+        <category>aws</category>
+        
+        <category>s3</category>
+        
+        <category>sync</category>
         
         
       </item>
     
       <item>
-        <title>How-to use Redcarpet for syntax highlighting in Jekyll</title>
+        <title>How to use Redcarpet for syntax highlighting in Jekyll</title>
         <description>&lt;p&gt;why?
 - because i don&amp;#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the &lt;em&gt;posts&lt;/em&gt; elsewhere
 - because Github uses Redcarpet for rendering &lt;code&gt;.md&lt;/code&gt; content
@@ -109,8 +115,10 @@ aws s3 sync s3://my-bucket .
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code</guid>
+        <link>http://tldrdevnotes.com/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code</guid>
+        
+        <category>jekyll</category>
         
         
       </item>
@@ -145,6 +153,61 @@ jekyll serve &lt;span class=&quot;c&quot;&gt;# watches for changes by default&lt
         <category>guides</category>
         
         <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Add SSH Key to MacOS Keychain permanently</title>
+        <description>&lt;p&gt;Run &lt;code&gt;ssh-agent&lt;/code&gt; if it&amp;#39;s not already running&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ssh-agent -s&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Add SSH key to ssh-agent&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh-add -K ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;where &lt;code&gt;id_rsa&lt;/code&gt; is the actual filename of the key you&amp;#39;re adding. This should do it for OSX before Sierra.&lt;/p&gt;
+
+&lt;h3&gt;MacOS Sierra&lt;/h3&gt;
+
+&lt;p&gt;Create an SSH config file&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;nano ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Add the following to it&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Host &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;UseKeychain yes&lt;/code&gt; tells SSH to look in your OSX keychain for the key passphrase.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;IdentityFile&lt;/code&gt; specifies the key you want to load. If you want to load multiple keys just add more &lt;code&gt;IdentityFile&lt;/code&gt; entries, one per line.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now add your key(s)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh-add -K ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For multiple keys, the config file will look like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Host &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/foo
+IdentityFile ~/.ssh/bar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically&quot;&gt;StackOverflow: How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot;&gt;Github: Generating a new SSH key and adding it to the ssh-agent&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 Feb 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/howto-add-ssh-key-macos-keychain-permanently</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/howto-add-ssh-key-macos-keychain-permanently</guid>
+        
+        <category>ssh</category>
+        
+        <category>keychain</category>
         
         
       </item>

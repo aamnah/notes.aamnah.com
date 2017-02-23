@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>How-to use Redcarpet for syntax highlighting in Jekyll</title>
-  <meta name="description" content="why?- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the posts elsewhere- beca...">
+  <title>Add SSH Key to MacOS Keychain permanently</title>
+  <meta name="description" content="Run ssh-agent if it&#39;s not already running">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/how-to-use-redcarpet-jekyll-syntax-highlighting-fenced-code">
+  <link rel="canonical" href="http://tldrdevnotes.com/howto-add-ssh-key-macos-keychain-permanently">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
 </head>
 
@@ -22,6 +22,7 @@
   <div class="wrapper">
 
     <a class="site-title" href="/">TLDR Dev Notes</a>
+    <small>Aamnah's developer notes</small>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -57,44 +58,51 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">How-to use Redcarpet for syntax highlighting in Jekyll</h1>
-    <p class="post-meta"><time datetime="2017-02-23T00:00:00+05:00" itemprop="datePublished">Feb 23, 2017</time></p>
+    <h1 class="post-title" itemprop="name headline">Add SSH Key to MacOS Keychain permanently</h1>
+    <p class="post-meta"><time datetime="2017-02-20T00:00:00+05:00" itemprop="datePublished">Feb 20, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>why?
-- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the <em>posts</em> elsewhere
-- because Github uses Redcarpet for rendering <code>.md</code> content
-- because it supports fenced code blocks.
-- because it makes working with imported/exported sites easy</p>
-
-<h3>install</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install redcarpet
+    <p>Run <code>ssh-agent</code> if it&#39;s not already running</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
-<h3>configuration</h3>
+<p>Add SSH key to ssh-agent</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre></div>
+<p>where <code>id_rsa</code> is the actual filename of the key you&#39;re adding. This should do it for OSX before Sierra.</p>
 
-<p>In your <code>_config.yml</code> file, add the entry for <code>redcarpet</code> and update the value for <code>markdown</code>.</p>
-<div class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="s">markdown</span><span class="pi">:</span> <span class="s">redcarpet</span>
+<h3>MacOS Sierra</h3>
 
-<span class="s">redcarpet</span><span class="pi">:</span>
-  <span class="s">extension</span><span class="pi">:</span> <span class="pi">[</span>
-    <span class="s2">"</span><span class="s">no_intra_emphasis"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">autolink"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">strikethrough"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">with_toc_data"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">fenced_code_blocks"</span><span class="pi">,</span> <span class="c1"># ```javascript ```</span>
-    <span class="s2">"</span><span class="s">highlight"</span><span class="pi">,</span> <span class="c1"># ==highlight==</span>
-    <span class="s2">"</span><span class="s">superscript"</span><span class="pi">,</span> <span class="c1"># 2^(nd)</span>
-    <span class="s2">"</span><span class="s">footnotes"</span><span class="pi">,</span> <span class="c1"># [^somesamplefootnote]</span>
+<p>Create an SSH config file</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">nano ~/.ssh/config
+</code></pre></div>
+<p>Add the following to it</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Host <span class="k">*</span>
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+</code></pre></div>
+<ul>
+<li><code>UseKeychain yes</code> tells SSH to look in your OSX keychain for the key passphrase.</li>
+<li><code>IdentityFile</code> specifies the key you want to load. If you want to load multiple keys just add more <code>IdentityFile</code> entries, one per line.</li>
+</ul>
 
-  <span class="pi">]</span>
+<p>Now add your key(s)</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre></div>
+<p>For multiple keys, the config file will look like this:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Host <span class="k">*</span>
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/foo
+IdentityFile ~/.ssh/bar
 </code></pre></div>
 <h2>Links</h2>
 
 <ul>
-<li><a href="https://github.com/vmg/redcarpet/">Github: Redcarpet</a></li>
-<li><a href="https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html">Redcarpet Extensions</a></li>
+<li><a href="http://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically">StackOverflow: How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?</a></li>
+<li><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Github: Generating a new SSH key and adding it to the ssh-agent</a></li>
 </ul>
 
   </div>
