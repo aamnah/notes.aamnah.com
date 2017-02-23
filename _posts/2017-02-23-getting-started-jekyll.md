@@ -3,6 +3,7 @@ layout: post
 title: Getting started with Jekyll
 permalink: /getting-started-jekyll
 tags: ['getting started', 'guides', 'jekyll']
+status: draft
 ---
 
 ### installation
