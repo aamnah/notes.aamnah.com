@@ -1,13 +1,14 @@
 ---
 layout: post
 title: JavaScript Basics
+permalink: basics-javascript
 date: 2014-05-21 16:22:38.000000000 +05:00
 type: post
 published: true
 status: publish
 categories:
 - JavaScript
-tags: []
+tags:
 ---
 
 ## Comparison Operators

@@ -31,10 +31,11 @@ color: darken($text_color, 20%);
 ``` 
 
 OR 
+
 ```sass
 color: darken(#888, 20%)
 ```
-will give you a 20% darker shade of $text_color or #888. If you use a variable, it'll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.
+will give you a 20% darker shade of `$text_color` or `#888`. If you use a variable, it'll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.
 
 #### Get a lighter shade
 

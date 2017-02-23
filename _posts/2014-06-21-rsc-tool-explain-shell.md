@@ -1,6 +1,6 @@
 ---
 layout: resource
-title: Explain Shell
+title: Tool - Explain Shell
 link: http://explainshell.com/
 icon: wrench
 date: 2014-06-21 05:45:48.000000000 +05:00

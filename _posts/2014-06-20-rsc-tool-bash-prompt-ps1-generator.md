@@ -1,6 +1,6 @@
 ---
 layout: resource
-title: Bash Prompt ($PS1) Generator
+title: Tool - Bash Prompt ($PS1) Generator
 link: http://www.kirsle.net/wizards/ps1.html
 icon: wrench
 date: 2014-06-20 13:15:38.000000000 +05:00
