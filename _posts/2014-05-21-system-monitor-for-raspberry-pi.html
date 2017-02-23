@@ -1,0 +1,100 @@
+---
+layout: post
+title: System Monitor for Raspberry Pi
+date: 2014-05-21 16:30:36.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- '*nix'
+tags:
+- raspberry pi
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487419089;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:345;}i:1;a:1:{s:2:"id";i:46;}i:2;a:1:{s:2:"id";i:21;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p><a href="http://rpi-experiences.blogspot.fr/p/rpi-monitor.html">RPi-Monitor</a> is a nifty utility that monitors and displays system information about your Raspberry Pi in a nice-looking graphical interface in the browser.<br />
+It can show you how much CPU Load you have, what is the temperature of your Raspberry Pi (good to know in cases where you have overclocked the raspberry pi), Used, Free and Total Memroy (RAM), Used, Free and Total Space you have on both partitions of your SD Card, Used, Free and Total SWAP  space (Virtual RAM), how long the Raspberry Pi has been running (Uptime), and general information about your Versions (Kernel, Firmware, Processor etc.) as well as any packages that might need updating.<br />
+You can see these as stats as well as Graphs.</p>
+<h2>Installing RPi-Monitor</h2>
+<p>Download it from the official repository in Github:</p>
+<pre class="lang:sh decode:true ">sudo wget http://goo.gl/P4Bl6I -O rpimonitor_2.4-1_all.deb</pre>
+<p>Install the dependencies by executing the following command:</p>
+<pre class="lang:sh decode:true ">sudo apt-get install librrds-perl libhttp-daemon-perl libjson-perl libipc-sharelite-perl</pre>
+<p>Install RPi-Monitor using the following command:</p>
+<pre class="lang:js decode:true ">sudo dpkg -i rpimonitor_2.4-1_all.deb</pre>
+<h2>Usage</h2>
+<p>Browse <strong>http://RPiIPaddress:8888/</strong> (from another computer or mobile on the same network) to access to the web interface. For example, the IP of my Raspberry Pi is 192.168.2.103, so the link for RPi-Monitor is http://192.168.2.103:8888/<br />
+As of now Chrome and Firefox are the recommended browsers to view RPi-Monitor interface.</p>
+<h2>Auto Refreshing Status Page</h2>
+<p>By default the status page does not automatically refresh stats, but you can enable that from Configuraion by checking the 'Auto refresh status page' option.</p>
+<hr />
+<h2>[Optional] Changing Default Port (:8888)</h2>
+<p>You can change the default 8888 port by editing the rpimonitord.conf file in /etc/ directory.</p>
+<pre class="lang:sh decode:true ">sudo nano /etc/rpimonitord.conf</pre>
+<p>Uncomment (by removing the # sign) and edit the line that says 'daemon.port=8889'. Like this:</p>
+<pre class="lang:sh decode:true "># daemon.port=8888
+# Define port of the web server (default:8888)
+daemon.port=1234</pre>
+<p>where 1234 is my custom port.</p>
+<hr />
+<h2>[Optional] Monitoring a WiFi Connection</h2>
+<p>You can also add a WiFi icon to the status page, like I did. Since I use a WiFi adopter with my raspberry pi and not an ethernet cable, it makes sense to be able to monitor WiFi bandwidth and speed.<br />
+The process of adding the WiFi indicator involves editing the default.conf file in /etc/rpmonitord.conf.d directory.</p>
+<pre class="lang:sh decode:true ">sudo nano /etc/rpimonitord.conf.d/default.conf</pre>
+<p>The snippet to add is:</p>
+<pre class="lang:sh decode:true ">
+###############################################################
+# Graph WLAN
+###############################################################
+dynamic.17.name=wifi_received
+dynamic.17.source=/sys/class/net/wlan0/statistics/rx_bytes
+dynamic.17.regexp=(.*)
+dynamic.17.postprocess=$1*-1
+dynamic.17.rrd=DERIVE
+
+dynamic.18.name=wifi_send
+dynamic.18.source=/sys/class/net/wlan0/statistics/tx_bytes
+dynamic.18.regexp=(.*)
+dynamic.18.postprocess=
+dynamic.18.rrd=DERIVE
+
+web.status.1.content.9.name=WiFi
+web.status.1.content.9.icon=wifi.png
+web.status.1.content.9.line.1="WiFi Sent: &lt;b&gt;"+KMG(data.wifi_send)+"&lt;i class='icon-arrow-up'&gt;&lt;/i&gt;&lt;/b&gt; Received: &lt;b&gt;"+KMG(Math.abs(data.wifi_received)) + "&lt;i class='icon-arrow-down'&gt;&lt;/i&gt;&lt;/b&gt;"
+
+web.statistics.1.content.9.name=WiFi
+web.statistics.1.content.9.graph.1=wifi_send
+web.statistics.1.content.9.graph.2=wifi_received
+web.statistics.1.content.9.ds_graph_options.net_send.label=Upload bandwidth (bits)
+web.statistics.1.content.9.ds_graph_options.net_send.lines={ fill: true }
+web.statistics.1.content.9.ds_graph_options.net_send.color="#FF7777"
+web.statistics.1.content.9.ds_graph_options.net_received.label=Download bandwidth (bits)
+web.statistics.1.content.9.ds_graph_options.net_received.lines={ fill: true }
+web.statistics.1.content.9.ds_graph_options.net_received.color="#77FF77" </pre>
+<p>You can read more about how to monitor wifi using rpi-monitor <a href="http://rpi-experiences.blogspot.fr/2013/09/add-wifi-to-raspberry-pi-and-monitor-it.html#more">here</a>. The linked article, written by the author of rpi-monitor himself tells how to add a wifi connection and monitor it with rpi-monitor. If you have already configured your WiFi card/connection then ignore the first part about installing the wifi network and proceed to configuring rpi-monitor to show wifi network interface.<br />
+You might have to restart your Raspberry Pi in order to see/apply the changes. The command for restart is:</p>
+<pre class="lang:sh decode:true ">sudo reboot</pre>
+<hr />
+<h2>Documentation</h2>
+<p>To see instructions on how to use and configure RPi-Monitor, use the following commands:</p>
+<pre class="lang:sh decode:true ">man rpimonitord</pre>
+<p>and</p>
+<pre class="lang:sh decode:true ">man rpimonitord.conf</pre>
+<p>Man pages are also available in the Github <a href="https://github.com/XavierBerger/RPi-Monitor/wiki">wiki</a>.</p>
+<h2>Updating RPi-Monitor</h2>
+<p>Run the following command to upgrade RPi-Monitor:</p>
+<pre class="lang:sh decode:true ">sudo apt-get update &amp;&amp; sudo service rpimonitor update</pre>
+<p>You will also be able to see this command in the RPi-Monitor web interface when there are upgardes available.</p>
+<h2>Uninstall / Remove RPi-Monitor</h2>
+<p>If you would like to uninstall RPi-Monitor, you can do so by entering the following command:</p>
+<pre class="lang:sh decode:true ">dpkg --purge rpimonitor</pre>
+<p><a href="http://rpi-experiences.blogspot.fr/2013/09/rpi-monitor-version-24-is-available.html">Source</a></p>

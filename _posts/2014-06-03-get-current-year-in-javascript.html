@@ -1,0 +1,32 @@
+---
+layout: post
+title: Get Current Year in JavaScript
+date: 2014-06-03 13:48:57.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- JavaScript
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487889106;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:42;}i:1;a:1:{s:2:"id";i:44;}i:2;a:1:{s:2:"id";i:378;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<h2>Local Time (machine)</h2>
+<pre class="lang:js decode:true ">var d = new Date();
+var yr = d.getYear           //Returns the two digit year e.g. 14 
+var year = d.getFullYear     //Returns the four digit year e.g. 2014 </pre>
+<h2>Universal Time (UTC)</h2>
+<pre class="lang:js decode:true ">var d = new Date();
+var yrUTC = d.getUTCYear          //Returns the two digit year
+var yearUTC = d.getUTCFullYear    //Returns the full year</pre>
+<p><strong>Note:</strong> Knowing the difference between local machine time and time according to UTC matters. Let's say you want to greet a user on New Year's Day at 12:01 am. If you don't account for timezone difference you can not correctly greet the user at the right time as they might be in a different time zone (say UCT-7) where the new year hasn't started yet.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">source</a></p>

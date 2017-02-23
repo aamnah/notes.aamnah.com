@@ -1,0 +1,42 @@
+---
+layout: post
+title: Redirection in Linux
+date: 2014-07-17 22:34:46.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- '*nix'
+- Bash
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _yoast_wpseo_metadesc: Learn how to use redirect input (stdin) and output (stdout)
+    in Linux.
+  _wp_old_slug: redirection
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1478929813;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:103;}i:1;a:1:{s:2:"id";i:290;}i:2;a:1:{s:2:"id";i:42;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>In Linux, everything is a file. Redirection comes in very handy because you can move data from a file to another file, from the resulting output of a command to a file. You can also redirect the output of one command and feed it as an input to  another command.</p>
+<h2>Output ></h2>
+<p>The <code>&gt;</code> symbol is used for redirecting output of one command to a new file or another command.</p>
+<p>For example:</p>
+<pre class="lang:sh decode:true ">ls -al &gt; listing.txt</pre>
+<p>or</p>
+<pre class="lang:sh decode:true ">echo 'hello, this is some info' &gt; hello.txt</pre>
+<p><code>&gt;</code> <strong>writes</strong> the output. Meaning, if there is anything already in that file, or if there is an existing file with the same name, it'll be overwritten. To <strong>append</strong> the redirected output at the end of a file, use <code>&gt;&gt;</code>.</p>
+<p>For example:</p>
+<pre class="lang:sh decode:true ">echo 'my name is Aamnah, add this at the end' &gt;&gt; hello.txt</pre>
+<h2>Notes:</h2>
+<ul>
+<li><code>&gt;&amp;</code> redirects the outputs of one file to another while <code>&lt;</code> is the input redirection operator.  </li>
+<li>You can use error using its corresponding File Descriptor 2.</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=Bzd7XfApxLI">[Video] More about Redirection, Input, Output, Error Redirection and FD (File Descriptor)</a></p>

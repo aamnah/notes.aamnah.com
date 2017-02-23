@@ -1,0 +1,61 @@
+---
+layout: post
+title: Add SSH key to OSX Keychain permanently
+date: 2017-02-20 06:40:11.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- '*nix'
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _yoast_wpseo_content_score: '30'
+  _yoast_wpseo_primary_category: '16'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487882237;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:290;}i:1;a:1:{s:2:"id";i:19;}i:2;a:1:{s:2:"id";i:38;}}}}
+  _wpas_done_all: '1'
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>Run <code>ssh-agent</code> if it's not already running</p>
+<pre><code class="bash">eval "$(ssh-agent -s)"
+</code></pre>
+<p>Add SSH key to ssh-agent</p>
+<pre><code class="bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre>
+<p>where <code>id_rsa</code> is the actual filename of the key you're adding. This should do it for OSX before Sierra.</p>
+<h3>OSX Sierra</h3>
+<p>Create an SSH config file</p>
+<pre><code class="bash">nano ~/.ssh/config
+</code></pre>
+<p>Add the following to it</p>
+<pre><code class="bash">Host *
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<ul>
+<li><code>UseKeychain yes</code> tells SSH to look in your OSX keychain for the key passphrase.</li>
+<li><code>IdentityFile</code> specifies the key you want to load. If you want to load multiple keys just add more <code>IdentityFile</code> entries, one per line.</li>
+</ul>
+<p>Now add your key(s)</p>
+<pre><code class="bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre>
+<p>For multiple keys, the config file will look like this:</p>
+<pre><code class="bash">Host *
+UseKeychain yes
+AddKeysToAgent yes
+IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/foo
+IdentityFile ~/.ssh/bar
+</code></pre>
+<h2>Links</h2>
+<ul>
+<li><a href="http://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically">StackOverflow: How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?</a></li>
+<li><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Github: Generating a new SSH key and adding it to the ssh-agent</a></li>
+</ul>

@@ -1,0 +1,65 @@
+---
+layout: post
+title: Amazon RDS Cheatsheet
+date: 2014-05-21 16:16:36.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- Cheetsheets
+tags:
+- amazon rds
+- cheatsheet
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1484416730;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:290;}i:1;a:1:{s:2:"id";i:175;}i:2;a:1:{s:2:"id";i:44;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>Connect to Amazon RDS<br />
+<code>mysql -uaamnah --password --host=mysql.hostmarkaz.com</code></p>
+<p>Creating MySQL database<br />
+<code>mysql &gt; CREATE DATABASE databasename ;</code></p>
+<p>Creating MySQL User<br />
+<code>mysql&gt; CREATE USER 'username'@'host' IDENTIFIED BY 'password' ;</code></p>
+<p>Allowing User to Connect<br />
+// grant usage on server so the user can connect<br />
+<code>mysql&gt; GRANT USAGE ON *.* TO 'username'@'host' ;</code></p>
+<p>Granting Privileges<br />
+<code>mysql&gt; GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'host' ;</code></p>
+<p>CHECK if you can connect to the created database with the user you crteated<br />
+<code>mysql -uusername -p --host=mysql.hostmarkaz.com databasename</code></p>
+<p>Deleting MySQL User<br />
+<code>mysql&gt; DROP USER 'username'@'host' ;</code></p>
+<p>Import SQL database<br />
+<code>mysql -u username -p password databasename &lt; filename.sql</code></p>
+<p>List all users<br />
+<code>SELECT User,Host FROM mysql.user;</code></p>
+<p>View Users and Permissions<br />
+<code>SELECT user, host, password, select_priv, insert_priv, shutdown_priv, grant_priv FROM mysql.user</code></p>
+<p>View User Permissions for individual Databases<br />
+<code>SELECT user, host, db, select_priv, insert_priv, grant_priv FROM mysql.db</code></p>
+<p>Sample Command:<br />
+<code>mysqldump --user=root --password=password --host=host.aamnah.com wpblog | mysql --host=host.hostmarkaz.com --user=aamnah --password=password wpblog</code></p>
+<p>NOTES:</p>
+<ul>
+<li>If can not connect, check if the port is open on the server you are connecting from. RDS uses 3306. On KH server it couldn’t connect because the port was closed.</li>
+<li>
+<p>If the connection is not getting through the error would be ‘could not connect’.</p>
+</li>
+<li>
+<p>If login is incorrect the error would be ‘access denied’. mysql_connect(): Access denied for user.</p>
+</li>
+<li>
+<p>The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not.</p>
+</li>
+</ul>
+<p>Opening Ports:<br />
+Ports are opened in the firewall configuration.</p>
+<p>This can be accessed in WHM >> Plugins » ConfigServer Security &amp; Firewall >> Firewall configuration >> Port settings.</p>

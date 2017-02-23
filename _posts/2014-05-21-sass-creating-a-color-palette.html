@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'Sass: Creating a Color Palette'
+date: 2014-05-21 19:26:53.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- CSS
+tags:
+- compass
+- sass
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1485465599;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:99;}i:1;a:1:{s:2:"id";i:42;}i:2;a:1:{s:2:"id";i:88;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<pre class="lang:sass decode:true ">$background: #f3f3f3;
+$text_color: #888;
+$link_color: #;
+$primary_color: mix(#ff0000, #fefefe);
+$secondary_color: complement($primary_color);
+$highlighted_text_color: darken($text_color, 30%);</pre>
+<h3>Light and Dark shades</h3>
+<h4>Get a darker shade</h4>
+<p><code>color: darken($text_color, 20%);</code> OR <code>color: darken(#888, 20%)</code><br />
+will give you a 20% darker shade of $text_color or #888. If you use a variable, it'll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.</p>
+<h4>Get a lighter shade</h4>
+<p><code>color: lighten($text_color, 20%);</code> OR <code>color: lighten(#888, 20%)</code></p>
+<h4>Save the light/dark shades as variables</h4>
+<p><code>$highlighted_text_color: darken($text_color, 30%);</code></p>
+<h3>Complementary Colors</h3>
+<p>complimentary colors are at the opposite ends on the color wheel.<br />
+<code>$text_color: complement($background_color);</code></p>
+<p><a href="http://tldrdevnotes.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-0.23.21.jpeg"><img class="alignnone size-medium wp-image-78" src="{{ site.baseurl }}/assets/Screen-Shot-2014-05-22-at-0.23.21-300x220.jpeg" alt="Complementary Colors" width="300" height="220" /></a></p>
+<h3>Desaturate a Color</h3>
+<p><code>$background: desaturate(#187, 30%)</code></p>
+<h3>Mix colors</h3>
+<p><code>$primary_color: mix(#ff0000, #fefefe);</code></p>
+<p>And this is not all, there are other functions such as hue and opacity that you can also use in Sass for making you color palette.</p>

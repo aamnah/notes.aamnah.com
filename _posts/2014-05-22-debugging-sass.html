@@ -1,0 +1,42 @@
+---
+layout: post
+title: Debugging Sass
+date: 2014-05-22 06:08:52.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- CSS
+tags:
+- compass
+- sass
+meta:
+  _edit_last: '1'
+  _wpcom_is_markdown: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1473675507;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:99;}i:1;a:1:{s:2:"id";i:88;}i:2;a:1:{s:2:"id";i:265;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p><code>sass --help</code> OR <code>sass -h</code> OR <code>sass -?</code><br />
+will give you a whole list of commands you can use and how to use them.</p>
+<p><code>sass --style compressed main.css</code><br />
+will output a compressed version of main.css in the console.</p>
+<p><code>sass --style compressed main.css:main.css</code><br />
+the file before the : is the input file and the one after is the output file.</p>
+<p><code>sass --style expanded main.css:main.css</code><br />
+converts to 'expanded' style, which is nested but without the indentation.</p>
+<p><code>sass -l main.css:main.css</code><br />
+<code>-l</code> flag adds line numbers (as well as file name) corresponding to where the code is in the .sass file and adds it as comments to the .css output.</p>
+<pre class="lang:sass decode:true ">@mixin old {
+    @warn "Please use new() instead"
+}</pre>
+<p><code>@warn</code> let's you warn users about the code. For example, if a mixin/code/function is deprecated, you can warn the users about it and tell them to use the new one. @warn is added in the .scss file and is outputted in the console. In other words, it prints an error to Terminal showing a defined message.</p>
+<h2>Notes:</h2>
+<ul>
+<li>When an error is at the end of a line, it is usually a missed semi colon <code>;</code></li>
+</ul>

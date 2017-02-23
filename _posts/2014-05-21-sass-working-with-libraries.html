@@ -1,0 +1,36 @@
+---
+layout: post
+title: 'Sass: Working with Libraries'
+date: 2014-05-21 20:13:51.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- CSS
+tags:
+- compass
+- sass
+meta:
+  _wpas_done_all: '1'
+  _edit_last: '1'
+  _wpcom_is_markdown: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1483942485;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:21;}i:1;a:1:{s:2:"id";i:103;}i:2;a:1:{s:2:"id";i:88;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>By far the most popular Sass based UI framework is <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>. Another one is <a href="http://foundation.zurb.com" target="_blank">Foundation</a>.</p>
+<p>Sass libraries are more like a collection of mixins, funtcions and classes. The most common is <a href="http://compass-style.org/" target="_blank">Compass</a>. Then there is <a href="http://bourbon.io" target="_blank">Bourbon</a>.</p>
+<h2>Installing Bourbon</h2>
+<pre class="lang:sh decode:true ">sudo gem install bourbon</pre>
+<h2>Including Bourbon in a Project</h2>
+<p>just include the bourbon .scss file in the main stylesheet.</p>
+<pre class="lang:sass decode:true ">@import "bourbon_bourbon.scss";</pre>
+<h2>Benefits</h2>
+<ul>
+<li>You can use all the new CSS3 features without having to worry about backwards compatibility as Bourbon and Compass take care of adding vendor prefixes.</li>
+<li>Font families and their fall back families are defined as variables so you don't have to type your long list.</li>
+</ul>

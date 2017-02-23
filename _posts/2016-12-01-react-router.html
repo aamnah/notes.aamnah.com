@@ -1,0 +1,83 @@
+---
+layout: post
+title: React Router
+date: 2016-12-01 15:56:20.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- JavaScript
+- Programming
+tags:
+- js
+- react
+- react router
+- reactjs
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _yoast_wpseo_content_score: '60'
+  _yoast_wpseo_primary_category: '30'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487283793;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:88;}i:1;a:1:{s:2:"id";i:103;}i:2;a:1:{s:2:"id";i:42;}}}}
+  _jetpack_dont_email_post_to_subs: '1'
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<pre class="lang:js decode:true ">
+ReactDOM.render((
+  <router history="{browserHistory}">
+    <route path="/" component="{Users}" />
+    <route path="/other" component="{Other}" />
+  </router>
+), document.getElementById('root'))
+</pre>
+<p><code>history</code> is required.</p>
+<p>What we did above is we mounted a Router to the DOM, it is now going to take Routes. A route takes a path (URL) and shows a component on that path.</p>
+<h3>Link</h3>
+<p>If you want to navigate anywhere <em>within</em> the site, you use <code>Link</code>. You'll only use actual <code>href</code> when you want to move away from the site. A link looks like this:</p>
+<pre class="lang:js decode:true ">
+<link to="/other" />Other
+</pre>
+<p>You will not be making any server requests to go to any of these different links/pages.</p>
+<h3>Nested Routes</h3>
+<p>You can have nested routes just like you can have nested components</p>
+<pre class="lang:js decode:true ">
+ReactDOM.render((
+  <router history="{browserHistory}">
+      <route path="/" component="{Main}">
+        <route path="/users" component="{Users}" />
+        <route path="/other" component="{Other}" />
+      </route>
+  </router>
+), document.getElementById('root'))
+</pre>
+<p>What the could above will do is that it'll load the Users route/component <em>inside</em> the Main route/component.</p>
+<h3>IndexRoute</h3>
+<p><code>IndexRoute</code> let's you render props.children. It's aimed at setting a default UI that opens when you are at the route.</p>
+<pre class="lang:js decode:true ">
+ReactDOM.render((
+  <router history="{browserHistory}">
+    <route path="/" component="{AppLayout}">
+      <indexroute component="{Users}" />
+      <route path="/other" component="{Other}" />
+    </route>
+  </router>
+), document.getElementById('root'))
+</pre>
+<h3>Props</h3>
+<p>You can also pass props, like so:</p>
+<pre class="lang:js decode:true ">
+ReactDOM.render((
+  <router history="{browserHistory}">
+    <route path="/" component="{AppLayout}">
+      <indexroute component="{Users}" />
+      <route path="/profile/:id" component="{UserProfile}}" />
+    </route>
+  </router>
+), document.getElementById('root'))
+</pre>

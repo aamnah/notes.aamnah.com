@@ -1,0 +1,39 @@
+---
+layout: post
+title: Set `npm init` defaults globally
+date: 2017-02-20 13:16:05.000000000 +05:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487656789;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:393;}i:1;a:1:{s:2:"id";i:38;}i:2;a:1:{s:2:"id";i:345;}}}}
+  _yoast_wpseo_content_score: '30'
+  _yoast_wpseo_primary_category: ''
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>You can either edit the global configuration file for <code>npm</code>:</p>
+<pre><code class="bash">npm config edit --global
+</code></pre>
+<p>(it'll open the file in Vim)</p>
+<p>Or, you can set the defaults one by one:</p>
+<pre><code class="bash"># npm config set &lt;key&gt; &lt;value&gt; [-g|--global]
+npm config set -g init-author-name 'Aamnah'
+npm config set -g init-author-email 'hello@aamnah.com'
+npm config set -g init-author-url 'http://aamnah.com'
+npm config set -g init-license 'CC-BY-SA-4.0'
+npm config set -g init-version '0.1.0'
+</code></pre>
+<h2>Links</h2>
+<ul>
+<li><a href="https://docs.npmjs.com/cli/config">npm-config</a></li>
+</ul>

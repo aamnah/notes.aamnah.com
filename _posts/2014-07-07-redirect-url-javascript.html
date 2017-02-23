@@ -1,0 +1,37 @@
+---
+layout: post
+title: how to redirect a URL in JavaScript
+date: 2014-07-07 09:02:44.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- JavaScript
+- Programming
+tags: []
+meta:
+  _edit_last: '1'
+  _wpcom_is_markdown: '1'
+  _yoast_wpseo_metadesc: Here's how you redirect a URL in JavaScript. Just set the
+    value of ``window.location.replace`` to the URL you want.
+  _wpas_done_all: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1474044125;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:42;}i:1;a:1:{s:2:"id";i:265;}i:2;a:1:{s:2:"id";i:140;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>Here's how you redirect a URL in JavaScript. Just set the value of <code>window.location.replace</code> to the URL you want.</p>
+<pre class="lang:js decode:true ">&lt;script type="text/javascript"&gt;
+window.location.href = "http://www.url.com"
+&lt;/script&gt;</pre>
+<p>When redirecting, <code>window.location.replace</code> is preferred over <code>window.location.href</code>.</p>
+<pre class="lang:js decode:true ">// similar behavior as an HTTP redirect
+window.location.replace("http://stackoverflow.com");
+
+// similar behavior as clicking on a link
+window.location.href = "http://stackoverflow.com";</pre>
+<p><a href="http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-in-jquery-javascript">source</a><br />
+<a href="http://www.tizag.com/javascriptT/javascriptredirect.php">more - how to do a time delay redirect in JavaScript</a></p>

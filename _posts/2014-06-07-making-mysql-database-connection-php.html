@@ -1,0 +1,32 @@
+---
+layout: post
+title: Making a MySQL database connection with PHP
+date: 2014-06-07 04:54:08.000000000 +05:00
+type: post
+published: true
+status: publish
+categories:
+- Databases
+- MySQL
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _wp_old_slug: making-mysql-database-connection
+  _yoast_wpseo_title: Connecting to a MySQL database in PHP
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1487864312;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:290;}i:1;a:1:{s:2:"id";i:35;}i:2;a:1:{s:2:"id";i:161;}}}}
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<pre class="lang:php decode:true ">&lt;?php
+mysql_connect("db_host","db_user","db_pass");
+mysql_select_db("db_name");
+?&gt;</pre>
+<p>Where db_host, db_user, db_pass and db_name is the host, username, password and name for your database respectively.</p>
+<p>General practice is to save the code in a separate file in the 'includes' folder and including it on the page where you need it.</p>
+<pre class="lang:php decode:true ">&lt;?php include("database.php") ?&gt;</pre>
