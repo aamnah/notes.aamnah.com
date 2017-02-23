@@ -18,4 +18,13 @@ twitter_username: AamnahAkram
 github_username:  Aamnah
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+
+redcarpet:
+  extension: [
+    "no_intra_emphasis",
+    "tables",
+    "autolink",
+    "strikethrough",
+    "with_toc_data"
+  ]
