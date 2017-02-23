@@ -8,14 +8,14 @@
 
   <title>
     
-      Sass: Creating a Color Palette
+      Basic Unix/Linux System Monitoring Commands
     
   </title>
   
-  <meta name="description" content="$background: #f3f3f3;$text_color: #888;$link_color: #;$primary_color: mix(#ff0000, #fefefe);$secondary_color: complement($primary_color);$highlighted_text_co...">
+  <meta name="description" content="Disk: df -hRAM: free -mCPU: ps -ef  / topLoad Averages: uptime">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/css/2014/05/21/sass-creating-a-color-palette.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/unix-linux-commands-for-system-monitoring">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -64,43 +64,35 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Sass: Creating a Color Palette</h1>
-    <p class="post-meta"><time datetime="2014-05-21T19:26:53+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{"login"=>"aamnah", "email"=>"aamnah@aamnah.com", "display_name"=>"aamnah", "first_name"=>"", "last_name"=>""}</span></span></p>
+    <h1 class="post-title" itemprop="name headline">Basic Unix/Linux System Monitoring Commands</h1>
+    <p class="post-meta"><time datetime="2014-05-21T16:36:02+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
       
-        <li>compass</li>
+        <li>Linux</li>
       
-        <li>sass</li>
+        <li>commands</li>
       
       </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <pre class="lang:sass decode:true ">$background: #f3f3f3;
-$text_color: #888;
-$link_color: #;
-$primary_color: mix(#ff0000, #fefefe);
-$secondary_color: complement($primary_color);
-$highlighted_text_color: darken($text_color, 30%);</pre>
-<h3>Light and Dark shades</h3>
-<h4>Get a darker shade</h4>
-<p><code>color: darken($text_color, 20%);</code> OR <code>color: darken(#888, 20%)</code><br />
-will give you a 20% darker shade of $text_color or #888. If you use a variable, it'll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.</p>
-<h4>Get a lighter shade</h4>
-<p><code>color: lighten($text_color, 20%);</code> OR <code>color: lighten(#888, 20%)</code></p>
-<h4>Save the light/dark shades as variables</h4>
-<p><code>$highlighted_text_color: darken($text_color, 30%);</code></p>
-<h3>Complementary Colors</h3>
-<p>complimentary colors are at the opposite ends on the color wheel.<br />
-<code>$text_color: complement($background_color);</code></p>
-<p><a href="http://tldrdevnotes.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-0.23.21.jpeg"><img class="alignnone size-medium wp-image-78" src="/assets/Screen-Shot-2014-05-22-at-0.23.21-300x220.jpeg" alt="Complementary Colors" width="300" height="220" /></a></p>
-<h3>Desaturate a Color</h3>
-<p><code>$background: desaturate(#187, 30%)</code></p>
-<h3>Mix colors</h3>
-<p><code>$primary_color: mix(#ff0000, #fefefe);</code></p>
-<p>And this is not all, there are other functions such as hue and opacity that you can also use in Sass for making you color palette.</p>
+    <ul>
+<li>Disk: <code>df -h</code></li>
+<li>RAM: <code>free -m</code></li>
+<li>CPU: <code>ps -ef  / top</code></li>
+<li>Load Averages: <code>uptime</code></li>
+</ul>
+
+<h3>Memory Usage</h3>
+
+<ul>
+<li><code>top</code> Show top processes</li>
+<li><code>free</code> Display amount of free and used memory in the system.</li>
+<li><code>cat /proc/meminfo</code> Show memory size and usage.</li>
+<li><code>vmstat</code> Monitor virtual memory</li>
+</ul>
 
   </div>
 

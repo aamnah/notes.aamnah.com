@@ -8,14 +8,14 @@
 
   <title>
     
-      Linux Commands to Monitor Memory Usage
+      Nagios
     
   </title>
   
-  <meta name="description" content="topShow top processesfreeDisplay amount of free and used memory in the system.cat /proc/meminfoShow memory size and usage.vmstatMonitor virtual memory">
+  <meta name="description" content="Install: apt update &amp;&amp; apt install -y nagios3Check install: dpkg -l | grep -i nagiosDefault login: nagiosadmin, g_!_oListing packages of nagios: dpkg...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/*nix/2014/05/21/linux-commands-to-monitor-memory-usage.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/basics-nagios">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -64,24 +64,30 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Linux Commands to Monitor Memory Usage</h1>
-    <p class="post-meta"><time datetime="2014-05-21T16:43:47+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{"login"=>"aamnah", "email"=>"aamnah@aamnah.com", "display_name"=>"aamnah", "first_name"=>"", "last_name"=>""}</span></span></p>
+    <h1 class="post-title" itemprop="name headline">Nagios</h1>
+    <p class="post-meta"><time datetime="2014-05-21T16:31:32+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
+      
+        <li>nagios</li>
       
       </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><strong>top</strong><br />
-Show top processes</p>
-<p><strong>free</strong><br />
-Display amount of free and used memory in the system.</p>
-<p><strong>cat /proc/meminfo</strong><br />
-Show memory size and usage.</p>
-<p><strong>vmstat</strong><br />
-Monitor virtual memory</p>
+    <ul>
+<li>Install: <code>apt update &amp;&amp; apt install -y nagios3</code></li>
+<li>Check install: <code>dpkg -l | grep -i nagios</code></li>
+<li>Default login: <code>nagiosadmin, g_!_o</code><br></li>
+<li>Listing packages of nagios: <code>dpkg -L nagios3</code></li>
+</ul>
+
+<h2>NOTES</h2>
+
+<ul>
+<li><strong>aptitude</strong> is a front-end for <strong>dpkg</strong>. <code>dpkg</code> is the package manager.</li>
+</ul>
 
   </div>
 

@@ -8,14 +8,14 @@
 
   <title>
     
-      Nagios
+      Troubleshooting MongoDB on Mac
     
   </title>
   
-  <meta name="description" content="Nagios Installation: apt-get update &amp;&amp; apt-get install -y nagios3Check install: dpkg -l | grep -i nagiosDefault login: nagiosadmin, g_!_oListing pack...">
+  <meta name="description" content="Create /data/dbchmod -R 777 /data/dbulimit -n 1000">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/*nix/2014/05/21/nagios.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/howto-troubleshoot-mongodb-mac">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -64,25 +64,29 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Nagios</h1>
-    <p class="post-meta"><time datetime="2014-05-21T16:31:32+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{"login"=>"aamnah", "email"=>"aamnah@aamnah.com", "display_name"=>"aamnah", "first_name"=>"", "last_name"=>""}</span></span></p>
+    <h1 class="post-title" itemprop="name headline">Troubleshooting MongoDB on Mac</h1>
+    <p class="post-meta"><time datetime="2014-05-21T16:29:19+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
       
-        <li>nagios</li>
+        <li>mongodb</li>
       
       </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><strong>Nagios Installation</strong>: <code>apt-get update &amp;&amp; apt-get install -y nagios3</code></p>
-<p><strong>Check install</strong>: <code>dpkg -l | grep -i nagios</code></p>
-<p><strong>Default login</strong>: <code>nagiosadmin, g_!_o</code></p>
-<p><strong>Listing packages of nagios</strong>: <code>dpkg -L nagios3</code></p>
-<p>###NOTES:</p>
+    <ul>
+<li>Create /data/db</li>
+<li>chmod -R 777 /data/db</li>
+<li>ulimit -n 1000</li>
+</ul>
+
+<h2>Links</h2>
+
 <ul>
-<li><strong>aptitude</strong> is a front-end for <strong>dpkg</strong>.  dpkg is the package manager.</li>
+<li><a href="http://stackoverflow.com/questions/12612977/mongod-runs-but-only-outputs-all-output-going-to-path-and-thats-it">source1</a></li>
+<li><a href="http://stackoverflow.com/questions/13420073/mongod-runs-but-mongo-returns-an-error">source2</a></li>
 </ul>
 
   </div>
