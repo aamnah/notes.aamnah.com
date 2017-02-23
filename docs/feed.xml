@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TLDR Dev Notes</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <description>Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
 </description>
     <link>http://tldrdevnotes.com/</link>
     <atom:link href="http://tldrdevnotes.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Feb 2017 17:05:15 +0500</pubDate>
-    <lastBuildDate>Thu, 23 Feb 2017 17:05:15 +0500</lastBuildDate>
+    <pubDate>Thu, 23 Feb 2017 18:02:26 +0500</pubDate>
+    <lastBuildDate>Thu, 23 Feb 2017 18:02:26 +0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -73,19 +73,6 @@ aws s3 sync s3://my-bucket .
         <category>s3</category>
         
         <category>sync</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Python for You and Me</title>
-        <description>&lt;p&gt;pym is a book to learn Python. It targets people who are completely new to the language. Want to switch from Bash? Want to learn serious scripting language? Try a simple &amp;amp; free book to learn Python programming language for new.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/2017/02/23/resource.html</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/2017/02/23/resource.html</guid>
-        
-        <category>python</category>
         
         
       </item>
@@ -400,6 +387,51 @@ IdentityFile ~/.ssh/bar
         <category>react-router</category>
         
         <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Linux Command Line</title>
+        <description>&lt;p&gt;Fantastic book. Download &amp;quot;The Linux Command Line&amp;quot; book for new users/devops/sysadmins&lt;/p&gt;
+</description>
+        <pubDate>Wed, 27 Aug 2014 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/the-linux-command-line</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/the-linux-command-line</guid>
+        
+        <category>linux</category>
+        
+        <category>free</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Python for You and Me</title>
+        <description>&lt;p&gt;pym is a book to learn Python. It targets people who are completely new to the language. Want to switch from Bash? Want to learn serious scripting language? Try a simple &amp;amp; free book to learn Python programming language for new.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 24 Jun 2014 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/2014/06/24/rsc-book-python-for-you-and-me.html</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/2014/06/24/rsc-book-python-for-you-and-me.html</guid>
+        
+        <category>python</category>
+        
+        <category>free</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Hardened Linux From Scratch (HLFS)</title>
+        <description>&lt;p&gt;Hardened Linux From Scratch (HLFS) is a project that provides you with step-by-step instructions for building your own customized and hardened Linux system entirely from source. Based on LFS, this project will incorporate parts of BLFS as well. The main differences from these other projects will be the amount of text dealing with security configuration issues as well as patching or substituting many of the packages used for improved security.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Jun 2014 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/2014/06/20/rsc-book-hardened-linux-from-scratch.html</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/2014/06/20/rsc-book-hardened-linux-from-scratch.html</guid>
+        
+        <category>linux</category>
+        
+        <category>free</category>
         
         
       </item>

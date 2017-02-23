@@ -11,11 +11,15 @@ layout: default
       {{ page.title }}
     </h1>
     <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-    <p>{{ page.tags }}</p>
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    {% endif %}
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <a href='{{ page.link }}'>{{ page.title }}</a>
+    <a href='{{ page.link }}' target='_blank'>{{ page.title }}</a>
     {{ content }}
   </div>
 
