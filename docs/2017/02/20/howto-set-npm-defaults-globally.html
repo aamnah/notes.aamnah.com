@@ -8,15 +8,14 @@
 
   <title>
     
-      TLDR Dev Notes
+      Set `npm init` defaults globally
     
   </title>
   
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <meta name="description" content="You can either edit the global configuration file for npm:">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/">
+  <link rel="canonical" href="http://tldrdevnotes.com/2017/02/20/howto-set-npm-defaults-globally.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
 </head>
 
@@ -61,73 +60,36 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Set `npm init` defaults globally</h1>
+    <p class="post-meta"><time datetime="2017-02-20T00:00:00+05:00" itemprop="datePublished">Feb 20, 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 23, 2017</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>You can either edit the global configuration file for <code>npm</code>:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm config edit --global
+</code></pre></div>
+<p>(it&#39;ll open the file in Vim)</p>
 
-        <h2>
-          <a class="post-link" href="/howto-sync-entire-aws-s3-bucket-locally">How to sync an entire Amazon S3 bucket locally</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 23, 2017</span>
+<p>Or, you can set the defaults one by one:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># npm config set &lt;key&gt; &lt;value&gt; [-g|--global]</span>
+npm config <span class="nb">set</span> -g init-author-name <span class="s1">'Aamnah'</span>
+npm config <span class="nb">set</span> -g init-author-email <span class="s1">'hello@aamnah.com'</span>
+npm config <span class="nb">set</span> -g init-author-url <span class="s1">'http://aamnah.com'</span>
+npm config <span class="nb">set</span> -g init-license <span class="s1">'CC-BY-SA-4.0'</span>
+npm config <span class="nb">set</span> -g init-version <span class="s1">'0.1.0'</span>
+</code></pre></div>
+<h2>Links</h2>
 
-        <h2>
-          <a class="post-link" href="/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code">How to use Redcarpet for syntax highlighting in Jekyll</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 23, 2017</span>
+<ul>
+<li><a href="https://docs.npmjs.com/cli/config">npm-config</a></li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/getting-started-jekyll">Getting started with Jekyll</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 20, 2017</span>
+  </div>
 
-        <h2>
-          <a class="post-link" href="/2017/02/20/howto-set-npm-defaults-globally.html">Set `npm init` defaults globally</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 20, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/howto-add-ssh-key-macos-keychain-permanently">Add SSH Key to MacOS Keychain permanently</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 12, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/2016/12/12/use-strict-javascript.html">Strict mode in JavaScript with 'use strict'</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 1, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/2016/12/01/react-router.html">React Router</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </div>
