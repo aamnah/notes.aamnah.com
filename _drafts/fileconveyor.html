@@ -1,0 +1,50 @@
+---
+layout: post
+title: Fileconveyor
+date: 
+type: post
+published: false
+status: draft
+categories: []
+tags: []
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+author:
+  login: aamnah
+  email: aamnah@aamnah.com
+  display_name: aamnah
+  first_name: ''
+  last_name: ''
+---
+<p>###Install FileConveyer:<br />
+Change to the directory you want to hold the fileconveyor files, then run:</p>
+<p><code>sudo apt-get install git &amp;&amp; sudo apt-get install python-setuptools &amp;&amp; sudo easy_install pip &amp;&amp; sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor</code></p>
+<p><code>sudo nano src/fileconveyor/fileconveyor/config.xml</code></p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config&gt;
+&lt;!-- Sources --&gt;
+&lt;sources ignoredDirs=""&gt;
+    &lt;source name="test" scanPath="/var/www/html/test" /&gt;
+&lt;/sources&gt;
+
+&lt;!-- Servers --&gt;
+&lt;servers&gt;
+    &lt;server name="Rackspace Cloud Files" transporter="cloudfiles"&gt;
+        &lt;username&gt;USERNAME&lt;/username&gt;
+        &lt;api_key&gt;APIKEY&lt;/api_key&gt;
+        &lt;container&gt;CONTAINER&lt;/container&gt;
+    &lt;/server&gt;
+&lt;/servers&gt;
+&lt;!-- Rules --&gt;
+&lt;rules&gt;
+    &lt;rule for="test" label="Test"&gt;
+    &lt;destinations&gt;
+        &lt;destination server="Rackspace Cloud Files" path="test" /&gt;
+    &lt;/destinations&gt;
+    &lt;/rule&gt;
+&lt;/rules&gt;
+&lt;/config&gt;
+</code></pre>
+<p>Add this to /etc/rc.local<br />
+<code>/usr/bin/python/db_backups/fileconveyor/fileconveyer/arbitrator.py</code></p>

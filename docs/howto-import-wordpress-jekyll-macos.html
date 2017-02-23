@@ -8,14 +8,14 @@
 
   <title>
     
-      Book - Hardened Linux From Scratch (HLFS)
+      How to import a WordPress blog in Jekyll (MacOS)
     
   </title>
   
-  <meta name="description" content="Hardened Linux From Scratch (HLFS) is a project that provides you with step-by-step instructions for building your own customized and hardened Linux system e...">
+  <meta name="description" content="install jekyll-import and it&#39;s dependencies">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/2014/06/20/rsc-book-hardened-linux-from-scratch.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/howto-import-wordpress-jekyll-macos">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -64,26 +64,40 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      
-        <i class='fa blah fa-book'></i> 
-      
-      Book - Hardened Linux From Scratch (HLFS)
-    </h1>
-    <p class="post-meta"><time datetime="2014-06-20T00:00:00+05:00" itemprop="datePublished">Jun 20, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+    <h1 class="post-title" itemprop="name headline">How to import a WordPress blog in Jekyll (MacOS)</h1>
+    <p class="post-meta"><time datetime="2017-02-23T00:00:00+05:00" itemprop="datePublished">Feb 23, 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
+      <ul class='tags'>
       
-      <li>linux</li>
-      
-      <li>free</li>
-      
+      </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <a href='http://www.linuxfromscratch.org/hlfs/view/development/' target='_blank'>Book - Hardened Linux From Scratch (HLFS)</a>
-    <p>Hardened Linux From Scratch (HLFS) is a project that provides you with step-by-step instructions for building your own customized and hardened Linux system entirely from source. Based on LFS, this project will incorporate parts of BLFS as well. The main differences from these other projects will be the amount of text dealing with security configuration issues as well as patching or substituting many of the packages used for improved security.</p>
+    <p>install <code>jekyll-import</code> and it&#39;s dependencies</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># install homebrew if not already installed</span>
+<span class="c"># /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
 
+brew install mysql
+sudo gem install unidecode sequel mysql2 htmlentities hpricot open_uri_redirections 
+sudo gem install jekyll-import
+</code></pre></div>
+<p>Export your WordPress site content (Dashboard &gt; Tools &gt; Export). Now import the downloaded file using the following command: </p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ruby</span> <span class="o">-</span><span class="n">rubygems</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'require "jekyll-import"; 
+  JekyllImport::Importers::WordpressDotCom.run({ 
+    "source"    =&gt; "/Users/aamnah/tldrdevnotes.wordpress.2017-02-23.xml",
+  })'</span>
+</code></pre></div>
+<p>Make sure to update the source, it should have the location of your downloaded wordpress export file. You should something like below:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Downloading images for Sass: Creating a Color Palette
+  http://mysite.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-0.23.21-300x220.jpeg
+    OK!
+Imported 6 attachments
+Imported 18 nav_menu_items
+Imported 1 custom_csss
+Imported 1 pages
+Imported 73 posts
+</code></pre></div>
   </div>
 
 </article>

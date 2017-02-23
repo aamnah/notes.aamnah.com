@@ -1,10 +1,9 @@
 ---
-title: Strict mode in JavaScript with 'use strict'
+title: Strict mode in JavaScript with `use strict`
 tags: ['javascript']
 ---
 
 ### tl;dr
-
 
 - Runs the JS interpreter in a strict mode, meaning it fails loudly for bad practices in JS
 - Strict mode also eliminates _silent errors_. When something pretty major is going wrong, you won't have to hunt for it.

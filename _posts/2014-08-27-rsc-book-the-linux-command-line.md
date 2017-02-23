@@ -1,5 +1,5 @@
 ---
-title: The Linux Command Line
+title: Book - The Linux Command Line
 layout: resource
 permalink: /the-linux-command-line
 link: http://linuxcommand.org/tlcl.php

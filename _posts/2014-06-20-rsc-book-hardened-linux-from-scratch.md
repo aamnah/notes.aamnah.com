@@ -1,5 +1,5 @@
 ---
-title: Hardened Linux From Scratch (HLFS)
+title: Book - Hardened Linux From Scratch (HLFS)
 layout: resource
 link: http://www.linuxfromscratch.org/hlfs/view/development/
 icon: book

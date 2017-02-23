@@ -1,5 +1,5 @@
 ---
-title: Python for You and Me
+title: Book - Python for You and Me
 layout: resource
 link: http://pymbook.readthedocs.org/en/latest/
 icon: book
