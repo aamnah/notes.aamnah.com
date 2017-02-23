@@ -2,14 +2,20 @@
 layout: page
 title: About
 permalink: /about/
+date: 2014-05-21 15:00:47.000000000 +05:00
+type: page
+published: true
+status: publish
 ---
 
-# Welcome!
+## About Me
+Hi, i'm [Aamnah](http://aamnah.com). I'm a web developer and system administrator. I'm a polyglot geek excited and fascinated by so many things. This is my blog of coding notes. The topics range from web development, programming, security, hacking, resources, unix/linux administration, code hacks and much more.
 
-## This is TLDRDevNotes.com.
+## About TLDR Dev Notes
+Have you ever read a whole page just to get to the one line of code that does it all? Or had to re-read that saved note all over to check how something was done? I have, plenty of times.
 
-### I am Aamnah, this blog is my dev notebook and braindump.
+Traditionally, the phrase **too long; didn't read** (abbreviated **tl;dr** or simply **tldr**) has been used on the Internet as a reply to an excessively long statement. It indicates that the reader did not actually read the statement due to its undue length.
 
-#### Use the search function to find what you are looking for.
+A **tldr version** is basically a **short summarized version with only essential knowledge**. It is used to show a brief summary of a very long post/article.
 
-Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+TLDR Dev Notes is my collection of _tldr versions_ of my design and dev notes. No fluff, no details, no intros, just the commands i need to get it done.
