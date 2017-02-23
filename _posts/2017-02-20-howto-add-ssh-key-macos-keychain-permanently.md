@@ -1,7 +1,10 @@
 ---
 title: Add SSH Key to MacOS Keychain permanently
 permalink: /howto-add-ssh-key-macos-keychain-permanently
-tags: ['ssh', 'keychain']
+tags: 
+- ssh
+- macos
+- keychain
 status: publish
 ---
 

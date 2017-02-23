@@ -7,4 +7,4 @@ icon: book
 tags: ['linux', 'free']
 ---
 
-Fantastic book. Download "The Linux Command Line" book for new users/devops/sysadmins
+Fantastic book for new users/devops/sysadmins
