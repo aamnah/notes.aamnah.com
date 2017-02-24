@@ -15,7 +15,7 @@
   <meta name="description" content="Adding colors to ls and tree">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/2014/08/26/Coloring-the-Mac-Terminal.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/mac-terminal-colors-prompt">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -46,6 +46,10 @@
           
         
           
+          <a class="page-link" href="/archive/">Archive</a>
+          
+        
+          
         
           
         
@@ -71,7 +75,7 @@
       
         <li>bash</li>
       
-        <li>how-to</li>
+        <li>macos</li>
       
       </ul>
     
@@ -83,26 +87,20 @@
 <h2>Enabling Colors</h2>
 
 <p>Edit <code>~/.bash_profile</code> or <code>~/.profile</code> and add the following two lines:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span>1
-    <span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>ExFxCxDxBxegedabagacad
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span>1
+<span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>ExFxCxDxBxegedabagacad
+</code></pre></div>
 <p>you can use this if you are using a black background:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>gxBxhxDxfxhxhxhxhxcxcx
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>gxBxhxDxfxhxhxhxhxcxcx
+</code></pre></div>
 <p><code>LSCOLORS=&quot;ExGxBxDxCxEgEdxbxgxcxd&quot;</code> will emulate the default colouring on the linux ls command.</p>
 
 <h2>Making it permanent</h2>
 
 <p>You can add</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls -Gp'</span>
-    <span class="nb">alias </span><span class="nv">tree</span><span class="o">=</span><span class="s2">"tree -C"</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls -Gp'</span>
+<span class="nb">alias </span><span class="nv">tree</span><span class="o">=</span><span class="s2">"tree -C"</span>
+</code></pre></div>
 <p>to your <code>~/.bash_profile</code> to ALWAYS get colored <code>ls</code> and <code>tree</code> output. </p>
 
 <p><code>-G</code> enables colorized output and the <code>-p</code> adds a slash after each directory. the <code>-C</code> turns on colorization for the tree command.</p>
@@ -128,31 +126,29 @@
 </ol>
 
 <p>The possible letters to use are:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># COLORS</span>
+a  black
+b  red
+c  green
+d  brown
+e  blue
+f  magenta
+c  cyan
+h  light grey
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    //COLORS
-    a  black
-    b  red
-    c  green
-    d  brown
-    e  blue
-    f  magenta
-    c  cyan
-    h  light grey
-    
-    //BOLD CLOLORS
-    A  block black, usually shows up as dark grey
-    B  bold red
-    C  bold green
-    D  bold brown, usually shows up as yellow
-    E  bold blue
-    F  bold magenta
-    G  bold cyan
-    H  bold light grey; looks like bright white
-    
-    //DEFAULT
-    x  default foreground or background
-    </code></pre></figure>
+<span class="c"># BOLD CLOLORS</span>
+A  block black, usually shows up as dark grey
+B  bold red
+C  bold green
+D  bold brown, usually shows up as yellow
+E  bold blue
+F  bold magenta
+G  bold cyan
+H  bold light grey; looks like bright white
 
+<span class="c"># DEFAULT</span>
+x  default foreground or background
+</code></pre></div>
 <p>| place | key | foreground | background | meaning |
 |-------|-----|------------|------------|---------|
 | 1 | directory | E | x | bold blue with default background for directories |
@@ -163,18 +159,14 @@
 <h2>adding colors to <code>grep</code> matches</h2>
 
 <p>add the following to <code>~/.bash_profile</code></p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># Tell grep to highlight matches</span>
-    <span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s1">'--color=auto'</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Tell grep to highlight matches</span>
+<span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s1">'--color=auto'</span>
+</code></pre></div>
 <h2>adding colors to common <code>logfiles</code></h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    brew install grc
-    <span class="nb">echo</span> <span class="s1">'source "`brew --prefix grc`/etc/grc.bashrc"'</span> &gt;&gt; ~/.bash_profile   
-    <span class="nb">source</span> ~/.bash_profile
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install grc
+<span class="nb">echo</span> <span class="s1">'source "`brew --prefix grc`/etc/grc.bashrc"'</span> &gt;&gt; ~/.bash_profile   
+<span class="nb">source</span> ~/.bash_profile
+</code></pre></div>
 <h2>Links:</h2>
 
 <ul>

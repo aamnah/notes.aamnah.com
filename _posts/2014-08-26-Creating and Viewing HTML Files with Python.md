@@ -2,8 +2,8 @@
 layout: post
 title: Creating and Viewing HTML Files with Python
 permalink: create-view-html-files-with-in-python
-tags: ['python']
-
+tags: 
+- python
 ---
 
 Resources

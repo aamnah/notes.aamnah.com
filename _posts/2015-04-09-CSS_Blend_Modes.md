@@ -13,13 +13,19 @@ Default value is normal, meaning no blending. There are 16 values for [backgroun
 
 Combining blend modes with gradients, you can create some cool Instagram-like retro filters.
 
-    {% highlight css %}
-    body {
-        background: url('image.jpeg') no-repeat, radial-gradient(#6de590, #e67478);
-        background-blend-mode: multiply;
-    }
-    {% endhighlight %}
+```css
+body {
+    background: url('image.jpeg') no-repeat, radial-gradient(#6de590, #e67478);
+    background-blend-mode: multiply;
+}
+```
 
-[mix-blend-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode)
+mix-blend-mode
 ---
 Blends the content of any HTML or SVG element.
+
+Links
+---
+
+- [background-blend-mode](https://docs.webplatform.org/wiki/css/properties/background-blend-mode)
+- [MDN: mix-blend-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode)

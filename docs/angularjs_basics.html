@@ -8,14 +8,14 @@
 
   <title>
     
-      Getting Started
+      AngularJS Basics
     
   </title>
   
-  <meta name="description" content="A lead or excerpt should go here. two or three lines are good. About 320 chars is also fine.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta,...">
+  <meta name="description" content="||||-------------|--------------------------------------------|| Directives  | HTML annotations that trigger JS behaviors || Modules     | Where our applicat...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/2014/08/25/getting-started.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/angularjs_basics">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -46,6 +46,10 @@
           
         
           
+          <a class="page-link" href="/archive/">Archive</a>
+          
+        
+          
         
           
         
@@ -64,8 +68,8 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Getting Started</h1>
-    <p class="post-meta"><time datetime="2014-08-25T00:00:00+05:00" itemprop="datePublished">Aug 25, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+    <h1 class="post-title" itemprop="name headline">AngularJS Basics</h1>
+    <p class="post-meta"><time datetime="2015-04-14T00:00:00+05:00" itemprop="datePublished">Apr 14, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
       
@@ -74,33 +78,63 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>A lead or excerpt should go here. two or three lines are good. About 320 chars is also fine.</p>
+    <p>|||
+|-------------|--------------------------------------------|
+| Directives  | HTML annotations that trigger JS behaviors |
+| Modules     | Where our application components live      |
+| Controllers | Where we add application behavior          |
+| Expressions | How values get displayed within the page   |</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, in dolores maxime eveniet saepe libero eum consequatur, commodi enim eos ab doloremque ratione illum quaerat voluptas ipsa explicabo corrupti laborum excepturi. Adipisci, dolores, recusandae! Sit tempora dolorum, ipsum cupiditate libero.</p>
+<p><code>ng-app</code> Specifies where our app exists on the page
+<code>ng-model</code> Binds the value of the input to the variable, in both directions</p>
 
-<!--more-->
+<p><code>Add dynamic content (in this case, the variable _name_) to our static HTML by wrapping it in double curly braces</code></p>
 
-<p>List</p>
+<p>Controller manages some portion of our application or a scope on our page</p>
 
-<ul>
-<li><a href="http://jekyllrb.com/docs/configuration/">Configuration</a></li>
-<li><a href="http://jekyllrb.com/docs/posts/">Writing posts</a></li>
-<li><a href="http://daringfireball.net/projects/markdown/">Markdown</a></li>
-</ul>
+<h2>Directive</h2>
 
-<p><a href="http://tldrdevnotes.com/assets/files/mydoc.pdf">Download an asset file</a>.</p>
+<p>A directive is a marker on an HTML tag that tells Angular to run or reference some JavaScript code. Directives is how we bind the behaviour</p>
 
-<h4>Highlighting code snippets</h4>
+<p>For example <code>ng-controller</code>, <code>ng-app</code>, <code>ng-model</code> etc.</p>
 
-<p>Jekyll also has built-in support for syntax highlighting of code snippets using either Pygments or Rouge, and including a code snippet in any post is easy. Just use the dedicated Liquid tag as follows:</p>
+<p><code>ng-hide</code> and <code>ng-show</code> hide and show things respectively, based on boolean values. For example:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;button ng-show="store.product.canPurchase"&gt;Add to Cart&lt;/button&gt;
+</code></pre></div>
+<p>will only show the &#39;Add to Cart&#39; button if <code>canPurchase</code> is set to <code>true</code>..</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">show</span>
-  <span class="vi">@widget</span> <span class="o">=</span> <span class="no">Widget</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
-  <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
-    <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="c1"># show.html.erb</span>
-    <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json: </span><span class="vi">@widget</span> <span class="p">}</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
+<p><code>ng-repeat</code> will repeat (loop) the properties of an array, like the jQuery <code>each()</code> method.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;div ng-repeat="product in store.products" class="product row"&gt;
+  &lt;h3&gt;
+
+    &lt;em class="pull-right"&gt;$&lt;/em&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+</code></pre></div>
+<h2>Modules</h2>
+
+<p>Modules are where we write pieces of our Angular application.
+Where we define dependencies for our app.</p>
+
+<h2>Expressions</h2>
+
+<p>Expressions allow you to insert dynamic values in your HTML</p>
+
+<p>For example: <code>,</code> etc.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;4&lt;/p&gt;
+</code></pre></div>
+<p>will output</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;10&lt;/p&gt;
+</code></pre></div>
+<p>Similarly</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;hello &lt;/p&gt;
+</code></pre></div>
+<p>will output</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;hello you&lt;/p&gt;
+</code></pre></div>
+<h2>Controllers</h2>
+
+<p>Controllers are where we define our app&#39;s behavior by defining functions and values.</p>
 
   </div>
 

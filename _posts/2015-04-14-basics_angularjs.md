@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Angular.JS Basics
-permalink: angular.js_basics
+title: AngularJS Basics
+permalink: angularjs_basics
 
 ---
     

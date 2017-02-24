@@ -8,14 +8,14 @@
 
   <title>
     
-      Node.js Basics
+      Delete ALL Unapproved comments in WordPress
     
   </title>
   
-  <meta name="description" content="Node let&#39;s you run JavaScript programs outside of the browser. For example, you can run javascript code on the command line. If you are a good javascript...">
+  <meta name="description" content="How-to delete all unapproved WordPress comments in one go via PhpMyAdmin">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/node_js_basics">
+  <link rel="canonical" href="http://tldrdevnotes.com/wordpress-mysql-delete-unapproved-comments">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -46,6 +46,10 @@
           
         
           
+          <a class="page-link" href="/archive/">Archive</a>
+          
+        
+          
         
           
         
@@ -64,50 +68,26 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Node.js Basics</h1>
-    <p class="post-meta"><time datetime="2015-04-13T00:00:00+05:00" itemprop="datePublished">Apr 13, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+    <h1 class="post-title" itemprop="name headline">Delete ALL Unapproved comments in WordPress</h1>
+    <p class="post-meta"><time datetime="2015-02-04T00:00:00+05:00" itemprop="datePublished">Feb 4, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
+      
+        <li>wordpress</li>
+      
+        <li>mysql</li>
       
       </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Node let&#39;s you run JavaScript programs outside of the browser. For example, you can run javascript code on the command line. If you are a good javascript programmer, you are no longer limited to the confines of the browser.</p>
+    <p>Make a backup first before changing anything.</p>
 
-<p>Node.js is non-blocking (can run multiple tasks, and keeps processing tasks while waiting for response) and is less heavy on system resources like memory and processing speed.</p>
-
-<p><a href="http://blog.teamtreehouse.com/install-node-js-npm-mac">Install Node.js on a Mac</a></p>
-
-<p>Check version <code>node -v</code> </p>
-
-<p>Run file <code>node app.js</code></p>
-
-<h3>REPL</h3>
-
-<p>Just typing <code>node</code> at the command line and it will open a read-evaluate-print-loop (interactive REPL), like Python. To exit, press ctrl+c twice.</p>
-
-<h4>Hello World</h4>
-
-<p>Create a file called app.js</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Bonjour la monde!'</span><span class="p">);</span>
-    </code></pre></figure>
-
-<p>Run the file from the command line</p>
-<div class="highlight"><pre><code class="language-" data-lang="">node app.js
+<p>Go to PhpMyAdmin and select the comments table (usually <code>wp_comments</code>). Go to the SQL tab and run the following command.</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">wp_comments</span> <span class="k">WHERE</span> <span class="n">comment_approved</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div>
-<h2>Project: Parse JSON data using Node.js</h2>
-
-<p>We&#39;ll </p>
-
-<ul>
-<li>connect to the API URL</li>
-<li>read the data</li>
-<li>parse the data</li>
-<li>print the data</li>
-</ul>
+<p>That&#39;s all. </p>
 
   </div>
 
