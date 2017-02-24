@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Coloring the Mac Terminal
-tags: ['bash', 'how-to']
+permalink: mac-terminal-colors-prompt
+tags:
+- bash
+- macos
 
 ---
 
@@ -11,16 +14,16 @@ Enabling Colors
 ---
 Edit `~/.bash_profile` or `~/.profile` and add the following two lines:
 
-    {% highlight bash %}
-	export CLICOLOR=1
-	export LSCOLORS=ExFxCxDxBxegedabagacad
-    {% endhighlight %}
+```bash
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+```
 
 you can use this if you are using a black background:
 
-    {% highlight bash %}
-	export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-    {% endhighlight %}
+```bash
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+```
 
 
 `LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"` will emulate the default colouring on the linux ls command.
@@ -29,10 +32,10 @@ Making it permanent
 ---
 You can add
 	
-    {% highlight bash %}
-	alias ls='ls -Gp'
-    alias tree="tree -C"
-    {% endhighlight %}
+```bash
+alias ls='ls -Gp'
+alias tree="tree -C"
+```
 
 to your `~/.bash_profile` to ALWAYS get colored `ls` and `tree` output. 
 
@@ -58,30 +61,30 @@ LSCOLORS needs 11 sets of letters indicating foreground and background colors.
 
 The possible letters to use are:
 
-    {% highlight bash %}
-	//COLORS
-    a  black
-    b  red
-    c  green
-    d  brown
-    e  blue
-    f  magenta
-    c  cyan
-    h  light grey
-    
-    //BOLD CLOLORS
-    A  block black, usually shows up as dark grey
-    B  bold red
-    C  bold green
-    D  bold brown, usually shows up as yellow
-    E  bold blue
-    F  bold magenta
-    G  bold cyan
-    H  bold light grey; looks like bright white
-    
-    //DEFAULT
-    x  default foreground or background
-    {% endhighlight %}
+```bash
+# COLORS
+a  black
+b  red
+c  green
+d  brown
+e  blue
+f  magenta
+c  cyan
+h  light grey
+
+# BOLD CLOLORS
+A  block black, usually shows up as dark grey
+B  bold red
+C  bold green
+D  bold brown, usually shows up as yellow
+E  bold blue
+F  bold magenta
+G  bold cyan
+H  bold light grey; looks like bright white
+
+# DEFAULT
+x  default foreground or background
+```
 
 | place | key | foreground | background | meaning |
 |-------|-----|------------|------------|---------|
@@ -94,18 +97,19 @@ adding colors to `grep` matches
 ---
 add the following to `~/.bash_profile`
 	
-    {% highlight bash %}
-    # Tell grep to highlight matches
-	export GREP_OPTIONS='--color=auto'
-    {% endhighlight %}
+```bash
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+```
 
 adding colors to common `logfiles`
 ---
-    {% highlight bash %}
-    brew install grc
-	echo 'source "`brew --prefix grc`/etc/grc.bashrc"' >> ~/.bash_profile   
-    source ~/.bash_profile
-    {% endhighlight %}
+
+```bash
+brew install grc
+echo 'source "`brew --prefix grc`/etc/grc.bashrc"' >> ~/.bash_profile   
+source ~/.bash_profile
+```
 
 
 Links:

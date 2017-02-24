@@ -12,7 +12,7 @@
     
   </title>
   
-  <meta name="description" content="        // update packages    sudo apt-get update    // install curl if not already there    sudo apt-get install curl -y    // install RVM    \curl -L https...">
+  <meta name="description" content="# update packagessudo apt-get update# install curl if not already theresudo apt-get install curl -y# install RVM\curl -L https://get.rvm.io | bash -s stable#...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://tldrdevnotes.com/2014/08/26/installing-ruby-on-ubuntu.html">
@@ -46,6 +46,10 @@
           
         
           
+          <a class="page-link" href="/archive/">Archive</a>
+          
+        
+          
         
           
         
@@ -74,28 +78,26 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    
-    // update packages
-    sudo apt-get update
-    // install curl <span class="k">if </span>not already there
-    sudo apt-get install curl -y
-    // install RVM
-    <span class="se">\c</span>url -L https://get.rvm.io | bash -s stable
-    // load RVM
-    <span class="nb">source</span> ~/.rvm/scripts/rvm
-    // install RVM dependencies
-    rvm requirements
-    
-    //install ruby
-    rvm install ruby
-    // use default ruby version <span class="o">(</span>latest<span class="o">)</span>
-    rvm use ruby --default
-    // install rubygems
-    rvm rubygems current
-    // install Rails
-    gem install rails
-    </code></pre></figure>
+    <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># update packages</span>
+sudo apt-get update
+<span class="c"># install curl if not already there</span>
+sudo apt-get install curl -y
+<span class="c"># install RVM</span>
+<span class="se">\c</span>url -L https://get.rvm.io | bash -s stable
+<span class="c"># load RVM</span>
+<span class="nb">source</span> ~/.rvm/scripts/rvm
+<span class="c"># install RVM dependencies</span>
+rvm requirements
 
+<span class="c"># install ruby</span>
+rvm install ruby
+<span class="c"># use default ruby version (latest)</span>
+rvm use ruby --default
+<span class="c"># install rubygems</span>
+rvm rubygems current
+<span class="c"># install Rails</span>
+gem install rails
+</code></pre></div>
 <h2>notes</h2>
 
 <ul>
@@ -117,9 +119,11 @@
 <li><strong>the problem with the solution</strong>: Ubuntu can only be updated to the next version. Direct upgrades to the latest version only works LTS to LTS. In my case, the server is still on 12.10 (12.04 was LTS, the latest at the moment is 14.04 has already arrived) the best strategy at this point is to <a href="http://askubuntu.com/questions/298334/unable-to-locate-package-update-manager-core">take backups</a> and restore on a fresh install of latest version.</li>
 </ul>
 
-<h2>Resource</h2>
+<h2>Links</h2>
 
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm">How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM</a></p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm">How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM</a></li>
+</ul>
 
   </div>
 

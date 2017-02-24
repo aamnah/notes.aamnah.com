@@ -15,7 +15,7 @@ permalink: page-speed-optimzations
 - Minify HTML
 - [Optimize Images](https://developers.google.com/speed/docs/insights/OptimizeImages)
 
-Apache Server Configuration and httpd.conf / .htaccess
+Apache Server Configuration and `httpd.conf` / `.htaccess`
 ---
 
 #### Sample Configurations
@@ -34,17 +34,15 @@ If on a CentOS/cPanel server, use EasyApche to enable the 'Deflate' module. Soft
 
 See the cPanel documentation about [enabling mod_deflate and using the 'Optimize Website' option](https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate).
 
-	
 
-
-
-Resources
+Links
 ---
 - [Apache Server Configs](https://github.com/h5bp/server-configs-apache)
 - [How to enable Apache modules](https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules)
 - [server-configs-apache/dist/.htaccess](https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess)
 - [cPanel Docs - Apache Module: Deflate](https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate)
 - [Check Gzip Compression](http://checkgzipcompression.com/)
+
 Further Reading
 ---
 - [Optimizing encoding and transfer size of text-based assets](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer#text-compression-with-gzip)

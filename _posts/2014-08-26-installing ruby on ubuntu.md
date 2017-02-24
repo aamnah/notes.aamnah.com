@@ -3,27 +3,27 @@ layout: post
 title: Install Ruby on Ubuntu
 ---
     
-    {% highlight bash %}	
-    // update packages
-	sudo apt-get update
-    // install curl if not already there
-    sudo apt-get install curl -y
-    // install RVM
-    \curl -L https://get.rvm.io | bash -s stable
-    // load RVM
-    source ~/.rvm/scripts/rvm
-    // install RVM dependencies
-    rvm requirements
-    
-    //install ruby
-    rvm install ruby
-    // use default ruby version (latest)
-    rvm use ruby --default
-    // install rubygems
-    rvm rubygems current
-    // install Rails
-    gem install rails
-    {% endhighlight %}
+```bash	
+# update packages
+sudo apt-get update
+# install curl if not already there
+sudo apt-get install curl -y
+# install RVM
+\curl -L https://get.rvm.io | bash -s stable
+# load RVM
+source ~/.rvm/scripts/rvm
+# install RVM dependencies
+rvm requirements
+
+# install ruby
+rvm install ruby
+# use default ruby version (latest)
+rvm use ruby --default
+# install rubygems
+rvm rubygems current
+# install Rails
+gem install rails
+```
 
 notes
 ---
@@ -40,6 +40,7 @@ more on rvm requirements issue
 - **solution** `sudo apt-get update && sudo apt-get install update-manager-core && sudo do-release-upgrade` [x](http://www.cyberciti.biz/faq/howto-upgrade-to-ubuntu-14-04-from-ubuntu-13-10-or-12-04/)
 - **the problem with the solution**: Ubuntu can only be updated to the next version. Direct upgrades to the latest version only works LTS to LTS. In my case, the server is still on 12.10 (12.04 was LTS, the latest at the moment is 14.04 has already arrived) the best strategy at this point is to [take backups](http://askubuntu.com/questions/298334/unable-to-locate-package-update-manager-core) and restore on a fresh install of latest version.
 
-Resource
+Links
 ---
-[How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm)
+
+- [How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm)
