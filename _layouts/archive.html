@@ -1,17 +1,18 @@
-{% include head.html %}
-  {% include header.html %}
+---
+layout: default
+---
 
-  <div class="container">
-    <div class="archive">
-       <h1>Archive</h1>
-      <ul>
-      {% for post in site.posts %}
-        <li><a href="{{post.url}}">{{ post.title }}</a> <span>{{ post.date | date: '%d %h %Y' }}</span></li>
-      {% endfor %}
-      </ul>
-    </div>
+<div class="container">
+  <div class="archive">
+    <h1>Archive</h1>
+    
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+    <ol>
+    {% for post in site.posts %}
+      <li><a href="{{post.url}}">{{ post.title }}</a> <span>{{ post.date | date: '%d %h %Y' }}</span></li>
+    {% endfor %}
+    </ol>
+    
   </div>
-
-
-  {% include analytics.html %}
-{% include footer.html %}
+</div>

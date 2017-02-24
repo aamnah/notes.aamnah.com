@@ -4,20 +4,17 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1>Welcome!</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <h2>This is TLDR Dev Notes</h2>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+  <h3>I am Aamnah, this blog is my dev notebook and braindump.</h3>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <h3>Use the search function to find what you are looking for. Wait, the search function is not there yet.. Just `Ctrl+F` for now</h3>
+
+  <h5>Recent posts</h5>
+  {% for post in site.posts limit:5 %}
+  <li><a href="{{post.url}}">{{ post.title }}</a> <span>{{ post.date | date: '%d %h %Y' }}</span></li>
+  {% endfor %}
 
 </div>

@@ -144,6 +144,14 @@ pre {
   .icon > svg path {
     fill: #828282; }
 
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column; }
+
 /**
  * Site header
  */
@@ -151,6 +159,8 @@ pre {
   border-top: 5px solid #424242;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  background: #000;
+  color: #e8e8e8;
   position: relative; }
 
 .site-title {
@@ -161,7 +171,7 @@ pre {
   margin-bottom: 0;
   float: left; }
   .site-title, .site-title:visited {
-    color: #424242; }
+    color: #e8e8e8; }
 
 .site-nav {
   float: right;
@@ -169,7 +179,7 @@ pre {
   .site-nav .menu-icon {
     display: none; }
   .site-nav .page-link {
-    color: #111;
+    color: #e8e8e8;
     line-height: 1.5; }
     .site-nav .page-link:not(:last-child) {
       margin-right: 20px; }
@@ -213,11 +223,13 @@ pre {
  */
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 0; }
+  padding: 30px 0;
+  background: #000; }
 
 .footer-heading {
   font-size: 18px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  color: #e8e8e8; }
 
 .contact-list,
 .social-media-list {
@@ -264,6 +276,7 @@ pre {
  * Page content
  */
 .page-content {
+  flex: 1;
   padding: 30px 0; }
 
 .page-heading {
