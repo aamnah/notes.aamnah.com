@@ -1,3 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant|Athiti|Average|Cormorant+Infant|Maitree:400,700|Maven+Pro|Merriweather|Molengo|Oxygen|Raleway|Rosarivo|Shanti|Sorts+Mill+Goudy|Source+Sans+Pro|Source+Serif+Pro|Ubuntu");
+@font-face {
+  font-family: 'Menlo-Regular';
+  src: url("../assets/fonts/Menlo-Regular.eot");
+  src: url("../assets/fonts/Menlo-Regular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Menlo-Regular.woff") format("woff"), url("../assets/fonts/Menlo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Graphik-Regular';
+  src: url("../assets/fonts/Graphik-Regular.eot");
+  src: url("../assets/fonts/Graphik-Regular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Graphik-Regular.woff") format("woff"), url("../assets/fonts/Graphik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Graphik-Semibold';
+  src: url("../assets/fonts/Graphik-Semibold.eot");
+  src: url("../assets/fonts/Graphik-Semibold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Graphik-Semibold.woff") format("woff"), url("../assets/fonts/Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: 'Graphik-Medium';
+  src: url("../assets/fonts/Graphik-Medium.eot");
+  src: url("../assets/fonts/Graphik-Medium.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Graphik-Medium.woff") format("woff"), url("../assets/fonts/Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
 /**
  * Reset some basic elements
  */
@@ -11,9 +36,9 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 18px/1.6 "Graphik-Regular", sans-serif;
   color: #111;
-  background-color: #fdfdfd;
+  background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -44,7 +69,7 @@ figure > img {
   display: block; }
 
 figcaption {
-  font-size: 14px; }
+  font-size: 15.75px; }
 
 /**
  * Lists
@@ -93,9 +118,9 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #ebe5e1;
   border-radius: 3px;
-  background-color: #eef; }
+  background-color: #f5f2f0; }
 
 code {
   padding: 1px 5px; }
@@ -118,7 +143,7 @@ pre {
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px; }
-  @media screen and (max-width: 800px) {
+  @media screen and (min-width: 900px) {
     .wrapper {
       max-width: -webkit-calc(800px - (30px));
       max-width: calc(800px - (30px));
@@ -145,12 +170,56 @@ pre {
     fill: #828282; }
 
 html {
-  height: 100%; }
+  height: 100%;
+  font-size: 62.5%; }
 
 body {
   min-height: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-size: calc(14px + .3vw);
+  letter-spacing: 0.1px;
+  word-spacing: 1px;
+  line-height: 1.8; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Graphik-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+h1 {
+  font-size: 2.6rem; }
+  @media screen and (min-width: 1440px) {
+    h1 {
+      font-size: 3rem; } }
+
+h2 {
+  font-size: 2.4rem; }
+  @media screen and (min-width: 1440px) {
+    h2 {
+      font-size: 2.6rem; } }
+
+h3 {
+  font-size: 2.2rem; }
+  @media screen and (min-width: 1440px) {
+    h3 {
+      font-size: 2.4rem; } }
+
+h4 {
+  font-size: 2rem; }
+  @media screen and (min-width: 1440px) {
+    h4 {
+      font-size: 2.2rem; } }
+
+h5 {
+  font-size: 1.8rem; }
+  @media screen and (min-width: 1440px) {
+    h5 {
+      font-size: 2rem; } }
+
+h6 {
+  font-size: 1.6rem; }
+  @media screen and (min-width: 1440px) {
+    h6 {
+      font-size: 1.8rem; } }
 
 /**
  * Site header
@@ -180,15 +249,15 @@ body {
     display: none; }
   .site-nav .page-link {
     color: #e8e8e8;
-    line-height: 1.5; }
+    line-height: 1.6; }
     .site-nav .page-link:not(:last-child) {
       margin-right: 20px; }
-  @media screen and (max-width: 600px) {
+  @media screen and (min-width: 1024px) {
     .site-nav {
       position: absolute;
       top: 9px;
       right: 15px;
-      background-color: #fdfdfd;
+      background-color: #fff;
       border: 1px solid #e8e8e8;
       border-radius: 5px;
       text-align: right; }
@@ -237,7 +306,8 @@ body {
   margin-left: 0; }
 
 .footer-col-wrapper {
-  font-size: 15px;
+  font-size: calc(12px + .2vw);
+  line-height: 1.4;
   color: #828282;
   margin-left: -15px; }
 
@@ -258,7 +328,7 @@ body {
   width: -webkit-calc(45% - (30px / 2));
   width: calc(45% - (30px / 2)); }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 900px) {
   .footer-col-1,
   .footer-col-2 {
     width: -webkit-calc(50% - (30px / 2));
@@ -267,7 +337,7 @@ body {
   .footer-col-3 {
     width: -webkit-calc(100% - (30px / 2));
     width: calc(100% - (30px / 2)); } }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .footer-col {
     float: none;
     width: -webkit-calc(100% - (30px / 2));
@@ -289,7 +359,7 @@ body {
     margin-bottom: 30px; }
 
 .post-meta {
-  font-size: 14px;
+  font-size: 15.75px;
   color: #828282; }
 
 .post-link {
@@ -303,30 +373,17 @@ body {
   margin-bottom: 30px; }
 
 .post-title {
-  font-size: 42px;
-  letter-spacing: -1px;
-  line-height: 1; }
-  @media screen and (max-width: 800px) {
+  font-size: 3rem;
+  line-height: 1.3;
+  font-family: 'Graphik-semibold';
+  word-spacing: 2px;
+  margin: 1em 0 .2em 0; }
+  @media screen and (min-width: 1440px) {
     .post-title {
-      font-size: 36px; } }
+      font-size: 3.6rem; } }
 
 .post-content {
   margin-bottom: 30px; }
-  .post-content h2 {
-    font-size: 32px; }
-    @media screen and (max-width: 800px) {
-      .post-content h2 {
-        font-size: 28px; } }
-  .post-content h3 {
-    font-size: 26px; }
-    @media screen and (max-width: 800px) {
-      .post-content h3 {
-        font-size: 22px; } }
-  .post-content h4 {
-    font-size: 20px; }
-    @media screen and (max-width: 800px) {
-      .post-content h4 {
-        font-size: 18px; } }
 
 /**
  * Syntax highlighting styles
@@ -404,7 +461,7 @@ body {
   .highlight .na {
     color: #008080; }
   .highlight .nb {
-    color: #0086B3; }
+    color: #07a; }
   .highlight .nc {
     color: #458;
     font-weight: bold; }
@@ -453,7 +510,7 @@ body {
   .highlight .sx {
     color: #d14; }
   .highlight .sr {
-    color: #009926; }
+    color: #fd971f; }
   .highlight .s1 {
     color: #d14; }
   .highlight .ss {
