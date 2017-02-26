@@ -1,6 +1,26 @@
 /**
  * Syntax highlighting styles
  */
+
+$color-bg: #f5f2f0;
+$color-orchid: #d14; // rgba(249,38,114,1);
+$color-blue: #07a;
+$color-clay: rgba(39,40,34,1);
+$color-blue2: rgba(102,217,239,1);
+$color-orange: #fb660a;
+$color-teal: #008080;
+$color-purple: #905;
+$color-green: #1baf14; //#690
+$color-pumpkin: rgba(253,151,31,1);
+$color-light: #998;
+
+$color-variable: $color-teal; // numbers, css values e.g. 12px
+$color-string: $color-orchid;
+$color-regex: $color-pumpkin;
+$color-number: #099;
+$color-tag: #000080; // e.g. HTML tags
+$color-builtin: $color-blue;
+
 .highlight {
     background: #fff;
     @extend %vertical-rhythm;
@@ -34,38 +54,38 @@
     .kp    { font-weight: bold } // Keyword.Pseudo
     .kr    { font-weight: bold } // Keyword.Reserved
     .kt    { color: #458; font-weight: bold } // Keyword.Type
-    .m     { color: #099 } // Literal.Number
-    .s     { color: #d14 } // Literal.String
-    .na    { color: #008080 } // Name.Attribute
-    .nb    { color: #0086B3 } // Name.Builtin
+    .m     { color: $color-number } // Literal.Number
+    .s     { color: $color-string } // Literal.String
+    .na    { color: $color-variable } // Name.Attribute
+    .nb    { color: $color-blue } // Name.Builtin
     .nc    { color: #458; font-weight: bold } // Name.Class
-    .no    { color: #008080 } // Name.Constant
+    .no    { color: $color-variable } // Name.Constant
     .ni    { color: #800080 } // Name.Entity
     .ne    { color: #900; font-weight: bold } // Name.Exception
     .nf    { color: #900; font-weight: bold } // Name.Function
     .nn    { color: #555 } // Name.Namespace
-    .nt    { color: #000080 } // Name.Tag
-    .nv    { color: #008080 } // Name.Variable
+    .nt    { color: $color-tag } // Name.Tag
+    .nv    { color: $color-variable } // Name.Variable
     .ow    { font-weight: bold } // Operator.Word
     .w     { color: #bbb } // Text.Whitespace
-    .mf    { color: #099 } // Literal.Number.Float
-    .mh    { color: #099 } // Literal.Number.Hex
-    .mi    { color: #099 } // Literal.Number.Integer
-    .mo    { color: #099 } // Literal.Number.Oct
-    .sb    { color: #d14 } // Literal.String.Backtick
-    .sc    { color: #d14 } // Literal.String.Char
-    .sd    { color: #d14 } // Literal.String.Doc
-    .s2    { color: #d14 } // Literal.String.Double
-    .se    { color: #d14 } // Literal.String.Escape
-    .sh    { color: #d14 } // Literal.String.Heredoc
-    .si    { color: #d14 } // Literal.String.Interpol
-    .sx    { color: #d14 } // Literal.String.Other
-    .sr    { color: #009926 } // Literal.String.Regex
-    .s1    { color: #d14 } // Literal.String.Single
+    .mf    { color: $color-number } // Literal.Number.Float
+    .mh    { color: $color-number } // Literal.Number.Hex
+    .mi    { color: $color-number } // Literal.Number.Integer
+    .mo    { color: $color-number } // Literal.Number.Oct
+    .sb    { color: $color-string } // Literal.String.Backtick
+    .sc    { color: $color-string } // Literal.String.Char
+    .sd    { color: $color-string } // Literal.String.Doc
+    .s2    { color: $color-string } // Literal.String.Double
+    .se    { color: $color-string } // Literal.String.Escape
+    .sh    { color: $color-string } // Literal.String.Heredoc
+    .si    { color: $color-string } // Literal.String.Interpol
+    .sx    { color: $color-string } // Literal.String.Other
+    .sr    { color: $color-regex } // Literal.String.Regex
+    .s1    { color: $color-string } // Literal.String.Single
     .ss    { color: #990073 } // Literal.String.Symbol
     .bp    { color: #999 } // Name.Builtin.Pseudo
-    .vc    { color: #008080 } // Name.Variable.Class
-    .vg    { color: #008080 } // Name.Variable.Global
-    .vi    { color: #008080 } // Name.Variable.Instance
-    .il    { color: #099 } // Literal.Number.Integer.Long
+    .vc    { color: $color-variable } // Name.Variable.Class
+    .vg    { color: $color-variable } // Name.Variable.Global
+    .vi    { color: $color-variable } // Name.Variable.Instance
+    .il    { color: $color-number } // Literal.Number.Integer.Long
 }
