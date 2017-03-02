@@ -32,11 +32,11 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
  * Site header
  */
 .Site-header {
-  border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
+  border-top: 5px solid $color-grey-dark;
+  border-bottom: 1px solid $color-grey-light;
   min-height: 56px;
   background: $bg-color-dark;
-  color: $grey-color-light;
+  color: $color-grey-light;
 
   // Positioning context for the mobile navigation icon
   position: relative;
@@ -51,7 +51,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 
     &,
     &:visited {
-        color: $grey-color-light;
+        color: $color-grey-light;
     }
 }
 
@@ -63,7 +63,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
     }
 
     .page-link {
-        color: $grey-color-light;
+        color: $color-grey-light;
         line-height: $base-line-height;
 				padding-left: 20px;
 
@@ -74,7 +74,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
         top: 9px;
         right: $dimension-spacing / 2;
         background-color: $background-color;
-        border: 1px solid $grey-color-light;
+        border: 1px solid $color-grey-light;
         border-radius: $dimension-border-radius;
         text-align: right;
 
@@ -92,7 +92,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
                 height: 15px;
 
                 path {
-                    fill: $grey-color-dark;
+                    fill: $color-grey-dark;
                 }
             }
         }
@@ -121,7 +121,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
  * Site footer
  */
 .Site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px solid $color-grey-light;
     padding: $dimension-spacing 0;
     background: $bg-color-dark;
 }
@@ -129,7 +129,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 .footer-heading {
     font-size: 18px;
     margin-bottom: $dimension-spacing / 2;
-    color: $grey-color-light;
+    color: $color-grey-light;
 }
 
 .contact-list,
@@ -141,7 +141,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 .footer-col-wrapper {
     font-size: calc(12px + .2vw);
     line-height: 1.4;
-    color: $grey-color;
+    color: $color-grey;
     margin-left: -$dimension-spacing;
     display: flex;
 		flex-direction: column;
@@ -186,7 +186,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
     font-size: 20px;
 }
 
-.post-list {
+.Post-list {
     margin-left: 0;
     list-style: none;
 
@@ -195,12 +195,12 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
     }
 }
 
-.post-meta {
+.Post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    color: $color-grey;
 }
 
-.post-link {
+.Post-link {
     display: block;
     font-size: 24px;
 }
@@ -210,11 +210,11 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 /**
  * Posts
  */
-.post-header {
+.Post-header {
     margin-bottom: $dimension-spacing;
 }
 
-.post-title {
+.Post-title {
 	font-size: 3rem;
   line-height: 1.3;
   font-family: 'Graphik-semibold';
@@ -226,6 +226,6 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
     }
 }
 
-.post-content {
+.Post-content {
     margin-bottom: $dimension-spacing;
 }
