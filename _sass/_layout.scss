@@ -72,10 +72,10 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     @media screen and (max-width: $small) {
         position: absolute;
         top: 9px;
-        right: $spacing-unit / 2;
+        right: $dimension-spacing / 2;
         background-color: $background-color;
         border: 1px solid $grey-color-light;
-        border-radius: 5px;
+        border-radius: $dimension-border-radius;
         text-align: right;
 
         .menu-icon {
@@ -126,13 +126,13 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
  */
 .site-footer {
     border-top: 1px solid $grey-color-light;
-    padding: $spacing-unit 0;
+    padding: $dimension-spacing 0;
     background: $bg-color-dark;
 }
 
 .footer-heading {
     font-size: 18px;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: $dimension-spacing / 2;
     color: $grey-color-light;
 }
 
@@ -146,14 +146,14 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     font-size: calc(12px + .2vw);
     line-height: 1.4;
     color: $grey-color;
-    margin-left: -$spacing-unit;
+    margin-left: -$dimension-spacing;
     display: flex;
 		flex-direction: column;
 }
 
 .footer-col {
-    margin-bottom: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
+    margin-bottom: $dimension-spacing / 2;
+    padding-left: $dimension-spacing / 2;
 }
 
 
@@ -163,7 +163,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
 		flex-direction: row;
 	}
 	.footer-col {
-    padding-left: $spacing-unit;
+    padding-left: $dimension-spacing;
 	}
 	.footer-col-1 {
 			flex-grow: 2;
@@ -183,7 +183,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
  */
 .page-content {
   flex: 1;
-  padding: $spacing-unit 0;
+  padding: $dimension-spacing 0;
 }
 
 .page-heading {
@@ -195,7 +195,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit;
+        margin-bottom: $dimension-spacing;
     }
 }
 
@@ -215,7 +215,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
  * Posts
  */
 .post-header {
-    margin-bottom: $spacing-unit;
+    margin-bottom: $dimension-spacing;
 }
 
 .post-title {
@@ -231,5 +231,5 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
 }
 
 .post-content {
-    margin-bottom: $spacing-unit;
+    margin-bottom: $dimension-spacing;
 }
