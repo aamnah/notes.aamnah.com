@@ -14,7 +14,7 @@ layout: default
           <span itemprop="name">{{ page.author }}</span>
         </span>
       {% endif %}
-      <span style='float:right'><a href="{{ site.github_url }}/{{page.path}}">Edit this page on Github</a>
+      <span style='float:right'><a href="{{ site.github_url | append: page.path }}" target='_blank'>Edit this page on Github</a>
     </p>
     {% if page.tags %}
       <ul class='tags'>

@@ -16,7 +16,7 @@ url: "http://tldrdevnotes.com" # the base hostname & protocol for your site
 
 destination: ./docs
 
-github_url: "https://github.com/aamnah/tldrdevnotes.com/blob/master"
+github_url: "https://github.com/aamnah/tldrdevnotes.com/blob/master/"
 # Social
 twitter_username: AamnahAkram
 github_username:  Aamnah
