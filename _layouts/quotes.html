@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{% for quote in site.quotes %}
+  <blockquote>
+    {{ quote.title }}
+    
+    <cite>{{ quote.cite }}</cite>
+  </blockquote>
+{% endfor %}
