@@ -21,9 +21,9 @@ $background-color: #fff; // #fdfdfd;
 //$brand-color:      #2a7ae2;
 $brand-color:      #E51843;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$color-grey:       #828282;
+$color-grey-light: lighten($color-grey, 40%);
+$color-grey-dark:  darken($color-grey, 25%);
 
 $color-code-bg: #f5f2f0; // Code blocks background
 $bg-color-dark: #000;
