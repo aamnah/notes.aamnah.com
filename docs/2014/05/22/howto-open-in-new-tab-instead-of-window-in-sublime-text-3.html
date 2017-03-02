@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Open Files in New Tab by Default in Sublime Text 3</h1>
-    <p class="post-meta"><time datetime="2014-05-22T07:42:23+05:00" itemprop="datePublished">May 22, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Open Files in New Tab by Default in Sublime Text 3</h1>
+    <p class="Post-meta">
+      <time datetime="2014-05-22T07:42:23+05:00" itemprop="datePublished">
+        May 22, 2014
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -79,7 +89,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <p>Go to <strong>Preferences &gt; Settings - User</strong> (or <strong><code>Cmd + ,</code></strong> is the shortcut for application Preferences in Mac.) Add the below snippet between the curly braces.</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Open files in New Tab</span>
 <span class="s2">"open_files_in_new_window"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>

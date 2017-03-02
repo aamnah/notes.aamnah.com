@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Write a Bash Function to Create a gruntfile.js for your project</h1>
-    <p class="post-meta"><time datetime="2015-02-15T00:00:00+05:00" itemprop="datePublished">Feb 15, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Write a Bash Function to Create a gruntfile.js for your project</h1>
+    <p class="Post-meta">
+      <time datetime="2015-02-15T00:00:00+05:00" itemprop="datePublished">
+        Feb 15, 2015
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2015-02-15-bash-function-create-gruntfile.js.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -85,7 +95,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <h3>Here is how it works</h3>
 
 <p>Everyt time i type <code>gruntfile</code> in the Terminal, it creates a <strong>gruntfile.js</strong> for me in the folder i am in. The resulting <strong>gruntfile.js</strong> has the following template code:</p>

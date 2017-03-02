@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Import Files in Sass with `@import`</h1>
-    <p class="post-meta"><time datetime="2014-05-21T19:51:45+05:00" itemprop="datePublished">May 21, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Import Files in Sass with `@import`</h1>
+    <p class="Post-meta">
+      <time datetime="2014-05-21T19:51:45+05:00" itemprop="datePublished">
+        May 21, 2014
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2014-05-21-howto-sass-import-files.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -81,7 +91,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <p>Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See <a href="http://getbootstrap.com/css/#sass" target="_blank">Bootstrap&#39;s Sass files</a> for an example. Every css component gets it&#39;s own .scss file and they all get compiled into one main stylesheet.</p>
 
 <p>The usual imports in a main.scss file are something like this:</p>

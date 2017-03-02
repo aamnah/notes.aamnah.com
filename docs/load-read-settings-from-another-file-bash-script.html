@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Bash Scripts -  Load/Read/Include Settings from Another File</h1>
-    <p class="post-meta"><time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">Feb 20, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Bash Scripts -  Load/Read/Include Settings from Another File</h1>
+    <p class="Post-meta">
+      <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
+        Feb 20, 2015
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2015-02-20-load-read-settings-from-another-file-bash.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -81,7 +91,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <p>To include a script into another script, we use the <code>source</code> command. In it&#39;s simplest form, the command is this:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">        <span class="nb">source </span>incl.sh

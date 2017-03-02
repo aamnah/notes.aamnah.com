@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Get Current Year in JavaScript</h1>
-    <p class="post-meta"><time datetime="2014-06-03T13:48:57+05:00" itemprop="datePublished">Jun 3, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Get Current Year in JavaScript</h1>
+    <p class="Post-meta">
+      <time datetime="2014-06-03T13:48:57+05:00" itemprop="datePublished">
+        Jun 3, 2014
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2014-06-03-howto-get-current-year-in-javascript.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -79,7 +89,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <h2>Local Time (machine)</h2>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">yr</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getYear</span>           <span class="c1">//Returns the two digit year e.g. 14 </span>

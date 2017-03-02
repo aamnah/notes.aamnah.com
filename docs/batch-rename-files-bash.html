@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Batch renaming files in Bash</h1>
-    <p class="post-meta"><time datetime="2015-04-17T00:00:00+05:00" itemprop="datePublished">Apr 17, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Batch renaming files in Bash</h1>
+    <p class="Post-meta">
+      <time datetime="2015-04-17T00:00:00+05:00" itemprop="datePublished">
+        Apr 17, 2015
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2015-04-17-Batch_renaming_files_in_Bash.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -79,7 +89,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <p>Use <code>rename</code>, which is a Perl script and maybe on your system already. You can use the rename command to quickly rename files using a regular expression pattern. For instance, if you wanted to rename all files containing foo to contain bar instead, you could use a command like this one:</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">rename –v <span class="s1">'s/foo/bar/g'</span> <span class="k">*</span>    
 </code></pre></div>
