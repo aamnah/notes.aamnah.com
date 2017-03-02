@@ -15,4 +15,5 @@ tags:
 - linux
 ---
 
-This tool will help you generate a custom colorful bash prompt for Unix-like operating systems, including Linux and MacOS.
+This tool will help you generate a custom colorful bash prompt for Unix-like operating systems, including Linux and MacOS. Generate your `.bashrc` file easily with a drag and drop interface and color options.
+

@@ -85,9 +85,9 @@
     <h3>Install FileConveyer:</h3>
 
 <p>Change to the directory you want to hold the fileconveyor files, then run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install git <span class="o">&amp;&amp;</span> sudo apt-get install python-setuptools <span class="o">&amp;&amp;</span> sudo easy_install pip <span class="o">&amp;&amp;</span> sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg<span class="o">=</span>fileconveyor
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install git python-setuptools <span class="o">&amp;&amp;</span> sudo easy_install pip <span class="o">&amp;&amp;</span> sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg<span class="o">=</span>fileconveyor
 </code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo nano src/fileconveyor/fileconveyor/config.xml
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;config&gt;</span>
     <span class="c">&lt;!-- Sources --&gt;</span>
     <span class="nt">&lt;sources</span> <span class="na">ignoredDirs=</span><span class="s">""</span><span class="nt">&gt;</span>

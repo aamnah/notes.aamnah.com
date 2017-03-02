@@ -85,75 +85,59 @@
 
   <div class="post-content" itemprop="articleBody">
     <h2>Getting Date</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># Date</span>
-    <span class="nv">DATE</span><span class="o">=</span><span class="sb">`</span>date +%Y-%m-%d<span class="sb">`</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Date</span>
+<span class="nv">DATE</span><span class="o">=</span><span class="sb">`</span>date +%Y-%m-%d<span class="sb">`</span>
+</code></pre></div>
 <p>This will get today&#39;s date in YYYY-MM-DD format.</p>
 
 <h2>Stripping spaces and replacing with underscores</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">$ str</span><span class="o">=</span><span class="s2">"This is just a test"</span>
-    <span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">str</span><span class="p">// /_</span><span class="k">}</span>
-    This_is_just_a_test
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nv">str</span><span class="o">=</span><span class="s2">"This is just a test"</span>
+<span class="gp">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">str</span><span class="p">// /_</span><span class="k">}</span>
+This_is_just_a_test
+</code></pre></div>
 <h2>Taking it Further</h2>
 
 <h3>Make it a function</h3>
 
 <p>What&#39;s cooler than a bash script? A bash function! With a function, we don&#39;t have to specify script name/location every time. A bash function added to your <code>.bash_profile</code> will work globally anywhere in the Terminal. The command to run would then become like this:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    jpost <span class="s2">"My new post"</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost <span class="s2">"My new post"</span>
+</code></pre></div>
 <p>To make the script a function, all you have to do is wrap the code in <code>functionname() { }</code> like so:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    jpost<span class="o">()</span> <span class="o">{</span>
-        // code goes here
-    <span class="o">}</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># code goes here</span>
+<span class="o">}</span>
+</code></pre></div>
 <h3>Take options</h3>
 
 <p>It&#39;s be nice if you could define options for your script and specify them at runtime. Like <code>-t</code> for <strong>Type</strong> and <code>-l</code> for <strong>Layout</strong>. Maybe a <code>-o</code> for <strong>Opening</strong> file in Sublime Text after it has been created.</p>
 
 <p>So the command would become something like this:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    jpost -t<span class="o">=</span>markdown -l<span class="o">=</span>post -o <span class="s2">"My new post"</span> 
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost -t<span class="o">=</span>markdown -l<span class="o">=</span>post -o <span class="s2">"My new post"</span> 
+</code></pre></div>
 <p>We can do this with the bash builtin <code>getopts</code>. Define our options like so:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">while </span><span class="nb">getopts</span> <span class="s2">"o"</span> opt; <span class="k">do
-        case</span> <span class="nv">$opt</span> <span class="k">in
-          </span>o<span class="p">)</span> <span class="nv">open</span><span class="o">=</span>1 <span class="p">;;</span>
-        <span class="k">esac</span>
-    <span class="k">done</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">while </span><span class="nb">getopts</span> <span class="s2">"o"</span> opt; <span class="k">do
+    case</span> <span class="nv">$opt</span> <span class="k">in
+        </span>o<span class="p">)</span> <span class="nv">open</span><span class="o">=</span>1 <span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+</code></pre></div>
 <p>And then modify our if statements accordingly. For example, if <code>-o</code> is provided, open the file in Sublime Text</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># check for -o (open) argument</span>
-    <span class="k">if</span> <span class="o">[</span> ! -z <span class="nv">$open</span> <span class="o">]</span>; <span class="k">then
-        </span>createPost
-        <span class="c"># Open file in Sublime Text</span>
-        open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
-    <span class="k">fi</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># check for -o (open) argument</span>
+<span class="k">if</span> <span class="o">[</span> ! -z <span class="nv">$open</span> <span class="o">]</span>; <span class="k">then
+    </span>createPost
+    <span class="c"># Open file in Sublime Text</span>
+    open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
+<span class="k">fi</span>
+</code></pre></div>
 <h3>Check if File already exists</h3>
 
 <p>A simple <code>if</code> statement can make sure that you are not overwriting existing files.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="k">if</span> <span class="o">(</span>-e <span class="nv">$FILENAME</span> <span class="o">)</span>; <span class="k">then
-        </span><span class="nb">echo</span> <span class="s2">"File already exists!"</span>
-    <span class="k">else</span>
-        // Run our code
-    <span class="k">fi</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">(</span>-e <span class="nv">$FILENAME</span> <span class="o">)</span>; <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"File already exists!"</span>
+<span class="k">else</span>
+    // Run our code
+<span class="k">fi</span>
+</code></pre></div>
 <p><code>-e</code> is the operator that checks if a file exists. <code>-s</code> is the operator that checks if file exists and is not empty.</p>
 
 <h3>Color coded responses</h3>
@@ -163,30 +147,26 @@
 <p>I want it to say &quot;File has been successfully created&quot; (green text) when a file has been cerated without any errors. If a file already exists, it should say &quot;File already exists!&quot; (red text).</p>
 
 <p>Let&#39;d define some colors and use them in our script.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># COLORS</span>
+<span class="nv">Color_Off</span><span class="o">=</span><span class="s1">'\033[0m'</span>       <span class="c"># Text Reset</span>
+<span class="nv">Red</span><span class="o">=</span><span class="s1">'\033[0;31m'</span>          <span class="c"># Red</span>
+<span class="nv">Green</span><span class="o">=</span><span class="s1">'\033[0;32m'</span>        <span class="c"># Green</span>
+<span class="nv">Yellow</span><span class="o">=</span><span class="s1">'\033[0;33m'</span>       <span class="c"># Yellow</span>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># COLORS</span>
-    <span class="nv">Color_Off</span><span class="o">=</span><span class="s1">'\033[0m'</span>       <span class="c"># Text Reset</span>
-    <span class="nv">Red</span><span class="o">=</span><span class="s1">'\033[0;31m'</span>          <span class="c"># Red</span>
-    <span class="nv">Green</span><span class="o">=</span><span class="s1">'\033[0;32m'</span>        <span class="c"># Green</span>
-    <span class="nv">Yellow</span><span class="o">=</span><span class="s1">'\033[0;33m'</span>       <span class="c"># Yellow</span>
-
-    <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Green</span><span class="k">}</span><span class="s2">File was succesfully CREATED</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">""
-    echo -e "</span><span class="k">${</span><span class="nv">Red</span><span class="k">}</span>File already EXISTS and is NOT EMPTY<span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"
-    echo -e "</span><span class="k">${</span><span class="nv">Yellow</span><span class="k">}</span>File already EXISTS<span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"
-    </span></code></pre></figure>
-
+<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Green</span><span class="k">}</span><span class="s2">File was succesfully CREATED</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Red</span><span class="k">}</span><span class="s2">File already EXISTS and is NOT EMPTY</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Yellow</span><span class="k">}</span><span class="s2">File already EXISTS</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
+</code></pre></div>
 <h3>Open the newly created file in editor</h3>
 
 <p>If you&#39;d like to open all new files in your favorite editor after they are created, you can add that too. The following is what i have to open all post files in Sublime Text:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
+</code></pre></div>
 <p>You should add this right after the file is created in your code.</p>
 
 <script src="https://gist.github.com/aamnah/f89fca7906f66f6f6a12.js"></script>
 
-<h2>Resources</h2>
+<h2>Links</h2>
 
 <ul>
 <li>Getting date in Bash: <a href="http://stackoverflow.com/questions/1401482/yyyy-mm-dd-format-date-in-shell-script">YYYY-MM-DD format date in shell script</a></li>

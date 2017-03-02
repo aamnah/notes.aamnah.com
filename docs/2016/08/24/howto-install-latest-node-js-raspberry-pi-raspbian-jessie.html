@@ -85,11 +85,8 @@
     <h2>tl;dr</h2>
 
 <p>Run this one command in Terminal:</p>
-
-<pre class="lang:sh decode:true">
-curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | bash
-</pre>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | bash
+</code></pre></div>
 <p>This will automatically run a script i wrote that takes care of removing existing Node.js stuff, downloading and installing the latest version, and cleaning up afterwards. It also confirms the Node.js version once the installation is done.</p>
 
 <hr>
@@ -99,37 +96,25 @@ curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | ba
 <h3>Remove existing Node.js</h3>
 
 <p>Run the following commands one by one:</p>
-
-<pre class="lang:sh decode:true">
-sudo apt-get remove nodered -y
+<div class="highlight"><pre><code class="language-shell" data-lang="shell">sudo apt-get remove nodered -y
 sudo apt-get remove nodejs nodejs-legacy -y
 sudo apt-get remove npm -y
-</pre>
-
+</code></pre></div>
 <h3>Install latest Node.js ARM-release</h3>
 
 <p>Download:</p>
-
-<pre class="lang:sh decode:true">
-wget https://node-arm.herokuapp.com/node_latest_armhf.deb
-</pre>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget https://node-arm.herokuapp.com/node_latest_armhf.deb
+</code></pre></div>
 <p>Install:</p>
-
-<pre class="lang:sh decode:true">
-sudo dpkg -i node_latest_armhf.deb
-</pre>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg -i node_latest_armhf.deb
+</code></pre></div>
 <p>That&#39;s it, you now have the latest Node.js version available for the Raspberry Pi. You can confirm the version using <code>node -v</code>.</p>
 
 <h3>Re-install Node-RED</h3>
 
 <p>We uninstalled Node-RED as part of removing Node. If you want to re-install it, you can do so by running the following command:</p>
-
-<pre class="lang:sh decode:true">
-sudo apt-get update && sudo apt-get install nodered -y
-</pre>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt update <span class="o">&amp;&amp;</span> sudo apt install nodered -y
+</code></pre></div>
 <p><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=34&amp;t=140747">source</a></p>
 
   </div>

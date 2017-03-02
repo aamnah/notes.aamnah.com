@@ -20,15 +20,15 @@ echo "Hello $user_name!"
 
 Here's what the script will look like when we run it.
 
-```
+<pre><samp>
 $ sh nameexample
 Enter your name: Sarah
 Hello Sarah!
-```
+</samp></pre>
 
 Using Command-Line Arguments for Input
 -----
-Command line arguments given to a script become variables whose names are numbers. $1 is the first command-line argument, $2 is the second, and so on. $0 is the name by which the script was invoked. 
+Command line arguments given to a script become variables whose names are numbers. `$1` is the first command-line argument, `$2` is the second, and so on. `$0` is the name by which the script was invoked. 
 
 Defining Variables
 -----
