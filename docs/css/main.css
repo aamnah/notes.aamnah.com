@@ -137,7 +137,6 @@ pre {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
   max-width: calc(800px - (30px * 2));
   margin-right: auto;
   margin-left: auto;
@@ -145,7 +144,6 @@ pre {
   padding-left: 30px; }
   @media screen and (min-width: 900px) {
     .wrapper {
-      max-width: -webkit-calc(800px - (30px));
       max-width: calc(800px - (30px));
       padding-right: 15px;
       padding-left: 15px; } }
