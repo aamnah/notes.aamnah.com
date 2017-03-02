@@ -141,9 +141,7 @@ pre {
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;
-  padding-left: 50px;
-  display: flex;
-  justify-content: space-between; }
+  padding-left: 50px; }
   @media screen and (min-width: 900px) {
     .wrapper {
       max-width: calc(800px - (50px));
