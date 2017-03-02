@@ -11,14 +11,14 @@ tags:
 Change to the directory you want to hold the fileconveyor files, then run:
 
 ```bash
-sudo apt-get install git && sudo apt-get install python-setuptools && sudo easy_install pip && sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor
+sudo apt install git python-setuptools && sudo easy_install pip && sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor
 ```
 
 ```bash
 sudo nano src/fileconveyor/fileconveyor/config.xml
 ```
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<!-- Sources -->

@@ -8,14 +8,14 @@
 
   <title>
     
-      Backing up and Restoring Databases
+      My Gruntfile.js
     
   </title>
   
-  <meta name="description" content="Export">
+  <meta name="description" content="It includes the following- Minify JS- Minify CSS- Minify HTML- Optimizie Images- Create responsive screenshots">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/backup-restore-databases">
+  <link rel="canonical" href="http://tldrdevnotes.com/aamnah-gruntfile">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -68,8 +68,8 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Backing up and Restoring Databases</h1>
-    <p class="post-meta"><time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">Feb 20, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+    <h1 class="post-title" itemprop="name headline">My Gruntfile.js</h1>
+    <p class="post-meta"><time datetime="2015-01-22T00:00:00+05:00" itemprop="datePublished">Jan 22, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
       
@@ -78,18 +78,26 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h3>Export</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">--host<span class="o">=</span><span class="s2">"host"</span> --user<span class="o">=</span><span class="s2">"username"</span> --password --port<span class="o">=</span>3306 <span class="s2">"db_name"</span>
-</code></pre></div>
-<p>You can use the exported backup file to rename that database. What is the database called and what database to use is defined in the first two lines.</p>
+    <p>It includes the following
+- Minify JS
+- Minify CSS
+- Minify HTML
+- Optimizie Images
+- Create responsive screenshots</p>
 
-<h3>Rename</h3>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="nv">`database_wp`</span><span class="p">;</span>
-<span class="n">USE</span> <span class="nv">`database_wp`</span><span class="p">;</span>
-</code></pre></div>
-<h3>Import</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">--host<span class="o">=</span><span class="s2">"host"</span> --user<span class="o">=</span><span class="s2">"username"</span> --password --port<span class="o">=</span>3306 --database<span class="o">=</span>db_name &lt; <span class="s2">"path/to/backup/file.sql"</span>
-</code></pre></div>
+<p>We&#39;ll use <strong>pageres</strong> to generate screenshots of the website in multiple resolutions. This comes in handy when you need to show that your website is responsive, need to check it looks good in all resolutions or just need a screenshot of the website to include as a preview.</p>
+
+<p>For example, WordPress themes automatically pick up &#39;screenshot.png&#39; form the theme&#39;s root folder to show it as preview when the user is selecting a theme from the Admin, under Appearance &gt; Themes. <strong>pageres</strong> can automatically take that screenshot for you.</p>
+
+<p><strong>NOTE:</strong> ImageOptim is wayyyy better than imagemin. Imageoptim &#39;Saved 3MB out of 24.9MB. 15.4% per file on average (up to 84.7%)&#39; where imagemin did &#39;Minified 368 images (saved 0 B)&#39; for the same files. The only issue is, Image optim works on your mac and opens imageoptim installed on it to compress images. Whereas, imagemin works on the server.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="https://github.com/sindresorhus/pageres">pageres</a></li>
+<li><a href="https://github.com/sindresorhus/grunt-pageres">grunt-pageres</a></li>
+</ul>
+
   </div>
 
 </article>

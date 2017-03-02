@@ -2,7 +2,11 @@
 layout: post
 title: How to create a Snippet in Sublime Text
 permalink: create-sublime-text-snippet
-tags: how-to, sublime text, snippets, workflow
+tags: 
+- sublime text
+- editor
+- snippets 
+- workflow
 ---
 
 Basics
@@ -17,7 +21,7 @@ Basics
 - You can add a `description` (optional).
 
 
-Resources
+Links
 ---
 - [Working With Code Snippets In Sublime Text](http://www.hongkiat.com/blog/sublime-code-snippets/)
 - [Quickly Insert Text & Code with Sublime Text Snippets](http://www.granneman.com/webdev/editors/sublime-text/top-features-of-sublime-text/quickly-insert-text-and-code-with-sublime-text-snippets/)

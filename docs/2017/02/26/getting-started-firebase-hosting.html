@@ -8,14 +8,14 @@
 
   <title>
     
-      My Gruntfile.js
+      Getting started with Firebase Hosting
     
   </title>
   
-  <meta name="description" content="It includes the following- Minify JS- Minify CSS- Minify HTML- Optimizie Images- Create responsive screenshots">
+  <meta name="description" content="tl;dr">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/aamnah-gruntfile.js">
+  <link rel="canonical" href="http://tldrdevnotes.com/2017/02/26/getting-started-firebase-hosting.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -68,31 +68,64 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">My Gruntfile.js</h1>
-    <p class="post-meta"><time datetime="2015-01-22T00:00:00+05:00" itemprop="datePublished">Jan 22, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+    <h1 class="post-title" itemprop="name headline">Getting started with Firebase Hosting</h1>
+    <p class="post-meta"><time datetime="2017-02-26T00:00:00+05:00" itemprop="datePublished">Feb 26, 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
     
       <ul class='tags'>
+      
+        <li>Hosting</li>
+      
+        <li>Firebase</li>
       
       </ul>
     
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>It includes the following
-- Minify JS
-- Minify CSS
-- Minify HTML
-- Optimizie Images
-- Create responsive screenshots</p>
+    <h2>tl;dr</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm i -g firebase-tools
+firebase login <span class="c"># will be redirected to Google Auth page</span>
 
-<p>We&#39;ll use <strong>pageres</strong> to generate screenshots of the website in multiple resolutions. This comes in handy when you need to show that your website is responsive, need to check it looks good in all resolutions or just need a screenshot of the website to include as a preview.</p>
+<span class="nb">cd</span> /your-project-directory
 
-<p>For example, WordPress themes automatically pick up &#39;screenshot.png&#39; form the theme&#39;s root folder to show it as preview when the user is selecting a theme from the Admin, under Appearance &gt; Themes. <strong>pageres</strong> can automatically take that screenshot for you.</p>
+firebase init <span class="c"># initialize a project</span>
+<span class="c"># go through the initialization options</span>
+firebase deploy <span class="c"># deploy a site</span>
+<span class="c"># a public URL will be provided where you can see your websites</span>
+firebase open <span class="c"># Hosting: Deployed Site</span>
+firebase use --add <span class="c"># setup a staging environment (add a project alias)</span>
+firebase use foo <span class="c"># use foo environment </span>
+firebase deploy <span class="c"># deploy changes to foo (whatever env you are in)</span>
+</code></pre></div>
+<p>You can only create a project through the <a href="https://console.firebase.google.com/">Firebase console</a>. In order to manage projects with the CLI, you should create it at the web interface first.</p>
 
-<p><strong>NOTE:</strong> ImageOptim is wayyyy better than imagemin. Imageoptim &#39;Saved 3MB out of 24.9MB. 15.4% per file on average (up to 84.7%)&#39; where imagemin did &#39;Minified 368 images (saved 0 B)&#39; for the same files. The only issue is, Image optim works on your mac and opens imageoptim installed on it to compress images. Whereas, imagemin works on the server.</p>
+<p>A project directory must have a <code>firebase.json</code> to be able to deploy, which is created for you when you run <code>firebase init</code>. Alias definitions are written to a hidden file called <code>.firebaserc</code>, this file gets updated when you add an alias with <code>firebase use --add</code>. </p>
 
-<p>Sources:
-- <a href="https://github.com/sindresorhus/pageres">pageres</a> and <a href="https://github.com/sindresorhus/grunt-pageres">grunt-pageres</a></p>
+<h3>Connect a custom domain name</h3>
+
+<h4>Connect a domain</h4>
+
+<p>From the <a href="https://console.firebase.google.com/project/_/hosting/main">Hosting</a> panel of the Firebase Console for your project, select Connect Domain.</p>
+
+<h4>Domain ownership verification</h4>
+
+<p>You&#39;ll need to either add a <code>TXT</code> record at your domain host, or upload a file to your site to prove domain ownership.</p>
+
+<h4>Point at Firebase hosting</h4>
+
+<p>To point your domain to Firebase Hosting you&#39;ll need to add/update a <code>CNAME</code> (for subdomains) or an <code>A</code> (domains without subdomains) record.</p>
+
+<h4>Wait for SSL certificate provisioning</h4>
+
+<p>After domain is provisioned, SSL provisioning starts and can take several hours.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=meofoNuK3vo">YouTube: Getting Started with Firebase Hosting on the Web - Firecasts</a></li>
+<li><a href="https://firebase.google.com/docs/hosting/custom-domain">Docs: Connect a Custom Domain</a></li>
+<li><a href="https://firebase.google.com/docs/cli/">Docs: Firebase CLI Reference</a></li>
+</ul>
 
   </div>
 
