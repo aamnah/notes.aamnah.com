@@ -1,0 +1,2178 @@
+
+
+[
+
+  
+
+{ 
+  "title": "Getting started with Firebase Hosting",
+  
+  "subtitle": "Host your websites and apps on Firebase Hosting for free",
+  
+  "url": "/2017/02/26/getting-started-firebase-hosting.html",
+  "date": "2017-02-26 00:00:00 +0500"
+  
+  
+  ,"tags": ["Hosting", "Firebase"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "This is a really very long post title so i could see the legibility over multiple lines. Let's make it even longer to stretch it over multiple lines",
+  
+  "subtitle": "this is a subtitle",
+  
+  "url": "/2017/02/25/typography-sample.html",
+  "date": "2017-02-25 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "syntax highlighting colors",
+  
+  "url": "/2017/02/25/test-syntax-highlighting-theme.html",
+  "date": "2017-02-25 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Making a site presentable in 7 lines of code",
+  
+  "url": "/minimal-css-for-presentable-website",
+  "date": "2017-02-25 00:00:00 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "CSS Style Notes",
+  
+  "url": "/notes-css-styles",
+  "date": "2017-02-25 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to sync an entire Amazon S3 bucket locally",
+  
+  "url": "/howto-sync-entire-aws-s3-bucket-locally",
+  "date": "2017-02-23 00:00:00 +0500"
+  
+  
+  ,"tags": ["aws", "s3", "sync"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to use Redcarpet for syntax highlighting in Jekyll",
+  
+  "url": "/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code",
+  "date": "2017-02-23 00:00:00 +0500"
+  
+  
+  ,"tags": ["jekyll"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to import a WordPress blog in Jekyll (MacOS)",
+  
+  "url": "/howto-import-wordpress-jekyll-macos",
+  "date": "2017-02-23 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Getting started with Jekyll",
+  
+  "url": "/getting-started-jekyll",
+  "date": "2017-02-23 00:00:00 +0500"
+  
+  
+  ,"tags": ["getting started", "guides", "jekyll"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Set `npm init` defaults globally",
+  
+  "url": "/2017/02/20/howto-set-npm-defaults-globally.html",
+  "date": "2017-02-20 00:00:00 +0500"
+  
+  
+  ,"tags": ["javascript", "node", "npm"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Add SSH Key to MacOS Keychain permanently",
+  
+  "url": "/howto-add-ssh-key-macos-keychain-permanently",
+  "date": "2017-02-20 00:00:00 +0500"
+  
+  
+  ,"tags": ["ssh", "macos", "keychain"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Strict mode in JavaScript with `use strict`",
+  
+  "url": "/2016/12/12/intro-use-strict-javascript.html",
+  "date": "2016-12-12 00:00:00 +0500"
+  
+  
+  ,"tags": ["javascript"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "React, React Router and Redux Courses",
+  
+  "url": "/javascript/2016/12/01/rsc-course-react-courses.html",
+  "date": "2016-12-01 15:50:29 +0500"
+  
+  ,"categories": ["JavaScript"]
+  
+  
+  ,"tags": ["js", "react", "react router", "reactjs", "redux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "React Router Basics",
+  
+  "url": "/basics-react-router",
+  "date": "2016-12-01 00:00:00 +0500"
+  
+  ,"categories": ["JavaScript", "Programming"]
+  
+  
+  ,"tags": ["js", "react", "react router", "reactjs"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "iOS, Bluetooth Low Energy (BLE), CoreBluetooth and Swift - for noobs",
+  
+  "url": "/2016/08/28/intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.html",
+  "date": "2016-08-28 15:35:22 +0500"
+  
+  
+  ,"tags": ["ios", "bluetooth", "CoreBlueooth"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Install/Upgrade Node.js on Raspberry Pi (Raspbian Jessie)",
+  
+  "url": "/2016/08/24/howto-install-latest-node-js-raspberry-pi-raspbian-jessie.html",
+  "date": "2016-08-24 17:07:46 +0500"
+  
+  
+  ,"tags": ["Raspberry Pi", "node"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Batch renaming files in Bash",
+  
+  "url": "/batch-rename-files-bash",
+  "date": "2015-04-17 00:00:00 +0500"
+  
+  ,"categories": ["bash"]
+  
+  
+  ,"tags": ["bash"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "AngularJS Basics",
+  
+  "url": "/angularjs_basics",
+  "date": "2015-04-14 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Cheatsheet - MySQL Commands",
+  
+  "url": "/cheatsheet_mysql_commands",
+  "date": "2015-04-10 00:00:00 +0500"
+  
+  ,"categories": ["Cheatsheet"]
+  
+  
+  ,"tags": ["cheatsheet", "mysql"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Opening and Writing to Files in Python",
+  
+  "url": "/opening_and_writing_to_files_in_python",
+  "date": "2015-04-10 00:00:00 +0500"
+  
+  
+  ,"tags": ["python", "how-to", "basics"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Sass -  Mixins vs. Extend",
+  
+  "url": "/sass_mixins_vs_extend",
+  "date": "2015-04-09 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "CSS Blend Modes",
+  
+  "url": "/css_blend_modes",
+  "date": "2015-04-09 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Opencart Architecture",
+  
+  "url": "/opencart_architecture",
+  "date": "2015-04-04 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "SQLite Basics",
+  
+  "url": "/sqlite_basics",
+  "date": "2015-03-22 00:00:00 +0500"
+  
+  ,"categories": ["Cheatsheet"]
+  
+  
+  ,"tags": ["cheatsheet", "sql"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Object_oriented_php",
+  
+  "url": "/2015/03/20/Object_Oriented_PHP.html",
+  "date": "2015-03-20 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Things that i love about my Mac",
+  
+  "url": "/things_that_i_love_about_my_mac",
+  "date": "2015-03-13 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Opencart How-To Delete Multi-Store and Move Everything to the Default Store",
+  
+  "url": "/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store",
+  "date": "2015-02-26 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to", "opencart", "mysql", "phpmyadmin"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Using a third-party library with PHP",
+  
+  "url": "/using_a_third-party_library_with_php",
+  "date": "2015-02-24 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Using PHP with MySQL",
+  
+  "url": "/using_php_with_mysql",
+  "date": "2015-02-24 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Manipulating Schema with SQL",
+  
+  "url": "/manipulating_schema_with_sql",
+  "date": "2015-02-24 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Joining Relational Data between Tables in SQL",
+  
+  "url": "/joining_relational_data_between_tables_in_sql",
+  "date": "2015-02-24 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Regex in Python",
+  
+  "url": "/regex_in_python",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Python Modules",
+  
+  "url": "/python_modules",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Python Basics",
+  
+  "url": "/python_basics",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to take options for your Bash Script",
+  
+  "url": "/how_to_take_options_arguments_for_your_bash_script",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to parse JSON data in Python",
+  
+  "url": "/how_to_parse_json_data_in_python",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to create a man page for your Bash Script",
+  
+  "url": "/how_to_create_man_page_for_your_bash_script",
+  "date": "2015-02-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash script to create a new Jekyll post",
+  
+  "url": "/bash_script_to_create_new_jekyll_post",
+  "date": "2015-02-21 00:00:00 +0500"
+  
+  
+  ,"tags": ["bash", "script", "jekyll"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Tips for Querying a MySQL Database",
+  
+  "url": "/querying-selecting-showing-data-from-mysql-database-tips",
+  "date": "2015-02-20 00:00:00 +0500"
+  
+  
+  ,"tags": ["basics", "database", "mysql", "how-to"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash Scripts -  Load/Read/Include Settings from Another File",
+  
+  "url": "/load-read-settings-from-another-file-bash-script",
+  "date": "2015-02-20 00:00:00 +0500"
+  
+  
+  ,"tags": ["bash", "script"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Database Foundations",
+  
+  "url": "/database-foundations",
+  "date": "2015-02-20 00:00:00 +0500"
+  
+  
+  ,"tags": ["basics", "database", "mysql", "how-to"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Backing up and Restoring Databases",
+  
+  "url": "/backup-restore-databases",
+  "date": "2015-02-20 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Getting started with Github Pages",
+  
+  "url": "/getting-started-github-pages",
+  "date": "2015-02-19 00:00:00 +0500"
+  
+  
+  ,"tags": ["github pages", "how-to", "hosting'"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Opencart Install Script",
+  
+  "url": "/opencart-install-script",
+  "date": "2015-02-17 00:00:00 +0500"
+  
+  
+  ,"tags": ["opencart", "script", "bash"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Directly run bash scripts in Github Gists locally in Terminal.",
+  
+  "url": "/2015/02/17/directly-run-bash-scripts-from-github-gist.html",
+  "date": "2015-02-17 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash script to create OCMOD and vQmod templates with a single command",
+  
+  "url": "/create-ocmod-vqmod-template-opencart-bash-script",
+  "date": "2015-02-16 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to", "bash", "script", "opencart"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Create Grunt Snippets in Sublime Text",
+  
+  "url": "/create-grunt-snippet-sublime-text",
+  "date": "2015-02-15 00:00:00 +0500"
+  
+  
+  ,"tags": ["grunt,", "snippet,", "workflow"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Write a Bash Function to Create a gruntfile.js for your project",
+  
+  "url": "/bash-function-create-gruntfile.js",
+  "date": "2015-02-15 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to,", "bash,", "script,", "workflow"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to bulk update prices of Products in Opencart",
+  
+  "url": "/bulk-update-product-prices-opencart-phpmyadmin-mysql",
+  "date": "2015-02-13 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to", "opencart", "mysql"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to add a WordPress Admin user via PhpMyAdmin",
+  
+  "url": "/add-create-wordpress-admin-user-phpmyadmin",
+  "date": "2015-02-12 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to create a Snippet in Sublime Text",
+  
+  "url": "/create-sublime-text-snippet",
+  "date": "2015-02-09 00:00:00 +0500"
+  
+  
+  ,"tags": ["sublime text", "editor", "snippets", "workflow"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to include files in HTML",
+  
+  "url": "/2015/02/07/how-to-include-files-in-html.html",
+  "date": "2015-02-07 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Delete ALL Unapproved comments in WordPress",
+  
+  "url": "/wordpress-mysql-delete-unapproved-comments",
+  "date": "2015-02-04 00:00:00 +0500"
+  
+  
+  ,"tags": ["wordpress", "mysql"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "My Gruntfile.js",
+  
+  "url": "/aamnah-gruntfile",
+  "date": "2015-01-22 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Yum Transaction Check Errors &amp; Dependencies/Package Conflicts",
+  
+  "url": "/yum-transaction-check-error-package-conflict",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Page Speed Optimizations",
+  
+  "url": "/page-speed-optimzations",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to install Node.js on CentOS/cPanel",
+  
+  "url": "/install-nodejs-centos-cpanel",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Writing a Grunt Task for Website Speed Optimization",
+  
+  "url": "/grunt-task-page-website-speed-optimization-minify-concat",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "What to .gitignore",
+  
+  "url": "/files-gitignore",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Editing Apache Configuration on a cPanel/CentOS Server",
+  
+  "url": "/edit-apache-config-centos-cpanel-command-line",
+  "date": "2015-01-19 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Setup SSH Keys for Bitbucket on Mac/Linux",
+  
+  "url": "/ssh-bitbucket-mac-linux",
+  "date": "2015-01-18 00:00:00 +0500"
+  
+  ,"categories": ["how-to"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to Install Git on CentOS",
+  
+  "url": "/how-to/2015/01/18/howto-install-git-centos-6-7.html",
+  "date": "2015-01-18 00:00:00 +0500"
+  
+  ,"categories": ["how-to"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to create a Grid system in Sass",
+  
+  "url": "/how-to-create-grid-sass",
+  "date": "2015-01-18 00:00:00 +0500"
+  
+  ,"categories": ["css"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Sass Function to Auto-Convert Pixels to Ems",
+  
+  "url": "/sass-function-convert-pixels-px-ems",
+  "date": "2015-01-17 00:00:00 +0500"
+  
+  ,"categories": ["css"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "The Simplest AJAX Script",
+  
+  "subtitle": "Learn how to use AJAX to load content from a text file without refreshing the whole page",
+  
+  "url": "/simplest-ajax-script",
+  "date": "2015-01-02 00:00:00 +0500"
+  
+  ,"categories": ["how-to"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Self-invoking Anonymous Function",
+  
+  "url": "/2015/01/02/self-invoking-anonymous-function-ajax.html",
+  "date": "2015-01-02 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Intro to Python for newbie programmers",
+  
+  "url": "/2014/09/21/python-basics.html",
+  "date": "2014-09-21 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Code comparison",
+  
+  "subtitle": "see how the same code is written in different languages",
+  
+  "url": "/2014/09/21/code-comparison.html",
+  "date": "2014-09-21 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Working with Grunt",
+  
+  "url": "/2014/09/14/Grunt.html",
+  "date": "2014-09-14 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "jQuery vs. JavaScript",
+  
+  "url": "/jquery",
+  "date": "2014-09-04 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "jQuery and AJAX",
+  
+  "url": "/jquery-ajax-shorthand-examples",
+  "date": "2014-09-04 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Working with APIs using AJAX and JSON",
+  
+  "subtitle": "Learn how to use AJAX and jQuery to get photos from Flickr's public image feed using the Flickr API",
+  
+  "url": "/working-with-ajax-json-api",
+  "date": "2014-09-04 00:00:00 +0500"
+  
+  ,"categories": ["how-to"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Change Raspberry Pi's system startup message (MOTD)",
+  
+  "url": "/change-raspberry-pi-motd-system-startup-message",
+  "date": "2014-09-04 00:00:00 +0500"
+  
+  ,"categories": ["how-to"]
+  
+  
+  ,"tags": ["raspberry", "pi"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "AJAX Basics",
+  
+  "url": "/ajax-basics",
+  "date": "2014-09-03 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Asset management in Flask",
+  
+  "url": "/asset_management_flask_webassets",
+  "date": "2014-09-01 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Linux - Basic User Management",
+  
+  "url": "/linux_basic_user__management",
+  "date": "2014-08-31 00:00:00 +0500"
+  
+  ,"categories": ["linux"]
+  
+  
+  ,"tags": ["cli,"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash script to create Media Queries with Sass",
+  
+  "url": "/bash_script_create_media_queries_sass",
+  "date": "2014-08-30 00:00:00 +0500"
+  
+  ,"categories": ["bash", "css"]
+  
+  
+  ,"tags": ["sass", "media-queries", "script", "bash", "css"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "virtualenvwrapper",
+  
+  "url": "/2014/08/29/virtualenvwrapper.html",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "virtualenv",
+  
+  "url": "/2014/08/29/virtualenv.html",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Regex",
+  
+  "url": "/regex",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to convert yaml data to python data",
+  
+  "url": "/convert_yaml_to_python",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Flask",
+  
+  "url": "/flask",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "API Basics - Grabbing Data with Python",
+  
+  "url": "/2014/08/29/api-basics-grab-data-python.html",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+  ,"tags": ["api,", "python,", "how-to"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Using Mandrill's SMTP service to send emails",
+  
+  "url": "/2014/08/29/Using-mandrill-(mailchimp)-service-to-send-emails.html",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to make websites in Urdu and use custom fonts",
+  
+  "url": "/how-to-make-websites-in-urdu-use-custom-fonts",
+  "date": "2014-08-29 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.",
+  
+  "url": "/2014/08/27/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world.html",
+  "date": "2014-08-27 16:18:35 +0500"
+  
+  
+  ,"tags": ["linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "DRY - Don't Repeat Yourself",
+  
+  "url": "/programming/2014/08/27/link-dry-dont-repeat-yourself.html",
+  "date": "2014-08-27 05:40:39 +0500"
+  
+  ,"categories": ["Programming"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - The Linux Command Line",
+  
+  "url": "/the-linux-command-line",
+  "date": "2014-08-27 00:00:00 +0500"
+  
+  
+  ,"tags": ["linux", "free"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "آؤ اردو میں تحریر کریں",
+  
+  "url": "/lets_write_in_urdu",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Install Ruby on Ubuntu",
+  
+  "url": "/2014/08/26/installing-ruby-on-ubuntu.html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Generating an SSH Key and Copying it to Remote Server",
+  
+  "url": "/generate_ssh_keys_copy_remote_server",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "About This Site",
+  
+  "url": "/2014/08/26/about-this-site.html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Web scraping in Python to look up stock prices",
+  
+  "url": "/2014/08/26/Web-scraping-in-Python-to-look-up-stock-prices.html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Using urllib2 in Python to get content from web pages",
+  
+  "url": "/2014/08/26/Using-urllib2-in-Python-to-get-content-from-web-pages.html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Running system commands from within Python scripts",
+  
+  "url": "/running_system_commands_python_scripts",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to store an entire website online with wget",
+  
+  "url": "/2014/08/26/How-to-store-an-entire-website-online-with-wget.html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Dev environment (mac)",
+  
+  "url": "/2014/08/26/Dev-Environment-(Mac).html",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Creating and Viewing HTML Files with Python",
+  
+  "url": "/create-view-html-files-with-in-python",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+  ,"tags": ["python"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Command line color settings (GNU)",
+  
+  "url": "/command-line-color-settings-gnu",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Coloring the Mac Terminal",
+  
+  "url": "/mac-terminal-colors-prompt",
+  "date": "2014-08-26 00:00:00 +0500"
+  
+  
+  ,"tags": ["bash", "macos"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "An Exhibit Of Markdown",
+  
+  "url": "/2014/08/25/an-exhibit-of-markdown.html",
+  "date": "2014-08-25 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Automated MySQL Backups to Amazon S3 with AutoMySQLBackups",
+  
+  "url": "/automated-mysql-backups-with-automysqlbackups",
+  "date": "2014-08-19 12:59:41 +0500"
+  
+  ,"categories": ["MySQL"]
+  
+  
+  ,"tags": ["amazon s3", "mysql", "backups", "crontab", "database"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "web scraping",
+  
+  "url": "/web_scraping",
+  "date": "2014-08-18 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Linux Directory Structure",
+  
+  "url": "/2014/07/17/intro-linux-directory-structure.html",
+  "date": "2014-07-17 23:04:19 +0500"
+  
+  
+  ,"tags": ["LFS", "linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Redirection in Linux",
+  
+  "url": "/2014/07/17/howto-redirection-in-linux.html",
+  "date": "2014-07-17 22:34:46 +0500"
+  
+  
+  ,"tags": ["Bash", "Linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "how to redirect a URL in JavaScript",
+  
+  "url": "/howto-redirect-url-javascript",
+  "date": "2014-07-07 09:02:44 +0500"
+  
+  
+  ,"tags": ["javascript"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Tool - Linux Dash",
+  
+  "url": "/resources/tools/2014/06/24/rsc-tool-linux-dash.html",
+  "date": "2014-06-24 10:57:16 +0500"
+  
+  ,"categories": ["Resources", "Tools"]
+  
+  
+  ,"tags": ["linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Python for You and Me",
+  
+  "url": "/resources/books/2014/06/24/rsc-book-python-for-you-and-me.html",
+  "date": "2014-06-24 00:00:00 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["python", "free"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Markdown Tables Generator",
+  
+  "url": "/resources/tools/2014/06/21/rsc-tool-markdown-tables-generator.html",
+  "date": "2014-06-21 06:28:26 +0500"
+  
+  ,"categories": ["Resources", "Tools"]
+  
+  
+  ,"tags": ["markdown", "table"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Stopping, Quitting, Suspending and Killing Processes in Linux",
+  
+  "url": "/2014/06/21/howto-stop-quit-suspend-kill-processes-linux.html",
+  "date": "2014-06-21 06:12:50 +0500"
+  
+  
+  ,"tags": ["linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Tool - Explain Shell",
+  
+  "url": "/resources/tools/2014/06/21/rsc-tool-explain-shell.html",
+  "date": "2014-06-21 05:45:48 +0500"
+  
+  ,"categories": ["Resources", "Tools"]
+  
+  
+  ,"tags": ["free", "linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Tool - Display live Linux system stats (memory, CPU, IO)",
+  
+  "url": "/resources/tools/2014/06/20/rsc-tool-display-live-linux-system-stats-memory-cpu-io.html",
+  "date": "2014-06-20 16:38:05 +0500"
+  
+  ,"categories": ["Resources", "Tools"]
+  
+  
+  ,"tags": ["Linux", "sysadmin"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Tool - Bash Prompt ($PS1) Generator",
+  
+  "url": "/resources/tools/2014/06/20/rsc-tool-bash-prompt-ps1-generator.html",
+  "date": "2014-06-20 13:15:38 +0500"
+  
+  ,"categories": ["Resources", "Tools"]
+  
+  
+  ,"tags": ["bash", "linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Beyond Linux From Scratch (BLFS)",
+  
+  "url": "/resources/books/2014/06/20/rsc-book-beyond-linux-scratch-blfs.html",
+  "date": "2014-06-20 13:08:27 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["Linux", "Free"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Linux From Scratch (LFS)",
+  
+  "url": "/resources/books/2014/06/20/rsc-book-linux-from-scratch.html",
+  "date": "2014-06-20 13:06:09 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["Linux", "Free"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Hardened Linux From Scratch (HLFS)",
+  
+  "url": "/resources/books/2014/06/20/rsc-book-hardened-linux-from-scratch.html",
+  "date": "2014-06-20 00:00:00 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["linux", "free"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Course - Practical Unix - Stanford",
+  
+  "url": "/practical-unix-stanford-course",
+  "date": "2014-06-18 15:07:34 +0500"
+  
+  ,"categories": ["Resources", "Videos"]
+  
+  
+  ,"tags": ["Linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Start Programming Now - No CS degree required",
+  
+  "url": "/resources/books/2014/06/17/rsc-book-start-programming-now.html",
+  "date": "2014-06-17 06:56:13 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["programming"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Book - Conquering the Command Line - Unix and Linux Commands for Developers",
+  
+  "url": "/resources/books/2014/06/17/rsc-book-conquering-command-line.html",
+  "date": "2014-06-17 05:49:35 +0500"
+  
+  ,"categories": ["Resources", "Books"]
+  
+  
+  ,"tags": ["Linux", "CLI"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "The Zen of Python",
+  
+  "url": "/zen-of-python",
+  "date": "2014-06-15 04:25:40 +0500"
+  
+  ,"categories": ["Python"]
+  
+  
+  ,"tags": ["python"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Making a MySQL database connection with PHP",
+  
+  "url": "/databases/mysql/2014/06/07/howto-making-mysql-database-connection-php.html",
+  "date": "2014-06-07 04:54:08 +0500"
+  
+  ,"categories": ["Databases", "MySQL"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to check if a user is root",
+  
+  "url": "/bash/2014/06/05/howto-bash-scripting-check-user-root.html",
+  "date": "2014-06-05 04:02:25 +0500"
+  
+  ,"categories": ["Bash"]
+  
+  
+  ,"tags": ["bash", "scripts"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash script to install a LAMP stack",
+  
+  "url": "/script-bash-install-a-lamp-stack",
+  "date": "2014-06-05 03:31:41 +0500"
+  
+  ,"categories": ["Bash"]
+  
+  
+  ,"tags": ["lamp", "script"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Bash Scripting - Taking input",
+  
+  "url": "/bash-scripting-take-input",
+  "date": "2014-06-05 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Get Current Year in JavaScript",
+  
+  "url": "/howto-get-current-year-in-javascript",
+  "date": "2014-06-03 13:48:57 +0500"
+  
+  ,"categories": ["JavaScript"]
+  
+  
+  ,"tags": ["date"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Converting 24 hour time to 12 hour time using Javascript",
+  
+  "url": "/howto-convert-24-hour-time-to-12-hour-time-using-javascript",
+  "date": "2014-06-03 13:21:52 +0500"
+  
+  ,"categories": ["JavaScript"]
+  
+  
+  ,"tags": ["date"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "We can not solve our problems at the same level of thinking that created them.",
+  
+  "url": "/2014/05/27/quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them.html",
+  "date": "2014-05-27 18:45:18 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Steganogrophy",
+  
+  "url": "/2014/05/27/intro-steganogrophy.html",
+  "date": "2014-05-27 16:41:56 +0500"
+  
+  
+  ,"tags": ["hacking", "steganography"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Don’t Believe Anyone Who Tells You Learning To Code Is Easy",
+  
+  "url": "/2014/05/26/dont-believe-anyone-who-tells-you-learning-to-code-is-easy.html",
+  "date": "2014-05-26 05:43:57 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "You wasted $150,000 on an education you coulda got for a buck fifty in late charges at the public library.",
+  
+  "url": "/2014/05/22/quote-college-education.html",
+  "date": "2014-05-22 12:35:19 +0500"
+  
+  
+  ,"tags": ["education"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "If you're gonna learn three languages, learn English, learn Spanish and learn some coding framework. And I think you'll have a job for life if you do that.",
+  
+  "url": "/quote-learn-three-languages",
+  "date": "2014-05-22 10:21:48 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Open Files in New Tab by Default in Sublime Text 3",
+  
+  "url": "/2014/05/22/howto-open-in-new-tab-instead-of-window-in-sublime-text-3.html",
+  "date": "2014-05-22 07:42:23 +0500"
+  
+  
+  ,"tags": ["editor"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Changing Tab Indentation in Sublime Text 3",
+  
+  "url": "/2014/05/22/changing-tab-indentation-in-sublime-text-3.html",
+  "date": "2014-05-22 07:37:02 +0500"
+  
+  
+  ,"tags": ["sublime text"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Debugging Sass",
+  
+  "url": "/debug-troubleshoot-sass-issues",
+  "date": "2014-05-22 06:08:52 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+  ,"tags": ["compass", "sass"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Sass: Working with Libraries",
+  
+  "url": "/howto-sass-work-with-libraries",
+  "date": "2014-05-21 20:13:51 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+  ,"tags": ["compass", "sass"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Import Files in Sass with `@import`",
+  
+  "url": "/howto-sass-import-files",
+  "date": "2014-05-21 19:51:45 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+  ,"tags": ["compass", "sass"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Create a Color Palette in Sass",
+  
+  "url": "/howto-sass-create-a-color-palette",
+  "date": "2014-05-21 19:26:53 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+  ,"tags": ["compass", "sass"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Basic Unix/Linux System Monitoring Commands",
+  
+  "url": "/unix-linux-commands-for-system-monitoring",
+  "date": "2014-05-21 16:36:02 +0500"
+  
+  ,"categories": ["SysAdmin"]
+  
+  
+  ,"tags": ["Linux", "commands"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to change the default editor in Terminal",
+  
+  "url": "/howto-change-default-editor-terminal",
+  "date": "2014-05-21 16:34:20 +0500"
+  
+  
+  ,"tags": ["terminal", "editor"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Crontab Basics",
+  
+  "url": "/basics-crontab",
+  "date": "2014-05-21 16:32:55 +0500"
+  
+  ,"categories": ["SysAdmin"]
+  
+  
+  ,"tags": ["crontab", "linux", "commands"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Nagios",
+  
+  "url": "/basics-nagios",
+  "date": "2014-05-21 16:31:32 +0500"
+  
+  ,"categories": ["SysAdmin"]
+  
+  
+  ,"tags": ["nagios"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "System Monitor for Raspberry Pi",
+  
+  "url": "/howto-system-monitor-for-raspberry-pi",
+  "date": "2014-05-21 16:30:36 +0500"
+  
+  
+  ,"tags": ["raspberry pi", "linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Vim Basics",
+  
+  "url": "/cheatsheet/2014/05/21/basics-vim.html",
+  "date": "2014-05-21 16:27:11 +0500"
+  
+  ,"categories": ["cheatsheet"]
+  
+  
+  ,"tags": ["cheatsheet", "commands", "linux", "editor"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Custom Raspberry Pi MOTD (Message Of The Day)",
+  
+  "url": "/howto-raspberry-pi-motd-message-of-the-day",
+  "date": "2014-05-21 16:25:33 +0500"
+  
+  
+  ,"tags": ["raspberry pi", "linux"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "MongoDB Basics",
+  
+  "url": "/basics-mongodb",
+  "date": "2014-05-21 16:24:07 +0500"
+  
+  ,"categories": ["Databases"]
+  
+  
+  ,"tags": ["commands", "mongodb", "cheatsheet"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "JavaScript Basics",
+  
+  "url": "/basics-javascript",
+  "date": "2014-05-21 16:22:38 +0500"
+  
+  ,"categories": ["JavaScript"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Git Basics",
+  
+  "url": "/basics-git",
+  "date": "2014-05-21 16:17:32 +0500"
+  
+  ,"categories": ["cheatsheet"]
+  
+  
+  ,"tags": ["cheatsheet", "commands", "git"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Amazon RDS Cheatsheet",
+  
+  "url": "/cheatsheet-amazon-rds-commands-mysql",
+  "date": "2014-05-21 16:16:36 +0500"
+  
+  ,"categories": ["Cheetsheet"]
+  
+  
+  ,"tags": ["amazon rds", "cheatsheet", "mysql", "commands"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "How to install Compass on a Mac via Command Line",
+  
+  "url": "/howto-sass-install-compass-on-a-mac-via-command-line",
+  "date": "2014-05-21 15:34:28 +0500"
+  
+  ,"categories": ["CSS"]
+  
+  
+  ,"tags": ["compass", "sass"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Restart services in Linux",
+  
+  "url": "/howto-restart-services-in-linux",
+  "date": "2014-05-21 15:33:52 +0500"
+  
+  ,"categories": ["SysAdmin"]
+  
+  
+  ,"tags": ["linux", "commands", "sysadmin"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Unix: Using pushd and popd for faster navigation",
+  
+  "url": "/*nix/2014/05/21/unix-using-pushd-and-popd-for-faster-navigation.html",
+  "date": "2014-05-21 15:33:21 +0500"
+  
+  ,"categories": ["*nix"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Unix: Pranks that sysadmins play",
+  
+  "url": "/*nix/2014/05/21/unix-pranks-that-sysadmins-play.html",
+  "date": "2014-05-21 15:32:18 +0500"
+  
+  ,"categories": ["*nix"]
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "a tmux crash course",
+  
+  "url": "/2014/05/21/a-tmux-crash-course.html",
+  "date": "2014-05-21 15:23:43 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Reboot does not fix anything, it just hides things.",
+  
+  "url": "/2014/05/21/quote-reboot-does-not-fix-anything-it-just-hides-things.html",
+  "date": "2014-05-21 15:21:24 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Anything you are going to do more than three times. Script it.",
+  
+  "url": "/2014/05/21/quote-anything-you-are-going-to-do-more-than-three-times-script-it.html",
+  "date": "2014-05-21 15:19:02 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "Vim Basics",
+  
+  "url": "/vim-basics",
+  "date": "2014-05-21 00:00:00 +0500"
+  
+  
+  ,"tags": ["cheatsheet,", "*nix,"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Git Basics",
+  
+  "url": "/git-basics",
+  "date": "2014-05-21 00:00:00 +0500"
+  
+  
+}
+,
+
+  
+
+{ 
+  "title": "fileconveyer",
+  
+  "url": "/fileconveyer",
+  "date": "2014-05-21 00:00:00 +0500"
+  
+  
+  ,"tags": ["backups", "sync"]
+  
+}
+,
+
+false
+]
