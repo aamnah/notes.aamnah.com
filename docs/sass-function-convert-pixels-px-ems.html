@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Sass Function to Auto-Convert Pixels to Ems</h1>
-    <p class="post-meta"><time datetime="2015-01-17T00:00:00+05:00" itemprop="datePublished">Jan 17, 2015</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Sass Function to Auto-Convert Pixels to Ems</h1>
+    <p class="Post-meta">
+      <time datetime="2015-01-17T00:00:00+05:00" itemprop="datePublished">
+        Jan 17, 2015
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2015-01-17-sass-function-convert-pixels-px-ems.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -77,7 +87,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <h3>Function</h3>
 
 <p>Add this to your Sass (functions) file. It is recommended that you keep a separate <strong>functions.scss</strong> file and <code>@import &#39;functions&#39;;</code> at the top of your main/global css file. This way it keeps things organized. OR you could just add this function to the top of your main scss file.</p>

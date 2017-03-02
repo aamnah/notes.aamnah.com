@@ -65,11 +65,21 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Converting 24 hour time to 12 hour time using Javascript</h1>
-    <p class="post-meta"><time datetime="2014-06-03T13:21:52+05:00" itemprop="datePublished">Jun 3, 2014</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Aamnah</span></span></p>
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Converting 24 hour time to 12 hour time using Javascript</h1>
+    <p class="Post-meta">
+      <time datetime="2014-06-03T13:21:52+05:00" itemprop="datePublished">
+        Jun 3, 2014
+      </time>
+       • 
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Aamnah</span>
+        </span>
+      
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2014-06-03-howto-convert-24-hour-time-to-12-hour-time-using-javascript.md">Edit this page on Github</a>
+    </p>
     
       <ul class='tags'>
       
@@ -79,7 +89,7 @@
     
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="Post-content" itemprop="articleBody">
     <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//convert hours to 12-hour format</span>
 <span class="nx">hours</span> <span class="o">=</span> <span class="p">((</span><span class="nx">hours</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
