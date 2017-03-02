@@ -166,15 +166,15 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     padding-left: $dimension-spacing;
 	}
 	.footer-col-1 {
-			flex-grow: 2;
+		width: calc(100% / 4);
 	}
 
 	.footer-col-2 {
-			flex-grow: 2;
+		width: calc(100% / 4);
 	}
 
 	.footer-col-3 {
-			flex-grow: 3;
+		width: calc(100% / 2);
 	}
 }
 
