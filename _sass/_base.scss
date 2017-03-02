@@ -161,7 +161,8 @@ pre {
     margin-left: auto;
     padding-right: $dimension-spacing;
     padding-left: $dimension-spacing;
-    @extend %clearfix;
+    display: flex;
+    justify-content: space-between;
 
     @include media-query($on-laptop) {
         max-width:         calc(#{$content-width} - (#{$dimension-spacing}));
@@ -169,21 +170,6 @@ pre {
         padding-left: $dimension-spacing / 2;
     }
 }
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
 
 
 /**

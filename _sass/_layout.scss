@@ -10,23 +10,28 @@ body {
   font-size: calc(14px + .3vw);
   letter-spacing: 0.1px;
   word-spacing: 1px;
-  line-height: 1.8;
+  line-height: 1.6;
+}
+
+strong, b {
+	font-family: 'Graphik-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Graphik-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Graphik-Semibold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		line-height: 1.4;
 }
-h1 { font-size: 2.6rem; @include media-query($large) {font-size: 3rem;  } }
-h2 { font-size: 2.4rem; @include media-query($large) {font-size: 2.6rem;} }
-h3 { font-size: 2.2rem; @include media-query($large) {font-size: 2.4rem;} }
-h4 { font-size: 2rem;   @include media-query($large) {font-size: 2.2rem;} }
-h5 { font-size: 1.8rem; @include media-query($large) {font-size: 2rem;  } }
-h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
+h1 { font-size: 2.6rem; @include media-query($medium) {font-size: 3rem;  } }
+h2 { font-size: 2.4rem; @include media-query($medium) {font-size: 2.6rem;} }
+h3 { font-size: 2.2rem; @include media-query($medium) {font-size: 2.4rem;} }
+h4 { font-size: 2rem;   @include media-query($medium) {font-size: 2.2rem;} }
+h5 { font-size: 1.8rem; @include media-query($medium) {font-size: 2rem;  } }
+h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 
 /**
  * Site header
  */
-.site-header {
+.Site-header {
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
@@ -37,13 +42,12 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
   position: relative;
 }
 
-.site-title {
+.Site-title {
     font-size: 26px;
     font-weight: 300;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
-    float: left;
 
     &,
     &:visited {
@@ -51,8 +55,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     }
 }
 
-.site-nav {
-    float: right;
+.Site-nav {
     line-height: 56px;
 
     .menu-icon {
@@ -62,11 +65,8 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
     .page-link {
         color: $grey-color-light;
         line-height: $base-line-height;
+				padding-left: 20px;
 
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
     }
 
     @media screen and (max-width: $small) {
@@ -110,10 +110,6 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
         .page-link {
             display: block;
             padding: 5px 10px;
-
-            &:not(:last-child) {
-                margin-right: 0;
-            }
             margin-left: 20px;
         }
     }
@@ -124,7 +120,7 @@ h6 { font-size: 1.6rem; @include media-query($large) {font-size: 1.8rem;} }
 /**
  * Site footer
  */
-.site-footer {
+.Site-footer {
     border-top: 1px solid $grey-color-light;
     padding: $dimension-spacing 0;
     background: $bg-color-dark;
