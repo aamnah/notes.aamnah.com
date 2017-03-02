@@ -1,0 +1,15 @@
+---
+---
+
+{% comment %}
+=======================
+The purpose of this snippet is to make a json object containing details for all your posts. It uses `_includes/post.json` to get the details
+=======================
+{% endcomment %}
+
+[
+{% for post in site.posts %}
+  {% include post.json %},
+{% endfor %}
+false
+]
