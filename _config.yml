@@ -35,8 +35,11 @@ redcarpet:
 
 # Collections
 collections:
-  - resource
-  - quote
+  resource:
+  quotes:
+  "Bash Scripting":
+    output: true
+
 
 # Site wide defaults
 defaults:
@@ -54,7 +57,14 @@ defaults:
     layout: "resource"
 
 - scope:
-    path: ""
+    path: "_quotes"
     type: "quote"
   values:
     layout: "quote"
+
+- scope:
+    path: "_posts/bash-scripting"
+    type: "posts"
+  values:
+    layout: "post"
+    author: "Aamnah"
