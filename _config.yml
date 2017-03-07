@@ -35,7 +35,6 @@ redcarpet:
 
 # Collections
 collections:
-  resource:
   quotes:
   "Bash Scripting":
     output: true
@@ -49,12 +48,6 @@ defaults:
   values:
     layout: "post"
     author: "Aamnah"
-
-- scope:
-    path: ""
-    type: "resource"
-  values:
-    layout: "resource"
 
 - scope:
     path: "_quotes"

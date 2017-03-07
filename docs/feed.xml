@@ -6,9 +6,203 @@
 </description>
     <link>http://tldrdevnotes.com/</link>
     <atom:link href="http://tldrdevnotes.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 17:39:24 +0500</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 17:39:24 +0500</lastBuildDate>
+    <pubDate>Tue, 07 Mar 2017 11:09:12 +0500</pubDate>
+    <lastBuildDate>Tue, 07 Mar 2017 11:09:12 +0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Github requests with HttPie</title>
+        <description>&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://egghead.io/courses/understand-the-basics-of-http&quot;&gt;Egghdea.io: Understand the Basics of HTTP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 07 Mar 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/github-httpie-requests-response-fundamentals</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/github-httpie-requests-response-fundamentals</guid>
+        
+        <category>api</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Get raw file data from Github API</title>
+        <description>&lt;p&gt;You can use the send an &lt;code&gt;Accept&lt;/code&gt; hedaer with the conent-type you want with your http requests. Many APIs allow you to request the same resource in different content-types.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Content-Type: application/vnd.github.v3.raw&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//api.github.com/gitignore/Node Accept:application/vnd.github.v3.raw&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you ask for an unsupported media/content type, you&amp;#39;ll get a &lt;code&gt;415: Unsupported Media Type&lt;/code&gt; error&lt;/li&gt;
+&lt;li&gt;Response code 200s: success&lt;/li&gt;
+&lt;li&gt;Response code 300s: location is elsewhere (or already in cache i.e. 307)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://egghead.io/lessons/tools-examine-http-message-bodies&quot;&gt;Egghead.io: Examine HTTP Message Bodies&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 07 Mar 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/github-raw-data-api</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/github-raw-data-api</guid>
+        
+        <category>api</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Homebrew Commands</title>
+        <description>&lt;p&gt;Homebrew is a package manager for MacOS, very much like &lt;code&gt;apt&lt;/code&gt; is a package manager for Ubuntu/Debian Linux.&lt;/p&gt;
+
+&lt;p&gt;It lets you install, update, upgrade and uninstall programs via the command line. It also let&amp;#39;s you install some Linux programs for your Mac, like &lt;code&gt;wget&lt;/code&gt; for example.&lt;/p&gt;
+
+&lt;p&gt;Homebrew also let&amp;#39;s you add programs to &lt;code&gt;launchd&lt;/code&gt; so that they automatically start and restart with login. For example &lt;code&gt;brew services start mongodb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;install Homebrew with this command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/usr/bin/ruby -e &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Commands&lt;/h3&gt;
+
+&lt;p&gt;| Command           | Description |
+|---------------------|---------------|
+| &lt;code&gt;brew install foo&lt;/code&gt; | Install package |
+| &lt;code&gt;brew upgrade foo&lt;/code&gt; | Upgrade package |
+| &lt;code&gt;brew unlink foo&lt;/code&gt; | Unlink (removes symlinks, e.g. before upgrades) |
+| &lt;code&gt;brew link foo&lt;/code&gt; | Link |
+| &lt;code&gt;brew switch foo 2.5.0&lt;/code&gt; | Change versions |
+| &lt;code&gt;brew list --versions foo&lt;/code&gt; | See what versions you have |
+| &lt;code&gt;brew info foo&lt;/code&gt; | Get info about package, List versions, caveats, etc |
+| &lt;code&gt;brew cleanup foo&lt;/code&gt; | Remove old versions |
+| &lt;code&gt;brew edit foo&lt;/code&gt; | Edit this formula |
+| &lt;code&gt;brew home foo&lt;/code&gt; | Open homepage |
+| &lt;code&gt;brew update&lt;/code&gt; |   Update brew and cask |
+| &lt;code&gt;brew list&lt;/code&gt; | List installed |
+| &lt;code&gt;brew outdated&lt;/code&gt; | What’s due for upgrades? |&lt;/p&gt;
+
+&lt;p&gt;Upgrade a package:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;brew unlink foo&lt;/code&gt; and then &lt;code&gt;brew upgrade foo&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://ricostacruz.com/cheatsheets/homebrew.html&quot;&gt;Homebrew cheatsheet by Rico Sta. Cruz.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.brew.sh/FAQ.html&quot;&gt;Homebrew FAQs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Mar 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/2017-03-5-05-homebrew-macos-package-manager-commands-cheatsheet</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/2017-03-5-05-homebrew-macos-package-manager-commands-cheatsheet</guid>
+        
+        <category>macos</category>
+        
+        <category>cheatsheet</category>
+        
+        <category>commands</category>
+        
+        
+        <category>cheatsheet</category>
+        
+      </item>
+    
+      <item>
+        <title>Find, install and upgrade Linux software</title>
+        <description>&lt;ul&gt;
+&lt;li&gt;Update packages list: &lt;code&gt;sudo apt update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;See packages that can be upgraded: &lt;code&gt;apt list --upgradable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;See all packages that can be upgraded: &lt;code&gt;apt list --upgradable -a&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Upgrade packages: &lt;code&gt;apt upgrade&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Upgrade packages without asking me yes/no: &lt;code&gt;apt upgrade -y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Search for packages: &lt;code&gt;apt-cache search foo&lt;/code&gt; OR &lt;code&gt;apt search foo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Get details about a specific package: &lt;code&gt;apt-cache show foo&lt;/code&gt; OR &lt;code&gt;apt show foo&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;code&gt;apt-cache&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;apt-cache&lt;/code&gt; command can display much of the information stored in APT&amp;#39;s internal database. This information is a sort of cache since it is gathered from the different sources listed in the &lt;code&gt;sources.list&lt;/code&gt; file. This happens during the &lt;code&gt;apt update&lt;/code&gt; operation.&lt;/p&gt;
+
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://debian-handbook.info/browse/stable/sect.apt-cache.html&quot;&gt;The Debian Administrator&amp;#39;s Handbook: 6.3. The &lt;code&gt;apt-cache&lt;/code&gt; Command&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Mar 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/install-upgrade-search-find-software-packages-linux</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/install-upgrade-search-find-software-packages-linux</guid>
+        
+        <category>system management</category>
+        
+        <category>sysadmin</category>
+        
+        <category>linux</category>
+        
+        <category>debian</category>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Install MongoDB on MacOS</title>
+        <description>&lt;h2&gt;tl;dr&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# install Homebrew if not installed already&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# install&lt;/span&gt;
+brew install mongodb
+
+&lt;span class=&quot;c&quot;&gt;# add MongoDB to startup processes&lt;/span&gt;
+brew services start mongodb
+
+&lt;span class=&quot;c&quot;&gt;# create the `/data/db` directory, where mongo data will live&lt;/span&gt;
+mkdir -p /data/db
+
+&lt;span class=&quot;c&quot;&gt;# Make sure the `/data/db` directory has the right permissions&lt;/span&gt;
+sudo chown -R &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;id -un&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; /data/db
+
+&lt;span class=&quot;c&quot;&gt;# Run the mongo daemon&lt;/span&gt;
+mongod
+&lt;span class=&quot;c&quot;&gt;# sudo mongod&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# `quit()` to quit, `ctrl+c` to exit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Using MongoDB Client CLI&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# start mongo client&lt;/span&gt;
+mongo 
+
+mongo &amp;gt; &lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# see a list of commands available&lt;/span&gt;
+
+mongo &amp;gt; show dbs &lt;span class=&quot;c&quot;&gt;# show all databases&lt;/span&gt;
+mongo &amp;gt; use foo &lt;span class=&quot;c&quot;&gt;# use/switch to a database&lt;/span&gt;
+mongo &amp;gt; show collections &lt;span class=&quot;c&quot;&gt;# show collections (like Tables in SQL dbs) in the database&lt;/span&gt;
+mongo &amp;gt; db.foo.find&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# show data inside a collection with `.find()`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Alternatively, you can use a free MongoDB management tool called &lt;a href=&quot;https://robomongo.org/&quot;&gt;Robomongo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://treehouse.github.io/installation-guides/mac/mongo-mac.html&quot;&gt;Treehouse: Installing MongoDB on a Mac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Mar 2017 00:00:00 +0500</pubDate>
+        <link>http://tldrdevnotes.com/install-mongodb-macos</link>
+        <guid isPermaLink="true">http://tldrdevnotes.com/install-mongodb-macos</guid>
+        
+        <category>how-to</category>
+        
+        <category>databases</category>
+        
+        
+      </item>
     
       <item>
         <title>Getting started with Firebase Hosting</title>
@@ -1083,220 +1277,6 @@ Prism.languages.js = Prism.languages.javascript;
         <pubDate>Sat, 25 Feb 2017 00:00:00 +0500</pubDate>
         <link>http://tldrdevnotes.com/notes-css-styles</link>
         <guid isPermaLink="true">http://tldrdevnotes.com/notes-css-styles</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to sync an entire Amazon S3 bucket locally</title>
-        <description>&lt;h3&gt;tl;dr&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install awscli &lt;span class=&quot;c&quot;&gt;# MacOS&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# apt-get update &amp;amp;&amp;amp; apt install awscli -y # Ubuntu&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# pip install --upgrade --user awscli # Unix&lt;/span&gt;
-aws configure
-aws s3 ls 
-aws s3 sync s3://my-bucket . 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;install&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install --upgrade --user awscli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;to upgrade, run the same command above. To uninstall, &lt;code&gt;pip uninstall awscli&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3&gt;Ubuntu install&lt;/h3&gt;
-
-&lt;p&gt;this is on a fresh Ubuntu system.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;python --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pip --version&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;install pip&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl -O https://bootstrap.pypa.io/get-pip.py &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; python get-pip.py
-pip --version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;install AWS CLI&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install awscli --upgrade --user
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;configuration&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;aws configure
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-Default region name [None]: us-west-2
-Default output format [None]: ENTER
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For Amazon S3, region doesn&amp;#39;t matter. But you must enter a value, so pick whichever you like from &lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Default output format can be either &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, or &lt;code&gt;table&lt;/code&gt;. If you don&amp;#39;t specify an output format, json will be used.  To skip having to specify anything hit ENTER.&lt;/p&gt;
-
-&lt;p&gt;You can change or update these later. The access_key and ID are stored in &lt;code&gt;~/.aws/credentials&lt;/code&gt; and the region and default format are saved in &lt;code&gt;~/.aws/config&lt;/code&gt;. You can also have multiple profiles with different configurations.&lt;/p&gt;
-
-&lt;h3&gt;List and sync buckets&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# List all buckets&lt;/span&gt;
-aws s3 ls
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Sync the &#39;my-bucket&#39; bucket on S3 to current directory&lt;/span&gt;
-aws s3 sync s3://my-bucket . 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html&quot;&gt;AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html&quot;&gt;AWS CLI Command Reference: sync&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket&quot;&gt;StackOverflow: Downloading an entire S3 bucket?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/howto-sync-entire-aws-s3-bucket-locally</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/howto-sync-entire-aws-s3-bucket-locally</guid>
-        
-        <category>aws</category>
-        
-        <category>s3</category>
-        
-        <category>sync</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to use Redcarpet for syntax highlighting in Jekyll</title>
-        <description>&lt;p&gt;why?
-- because i don&amp;#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the &lt;em&gt;posts&lt;/em&gt; elsewhere
-- because Github uses Redcarpet for rendering &lt;code&gt;.md&lt;/code&gt; content
-- because it supports fenced code blocks.
-- because it makes working with imported/exported sites easy&lt;/p&gt;
-
-&lt;h3&gt;install&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install redcarpet
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;configuration&lt;/h3&gt;
-
-&lt;p&gt;In your &lt;code&gt;_config.yml&lt;/code&gt; file, add the entry for &lt;code&gt;redcarpet&lt;/code&gt; and update the value for &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;s&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redcarpet&lt;/span&gt;
-
-&lt;span class=&quot;s&quot;&gt;redcarpet&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;no_intra_emphasis&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;tables&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;autolink&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;strikethrough&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;with_toc_data&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;fenced_code_blocks&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ```javascript ```&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;highlight&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ==highlight==&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;superscript&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 2^(nd)&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;footnotes&quot;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# [^somesamplefootnote]&lt;/span&gt;
-
-  &lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vmg/redcarpet/&quot;&gt;Github: Redcarpet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html&quot;&gt;Redcarpet Extensions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code</guid>
-        
-        <category>jekyll</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>How to import a WordPress blog in Jekyll (MacOS)</title>
-        <description>&lt;p&gt;install &lt;code&gt;jekyll-import&lt;/code&gt; and it&amp;#39;s dependencies&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# install homebrew if not already installed&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;&lt;/span&gt;
-
-brew install mysql
-sudo gem install unidecode sequel mysql2 htmlentities hpricot open_uri_redirections 
-sudo gem install jekyll-import
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Export your WordPress site content (Dashboard &amp;gt; Tools &amp;gt; Export). Now import the downloaded file using the following command: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubygems&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;require &quot;jekyll-import&quot;; 
-  JekyllImport::Importers::WordpressDotCom.run({ 
-    &quot;source&quot;    =&amp;gt; &quot;/Users/aamnah/tldrdevnotes.wordpress.2017-02-23.xml&quot;,
-  })&#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Make sure to update the source, it should have the location of your downloaded wordpress export file. You should something like below:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Downloading images for Sass: Creating a Color Palette
-  http://mysite.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-0.23.21-300x220.jpeg
-    OK!
-Imported 6 attachments
-Imported 18 nav_menu_items
-Imported 1 custom_csss
-Imported 1 pages
-Imported 73 posts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/howto-import-wordpress-jekyll-macos</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/howto-import-wordpress-jekyll-macos</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Getting started with Jekyll</title>
-        <description>&lt;h3&gt;installation&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install jekyll
-jekyll new my-awesome-site
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;my-awesome-site
-jekyll serve &lt;span class=&quot;c&quot;&gt;# watches for changes by default&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# =&amp;gt; Now browse to http://localhost:4000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;jekyll serve&lt;/code&gt; &lt;em&gt;watches&lt;/em&gt; for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jekyll build --watch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;configuration&lt;/h3&gt;
-
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;https://jekyllrb.com/&lt;/li&gt;
-&lt;li&gt;https://jekyllrb.com/docs/configuration/&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/getting-started-jekyll</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/getting-started-jekyll</guid>
-        
-        <category>getting started</category>
-        
-        <category>guides</category>
-        
-        <category>jekyll</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Set `npm init` defaults globally</title>
-        <description>&lt;p&gt;You can either edit the global configuration file for &lt;code&gt;npm&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm config edit --global
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;(it&amp;#39;ll open the file in Vim)&lt;/p&gt;
-
-&lt;p&gt;Or, you can set the defaults one by one:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# npm config set &amp;lt;key&amp;gt; &amp;lt;value&amp;gt; [-g|--global]&lt;/span&gt;
-npm config &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -g init-author-name &lt;span class=&quot;s1&quot;&gt;&#39;Aamnah&#39;&lt;/span&gt;
-npm config &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -g init-author-email &lt;span class=&quot;s1&quot;&gt;&#39;hello@aamnah.com&#39;&lt;/span&gt;
-npm config &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -g init-author-url &lt;span class=&quot;s1&quot;&gt;&#39;http://aamnah.com&#39;&lt;/span&gt;
-npm config &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -g init-license &lt;span class=&quot;s1&quot;&gt;&#39;CC-BY-SA-4.0&#39;&lt;/span&gt;
-npm config &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -g init-version &lt;span class=&quot;s1&quot;&gt;&#39;0.1.0&#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://docs.npmjs.com/cli/config&quot;&gt;npm-config&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 20 Feb 2017 00:00:00 +0500</pubDate>
-        <link>http://tldrdevnotes.com/2017/02/20/howto-set-npm-defaults-globally.html</link>
-        <guid isPermaLink="true">http://tldrdevnotes.com/2017/02/20/howto-set-npm-defaults-globally.html</guid>
-        
-        <category>javascript</category>
-        
-        <category>node</category>
-        
-        <category>npm</category>
         
         
       </item>

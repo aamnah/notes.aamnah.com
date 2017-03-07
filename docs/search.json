@@ -5,6 +5,78 @@
   
 
 { 
+  "title": "Github requests with HttPie",
+  
+  "url": "/github-httpie-requests-response-fundamentals",
+  "date": "2017-03-07 00:00:00 +0500"
+  
+  
+  ,"tags": ["api"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Get raw file data from Github API",
+  
+  "url": "/github-raw-data-api",
+  "date": "2017-03-07 00:00:00 +0500"
+  
+  
+  ,"tags": ["api"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Homebrew Commands",
+  
+  "url": "/2017-03-5-05-homebrew-macos-package-manager-commands-cheatsheet",
+  "date": "2017-03-05 00:00:00 +0500"
+  
+  ,"categories": ["cheatsheet"]
+  
+  
+  ,"tags": ["macos", "cheatsheet", "commands"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Find, install and upgrade Linux software",
+  
+  "url": "/install-upgrade-search-find-software-packages-linux",
+  "date": "2017-03-05 00:00:00 +0500"
+  
+  
+  ,"tags": ["system management", "sysadmin", "linux", "debian", "ubuntu"]
+  
+}
+,
+
+  
+
+{ 
+  "title": "Install MongoDB on MacOS",
+  
+  "url": "/install-mongodb-macos",
+  "date": "2017-03-05 00:00:00 +0500"
+  
+  
+  ,"tags": ["how-to", "databases"]
+  
+}
+,
+
+  
+
+{ 
   "title": "Getting started with Firebase Hosting",
   
   "subtitle": "Host your websites and apps on Firebase Hosting for free",

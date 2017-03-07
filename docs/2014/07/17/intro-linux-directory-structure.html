@@ -59,6 +59,10 @@
           
         
           
+          <a class="page-link" href="/resource-list">Resources</a>
+          
+        
+          
         
       </div>
     </nav>
