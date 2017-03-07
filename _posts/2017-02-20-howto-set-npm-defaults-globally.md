@@ -22,6 +22,12 @@ npm config set -g init-license 'CC-BY-SA-4.0'
 npm config set -g init-version '0.1.0'
 ```
 
+You can also use the `npm init` command with the `y` flag to initiate a project with the default values without prompting you for details.
+
+```bash
+npm init -y
+```
+
 Links
 ---
 - [npm-config](https://docs.npmjs.com/cli/config)
