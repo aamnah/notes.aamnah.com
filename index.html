@@ -12,10 +12,4 @@ layout: default
 
   <p>Use the search function to find what you are looking for. Wait, the search function is not there yet.. Just `Ctrl+F` for now</p>
 
-  <h5>Recent posts</h5>
-  <ul>
-  {% for post in site.posts limit:5 %}
-    <li><a href="{{post.url}}">{{ post.title }}</a></li>
-  {% endfor %}
-  </ul>
 </div>
