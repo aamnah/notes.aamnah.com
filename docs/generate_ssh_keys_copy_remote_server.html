@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="Generate the Key (on local server)cd ~/.ssh &amp;&amp; ssh-keygen -t rsa">
+  <meta name="description" content="mkdir ~/.ssh &amp;&amp; chmod 700 ~/.sshtouch ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys# copy key.pub to authorized_keys# nano /etc/...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://tldrdevnotes.com/generate_ssh_keys_copy_remote_server">
@@ -100,7 +100,13 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Generate the Key (on local server)</h3>
+    <div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/.ssh <span class="o">&amp;&amp;</span> chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys <span class="o">&amp;&amp;</span> chmod 600 ~/.ssh/authorized_keys
+<span class="c"># copy key.pub to authorized_keys</span>
+<span class="c"># nano /etc/ssh/sshd_config</span>
+service ssh reload
+</code></pre></div>
+<h3>Generate the Key (on local server)</h3>
 <div class="highlight"><pre><code class="language-" data-lang="">cd ~/.ssh &amp;&amp; ssh-keygen -t rsa
 </code></pre></div>
 <h3>Making Sure the Remote Server Accepts SSH Keys</h3>
