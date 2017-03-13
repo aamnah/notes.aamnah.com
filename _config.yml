@@ -46,6 +46,10 @@ collections:
     output: true
     title: "Commands"
     permalink: /:collection/:path/
+  linux:
+    output: true
+    title: "Linux"
+    permalink: /:collection/:path/
 
 
 # Site wide defaults
@@ -59,20 +63,24 @@ defaults:
 
 - scope:
     path: "_quotes"
-    type: "quotes"
   values:
     layout: "quote"
 
 - scope:
     path: "_bash-scripting"
-    type: "bash-scripting"
   values:
-    layout: "posts"
+    layout: "post"
     author: "Aamnah"
 
 - scope:
     path: "_commands"
     type: "commands"
+  values:
+    layout: "post"
+    author: "Aamnah"
+
+- scope:
+    path: "_linux"
   values:
     layout: "post"
     author: "Aamnah"
