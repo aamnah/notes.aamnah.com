@@ -89,22 +89,6 @@
   
 
 { 
-  "title": "Homebrew Commands",
-  
-  "url": "/2017-03-05-homebrew-macos-package-manager-commands-cheatsheet",
-  "date": "2017-03-05 00:00:00 +0500"
-  
-  ,"categories": ["cheatsheet"]
-  
-  
-  ,"tags": ["macos", "cheatsheet", "commands"]
-  
-}
-,
-
-  
-
-{ 
   "title": "Getting started with Firebase Hosting",
   
   "subtitle": "Host your websites and apps on Firebase Hosting for free",
@@ -329,43 +313,11 @@
   
 
 { 
-  "title": "Batch renaming files in Bash",
-  
-  "url": "/batch-rename-files-bash",
-  "date": "2015-04-17 00:00:00 +0500"
-  
-  ,"categories": ["bash"]
-  
-  
-  ,"tags": ["bash"]
-  
-}
-,
-
-  
-
-{ 
   "title": "AngularJS Basics",
   
   "url": "/angularjs_basics",
   "date": "2015-04-14 00:00:00 +0500"
   
-  
-}
-,
-
-  
-
-{ 
-  "title": "Cheatsheet - MySQL Commands",
-  
-  "url": "/cheatsheet_mysql_commands",
-  "date": "2015-04-10 00:00:00 +0500"
-  
-  ,"categories": ["Cheatsheet"]
-  
-  
-  ,"tags": ["cheatsheet", "mysql"]
   
 }
 ,
@@ -561,51 +513,11 @@
   
 
 { 
-  "title": "How to take options for your Bash Script",
-  
-  "url": "/how_to_take_options_arguments_for_your_bash_script",
-  "date": "2015-02-22 00:00:00 +0500"
-  
-  
-}
-,
-
-  
-
-{ 
   "title": "How to parse JSON data in Python",
   
   "url": "/how_to_parse_json_data_in_python",
   "date": "2015-02-22 00:00:00 +0500"
   
-  
-}
-,
-
-  
-
-{ 
-  "title": "How to create a man page for your Bash Script",
-  
-  "url": "/how_to_create_man_page_for_your_bash_script",
-  "date": "2015-02-22 00:00:00 +0500"
-  
-  
-  ,"tags": ["bash", "script"]
-  
-}
-,
-
-  
-
-{ 
-  "title": "Bash script to create a new Jekyll post",
-  
-  "url": "/bash_script_to_create_new_jekyll_post",
-  "date": "2015-02-21 00:00:00 +0500"
-  
-  
-  ,"tags": ["bash", "script", "jekyll"]
   
 }
 ,
@@ -620,20 +532,6 @@
   
   
   ,"tags": ["basics", "database", "mysql", "how-to"]
-  
-}
-,
-
-  
-
-{ 
-  "title": "Bash Scripts -  Load/Read/Include Settings from Another File",
-  
-  "url": "/load-read-settings-from-another-file-bash-script",
-  "date": "2015-02-20 00:00:00 +0500"
-  
-  
-  ,"tags": ["bash", "script"]
   
 }
 ,
@@ -681,32 +579,6 @@
   
 
 { 
-  "title": "Opencart Install Script",
-  
-  "url": "/opencart-install-script",
-  "date": "2015-02-17 00:00:00 +0500"
-  
-  
-  ,"tags": ["opencart", "script", "bash"]
-  
-}
-,
-
-  
-
-{ 
-  "title": "Directly run bash scripts in Github Gists locally in Terminal.",
-  
-  "url": "/2015/02/17/directly-run-bash-scripts-from-github-gist.html",
-  "date": "2015-02-17 00:00:00 +0500"
-  
-  
-}
-,
-
-  
-
-{ 
   "title": "Bash script to create OCMOD and vQmod templates with a single command",
   
   "url": "/create-ocmod-vqmod-template-opencart-bash-script",
@@ -728,20 +600,6 @@
   
   
   ,"tags": ["grunt,", "snippet,", "workflow"]
-  
-}
-,
-
-  
-
-{ 
-  "title": "Write a Bash Function to Create a gruntfile.js for your project",
-  
-  "url": "/bash-function-create-gruntfile.js",
-  "date": "2015-02-15 00:00:00 +0500"
-  
-  
-  ,"tags": ["how-to,", "bash,", "script,", "workflow"]
   
 }
 ,
@@ -2042,22 +1900,6 @@
   
   
   ,"tags": ["cheatsheet", "commands", "git"]
-  
-}
-,
-
-  
-
-{ 
-  "title": "Amazon RDS Cheatsheet",
-  
-  "url": "/cheatsheet-amazon-rds-commands-mysql",
-  "date": "2014-05-21 16:16:36 +0500"
-  
-  ,"categories": ["Cheetsheet"]
-  
-  
-  ,"tags": ["amazon rds", "cheatsheet", "mysql", "commands"]
   
 }
 ,

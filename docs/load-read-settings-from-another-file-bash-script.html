@@ -82,22 +82,32 @@
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash Scripts -  Load/Read/Include Settings from Another File</h1>
     <p class="Post-meta">
-      <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
-        Feb 20, 2015
-      </time>
-       • 
+      
+      
+      <span class='ctime'>Created
+        <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
+          Feb 20, 2015
+        </time>
+      </span>
+      
+
+      
+      <span class='mtime'>Modified
+        <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
+          Mar 13, 2017
+        </time>
+      </span>
+      
+
+      <!-- • 
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
           <span itemprop="name">Aamnah</span>
         </span>
-      
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_posts/2015-02-20-load-read-settings-from-another-file-bash.md" target='_blank'>Edit this page on Github</a>
+      -->
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/load-read-settings-from-another-file-bash.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
-      
-        <li>bash</li>
-      
-        <li>script</li>
       
       </ul>
     
@@ -105,48 +115,36 @@
 
   <div class="Post-content" itemprop="articleBody">
     <p>To include a script into another script, we use the <code>source</code> command. In it&#39;s simplest form, the command is this:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">        <span class="nb">source </span>incl.sh
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source </span>incl.sh
+</code></pre></div>
 <p>Here&#39;s an example. Our <strong>keys.cfg</strong> file has this:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">AWSAccessKeyId</span><span class="o">=</span><span class="s2">"AKIAIKRGQQKRGQQKRGQQ"</span>
-    <span class="nv">AWSSecretKey</span><span class="o">=</span><span class="s2">"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"</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">AWSAccessKeyId</span><span class="o">=</span><span class="s2">"AKIAIKRGQQKRGQQKRGQQ"</span>
+<span class="nv">AWSSecretKey</span><span class="o">=</span><span class="s2">"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"</span>
+</code></pre></div>
 <p>While our <strong>script.sh</strong> has this:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash </span>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c">#!/bin/bash </span>
+<span class="c">#Directory the script is in (for later use)</span>
+<span class="nv">SCRIPTDIR</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span> dirname <span class="s2">"</span><span class="k">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span> <span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">"</span>
 
-    <span class="c">#Directory the script is in (for later use)</span>
-    <span class="nv">SCRIPTDIR</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span> dirname <span class="s2">"</span><span class="k">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span> <span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">"</span>
-
-    <span class="c"># Load the backup settings</span>
-    <span class="nb">source</span> <span class="s2">"</span><span class="k">${</span><span class="nv">SCRIPTDIR</span><span class="k">}</span><span class="s2">"</span>/keys.cfg
-    </code></pre></figure>
-
+<span class="c"># Load the backup settings</span>
+<span class="nb">source</span> <span class="s2">"</span><span class="k">${</span><span class="nv">SCRIPTDIR</span><span class="k">}</span><span class="s2">"</span>/keys.cfg
+</code></pre></div>
 <p>In our <strong>script.sh</strong> file we have sourced the file <strong>keys.cfg</strong> which contains configuration settings which we can now use.</p>
 
 <p>If you attempt to execute that shell script from a location other than the one where your script is, it can&#39;t find the include unless it&#39;s in your path. As a workaround we have defined <strong>SCRIPTDIR</strong> and made the scripts relative to one another.</p>
 
 <p>If the file you are including is in the same directory you can use <code>dirname $0</code>:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c">#!/bin/bash</span>
-    <span class="nb">source</span> <span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>/incl.sh
-    <span class="nb">echo</span> <span class="s2">"The main script"</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nb">source</span> <span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>/incl.sh
+<span class="nb">echo</span> <span class="s2">"The main script"</span>
+</code></pre></div>
 <p>An alternative to: </p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">scriptPath</span><span class="o">=</span><span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">scriptPath</span><span class="o">=</span><span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>
+</code></pre></div>
 <p>is:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">scriptPath</span><span class="o">=</span><span class="k">${</span><span class="nv">0</span><span class="p">%/*</span><span class="k">}</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">scriptPath</span><span class="o">=</span><span class="k">${</span><span class="nv">0</span><span class="p">%/*</span><span class="k">}</span>
+</code></pre></div>
 <p>.. the advantage being not having the dependence on dirname, which is not a built-in command (and not always available in emulators)</p>
 
 <h2>Resources</h2>
