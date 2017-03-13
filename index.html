@@ -2,14 +2,30 @@
 layout: default
 ---
 
-<div class="home">
+{% comment %}
+- Loops though every collection defined in `_config.yml`, except `_posts` and grabs the pages they contain; outputting titles.
+- If a `title` for the collection is specified in `_config.yml` use it, else use `collection.label` as name
+- Using an `unless` condition to exclude certain collections
+{%  endcomment %}
 
-  <h1>Welcome!</h1>
+<!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
 
-  <h2>This is TLDR Dev Notes</h2>
+<div class='collections'>
+{% for collection in site.collections %}
+  {% assign name = collection.label %}
+  {% unless name == 'posts' or name == 'quotes' %}
 
-  <h3>I am Aamnah, this blog is my dev notebook and braindump.</h3>
+  {% if collection.title %}
+  <h2>{{ collection.title }}</h2>
+  {% else %}
+  <h2>{{ name }}</h2>
+  {% endif %}
+  <ul>
+    {% for article in site.[name] %}
+      <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+    {% endfor %}
+  </ul>
 
-  <p>Use the search function to find what you are looking for. Wait, the search function is not there yet.. Just `Ctrl+F` for now</p>
-
+  {% endunless %}
+{% endfor %}
 </div>
