@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,13 +49,17 @@
           
         
           
-        
+          <a class="page-link" href="/categories">Categories</a>
           
         
           
         
           
-          <a class="page-link" href="/quotes">Quotes</a>
+        
+          
+        
+          
+          <a class="page-link" href="/quotes/">Quotes</a>
           
         
           

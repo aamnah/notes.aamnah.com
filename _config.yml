@@ -36,8 +36,16 @@ redcarpet:
 # Collections
 collections:
   quotes:
-  "Bash Scripting":
     output: true
+    permalink: /:collection/:path/
+  bash-scripting:
+    output: true
+    title: "Bash Scripting"
+    permalink: /:collection/:path/
+  commands:
+    output: true
+    title: "Commands"
+    permalink: /:collection/:path/
 
 
 # Site wide defaults
@@ -51,13 +59,20 @@ defaults:
 
 - scope:
     path: "_quotes"
-    type: "quote"
+    type: "quotes"
   values:
     layout: "quote"
 
 - scope:
-    path: "_posts/bash-scripting"
-    type: "posts"
+    path: "_bash-scripting"
+    type: "bash-scripting"
+  values:
+    layout: "posts"
+    author: "Aamnah"
+
+- scope:
+    path: "_commands"
+    type: "commands"
   values:
     layout: "post"
     author: "Aamnah"
