@@ -1,8 +1,21 @@
 ---
-layout: archive
+layout: default
 title: Archive
 permalink: /archive/
-type: page
 published: true
 status: publish
 ---
+
+<div class="container">
+  <div class="archive">
+    <h1>Archive</h1>
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <ol>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{post.url}}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </ol>
+  </div>
+</div>

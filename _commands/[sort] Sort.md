@@ -1,0 +1,1 @@
+-f, --ignore-case
