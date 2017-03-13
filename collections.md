@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Categories
-permalink: categories
+title: Archive
+permalink: /archive/
 ---
 
 {% comment %}
@@ -9,6 +9,8 @@ permalink: categories
 - If a `title` for the collection is specified in `_config.yml` use it, else use `collection.label` as name
 - Using an `unless` condition to exclude certain collections
 {%  endcomment %}
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 <div class='collections'>
 {% for collection in site.collections %}
