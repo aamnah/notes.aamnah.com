@@ -3,6 +3,8 @@ layout: post
 title: '[chmod] Permissions'
 permalink: chmod
 command: chmod
+ctime: 2015-11-19
+mtime: 2015-11-20
 ---
 
 ## change permissions on all dirs

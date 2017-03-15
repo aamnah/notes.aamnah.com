@@ -4,6 +4,8 @@ title: '[apt] Packages'
 command: apt
 permalink: apt
 manpage: http://manpages.ubuntu.com/manpages/zesty/man8/apt.8.html
+ctime: 2015-11-27
+mtime: 2015-12-03
 ---
 
 To get a list of packages installed locally do this in your terminal:
