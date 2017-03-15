@@ -34,6 +34,7 @@ Notes
 - Watch [this tutorial][photoshop-tutorial] to learn how to easily find positions with the Info panel (Window > Info (F8)) in **Photoshop**
 - The image **maps are NOT responsive**. If an image gets shrinked due to less space or whatever reason, it messes up the coordinates (as they are fixed pixels, not percentages). To get responsive maps you'll need to use a plugin
 - **Alternatively** you can use an **svg** instead of an image map, svg will be responsive as well. [example](http://stackoverflow.com/a/28277021/890814)
+- Right clicking any shape highlights the shape outline
 
 ## Demo 1
 
