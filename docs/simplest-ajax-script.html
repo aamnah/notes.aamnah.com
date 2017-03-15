@@ -77,7 +77,7 @@
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class='ctime'>Created
         <time datetime="2015-01-02T00:00:00+05:00" itemprop="datePublished">
           Jan 2, 2015
         </time>
@@ -87,7 +87,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/2015-01-02-simplest.ajax.script.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/simplest-ajax-script.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -98,35 +98,30 @@
 
   <div class="Post-content" itemprop="articleBody">
     <p>index.html</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="cp">&lt;!DOCTYPE html&gt;</span>
-    <span class="nt">&lt;html&gt;</span>
-    <span class="nt">&lt;head&gt;</span>
-      <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;title&gt;</span>Learning AJAX<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;/head&gt;</span>
-    <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>The Simplest AJAX script<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"ajax.txt"</span><span class="nt">&gt;</span>Load Ajax text file<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-    <span class="nt">&lt;/body&gt;</span>
-    <span class="nt">&lt;/html&gt;</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Learning AJAX<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>The Simplest AJAX script<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"ajax.txt"</span><span class="nt">&gt;</span>Load Ajax text file<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 <p>main.js</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 
-      <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span>
+  <span class="p">};</span>
 
-      <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kc">false</span>
-      <span class="p">};</span>
-
-    <span class="p">})();</span> 
-    </code></pre></figure>
-
+<span class="p">})();</span> 
+</code></pre></div>
 <p>In our page, we will add a link, which when clicked will load the text from a file (which we called &#39;ajax.txt&#39; here) the ajax way i.e. without refreshing the whole page. We&#39;ll also add a link to the script file that will have our ajax request code.</p>
 
 <p>When the link is clicked, the text will load via ajax. to disable the default action on click, which is going to the linked file in the browser, we will use &#39;return false;&#39; in our javascript.</p>
@@ -136,55 +131,45 @@
 <h2>Step 1 - Beginning our code</h2>
 
 <p>In our <strong>main.js</strong> file, we&#39;ll start by creating a <a href="link-to-related-post">slef-invoking anonymous function</a> so our ajax code stays out of our global scope.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-    <span class="p">})();</span> 
-    </code></pre></figure>
-
+<span class="p">})();</span> 
+</code></pre></div>
 <h2>Step 2 - Setting up for when the link is clicked</h2>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 
-      <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-      <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      
-        <span class="k">return</span> <span class="kc">false</span>
-      <span class="p">};</span>
+    <span class="k">return</span> <span class="kc">false</span>
+  <span class="p">};</span>
 
-    <span class="p">})();</span> 
-    </code></pre></figure>
-
+<span class="p">})();</span> 
+</code></pre></div>
 <p>We are going to select the link element. Since we only have one &#39;a&#39; tag in our sample code, we are directly targetting the first link in the index.html file. You can set &#39;index&#39; to determine which &#39;occurence&#39; of the tag you want to target. Index starts with zero. <code>getElementByTagName(&#39;a&#39;)[0];</code> will get the first <code>a</code> tag in index.html. </p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">        <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
-    </code></pre></figure>
-
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</code></pre></div>
 <p>Next, we&#39;ll handle the click event of this link. Let&#39;s create a function that will run whenever the link is clicked.</p>
 
 <p>By default if you click a link, it &#39;goes&#39; to the linked file. We don&#39;t want that. We want it to &#39;load&#39; everything the linked file on the page we are on, has without refreshing the page. So we&#39;ll add <code>return false;</code> at the end of the function to disable the default onclick action.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">      <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      
-        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-      <span class="p">};</span>
-    </code></pre></figure>
-
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
 <h2>Step 3 - Starting AJAX code, i.e. creating an XHR Object.</h2>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 
-      <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">getElementByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-      <span class="nx">link</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      
-        <span class="k">return</span> <span class="kc">false</span>
-      <span class="p">};</span>
+    <span class="k">return</span> <span class="kc">false</span>
+  <span class="p">};</span>
 
-    <span class="p">})();</span> 
-    </code></pre></figure>
-
+<span class="p">})();</span> 
+</code></pre></div>
 <p>Our web page doesn&#39;t need to do a full page refresh to send a request to the server or receive a response back. </p>
 
 <h2>Step 4 - readyState and Status Codes</h2>

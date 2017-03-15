@@ -77,7 +77,7 @@
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class='ctime'>Created
         <time datetime="2017-03-07T00:00:00+05:00" itemprop="datePublished">
           Mar 7, 2017
         </time>
@@ -87,12 +87,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/2017-03-07-fetch-raw-files-from-github-api.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/fetch-raw-files-from-github-api.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
-      
-        <li>api</li>
       
       </ul>
     
@@ -100,8 +98,8 @@
 
   <div class="Post-content" itemprop="articleBody">
     <p>You can use the send an <code>Accept</code> hedaer with the conent-type you want with your http requests. Many APIs allow you to request the same resource in different content-types.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Content-Type: application/vnd.github.v3.raw</span>
-<span class="nx">http</span> <span class="o">-</span><span class="nx">v</span> <span class="nx">get</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//api.github.com/gitignore/Node Accept:application/vnd.github.v3.raw</span>
+<div class="highlight"><pre><code class="language-" data-lang="">// Content-Type: application/vnd.github.v3.raw
+http -v get https://api.github.com/gitignore/Node Accept:application/vnd.github.v3.raw
 </code></pre></div>
 <h2>Notes</h2>
 

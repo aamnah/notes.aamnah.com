@@ -1,8 +1,10 @@
 ---
 layout: post
 title: API Basics - Grabbing Data with Python
-tags: api, python, how-to
-
+permalink: api-basics-grab-data-python
+ctime: 2014-08-29
+tags: 
+- python
 ---
 
 - This is the accompanying code file for the video [Coding With Python :: Learn API Basics to Grab Data with Python](https://www.youtube.com/watch?v=pxofwuWTs7c).
@@ -19,14 +21,27 @@ tags: api, python, how-to
 
 Getting data in Terminal
 ---
-ISBNdb: `curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386`
+ISBNdb: 
 
-Open Library: `curl 'http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&jscmd=data&format=json'`
+```bash
+curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
+```
+
+Open Library: 
+
+```bash
+curl 'http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&jscmd=data&format=json'
+```
 
 ### Output
 
-For `curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386`
+For
+
+```bash
+curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
 ```
+
+```json
 {
    "data" : [
       {
@@ -66,7 +81,8 @@ For `curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386`
 
 A very basic example code in Python
 ---
-```
+
+```python
 #!/usr/bin/env python
 
 import urllib2
@@ -85,6 +101,7 @@ for book in response['data']:
 ```
 
 #### Output
+
 ```
 Mistborn
 Brandon Sanderson
@@ -94,7 +111,8 @@ Brandon Sanderson
 Getting Data in Python
 ---
 We will use `urllib2` to open the URL and `json` to parse the json data the URL provides.
-```
+
+```python
 #!/usr/bin/env python
 
 import urllib2
@@ -116,7 +134,8 @@ print response
 ```
 
 ### Output
-```
+
+```json
 {
    "index_searched" : "isbn",
    "data" : [
@@ -168,13 +187,15 @@ Getting specific details
 ---
 
 printing items from lists (iterating through lists)
-```
+
+```python
 for book in response['data']:
     print book['title']
     for author in response['data'][0]['author_data']: 
         print author['name']
     print book['physical_description_text']
 ```
+
 Be sure to read [this](http://stackoverflow.com/questions/10855827/how-to-loop-through-json-in-python) and [this](http://stackoverflow.com/questions/14089238/iterating-and-printing-json-objects-in-python) for iterating over 'lists in an object' like we have the 'author_data' list in the 'data' object.
 
 For the purpose of this article i'm only getting the **title**, **author** and **number of pages**. You can edit the code to output as many details as you want from the data object.
@@ -183,7 +204,7 @@ For the purpose of this article i'm only getting the **title**, **author** and *
 Turning the whole thing into a function (search by ISBN)
 ---
 
-````
+````python
 #!/usr/bin/env python
 
 import urllib2
@@ -212,6 +233,7 @@ def isbn_search(query):
 
 ### Output
 For `isbn_search('0765350386')`
+
 ```
 Mistborn
 Brandon Sanderson
@@ -219,6 +241,7 @@ Brandon Sanderson
 ```
 
 For `isbn_search('0743277465')`
+
 ```
 The art of learning
 Josh Waitzkin
@@ -230,7 +253,8 @@ The pages are actually taken from the **physical_description_text** item, so it 
 
 Turning the whole thing into a function (search by Name)
 ---
-```
+
+```python
 import urllib2
 import json
 
@@ -253,7 +277,9 @@ def name_search(query):
 ```
 
 ### Output
+
 For `name_search('mistborn')`
+
 ```
 Mistborn
 Brandon Sanderson
@@ -261,6 +287,7 @@ Brandon Sanderson
 ```
 
 For `name_search('the girl who kicked the hornets nest')`
+
 ```
 The Girl Who Kicked the Hornets' Nest
 Stieg Larsson

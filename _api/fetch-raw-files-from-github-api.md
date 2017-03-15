@@ -3,13 +3,12 @@ layout: post
 title: Get raw file data from Github API
 permalink: github-raw-data-api
 status: publish
-tags:
-- api
+ctime: 2017-03-07
 ---
 
 You can use the send an `Accept` hedaer with the conent-type you want with your http requests. Many APIs allow you to request the same resource in different content-types.
 
-```javascript
+```
 // Content-Type: application/vnd.github.v3.raw
 http -v get https://api.github.com/gitignore/Node Accept:application/vnd.github.v3.raw
 ```
