@@ -3,6 +3,7 @@ layout: post
 title: AJAX Basics
 permalink: ajax-basics
 description: how to make AJAX requests and receive response data
+ctime: 2014-09-03
 --- 
 
 1. AJAX Concepts
@@ -44,53 +45,53 @@ There are four major steps in
 AJAX requests only work through a web server. You can not just locally preview a file on your computer and expect your AJAX to work.
 
 ### A Simple AJAX Example
-	
-    {% highlight html %}
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>AJAX Example</title>
-        <script>
-        // STEP 1. Create an XMLHttpRequest object
-        // the name of the variable could be anything you want
-        // in our case we are calling it 'xhr'
-        var xhr = new XMLHttpRequest();
 
-        // STEP 2. Define a callback function
-        xhr.onreadystatechange = function () {
-          // check for readystate, 4 means done
-          // if readyState is equal to 4 then
-          if (xhr.readyState === 4) {
-            // get <div id="ajax"></div> from the html page 
-            // and place the data we receive (responseText) inside it
-            document.getElementById('ajax').innerHTML = xhr.responseText;
-          }
-        };
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AJAX Example</title>
+    <script>
+    // STEP 1. Create an XMLHttpRequest object
+    // the name of the variable could be anything you want
+    // in our case we are calling it 'xhr'
+    var xhr = new XMLHttpRequest();
 
-        // STEP 3. Open a request
-        // method = get, url = sidebar.html
-        xhr.open('GET', 'sidebar.html');
+    // STEP 2. Define a callback function
+    xhr.onreadystatechange = function () {
+      // check for readystate, 4 means done
+      // if readyState is equal to 4 then
+      if (xhr.readyState === 4) {
+        // get <div id="ajax"></div> from the html page 
+        // and place the data we receive (responseText) inside it
+        document.getElementById('ajax').innerHTML = xhr.responseText;
+      }
+    };
 
-        // STEP 4. Send the request
-        // put the send request in a function called 'sendAJAX'
-        // to use with the button #load
-        function sendAJAX() {
-          xhr.send();
-          // make the button disappear after it's clicked
-          document.getElementById('load').style.display = "none";
-        }
-        </script>
-      </head>
+    // STEP 3. Open a request
+    // method = get, url = sidebar.html
+    xhr.open('GET', 'sidebar.html');
 
-      <body>
-        <h1>Bring on the AJAX!</h1>
-        <button id="load" onclick="sendAJAX()">Bring it!</button>
-        <div id="ajax"></div>
-      </body>
+    // STEP 4. Send the request
+    // put the send request in a function called 'sendAJAX'
+    // to use with the button #load
+    function sendAJAX() {
+      xhr.send();
+      // make the button disappear after it's clicked
+      document.getElementById('load').style.display = "none";
+    }
+    </script>
+  </head>
 
-    </html>
-	{% endhighlight %}
-    
+  <body>
+    <h1>Bring on the AJAX!</h1>
+    <button id="load" onclick="sendAJAX()">Bring it!</button>
+    <div id="ajax"></div>
+  </body>
+
+</html>
+```
+
 ##### XMLHttpRequest
 The `new XMLHttpRequest();` tells the browser to get ready to work with AJAX. You should create a new XMLHttpRequest object for every AJAX request that you want to send.
 
@@ -118,39 +119,39 @@ POST method sends data separate from the URL in what is called the _body_ of the
 #### AJAX Response Formats (XML and JSON)
 **XML**
 
-    {% highlight xml %}
-    <music>
-      <song>
-        <title>Le Vie En Rose</title>
-        <singer>Edith Piaf</singer>
-        <language>French</language>
-        <year>1947</year>
-      </song>
-    </music>
-	{% endhighlight %}
+```xml
+<music>
+  <song>
+    <title>Le Vie En Rose</title>
+    <singer>Edith Piaf</singer>
+    <language>French</language>
+    <year>1947</year>
+  </song>
+</music>
+```
 
 Using XML with JavaScript is kinda cumbersome. You have to analyze/parse the XML then go through each of its _nodes_ to extract data from the tags. JSON on the other hand is easier to work with.
 
 **JSON**
 
-	{% highlight json %}
-    {
-      "music" : {
-        "song" : {
-          "title": "Le Vie En Rose",
-          "singer": "Edith Piaf",
-          "language": "French",
-          "year": "1947"
-        } 
-      }  
-    }
-    {% endhighlight %}
+```json
+{
+  "music" : {
+    "song" : {
+      "title": "Le Vie En Rose",
+      "singer": "Edith Piaf",
+      "language": "French",
+      "year": "1947"
+    } 
+  }  
+}
+```
 
 ### AJAX Limitations
 - Same origin policy
- 	- Web proxy
- 	- JSONP (JSON with Padding)
- 	- CORS (Cross-Origin Resource Sharing)
+    - Web proxy
+    - JSONP (JSON with Padding)
+    - CORS (Cross-Origin Resource Sharing)
 
 
 #### JSON Objects vs. JavaScript Objects
@@ -158,25 +159,25 @@ JSON formatted data has extra requirements. In regular JavaScript objects, keys 
 
 #### Parsing JSON
 We use the `JSON.parse()` function.
-	
-    {% highlight javascript %}
-	var employees = JSON.parse(xhr.responseText);
-    {% endhighlight %}
-    
+
+```javascript
+var employees = JSON.parse(xhr.responseText);
+```
+
 #### Looping through data
 
 JavaScript:
 
-    {% highlight javascript %}
-	for (i = 0, i < employees.length, i++) {
-    
-    }
-    {% endhighlight %}
+```javascript
+for (i = 0, i < employees.length, i++) {
+  // do seomthing
+}
+```
 
 `i++` is the same as `i += 1`. This loop will run once for each item in the array. Start with the first item (index of zero.)
 
 jQuery:
 
-	{% highlight javascript %}
-    $.each()
-    {% endhighlight %}
+```javascript
+$.each()
+```

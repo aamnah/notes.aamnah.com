@@ -7,8 +7,6 @@ tags:
 - api
 ---
 
-
-
 Links
 ---
 - [Egghdea.io: Understand the Basics of HTTP](https://egghead.io/courses/understand-the-basics-of-http)
