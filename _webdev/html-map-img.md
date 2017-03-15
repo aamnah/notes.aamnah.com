@@ -65,7 +65,7 @@ Every continent links to a different corresponding article on Wikipedia
 
 ## Demo 2
 
-Every frame links somewhere different
+Every frame links somewhere different [codepen](http://codepen.io/aamnah/pen/PpKLrd?editors=1000)
 
 <img src="{{ site.baseurl }}/assets/img/usemap-frames.png" alt="Usemap Example Frames" usemap="#Map" width="795" height="509" orgwidth="795" orgheight="509" />
 <map name="Map" id="Map">
