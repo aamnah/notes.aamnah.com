@@ -17,8 +17,8 @@ tl;dr
 <img usemap="#primary" src="http://placehold.it/350x150" alt="350 x 150 pic">
 ```
 
-- in an `<img>` tag, specify the `usemap` attribute and provide the name of whatever map you want to use (which you have defined). For example `#map-name`
-- define a map with the `<map>` tag. Each `<map>` takes an `<area>` tag with `shape`, `coords` and `href` attributes
+- in an `<img>` tag, specify the `usemap` attribute and provide the name of whatever map you want to use, for example `#world-continents`
+- define a map with the `<map>` tag. Each map takes an `<area>` tag with `shape`, `coords` and `href` attributes
 - `shape` could be a `rect`, `circle` or `poly`. The amount of `coords` provided and their placement depends on the shape
 - `rect` takes `x,y` positions of all four corners in a clockwise manner, starting from top-left
 - `circle` takes `x,y` positions at the **the horizontal middle of circle** and `radius` (half the width of circle)
