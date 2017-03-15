@@ -117,7 +117,11 @@ coords='187, 81, 50'
 
 
 #### poly
-With `poly` you can make any shape you want.. a pyramid, octagon or even someone's head (see [Seth Godin's site](http://sethgodin.com/sg/), he want you to click on his head to go to his blog..) The coords for poly are _sets_ of _x and y_ positions. 
+With `poly` you can make any shape you want.. a pyramid, octagon or even someone's head (see [Seth Godin's site](http://sethgodin.com/sg/), he want you to click on his head to go to his blog..)
+
+![An example of image map, Seth Godin's head to go to his blog]({{ site.baseurl }}/assets/img/seth-godin-head-blog-img-map.png)
+
+The coords for poly are _sets_ of _x and y_ positions. 
 
 ```html
 <!-- x,y, x,y, x,y, x,y, x,y, x,y, x,y -->
