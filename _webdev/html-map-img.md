@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Define a clickable interactive map over an image with &lt;map&gt;'
-subtitle: Make different clickable areas on an image that go to different links
+subtitle: Make different clickable areas on an image that go to different links using only HTML
 permalink: html-img-map-clickable-areas-coords-shape
 ctime: 2017-03-15 11:15
 ---
