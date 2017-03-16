@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Cheatsheet - MySQL Commands
+title: MySQL Commands
 permalink: cheatsheet_mysql_commands
-categories: 
-- Cheatsheet
+ctime: 2015-04-10
 tags: 
 - cheatsheet
 - mysql
