@@ -1,3 +1,11 @@
+---
+layout: post
+title: '[scp] Secure Copy'
+subtitle: Transfer files between servers with scp
+permalink: scp-secure-copy
+ctime: 2016-02-11
+---
+
 Basic syntax is this:
 
     scp fileToCopy user@remoteServer:Location

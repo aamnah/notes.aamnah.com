@@ -7,14 +7,14 @@
 
   <title>
     
-      How to store an entire website online with wget
+      [find] Find and Delete files
     
   </title>
   
-  <meta name="description" content="wget -r http://yoursite.com">
+  <meta name="description" content="Delete files found:">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/commands/2014-08-26-How%20to%20store%20an%20entire%20website%20online%20with%20wget/">
+  <link rel="canonical" href="http://tldrdevnotes.com/commands/%5Bfind%5D%20Find%20and%20Delete%20files/">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -73,21 +73,27 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">How to store an entire website online with wget</h1>
+    <h1 class="Post-title" itemprop="name headline">[find] Find and Delete files</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
-          Aug 26, 2014
+      <span class='ctime'>Created
+        <time datetime="2016-01-09T00:00:00+05:00" itemprop="datePublished">
+          Jan 9, 2016
         </time>
       </span>
       
 
       
+      <span class='mtime'>Modified
+        <time datetime="2017-03-16T00:00:00+05:00" itemprop="datePublished">
+          Mar 16, 2017
+        </time>
+      </span>
+      
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/2014-08-26-How to store an entire website online with wget.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[find] Find and Delete files.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -97,16 +103,12 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p><code>wget -r http://yoursite.com</code></p>
-
-<h2>Links</h2>
-
-<ul>
-<li><a href="http://lifehacker.com/161202/geek-to-live--mastering-wget">Mastering wget</a></li>
-<li><a href="http://stackoverflow.com/questions/8755229/how-to-download-all-files-from-a-website-using-wget">How to download all files from a website using wget</a></li>
-<li><a href="http://www.linuxjournal.com/content/downloading-entire-web-site-wget">Downloading an Entire Web Site with wget (advanced)</a></li>
-</ul>
-
+    <p>Delete files found:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -type f -name FILENAME -exec rm -rf <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+<p>For example</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -type f -name .DS_Store -exec rm -rf <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
   </div>
 
 </article>

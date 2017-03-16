@@ -1,3 +1,11 @@
+---
+layout: post
+title: '[tar] Compressed Archives'
+subtitle: Create and Extract compressed and uncompressed archives with tar 
+permalink: tar-compressed-archives
+ctime: 2015-11-22
+---
+
 `tar` creates a compressed archive. the file extension of the resulting archive is `.tar` and the tar archives are called `tarballs`.. 
 
 > GNU ‘tar’ saves many files together into a single tape or disk archive, and can restore individual files from the archive.
@@ -6,20 +14,20 @@
 A `.tar` file is an archive, but it's not compressed. `.tar.gz` is a an archive that is compressed.
 
 ## Flags
-`c` is for create, --create a new archive
-`v` is for --verbose, verbosely list files processed, list out files as they are added to the archive
-`f` is for --file=ARCHIVE, use archive file or device ARCHIVE, basically, specify the tar file that you wanna create. Since `f` lets you take an input it should always be the last flag..
+- `c` is for create, --create a new archive
+- `v` is for --verbose, verbosely list files processed, list out files as they are added to the archive
+- `f` is for --file=ARCHIVE, use archive file or device ARCHIVE, basically, specify the tar file that you wanna create. Since `f` lets you take an input it should always be the last flag..
 
 `tar` can also work off of STDIN and STDOUT, `f` lets you specify if you wanna work with an existing tar file or if you wanna create one.
 
-`z` is for compression, --compress (gzip) and --uncompress (gunzip)
-`x` is for --extract
-`t` is for --list, list the contents of an archive
-`r` is for --append, add more files to an existing archive
-`u` is for --update
-`-p` restore permissions (can only be ysed with `x`)
-`-P` preserve pathnames
-`-k` Keep (don't overwrite) existing files
+- `z` is for compression, --compress (gzip) and --uncompress (gunzip)
+- `x` is for --extract
+- `t` is for --list, list the contents of an archive
+- `r` is for --append, add more files to an existing archive
+- `u` is for --update
+- `-p` restore permissions (can only be ysed with `x`)
+- `-P` preserve pathnames
+- `-k` Keep (don't overwrite) existing files
 
 ## Example `tar` commands:
 
