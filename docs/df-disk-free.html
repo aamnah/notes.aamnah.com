@@ -7,14 +7,14 @@
 
   <title>
     
-      Streams (stderr, stdin, stdout)
+      [df] Disk Free
     
   </title>
   
-  <meta name="description" content="stdinStandard In. Whatever is entered into the bash terminal">
+  <meta name="description" content="df -h">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/commands/Streams%20(stderr,%20stdin,%20stdout)/">
+  <link rel="canonical" href="http://tldrdevnotes.com/df-disk-free">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -73,13 +73,13 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">Streams (stderr, stdin, stdout)</h1>
+    <h1 class="Post-title" itemprop="name headline">[df] Disk Free</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2017-03-16T17:37:55+05:00" itemprop="datePublished">
-          Mar 16, 2017
+      <span class='ctime'>Created
+        <time datetime="2015-11-21T00:00:00+05:00" itemprop="datePublished">
+          Nov 21, 2015
         </time>
       </span>
       
@@ -87,7 +87,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Streams (stderr, stdin, stdout).md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[df] Disk Free.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -97,37 +97,43 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>stdin</h2>
-
-<p>Standard In. Whatever is entered into the bash terminal</p>
-
-<h2>stdout</h2>
-
-<p>Standard Out. Whatever output was given back by the terminal.</p>
-
-<h2>stderr</h2>
-
-<p>Standard Error. Whatever error was given back by the terminal</p>
-
-<h2>Redirect stderr to /dev/null</h2>
-
-<p>You can redirect the <code>stderr</code> to <code>/dev/null</code> to get rid of it. You don&#39;t care if there are errors, you don&#39;t want to see those errors, you don&#39;t want to log those errors, you just want them gone.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls avdkaeudvaev 2&gt;&gt; /dev/null
+    <div class="highlight"><pre><code class="language-bash" data-lang="bash">df -h
 </code></pre></div>
-<h2>Save both stderr and stdout</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls fileThatExists fileThatDoesNotExist &gt; mystdoutput 2&gt; mystderror
-</code></pre></div>
-<p>will save the stdout in a file called <em>mystdoutput</em> and save the stderr in a file called <em>mystderror</em>. We will get both stdout and stderr because we are listing a file that exists (stdout) and a file that doesn&#39;t exist which will result in an error (stderr). One command, one entry, two separate files.</p>
+<p>The <code>-h</code> flag is for human readable output, show 30G instead of 30830588.</p>
 
-<h2>Uses:</h2>
+<p><img src="/assets/img/df-h.png" alt="Screenshot df -h"></p>
+
+<h3>Summing numbers in the output of <code>df</code></h3>
+
+<p>We can do that by pip the output of the df command to something like awk and have awk sum up the numbers, like so:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{}'</span>
+df -lP | awk <span class="s1">'{do math} END {print result}'</span>
+</code></pre></div>
+<p>If the device names are long, df splits the output on multiple line to fit it in the normal 80 character long terminal. <code>-P</code> is for portability, use the POSIX output format (and not try to fit everything in by breaking lines) Get the foramt data in a consistent format, every device on one line.</p>
+
+<p>FYI: You can also get a nicer output y piping the output to <code>column</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | column -t
+</code></pre></div>
+<p>(To me it just looks like <code>column -t</code> right aligned the column data..)</p>
+
+<p><img src="/assets/img/df-lp.png" alt="Screenshot df -lp"></p>
+
+<p>So, back to summing..</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3}'</span>
+</code></pre></div>
+<p>the <code>sum</code> variable is equal to the sum of values in the third column <code>$3</code> (take the value of sum and add the third column to it).</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3} END { printf sum }`
+</span></code></pre></div>
+<p>Get the sum and and at the end of it, print the value of <code>sum</code>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3} END { printf "%d GiB\n", sum/2^20}`
+</span></code></pre></div>
+<p><img src="/assets/img/df-lp-awk.png" alt="Screenshot df -lp | awk"></p>
+
+<h2>Links</h2>
 
 <ul>
-<li>in bash scripts, you can supress outputting errors and log them to an error log instead.</li>
+<li><a href="https://www.youtube.com/watch?v=oBZ1-E_NcMg">YouTube: climagic: Summing numbers in the output of df</a></li>
 </ul>
-
-<h2>/dev/null</h2>
-
-<p>/dev/null is <em>nothing</em>. It&#39;s a black hole. When you are redirecting something to /dev/null, you are basically telling it to get lost. And it will, get lost, in the nothnigness.</p>
 
   </div>
 
