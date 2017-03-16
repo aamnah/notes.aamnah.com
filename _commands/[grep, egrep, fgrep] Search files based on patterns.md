@@ -1,3 +1,10 @@
+---
+layout: post
+title: '[grep, egrep, fgrep] Search files based on patterns'
+ctime: 2016-06-19
+mtime: 2017-03-16
+---
+
 grep
 ---
 grep matches patterns. it uses regex to match patterns

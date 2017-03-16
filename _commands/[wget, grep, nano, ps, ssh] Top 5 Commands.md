@@ -1,8 +1,17 @@
+---
+layout: post
+title: '[wget, grep, nano, ps, ssh] Top 5 Commands'
+ctime: 2015-11-21
+---
+
 Source: [[Youtube] Nixie Pixel: Top 5 Command Line Essentials - BASH Basics](https://www.youtube.com/watch?v=DbC6vQLczQA)
+
 ## 5. wget
 ### download files
 
-    wget -O filename http://url.com
+```bash
+wget -O filename http://url.com
+```
 
 `-O` is for `--output-document`. This flag let's you specify the file to which save in/as. an output document
 
@@ -19,12 +28,16 @@ Source: [[Youtube] Nixie Pixel: Top 5 Command Line Essentials - BASH Basics](htt
 `-c` is for `--continue`
 > Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.  For instance:
 
-    wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z
-    
+```bash
+wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z
+```
+
 ## 4. grep
 ### find text or patterns within files
 
-    grep -i -R towel 
+```bash
+grep -i -R towel 
+```
 
 grep everything on your computer for towel.
 
@@ -39,7 +52,9 @@ nano is installed by default in most distros. and it is WYSIWIG, unlike Vim.
 ## 2. ps
 ### process status, good for power users
 
-    ps aux
+```bash
+ps aux
+```
 OR 
 
     ps -aux
@@ -50,8 +65,10 @@ sort by cpu usage:
     
 find how much resources a program is using by piping the result to grep
 
-    ps -aux | grep chromium
-    
+```bash
+ps -aux | grep chromium
+```
+
 kill a program
 
     kill -9 pid 
@@ -60,5 +77,6 @@ kill a program
 ## 1. shh
 ### secure login to virtual location
 
-    ssh nixie@home.nixiepixel.com -D 8080
-    
+```bash
+ssh nixie@home.nixiepixel.com -D 8080
+```    
