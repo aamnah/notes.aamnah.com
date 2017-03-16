@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Homebrew Commands
-permalink: 2017-03-05-homebrew-macos-package-manager-commands-cheatsheet
+permalink: homebrew-macos-package-manager-commands-cheatsheet
+ctime: 2017-03-05
 status: publish
-categories: cheatsheet
 tags:
 - macos
 - cheatsheet
