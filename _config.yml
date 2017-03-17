@@ -34,82 +34,64 @@ redcarpet:
   ]
 
 # Collections
+# permalink default for collections is /:collection/:path/:title:output_ext
 collections:
   api:
     output: true
     title: "APIs"
-    permalink: /:collection/:path/
   aws:
     output: true
     title: "Amazon Web Services (AWS)"
-    permalink: /:collection/:path/
   bash-scripting:
     output: true
     title: "Bash Scripting"
-    permalink: /:collection/:path/
   cheatsheets:
     output: true
     title: "Cheatsheets"
-    permalink: /:collection/:path/
   commands:
     output: true
     title: "Commands"
-    permalink: /:collection/:path/
   css-sass:
     output: true
     title: "CSS and Sass"
-    permalink: /:collection/:path/
   databases:
     output: true
     title: "Databases"
-    permalink: /:collection/:path/
   git-github:
     output: true
     title: "Git and Github"
-    permalink: /:collection/:path/
   ios-swift:
     output: true
     title: "iOS and Swift"
-    permalink: /:collection/:path/
   javascript:
     output: true
     title: "JavaScript"
-    permalink: /:collection/:path/
   jekyll:
     output: true
     title: "Jekyll"
-    permalink: /:collection/:path/
   linux:
     output: true
     title: "Linux"
-    permalink: /:collection/:path/
   misc:
     output: true
     title: "Misc."
-    permalink: /:collection/:path/
   php:
     output: true
     title: "PHP"
-    permalink: /:collection/:path/
   python:
     output: true
     title: "Python"
-    permalink: /:collection/:path/
   quotes:
-    output: true
-    permalink: /:collection/:path/  
+    output: true  
   raspberrypi:
     output: true
     title: "Raspberry Pi"
-    permalink: /:collection/:path/
   webdev:
     output: true
     title: "Web Development"
-    permalink: /:collection/:path/
   workflow:
     output: true
     title: "Workflow"
-    permalink: /:collection/:path/
 
 # Site wide defaults
 defaults:
