@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Streams (stderr, stdin, stdout)
+ctime: 2015-12-15
 ---
 
 ## stdin
