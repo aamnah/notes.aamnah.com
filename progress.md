@@ -4,10 +4,13 @@ title: What i did
 permalink: /progress/
 ---
 
+##### 19 March 2017 Sun
+- [TLDR: ES6 Classes vs. Constructor Functions](/es6-classes-vs-constructor-functions)
+
 ##### 17 March 2017 Fri
 - [Learn and Understand NodeJS](https://www.udemy.com/understand-nodejs/learn/v4)
   - Modules, Exports and Require
-- [Prototypal Inheritance and Constructor Functions](/prototypal-inheritance-constructor-functions)
+- [TLDR: Prototypal Inheritance and Constructor Functions](/prototypal-inheritance-constructor-functions)
 
 ##### 16 March 2017 Thurs
 - [Learn and Understand NodeJS](https://www.udemy.com/understand-nodejs/learn/v4)
