@@ -104,9 +104,11 @@
     <h2>tl;dr</h2>
 
 <ul>
+<li>A constructor function is just a normal function that creates (constructs) an object</li>
 <li>Every object has a Prototype object <code>__proto__</code></li>
-<li>Every object inherits from it&#39;s Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too.</li>
-<li>Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created.</li>
+<li>Every object inherits from it&#39;s Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too</li>
+<li>Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created</li>
+<li>You would ideally use them both, methods in object constructor and methods in object prototype, in order to maximize on the performance and situation</li>
 </ul>
 
 <p>You can edit the prototype in order to pass data to every instance of the object.</p>
@@ -117,7 +119,9 @@
 
 <ul>
 <li>Properties and methods in the Prototype are passed on to all objects created. If you update a Prototype later, all objects using that Prototype will also be updated</li>
-<li>Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don&#39;t update when you update the object later. If you make changes to an object, the changes will only passed on to new instances, created after the changes were made.</li>
+<li>Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don&#39;t update when you update the object later. If you make changes to an object, the changes will only be passed to new instances, created after the changes were made.</li>
+<li>Methods in Prototype will only be stored in memory once because objects coming from the same constructor point to one common prototype object, while methods in the constructor will get <strong>re-declared</strong> for every instance you create, effecting negatively on memory usage (modern Javascript engines such as V8 are smart enough for not to recreate instances of a method thanks to hidden classes)</li>
+<li>Properties and methods in an object constructor function are very much like <em>static</em>. Because you have used <code>this</code> to bind to only that particular instance, you have no relation with the object constructor. You are <strong>binding to the particular instance</strong>. Whereas in Prototype, you bind to the constructor. You&#39;re not pointing to methods in the instance you created, you&#39;re <strong>pointing to methods in constructor</strong>. Any change in constructor gets reflected in all instances because they&#39;re all pointing to the same prototype.</li>
 </ul>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Object constructor function</span>
 <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
@@ -162,16 +166,12 @@
 <span class="c1">// Check out the prototype of an object</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">)</span> <span class="c1">// Person { details: [Function] }</span>
 </code></pre></div>
-<h2>Notes</h2>
-
-<ul>
-<li>A constructor function is just a normal function that creates (constructs) an object</li>
-</ul>
-
 <h2>Links</h2>
 
 <ul>
 <li><a href="https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3494208">Udemy: Prototypal Inheritance and Function Constructors</a></li>
+<li><a href="http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/">Methods Within Constructor vs Prototype in Javascript</a></li>
+<li><a href="/es6-classes-vs-constructor-functions">TLDR: ES6 Classes vs. Constructor Functions</a></li>
 </ul>
 
   </div>

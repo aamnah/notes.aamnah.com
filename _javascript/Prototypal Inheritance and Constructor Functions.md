@@ -9,9 +9,11 @@ ctime: 2017-03-17
 tl;dr
 ---
 
+- A constructor function is just a normal function that creates (constructs) an object
 - Every object has a Prototype object `__proto__`
-- Every object inherits from it's Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too.
-- Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created.
+- Every object inherits from it's Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too
+- Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created
+- You would ideally use them both, methods in object constructor and methods in object prototype, in order to maximize on the performance and situation
 
 You can edit the prototype in order to pass data to every instance of the object.
 
@@ -19,7 +21,9 @@ You can edit the prototype in order to pass data to every instance of the object
 Why create properties and methods in the prototype when you can just as easily create them in the object constructor itself?
 
 - Properties and methods in the Prototype are passed on to all objects created. If you update a Prototype later, all objects using that Prototype will also be updated
-- Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don't update when you update the object later. If you make changes to an object, the changes will only passed on to new instances, created after the changes were made.
+- Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don't update when you update the object later. If you make changes to an object, the changes will only be passed to new instances, created after the changes were made.
+- Methods in Prototype will only be stored in memory once because objects coming from the same constructor point to one common prototype object, while methods in the constructor will get **re-declared** for every instance you create, effecting negatively on memory usage (modern Javascript engines such as V8 are smart enough for not to recreate instances of a method thanks to hidden classes)
+- Properties and methods in an object constructor function are very much like _static_. Because you have used `this` to bind to only that particular instance, you have no relation with the object constructor. You are **binding to the particular instance**. Whereas in Prototype, you bind to the constructor. You're not pointing to methods in the instance you created, you're **pointing to methods in constructor**. Any change in constructor gets reflected in all instances because they're all pointing to the same prototype.
 
 ```javascript
 // Object constructor function
@@ -66,11 +70,9 @@ console.info(john.greet()) // Hello John Denver >> Object method missing our upd
 console.info(john.__proto__) // Person { details: [Function] }
 ```
 
-Notes
----
-- A constructor function is just a normal function that creates (constructs) an object
-
 Links
 ---
 
 - [Udemy: Prototypal Inheritance and Function Constructors](https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3494208)
+- [Methods Within Constructor vs Prototype in Javascript](http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/)
+- [TLDR: ES6 Classes vs. Constructor Functions](/es6-classes-vs-constructor-functions)
