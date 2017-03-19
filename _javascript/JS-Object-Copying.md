@@ -1,6 +1,8 @@
 ---
+layout: post
 title: Object copying in JavaScript
 status: draft
+permalink: object-copying-javascript
 ---
 
 Object.assign, concat, filter, map, reduce are always going to return a brand new object.
@@ -41,4 +43,4 @@ Reference are arrays and objects. You are storing _references_ to values. Refere
 
 Links
 ---
-https://auth0.com/blog/intro-to-immutable-js/
+- https://auth0.com/blog/intro-to-immutable-js/
