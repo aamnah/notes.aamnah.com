@@ -189,6 +189,7 @@ let mySistersCar = new Vehicle('2013', 'Toyota', 'Corolla Fielder')
 console.info(`${myCar.getFullDescription()}`)
 console.info(`${mySistersCar.year} ${mySistersCar.make} ${mySistersCar.model}`)
 
+// factory functions?
 function createVehicle(year, make, model) {
 	return {
 		make: make,
@@ -200,7 +201,6 @@ function createVehicle(year, make, model) {
 	}
 }
 
-// factory functions?
 let myCar2 = createVehicle('2015', 'Honda', 'Civic') // no `new` keyword
 let mySistersCar2 = createVehicle('2013', 'Toyota', 'Corolla Fielder')
 
