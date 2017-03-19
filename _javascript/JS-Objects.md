@@ -4,6 +4,8 @@ title: JavaScript Objects
 subtitle: Tracking data using Objects
 permalink: js-objects
 status: publish
+ctime: 2016-11-21
+mtime: 2017-03-19
 ---
 
 # JavaScript Objects

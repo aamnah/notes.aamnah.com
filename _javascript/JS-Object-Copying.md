@@ -3,6 +3,8 @@ layout: post
 title: Object copying in JavaScript
 status: draft
 permalink: object-copying-javascript
+ctime: 2016-12-18
+mtime: 2017-03-19
 ---
 
 Object.assign, concat, filter, map, reduce are always going to return a brand new object.
