@@ -2,6 +2,9 @@
 layout: post
 title: Formatting dates in JavaScript
 permalink: howto-format-dates-in-javascript
+tags: 
+- date
+- format
 ctime: 2017-03-28
 ---
 

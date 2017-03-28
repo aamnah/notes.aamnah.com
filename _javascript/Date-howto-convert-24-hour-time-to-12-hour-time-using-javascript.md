@@ -10,10 +10,11 @@ categories:
 - JavaScript
 tags:
 - date
+- format
 ---
 
 ```javascript
-//convert hours to 12-hour format
+// convert hours to 12-hour format
 hours = ((hours + 11) % 12 + 1);
 ```
 
