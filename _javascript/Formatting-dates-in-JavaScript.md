@@ -1,5 +1,12 @@
-# Formatting and validating dates in JavaScript
+---
+layout: post
+title: Formatting and validating dates in JavaScript
+permalink: howto-format-dates-in-javascript
+ctime: 2017-01-10
+mtime: 2017-03-28
+---
 
+### Date Formats
 Dates come in multiple formats:
 
 - a Unix timestamp (1481884441) 
@@ -15,6 +22,17 @@ const invalidISO = '2016-31-31T17:39:59.910Z'
 const invalidDate = '2016/31/31'
 
 let date = Date.now() // Date.now() is faster than new Date()
+```
+
+##### `Date.now()` vs. `new Date()`
+Note that while `Date.now()` is faster in performance than `new Date()`, it gives a _number_ value (epoch/unix time) instead of a Date _object_. So, you won't be able to do something like `Date.now().toLocaleTimeString()` because `.toLocaleDateString()` only works on a Date object.
+
+```javascript
+typeof new Date() // "object"
+typeof Date.now() // "number"
+
+new Date().toLocaleDateString() // "28/03/2017"
+Date.now().toLocaleDateString() // Uncaught TypeError: Date.now(...).toLocaleDateString is not a function
 ```
 
 ## Check if value is a valid date
