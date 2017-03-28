@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Formatting and validating dates in JavaScript
-permalink: howto-format-dates-in-javascript
+permalink: format-and validate-dates-in-javascript
 ctime: 2017-01-10
 mtime: 2017-03-28
 ---
