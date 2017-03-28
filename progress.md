@@ -4,6 +4,18 @@ title: What i did
 permalink: /progress/
 ---
 
+##### 22 March 2017 Wed
+- [Functions and Event Delegation](https://codyhouse.co/course/learn-javascript-jquery/)
+
+##### 21 March 2017 Tues
+- [Querying the DOM II](https://codyhouse.co/course/learn-javascript-jquery/)
+- Web APIs and Interfaces
+- Querying the DOM
+- HTMLCollection and NodeList
+
+##### 20 March 2017 Mon
+- [Querying the DOM I](https://codyhouse.co/course/learn-javascript-jquery/)
+
 ##### 19 March 2017 Sun
 - [TLDR: ES6 Classes vs. Constructor Functions](/es6-classes-vs-constructor-functions)
 
