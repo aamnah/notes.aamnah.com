@@ -2,6 +2,9 @@
 layout: post
 title: Formatting and validating dates in JavaScript
 permalink: format-and validate-dates-in-javascript
+tags: 
+- date
+- format
 ctime: 2017-01-10
 mtime: 2017-03-28
 ---
