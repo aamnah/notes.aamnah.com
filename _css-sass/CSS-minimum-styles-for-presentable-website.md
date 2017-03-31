@@ -1,6 +1,8 @@
 ---
+layout: post
 title: Making a site presentable in 7 lines of code
 permalink: minimal-css-for-presentable-website
+ctime: 2017-02-25
 categories:
 - CSS
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: CSS Blend Modes
 permalink: css_blend_modes
-
+ctime: 2015-04-09
 ---
     
 CSS Blend Modes let you blend two or more layers together to create visual effects. You can use blend-modes on pretty much an HTML element including text, svg, images, and videos.
