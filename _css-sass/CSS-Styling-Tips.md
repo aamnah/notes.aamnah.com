@@ -2,6 +2,7 @@
 layout: post
 title: CSS Style Notes
 permalink: notes-css-styles
+ctime: 2017-02-25
 ---
 
 ## Typography
