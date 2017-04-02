@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    
+      Sass - Beginner to Advanced in 30 Minutes
+    
+  </title>
+  
+  <meta name="description" content="node-sass">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://tldrdevnotes.com/notes-sass-overview">
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+
+  <body>
+    <header class="Site-header">
+
+  <div class="wrapper">
+
+    <div>
+      <a class="Site-title" href="/">TLDR Dev Notes</a>
+      <small>Aamnah's developer notes</small>
+    </div>
+
+    <nav class="Site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+          <a class='page-link' href='/'>Home</a>
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/progress/">What i did</a>
+          
+        
+          
+          <a class="page-link" href="/quotes/">Quotes</a>
+          
+        
+          
+          <a class="page-link" href="/resource-list">Resources</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Sass - Beginner to Advanced in 30 Minutes</h1>
+    <p class="Post-meta">
+      
+      
+      <span class='ctime'>Created
+        <time datetime="2017-04-02T00:00:00+05:00" itemprop="datePublished">
+          Apr 2, 2017
+        </time>
+      </span>
+      
+
+      
+
+      <!---->
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/90-days-of-css/Sass-overview.md" target='_blank'>Edit this page on Github</a>
+    </p>
+    
+      <ul class='tags'>
+      
+      </ul>
+    
+  </header>
+
+  <div class="Post-content" itemprop="articleBody">
+    <h3>node-sass</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm i -D node-sass
+</code></pre></div>
+<p>add a script to <code>package.json</code></p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"start"</span><span class="err">:</span><span class="w"> </span><span class="s2">"node-sass -o css scss"</span><span class="w">
+</span></code></pre></div>
+<p><code>-o</code> is for <strong>o</strong>utput folder, which in our case is <code>css</code>.</p>
+
+<h3>partials</h3>
+
+<ul>
+<li>prepend files with an underscore but import them without the underscore or the file extension</li>
+<li>CSS imports create additional resource requests, and they don&#39;t get compiled</li>
+<li>Sass imports get compiled into one file</li>
+<li>Import order matters</li>
+</ul>
+
+<p>Partials let you compile multiple files into one and organize your code better.</p>
+
+<p>Partials are created by prepending an underscore to the file name, for example <code>_variables.scss</code></p>
+
+<p>When importing a partial file into another file, you can just mention the file name, no need to mention the underscore or the file extension. For example</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">"variables"</span><span class="p">;</span>
+</code></pre></div>
+<p>The difference between Sass partial imports and normal CSS imports is that Sass partials get combined into one file, meaning only one call to the resource, where as normal CSS imports result in multiple files and multiple resource calls. For example, in your <code>main.scss</code> you have </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">"reset"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"variables"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"colors"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"typography"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"layout"</span><span class="p">;</span>
+</code></pre></div>
+<p>They will all get <strong>combined</strong> into <code>main.css</code> and you still get only one file. The resulting file would have the <em>code</em> from all the partial files (instead of just @import statements which <em>call</em> other files).</p>
+<div class="highlight"><pre><code class="language-" data-lang="">.
+├── css
+│   └── main.css
+└── scss
+    ├── _colors.scss
+    ├── _layout.scss
+    ├── _reset.scss
+    ├── _typography.scss
+    ├── _variables.scss
+    └── main.scss
+</code></pre></div>
+<p>If you were to do it in CSS, you&#39;d have 6 different files total and 6 calls to resources and files will only load one by one.</p>
+
+<p>You can of course do regular css imports in Sass too, if that is what you want.</p>
+
+<p>Order matters when importing files, because <strong>cascade</strong>!</p>
+
+<h3>Netsing and Parent selector</h3>
+
+<ul>
+<li><code>&amp;</code> represents the parent selector, i.e. the <strong>direct</strong> parent. It&#39;s meaning changes based on where it is nested</li>
+<li>Pseudo-elements are like <code>&amp;:hover</code> and <code>&amp;::before</code>, they can be nested too</li>
+<li><code>&amp;</code> is great for naming conventions</li>
+<li>Don&#39;t go too deep, three or four levels is enough</li>
+<li>Don&#39;t be overly specific, too much specificity is brittle. Alternatively, you can use a class name to specify a relationship. For example, instead of <code>.menu li a</code>, do <code>.menu-link</code></li>
+</ul>
+
+<p>You can nest styles. For example</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.menu</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+
+  <span class="nt">a</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+    <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>would compile to</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.menu</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nc">.menu</span> <span class="nt">a</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.menu</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<p><code>&amp;</code> is great for naming conventions. You can do a whole SUIT CSSS or BEM naming like so</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.Tweet</span> <span class="p">{</span>
+  <span class="k">&amp;</span><span class="nt">-header</span> <span class="p">{}</span>
+  <span class="k">&amp;</span><span class="nt">-avatar</span> <span class="p">{}</span>
+  <span class="k">&amp;</span><span class="nt">-bodyText</span> <span class="p">{}</span>
+  <span class="k">&amp;</span><span class="nc">.is-expanded</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>will compile to</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.Tweet</span> <span class="p">{}</span>
+  <span class="nc">.Tweet</span> <span class="nc">.Tweet-header</span> <span class="p">{}</span>
+  <span class="nc">.Tweet</span> <span class="nc">.Tweet-avatar</span> <span class="p">{}</span>
+  <span class="nc">.Tweet</span> <span class="nc">.Tweet-bodyText</span> <span class="p">{}</span>
+  <span class="nc">.Tweet.is-expanded</span> <span class="p">{}</span>
+</code></pre></div>
+<h3>Variables</h3>
+
+<ul>
+<li>Start with <code>$</code>, first letter after <code>$</code> can&#39;t be a number</li>
+<li>Variables have block scope (everything in a <code>{}</code> is a CSS declaration block)</li>
+<li>Variables <strong>can be interpolated</strong> <code>#{$variable}</code> (interpolation is fancy word for using variables as placeholders - which then get evaluated and replaced with their corresponding values, kinda like template literals in JavaScript). This allows us to re-use verbose text. For example</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$wom</span><span class="p">:</span> <span class="n">women-of-marvel-universe</span><span class="p">;</span>
+
+<span class="nc">.</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span> <span class="p">{</span><span class="nl">content</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+</code></pre></div>
+<p>will compile to</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.women-of-marvel-universe</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s1">"women-of-marvel-universe"</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<p>Interpolation also helps with naming conventions</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$wom</span><span class="p">:</span> <span class="n">women-of-marvel-universe</span><span class="p">;</span>
+
+<span class="nc">.</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s2">"</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span><span class="nc">-text</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="mh">#eee</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.</span><span class="si">#{</span><span class="nv">$wom</span><span class="si">}</span><span class="nc">-cape</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="no">purple</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<p>will compile to</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.women-of-marvel-universe</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s1">"women-of-marvel-universe"</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.women-of-marvel-universe-text</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#eee</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.women-of-marvel-universe-cape</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="no">purple</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<h3>Built-in Sass Functions</h3>
+
+<ul>
+<li><code>lighten()</code></li>
+<li><code>darken()</code></li>
+<li><code>mix()</code> mixes two colors. Takes an optional third argument, the percentage of the base color to mix, default is 50%. For example</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nl">color</span><span class="p">:</span> <span class="nf">mix</span><span class="p">(</span><span class="nv">$base-color</span><span class="o">,</span> <span class="no">yellow</span><span class="o">,</span> <span class="m">25%</span><span class="p">)</span>
+</code></pre></div>
+<p>Here it is going to mix <code>25%</code> of <code>$base-color</code> with yellow</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nl">color</span><span class="p">:</span> <span class="nf">mix</span><span class="p">(</span><span class="no">blue</span><span class="o">,</span> <span class="no">green</span><span class="o">,</span> <span class="m">75%</span><span class="p">)</span> <span class="o">//</span> <span class="mh">#006040</span>
+</code></pre></div>
+<ul>
+<li><code>complement()</code> function returns the complimentary color - 180 degrees opposite on the color wheel.</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$color1</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">white</span><span class="p">);</span> <span class="c1">// white
+</span><span class="nv">$color2</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">black</span><span class="p">);</span> <span class="c1">// black
+</span><span class="nv">$color3</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">blue</span><span class="p">);</span> <span class="c1">// yellow
+</span><span class="nv">$color4</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">red</span><span class="p">);</span> <span class="c1">// cyan
+</span><span class="nv">$color5</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">green</span><span class="p">);</span> <span class="c1">// purple
+</span><span class="nv">$color6</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">orange</span><span class="p">);</span> <span class="c1">// #005aff
+</span><span class="nv">$color7</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="no">magenta</span><span class="p">);</span> <span class="c1">// lime
+</span></code></pre></div>
+<ul>
+<li><code>transparentize()</code> makes a color more transparent by decreasing the opacity. It&#39;ll take a color and convert it to <code>rgba</code> with the alpha channel (opacity) adjusted. For example</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nl">color</span><span class="p">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="nf">mix</span><span class="p">(</span><span class="no">blue</span><span class="o">,</span> <span class="no">yellow</span><span class="o">,</span> <span class="m">75%</span><span class="p">)</span><span class="o">,</span> <span class="mi">.2</span><span class="p">)</span> <span class="o">//</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">96</span><span class="o">,</span> <span class="m">64</span><span class="o">,</span> <span class="m">0</span><span class="mi">.8</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>scale-color()</code> fluidly scales one or more properties of a color</li>
+</ul>
+
+<h3>mixins</h3>
+
+<p>Mixins are like functions. You can provide arguments, default argument values, use conditionals and more. You define a mixin with <code>@mixin foo</code> and use that mixin with <code>@include foo</code></p>
+
+<ul>
+<li>You can use optional values by providing <code>null</code> as the default argument value. To use optional arguments, you need to use named arguments when including the mixin (named arguments just means that you provide the argument name as well as the value, like <code>$border: 1px solid red</code>)</li>
+<li>When using <em>named arguments</em> order doesn&#39;t matter. Otherwise mixin arguments need to be included in the same order as the mixin definition</li>
+<li>You can have a <em>dynamic</em> number of arguments. When number of arguments in not known, you can use variable arguments. For example <code>$transitions...</code> The elipses <code>...</code> means you have a variable number of arguments (kinda like rest parameters in ES6 JavaScript)</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$color-brand</span><span class="p">:</span> <span class="mh">#f00</span><span class="p">;</span>
+
+<span class="k">@mixin</span> <span class="nf">box</span> <span class="p">(</span><span class="nv">$background</span><span class="o">:</span> <span class="mh">#eee</span><span class="o">,</span> <span class="nv">$color</span><span class="o">:</span> <span class="nv">$color-brand</span><span class="o">,</span> <span class="nv">$border</span><span class="o">:</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nv">$background</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nv">$border</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To use</p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.box</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">box</span><span class="p">(</span><span class="nv">$border</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">blue</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>will output</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.box</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#eee</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#f00</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>The <code>@content</code> directive let&#39;s you add custom styles when the mixin is included</li>
+</ul>
+
+<h3>extends</h3>
+
+<p><code>@extend</code> let&#39;s you share a set of CSS properties from one slector to another.</p>
+
+<ul>
+<li><code>@extend</code> only extends one class, it will not extend the nested classes. It will however extend the pseudo elements (<code>::before</code>, <code>:hover</code> etc.) on the class you are extending</li>
+<li>You can of course extend one class multiple times..</li>
+<li><code>%</code> lets you define a placeholder selector for a class</li>
+</ul>
+
+<h3>extends vs. mixins</h3>
+
+<ul>
+<li>mixins take arguments, extends don&#39;t. For example, mixins can be included in media queries</li>
+<li>mixins have the <code>@content</code> directive, extends don&#39;t. For example, mixins allow contents to be passed when included</li>
+<li>mixins are like functions, extends are like classes. Mixins are about logic while Extends are about inheritance</li>
+<li>mixins aren&#39;t DRY, they repeat code every time they are included</li>
+<li>extends are DRY, because they share inherited traits</li>
+<li>extends maintain relationships, mixins don&#39;t</li>
+<li>extends change the source order</li>
+<li>extends have issues with media queries, you can&#39;t extend something that&#39;s outside a media query. To be able to extend some code in a media query, it has to be inside the same media query (or another media query with the same selector values)</li>
+</ul>
+
+<h3>functions</h3>
+
+<ul>
+<li>Functions are defined with <code>@function</code> and used like any other sass function <code>foo()</code></li>
+<li>Function take arguments, default argument values, variable arguments (...) and optional arguments (null)</li>
+<li>Functions must <code>@return</code> a value</li>
+<li>If you iterated the value, the returned value will be the final value of the iteration</li>
+<li>For example, determining the typographic scale is a good use for a function</li>
+</ul>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Function to detremine typographic scale
+</span><span class="nv">$ratio</span><span class="p">:</span> <span class="m">1</span><span class="mi">.2</span><span class="p">;</span>
+
+<span class="k">@function</span> <span class="nf">font-scale</span> <span class="p">(</span><span class="nv">$exponent</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$value</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+
+  <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="nv">$exponent</span> <span class="p">{</span>
+    <span class="nv">$value</span><span class="p">:</span> <span class="nv">$value</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">;</span>
+
+    <span class="k">@debug</span> <span class="n">value</span> <span class="n">is</span> <span class="nv">$value</span><span class="p">;</span> <span class="c1">// print out values for each iteration in the console
+</span>  <span class="p">}</span>
+
+  <span class="k">@return</span> <span class="nv">$value</span><span class="p">;</span> <span class="c1">// functions must return a value
+</span><span class="p">}</span>
+
+<span class="nc">.stuff</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="nf">font-scale</span><span class="p">(</span><span class="m">6</span><span class="p">);</span> <span class="p">}</span> <span class="c1">// need to use the function somewhere to see debug in action
+</span></code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">DEBUG: value is 1.2
+DEBUG: value is 1.44
+DEBUG: value is 1.728
+DEBUG: value is 2.0736
+DEBUG: value is 2.48832
+DEBUG: value is 2.98598
+</code></pre></div>
+<h3>functions vs. mixins</h3>
+
+<ul>
+<li>mixins return re-usable blocks of styles where functions return re-usable values</li>
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://sass-lang.com/guide">Sass Guide</a></li>
+<li><a href="https://egghead.io/courses/learn-the-best-and-most-useful-scss">Egghead.io - Learn the Best and Most Useful SCSS</a></li>
+<li><a href="https://github.com/Pickra/SassyEgghead">Github: SassyEgghead</a></li>
+<li><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">Sass: Functions</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+    <footer class="Site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><h2 class="footer-heading">TLDR Dev Notes</h2></li>
+          <li><a href="mailto:hello@aamnah.com">hello@aamnah.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/Aamnah"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">Aamnah</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/AamnahAkram"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">AamnahAkram</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51214502-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
