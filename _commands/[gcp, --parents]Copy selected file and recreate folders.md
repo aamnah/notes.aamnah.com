@@ -6,7 +6,7 @@ ctime: 2017-06-23
 ---
 
 ### Why? 
-Makes it easier to copy a default OpenCart extension. Finds the files by name and copy them while also creating the required folder structure.
+Makes it easier to copy a default OpenCart extension. Find the files by name and copy them while also creating the required folder structure.
 
 ### How
 Use the `cp` command with `--parents` flag. 
