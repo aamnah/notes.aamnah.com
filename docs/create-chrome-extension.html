@@ -7,14 +7,14 @@
 
   <title>
     
-      Self-invoking Anonymous Function - IIFE
+      Notes on creating a Chrome extension
     
   </title>
   
-  <meta name="description" content="A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when...">
+  <meta name="description" content="Needed">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/javascript/AJAX-self-invoking-anonymous-function-ajax.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/create-chrome-extension">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -77,13 +77,13 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">Self-invoking Anonymous Function - IIFE</h1>
+    <h1 class="Post-title" itemprop="name headline">Notes on creating a Chrome extension</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2017-06-23T15:22:44+05:00" itemprop="datePublished">
-          Jun 23, 2017
+      <span class='ctime'>Created
+        <time datetime="2017-04-18T00:00:00+05:00" itemprop="datePublished">
+          Apr 18, 2017
         </time>
       </span>
       
@@ -91,7 +91,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/AJAX-self-invoking-anonymous-function-ajax.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/Chrome-Create-an-Extension.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -101,28 +101,45 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.</p>
-
-<p>We can do this by wrapping the code we write or execute within a selfinvoking anonymous function. We create a self incoking anonymous function like this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-<span class="p">})();</span>
-</code></pre></div>
-<p>Now, whatever we put inside of here will only be unique to this anonymous function. It won&#39;t interfere with anything outside of it. So now we can safely create new variables and new functions and we don&#39;t have to worry about our code overriding another variable or function from another script or whatever else may be in teh global scope.</p>
-
-<p>Our code inside the self-invoking anonymous function shouldn&#39;t interfere with anything that&#39;s outside in the global scope.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Hello!'</span><span class="p">;</span>
-
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Goodbye!'</span>
-<span class="p">})();</span>
-
-<span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
-</code></pre></div>
-<p>The above code will output the value of the variable that is out in the glocal scope and not whatever is in our anonymous self-invoking function.</p>
+    <p>Needed</p>
 
 <ul>
-<li><a href="https://code.tutsplus.com/courses/learning-ajax/lessons/the-simplest-ajax-script">Source</a></li>
+<li><code>manifest.json</code> is required. It&#39;s kinda like <code>package.json</code> in Node. <code>manifest.json</code> has info about your extension</li>
+<li>The icon needs to be 19x19 pixels</li>
+</ul>
+
+<h3>Getting started</h3>
+
+<ul>
+<li>Create a new folder, create a <code>manifest.json</code> file inside</li>
+<li>Load your extension in browser by going to <em>Chrome &gt; Extension &gt; Enable Developer Mode &gt; Load unpacked extension..</em> and point to the folder you created</li>
+<li>Once you have the folder loaded, you can make edits in your code, refresh Chrome (Cmd+R) and the changes will reflect</li>
+</ul>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nt">"manifest_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Awesome Extension"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This extension is an awesome extension"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre></div>
+<h4>add extension icons</h4>
+
+<p>The icon right to your address bar is called a browser action. It is set as <code>default_icon</code> under <code>browser_action</code>. The size needs to be 19x19 pixels</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"browser_action"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"default_icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_19.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The icon that shows on the Extensions listing page is specified with <code>128</code> under <code>icons</code>. The size needs to be 128x128 pixels</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"icons"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+  </span><span class="nt">"128"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icon_128.png"</span><span class="w"> 
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<h2>Links</h2>
+
+<ul>
+<li>https://robots.thoughtbot.com/how-to-make-a-chrome-extension</li>
+<li>https://www.sitepoint.com/create-chrome-extension-10-minutes-flat/</li>
 </ul>
 
   </div>

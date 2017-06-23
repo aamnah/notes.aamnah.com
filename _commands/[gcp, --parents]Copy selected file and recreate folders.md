@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Copy selected files and recreate folder structure
+title: '[gcp --parents] Copy selected files and recreate folder structure'
 permalink: copy-files-recreate-folder-structure
 ctime: 2017-06-23
 ---

@@ -7,14 +7,14 @@
 
   <title>
     
-      Self-invoking Anonymous Function - IIFE
+      Associative Arrays in Bash
     
   </title>
   
-  <meta name="description" content="A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when...">
+  <meta name="description" content="Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/javascript/AJAX-self-invoking-anonymous-function-ajax.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/bash-associative-arrays-iterate-loop">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -77,13 +77,13 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">Self-invoking Anonymous Function - IIFE</h1>
+    <h1 class="Post-title" itemprop="name headline">Associative Arrays in Bash</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2017-06-23T15:22:44+05:00" itemprop="datePublished">
-          Jun 23, 2017
+      <span class='ctime'>Created
+        <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
+          May 21, 2017
         </time>
       </span>
       
@@ -91,7 +91,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/AJAX-self-invoking-anonymous-function-ajax.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Associative-arrays.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -101,28 +101,47 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.</p>
+    <p>Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.</p>
 
-<p>We can do this by wrapping the code we write or execute within a selfinvoking anonymous function. We create a self incoking anonymous function like this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<h3>create (declare) an associative array</h3>
 
-<span class="p">})();</span>
+<p>This is done with the <code>declare -A</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">declare</span> -A foo <span class="c"># declare an array</span>
+<span class="nb">declare</span> -A foo bar baz <span class="c"># declare multiple arrays</span>
+<span class="nb">declare</span> -A <span class="nv">myArray</span><span class="o">=(</span> <span class="o">[</span>key1]<span class="o">=</span>value1 <span class="o">[</span>key2]<span class="o">=</span>value2 <span class="o">[</span>key3]<span class="o">=</span>value3 <span class="o">)</span> <span class="c"># Initialise all at once</span>
 </code></pre></div>
-<p>Now, whatever we put inside of here will only be unique to this anonymous function. It won&#39;t interfere with anything outside of it. So now we can safely create new variables and new functions and we don&#39;t have to worry about our code overriding another variable or function from another script or whatever else may be in teh global scope.</p>
-
-<p>Our code inside the self-invoking anonymous function shouldn&#39;t interfere with anything that&#39;s outside in the global scope.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Hello!'</span><span class="p">;</span>
-
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Goodbye!'</span>
-<span class="p">})();</span>
-
-<span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<h3>add values to the array</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">foo[key]<span class="o">=</span>value
 </code></pre></div>
-<p>The above code will output the value of the variable that is out in the glocal scope and not whatever is in our anonymous self-invoking function.</p>
+<p>Note the lack of spaces before and after the equal <code>=</code> sign</p>
+
+<h3>iterate over key/value pairs</h3>
+
+<p>The keys are accessed using an exclamation point: <code>${!array[@]}</code>, the values are accessed using <code>${array[@]}</code></p>
+
+<p>You can iterate over the key/value pairs like this:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="p">!array[@]</span><span class="k">}</span><span class="s2">"</span>
+<span class="k">do
+  </span><span class="nb">echo</span> <span class="s2">"key  : </span><span class="nv">$i</span><span class="s2">"</span>
+  <span class="nb">echo</span> <span class="s2">"value: </span><span class="k">${</span><span class="nv">array</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="k">}</span><span class="s2">"</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>Note the use of quotes around the variable in the <code>for</code> statement (plus the use of <code>@</code> instead of <code>*</code>). This is necessary in case any keys include spaces.</p>
+
+<h3>Troubleshooting</h3>
 
 <ul>
-<li><a href="https://code.tutsplus.com/courses/learning-ajax/lessons/the-simplest-ajax-script">Source</a></li>
+<li><code>declare: -A: invalid option</code> On macOS, the Bash version is 3.2.57. Bash 3 has no associative arrays, they are supported in Bash 4. You can install Bash 4 with Homebrew <code>brew update &amp;&amp; brew install bash</code></li>
+<li><code>extensions_modules[key]: command not found</code> make sure there are no space before and after the equal sign when assign values</li>
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://www.linuxjournal.com/content/bash-associative-arrays">Bash Associative Arrays</a></li>
+<li><a href="http://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/">Bash associative array examples</a></li>
+<li><a href="http://wiki.bash-hackers.org/syntax/arrays">Bash Hackers Wiki: Arrays Syntax</a></li>
+<li><a href="http://stackoverflow.com/questions/3112687/how-to-iterate-over-associative-arrays-in-bash">StackOverflow: How to iterate over associative arrays in Bash</a></li>
 </ul>
 
   </div>
