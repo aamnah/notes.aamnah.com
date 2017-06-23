@@ -7,14 +7,14 @@
 
   <title>
     
-      Self-invoking Anonymous Function - IIFE
+      Common Git/Github Errors
     
   </title>
   
-  <meta name="description" content="A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when...">
+  <meta name="description" content="fatal: refusing to merge unrelated histories">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/javascript/AJAX-self-invoking-anonymous-function-ajax.html">
+  <link rel="canonical" href="http://tldrdevnotes.com/common-git-github-errors">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -77,13 +77,13 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">Self-invoking Anonymous Function - IIFE</h1>
+    <h1 class="Post-title" itemprop="name headline">Common Git/Github Errors</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2017-06-23T15:22:44+05:00" itemprop="datePublished">
-          Jun 23, 2017
+      <span class='ctime'>Created
+        <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
+          May 21, 2017
         </time>
       </span>
       
@@ -91,7 +91,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/AJAX-self-invoking-anonymous-function-ajax.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/Common-Git-Github-Issues.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -101,29 +101,17 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.</p>
-
-<p>We can do this by wrapping the code we write or execute within a selfinvoking anonymous function. We create a self incoking anonymous function like this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-<span class="p">})();</span>
+    <h3>fatal: refusing to merge unrelated histories</h3>
+<div class="highlight"><pre><code class="language-" data-lang="">$ git pull origin master
+From github.com:aamnah/myproject.com
+ * branch            master     -&gt; FETCH_HEAD
+fatal: refusing to merge unrelated histories
 </code></pre></div>
-<p>Now, whatever we put inside of here will only be unique to this anonymous function. It won&#39;t interfere with anything outside of it. So now we can safely create new variables and new functions and we don&#39;t have to worry about our code overriding another variable or function from another script or whatever else may be in teh global scope.</p>
+<p>Newly created Guthub repo, has only a <code>.gitignore</code> file that the local repo doesn&#39;t. can&#39;t push without pulling first.</p>
 
-<p>Our code inside the self-invoking anonymous function shouldn&#39;t interfere with anything that&#39;s outside in the global scope.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Hello!'</span><span class="p">;</span>
+<p><strong>Solution</strong>: You can use <code>--allow-unrelated-histories</code> to force the merge to happen.</p>
 
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">message</span><span class="o">=</span><span class="s1">'Goodbye!'</span>
-<span class="p">})();</span>
-
-<span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
-</code></pre></div>
-<p>The above code will output the value of the variable that is out in the glocal scope and not whatever is in our anonymous self-invoking function.</p>
-
-<ul>
-<li><a href="https://code.tutsplus.com/courses/learning-ajax/lessons/the-simplest-ajax-script">Source</a></li>
-</ul>
+<p><a href="http://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories">source</a></p>
 
   </div>
 

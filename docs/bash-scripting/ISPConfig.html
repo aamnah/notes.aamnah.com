@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    
+      Bash script for installing ISPConfig 3.1 on Ubuntu 17.04
+    
+  </title>
+  
+  <meta name="description" content="source">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://tldrdevnotes.com/bash-scripting/ISPConfig.html">
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+
+  <body>
+    <header class="Site-header">
+
+  <div class="wrapper">
+
+    <div>
+      <a class="Site-title" href="/">TLDR Dev Notes</a>
+      <small>Aamnah's developer notes</small>
+    </div>
+
+    <nav class="Site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+          <a class='page-link' href='/'>Home</a>
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/progress/">What i did</a>
+          
+        
+          
+          <a class="page-link" href="/quotes/">Quotes</a>
+          
+        
+          
+          <a class="page-link" href="/resource-list">Resources</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Bash script for installing ISPConfig 3.1 on Ubuntu 17.04</h1>
+    <p class="Post-meta">
+      
+      
+      <span class='ctime'>Created
+        <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
+          May 21, 2017
+        </time>
+      </span>
+      
+
+      
+
+      <!---->
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/ISPConfig.md" target='_blank'>Edit this page on Github</a>
+    </p>
+    
+      <ul class='tags'>
+      
+      </ul>
+    
+  </header>
+
+  <div class="Post-content" itemprop="articleBody">
+    <p><a href="https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">source</a></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">### SYSTEM SETTINGS</span>
+<span class="c">####################</span>
+
+<span class="c"># Check your hostname</span>
+<span class="c"># cat /etc/hostname</span>
+<span class="c"># cat /etc/hosts</span>
+<span class="c"># reboot</span>
+
+<span class="c"># Change the default shell</span>
+dpkg-reconfigure dash <span class="c"># change to NO</span>
+
+<span class="c"># Update repos</span>
+apt update <span class="o">&amp;&amp;</span> apt upgrade -y
+
+<span class="c"># Disable AppArmor</span>
+sudo service apparmor stop
+sudo service apparmor teardown
+sudo update-rc.d -f apparmor remove
+sudo remove apparmor apparmor-utils -y
+
+<span class="c"># Update system time zone</span>
+dpkg-reconfigure tzdata
+
+<span class="c"># Synchronize the System Clock</span>
+apt install ntp -y
+
+<span class="c">### COMPONENTS</span>
+<span class="c">#######################</span>
+
+<span class="c"># Disable and remove Sendmail</span>
+service sendmail stop; update-rc.d -f sendmail remove
+<span class="c"># `Failed to stop sendmail.service: Unit sendmail.service not loaded.` </span>
+<span class="c"># means Sendmail wasn't installed, carry on..</span>
+
+<span class="c"># Postfix</span>
+apt -y install postfix postfix-mysql postfix-doc openssl getmail4
+
+<span class="c"># Dovecot</span>
+apt -y install dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd
+
+<span class="c"># MySQL</span>
+apt -y install mysql-server mysql-client
+
+<span class="c"># PureFTP</span>
+apt -y install pure-ftpd-common pure-ftpd-mysql
+
+<span class="c"># rkhunter &amp; binutils</span>
+apt -y install rkhunter binutils
+<span class="c">## General type of mail configuration: &lt;-- Internet Site</span>
+<span class="c">## System mail name: &lt;-- server1.example.com</span>
+
+<span class="c"># 7. Install Amavisd-new, SpamAssassin, and Clamav</span>
+<span class="c">##################################################</span>
+apt-get -y install amavisd-new spamassassin clamav clamav-daemon zoo unzip bzip2 arj nomarch lzop cabextract apt-listchanges libnet-ldap-perl libauthen-sasl-perl clamav-docs daemon libio-string-perl libio-socket-ssl-perl libnet-ident-perl zip libnet-dns-perl postgrey
+
+<span class="c"># The ISPConfig 3 setup uses amavisd which loads the SpamAssassin filter library internally, so we can stop SpamAssassin to free up some RAM</span>
+service spamassassin stop
+update-rc.d -f spamassassin remove
+
+<span class="c"># To start ClamAV use</span>
+freshclam
+service clamav-daemon start
+
+<span class="c"># The following error can be ignored on the first run of freshclam.</span>
+<span class="c"># ERROR: /var/log/clamav/freshclam.log is locked by another process</span>
+<span class="c"># ERROR: Problem with internal logger (UpdateLogFile = /var/log/clamav/freshclam.log).</span>
+
+<span class="c"># 7.1 Install Metronome XMPP Server (optional)</span>
+<span class="c">##############################################</span>
+<span class="c"># The Metronome XMPP Server provides an XMPP chat server. This step is optional, if you do not need a chat server, then you can skip this step. No other ISPConfig functions depend on this software.</span>
+apt-get -y install git lua5.1 liblua5.1-0-dev lua-filesystem libidn11-dev libssl-dev lua-zlib lua-expat lua-event lua-bitop lua-socket lua-sec luarocks luarocks
+
+luarocks install lpc
+
+<span class="c"># Add a shell user for Metronome.</span>
+adduser --no-create-home --disabled-login --gecos <span class="s1">'Metronome'</span> metronome
+
+<span class="c"># Download Metronome to the /opt directory and compile it.</span>
+<span class="nb">cd</span> /opt; git clone https://github.com/maranda/metronome.git metronome
+<span class="nb">cd</span> ./metronome; ./configure --ostype<span class="o">=</span>debian --prefix<span class="o">=</span>/usr
+make
+make install
+
+<span class="c"># Metronome has now be installed to /opt/metronome.</span>
+
+<span class="c"># 8. Install Apache, PHP, phpMyAdmin, FCGI, SuExec, Pear, and mcrypt</span>
+<span class="c">####################################################################</span>
+
+<span class="c"># Apache2, PHP 7, phpMyAdmin, FCGI, suExec, Pear, and mcrypt can be installed as follows:</span>
+apt-get -y install apache2 apache2-doc apache2-utils libapache2-mod-php php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap phpmyadmin php7.0-cli php7.0-cgi libapache2-mod-fcgid apache2-suexec-pristine php-pear php7.0-mcrypt mcrypt  imagemagick libruby libapache2-mod-python php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached php-memcache php-imagick php-gettext php7.0-zip php7.0-mbstring
+
+<span class="c"># You will see the following question:</span>
+<span class="c"># Web server to reconfigure automatically: &lt;-- apache2 </span>
+<span class="c"># Configure database for phpmyadmin with dbconfig-common? &lt;-- Yes</span>
+<span class="c"># MySQL application password for phpmyadmin: &lt;-- Press enter</span>
+
+<span class="c"># Then run the following command to enable the Apache modules suexec, rewrite, ssl, actions, and include (plus dav, dav_fs, and auth_digest if you want to use WebDAV):</span>
+a2enmod suexec rewrite ssl actions include cgi
+a2enmod dav_fs dav auth_digest headers
+
+<span class="c"># To ensure that the server can not be attacked trough the HTTPOXY vulnerability, I will disable the HTTP_PROXY header in apache globally. </span>
+
+<span class="c"># Create a new httpoxy.conf file</span>
+touch /etc/apache2/conf-available/httpoxy.conf
+
+<span class="c"># Paste this content to the file</span>
+<span class="nb">echo</span> -e <span class="s2">"&lt;IfModule mod_headers.c&gt;
+    RequestHeader unset Proxy early
+&lt;/IfModule&gt;"</span> &gt; /etc/apache2/conf-available/httpoxy.conf
+
+<span class="c"># Enable the config file by running:</span>
+a2enconf httpoxy
+
+<span class="c"># Restart Apache afterward:</span>
+service apache2 restart
+
+
+<span class="c"># 8.1 PHP Opcode cache (optional)</span>
+<span class="c">##############################################</span>
+
+<span class="c"># Opcache is a free PHP opcode cacher for caching and optimizing PHP intermediate code. APCu is a compatibility module which provides APC compatible functions for Opcache which is used by many CMS caching systems.  It is recommended to have these PHP extensions installed to speed up your PHP page.</span>
+
+<span class="c"># APCu can be installed as follows:</span>
+apt-get -y install php7.0-opcache php-apcu
+
+<span class="c"># Now restart Apache:</span>
+service apache2 restart
+
+<span class="c">### CONFIGURATION</span>
+<span class="c">#######################</span>
+nano /etc/postfix/master.cf
+</code></pre></div>
+<h2>Links</h2>
+
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ispconfig3-on-an-ubuntu-14-04-server">DigitalOcean: How To Install ISPConfig3 on an Ubuntu 14.04 Server</a></li>
+<li><a href="https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">The Perfect Server - Ubuntu 17.04 (Zesty Zapus) with Apache, PHP, MySQL, PureFTPD, BIND, Postfix, Dovecot and ISPConfig 3.1</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+    <footer class="Site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><h2 class="footer-heading">TLDR Dev Notes</h2></li>
+          <li><a href="mailto:hello@aamnah.com">hello@aamnah.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/Aamnah"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">Aamnah</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/AamnahAkram"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">AamnahAkram</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51214502-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
