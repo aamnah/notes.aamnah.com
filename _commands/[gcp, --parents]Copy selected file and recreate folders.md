@@ -102,6 +102,7 @@ Renaming files once they are copied is easy though, just run a `find` command to
 ```bash
 # TOO BUSY TO DO THE GOOGLE
 # to-be-continued, will update the code if i ever get a chance later
+# manually rename the files for now
 ```
 
 Links
