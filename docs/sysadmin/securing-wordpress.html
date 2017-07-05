@@ -103,7 +103,23 @@
   <div class="Post-content" itemprop="articleBody">
     <h4>File Permissions</h4>
 
-<p>Secured File Permissions</p>
+<p>The default permission scheme should be:</p>
+
+<ul>
+<li>Folders <code>755</code></li>
+<li>Files <code>644</code></li>
+</ul>
+
+<p><strong>Avoid</strong> having any file or directory set to 777. <code>777</code> means global access. Usually only cache files have this permission.</p>
+
+<p>Via command line you can run the following commands to change permissions recursively:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># For Directories:</span>
+find /path/to/your/wordpress/install/ -type d -exec chmod 755 <span class="o">{}</span> <span class="se">\;</span>
+
+<span class="c"># For Files:</span>
+find /path/to/your/wordpress/install/ -type f -exec chmod 644 <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+<h5>Secured File Permissions for specific files</h5>
 <div class="highlight"><pre><code class="language-" data-lang="">600 -rw-------  /home/user/wp-config.php
 604 -rw----r--  /home/user/cgi-bin/.htaccess
 600 -rw-------  /home/user/cgi-bin/php.ini
