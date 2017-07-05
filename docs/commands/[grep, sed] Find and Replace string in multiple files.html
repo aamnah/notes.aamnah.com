@@ -123,6 +123,18 @@
 </code></pre></div>
 <p>This will search for the string &#39;windows&#39; in all files relative to the current directory and replace &#39;windows&#39; with &#39;linux&#39; for each occurrence of the string in each file.</p>
 
+<ul>
+<li><code>r</code> or <code>--recursive</code> is for recursive, so it searches subdirectories too</li>
+<li><code>l</code> or <code>--files-with-matches</code> is for listing matched files</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang="">     -l, --files-with-matches
+             Only the names of files containing selected lines are written to standard output.  grep will only search a file until a match has been found, mak-
+             ing searches potentially less expensive.  Pathnames are listed once per file searched.  If the standard input is searched, the string ``(standard
+             input)'' is written.
+
+     -R, -r, --recursive
+             Recursively search subdirectories listed.
+</code></pre></div>
 <h2>Links</h2>
 
 <ul>

@@ -28,6 +28,19 @@ grep -rl 'windows' ./ | xargs sed -i 's/windows/linux/g'
 
 This will search for the string 'windows' in all files relative to the current directory and replace 'windows' with 'linux' for each occurrence of the string in each file.
 
+- `r` or `--recursive` is for recursive, so it searches subdirectories too
+- `l` or `--files-with-matches` is for listing matched files
+
+```
+     -l, --files-with-matches
+             Only the names of files containing selected lines are written to standard output.  grep will only search a file until a match has been found, mak-
+             ing searches potentially less expensive.  Pathnames are listed once per file searched.  If the standard input is searched, the string ``(standard
+             input)'' is written.
+
+     -R, -r, --recursive
+             Recursively search subdirectories listed.
+```
+
 Links
 ---
 
