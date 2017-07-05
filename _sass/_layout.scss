@@ -229,3 +229,21 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 .Post-content {
     margin-bottom: $dimension-spacing;
 }
+
+// Notes
+.Post-note {
+    font-size: calc(14px + .1vw);
+    padding: 1em;
+    border: 1px solid gainsboro;
+
+    &--info {
+        background: aliceblue;
+        border: darken(aliceblue, 10%);
+    }
+
+    &--warning {
+        background-color: #ffffe1;
+        border-top: 1px solid #ffff95;
+        border-bottom: 1px solid #ffff95;
+    }
+}

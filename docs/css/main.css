@@ -363,6 +363,18 @@ h6 {
 .Post-content {
   margin-bottom: 50px; }
 
+.Post-note {
+  font-size: calc(14px + .1vw);
+  padding: 1em;
+  border: 1px solid gainsboro; }
+  .Post-note--info {
+    background: aliceblue;
+    border: #bde0ff; }
+  .Post-note--warning {
+    background-color: #ffffe1;
+    border-top: 1px solid #ffff95;
+    border-bottom: 1px solid #ffff95; }
+
 /**
  * Syntax highlighting styles
  */
