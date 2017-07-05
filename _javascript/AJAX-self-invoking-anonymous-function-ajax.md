@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Self-invoking Anonymous Function - IIFE
+ctime: 2015-11-04
+
 ---
 
 A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.
