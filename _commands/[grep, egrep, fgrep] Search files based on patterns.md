@@ -57,7 +57,7 @@ will output all the _h_ instances in helloworld.txt. You can also search for mul
     grep [hpokj] hellowolrd.txt
 will return all the lines that have our given characters.
 
-## ^[ ] & [ ]$
+## `^`[ ] and [ ]`$`
 will output lines that begin `^` or end `$` with our specified characters. For example:
 
     grep ^[hpokj] hellowolrd.txt
