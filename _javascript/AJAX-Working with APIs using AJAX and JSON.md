@@ -3,9 +3,12 @@ layout: post
 title: Working with APIs using AJAX and JSON
 permalink: working-with-ajax-json-api
 subtitle: Learn how to use AJAX and jQuery to get photos from Flickr's public image feed using the Flickr API
+ctime: 2015-11-04
 categories: 
 - how-to
+
 ---
+
 
 Code:
 ---
