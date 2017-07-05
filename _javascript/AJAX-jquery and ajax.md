@@ -2,6 +2,9 @@
 layout: post
 title: jQuery and AJAX
 permalink: jquery-ajax-shorthand-examples
+status: draft
+ctime: 2015-11-04
+
 ---
 
 ### the difference between jQuery's `.load()` AJAX method and jQuery's other shorthand AJAX methods?
