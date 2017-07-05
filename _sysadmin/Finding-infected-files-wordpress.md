@@ -68,6 +68,17 @@ For example:
 ./wp-content/plugins/js_composer/vendor/composer/css/c82987
 ```
 
+
+#### find all files on the server with the word 'xxx~hacker' in them
+
+```bash
+sudo egrep -irl 'xxx~hacker' /
+```
+
+```
+/var/cpanel/webtemplates/hostmark/english/suspended.tmpl
+/var/cpanel/webtemplates/hostmark/english/default.tmpl
+```
 Links
 ---
 - [How to Find a Backdoor in a Hacked WordPress Site and Fix It](http://www.wpbeginner.com/wp-tutorials/how-to-find-a-backdoor-in-a-hacked-wordpress-site-and-fix-it/)
