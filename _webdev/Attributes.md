@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Attributes
+title: Attributes in DOM
 subtitle: Get, Set and Remove Attributes in the DOM
 status: draft
+ctime: 2017-03-22
+
 ---
 
 - `getAttribute()` returns the value of a specified attribute on the element
