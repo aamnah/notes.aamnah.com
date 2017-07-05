@@ -120,12 +120,16 @@ find /path/to/your/wordpress/install/ -type d -exec chmod 755 <span class="o">{}
 find /path/to/your/wordpress/install/ -type f -exec chmod 644 <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div>
 <h5>Secured File Permissions for specific files</h5>
+
+<p>You should set these permissions</p>
 <div class="highlight"><pre><code class="language-" data-lang="">600 -rw-------  /home/user/wp-config.php
 604 -rw----r--  /home/user/cgi-bin/.htaccess
 600 -rw-------  /home/user/cgi-bin/php.ini
 711 -rwx--x--x  /home/user/cgi-bin/php.cgi
 100 ---x------  /home/user/cgi-bin/php5.cgi
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">chmod 604 .htaccess; 
+</code></pre></div>
+<p>Run these commands to set them. Might have to re-check the paths for php/cgi files...</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">chmod 604 .htaccess; 
 chmod 600 wp-config.php;
 chmod 600 php.ini cgi-bin/php.ini; 
 chmod 711 cgi-bin/php.cgi;
