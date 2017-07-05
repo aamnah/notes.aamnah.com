@@ -91,4 +91,7 @@ ErrorDocument 403 http://127.0.0.1/
 Links
 ---
 
+- [WordPress Codex: Hardening WordPress](https://codex.wordpress.org/Hardening_WordPress)
 - [WordPress Codex: Changing File Permissions](https://codex.wordpress.org/Changing_File_Permissions#.htaccess_permissions)
+- [Sucuri: Brute Force Amplification Attacks Against WordPress XMLRPC](https://blog.sucuri.net/2015/10/brute-force-amplification-attacks-against-wordpress-xmlrpc.html)
+- [How to Find a Backdoor in a Hacked WordPress Site and Fix It](http://www.wpbeginner.com/wp-tutorials/how-to-find-a-backdoor-in-a-hacked-wordpress-site-and-fix-it/)
