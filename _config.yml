@@ -86,6 +86,9 @@ collections:
   raspberrypi:
     output: true
     title: "Raspberry Pi"
+  sysadmin:
+    output: true
+    title: "Sys Admin"
   webdev:
     output: true
     title: "Web Development"
