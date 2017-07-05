@@ -1,3 +1,9 @@
+---
+layout: post
+title: Migrating server data and databases
+ctime: 2017-02-02
+---
+
 # Migrating data from a barebones server to another barebones server
 
 ### Compress files
