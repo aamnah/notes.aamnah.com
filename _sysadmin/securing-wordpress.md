@@ -7,7 +7,26 @@ ctime: 2017-07-05
 
 ####  File Permissions
 
-Secured File Permissions
+
+The default permission scheme should be:
+
+- Folders `755`
+- Files `644`
+
+**Avoid** having any file or directory set to 777. `777` means global access. Usually only cache files have this permission.
+
+Via command line you can run the following commands to change permissions recursively:
+
+```bash
+# For Directories:
+find /path/to/your/wordpress/install/ -type d -exec chmod 755 {} \;
+
+# For Files:
+find /path/to/your/wordpress/install/ -type f -exec chmod 644 {} \;
+```
+
+
+##### Secured File Permissions for specific files
 
 ```
 600 -rw-------  /home/user/wp-config.php
