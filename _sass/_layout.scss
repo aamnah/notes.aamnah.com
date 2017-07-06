@@ -232,16 +232,18 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
 
 // Notes
 .Post-note {
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
     font-size: calc(14px + .1vw);
+    margin-bottom: 1em;
     padding: 1em;
-    border: 1px solid gainsboro;
 
     &--info {
         background: aliceblue;
         border: darken(aliceblue, 10%);
     }
 
-    &--warning {
+    &--warn {
         background-color: #ffffe1;
         border-top: 1px solid #ffff95;
         border-bottom: 1px solid #ffff95;
