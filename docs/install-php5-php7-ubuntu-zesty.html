@@ -118,6 +118,16 @@
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 </code></pre></div>
+<hr>
+
+<p>note: if you get </p>
+<div class="highlight"><pre><code class="language-" data-lang="">sudo: add-apt-repository: command not found
+</code></pre></div>
+<p>then install the <code>software-properties-common</code> package. For my Ubuntu version (precise), I also had to install the python-software-properties package:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"> sudo apt-get install software-properties-common -y
+</code></pre></div>
+<hr>
+
 <h4>install packages</h4>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># PHP 5.6</span>
 apt-get install php5.6 libapache2-mod-php5.6 php5.6-cli php5.6-common php5.6-curl php5.6-dev php5.6-gd php5.6-intl php5.6-mcrypt php5.6-mysql  php5.6-recode php5.6-xsl php5.6-pspell php5.6-ps php5.6-imagick php-pear -y
@@ -142,6 +152,7 @@ phpenmod -v 7.0 mcrypt <span class="c"># PHP7</span>
 
 <ul>
 <li>https://askubuntu.com/questions/756879/cant-install-php5-on-ubuntu-16-04</li>
+<li><a href="http://lifeonubuntu.com/ubuntu-missing-add-apt-repository-command/">Ubuntu Missing add-apt-repository command</a></li>
 </ul>
 
   </div>
