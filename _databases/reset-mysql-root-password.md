@@ -28,21 +28,19 @@ mysql -u root
 4. Change to the mysql database, which handles the settings for MySQL itself:
 
 ```sql
-use mysql;
+USE mysql;
 ```
 
 5. Update the password for the root user:
 
-update user set password=PASSWORD("CqgNoXMxOV8k") where User='root';
-
 ```sql
-update user set password=PASSWORD("the new password you want to use") where User='root';
+UPDATE USER SET PASSWORD=PASSWORD("the new password you want to use") WHERE USER='root';
 ```
 
 6. Refresh the MySQL user privileges:
 
 ```sql
-flush privileges;
+FLUSH PRIVILEGES;
 ```
 7. Exit MySQL:
 
