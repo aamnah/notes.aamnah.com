@@ -364,13 +364,15 @@ h6 {
   margin-bottom: 50px; }
 
 .Post-note {
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
   font-size: calc(14px + .1vw);
-  padding: 1em;
-  border: 1px solid gainsboro; }
+  margin-bottom: 1em;
+  padding: 1em; }
   .Post-note--info {
     background: aliceblue;
     border: #bde0ff; }
-  .Post-note--warning {
+  .Post-note--warn {
     background-color: #ffffe1;
     border-top: 1px solid #ffff95;
     border-bottom: 1px solid #ffff95; }
