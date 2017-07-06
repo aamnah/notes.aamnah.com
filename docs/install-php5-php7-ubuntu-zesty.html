@@ -11,10 +11,10 @@
     
   </title>
   
-  <meta name="description" content="You can install both PHP5 and PHP7 and switch between them..">
+  <meta name="description" content="WARNING:    This leads to PhpMyAdmin not working if you install it afterwards..   Both versions working has not been tested in production.  If you check PHP ...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/install-php5.6-php7-ubuntu-zesty">
+  <link rel="canonical" href="http://tldrdevnotes.com/install-php5-php7-ubuntu-zesty">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -101,7 +101,16 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>You can install both PHP5 and PHP7 and switch between them..</p>
+    <div class="Post-note Post-note--warn">
+<strong>WARNING: </strong> <br />
+<ul>
+  <li>This leads to PhpMyAdmin not working if you install it afterwards.. 
+  <li>Both versions working has not been tested in production.
+  <li>If you check PHP version on system, <code>php --version</code>, it still shows <samp>PHP 7.0</samp>
+</ul>
+</div>
+
+<p>(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.</p>
 
 <h4>add repo</h4>
 
