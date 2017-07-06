@@ -7,6 +7,7 @@ ctime: 2017-07-06
 
 ---
 
+(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.
 
 <div class="Post-note Post-note--warn">
 <strong>WARNING: </strong> <br />
@@ -16,8 +17,6 @@ ctime: 2017-07-06
   <li>If you check PHP version on system, <code>php --version</code>, it still shows <samp>PHP 7.0</samp>
 </ul>
 </div>
-
-(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.
 
 #### add repo
 
