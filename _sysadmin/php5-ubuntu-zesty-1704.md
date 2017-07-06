@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Install PHP5 on Ubuntu 17.04 Zesty Zapus
-permalink: Install both version of PHP on Ubuntu 17.04 and switch between the two
+subtitle: Install both version of PHP on Ubuntu 17.04 and switch between the two
 permalink: install-php5.6-php7-ubuntu-zesty
 ctime: 2017-07-06
 
