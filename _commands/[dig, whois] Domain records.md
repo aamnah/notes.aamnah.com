@@ -8,7 +8,7 @@ ctime: 2017-03-13
 
 ## Registration details
 
-`whois aamnah.com` will return domain registration details for aamnah.com, including when it was registered, who registered it, when it was created and who is the contact.
+`whois domain.com` will return domain registration details for domain.com, including when it was registered, who registered it, when it was created and who is the contact.
 
 `dig` is another useful command. You can use the `dig +short` to only list values.
 
