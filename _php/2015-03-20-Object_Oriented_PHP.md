@@ -1,15 +1,15 @@
-
 ---
 layout: post
 title: Object Oriented PHP
 permalink: object_oriented_php
+ctime: 2015-03-20
 
 ---
     
 The basic pillars of Object Oriented Programming (OOP) are:
 
 - Encapsulation
-- Inheritence
+- Inheritance
 - Polymorphism
 
 #### Encapsulation
@@ -31,26 +31,23 @@ Classes allow us to organize our constants, functions (in a class functions are 
 
 #### Defining a Class
 
-    {% highlight php %}
-    <?php
-        class Product {
-            // class definitions go here
-        }
-    ?>
-    {% endhighlight %}
+```php
+class Product {
+  // class definitions go here
+}
+```
 
 Once we have a class defined, we can proceed to creating our object.
 
 #### Creating an Object
 
-    {% highlight php %}
-    <?php
-        class Product {
-            // class definitions go here
-        }
-        $p = new Product();
-    ?>
-    {% endhighlight %}
+```php
+class Product {
+  // class definitions go here
+}
+
+$p = new Product();
+```
 
 We use the keyword `new` to create an object. Now `$p` is a class object.
 
@@ -76,39 +73,37 @@ If you don not define the property as one of the above keywords or you use the `
 You can access class properties with the following characters, a hyphen followed by a greater than symbol `->`. It is called the **object operator**.
 
 
-    {% highlight php %}
-    <?php
-        class Product {
-            // class definitions go here
-            public $name;
-        }
-        $p = new Product();
+```php
+class Product {
+  public $name;
+  public $price;
+  public $desc;
 
-        $p->name = "Pakola";
-        echo $p->name;
-    ?>
-    {% endhighlight %}
+  public function getInfo() {
+    // return some info about our product
+  }
+}
 
+$product_info = $p->getInfo();
+```
 ### Methods
 Functions that are defined inside of a class for use in objects, are called methods. Methods follow the same formatting, argument definitions and use cases as a function. The only difference is the ability to use visibility keywords of `public`, `private`, or `protected`. 
 
 Methods that get information about a property (aka **getters**), you're looking for some tie of return value.
 
-    {% highlight php %}
-    <?php
-        class Product {
-            public $name;
-            public $price;
-            public $desc;
+```php
+class Product {
+  public $name;
+  public $price;
+  public $desc;
 
-            public function getInfo() {
-                // return some info about our product
-            }
-        }
+  public function getInfo() {
+    // return some info about our product
+  }
+}
 
-        $product_info = $p->getInfo();
-    ?>
-    {% endhighlight %}
+$product_info = $p->getInfo();
+```
 
 #### Pseudo-variable
 
@@ -118,27 +113,27 @@ Pseudo variable `$this` refers to the current instance of the object within that
 
 The pseudo-variable `$this` is available when a method is called from within an object context. `$this` is a reference to the calling object.
 
-    {% highlight php %}
-    <?php
-        class Product {
-            // properties
-            public $name = 'default_name';
-            
-            // methods
-            public function getInfo() {
-                return "Product name: " . $this->name;
-            }
-        }
+```php
+class Product {
+  // properties
+  public $name = 'default_name';
+  
+  // methods
+  public function getInfo() {
+    return "Product name: " . $this->name;
+  }
+}
 
-        $p = new Product();
+$p = new Product();
 
-        echo $p->getInfo();
-    ?>
-    {% endhighlight %}
+echo $p->getInfo();
+```
 
 will output 
 
-    Product name: default_name
+```
+Product name: default_name
+```
 
 ### Constructor Method
 
