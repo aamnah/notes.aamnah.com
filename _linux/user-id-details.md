@@ -19,10 +19,10 @@ id
 ```
 
 `id` for users root and grumpyolme on a debian system
-![Screenshot 2015-12-18 14.29.09.png](resources/78836BE5B7553C067ED6DBC4BE2FBA81.png)
+![Screenshot 2015-12-18 14.29.09.png](/assets/img/78836BE5B7553C067ED6DBC4BE2FBA81.png)
 
 `id` for user aamnah on a Mac OS X system
-![Screenshot 2015-12-18 14.28.31.png](resources/C14106EEF5EA76514919A2932CD8C166.png)
+![Screenshot 2015-12-18 14.28.31.png](/assets/img/C14106EEF5EA76514919A2932CD8C166.png)
 
 `id` will give you the
 
