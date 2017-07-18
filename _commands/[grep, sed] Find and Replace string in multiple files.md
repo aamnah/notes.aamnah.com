@@ -28,7 +28,11 @@ grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
 Note: sed takes whatever follows the `s` as the separator.  The forward slash `/` delimiter in the sed argument could also be a different delimiter (such as the pipe `|` character). The pipe delimiter might be useful when searching through a lot of html files if you didn't want to escape the forward slash, for instance.
 </div>
 
-_matchstring_ is the string you want to match, e.g., "football" string1 would ideally be the same string as matchstring, as the matchstring in the grep command will pipe only files with matchstring in them to sed. string2 is the string that replace string1. There may be times when you want to use grep to find only files that have some matchstring and then replace on a different string in the file than matchstring. For example, maybe you have a lot of files and only want to only replace on files that have the matchstring of 'phonenumber' in them, and then replace '555-5555' with '555-1337'. Not that great of an example (you could just search files for that phone number instead of the string 'phonenumber'), but your imagination is probably better than mine.
+- *matchstring* is the string you want to match, e.g., "football" 
+- *string1* would ideally be the same string as matchstring, as the matchstring in the grep command will pipe only files with matchstring in them to sed. 
+- *string2* is the string that replace string1. 
+
+There may be times when you want to use grep to find only files that have some matchstring and then replace on a different string in the file than matchstring. For example, maybe you have a lot of files and only want to only replace on files that have the matchstring of 'phonenumber' in them, and then replace '555-5555' with '555-1337'. Not that great of an example (you could just search files for that phone number instead of the string 'phonenumber'), but your imagination is probably better than mine.
 
 #### Example
 
