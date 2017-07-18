@@ -78,6 +78,9 @@ collections:
   php:
     output: true
     title: "PHP"
+  programming:
+    output: true
+    title: "Programming"
   python:
     output: true
     title: "Python"
