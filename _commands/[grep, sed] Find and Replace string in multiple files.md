@@ -10,7 +10,13 @@ grep -rl --null mangoes/ . | xargs -0 sed -i '' 's/mangoes/oranges/g'
 ```
 
 ## why?
-I recently had to replace every occurrence of a certain word/string in a ton of files spanning multiple directories, and this is the quickest way I've found to do it. It uses grep to search for a certain word and if it find its it runs sed to replace the strings you want. Note: This will not work on windows systems
+
+Here's the scenario, i exported some files for this blog from a software that used a different image folder structure. Lots of new files with different links. So i needed a way to 
+
+- find all the files spanning multiple directories containing a specific string
+- edit (in place) all them files found in multiple directories and replace it with new string
+
+Basically, what i needed to do was change the path for images directory from `resources/file.png` to `/assets/img/file.png`. But i didn't know which files had the new link structure and which files had the old one. We're talking about 500+ files, in 25+ directories, so i can't just go open them one by one and find stuff..
 
 ### Basic Format
 
@@ -47,7 +53,7 @@ This will search for the string 'windows' in all files relative to the current d
 
 ### File names with spaces, blanks or newlines
 
-You may run into issues if your file names have blanks, empty spaces or newlines in them. We are using [`xargs`](https://en.wikipedia.org/wiki/Xargs) to take the output of `grep` as our input and build the command on that. The default `xargs` behaviour is to delimit input with blanks and newlines. The default `grep` output separates filenames by newlines. See the issue?
+On macOS, you may run into issues if your file names have blanks, empty spaces or newlines in them. We are using [`xargs`](https://en.wikipedia.org/wiki/Xargs) to take the output of `grep` as our input and build the command on that. The default `xargs` behaviour is to delimit input with blanks and newlines. The default `grep` output separates filenames by newlines. See the issue?
 
 If your file is named `blah blah blah.txt`, and you found it via `grep`, you'll get the following error when passing it to `sed` via `xargs`
 
@@ -70,7 +76,8 @@ grep -rl --null resources/ . | xargs -0 sed -i '' 's|resources/|/assets/img/|g'
 
 Links
 ---
-
+- [StackOverflow: Recursive search and replace in text files on Mac and Linux](https://stackoverflow.com/questions/9704020/recursive-search-and-replace-in-text-files-on-mac-and-linux)
 - [http://vasir.net/blog/ubuntu/replace_string_in_multiple_files](http://vasir.net/blog/ubuntu/replace_string_in_multiple_files)
 - [manual: xargs](https://linux.die.net/man/1/xargs)
 - [manual: grep](https://www.gnu.org/software/grep/manual/grep.html)
+- [Using different delimiters in sed](http://backreference.org/2010/02/20/using-different-delimiters-in-sed/)
