@@ -1,7 +1,8 @@
 ---
+layout: post
 title: Bash Scripting - Taking input
 permalink: bash-scripting-take-input
-last_updated: june 5 2014, 12:08:00 
+ctime: 2014-06-05 12:08:00
 ---
 
 
@@ -9,7 +10,8 @@ There are multiple ways of taking input via the Shell.
 
 Using the 'read' command to prompt for input
 -----
-```
+
+```bash
 #!/bin/bash
 
 echo "Enter your name:"
@@ -20,11 +22,11 @@ echo "Hello $user_name!"
 
 Here's what the script will look like when we run it.
 
-<pre><samp>
+```
 $ sh nameexample
 Enter your name: Sarah
 Hello Sarah!
-</samp></pre>
+```
 
 Using Command-Line Arguments for Input
 -----
