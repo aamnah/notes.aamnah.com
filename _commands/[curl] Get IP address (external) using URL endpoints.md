@@ -23,7 +23,7 @@ You can curl an _endpoint_ for your external public IP, like so:
 curl http://ipecho.net/plain; echo
 ```
 
-There are plenty of services that give you your public IP address by going to a URL. You can then curl that URL to see your extrenal public IP in CLI.
+There are plenty of services that give you your public IP address by going to a URL. You can then curl that URL to see your external public IP in CLI.
 
 Some alternatives are:
 
@@ -46,7 +46,7 @@ curl ifcfg.me/all
 
 will give you your ISP and Country as well
 
-![Screenshot 2015-12-02 17.34.32.png](resources/327F4B5F6F6D4C813E9880F9D29F48DA.png)
+![curl ifcfg.me/all](/assets/img/cmd-curl-isp.png)
 
 Notes
 ---

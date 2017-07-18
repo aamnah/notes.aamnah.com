@@ -21,6 +21,9 @@ github_url: "https://github.com/aamnah/tldrdevnotes.com/blob/master/"
 twitter_username: AamnahAkram
 github_username:  Aamnah
 
+# Misc. Settings
+timezone: Asia/Karachi
+
 # Build settings
 markdown: redcarpet
 
@@ -101,27 +104,37 @@ collections:
 
 # Site wide defaults
 defaults:
-- scope:
-    path: "" # an empty string here means all files in the project
-    type: "posts" # types that are available are pages, posts, drafts or any collection in your site. 
-  values:
-    layout: "post"
-    author: "Aamnah"
-
-- scope:
-    path: "_posts"
-    type: "posts" # types that are available are pages, posts, drafts or any collection in your site.
-  values:
-    layout: "post"
-
-- scope:
-    path: "_cheatseets"
-    type: "cheatsheets" # a collection in your site, in plural form
-  values:
-    layout: "post"
-
-- scope:
-    path: "_commands"
-    type: "commands"
-  values:
-    layout: "post"
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # types that are available are pages, posts, drafts or any collection in your site. 
+    values:
+      layout: "post"
+      author: "Aamnah"
+  -
+    scope:
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      type: "drafts"
+    values:
+      layout: "post"
+  - 
+    scope:
+      path: "_cheatseets"
+      type: "cheatsheets" # a collection in your site, in plural form
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_commands"
+      type: "commands"
+    values:
+      layout: "post"
+  -
+    scope:
+      type: "linux" # linux collection in _linux
+    values:
+      layout: "post"

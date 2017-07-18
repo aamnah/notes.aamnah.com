@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Getting WiFi details in Linux
 subtitle: Get WiFi details in Linux, put your Wireless card in monitor mode, get network details and more
 permalink: wifi-linux-commands
