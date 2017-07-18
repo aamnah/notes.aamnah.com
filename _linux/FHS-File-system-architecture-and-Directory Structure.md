@@ -16,15 +16,15 @@ Please note that OSX is not FHS-compliant. I've added screenshots because i'm a 
 
 file system structure on Ubuntu
 
-![file system structure on Ubuntu](/assets/img/8DBDC808-06B2-4860-9FF7-7F800E68C6B2.jpg)
+![file system structure on Ubuntu](/assets/img/resources/8DBDC808-06B2-4860-9FF7-7F800E68C6B2.jpg)
 
 file system structure on Mac
 
-![file system structure on Mac](/assets/img/5EEAF980-E1C8-4B89-86D0-57BF835645B5.png)
+![file system structure on Mac](/assets/img/resources/5EEAF980-E1C8-4B89-86D0-57BF835645B5.png)
 
-![Screenshot 2015-11-21 12.19.16.png](/assets/img/B227BFB020BAB95E9BBBF7396AF7138C.png)
+![Screenshot 2015-11-21 12.19.16.png](/assets/img/resources/B227BFB020BAB95E9BBBF7396AF7138C.png)
 
-![Screenshot 2015-11-21 12.21.51.png](/assets/img/95121B382DD49EDA93505D3F8DF92EF8.png)
+![Screenshot 2015-11-21 12.21.51.png](/assets/img/resources/95121B382DD49EDA93505D3F8DF92EF8.png)
 
 You can do `man hier` to get help and explanations concerning the **layout of filesystems**. This command works on both Linux and Mac
 
@@ -66,16 +66,16 @@ Programs are written in source code and this is human readable text. These text 
 
 /bin on Linux
 
-![](/assets/img/0770FCDE-4277-4A6C-B8FF-1BE87B402990.png)
+![](/assets/img/resources/0770FCDE-4277-4A6C-B8FF-1BE87B402990.png)
 
 /bin on Mac
 
-![](/assets/img/F2508E8F-6707-4F7A-8575-F82A02424942.png)
+![](/assets/img/resources/F2508E8F-6707-4F7A-8575-F82A02424942.png)
 
 # /boot
 Boot files: boot loaders, initrd files, kernel files etc. These are files that are necessary for the kernel to pass into the boot stage from the grub boot loader
 
-![](/assets/img/E0EC0C8E-3C51-4437-83F9-BE1BE0AAC439.png)
+![](/assets/img/resources/E0EC0C8E-3C51-4437-83F9-BE1BE0AAC439.png)
 
 # /dev
 Device directory. These are essential devices. /dev/null, /dev/random, /dev/urandom.. These are the devices that are actually on our system. Our hard drives, CD ROMs etc.
@@ -90,7 +90,7 @@ There are actually two sorts of device files that can be stored in /dev/ folder.
 Host system specific configuration file directory. Most of these are text files and can be edited using a text editor.
 
 /etc on Linux
-![Screenshot 2015-11-21 12.47.01.png](/assets/img/5BDB3285C1752FE5491F1A0718D2C758.png)
+![Screenshot 2015-11-21 12.47.01.png](/assets/img/resources/5BDB3285C1752FE5491F1A0718D2C758.png)
 
 For example:
 Apache conf (Ubuntu): `/etc/apache2/apache2.conf`
@@ -100,8 +100,8 @@ System-wide php.ini: `/etc/php5/apache2/php.ini`
 PHPMyAdmin: `/etc/apache2/phpmyadmin.conf`
 MySQL: `etc/mysql/my.cnf`
 
-![Screenshot 2015-12-18 12.50.50.png](/assets/img/55767302F5585E86A017AA59F31E4132.png)
-![Screenshot 2015-12-18 01.08.14.png](/assets/img/4EB455D278466E54AD4EB863C541643A.png)
+![Screenshot 2015-12-18 12.50.50.png](/assets/img/resources/55767302F5585E86A017AA59F31E4132.png)
+![Screenshot 2015-12-18 01.08.14.png](/assets/img/resources/4EB455D278466E54AD4EB863C541643A.png)
 
 It inculdes backronyms such as editable text configurations and extended tool chest. You'll find all of the configuration of run level files that you need to configure for your system from the boot up and boot devices that are connected to the run levels of your system.
 
@@ -127,11 +127,11 @@ All of the info for ecerything inculding our kernel core, IO ports as well as re
 
 /proc is actually a pseudo filesystem that is dynamically created whenever it is actually accessed. Within our /proc directories there are furthermore sub-directories and each of these sub-directories is identifiable with a number and not a name. That number is a PID (Process ID) number. The directory stands for a process. (You can check PIDs with the `ps ax` command)
 
-![Screenshot 2015-12-18 12.58.40.png](/assets/img/0F2406EBD4C954A01612BB893C31828D.png)
+![Screenshot 2015-12-18 12.58.40.png](/assets/img/resources/0F2406EBD4C954A01612BB893C31828D.png)
 
 There are also other files in this /proc folder, like /proc/cpuinfo that might be of interest
 
-![Screenshot 2015-12-18 13.02.00.png](/assets/img/697F29FB1C063A81C033BFE9260994EF.png)
+![Screenshot 2015-12-18 13.02.00.png](/assets/img/resources/697F29FB1C063A81C033BFE9260994EF.png)
 
 
 # /root
@@ -141,12 +141,12 @@ Home dir for root user. This is usually at the base of the file system instead o
 Similar to /bin, only the /sbin folder conatins essential **system management and administration files**/bianries. This includes utilities such as `init`, `netstat`, `sysctl`, `fsck`, `fdisk`, `fsch`, `ifconfig`, `mkfs`, `shutdown` and `halt` etc. All **administrator users** will need these binaries at some point.
 
 # /srv
-Site specific data served by the system. Contains sub-dirs for services running on our system such as httpd for apache or ftpd for 
+Site specific data served by the system. Contains sub-dirs for services running on our system such as *httpd* for apache or *ftpd* for FTP
 
 # /sys
 The /sys folder contains info about hardware that is on our system
 
-![Screenshot 2015-12-18 13.08.52.png](/assets/img/4B83A9A3CEF7E7AA5245D22038044112.png)
+![Screenshot 2015-12-18 13.08.52.png](/assets/img/resources/4B83A9A3CEF7E7AA5245D22038044112.png)
 
 # /tmp
 Temporary space, typically cleared on reboot. all of our users have read/write access to /tmp.
@@ -170,7 +170,7 @@ It's the biggest dir on the file system. It's recommended giving it it's own par
 Variable files. Log files, spool dir for printing, run files etc.
 
 # /lost+found
-Stores all of your restored files that would've been lost after a system crashes or something starnge happens.. e.g. kernel panics
+Stores all of your restored files that would've been lost after a system crashes or something strange happens.. e.g. kernel panics
 
 Every partition has a lost+found in it's upper directory.
 
@@ -229,5 +229,5 @@ Links
 - [Filesystem Hierarchy Standard: Official documentation](http://www.pathname.com/fhs/pub/fhs-2.3.pdf)
 - [What is standard for os x filesystem? e.g. /opt/ vs. /usr/](http://apple.stackexchange.com/questions/119230/what-is-standard-for-os-x-filesystem-e-g-opt-vs-usr)
 - [YouTube: Nixie Pixel: The Linux File System Explained ](https://www.youtube.com/watch?v=2qQTXp4rBEE)
-- [Linux Academy: The Linux Fileystem](https://linuxacademy.com/cp/courses/lesson/course/331/lesson/1/module/38)
+- [Linux Academy: The Linux Filesystem](https://linuxacademy.com/cp/courses/lesson/course/331/lesson/1/module/38)
 - [Linux Training Academy: The Linux Directory Structure](https://stackskills.com/courses/learn-linux-in-5-days-and-level-up-your-career/lectures/488038)
