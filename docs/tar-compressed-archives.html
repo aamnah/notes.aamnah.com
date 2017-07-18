@@ -133,31 +133,31 @@
 <h2>Example <code>tar</code> commands:</h2>
 
 <p>compress a dir:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -cvf archive.tar dir-to-archive
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar dir-to-archive
 </code></pre></div>
 <p>compress multiple files</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -cvf archive.tar file1 file2 file3
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar file1 file2 file3
 </code></pre></div>
 <p>compress multiple files and dirs</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -cvf archive.tar dir1 dir2 file2 file3
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar dir1 dir2 file2 file3
 </code></pre></div>
 <h2>Compresses tar archives</h2>
 
 <p>You can compress on the fly with the <code>z</code> flag</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -czvf archive.tar.gz dir-to-archive
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -czvf archive.tar.gz dir-to-archive
 </code></pre></div>
 <p>You can also use <code>gzip</code> on a tarball to compress it.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">gzip archive.tar
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gzip archive.tar
 </code></pre></div>
 <h2>Extract tarballs</h2>
 
 <p>Use the <code>x</code> flag instead of <code>c</code></p>
 
 <p>Extract all files from archive.tar.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -xf archive.tar
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -xf archive.tar
 </code></pre></div>
 <p>Extract a compressed tarball</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -xzvf archive.tar.gz 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -xzvf archive.tar.gz 
 </code></pre></div>
 <h3>Extract tarballs while restoring permissions</h3>
 
@@ -170,7 +170,7 @@
 <h2>List the contents of a tarball without extracting it</h2>
 
 <p>Use the <code>t</code> or <code>--list</code> flag</p>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -tzvf archive.tar.gz 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -tzvf archive.tar.gz 
 </code></pre></div>
 <p>Handy when you wanna know what&#39;s in a tarball, or to see if it&#39;ll extract in the current dir or in it&#39;s own subdir. Sometimes, you get a <em>tar bomb</em> when a tarball starts extracting all the files in your current dir instead of making its own folder.. Potentially clobbering files in your current dir, like README or something, that you might already have in the folder you are working in.</p>
 
