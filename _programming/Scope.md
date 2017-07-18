@@ -1,3 +1,10 @@
+---
+layout: post
+title: Scope
+permalink: scope-in-programming
+ctime: 2017-01-16
+---
+
 # Scope
 
 > where to look for things
