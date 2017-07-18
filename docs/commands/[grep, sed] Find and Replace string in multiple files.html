@@ -111,7 +111,14 @@
 </code></pre></div>
 <h2>why?</h2>
 
-<p>I recently had to replace every occurrence of a certain word/string in a ton of files spanning multiple directories, and this is the quickest way I&#39;ve found to do it. It uses grep to search for a certain word and if it find its it runs sed to replace the strings you want. Note: This will not work on windows systems</p>
+<p>Here&#39;s the scenario, i exported some files for this blog from a software that used a different image folder structure. Lots of new files with different links. So i needed a way to </p>
+
+<ul>
+<li>find all the files spanning multiple directories containing a specific string</li>
+<li>edit (in place) all them files found in multiple directories and replace it with new string</li>
+</ul>
+
+<p>Basically, what i needed to do was change the path for images directory from <code>resources/file.png</code> to <code>/assets/img/file.png</code>. But i didn&#39;t know which files had the new link structure and which files had the old one. We&#39;re talking about 500+ files, in 25+ directories, so i can&#39;t just go open them one by one and find stuff..</p>
 
 <h3>Basic Format</h3>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">grep -rl matchstring somedir/ | xargs sed -i <span class="s1">'s/string1/string2/g'</span>
@@ -141,7 +148,7 @@ Note: sed takes whatever follows the `s` as the separator.  The forward slash `/
 </code></pre></div>
 <h3>File names with spaces, blanks or newlines</h3>
 
-<p>You may run into issues if your file names have blanks, empty spaces or newlines in them. We are using <a href="https://en.wikipedia.org/wiki/Xargs"><code>xargs</code></a> to take the output of <code>grep</code> as our input and build the command on that. The default <code>xargs</code> behaviour is to delimit input with blanks and newlines. The default <code>grep</code> output separates filenames by newlines. See the issue?</p>
+<p>On macOS, you may run into issues if your file names have blanks, empty spaces or newlines in them. We are using <a href="https://en.wikipedia.org/wiki/Xargs"><code>xargs</code></a> to take the output of <code>grep</code> as our input and build the command on that. The default <code>xargs</code> behaviour is to delimit input with blanks and newlines. The default <code>grep</code> output separates filenames by newlines. See the issue?</p>
 
 <p>If your file is named <code>blah blah blah.txt</code>, and you found it via <code>grep</code>, you&#39;ll get the following error when passing it to <code>sed</code> via <code>xargs</code></p>
 <div class="highlight"><pre><code class="language-" data-lang="">sed: ./blah : No such file or directory
@@ -160,9 +167,11 @@ Note: sed takes whatever follows the `s` as the separator.  The forward slash `/
 <h2>Links</h2>
 
 <ul>
+<li><a href="https://stackoverflow.com/questions/9704020/recursive-search-and-replace-in-text-files-on-mac-and-linux">StackOverflow: Recursive search and replace in text files on Mac and Linux</a></li>
 <li><a href="http://vasir.net/blog/ubuntu/replace_string_in_multiple_files">http://vasir.net/blog/ubuntu/replace<em>string</em>in<em>multiple</em>files</a></li>
 <li><a href="https://linux.die.net/man/1/xargs">manual: xargs</a></li>
 <li><a href="https://www.gnu.org/software/grep/manual/grep.html">manual: grep</a></li>
+<li><a href="http://backreference.org/2010/02/20/using-different-delimiters-in-sed/">Using different delimiters in sed</a></li>
 </ul>
 
   </div>
