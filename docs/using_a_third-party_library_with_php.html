@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="For this example, we&#39;ll use PHPMailer. Grab the latest stable release.">
+  <meta name="description" content="Downloading and Including files">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://tldrdevnotes.com/using_a_third-party_library_with_php">
@@ -101,7 +101,9 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>For this example, we&#39;ll use <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>. Grab the latest stable release.</p>
+    <h3>Downloading and Including files</h3>
+
+<p>For this example, we&#39;ll use <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>. Grab the latest stable release.</p>
 
 <p>The main file we need is <strong>class.phpmailer.php</strong></p>
 
@@ -122,6 +124,35 @@
 <li><code>require_once()</code></li>
 </ul>
 
+<h3>Composer</h3>
+
+<p><a href="https://getcomposer.org/">Composer</a> is a dependency manager for PHP, like npm is for node.js. The good thing about using Composer is that it makes copying your particular project setup fast and easy, all you need to do is include the <code>composer.json</code> file and anyone can then install the exact same versions of the libs you used on their systems.</p>
+
+<p>Instead of copying all the bulk, (or uploading it to Github), they can just copy one file and re-install it on their computers without wasting bandwidth and time. Once you have the <code>composer.json</code> file, you can include the <code>vendors</code> folder (that is where  Composer installs stuff) in <code>.gitignore</code></p>
+
+<h5>Install</h5>
+
+<p>Linux / Unix / Mac</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer | sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer
+</code></pre></div>
+<p>Confirm install with: <code>composer -V</code></p>
+
+<h4>Getting started</h4>
+
+<p>In your project folder, create the <code>composer.json</code> file with the command</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer init
+</code></pre></div>
+<p>To add a package to the <code>composer.json</code> file</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer require
+</code></pre></div>
+<p>If you have an existing <code>composer.json</code> file, install dependencies with</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer install
+</code></pre></div>
+<h5>Using the libraries composer installed in your project</h5>
+
+<p>To use the library you installed via composer in your project, all you need is a <code>require</code> statement in your script, like so:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php">require 'vendor/autoload.php';
+</code></pre></div>
   </div>
 
 </article>

@@ -5,7 +5,9 @@ permalink: using_a_third-party_library_with_php
 status: draft
 
 ---
-    
+
+### Downloading and Including files
+
 For this example, we'll use [PHPMailer](https://github.com/PHPMailer/PHPMailer). Grab the latest stable release.
 
 The main file we need is **class.phpmailer.php**
@@ -24,3 +26,45 @@ There are actually four commands we might use
 - `include_once()`
 - `require()`
 - `require_once()`
+
+### Composer
+
+[Composer](https://getcomposer.org/) is a dependency manager for PHP, like npm is for node.js. The good thing about using Composer is that it makes copying your particular project setup fast and easy, all you need to do is include the `composer.json` file and anyone can then install the exact same versions of the libs you used on their systems.
+
+Instead of copying all the bulk, (or uploading it to Github), they can just copy one file and re-install it on their computers without wasting bandwidth and time. Once you have the `composer.json` file, you can include the `vendors` folder (that is where  Composer installs stuff) in `.gitignore`
+
+##### Install
+
+Linux / Unix / Mac
+
+```bash
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
+
+Confirm install with: `composer -V`
+
+#### Getting started
+
+In your project folder, create the `composer.json` file with the command
+
+```bash
+composer init
+```
+To add a package to the `composer.json` file
+
+```bash
+composer require
+```
+If you have an existing `composer.json` file, install dependencies with
+
+```bash
+composer install
+```
+
+##### Using the libraries composer installed in your project
+
+To use the library you installed via composer in your project, all you need is a `require` statement in your script, like so:
+
+```php
+require 'vendor/autoload.php';
+```
