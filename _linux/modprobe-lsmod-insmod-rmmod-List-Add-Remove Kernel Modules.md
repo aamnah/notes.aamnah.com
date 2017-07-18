@@ -35,11 +35,11 @@ You can use the `grep` utility to look for particular modules, like the sound mo
     
 The `lsmod` is a very basic utility for listing modules, it has no advanced options or flags. It hides the hexadecimal info (that we generally won't care about) which is in the actual _/proc/modules_ file. _/proc/modules_ has the same info in a space delimited format that is read by various utilities like insmod, modprobe, lsmod etc. 
 
-![](resources/A3B138BA-581C-4001-84CD-404E4819DD3B.png)
+![](/assets/img/A3B138BA-581C-4001-84CD-404E4819DD3B.png)
 
 You can grep _/proc/modules_ just like you can grep `lsmod`.
 
-![](resources/43BBFEF5-A698-43A4-9BF1-1D56B0ED26E5.png)
+![](/assets/img/43BBFEF5-A698-43A4-9BF1-1D56B0ED26E5.png)
 
 # insmod
 `modprobe moduleName` still works for adding modules and is simpler to use. Use `modprobe`, `insmod` is a chore.
