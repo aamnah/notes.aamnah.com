@@ -127,9 +127,9 @@ Simple as that. Though troubleshooting might be needed.
 - if the error doesn't make sense try ssh with verbose mode `-v`.
 - make sure you have no extra white space at the end when you copy the key, because that can throw it in a loop.
 
-![Screenshot 2015-11-15 23.45.12.png](/assets/img/546FF4444B868B75D6ECAE93C373AD92.png)
+![Screenshot 2015-11-15 23.45.12.png](/assets/img/resources/546FF4444B868B75D6ECAE93C373AD92.png)
 
-![Screenshot 2015-11-15 23.46.48.png](/assets/img/E362BDAD8F8B586E6631A7382DB2DBC4.png)
+![Screenshot 2015-11-15 23.46.48.png](/assets/img/resources/E362BDAD8F8B586E6631A7382DB2DBC4.png)
 
 Resources
 ---
