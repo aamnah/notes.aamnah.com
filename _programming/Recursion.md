@@ -1,3 +1,10 @@
+---
+layout: post
+title: Recursion
+permalink: recursion-in-programming
+ctime: 2016-12-26
+---
+
 # Recursion
 A recursive function is a function which calls itself.
 
