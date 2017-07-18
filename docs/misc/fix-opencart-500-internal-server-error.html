@@ -188,6 +188,25 @@ sudo apt-get install php-mysql
 </ul>
 <div class="highlight"><pre><code class="language-" data-lang="">rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
 </code></pre></div>
+<h4>PHP Fatal error:  require<em>once(): Failed opening required &#39;/system/startup.php&#39; (include</em>path=&#39;.:/usr/share/php:/usr/share/pear&#39;) in index.php on line 23</h4>
+
+<p>Check your server paths in <code>config.php</code> and <code>admin/config.php</code>. </p>
+
+<p>This error can happen after you have transferred your opencart site and the paths may have changed (for example, when moving from cpanel <code>/home/user/site</code> to barebones/webmin based server <code>/var/www/site</code>)</p>
+
+<h4>PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12</h4>
+
+<h4>PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14</h4>
+
+<h4>PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16</h4>
+
+<p>Your log and cache -folders are not writable anymore. <a href="https://stackoverflow.com/questions/32275649/opencart-errors">source</a> Double check your permissions</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># chown -R www-data:www-data /var/www</span>
+chmod 777 system/logs/ -R
+chmod 777 system/cache/ -R
+</code></pre></div>
+<p>Different opencart versions have different opencart folder structure</p>
+
 <h2>Links</h2>
 
 <p><a href="https://www.virtualmin.com/node/24753#comment-124082">.htaccess: Option FollowSymLinks not allowed here</a></p>

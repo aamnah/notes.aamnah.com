@@ -126,6 +126,28 @@ sudo service apache2 restart
 rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
 ```
 
+#### PHP Fatal error:  require_once(): Failed opening required '/system/startup.php' (include_path='.:/usr/share/php:/usr/share/pear') in index.php on line 23
+
+Check your server paths in `config.php` and `admin/config.php`. 
+
+This error can happen after you have transferred your opencart site and the paths may have changed (for example, when moving from cpanel `/home/user/site` to barebones/webmin based server `/var/www/site`)
+
+#### PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12
+
+#### PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14
+
+#### PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16
+
+Your log and cache -folders are not writable anymore. [source](https://stackoverflow.com/questions/32275649/opencart-errors) Double check your permissions
+
+```bash
+# chown -R www-data:www-data /var/www
+chmod 777 system/logs/ -R
+chmod 777 system/cache/ -R
+```
+
+Different opencart versions have different opencart folder structure
+
 Links
 ---
 [.htaccess: Option FollowSymLinks not allowed here](https://www.virtualmin.com/node/24753#comment-124082)
