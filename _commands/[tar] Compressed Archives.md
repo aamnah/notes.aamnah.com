@@ -33,35 +33,49 @@ A `.tar` file is an archive, but it's not compressed. `.tar.gz` is a an archive 
 
 compress a dir:
 
-    tar -cvf archive.tar dir-to-archive
+```bash
+tar -cvf archive.tar dir-to-archive
+```
 
 compress multiple files
 
-    tar -cvf archive.tar file1 file2 file3
+```bash
+tar -cvf archive.tar file1 file2 file3
+```
     
 compress multiple files and dirs
 
-    tar -cvf archive.tar dir1 dir2 file2 file3
+```bash
+tar -cvf archive.tar dir1 dir2 file2 file3
+```
 
 ## Compresses tar archives
 You can compress on the fly with the `z` flag
 
-    tar -czvf archive.tar.gz dir-to-archive
+```bash
+tar -czvf archive.tar.gz dir-to-archive
+```
 
 You can also use `gzip` on a tarball to compress it.
 
-    gzip archive.tar
+```bash
+gzip archive.tar
+```
 
 ## Extract tarballs
 Use the `x` flag instead of `c`
 
 Extract all files from archive.tar.
 
-    tar -xf archive.tar
+```bash
+tar -xf archive.tar
+```
 
 Extract a compressed tarball
 
-    tar -xzvf archive.tar.gz 
+```bash
+tar -xzvf archive.tar.gz 
+```
 
 ### Extract tarballs while restoring permissions
 Use the `-p` flag. It's to 
@@ -71,7 +85,9 @@ Use the `-p` flag. It's to
 ## List the contents of a tarball without extracting it
 Use the `t` or `--list` flag
 
-    tar -tzvf archive.tar.gz 
+```bash
+tar -tzvf archive.tar.gz 
+```
 
 
 Handy when you wanna know what's in a tarball, or to see if it'll extract in the current dir or in it's own subdir. Sometimes, you get a _tar bomb_ when a tarball starts extracting all the files in your current dir instead of making its own folder.. Potentially clobbering files in your current dir, like README or something, that you might already have in the folder you are working in.
