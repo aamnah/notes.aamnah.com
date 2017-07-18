@@ -1,3 +1,10 @@
+---
+layout: post
+title: Vi and Vim
+permalink: vi-vim-editor
+ctime: 2015-08-20
+---
+
 Vi
 ---
 
