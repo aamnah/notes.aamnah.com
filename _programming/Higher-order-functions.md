@@ -1,6 +1,10 @@
 ---
+layout: post
+title: Higher Order Functions
+permalink: higher-order-functions
 tags: ['programming', 'fundamentals', 'concepts']
 status: publish
+ctime: 2016-12-03
 ---
 
 # Higher-order Functions
