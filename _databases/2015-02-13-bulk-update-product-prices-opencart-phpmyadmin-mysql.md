@@ -13,16 +13,16 @@ Changing the currency of an Opencart store
 MySQL Commands
 ---
 Multiply all prices in a column by 3.67000008
-
-    {% highlight mysql %}
-    UPDATE `oc_product` SET `price` = `price` * 3.670008
-    {% endhighlight %}
+    
+```sql
+UPDATE `oc_product` SET `price` = `price` * 3.670008
+```
 
 Round the numbers of an entire column
 
-    {% highlight mysql %}
-    UPDATE `oc_product` SET `price` = ROUND(`price`)
-    {% endhighlight %}
+```sql
+UPDATE `oc_product` SET `price` = ROUND(`price`)
+```
  
 Select `price` column and create a new column ROUND(`price`) by rounding the value of `price`
 SELECT `price`, ROUND(`price`) from `oc_product`
@@ -35,19 +35,17 @@ To fix this, i needed to a) multiply (multiply because USD is stronger than AED,
 
 I also had to update product discounts:
 
-
-    {% highlight mysql %}
-    UPDATE `oc_product_discount` SET `price` = `price` * 3.67000008;
-    UPDATE `oc_product_discount` SET `price` = ROUND(`price`)
-    {% endhighlight %}
- 
+```sql
+UPDATE `oc_product_discount` SET `price` = `price` * 3.67000008;
+UPDATE `oc_product_discount` SET `price` = ROUND(`price`)
+```
 
 and product specials:
 
-    {% highlight mysql %}
-    UPDATE `oc_product_special` SET `price` = `price` * 3.67000008;
-    UPDATE `oc_product_special` SET `price` = ROUND(`price`)
-    {% endhighlight %}
+```sql
+UPDATE `oc_product_special` SET `price` = `price` * 3.67000008;
+UPDATE `oc_product_special` SET `price` = ROUND(`price`)
+```
 
 Side effects of the conversion
 ---
