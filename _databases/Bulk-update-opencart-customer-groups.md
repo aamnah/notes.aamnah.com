@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Bulk Update OpenCart Customer Group via phpmyadmin
 permalink: bulk-update-customer-group-opencart-mysql-phpmyadmin
 ctime: 2017-05-21
