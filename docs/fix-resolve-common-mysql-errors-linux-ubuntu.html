@@ -14,7 +14,8 @@
   <meta name="description" content="Error: Can’t connect to local MySQL server through socket ‘/var/run/mysqld/mysqld.sock’ (2)">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/prism/prism.css">
+  <link rel="stylesheet" href="/prism/plugins/line-numbers/prism-line-numbers.css">
   <link rel="canonical" href="http://tldrdevnotes.com/fix-resolve-common-mysql-errors-linux-ubuntu">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -22,9 +23,7 @@
 
   <body>
     <header class="Site-header">
-
   <div class="wrapper">
-
     <div>
       <a class="Site-title" href="/">TLDR Dev Notes</a>
       <small>Aamnah's developer notes</small>
@@ -70,19 +69,18 @@
     </nav>
 
   </div>
-
 </header>
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Common MySQL Errors</h1>
     <p class="Post-meta">
       
       
-      <span class="ctime">Created
+      <span class='ctime'>Created
         <time datetime="2017-07-06T00:00:00+05:00" itemprop="datePublished">
           Jul 6, 2017
         </time>
@@ -92,14 +90,14 @@
       
 
       <!---->
-      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/resolving-mysql-errors.md" target="_blank">Edit this page on Github</a>
-    &lt;/p&gt;
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/resolving-mysql-errors.md" target='_blank'>Edit this page on Github</a>
+    </p>
     
-      <ul class="tags">
+      <ul class='tags'>
       
       </ul>
     
-  &lt;/header&gt;
+  </header>
 
   <div class="Post-content" itemprop="articleBody">
     <h3 id="error-cant-connect-to-local-mysql-server-through-socket-varrunmysqldmysqldsock-2">Error: Can’t connect to local MySQL server through socket ‘/var/run/mysqld/mysqld.sock’ (2)</h3>
@@ -159,8 +157,7 @@ exit
 
   </div>
 
-&lt;/article&gt;
-</span></p></header></article>
+</article>
 
       </div>
     </div>
@@ -205,8 +202,15 @@ exit
 
   </div>
 
+  <script src="/prism/components/prism-core.min.js"></script>
+  <script src="/prism/prism.js"></script>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-sql.min.js"></script> -->
 </footer>
-<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

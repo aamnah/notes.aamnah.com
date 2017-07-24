@@ -14,7 +14,8 @@
   <meta name="description" content="This talk by Yoav Shwartz on the Realm.io site and this post by Ryan Jones on Medium are the best starting points I have come across.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/prism/prism.css">
+  <link rel="stylesheet" href="/prism/plugins/line-numbers/prism-line-numbers.css">
   <link rel="canonical" href="http://tldrdevnotes.com/ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -22,9 +23,7 @@
 
   <body>
     <header class="Site-header">
-
   <div class="wrapper">
-
     <div>
       <a class="Site-title" href="/">TLDR Dev Notes</a>
       <small>Aamnah's developer notes</small>
@@ -70,19 +69,18 @@
     </nav>
 
   </div>
-
 </header>
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">iOS, Bluetooth Low Energy (BLE), CoreBluetooth and Swift - for noobs</h1>
     <p class="Post-meta">
       
       
-      <span class="date">
+      <span class='date'>
         <time datetime="2016-08-28T15:35:22+05:00" itemprop="datePublished">
           Aug 28, 2016
         </time>
@@ -92,10 +90,10 @@
       
 
       <!---->
-      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.md" target="_blank">Edit this page on Github</a>
-    &lt;/p&gt;
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.md" target='_blank'>Edit this page on Github</a>
+    </p>
     
-      <ul class="tags">
+      <ul class='tags'>
       
         <li>ios</li>
       
@@ -105,7 +103,7 @@
       
       </ul>
     
-  &lt;/header&gt;
+  </header>
 
   <div class="Post-content" itemprop="articleBody">
     <p>This <a href="https://realm.io/news/yoav-schwartz-corebluetooth-peripherals/">talk by Yoav Shwartz</a> on the Realm.io site and this <a href="https://medium.com/@ryanjjones10/how-to-set-up-ble-with-swift-2-2-34bb6f209de2">post by Ryan Jones</a> on Medium are the best starting points I have come across.</p>
@@ -118,8 +116,7 @@
 
   </div>
 
-&lt;/article&gt;
-</span></p></header></article>
+</article>
 
       </div>
     </div>
@@ -164,8 +161,15 @@
 
   </div>
 
+  <script src="/prism/components/prism-core.min.js"></script>
+  <script src="/prism/prism.js"></script>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-sql.min.js"></script> -->
 </footer>
-<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
