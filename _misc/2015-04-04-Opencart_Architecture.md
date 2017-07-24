@@ -23,7 +23,7 @@ $_['language_key']='This is test';
 ### Load a language
 The languages based on special pages are located inside the folders. For example, for error page the language file can be found at:
 
-```php
+```
 catalog/language/english/error/not_found.php
 ```
 
