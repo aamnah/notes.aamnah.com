@@ -9,13 +9,14 @@ ctime: 2017-07-04
 #### Error 500 Internal Server Error after transferring web host
 - Check Apache error logs (usually $HOME/logs/error_log)
 
-- If you see
+#### 1. Option FollowSymlinks not allowed here
 
 ```
 Option FollowSymlinks not allowed here
 ```
 
 Chances are you're on Virtualmin. 
+
 > Any Virtualmin site that uses FollowSymLinks can be exploited to allow that user to read all files in /home. That was creating a nightmare
 
 Virtualmin adds some Options as part of a security fix that could otherwise cause all your websites to be compromised if one of them gets hacked. `FollowSymlinks` gets replaced with `SymLinksifOwnerMatch`
@@ -38,7 +39,7 @@ You can update all .htaccess files for your sites with
 find /home -name ".htaccess" -type f -exec sed -i 's/FollowSymLinks/SymLinksIfOwnerMatch/g' {} ";"
 ```
 
-- If you get 
+#### 2. Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not included in the server configuration 
 
 ```
 Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not included in the server configuration
@@ -51,21 +52,22 @@ sudo a2enmod rewrite
 sudo service apache2 restart
 ```
 
-- If you see
+#### 3. PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect()
 
 ```
  PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/blah/public_html/system/database/mysql.php:6
 ```
 
+`mysql_connect()` is deprecated now. Older versions of OpenCart used it (1.5.6), but it was updated later on. `mysqli_connect()` is the replacement. You need to use a driver other than MySQL driver (PDO, MySQLi) to get rid of the error 
 
-You therefore need to update **BOTH config.php** (`config.php` and `admin/config.php`) files line to:
+Update **BOTH config.php** (`config.php` and `admin/config.php`) files line to:
 
 ```php
 define('DB_DRIVER', 'mysqli');
 ```
 [link](https://forum.opencart.com/viewtopic.php?t=155393)
 
-- if you get
+#### 4. PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::escape()
 
 ```
 PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::escape()
@@ -88,7 +90,7 @@ and add this line
 extension=php_mysqli.so
 ```
 
-- if you get 
+#### 5. mod_fcgid: stderr: PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION)
 
 ```
 mod_fcgid: stderr: PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION) in /home/blah/public_html/system/database/mysqli.php on line 54
@@ -104,7 +106,7 @@ define('VERSION', '1.5.6');
 
 Now download the files for the next release of OpenCart from the official site's downloads section (in this case got 1.5.6.1)
 
-- If you get 
+#### 6. PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_create_iv()
 
 ```
 PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_create_iv()
@@ -121,25 +123,28 @@ Restart Apache afterwards
 sudo service apache2 restart
 ```
 
-- Clean vqcache
 
-```bash
-rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
+#### 7. PHP Fatal error:  require_once(): Failed opening required 
+
 ```
-
-#### PHP Fatal error:  require_once(): Failed opening required '/system/startup.php' (include_path='.:/usr/share/php:/usr/share/pear') in index.php on line 23
+PHP Fatal error:  require_once(): Failed opening required '/system/startup.php' (include_path='.:/usr/share/php:/usr/share/pear') in index.php on line 23
+```
 
 Check your server paths in `config.php` and `admin/config.php`. 
 
 This error can happen after you have transferred your opencart site and the paths may have changed (for example, when moving from cpanel `/home/user/site` to barebones/webmin based server `/var/www/site`)
 
-#### PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12
+#### 8. fopen(), fwrite() and fclose() warning
 
-#### PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14
+```
+PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12
 
-#### PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16
+PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14
 
-Your log and cache -folders are not writable anymore. [source](https://stackoverflow.com/questions/32275649/opencart-errors) Double check your permissions
+PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16
+```
+
+Your log and cache folders are not writable anymore. [source](https://stackoverflow.com/questions/32275649/opencart-errors) Double check your permissions
 
 ```bash
 # chown -R www-data:www-data /var/www
@@ -148,6 +153,13 @@ chmod 777 system/cache/ -R
 ```
 
 Different opencart versions have different opencart folder structure
+
+#### Clean vqcache
+
+```bash
+rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
+```
+
 
 Links
 ---
