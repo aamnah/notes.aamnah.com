@@ -15,7 +15,8 @@
 ">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/prism/prism.css">
+  <link rel="stylesheet" href="/prism/plugins/line-numbers/prism-line-numbers.css">
   <link rel="canonical" href="http://tldrdevnotes.com/">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -23,9 +24,7 @@
 
   <body>
     <header class="Site-header">
-
   <div class="wrapper">
-
     <div>
       <a class="Site-title" href="/">TLDR Dev Notes</a>
       <small>Aamnah's developer notes</small>
@@ -71,15 +70,15 @@
     </nav>
 
   </div>
-
 </header>
 
     <div class="page-content">
       <div class="wrapper">
         
+
 <!--<p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>-->
 
-<div class="collections">
+<div class='collections'>
 
   
   
@@ -223,7 +222,7 @@
     
       <li><a href="/chmod">[chmod] Permissions</a></li>
     
-      <li><a href="/crontab">[crontab] List &amp; Edit crontab entries</a></li>
+      <li><a href="/crontab">[crontab] List & Edit crontab entries</a></li>
     
       <li><a href="/curl">[curl] Get IP address (external) using URL endpoints</a></li>
     
@@ -241,7 +240,7 @@
     
       <li><a href="/commands/%5Bgrep%5D%20Find%20and%20Delete%20files%20based%20on%20string.html">[grep] Find and Delete files based on string</a></li>
     
-      <li><a href="/ifconfig-get-internal-external-ip-address">[ifconfig] Get IP address of your machine (internal &amp; external)</a></li>
+      <li><a href="/ifconfig-get-internal-external-ip-address">[ifconfig] Get IP address of your machine (internal & external)</a></li>
     
       <li><a href="/last-login-details">[last] Find out login details</a></li>
     
@@ -569,7 +568,7 @@
     
       <li><a href="/opencart_architecture">Opencart Architecture</a></li>
     
-      <li><a href="/misc/fix-opencart-500-internal-server-error.html">Fixing OpenCart Internal Server Error</a></li>
+      <li><a href="/fix-opencart-internal-server-error-500">Fixing OpenCart Internal Server Error</a></li>
     
       <li><a href="/misc/upgrade-opencart-extensions.html">Upgrading OpenCart Extensions</a></li>
     
@@ -786,7 +785,6 @@
   
 
 </div>
-
       </div>
     </div>
     <footer class="Site-footer">
@@ -830,8 +828,15 @@
 
   </div>
 
+  <script src="/prism/components/prism-core.min.js"></script>
+  <script src="/prism/prism.js"></script>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-sql.min.js"></script> -->
 </footer>
-<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
