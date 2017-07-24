@@ -7,11 +7,11 @@
 
   <title>
     
-      How to bulk update prices of Products in Opencart
+      How to bulk update prices of Products in OpenCart
     
   </title>
   
-  <meta name="description" content="Changing the currency of an Opencart store- update product price- update discount and special prices- update order totals">
+  <meta name="description" content="Changing the currency of an OpenCart store">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -75,7 +75,7 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">How to bulk update prices of Products in Opencart</h1>
+    <h1 class="Post-title" itemprop="name headline">How to bulk update prices of Products in OpenCart</h1>
     <p class="Post-meta">
       
       
@@ -105,10 +105,13 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p>Changing the currency of an Opencart store
-- update product price
-- update discount and special prices
-- update order totals</p>
+    <p>Changing the currency of an OpenCart store</p>
+
+<ul>
+  <li>update product price</li>
+  <li>update discount and special prices</li>
+  <li>update order totals</li>
+</ul>
 
 <h2 id="mysql-commands">MySQL Commands</h2>
 <p>Multiply all prices in a column by 3.67000008</p>
@@ -121,11 +124,13 @@
 <pre><code class="language-sql">UPDATE `oc_product` SET `price` = ROUND(`price`)
 </code></pre>
 
-<p>Select <code>price</code> column and create a new column ROUND(<code>price</code>) by rounding the value of <code>price</code>
-SELECT <code>price</code>, ROUND(<code>price</code>) from <code>oc_product</code></p>
+<p>Select <code>price</code> column and create a new column ROUND(<code>price</code>) by rounding the value of <code>price</code></p>
+
+<pre><code class="language-sql">SELECT `price`, ROUND(`price`) from `oc_product`
+</code></pre>
 
 <h4 id="why">Why?</h4>
-<p>I have an opencart that is setup with multiple currencies. When it started, the currency was USD and all the prices was entered in USD but later on we wanted to show AED so another currency was set up and a conversion rate was used to convert USD prices and show them in AED to the users. The side effect of this was having to enter the products in USD (after taking a calculator and converting price) while the business worked in AED.</p>
+<p>I have an opencart that is setup with multiple currencies. When it started, the currency was USD and all the prices were entered in USD but later on we wanted to show AED so another currency was set up and a conversion rate was used to convert USD prices and show them in AED to the users. The side effect of this was having to enter the product prices in USD (after taking a calculator and converting price) while the business worked in AED.</p>
 
 <h4 id="solution">Solution</h4>
 <p>To fix this, i needed to a) multiply (multiply because USD is stronger than AED, otherwise it’d have been divide) the USD prices with a certain amount to get the equivalent of AED and b) change the default store currency.</p>
@@ -141,11 +146,6 @@ UPDATE `oc_product_discount` SET `price` = ROUND(`price`)
 <pre><code class="language-sql">UPDATE `oc_product_special` SET `price` = `price` * 3.67000008;
 UPDATE `oc_product_special` SET `price` = ROUND(`price`)
 </code></pre>
-
-<h2 id="side-effects-of-the-conversion">Side effects of the conversion</h2>
-
-<p>The</p>
-
 
   </div>
 
