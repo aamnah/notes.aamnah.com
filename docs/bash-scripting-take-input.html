@@ -14,6 +14,7 @@
   <meta name="description" content="There are multiple ways of taking input via the Shell.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-scripting-take-input">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash Scripting - Taking input</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2014-06-05T17:08:00+05:00" itemprop="datePublished">
           Jun 5, 2014
         </time>
@@ -91,40 +92,44 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2014-06-05-bash-scripting-take-input.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2014-06-05-bash-scripting-take-input.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>There are multiple ways of taking input via the Shell.</p>
 
-<h2>Using the &#39;read&#39; command to prompt for input</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<h2 id="using-the-read-command-to-prompt-for-input">Using the ‘read’ command to prompt for input</h2>
 
-<span class="nb">echo</span> <span class="s2">"Enter your name:"</span>
-<span class="nb">read </span>user_name
+<pre><code class="language-bash">#!/bin/bash
 
-<span class="nb">echo</span> <span class="s2">"Hello </span><span class="nv">$user_name</span><span class="s2">!"</span>
-</code></pre></div>
-<p>Here&#39;s what the script will look like when we run it.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">$ sh nameexample
+echo "Enter your name:"
+read user_name
+
+echo "Hello $user_name!"
+</code></pre>
+
+<p>Here’s what the script will look like when we run it.</p>
+
+<pre><code>$ sh nameexample
 Enter your name: Sarah
 Hello Sarah!
-</code></pre></div>
-<h2>Using Command-Line Arguments for Input</h2>
+</code></pre>
 
-<p>Command line arguments given to a script become variables whose names are numbers. <code>$1</code> is the first command-line argument, <code>$2</code> is the second, and so on. <code>$0</code> is the name by which the script was invoked. </p>
+<h2 id="using-command-line-arguments-for-input">Using Command-Line Arguments for Input</h2>
+<p>Command line arguments given to a script become variables whose names are numbers. <code>$1</code> is the first command-line argument, <code>$2</code> is the second, and so on. <code>$0</code> is the name by which the script was invoked.</p>
 
-<h2>Defining Variables</h2>
+<h2 id="defining-variables">Defining Variables</h2>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -170,6 +175,7 @@ Hello Sarah!
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

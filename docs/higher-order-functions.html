@@ -14,6 +14,7 @@
   <meta name="description" content="Higher-order Functions">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/higher-order-functions">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Higher Order Functions</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-12-03T00:00:00+05:00" itemprop="datePublished">
           Dec 3, 2016
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/Higher-order-functions.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/Higher-order-functions.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>programming</li>
       
@@ -104,74 +105,75 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Higher-order Functions</h1>
+    <h1 id="higher-order-functions">Higher-order Functions</h1>
 
-<div class='tldr'>
+<div class="tldr">
 - Any complicated function that was composed by combining simple functions is a higher order function.
 - Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. - Eloquent JavaScript
 - A higher-order function is a function that takes other functions as arguments and/or returns a function as it's result. - Wikipedia
 </div>
 
-<h2>Notes</h2>
-
+<h2 id="notes">Notes</h2>
 <ul>
-<li>Functions are values. We can assign functions to variables, and we can pass functions to other functions as values</li>
-<li><em>Composition</em> is putting functions inside other functions, composing smaller functions in bigger functions.</li>
-<li>Functions you send to other functions are <em>callback</em> functions.</li>
-<li>Writing code in smaller functions makes them composable and re-usable throughout your code</li>
-<li><em>Abstractions</em> hide details and give us the ability to talk about problems at a higher (or more abstract) level. <code>forEach()</code> is an abstraction for <em>For each element in the array, do something</em>. They makes code shorter, cleaner and easier to interpret</li>
+  <li>Functions are values. We can assign functions to variables, and we can pass functions to other functions as values</li>
+  <li><em>Composition</em> is putting functions inside other functions, composing smaller functions in bigger functions.</li>
+  <li>Functions you send to other functions are <em>callback</em> functions.</li>
+  <li>Writing code in smaller functions makes them composable and re-usable throughout your code</li>
+  <li><em>Abstractions</em> hide details and give us the ability to talk about problems at a higher (or more abstract) level. <code>forEach()</code> is an abstraction for <em>For each element in the array, do something</em>. They makes code shorter, cleaner and easier to interpret</li>
 </ul>
 
-<h2>Examples</h2>
-
+<h2 id="examples">Examples</h2>
 <ul>
-<li><code>.map()</code> is a higher-order function. It takes as arguments a function f and a list of elements, and as the result, returns a new list with f applied to each element from the list.</li>
-<li>Another very common kind of higher-order function in those languages which support them are <strong>sorting functions</strong> which take a comparison function as a parameter, allowing the programmer to separate the sorting algorithm from the comparisons of the items being sorted.</li>
-<li>Arrays provide a number of useful higher-order methods — <code>forEach</code> to do something with each element in an array, <a href="link%20to%20the%20.filter%20tldrdevnote"><code>filter</code></a> to build a new array with some elements filtered out, <code>map</code> to build a new array where each element has been put through a function, and <code>reduce</code> to combine all an array’s elements into a single value.</li>
-<li>Functions have an <code>apply</code> method that can be used to call them with an array specifying their arguments. They also have a <code>bind</code> method, which is used to create a partially applied version of the function.</li>
+  <li><code>.map()</code> is a higher-order function. It takes as arguments a function f and a list of elements, and as the result, returns a new list with f applied to each element from the list.</li>
+  <li>Another very common kind of higher-order function in those languages which support them are <strong>sorting functions</strong> which take a comparison function as a parameter, allowing the programmer to separate the sorting algorithm from the comparisons of the items being sorted.</li>
+  <li>Arrays provide a number of useful higher-order methods — <code>forEach</code> to do something with each element in an array, <a href="link to the .filter tldrdevnote"><code>filter</code></a> to build a new array with some elements filtered out, <code>map</code> to build a new array where each element has been put through a function, and <code>reduce</code> to combine all an array’s elements into a single value.</li>
+  <li>Functions have an <code>apply</code> method that can be used to call them with an array specifying their arguments. They also have a <code>bind</code> method, which is used to create a partially applied version of the function.</li>
 </ul>
 
-<p>here&#39;s a traditional self-contained function</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">total</span> <span class="o">+=</span> <span class="nx">count</span>
-  <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">total</span><span class="p">)</span> <span class="c1">// 55</span>
-</code></pre></div>
-<p>here&#39;s the same as a higher order function relying on two external functions</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span> <span class="c1">// 55</span>
-</code></pre></div>
-<h3>from functiobnal-javascript workshopper</h3>
+<p>here’s a traditional self-contained function</p>
+
+<pre><code class="language-javascript">var total = 0, count = 1
+while (count &lt;= 10) {
+  total += count
+  count += 1
+}
+console.log(total) // 55
+</code></pre>
+<p>here’s the same as a higher order function relying on two external functions</p>
+
+<pre><code class="language-javascript">console.log(sum(range(1, 10))) // 55
+</code></pre>
+
+<h3 id="from-functiobnal-javascript-workshopper">from functiobnal-javascript workshopper</h3>
 
 <p>A higher-order function is a function that does at least one of the following:</p>
 
 <ul>
-<li>Take one or more functions as an input</li>
-<li>Output a function</li>
+  <li>Take one or more functions as an input</li>
+  <li>Output a function</li>
 </ul>
 
 <p>All other functions are first order functions. [1]</p>
 
-<p>Unlike many other languages with imperative features, JavaScript allows you to utilize higher-order functions because it has &quot;first-class functions&quot;. This means functions can be treated just like any other value in JavaScript: just like Strings or Numbers, Function values can be stored as variables, properties on objects or passed to other functions as arguments. Function values are actually Objects (inheriting from Function.prototype) so you can even add properties and store values on them, just like any regular Object.</p>
+<p>Unlike many other languages with imperative features, JavaScript allows you to utilize higher-order functions because it has “first-class functions”. This means functions can be treated just like any other value in JavaScript: just like Strings or Numbers, Function values can be stored as variables, properties on objects or passed to other functions as arguments. Function values are actually Objects (inheriting from Function.prototype) so you can even add properties and store values on them, just like any regular Object.</p>
 
 <p>The key difference between Functions and other value types in JavaScript is the call syntax: if a reference to a function is followed by parenthesis and some optional comma-separated values: someFunctionValue(arg1, arg2, etc), then the function body will be executed with the supplied arguments (if any).</p>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://eloquentjavascript.net/05_higher_order.html">Eloquent JavaScript: Chapter 5 - Higher-Order Functions</a></li>
-<li><a href="https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=1">YouTube: FunFunFunction - Higher-order functions</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Higher-order_function">Wikipedia: Higher-order function</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)">Wikipedia: Function Composition</a></li>
+  <li><a href="http://eloquentjavascript.net/05_higher_order.html">Eloquent JavaScript: Chapter 5 - Higher-Order Functions</a></li>
+  <li><a href="https://www.youtube.com/watch?v=BMUiFMZr7vk&amp;list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&amp;index=1">YouTube: FunFunFunction - Higher-order functions</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Higher-order_function">Wikipedia: Higher-order function</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)">Wikipedia: Function Composition</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -217,6 +219,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

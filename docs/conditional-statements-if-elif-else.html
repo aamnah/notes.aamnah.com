@@ -14,6 +14,7 @@
   <meta name="description" content="IF / ELSE">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/conditional-statements-if-elif-else">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Conditional Statements IF/ELIF/ELSE</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-07T00:00:00+05:00" itemprop="datePublished">
           Dec 7, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,68 +98,76 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/IF_ELIF_ELSE_statements.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/IF_ELIF_ELSE_statements.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>IF / ELSE</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>
-<span class="k">then</span>
-  <span class="c"># do something</span>
-<span class="k">else</span>
-  <span class="c"># do something else</span>
-<span class="k">fi</span>
-</code></pre></div>
-<p>Be <em>very particular</em> of the whitespace around <code>[</code> and <code>]</code>. It is <code>[ condition ]</code> and <em>not</em> <code>[condition]</code> </p>
+    <h2 id="if--else">IF / ELSE</h2>
+
+<pre><code class="language-bash">if [ condition ]
+then
+  # do something
+else
+  # do something else
+fi
+</code></pre>
+
+<p>Be <em>very particular</em> of the whitespace around <code>[</code> and <code>]</code>. It is <code>[ condition ]</code> and <em>not</em> <code>[condition]</code></p>
 
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>; <span class="k">then</span>
-  <span class="c"># do something</span>
-<span class="k">else</span>
-  <span class="c"># do something else</span>
-<span class="k">fi</span>
-</code></pre></div>
-<p>where you can place <code>then</code> at the end of the same line as your <code>if</code> condition, separated by a semi-colon <code>;</code>.  </p>
+
+<pre><code class="language-bash">if [ condition ]; then
+  # do something
+else
+  # do something else
+fi
+</code></pre>
+
+<p>where you can place <code>then</code> at the end of the same line as your <code>if</code> condition, separated by a semi-colon <code>;</code>.</p>
 
 <p>For example:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Take user input</span>
-<span class="nb">read </span>input
 
-<span class="c"># See if user provided twitter</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"twitter.com"</span> <span class="o">]</span>; <span class="k">then</span>
-  <span class="c"># show error</span>
-  <span class="nb">echo</span> <span class="s2">"can not ping this!"</span>
-<span class="k">else</span>
-  <span class="c"># ping three times</span>
-  ping -c3 <span class="k">${</span><span class="nv">input</span><span class="k">}</span>
-<span class="k">fi</span>
-</code></pre></div>
-<h2>ELIF</h2>
+<pre><code class="language-bash"># Take user input
+read input
+    
+# See if user provided twitter
+if [ "$input" == "twitter.com" ]; then
+  # show error
+  echo "can not ping this!"
+else
+  # ping three times
+  ping -c3 ${input}
+fi
+</code></pre>
 
+<h2 id="elif">ELIF</h2>
 <p>ELIF is ELse IF.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Take user input</span>
-<span class="nb">read </span>input
 
-<span class="c"># See if user provided twitter</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$input</span> <span class="o">==</span> <span class="s2">"twitter.com"</span> <span class="o">]</span>; <span class="k">then</span>
-  <span class="c"># show error</span>
-  <span class="nb">echo</span> <span class="s2">"can not ping this!"</span>
-<span class="k">elif</span> <span class="o">[</span> <span class="nv">$input</span> <span class="o">==</span> <span class="s2">"google.com"</span>  <span class="o">]</span>; <span class="k">then 
-  </span><span class="nb">echo</span> <span class="s2">"Why always Google? -_-"</span>
-<span class="k">else</span>
-  <span class="c"># ping three times</span>
-  ping -c3 <span class="k">${</span><span class="nv">input</span><span class="k">}</span>
-<span class="k">fi</span>
-</code></pre></div>
+<pre><code class="language-bash"># Take user input
+read input
+    
+# See if user provided twitter
+if [ $input == "twitter.com" ]; then
+  # show error
+  echo "can not ping this!"
+elif [ $input == "google.com"  ]; then 
+  echo "Why always Google? -_-"
+else
+  # ping three times
+  ping -c3 ${input}
+fi
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -204,6 +213,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

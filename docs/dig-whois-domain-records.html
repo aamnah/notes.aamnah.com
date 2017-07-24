@@ -14,6 +14,7 @@
   <meta name="description" content="Registration details">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/dig-whois-domain-records">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[dig, whois] Domain records</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -91,57 +92,69 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[dig, whois] Domain records.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[dig, whois] Domain records.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Registration details</h2>
+    <h2 id="registration-details">Registration details</h2>
 
 <p><code>whois domain.com</code> will return domain registration details for domain.com, including when it was registered, who registered it, when it was created and who is the contact.</p>
 
 <p><code>dig</code> is another useful command. You can use the <code>dig +short</code> to only list values.</p>
 
-<h2>Name Servers</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">whois aamnah.com | grep -i --color <span class="s2">"Name Server:"</span>
-</code></pre></div>
+<h2 id="name-servers">Name Servers</h2>
+
+<pre><code class="language-bash">whois aamnah.com | grep -i --color "Name Server:"
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">dig NS aamnah.com
-</code></pre></div>
-<p><img src="/assets/img/cmd-dig-ns.png" alt="cmd-dig-ns"></p>
 
-<h2>NS, TXT, MX, SOA, SPF records</h2>
+<pre><code class="language-bash">dig NS aamnah.com
+</code></pre>
 
+<p><img src="/assets/img/cmd-dig-ns.png" alt="cmd-dig-ns" /></p>
+
+<h2 id="ns-txt-mx-soa-spf-records">NS, TXT, MX, SOA, SPF records</h2>
 <p>You can either pass the record as an argument</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">dig MX aamnah.com
-</code></pre></div>
-<p><img src="/assets/img/cmd-dig-mx-2.png" alt="dig MX aamnah.com"></p>
+
+<pre><code class="language-bash">dig MX aamnah.com
+</code></pre>
+
+<p><img src="/assets/img/cmd-dig-mx-2.png" alt="dig MX aamnah.com" /></p>
 
 <p>or use <code>grep</code> to find it in the output of <code>dig</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">dig aamnah.com | grep --color <span class="s2">"MX"</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-dig-mx.png" alt="cmd-dig-mx"></p>
 
-<p><img src="/assets/img/cmd-dig.png" alt="cmd-dig.png"></p>
+<pre><code class="language-bash">dig aamnah.com | grep --color "MX"
+</code></pre>
 
-<h2>Get technical contact for a domain</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">whois espn.com | grep -i --color <span class="s2">"Tech Name:</span><span class="se">\|</span><span class="s2">Tech Phone:</span><span class="se">\|</span><span class="s2">Tech Email:"</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-whois-2.png" alt="cmd-whois-2"></p>
+<p><img src="/assets/img/cmd-dig-mx.png" alt="cmd-dig-mx" /></p>
 
-<h2>Creation and Expiry dates</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">whois espn.com | grep -i --color <span class="s2">"Creation date:</span><span class="se">\|</span><span class="s2">Expiration date:"</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-whois.png" alt="cmd-whois"></p>
+<p><img src="/assets/img/cmd-dig.png" alt="cmd-dig.png" /></p>
+
+<h2 id="get-technical-contact-for-a-domain">Get technical contact for a domain</h2>
+
+<pre><code class="language-bash">whois espn.com | grep -i --color "Tech Name:\|Tech Phone:\|Tech Email:"
+</code></pre>
+
+<p><img src="/assets/img/cmd-whois-2.png" alt="cmd-whois-2" /></p>
+
+<h2 id="creation-and-expiry-dates">Creation and Expiry dates</h2>
+
+<pre><code class="language-bash">whois espn.com | grep -i --color "Creation date:\|Expiration date:"
+</code></pre>
+
+<p><img src="/assets/img/cmd-whois.png" alt="cmd-whois" /></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -187,6 +200,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

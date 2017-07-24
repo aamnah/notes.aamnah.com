@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="BasicsThe file name should end in .subime-snippet. It should be saved in (Mac) /Users/yourname/Library/Application Support/Sublime Text 3/Packages/User See t...">
+  <meta name="description" content="Basics  The file name should end in .subime-snippet.  It should be saved in (Mac) /Users/yourname/Library/Application Support/Sublime Text 3/Packages/User Se...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/create-sublime-text-snippet">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to create a Snippet in Sublime Text</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-09T00:00:00+05:00" itemprop="datePublished">
           Feb 9, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2015-02-09-create-sublime-text-snippet.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2015-02-09-create-sublime-text-snippet.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>sublime text</li>
       
@@ -106,33 +107,32 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Basics</h2>
-
+    <h2 id="basics">Basics</h2>
 <ul>
-<li>The file name should end in <strong>.subime-snippet</strong>. </li>
-<li>It should be saved in (Mac) <strong>/Users/yourname/Library/Application Support/Sublime Text 3/Packages/User</strong> See <a href="http://sublimetext.info/docs/en/basic_concepts.html">this page</a> for the data folder on other OS.</li>
-<li>The code must ve wrapped in a <strong>&lt;![CDATA[ ]]&gt;</strong> tag.</li>
-<li>You can use <strong>$1</strong> to indicate where to place the cursor after inserting the template. For example, for an HTML5 template you can place it between <code>&lt;title&gt;</code> tags like so:  <code>&lt;title&gt;$1&lt;/title&gt;</code> and this is where the cursor will be after the snippet is inserted.</li>
-<li>You can designate multiple cursors points for after snippet expansion, like <strong>$1, $2, $3</strong> and so on.. Use <code>tab</code> to go to the next cusrsor point.</li>
-<li>You can define a <code>tabTrigger</code>. It&#39;s the word that you need to type before pressing tab. For example, <code>html5</code> is the tab trigger for HTML5 snippet.</li>
-<li>You should define <code>scope</code>. Which basically means that you can define in what type of files this snippet should expand. For example, a snippet with <code>&lt;scope&gt;source.css&lt;/scope&gt;</code> will only expand in CSS files. I omit scope in my snippets because i start writing files first and save later. Without a scope given i can expand the snippet in unsaved/untitled files.</li>
-<li>You can add a <code>description</code> (optional).</li>
+  <li>The file name should end in <strong>.subime-snippet</strong>.</li>
+  <li>It should be saved in (Mac) <strong>/Users/yourname/Library/Application Support/Sublime Text 3/Packages/User</strong> See <a href="http://sublimetext.info/docs/en/basic_concepts.html">this page</a> for the data folder on other OS.</li>
+  <li>The code must ve wrapped in a <strong>&lt;![CDATA[ ]]&gt;</strong> tag.</li>
+  <li>You can use <strong>$1</strong> to indicate where to place the cursor after inserting the template. For example, for an HTML5 template you can place it between <code>&lt;title&gt;</code> tags like so:  <code>&lt;title&gt;$1&lt;/title&gt;</code> and this is where the cursor will be after the snippet is inserted.</li>
+  <li>You can designate multiple cursors points for after snippet expansion, like <strong>$1, $2, $3</strong> and so on.. Use <code>tab</code> to go to the next cusrsor point.</li>
+  <li>You can define a <code>tabTrigger</code>. It’s the word that you need to type before pressing tab. For example, <code>html5</code> is the tab trigger for HTML5 snippet.</li>
+  <li>You should define <code>scope</code>. Which basically means that you can define in what type of files this snippet should expand. For example, a snippet with <code>&lt;scope&gt;source.css&lt;/scope&gt;</code> will only expand in CSS files. I omit scope in my snippets because i start writing files first and save later. Without a scope given i can expand the snippet in unsaved/untitled files.</li>
+  <li>You can add a <code>description</code> (optional).</li>
 </ul>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.hongkiat.com/blog/sublime-code-snippets/">Working With Code Snippets In Sublime Text</a></li>
-<li><a href="http://www.granneman.com/webdev/editors/sublime-text/top-features-of-sublime-text/quickly-insert-text-and-code-with-sublime-text-snippets/">Quickly Insert Text &amp; Code with Sublime Text Snippets</a></li>
-<li><a href="http://docs.sublimetext.info/en/latest/extensibility/snippets.html">Sublime Text Docs: Snippets</a></li>
+  <li><a href="http://www.hongkiat.com/blog/sublime-code-snippets/">Working With Code Snippets In Sublime Text</a></li>
+  <li><a href="http://www.granneman.com/webdev/editors/sublime-text/top-features-of-sublime-text/quickly-insert-text-and-code-with-sublime-text-snippets/">Quickly Insert Text &amp; Code with Sublime Text Snippets</a></li>
+  <li><a href="http://docs.sublimetext.info/en/latest/extensibility/snippets.html">Sublime Text Docs: Snippets</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -178,6 +178,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

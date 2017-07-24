@@ -14,6 +14,7 @@
   <meta name="description" content="Print print()Print is pretty much the same as echo in Bash and PHP and puts in Ruby">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/python_basics">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Python Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-22T00:00:00+05:00" itemprop="datePublished">
           Feb 22, 2015
         </time>
@@ -91,33 +92,30 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-02-22-Python_Basics.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-02-22-Python_Basics.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Print <code>print()</code></h2>
-
+    <h2 id="print-print">Print <code>print()</code></h2>
 <p>Print is pretty much the same as <code>echo</code> in Bash and PHP and <code>puts</code> in Ruby</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">name</span> <span class="o">=</span> <span class="s">"Aamnah Akram"</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>    
     </code></pre></figure>
 
-<h2>Input <code>input()</code></h2>
-
+<h2 id="input-input">Input <code>input()</code></h2>
 <p>Function to get information from a user. Always gets a string, even if the content is a number.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="nb">input</span><span class="p">(</span><span class="s">"How are you today?"</span><span class="p">)</span>
     </code></pre></figure>
 
-<h2>Variables</h2>
-
+<h2 id="variables">Variables</h2>
 <p>Variables in Python can not start with a number</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">name</span> <span class="o">=</span> <span class="s">"Aamnah"</span>
@@ -129,7 +127,7 @@
     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     </code></pre></figure>
 
-<h2>Conditionals (if, else)</h2>
+<h2 id="conditionals-if-else">Conditionals (if, else)</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">"Aamnah"</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" is awesome!"</span><span class="p">)</span>
@@ -137,9 +135,9 @@
         <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" is OK i guess. "</span> <span class="o">+</span> <span class="n">name</span> <span class="s">" is fine!"</span><span class="p">)</span>
     </code></pre></figure>
 
-<p>Your if statement will work with or without the parentheses <code>( )</code> but since 2010, the <a href="https://www.python.org/dev/peps/pep-0008/">style guide</a> recommends using them. So <code>if (name == &quot;Aamnah&quot;):</code> is preferred over <code>if name == &quot;Aamnah&quot;:</code></p>
+<p>Your if statement will work with or without the parentheses <code>( )</code> but since 2010, the <a href="https://www.python.org/dev/peps/pep-0008/">style guide</a> recommends using them. So <code>if (name == "Aamnah"):</code> is preferred over <code>if name == "Aamnah":</code></p>
 
-<h3>Combining multiple conditions with <code>or</code> and <code>and</code></h3>
+<h3 id="combining-multiple-conditions-with-or-and-and">Combining multiple conditions with <code>or</code> and <code>and</code></h3>
 
 <p>Here is an example</p>
 
@@ -155,16 +153,16 @@
 
     </code></pre></figure>
 
-<p>will output &#39;<strong>Of course you are! You&#39;re very honest.</strong>&#39; if you answer with <em>y</em> <strong>or</strong> <em>yes</em>. If you answer with anything else, it&#39;ll say <strong>Lier Lier!</strong></p>
+<p>will output ‘<strong>Of course you are! You’re very honest.</strong>’ if you answer with <em>y</em> <strong>or</strong> <em>yes</em>. If you answer with anything else, it’ll say <strong>Lier Lier!</strong></p>
 
-<h2>String Concatenation</h2>
+<h2 id="string-concatenation">String Concatenation</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
     <span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your age? "</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="n">age</span> <span class="s">" years old."</span><span class="p">)</span>
     </code></pre></figure>
 
-<h2>String Formatting / Replacement</h2>
+<h2 id="string-formatting--replacement">String Formatting / Replacement</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">"Aamnah"</span><span class="p">:</span>
@@ -181,34 +179,33 @@
     <span class="k">print</span><span class="p">(</span><span class="s">"{} is {} years old. She lives in {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">))</span>
     </code></pre></figure>
 
-<h2>Basic Numbers</h2>
-
-<p>When you divide two numeric values, you always get a float as result. Floats work <em>mostly</em> how they are supposed to but occasionally you&#39;ll find some odd problems. For example</p>
+<h2 id="basic-numbers">Basic Numbers</h2>
+<p>When you divide two numeric values, you always get a float as result. Floats work <em>mostly</em> how they are supposed to but occasionally you’ll find some odd problems. For example</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span>
     </code></pre></figure>
 
-<p>should result 0 but gives 5.551115123125783e-17 instead. </p>
+<p>should result 0 but gives 5.551115123125783e-17 instead.</p>
 
-<h3>Make numbers from strings</h3>
+<h3 id="make-numbers-from-strings">Make numbers from strings</h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="nb">int</span><span class="p">(</span><span class="s">'55'</span><span class="p">)</span>
     <span class="nb">float</span><span class="p">(</span><span class="s">'2.897'</span><span class="p">)</span>
     </code></pre></figure>
 
-<p>When you take input in, it always takes it as a string. So you&#39;d have to convert it to an int or float first in order to do any kind of calculation on it.</p>
+<p>When you take input in, it always takes it as a string. So you’d have to convert it to an int or float first in order to do any kind of calculation on it.</p>
 
-<h3>Convert floats to integers and vice versa</h3>
+<h3 id="convert-floats-to-integers-and-vice-versa">Convert floats to integers and vice versa</h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="nb">int</span><span class="p">(</span><span class="s">'2.2'</span><span class="p">)</span>
     <span class="nb">float</span><span class="p">(</span><span class="s">'2'</span><span class="p">)</span>
     </code></pre></figure>
 
-<h3>Round floats to whole numbers <code>round()</code></h3>
+<h3 id="round-floats-to-whole-numbers-round">Round floats to whole numbers <code>round()</code></h3>
 
 <p><code>round()</code> rounds a float to the nearest whole number. <code>round(2.4)</code> will become 2 and <code>round(3.9)</code> will become 4.</p>
 
-<h2>Exceptions</h2>
+<h2 id="exceptions">Exceptions</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">user_string</span> <span class="o">=</span> <span class="s">"What's your word? "</span>
     <span class="n">user_num</span> <span class="o">=</span> <span class="s">"What's your number? "</span>
@@ -226,20 +223,19 @@
 
     </code></pre></figure>
 
-<h2>Containment <code>in</code>, <code>not in</code></h2>
+<h2 id="containment-in-not-in">Containment <code>in</code>, <code>not in</code></h2>
+<p>Check if something is in or not in something else. For example, <code>'a' in 'Aamnah'</code> would return <code>True</code>. <code>'b' not in 'Aamnah'</code> would return <code>True</code>. <code>'x' in 'Aamnah'</code> would return <code>False</code></p>
 
-<p>Check if something is in or not in something else. For example, <code>&#39;a&#39; in &#39;Aamnah&#39;</code> would return <code>True</code>. <code>&#39;b&#39; not in &#39;Aamnah&#39;</code> would return <code>True</code>. <code>&#39;x&#39; in &#39;Aamnah&#39;</code> would return <code>False</code></p>
+<h2 id="lists">Lists</h2>
 
-<h2>Lists</h2>
-
-<h3>Check List&#39;s length <code>len()</code></h3>
+<h3 id="check-lists-length-len">Check List’s length <code>len()</code></h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Apple'</span><span class="p">,</span> <span class="s">'Bannana'</span><span class="p">,</span> <span class="s">'Mango'</span><span class="p">,</span> <span class="s">'Cherries'</span><span class="p">,</span> <span class="s">'Guava'</span><span class="p">]</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
     <span class="mi">5</span>
     </code></pre></figure>
 
-<h3>Make Lists from String <code>list()</code></h3>
+<h3 id="make-lists-from-string-list">Make Lists from String <code>list()</code></h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
     <span class="p">[</span><span class="s">'a'</span><span class="p">]</span>
@@ -249,7 +245,7 @@
     <span class="p">[</span><span class="s">'h'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">]</span>
     </code></pre></figure>
 
-<h3>Check if value in List</h3>
+<h3 id="check-if-value-in-list">Check if value in List</h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Apple'</span><span class="p">,</span> <span class="s">'Bannana'</span><span class="p">,</span> <span class="s">'Mango'</span><span class="p">,</span> <span class="s">'Cherries'</span><span class="p">,</span> <span class="s">'Guava'</span><span class="p">]</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="s">'Apple'</span> <span class="ow">in</span> <span class="n">fruits</span>
@@ -261,20 +257,18 @@
     <span class="bp">False</span>
     </code></pre></figure>
 
-<h3>Append to list <code>.append()</code></h3>
-
+<h3 id="append-to-list-append">Append to list <code>.append()</code></h3>
 <p>We can only add lists to other lists. <code>.append()</code> add to the end of a list.</p>
 
-<h2>Splitting Strings <code>.split()</code></h2>
-
-<p>Calling <code>.split()</code> on a string breaks the string up on whitespaces. If we had Returns or Tabs, they&#39;d also break.</p>
+<h2 id="splitting-strings-split">Splitting Strings <code>.split()</code></h2>
+<p>Calling <code>.split()</code> on a string breaks the string up on whitespaces. If we had Returns or Tabs, they’d also break.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">sentence</span> <span class="o">=</span> <span class="s">"My name is Aamnah. I am curious!"</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="p">[</span><span class="s">'My'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'is'</span><span class="p">,</span> <span class="s">'Aamnah.'</span><span class="p">,</span> <span class="s">'I'</span><span class="p">,</span> <span class="s">'am'</span><span class="p">,</span> <span class="s">'curious!'</span><span class="p">]</span>
     </code></pre></figure>
 
-<h2>Join Strings <code>.join()</code></h2>
+<h2 id="join-strings-join">Join Strings <code>.join()</code></h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">sentence</span> <span class="o">=</span> <span class="s">"My name is Aamnah. I am curious!"</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -290,10 +284,9 @@
     <span class="s">'My_name_is_Aamnah._I_am_curious!'</span>
     </code></pre></figure>
 
-<p>Everything we are joining <strong>has to be a string</strong>. We can&#39;t join numbers.</p>
+<p>Everything we are joining <strong>has to be a string</strong>. We can’t join numbers.</p>
 
-<h2>Loops</h2>
-
+<h2 id="loops">Loops</h2>
 <p><code>while</code> loops</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -304,7 +297,7 @@
     <span class="k">print</span> <span class="s">"Good bye!"</span>
     </code></pre></figure>
 
-<p><code>for</code> loops </p>
+<p><code>for</code> loops</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
     <span class="o">&gt;&gt;&gt;</span>  <span class="n">num</span>  <span class="n">my_list</span><span class="p">:</span>
@@ -317,15 +310,18 @@
 
 <p>See <a href="https://wiki.python.org/moin/ForLoop"><i class="fa fa-link"> More examples</i></a></p>
 
-<h3>While vs. For</h3>
+<h3 id="while-vs-for">While vs. For</h3>
 
-<p>A <code>for</code> loop can only iterate (loop) &quot;over&quot; collections of things. A <code>while</code> loop can do any kind of iteration (looping) you want. However, <code>while</code> loops are harder to get right and you normally can get many things done with <code>for</code> loops. <a href="http://learnpythonthehardway.org/book/ex33.html"><i class="fa fa-link"></i></a> </p>
+<p>A <code>for</code> loop can only iterate (loop) “over” collections of things. A <code>while</code> loop can do any kind of iteration (looping) you want. However, <code>while</code> loops are harder to get right and you normally can get many things done with <code>for</code> loops. <a href="http://learnpythonthehardway.org/book/ex33.html"><i class="fa fa-link"></i></a></p>
 
-<h3><code>else</code> in Loops</h3>
-
+<h3 id="else-in-loops"><code>else</code> in Loops</h3>
 <ul>
-<li><p>If the <code>else</code> statement is used with a <code>for</code> loop, the else statement is executed when the loop has exhausted iterating the list.</p></li>
-<li><p>If the <code>else</code> statement is used with a <code>while</code> loop, the else statement is executed when the condition becomes false. <a href="http://www.tutorialspoint.com/python/python_while_loop.htm"><i class="fa fa-link"></i></a></p></li>
+  <li>
+    <p>If the <code>else</code> statement is used with a <code>for</code> loop, the else statement is executed when the loop has exhausted iterating the list.</p>
+  </li>
+  <li>
+    <p>If the <code>else</code> statement is used with a <code>while</code> loop, the else statement is executed when the condition becomes false. <a href="http://www.tutorialspoint.com/python/python_while_loop.htm"><i class="fa fa-link"></i></a></p>
+  </li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c">#!/usr/bin/python</span>
@@ -339,16 +335,17 @@
     </code></pre></figure>
 
 <p>When the above code is executed, it produces the following result:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">0 is less than 5
+
+<pre><code>0 is less than 5
 1 is less than 5
 2 is less than 5
 3 is less than 5
 4 is less than 5
 5 is not less than 5
-</code></pre></div>
-<h3><code>break</code> and <code>continue</code></h3>
+</code></pre>
 
-<p><code>break</code> makes Python stop whatever loop it is in, which works really well with infinite loops. <code>continue</code> let&#39;s us move on to the next step in the loop.</p>
+<h3 id="break-and-continue"><code>break</code> and <code>continue</code></h3>
+<p><code>break</code> makes Python stop whatever loop it is in, which works really well with infinite loops. <code>continue</code> let’s us move on to the next step in the loop.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">while</span> <span class="bp">True</span>
         <span class="k">if</span> <span class="n">new_item</span> <span class="o">==</span> <span class="s">'END'</span><span class="p">:</span>
@@ -358,9 +355,8 @@
         <span class="k">continue</span>
     </code></pre></figure>
 
-<h2>Opening files <code>open()</code></h2>
-
-<p><code>open()</code> - Opens a file in Python. This won&#39;t contain the content of the file, it just points to it in memory.</p>
+<h2 id="opening-files-open">Opening files <code>open()</code></h2>
+<p><code>open()</code> - Opens a file in Python. This won’t contain the content of the file, it just points to it in memory.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="nb">open</span><span class="p">(</span><span class="s">"name.txt"</span><span class="p">)</span>
     </code></pre></figure>
@@ -375,18 +371,16 @@
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="n">names_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"name.txt"</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span>
     </code></pre></figure>
 
-<p>By <code>open()</code> you don&#39;t get the actual contents of the file, you just get a pointer to the file. To get the contents, you would use <code>read()</code></p>
+<p>By <code>open()</code> you don’t get the actual contents of the file, you just get a pointer to the file. To get the contents, you would use <code>read()</code></p>
 
-<h2>Reading files <code>read()</code></h2>
-
+<h2 id="reading-files-read">Reading files <code>read()</code></h2>
 <p><code>read()</code> gets the contents of a file for you. For ease of use, you can save the content in a variable.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    
     <span class="n">data</span> <span class="o">=</span> <span class="n">names_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     </code></pre></figure>
 
-<h2>Closing files <code>close()</code></h2>
-
+<h2 id="closing-files-close">Closing files <code>close()</code></h2>
 <p>Once you have opened the file and read it, you should close it.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    
@@ -395,8 +389,7 @@
 
 <p>Closing the file prevents it from taking up memory.</p>
 
-<h2>Modules (aka Libraries) and Packages</h2>
-
+<h2 id="modules-aka-libraries-and-packages">Modules (aka Libraries) and Packages</h2>
 <p>There are loads of built-in modules available for Python. You can find a list <a href="https://docs.python.org/2/library/">here</a>. You use the keyword <code>import</code> to bring outside libraries into your code.</p>
 
 <p>You load a library/module using <code>import</code></p>
@@ -413,9 +406,8 @@
     <span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">re</span>
     </code></pre></figure>
 
-<h2>Functions </h2>
-
-<p>Functions follow the same naming rules as variables. You can&#39;t start a function name with a number and you can&#39;t put any hyphens or special characters in the name. We use the keyword <code>def</code> for defining every function, like so</p>
+<h2 id="functions">Functions</h2>
+<p>Functions follow the same naming rules as variables. You can’t start a function name with a number and you can’t put any hyphens or special characters in the name. We use the keyword <code>def</code> for defining every function, like so</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
     <span class="o">...</span>    <span class="k">print</span><span class="p">(</span><span class="s">"Hello!"</span><span class="p">)</span>
@@ -480,17 +472,17 @@
     <span class="n">show_list</span><span class="p">()</span>
     </code></pre></figure>
 
-<h2>Collections</h2>
+<h2 id="collections">Collections</h2>
 
-<p>Collections are variable types that collect different types of data together. They are also called <code>iterables</code> because you iterate or loop through them. </p>
+<p>Collections are variable types that collect different types of data together. They are also called <code>iterables</code> because you iterate or loop through them.</p>
 
-<h2>References</h2>
-
+<h2 id="references">References</h2>
 <p><a href="http://referrals.trhou.se/aamnah">Treehouse</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -536,6 +528,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="With just 7 CSS declarations you can make a site very presentable with easy to read typography. ">
+  <meta name="description" content="With just 7 CSS declarations you can make a site very presentable with easy to read typography.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/minimal-css-for-presentable-website">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Making a site presentable in 7 lines of code</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-02-25T00:00:00+05:00" itemprop="datePublished">
           Feb 25, 2017
         </time>
@@ -91,45 +92,49 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-minimum-styles-for-presentable-website.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-minimum-styles-for-presentable-website.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>With just 7 CSS declarations you can make a site very presentable with easy to read typography. </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">40px</span> <span class="nb">auto</span><span class="p">;</span>
-    <span class="nl">max-width</span><span class="p">:</span> <span class="m">650px</span><span class="p">;</span>
-    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.6</span><span class="p">;</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#444</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">10px</span>
-<span class="p">}</span>
-<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span> <span class="p">{</span> 
-  <span class="nl">line-height</span><span class="p">:</span><span class="m">1.2</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>To go one step further, you can add media queries</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
-  <span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">max-width</span><span class="p">:</span> <span class="nb">none</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Links</h2>
+    <p>With just 7 CSS declarations you can make a site very presentable with easy to read typography.</p>
 
+<pre><code class="language-css">body {
+	margin: 40px auto;
+	max-width: 650px;
+	line-height: 1.6;
+	font-size: 18px;
+	color: #444;
+	padding: 0 10px
+}
+h1, h2, h3 { 
+  line-height:1.2
+}
+</code></pre>
+
+<p>To go one step further, you can add media queries</p>
+
+<pre><code class="language-css">@media print {
+  body {
+    max-width: none
+    }
+}
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li>http://bettermotherfuckingwebsite.com/</li>
+  <li>http://bettermotherfuckingwebsite.com/</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -175,6 +180,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="This is the accompanying code file for the video Coding With Python :: Learn API Basics to Grab Data with Python.">
+  <meta name="description" content="  This is the accompanying code file for the video Coding With Python :: Learn API Basics to Grab Data with Python.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/api-basics-grab-data-python">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">API Basics - Grabbing Data with Python</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2014-08-29T00:00:00+05:00" itemprop="datePublished">
           Aug 29, 2014
         </time>
@@ -91,259 +92,293 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/api-basics-grab-data-python.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/api-basics-grab-data-python.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>python</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ul>
-<li><p>This is the accompanying code file for the video <a href="https://www.youtube.com/watch?v=pxofwuWTs7c">Coding With Python :: Learn API Basics to Grab Data with Python</a>.</p></li>
-<li><p>Check <a href="https://developers.google.com/books/examples/linkIndivBooks">this Google Books Developer link</a> for some code samples.</p></li>
-<li><p>This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.</p></li>
+  <li>
+    <p>This is the accompanying code file for the video <a href="https://www.youtube.com/watch?v=pxofwuWTs7c">Coding With Python :: Learn API Basics to Grab Data with Python</a>.</p>
+  </li>
+  <li>
+    <p>Check <a href="https://developers.google.com/books/examples/linkIndivBooks">this Google Books Developer link</a> for some code samples.</p>
+  </li>
+  <li>
+    <p>This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.</p>
+  </li>
 </ul>
 
-<h3>APIs:</h3>
-
+<h3 id="apis">APIs:</h3>
 <ul>
-<li><a href="http://isbndb.com/api/v2/docs/books">ISBNdb</a></li>
-<li><a href="https://openlibrary.org/dev/docs/api/books">Open Library</a></li>
-<li><a href="https://developers.google.com/books/docs/v1/using">Google Books API</a></li>
+  <li><a href="http://isbndb.com/api/v2/docs/books">ISBNdb</a></li>
+  <li><a href="https://openlibrary.org/dev/docs/api/books">Open Library</a></li>
+  <li><a href="https://developers.google.com/books/docs/v1/using">Google Books API</a></li>
 </ul>
 
-<h2>Getting data in Terminal</h2>
+<h2 id="getting-data-in-terminal">Getting data in Terminal</h2>
+<p>ISBNdb:</p>
 
-<p>ISBNdb: </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
-</code></pre></div>
-<p>Open Library: </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="s1">'http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&amp;jscmd=data&amp;format=json'</span>
-</code></pre></div>
-<h3>Output</h3>
+<pre><code class="language-bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
+</code></pre>
+
+<p>Open Library:</p>
+
+<pre><code class="language-bash">curl 'http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&amp;jscmd=data&amp;format=json'
+</code></pre>
+
+<h3 id="output">Output</h3>
 
 <p>For</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
-</code></pre></div><div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-   </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"isbn10"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0765350386"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"title_long"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"notes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"awards_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"subject_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-         </span><span class="nt">"isbn13"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9780765350381"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"urls_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"book_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"mistborn"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"physical_description_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"672 pages"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"summary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brandon Sanderson, fantasy�s newest master tale spinner, author of the acclaimed debut Elantris, dares to turn a genre on its head by asking a simple question: What if the hero of prophecy fails? What kind of world results when the Dark Lord is in charge? The answer will be found in the Mistborn Trilogy, a saga of surprises and magical martial-arts action that begins in Mistborn.For a thousand years the ash fell and no flowers bloomed. For a thousand years the Skaa slaved in misery and lived in fear. For a thousand years the Lord Ruler, the �Sliver of Infinity,� reigned with absolute power and ultimate terror, divinely invincible. Then, when hope was so long lost that not even its memory remained, a terribly scarred, heart-broken half-Skaa rediscovered it in the depths of the Lord Ruler�s most hellish prison. Kelsier �snapped� and found in himself the powers of a Mistborn. A brilliant thief and natural leader, he turned his talents to the ultimate caper, with the Lord Ruler himself as the mark. Kelsier recruited the underworld�s elite, the smartest and most trustworthy allomancers, each of whom shares one of his many powers, and all of whom relish a high-stakes challenge. Only then does he reveal his ultimate dream, not just the greatest heist in history, but the downfall of the divine despot.But even with the best criminal crew ever assembled, Kel�s plan looks more like the ultimate long shot, until luck brings a ragged girl named Vin into his life. Like him, she�s a half-Skaa orphan, but she�s lived a much harsher life. Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed.Readers of Elantris thought they'd discovered someone special in Brandon Sanderson. Mistborn proves they were right."</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"dewey_normal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"813"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tor Fantasy"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"edition_info"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Mass Market Paperback; 2007-07-31"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"language"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"lcc_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tor Fantasy"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"tor_fantasy"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Mistborn"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"title_latin"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Mistborn"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"marc_enc_level"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"dewey_decimal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"813"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"author_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-               </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brandon Sanderson"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"brandon_sanderson"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="nt">"index_searched"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"isbn"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h2>A very basic example code in Python</h2>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<pre><code class="language-bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
+</code></pre>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386'</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<pre><code class="language-json">{
+   "data" : [
+      {
+         "isbn10" : "0765350386",
+         "title_long" : "",
+         "notes" : "",
+         "awards_text" : "",
+         "subject_ids" : [],
+         "isbn13" : "9780765350381",
+         "urls_text" : "",
+         "book_id" : "mistborn",
+         "physical_description_text" : "672 pages",
+         "summary" : "Brandon Sanderson, fantasy�s newest master tale spinner, author of the acclaimed debut Elantris, dares to turn a genre on its head by asking a simple question: What if the hero of prophecy fails? What kind of world results when the Dark Lord is in charge? The answer will be found in the Mistborn Trilogy, a saga of surprises and magical martial-arts action that begins in Mistborn.For a thousand years the ash fell and no flowers bloomed. For a thousand years the Skaa slaved in misery and lived in fear. For a thousand years the Lord Ruler, the �Sliver of Infinity,� reigned with absolute power and ultimate terror, divinely invincible. Then, when hope was so long lost that not even its memory remained, a terribly scarred, heart-broken half-Skaa rediscovered it in the depths of the Lord Ruler�s most hellish prison. Kelsier �snapped� and found in himself the powers of a Mistborn. A brilliant thief and natural leader, he turned his talents to the ultimate caper, with the Lord Ruler himself as the mark. Kelsier recruited the underworld�s elite, the smartest and most trustworthy allomancers, each of whom shares one of his many powers, and all of whom relish a high-stakes challenge. Only then does he reveal his ultimate dream, not just the greatest heist in history, but the downfall of the divine despot.But even with the best criminal crew ever assembled, Kel�s plan looks more like the ultimate long shot, until luck brings a ragged girl named Vin into his life. Like him, she�s a half-Skaa orphan, but she�s lived a much harsher life. Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed.Readers of Elantris thought they'd discovered someone special in Brandon Sanderson. Mistborn proves they were right.",
+         "dewey_normal" : "813",
+         "publisher_name" : "Tor Fantasy",
+         "edition_info" : "Mass Market Paperback; 2007-07-31",
+         "language" : "",
+         "lcc_number" : "",
+         "publisher_text" : "Tor Fantasy",
+         "publisher_id" : "tor_fantasy",
+         "title" : "Mistborn",
+         "title_latin" : "Mistborn",
+         "marc_enc_level" : "~",
+         "dewey_decimal" : "813",
+         "author_data" : [
+            {
+               "name" : "Brandon Sanderson",
+               "id" : "brandon_sanderson"
+            }
+         ]
+      }
+   ],
+   "index_searched" : "isbn"
+}
+</code></pre>
 
-<span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">]:</span>
-    <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'author_data'</span><span class="p">]:</span> 
-        <span class="k">print</span> <span class="n">author</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
-    <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'physical_description_text'</span><span class="p">]</span>
+<h2 id="a-very-basic-example-code-in-python">A very basic example code in Python</h2>
 
-</code></pre></div>
-<h4>Output</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">Mistborn
+<pre><code class="language-python">#!/usr/bin/env python
+
+import urllib2
+import json
+
+url = 'http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386'
+obj = urllib2.urlopen(url)
+response = json.load(obj)
+
+for book in response['data']:
+    print book['title']
+    for author in response['data'][0]['author_data']: 
+        print author['name']
+    print book['physical_description_text']
+
+</code></pre>
+
+<h4 id="output-1">Output</h4>
+
+<pre><code>Mistborn
 Brandon Sanderson
 672 pages
-</code></pre></div>
-<h2>Getting Data in Python</h2>
+</code></pre>
 
+<h2 id="getting-data-in-python">Getting Data in Python</h2>
 <p>We will use <code>urllib2</code> to open the URL and <code>json</code> to parse the json data the URL provides.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<pre><code class="language-python">#!/usr/bin/env python
 
-<span class="c"># URL Structure for ISBNDB JSON API</span>
-<span class="c"># http://isbndb.com/api/v2/json/api_key/book/isbn</span>
+import urllib2
+import json
 
-<span class="c"># ISBNDB_key = 'RK8FPFZU'</span>
-<span class="c"># isbn = '0743277465'</span>
+# URL Structure for ISBNDB JSON API
+# http://isbndb.com/api/v2/json/api_key/book/isbn
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'http://isbndb.com/api/v2/json/RK8FPFZU/book/0743277465'</span>
+# ISBNDB_key = 'RK8FPFZU'
+# isbn = '0743277465'
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+url = 'http://isbndb.com/api/v2/json/RK8FPFZU/book/0743277465'
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+obj = urllib2.urlopen(url)
 
-<span class="k">print</span> <span class="n">response</span>
-</code></pre></div>
-<h3>Output</h3>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-   </span><span class="nt">"index_searched"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"isbn"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"lcc_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GV1439"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"marc_enc_level"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"New York : Free Press, 2008."</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"urls_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"book_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"the_art_of_learning_a04"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Free Press"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"language"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"eng"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"title_latin"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"art of learning"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"awards_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"subject_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"entertainment_puzzles_games_board_games_chess"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"health_mind_body_self_help_motivational"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"health_mind_body_personal_health"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"health_mind_body_psychology_counseling_by_topic_learning"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"biographies_memoirs_memoirs"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"waitzkin_josh"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"chess_players_united_states_biography"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tai_chi"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"learning"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meditation"</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="nt">"dewey_normal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"613.7148"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"author_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"josh_waitzkin"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Josh Waitzkin"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">],</span><span class="w">
-         </span><span class="nt">"title_long"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"The art of learning: an inner journey to optimal performance"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"dewey_decimal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"613.7/148"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"summary"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"isbn10"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0743277465"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"isbn13"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9780743277464"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"physical_description_text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"xxi, 265 p. : ill. ; 22 cm."</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"notes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"The foundation -- My second art -- Bringing it all together."</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"edition_info"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"publisher_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"free_press"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"The art of learning"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h2>Getting specific details</h2>
+response = json.load(obj)
+
+print response
+</code></pre>
+
+<h3 id="output-2">Output</h3>
+
+<pre><code class="language-json">{
+   "index_searched" : "isbn",
+   "data" : [
+      {
+         "lcc_number" : "GV1439",
+         "marc_enc_level" : "7",
+         "publisher_text" : "New York : Free Press, 2008.",
+         "urls_text" : "",
+         "book_id" : "the_art_of_learning_a04",
+         "publisher_name" : "Free Press",
+         "language" : "eng",
+         "title_latin" : "art of learning",
+         "awards_text" : "",
+         "subject_ids" : [
+            "entertainment_puzzles_games_board_games_chess",
+            "health_mind_body_self_help_motivational",
+            "health_mind_body_personal_health",
+            "health_mind_body_psychology_counseling_by_topic_learning",
+            "biographies_memoirs_memoirs",
+            "waitzkin_josh",
+            "chess_players_united_states_biography",
+            "tai_chi",
+            "learning",
+            "meditation"
+         ],
+         "dewey_normal" : "613.7148",
+         "author_data" : [
+            {
+               "id" : "josh_waitzkin",
+               "name" : "Josh Waitzkin"
+            }
+         ],
+         "title_long" : "The art of learning: an inner journey to optimal performance",
+         "dewey_decimal" : "613.7/148",
+         "summary" : "",
+         "isbn10" : "0743277465",
+         "isbn13" : "9780743277464",
+         "physical_description_text" : "xxi, 265 p. : ill. ; 22 cm.",
+         "notes" : "The foundation -- My second art -- Bringing it all together.",
+         "edition_info" : "",
+         "publisher_id" : "free_press",
+         "title" : "The art of learning"
+      }
+   ]
+}
+</code></pre>
+
+<h2 id="getting-specific-details">Getting specific details</h2>
 
 <p>printing items from lists (iterating through lists)</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">]:</span>
-    <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'author_data'</span><span class="p">]:</span> 
-        <span class="k">print</span> <span class="n">author</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
-    <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'physical_description_text'</span><span class="p">]</span>
-</code></pre></div>
-<p>Be sure to read <a href="http://stackoverflow.com/questions/10855827/how-to-loop-through-json-in-python">this</a> and <a href="http://stackoverflow.com/questions/14089238/iterating-and-printing-json-objects-in-python">this</a> for iterating over &#39;lists in an object&#39; like we have the &#39;author_data&#39; list in the &#39;data&#39; object.</p>
 
-<p>For the purpose of this article i&#39;m only getting the <strong>title</strong>, <strong>author</strong> and <strong>number of pages</strong>. You can edit the code to output as many details as you want from the data object.</p>
+<pre><code class="language-python">for book in response['data']:
+    print book['title']
+    for author in response['data'][0]['author_data']: 
+        print author['name']
+    print book['physical_description_text']
+</code></pre>
 
-<h2>Turning the whole thing into a function (search by ISBN)</h2>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<p>Be sure to read <a href="http://stackoverflow.com/questions/10855827/how-to-loop-through-json-in-python">this</a> and <a href="http://stackoverflow.com/questions/14089238/iterating-and-printing-json-objects-in-python">this</a> for iterating over ‘lists in an object’ like we have the ‘author_data’ list in the ‘data’ object.</p>
 
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<p>For the purpose of this article i’m only getting the <strong>title</strong>, <strong>author</strong> and <strong>number of pages</strong>. You can edit the code to output as many details as you want from the data object.</p>
 
-<span class="n">isbndb_key</span> <span class="o">=</span> <span class="s">'RK8FPFZU'</span>
+<h2 id="turning-the-whole-thing-into-a-function-search-by-isbn">Turning the whole thing into a function (search by ISBN)</h2>
 
-<span class="k">def</span> <span class="nf">isbn_search</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-    <span class="n">api_key</span> <span class="o">=</span> <span class="n">isbndb_key</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'http://isbndb.com/api/v2/json/'</span> <span class="o">+</span> <span class="n">api_key</span> <span class="o">+</span> <span class="s">'/book/'</span>
-    <span class="n">isbn</span> <span class="o">=</span> <span class="n">query</span>
-    <span class="c"># isbn = query.replace(' ', '%20') will replace any spaces with %20.</span>
-    <span class="c"># not needed in this url design/structure though so commented out</span>
-    <span class="n">final_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">query</span>
+<pre><code class="language-python">#!/usr/bin/env python
 
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">final_url</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+import urllib2
+import json
 
-    <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">]:</span>
-        <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'author_data'</span><span class="p">]:</span>
-            <span class="k">print</span> <span class="n">author</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
-        <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'physical_description_text'</span><span class="p">]</span>
+isbndb_key = 'RK8FPFZU'
 
-</code></pre></div>
-<h3>Output</h3>
+def isbn_search(query):
+    api_key = isbndb_key
+    url = 'http://isbndb.com/api/v2/json/' + api_key + '/book/'
+    isbn = query
+    # isbn = query.replace(' ', '%20') will replace any spaces with %20.
+    # not needed in this url design/structure though so commented out
+    final_url = url + query
 
-<p>For <code>isbn_search(&#39;0765350386&#39;)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">Mistborn
+    obj = urllib2.urlopen(final_url)
+    response = json.load(obj)
+
+    for book in response['data']:
+        print book['title']
+        for author in response['data'][0]['author_data']:
+            print author['name']
+        print book['physical_description_text']
+
+</code></pre>
+
+<h3 id="output-3">Output</h3>
+<p>For <code>isbn_search('0765350386')</code></p>
+
+<pre><code>Mistborn
 Brandon Sanderson
 672 pages
-</code></pre></div>
-<p>For <code>isbn_search(&#39;0743277465&#39;)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">The art of learning
+</code></pre>
+
+<p>For <code>isbn_search('0743277465')</code></p>
+
+<pre><code>The art of learning
 Josh Waitzkin
 xxi, 265 p. : ill. ; 22 cm.
-</code></pre></div>
-<p>The pages are actually taken from the <strong>physical<em>description</em>text</strong> item, so it is okay for it to sometimes show other physical attributes in addition to the pages. If this bothers you, use the Open Library API that gives out <strong>number<em>of</em>pages</strong> insated of physical<em>description</em>text. The code is just an example.</p>
+</code></pre>
 
-<h2>Turning the whole thing into a function (search by Name)</h2>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<p>The pages are actually taken from the <strong>physical_description_text</strong> item, so it is okay for it to sometimes show other physical attributes in addition to the pages. If this bothers you, use the Open Library API that gives out <strong>number_of_pages</strong> insated of physical_description_text. The code is just an example.</p>
 
-<span class="n">ISBNDB_key</span> <span class="o">=</span> <span class="s">'RK8FPFZU'</span>
+<h2 id="turning-the-whole-thing-into-a-function-search-by-name">Turning the whole thing into a function (search by Name)</h2>
 
-<span class="k">def</span> <span class="nf">name_search</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-    <span class="n">api_key</span> <span class="o">=</span> <span class="n">ISBNDB_key</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'http://isbndb.com/api/v2/json/'</span> <span class="o">+</span> <span class="n">api_key</span> <span class="o">+</span> <span class="s">'/book/'</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">'_'</span><span class="p">)</span> <span class="c">#replace any spaces with _</span>
-    <span class="n">final_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">name</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">final_url</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<pre><code class="language-python">import urllib2
+import json
 
-    <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">]:</span>
-        <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'author_data'</span><span class="p">]:</span>
-            <span class="k">print</span> <span class="n">author</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
-        <span class="k">print</span> <span class="n">book</span><span class="p">[</span><span class="s">'physical_description_text'</span><span class="p">]</span>
+ISBNDB_key = 'RK8FPFZU'
 
-</code></pre></div>
-<h3>Output</h3>
+def name_search(query):
+    api_key = ISBNDB_key
+    url = 'http://isbndb.com/api/v2/json/' + api_key + '/book/'
+    name = query.replace(' ', '_') #replace any spaces with _
+    final_url = url + name
+    obj = urllib2.urlopen(final_url)
+    response = json.load(obj)
 
-<p>For <code>name_search(&#39;mistborn&#39;)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">Mistborn
+    for book in response['data']:
+        print book['title']
+        for author in response['data'][0]['author_data']:
+            print author['name']
+        print book['physical_description_text']
+
+</code></pre>
+
+<h3 id="output-4">Output</h3>
+
+<p>For <code>name_search('mistborn')</code></p>
+
+<pre><code>Mistborn
 Brandon Sanderson
 672 pages
-</code></pre></div>
-<p>For <code>name_search(&#39;the girl who kicked the hornets nest&#39;)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">The Girl Who Kicked the Hornets' Nest
+</code></pre>
+
+<p>For <code>name_search('the girl who kicked the hornets nest')</code></p>
+
+<pre><code>The Girl Who Kicked the Hornets' Nest
 Stieg Larsson
 576 pages
-</code></pre></div>
+</code></pre>
+
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -389,6 +424,7 @@ Stieg Larsson
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

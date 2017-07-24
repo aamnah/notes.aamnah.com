@@ -14,6 +14,7 @@
   <meta name="description" content="Save file and exit in Vim">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/vim-basics">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Vim Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-05-21-vim-basics.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-05-21-vim-basics.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>cheatsheet,</li>
       
@@ -102,78 +103,67 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Save file and exit in Vim</h2>
+    <h2 id="save-file-and-exit-in-vim">Save file and exit in Vim</h2>
 
-<p>To go to insert mode: <code>a</code><br>
-To save: <code>[Esc] and zz</code><br>
-To quit: <code>[Esc] and :wq</code>  </p>
+<p>To go to insert mode: <code>a</code><br />
+To save: <code>[Esc] and zz</code><br />
+To quit: <code>[Esc] and :wq</code></p>
 
-<h2>Common Vi / Vim File Savings Related Commands (ex mode)</h2>
+<h2 id="common-vi--vim-file-savings-related-commands-ex-mode">Common Vi / Vim File Savings Related Commands (ex mode)</h2>
 
 <p>You need to press [<code>Esc</code>] key followed by the colon (<code>:</code>) before typing the following commands:</p>
 
-<p><code>q</code> Quit<br>
-<code>q!</code> Quit without saving changes i.e. discard changes<br>
-<code>r</code> fileName Read data from file called fileName<br>
-<code>wq</code> Write and quit (save and exit)<br>
-<code>w</code> fileName Write to file called fileName (save as)<br>
-<code>w!</code> fileName Overwrite to file called fileName (save as forcefully)  </p>
+<p><code>q</code> Quit<br />
+<code>q!</code> Quit without saving changes i.e. discard changes<br />
+<code>r</code> fileName Read data from file called fileName<br />
+<code>wq</code> Write and quit (save and exit)<br />
+<code>w</code> fileName Write to file called fileName (save as)<br />
+<code>w!</code> fileName Overwrite to file called fileName (save as forcefully)</p>
 
 <p><code>e filename.txt</code> open filename.txt. This could be a path to filename or just the filename.</p>
 
-<h2>Movement</h2>
-
+<h2 id="movement">Movement</h2>
 <p><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> to move around. Or just use arrow keys.</p>
 
-<h5><code>f</code>, <code>F</code>, <code>t</code>, <code>T</code></h5>
-
+<h5 id="f-f-t-t"><code>f</code>, <code>F</code>, <code>t</code>, <code>T</code></h5>
 <p><code>f</code> Move forward. For example: <code>f</code> then <code>a</code> will take you to the next <strong>a</strong>.
 <code>F</code> Move backward
 <code>t</code> and <code>T</code> are simliar to <code>f</code> and <code>F</code>. The only difference is they place the cursor before the next a instead of exactly on it.</p>
 
-<h5><code>w</code>, <code>b</code>, <code>e</code></h5>
-
+<h5 id="w-b-e"><code>w</code>, <code>b</code>, <code>e</code></h5>
 <p><code>w</code> Move to the beginning of next word
 <code>b</code> Move to the beginning of the previous word 
 <code>e</code>  Move to the end of current or next word</p>
 
-<h5><code>0</code>, <code>_</code>, <code>$</code></h5>
-
+<h5 id="section"><code>0</code>, <code>_</code>, <code>$</code></h5>
 <p><code>0</code> Move to the far-left on the current line
 <code>_</code> Move to the first character on the current line
 <code>$</code> Move to the last character on the current line</p>
 
-<h5><code>gg</code>, <code>G</code></h5>
-
+<h5 id="gg-g"><code>gg</code>, <code>G</code></h5>
 <p><code>gg</code> Top of the file
 <code>G</code> Bottom of the file</p>
 
-<h5><code>{</code>, <code>}</code></h5>
-
+<h5 id="section-1"><code>{</code>, <code>}</code></h5>
 <p><code>{</code> Beginning of Paragraph
 <code>}</code> End of Paragraph</p>
 
-<h2>Modes</h2>
+<h2 id="modes">Modes</h2>
+<p>##### Normal 
+Defult mode. This is the mode for moving around files. You can always get to the normal mode by pressing the [<code>Esc</code>] key.</p>
 
-<h5>Normal</h5>
-
-<p>Defult mode. This is the mode for moving around files. You can always get to the normal mode by pressing the [<code>Esc</code>] key. </p>
-
-<h5>Insert</h5>
-
+<h5 id="insert">Insert</h5>
 <p>This mode is for typing. Press <code>i</code> to go to <strong>i</strong>nsert mode.</p>
 
-<h5>Visual</h5>
-
+<h5 id="visual">Visual</h5>
 <p>This mode is for selecting things. Press <code>v</code> to go to <strong>v</strong>isual mode.</p>
 
-<h2>Delete</h2>
+<h2 id="delete">Delete</h2>
 
-<h5><code>d</code>, <code>D</code></h5>
-
+<h5 id="d-d"><code>d</code>, <code>D</code></h5>
 <p>Delete lines
 <code>d</code> Delete
 <code>d</code> then <code>w</code> Deletes till the end of the word
@@ -181,44 +171,39 @@ To quit: <code>[Esc] and :wq</code>  </p>
 <code>d</code> then <code>0</code> Deletes all the way back to the start of the line
 <code>D</code> Deletes the whole line</p>
 
-<h5><code>x</code>, <code>X</code></h5>
-
+<h5 id="x-x"><code>x</code>, <code>X</code></h5>
 <p>Delete a single character
 <code>x</code> Delete the character under the cursor
 <code>X</code> Delete the character before the cursor</p>
 
-<h2>Case swapping</h2>
-
+<h2 id="case-swapping">Case swapping</h2>
 <p><code>~</code> Swap the case of the character under the cursor
 <code>v</code> then <code>$</code> then <code>~</code> to change the case of the whole line</p>
 
-<h2>Repeat, Undo, Redo</h2>
-
+<h2 id="repeat-undo-redo">Repeat, Undo, Redo</h2>
 <p><code>.</code> Repeats the last action you did
 <code>u</code> Undo
 <code>ctrl</code>+<code>r</code> for Redo</p>
 
-<h2>Substitue (aka Search)</h2>
-
+<h2 id="substitue-aka-search">Substitue (aka Search)</h2>
 <p><code>:s</code> followed by <code>/</code>, <code>?</code> or <code>&amp;</code></p>
 
-<h2>Search and Replace</h2>
-
+<h2 id="search-and-replace">Search and Replace</h2>
 <p><code>:%s/amazing/awesome</code> Search this document for <em>amazing</em> and replace it with <em>awesome</em>
 <code>:%s/and/\&amp;</code> Search this document for <em>and</em> and replace it with <em>&amp;</em>. Notice that you need to escape <em>&amp;</em>
 <code>:%s</code> Search this document
 <code>:%s/and/but/g</code> The <code>/g</code> in the end means change it globally (everywhere in the file), not just the first instance.</p>
 
-<h2>Resources</h2>
-
+<h2 id="resources">Resources</h2>
 <ul>
-<li><a href="http://www.cyberciti.biz/faq/save-file-in-vi-vim-linux-apple-macos-unix-bsd/">HowTo: Save File in Vi / Vim Text Editor</a></li>
-<li><a href="https://teamtreehouse.com/library/harnessing-the-power-of-vim">Harnessing the power of Vim</a></li>
+  <li><a href="http://www.cyberciti.biz/faq/save-file-in-vi-vim-linux-apple-macos-unix-bsd/">HowTo: Save File in Vi / Vim Text Editor</a></li>
+  <li><a href="https://teamtreehouse.com/library/harnessing-the-power-of-vim">Harnessing the power of Vim</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -264,6 +249,7 @@ To quit: <code>[Esc] and :wq</code>  </p>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

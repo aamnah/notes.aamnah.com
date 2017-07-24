@@ -14,6 +14,7 @@
   <meta name="description" content="Shims vs. Polyfills">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/browser-feature-detection-polyfills-shims">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Feature Detection in Browsers, Shims and Polyfills</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-21T00:00:00+05:00" itemprop="datePublished">
           Mar 21, 2017
         </time>
@@ -91,57 +92,63 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Feature detection in Browsers.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Feature detection in Browsers.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Shims vs. Polyfills</p>
 
-<p>Call it shims if you want to keep the directory generic. A polyfill is a type of shim that retrofits legacy browsers with modern HTML5/CSS3 features usually using Javascript or Flash. A shim, on the other hand, refers to any piece of code that performs interception of an API call and provides a layer of abstraction. It isn&#39;t necessarily restricted to a web application or HTML5/CSS3.</p>
+<p>Call it shims if you want to keep the directory generic. A polyfill is a type of shim that retrofits legacy browsers with modern HTML5/CSS3 features usually using Javascript or Flash. A shim, on the other hand, refers to any piece of code that performs interception of an API call and provides a layer of abstraction. It isn’t necessarily restricted to a web application or HTML5/CSS3.</p>
 
 <p>http://stackoverflow.com/a/6671015/890814</p>
 
-<h2>Browser (user agent) sniffing</h2>
-
+<h2 id="browser-user-agent-sniffing">Browser (user agent) sniffing</h2>
 <p>Detect browser capabilities and features instead of detecting the browser itself. Feature detection is better than browser sniffing.</p>
 
-<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser<em>detection</em>using<em>the</em>user<em>agent
+<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
 https://www.udemy.com/html5-apis-for-javascript-a-course-for-web-developers/learn/v4/t/lecture/178024?start=0
-https://developer.mozilla.org/en-US/docs/Using</em>Web<em>Standards</em>in<em>your</em>Web<em>Pages/Developing</em>cross-browser<em>and</em>cross-platform_pages</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">xhr</span>
+https://developer.mozilla.org/en-US/docs/Using_Web_Standards_in_your_Web_Pages/Developing_cross-browser_and_cross-platform_pages</p>
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// If AJAX is supported</span>
-  <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">'Microsoft.XMLHTTP'</span><span class="p">);</span> <span class="c1">// older IE had their own ActiveX identical to AJAX</span>
-<span class="p">}</span>
+<pre><code class="language-javascript">let xhr
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mywebservice.php'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
-</code></pre></div>
-<p>the same can also be written as </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="nx">XMLHttpRequest</span> <span class="p">?</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">()</span> <span class="p">:</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">'Microsoft.XMLHTTP'</span><span class="p">)</span>
-</code></pre></div>
+if (window.XMLHttpRequest) { // If AJAX is supported
+  xhr = new XMLHttpRequest();
+} else {
+  xhr = new ActiveXObject('Microsoft.XMLHTTP'); // older IE had their own ActiveX identical to AJAX
+}
+
+xhr.open('GET', 'mywebservice.php', true);
+xhr.send(null)
+</code></pre>
+
+<p>the same can also be written as</p>
+
+<pre><code class="language-javascript">let xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+</code></pre>
+
 <p>Detect if Geolocation API is supported</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="s2">"geolocation"</span> <span class="k">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/* geolocation is available */</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="cm">/* geolocation IS NOT available */</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">if ("geolocation" in navigator) {
+  /* geolocation is available */
+} else {
+  /* geolocation IS NOT available */
+}
+</code></pre>
+
 <p>Modernizer</p>
 
 <p>Different implementations of the same API by different browsers</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -187,6 +194,7 @@ https://developer.mozilla.org/en-US/docs/Using</em>Web<em>Standards</em>in<em>yo
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Installation">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/workflow/2014-09-14-Grunt.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Working with Grunt</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-09-14T00:00:00+05:00" itemprop="datePublished">
           Sep 14, 2014
         </time>
@@ -91,34 +92,35 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2014-09-14-Grunt.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2014-09-14-Grunt.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Installation</h2>
+    <h2 id="installation">Installation</h2>
 
-<h4>Node.js and NPM</h4>
-
+<h4 id="nodejs-and-npm">Node.js and NPM</h4>
 <p>Install Node by downloading the package from <a href="http://nodejs.org/">their website</a> and running the install. You can also install it on a Mac via homebrew (Mac) by running the command</p>
-<div class="highlight"><pre><code class="language-" data-lang="">brew install node
-</code></pre></div>
+
+<pre><code>brew install node
+</code></pre>
+
 <p>NPM (Node Package Manager) comes with Node by default.</p>
 
-<h4>Grunt CLI</h4>
-
+<h4 id="grunt-cli">Grunt CLI</h4>
 <p>Install Grunt CLI:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">npm install -g grunt-cli
-</code></pre></div>
+
+<pre><code>npm install -g grunt-cli
+</code></pre>
+
 <p>(the -g means to install it globally on your OS so that you can use the grunt command where ever you are on your system).</p>
 
-<h2>Getting started with Grunt</h2>
-
+<h2 id="getting-started-with-grunt">Getting started with Grunt</h2>
 <p>You install Grunt on a per-project basis. Go to your project’s folder. It needs a file there named <code>package.json</code> at the root level. You can just create one and put it there.</p>
 
 <p>The contents of that file should be this:</p>
@@ -133,62 +135,71 @@
     </code></pre></figure>
 
 <p>Once you have the package.json file in place, activate Grunt with the following command:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">npm install
-</code></pre></div>
-<h3>Installing packages</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">npm install grunt-contrib-packagename --save-dev
-</code></pre></div>
+
+<pre><code>npm install
+</code></pre>
+
+<h3 id="installing-packages">Installing packages</h3>
+
+<pre><code>npm install grunt-contrib-packagename --save-dev
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-" data-lang="">npm install grunt-packagename --save-dev
-</code></pre></div>
-<p>Plugins with a <code>contrib</code> in name are officially maintained Grunt plugins. </p>
 
-<p>When installing plugins this way your package.json file will automatically be updated to include this new dependency. the <code>--save-dev</code> flag means our package.json file gets automatically updated to include the dependency we&#39;ve just installed.</p>
+<pre><code>npm install grunt-packagename --save-dev
+</code></pre>
 
-<h3><a href="https://github.com/JamieMason/grunt-imageoptim">ImageOptim</a>:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">npm install grunt-imageoptim --save-dev
-</code></pre></div>
+<p>Plugins with a <code>contrib</code> in name are officially maintained Grunt plugins.</p>
+
+<p>When installing plugins this way your package.json file will automatically be updated to include this new dependency. the <code>--save-dev</code> flag means our package.json file gets automatically updated to include the dependency we’ve just installed.</p>
+
+<h3 id="imageoptimhttpsgithubcomjamiemasongrunt-imageoptim"><a href="https://github.com/JamieMason/grunt-imageoptim">ImageOptim</a>:</h3>
+
+<pre><code>npm install grunt-imageoptim --save-dev
+</code></pre>
+
 <p>For usage: https://github.com/JamieMason/grunt-imageoptim</p>
 
-<h2>Configuration (Gruntfile.js)</h2>
+<h2 id="configuration-gruntfilejs">Configuration (Gruntfile.js)</h2>
+<p>### Tasks</p>
 
-<h3>Tasks</h3>
+<p>You need to create a default task in the Gruntfile. This task will be run when you enter the ‘grunt’ command.</p>
 
-<p>You need to create a default task in the Gruntfile. This task will be run when you enter the &#39;grunt&#39; command.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// the default task can be run just by typing "grunt" on the command line
+<pre><code>// the default task can be run just by typing "grunt" on the command line
 grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-</code></pre></div>
+</code></pre>
+
 <p>You can also create custom tasks</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// this would be run by typing "grunt test" on the command line
+
+<pre><code>// this would be run by typing "grunt test" on the command line
 grunt.registerTask('test', ['jshint', 'qunit']);
-</code></pre></div>
-<h3>Sass</h3>
+</code></pre>
 
-<p>Sass is that it can do concatenation and minification all by itself. </p>
+<h3 id="sass">Sass</h3>
+<p>Sass is that it can do concatenation and minification all by itself.</p>
 
-<h2>Sources:</h2>
-
+<h2 id="sources">Sources:</h2>
 <ul>
-<li><a href="http://24ways.org/2013/grunt-is-not-weird-and-hard/">Grunt for People Who Think Things Like Grunt are Weird and Hard</a></li>
-<li><a href="http://gruntjs.com/sample-gruntfile">Sample Grunt file</a></li>
-<li><a href="https://github.com/JamieMason/ImageOptim-CLI#installation">ImageOptim-CLI</a></li>
-<li><a href="http://www.integralist.co.uk/Grunt-Boilerplate.html">Grunt Boilerplate</a></li>
+  <li><a href="http://24ways.org/2013/grunt-is-not-weird-and-hard/">Grunt for People Who Think Things Like Grunt are Weird and Hard</a></li>
+  <li><a href="http://gruntjs.com/sample-gruntfile">Sample Grunt file</a></li>
+  <li><a href="https://github.com/JamieMason/ImageOptim-CLI#installation">ImageOptim-CLI</a></li>
+  <li><a href="http://www.integralist.co.uk/Grunt-Boilerplate.html">Grunt Boilerplate</a></li>
 </ul>
 
-<h3>Packages:</h3>
-
+<h3 id="packages">Packages:</h3>
 <ul>
-<li>Imageoptim</li>
-<li>compass</li>
-<li>sass</li>
-<li>livereload</li>
-<li>concat</li>
-<li>uglify</li>
+  <li>Imageoptim</li>
+  <li>compass</li>
+  <li>sass</li>
+  <li>livereload</li>
+  <li>concat</li>
+  <li>uglify</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -234,6 +245,7 @@ grunt.registerTask('test', ['jshint', 'qunit']);
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

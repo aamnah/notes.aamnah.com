@@ -14,6 +14,7 @@
   <meta name="description" content="Variables">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/variables-arguments">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Variables and Arguments</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-07T00:00:00+05:00" itemprop="datePublished">
           Dec 7, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,40 +98,45 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Variables and Arguments.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Variables and Arguments.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Variables</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">name</span><span class="o">=</span><span class="s2">"Aamnah"</span>
-<span class="nv">$name</span><span class="o">=</span><span class="s2">"Aamnah"</span>
-</code></pre></div>
-<p>There is <em>NO whitespace</em> before or after <code>=</code>. <code>$name=&quot;Aamnah&quot;</code> will work but the preferred syntax is not including $ sign when you are defining a variable. You should use the $ sign when you are calling the variable and <em>NOT</em> when you&#39;re defining it.</p>
+    <h2 id="variables">Variables</h2>
 
-<h3>Referencing variables:</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$name</span>
-<span class="nb">echo</span> <span class="k">${</span><span class="nv">name</span><span class="k">}</span>
-</code></pre></div>
+<pre><code class="language-bash">name="Aamnah"
+$name="Aamnah"
+</code></pre>
+
+<p>There is <em>NO whitespace</em> before or after <code>=</code>. <code>$name="Aamnah"</code> will work but the preferred syntax is not including $ sign when you are defining a variable. You should use the $ sign when you are calling the variable and <em>NOT</em> when you’re defining it.</p>
+
+<h3 id="referencing-variables">Referencing variables:</h3>
+
+<pre><code class="language-bash">echo $name
+echo ${name}
+</code></pre>
+
 <p><code>${name}</code> is preferred syntax.</p>
 
-<h2>Arguments</h2>
-
+<h2 id="arguments">Arguments</h2>
 <p>Arguments are keywords that are passed in the command line when executing the bash script/command.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">./script.sh foo bar
-</code></pre></div>
-<h3>$0, $1, $2 etc..</h3>
 
-<p><code>$0</code> is the name of the script, <code>$1</code> is the first argument, <code>$2</code> is the second argument and so on. </p>
+<pre><code class="language-bash">./script.sh foo bar
+</code></pre>
+
+<h3 id="etc">$0, $1, $2 etc..</h3>
+<p><code>$0</code> is the name of the script, <code>$1</code> is the first argument, <code>$2</code> is the second argument and so on.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -176,6 +182,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="InstallLinux / Unix / Mac">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/php-composer">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Composer</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-01-14T00:00:00+05:00" itemprop="datePublished">
           Jan 14, 2016
         </time>
@@ -91,55 +92,79 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/Composer.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/Composer.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Install</h2>
-
+    <h2 id="install">Install</h2>
 <p>Linux / Unix / Mac</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer | sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer
-</code></pre></div>
+
+<pre><code class="language-bash">curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+</code></pre>
+
 <p>Confirm install with: <code>composer -V</code></p>
 
 <p>Composer is a dependency manager, like <code>npm</code>.</p>
 
-<p>| npm | composer |
-|-------|-------------|
-| npm init | composer init |
-| package.json | composer.json |
-| npm install --save-dev | composer require |
-| node_module | vendors |</p>
+<table>
+  <thead>
+    <tr>
+      <th>npm</th>
+      <th>composer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>npm init</td>
+      <td>composer init</td>
+    </tr>
+    <tr>
+      <td>package.json</td>
+      <td>composer.json</td>
+    </tr>
+    <tr>
+      <td>npm install –save-dev</td>
+      <td>composer require</td>
+    </tr>
+    <tr>
+      <td>node_module</td>
+      <td>vendors</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>What is the name of the <strong>folder that composer puts all of the packages</strong> in? Ans: <code>vendors</code></p>
 
 <p><strong>Versioning</strong>: 1.2.3 = major.minor.patch</p>
 
-<h2>Getting started</h2>
-
+<h2 id="getting-started">Getting started</h2>
 <p>In your project folder, create the <code>composer.json</code> file with the command</p>
-<div class="highlight"><pre><code class="language-" data-lang="">composer init
-</code></pre></div>
-<p>To add a package to the composer.json file</p>
-<div class="highlight"><pre><code class="language-" data-lang="">composer require
-</code></pre></div>
-<p>If you have an existing <code>composer.json</code> file, install dependencies with</p>
-<div class="highlight"><pre><code class="language-" data-lang="">composer install
-</code></pre></div>
-<h2>Using the libraries composer installed in your project</h2>
 
+<pre><code>composer init
+</code></pre>
+
+<p>To add a package to the composer.json file</p>
+
+<pre><code>composer require If you have an existing `composer.json` file, install dependencies with
+
+composer install
+</code></pre>
+
+<h2 id="using-the-libraries-composer-installed-in-your-project">Using the libraries composer installed in your project</h2>
 <p>To use teh library you installed via composer in your project, all you need is a require statement, like so:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">require 'vendor/autoload.php';
-</code></pre></div>
+
+<pre><code>require 'vendor/autoload.php';
+</code></pre>
+
 <p>Everything you installed via composer is now available in your project with the <code>require</code> statement.</p>
 
-<h2>Namespacing</h2>
+<h2 id="namespacing">Namespacing</h2>
 
 <p>Since PHP 5.3 was released we now use a common practice of namespacing our libraries and code. Namespacing is a very powerful process to help us avoid conflicts within our project. In this video I will give you an simple metaphor for Namespacing as well as walk you through an example of how it is used in Monolog.</p>
 
@@ -148,23 +173,25 @@ Use multiple vendors that may or may not have the same class names without confl
 Another function is to shorten really long class names (or locations of classes) by using an alias with name spacing</p>
 
 <p>Namespacing code looks like this:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">namespace Monolog;
+
+<pre><code class="language-php">namespace Monolog;
 
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\StreamHandler;
 use Psr\Log\LoggerInterface;
 use Psr\Log\InvalidArgumentException;
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://getcomposer.org/doc/01-basic-usage.md#basic-usage">Composer Basic Usage</a></li>
-<li><a href="https://packagist.org/packages/">Packagist</a></li>
+  <li><a href="http://getcomposer.org/doc/01-basic-usage.md#basic-usage">Composer Basic Usage</a></li>
+  <li><a href="https://packagist.org/packages/">Packagist</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -210,6 +237,7 @@ use Psr\Log\InvalidArgumentException;
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

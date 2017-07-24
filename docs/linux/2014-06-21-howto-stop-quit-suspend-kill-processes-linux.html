@@ -14,6 +14,7 @@
   <meta name="description" content="ctrl + c  (Interrupt)ctrl + c aka Keyboard Interrupt will interrupt your program which most programs will exit. This is useful when you start a program that ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux/2014-06-21-howto-stop-quit-suspend-kill-processes-linux.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Stopping, Quitting, Suspending and Killing Processes in Linux</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-06-21T06:12:50+05:00" itemprop="datePublished">
           Jun 21, 2014
         </time>
@@ -91,52 +92,47 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-06-21-howto-stop-quit-suspend-kill-processes-linux.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-06-21-howto-stop-quit-suspend-kill-processes-linux.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>linux</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>ctrl + c  (Interrupt)</h2>
+    <h2 id="ctrl--c--interrupt">ctrl + c  (Interrupt)</h2>
+<p><code>ctrl + c</code> aka <strong>Keyboard Interrupt</strong> will interrupt your program which most programs will exit. This is useful when you start a program that just has been running for a really long time and you want to close it because you don’t want it to take up all your shell and you don’t really need to run it or maybe you used a command with the wrong arguments</p>
 
-<p><code>ctrl + c</code> aka <strong>Keyboard Interrupt</strong> will interrupt your program which most programs will exit. This is useful when you start a program that just has been running for a really long time and you want to close it because you don&#39;t want it to take up all your shell and you don&#39;t really need to run it or maybe you used a command with the wrong arguments</p>
+<h2 id="ctrl--d--disconnect">ctrl + d  (Disconnect)</h2>
+<p><code>ctrl+c</code> won’t work in Python. Instead it’ll just keep saying KeyboardInterrupt. To actually close the program you’ll have to <code>ctrl+d</code>. <strong>D</strong> stands for <strong>Disconnect</strong> and it’ll disconnect you from a process. This is used most often for getting out of the shell. It’ll close (logout) the shell for you.</p>
 
-<h2>ctrl + d  (Disconnect)</h2>
+<h2 id="ctrl--z--suspend">ctrl + z  (Suspend)</h2>
+<p><code>ctrl+z</code> takes you out of the process and <strong>suspends</strong> it. puts it in the backgtound. kind of like minimizing it. if we want to see all the processes we can type <code>jobs</code> and it’ll give us a list of the processses in teh background. If you want to go back to the proess (foreground) you type <code>fg</code>. Typing <code>bg</code> will resume that process in the background so that it’l continue</p>
 
-<p><code>ctrl+c</code> won&#39;t work in Python. Instead it&#39;ll just keep saying KeyboardInterrupt. To actually close the program you&#39;ll have to <code>ctrl+d</code>. <strong>D</strong> stands for <strong>Disconnect</strong> and it&#39;ll disconnect you from a process. This is used most often for getting out of the shell. It&#39;ll close (logout) the shell for you.</p>
+<h2 id="kill--terminate">kill  (Terminate)</h2>
+<p><code>kill</code> as the name implies kills or terminates a process. You can kill the process by typing <code>kill PID</code> where PID is the Process ID.<br />
+<strong>Tip</strong>: You can find the Process ID by using the <code>top</code> command. Or by using grep to find a process like <code>ps aux | grep 'apache2'</code>. In the results of the grep seacrh, the second column would be the process ID column and the first column would have the username that owns that process.)</p>
 
-<h2>ctrl + z  (Suspend)</h2>
+<h2 id="quitting-vim">quitting Vim</h2>
+<p>Type <code>:quit</code> to exit Vim. <code>ctrl+c</code> won’t work but Vim will catch the interrupt and tell you how to exit.</p>
 
-<p><code>ctrl+z</code> takes you out of the process and <strong>suspends</strong> it. puts it in the backgtound. kind of like minimizing it. if we want to see all the processes we can type <code>jobs</code> and it&#39;ll give us a list of the processses in teh background. If you want to go back to the proess (foreground) you type <code>fg</code>. Typing <code>bg</code> will resume that process in the background so that it&#39;l continue</p>
-
-<h2>kill  (Terminate)</h2>
-
-<p><code>kill</code> as the name implies kills or terminates a process. You can kill the process by typing <code>kill PID</code> where PID is the Process ID.<br>
-<strong>Tip</strong>: You can find the Process ID by using the <code>top</code> command. Or by using grep to find a process like <code>ps aux | grep &#39;apache2&#39;</code>. In the results of the grep seacrh, the second column would be the process ID column and the first column would have the username that owns that process.)</p>
-
-<h2>quitting Vim</h2>
-
-<p>Type <code>:quit</code> to exit Vim. <code>ctrl+c</code> won&#39;t work but Vim will catch the interrupt and tell you how to exit.  </p>
-
-<h2>quitting Man pages</h2>
-
+<h2 id="quitting-man-pages">quitting Man pages</h2>
 <p>To quit a man (manual) page, type <code>q</code>.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://openclassroom.stanford.edu/MainFolder/VideoPage.php?course=PracticalUnix&video=intro-shell&speed=100">Source - Intro to Shell (Practical Unix Lecture 2 of 24) - 15:28</a></li>
+  <li><a href="http://openclassroom.stanford.edu/MainFolder/VideoPage.php?course=PracticalUnix&amp;video=intro-shell&amp;speed=100">Source - Intro to Shell (Practical Unix Lecture 2 of 24) - 15:28</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -182,6 +178,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

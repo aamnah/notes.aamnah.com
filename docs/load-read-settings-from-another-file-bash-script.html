@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="To include a script into another script, we use the source command. In it&#39;s simplest form, the command is this:">
+  <meta name="description" content="To include a script into another script, we use the source command. In it’s simplest form, the command is this:">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/load-read-settings-from-another-file-bash-script">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash Scripts -  Load/Read/Include Settings from Another File</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
           Feb 20, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,59 +98,70 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/load-read-settings-from-another-file-bash.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/load-read-settings-from-another-file-bash.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>To include a script into another script, we use the <code>source</code> command. In it&#39;s simplest form, the command is this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source </span>incl.sh
-</code></pre></div>
-<p>Here&#39;s an example. Our <strong>keys.cfg</strong> file has this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">AWSAccessKeyId</span><span class="o">=</span><span class="s2">"AKIAIKRGQQKRGQQKRGQQ"</span>
-<span class="nv">AWSSecretKey</span><span class="o">=</span><span class="s2">"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"</span>
-</code></pre></div>
+    <p>To include a script into another script, we use the <code>source</code> command. In it’s simplest form, the command is this:</p>
+
+<pre><code class="language-bash">source incl.sh
+</code></pre>
+
+<p>Here’s an example. Our <strong>keys.cfg</strong> file has this:</p>
+
+<pre><code class="language-bash">AWSAccessKeyId="AKIAIKRGQQKRGQQKRGQQ"
+AWSSecretKey="UNYDSEUNYDSEUNYDSEmwMeIdQ6KRGQQv7dBdzDSE"
+</code></pre>
+
 <p>While our <strong>script.sh</strong> has this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash </span>
 
-<span class="c">#Directory the script is in (for later use)</span>
-<span class="nv">SCRIPTDIR</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">"</span><span class="k">$(</span> dirname <span class="s2">"</span><span class="k">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span> <span class="k">)</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">"</span>
+<pre><code class="language-bash">#!/bin/bash 
 
-<span class="c"># Load the backup settings</span>
-<span class="nb">source</span> <span class="s2">"</span><span class="k">${</span><span class="nv">SCRIPTDIR</span><span class="k">}</span><span class="s2">"</span>/keys.cfg
-</code></pre></div>
+#Directory the script is in (for later use)
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"
+
+# Load the backup settings
+source "${SCRIPTDIR}"/keys.cfg
+</code></pre>
+
 <p>In our <strong>script.sh</strong> file we have sourced the file <strong>keys.cfg</strong> which contains configuration settings which we can now use.</p>
 
-<p>If you attempt to execute that shell script from a location other than the one where your script is, it can&#39;t find the include unless it&#39;s in your path. As a workaround we have defined <strong>SCRIPTDIR</strong> and made the scripts relative to one another.</p>
+<p>If you attempt to execute that shell script from a location other than the one where your script is, it can’t find the include unless it’s in your path. As a workaround we have defined <strong>SCRIPTDIR</strong> and made the scripts relative to one another.</p>
 
 <p>If the file you are including is in the same directory you can use <code>dirname $0</code>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
-<span class="nb">source</span> <span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>/incl.sh
-<span class="nb">echo</span> <span class="s2">"The main script"</span>
-</code></pre></div>
-<p>An alternative to: </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">scriptPath</span><span class="o">=</span><span class="k">$(</span>dirname <span class="nv">$0</span><span class="k">)</span>
-</code></pre></div>
+
+<pre><code class="language-bash">#!/bin/bash
+source $(dirname $0)/incl.sh
+echo "The main script"
+</code></pre>
+
+<p>An alternative to:</p>
+
+<pre><code class="language-bash">scriptPath=$(dirname $0)
+</code></pre>
 <p>is:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">scriptPath</span><span class="o">=</span><span class="k">${</span><span class="nv">0</span><span class="p">%/*</span><span class="k">}</span>
-</code></pre></div>
+
+<pre><code class="language-bash">scriptPath=${0%/*}
+</code></pre>
+
 <p>.. the advantage being not having the dependence on dirname, which is not a built-in command (and not always available in emulators)</p>
 
-<h2>Resources</h2>
-
+<h2 id="resources">Resources</h2>
 <ul>
-<li><a href="http://stackoverflow.com/questions/192292/bash-how-best-to-include-other-scripts">Bash: How <em>best</em> to include other scripts?</a></li>
-<li><a href="http://bash.cyberciti.biz/guide/Source_command">Source Command</a></li>
+  <li><a href="http://stackoverflow.com/questions/192292/bash-how-best-to-include-other-scripts">Bash: How <em>best</em> to include other scripts?</a></li>
+  <li><a href="http://bash.cyberciti.biz/guide/Source_command">Source Command</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -195,6 +207,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

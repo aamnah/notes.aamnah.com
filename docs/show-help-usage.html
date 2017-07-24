@@ -14,6 +14,7 @@
   <meta name="description" content="A basic way is saving usage as a function">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/show-help-usage">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Showing Help and Usage</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-07T00:00:00+05:00" itemprop="datePublished">
           Dec 7, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,33 +98,38 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Showing-Help-Usage.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Showing-Help-Usage.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>A basic way is saving usage as a function</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">showUsage<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> -e <span class="s2">"Usage: please provide an argument"</span>
-<span class="o">}</span>
-</code></pre></div>
+
+<pre><code class="language-bash">showUsage() {
+    echo -e "Usage: please provide an argument"
+}
+</code></pre>
+
 <p>and later in your script, you can run a conditional statement that checks for something, say no arguments are provided, you can show the usage and exit</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>
-<span class="k">then
-  </span>showUsage
-  <span class="nb">exit </span>1
-<span class="k">else</span>
-  <span class="c"># run the code</span>
-<span class="k">fi</span>
-</code></pre></div>
+
+<pre><code class="language-bash">if [ condition ]
+then
+  showUsage
+  exit 1
+else
+  # run the code
+fi
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -169,6 +175,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

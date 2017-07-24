@@ -14,6 +14,7 @@
   <meta name="description" content="There are two kinds of Github Pages. User pages and project pages.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/getting-started-github-pages">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Getting started with Github Pages</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-19T00:00:00+05:00" itemprop="datePublished">
           Feb 19, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/2015-02-19-create-publish-github-pages.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/2015-02-19-create-publish-github-pages.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>github pages</li>
       
@@ -104,37 +105,36 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>There are two kinds of Github Pages. User pages and project pages.</p>
 
-<h2>Steps for Creating Project pages</h2>
-
+<h2 id="steps-for-creating-project-pages">Steps for Creating Project pages</h2>
 <ol>
-<li>Create a <strong>branch</strong> called <strong>gh-pages</strong><br></li>
-<li>Add your site to it</li>
-<li>Push to github</li>
+  <li>Create a <strong>branch</strong> called <strong>gh-pages</strong></li>
+  <li>Add your site to it</li>
+  <li>Push to github</li>
 </ol>
 
-<h3>Create a branch called gh-pages</h3>
+<h3 id="create-a-branch-called-gh-pages">Create a branch called gh-pages</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git checkout -b gh-pages
     </code></pre></figure>
 
-<p>You&#39;ll be doing this locally on your computer. <code>-b</code> is for <strong>Branch</strong>. <code>gh-pages</code> is the name of the branch. It MUST be <strong>gh-pages</strong>. Any other name and Github is going to ignore it.</p>
+<p>You’ll be doing this locally on your computer. <code>-b</code> is for <strong>Branch</strong>. <code>gh-pages</code> is the name of the branch. It MUST be <strong>gh-pages</strong>. Any other name and Github is going to ignore it.</p>
 
-<p>Once you create a branch, it&#39;ll switch you to it. You can check which branch you are on with <code>git branch</code>.</p>
+<p>Once you create a branch, it’ll switch you to it. You can check which branch you are on with <code>git branch</code>.</p>
 
-<p><img src="#" alt="show git branch output"></p>
+<p><img src="#" alt="show git branch output" /></p>
 
 <p>The branch with a * and green color is the branch you are currently on.</p>
 
-<h3>Add your site to it</h3>
+<h3 id="add-your-site-to-it">Add your site to it</h3>
 
-<p>Add your project site to this branch. The usual HTML, CSS and JS. </p>
+<p>Add your project site to this branch. The usual HTML, CSS and JS.</p>
 
-<h3>Push to Github</h3>
+<h3 id="push-to-github">Push to Github</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git push origin gh-pages
     </code></pre></figure>
@@ -143,32 +143,31 @@
 
 <p>The site can take some time showing up on Github after the branch is pushed. Sometimes it shows up immediately, sometimes it can take up to 10 minutes.</p>
 
-<h3>Tips</h3>
+<h3 id="tips">Tips</h3>
 
 <ul>
-<li>You can create a new empty branch <code>git checkout --orphan gh-pages</code></li>
-<li>Delete a remote branch <code>git push origin :gh-pages</code></li>
+  <li>You can create a new empty branch <code>git checkout --orphan gh-pages</code></li>
+  <li>Delete a remote branch <code>git push origin :gh-pages</code></li>
 </ul>
 
-<h2>User pages</h2>
-
+<h2 id="user-pages">User pages</h2>
 <p>The name of the repository must be <strong>username</strong>.github.io</p>
 
 <p>A repo named <strong>username.github.io</strong> will appear online as username.github.io. Once you have that repository, anything you put in it wil become your user website.</p>
 
 <p>The difference between user pages and project pages is that for Project pages, you create a branch in your project repo. For User pages, you create a whole new repo that is specifically for your website.</p>
 
-<h2>Steps for Creating Project pages</h2>
+<h2 id="steps-for-creating-project-pages-1">Steps for Creating Project pages</h2>
 
 <ol>
-<li>Create a <strong>repo</strong> called <strong>username.github.io</strong><br></li>
-<li>Create the site</li>
-<li>Start a local git repo in that site folder</li>
-<li>Add remote repo, the one you created in the first step</li>
-<li>Push it to the remote repo </li>
+  <li>Create a <strong>repo</strong> called <strong>username.github.io</strong></li>
+  <li>Create the site</li>
+  <li>Start a local git repo in that site folder</li>
+  <li>Add remote repo, the one you created in the first step</li>
+  <li>Push it to the remote repo</li>
 </ol>
 
-<h3>Create a local git repo in the site folder and add/commit files</h3>
+<h3 id="create-a-local-git-repo-in-the-site-folder-and-addcommit-files">Create a local git repo in the site folder and add/commit files</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git init
     git add .
@@ -177,18 +176,17 @@
 
 <p><code>-m</code> is for Message. The message that you want to add about the files your are committing. It is kind of a must to add a message, and it should be descriptive of teh changes you made to file.</p>
 
-<h3>Add Remote repo</h3>
-
+<h3 id="add-remote-repo">Add Remote repo</h3>
 <p>Connect your site to Github</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git remote add origin git@github.com:username/username.github.io.git
     </code></pre></figure>
 
-<p><code>origin</code> is the name of your remote repo. It doesn&#39;t have to be called origin, it can be anything. Origin is sort of a convention, to represent that is sort of the canonical repo for all your files. You can name it <em>github</em> if you want.</p>
+<p><code>origin</code> is the name of your remote repo. It doesn’t have to be called origin, it can be anything. Origin is sort of a convention, to represent that is sort of the canonical repo for all your files. You can name it <em>github</em> if you want.</p>
 
 <p>You can check where your remote is with <code>git remote -v</code></p>
 
-<h3>Push it up</h3>
+<h3 id="push-it-up">Push it up</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git push -u origin master
     </code></pre></figure>
@@ -197,19 +195,17 @@
 
 <p>Again, it can take up to 10 minutes for the site to become live on username.github.io.</p>
 
-<h2>Add a CNAME record</h2>
+<h2 id="add-a-cname-record">Add a CNAME record</h2>
 
 <p>If you want to use your own domain, you can. Make that username.github.io username.com. All you have to do is cerate a CNAME alias with your DNS provider, and add a <em>CNAME</em> file to your repo.</p>
 
-<h3>CNAME details for your Domain Regsitrar</h3>
-
+<h3 id="cname-details-for-your-domain-regsitrar">CNAME details for your Domain Regsitrar</h3>
 <p><strong>Name / Host / Alias</strong>: www
 <strong>Time to Live (TTL)</strong>: 86400
 <strong>Record Type</strong>: CNAME
 <strong>Value / Answer / Destination</strong>: username.github.io</p>
 
-<h3>Creating and committing a <em>CNAME</em> file</h3>
-
+<h3 id="creating-and-committing-a-cname-file">Creating and committing a <em>CNAME</em> file</h3>
 <p>Create a file called <code>CNAME</code> (notice that there is no file extension) and add your domain <code>www.yourdomain.com</code> to it. Save that file in the root of your repo.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    git add CNAME
@@ -217,16 +213,16 @@
     git push origin master
     </code></pre></figure>
 
-<h2>Resources</h2>
-
+<h2 id="resources">Resources</h2>
 <ul>
-<li><a href="https://teamtreehouse.com/library/using-github-pages-to-host-free-websites">Source</a></li>
-<li>Here are help articles about <a href="https://help.github.com/articles/tips-for-configuring-a-cname-record-with-your-dns-provider/">creating a CNAME record at registrar</a>, and <a href="https://help.github.com/articles/adding-a-cname-file-to-your-repository/">adding a CNAME file to your repo</a>.</li>
+  <li><a href="https://teamtreehouse.com/library/using-github-pages-to-host-free-websites">Source</a></li>
+  <li>Here are help articles about <a href="https://help.github.com/articles/tips-for-configuring-a-cname-record-with-your-dns-provider/">creating a CNAME record at registrar</a>, and <a href="https://help.github.com/articles/adding-a-cname-file-to-your-repository/">adding a CNAME file to your repo</a>.</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -272,6 +268,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

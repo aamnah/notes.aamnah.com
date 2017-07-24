@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="If your database is connected to an app, you&#39;d probably want to take that app offline or put into some maintenance mode so that any database changes you ...">
+  <meta name="description" content="If your database is connected to an app, you’d probably want to take that app offline or put into some maintenance mode so that any database changes you make...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/manipulating_schema_with_sql">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Manipulating Schema with SQL</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-24T00:00:00+05:00" itemprop="datePublished">
           Feb 24, 2015
         </time>
@@ -91,29 +92,46 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Manipulating_Schema_with_SQL.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Manipulating_Schema_with_SQL.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>If your database is connected to an app, you&#39;d probably want to take that app offline or put into some maintenance mode so that any database changes you make don&#39;t effect the application.</p>
+    <p>If your database is connected to an app, you’d probably want to take that app offline or put into some maintenance mode so that any database changes you make don’t effect the application.</p>
 
 <p>Also, BACKUP before making any changes.</p>
 
-<h2>Altering Tables</h2>
+<h2 id="altering-tables">Altering Tables</h2>
 
-<p>| Keyword    | Meaning |
-|------------|---------|
-| <code>RENAME</code>   | Rename  |
-| <code>DROP</code>     | Delete  |
-| <code>TRUNCATE</code> | Empty   |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>RENAME</code></td>
+      <td>Rename</td>
+    </tr>
+    <tr>
+      <td><code>DROP</code></td>
+      <td>Delete</td>
+    </tr>
+    <tr>
+      <td><code>TRUNCATE</code></td>
+      <td>Empty</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>Rename</h3>
+<h3 id="rename">Rename</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    RENAME TABLE movies TO movie_table;
     </code></pre></figure>
@@ -123,7 +141,7 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    RENAME TABLE movies TO movie_table, actors TO actor_table;
     </code></pre></figure>
 
-<h3>Drop (Delete)</h3>
+<h3 id="drop-delete">Drop (Delete)</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DROP TABLE reviews;
     </code></pre></figure>
@@ -132,43 +150,59 @@
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DROP TABLE IF EXISTS reviews;
     </code></pre></figure>
-    
 
-<p>The benefit of <code>IF EXISTS</code> is that it&#39;ll result in a warning instead of an error. The rest of the code will still run after a warning but not after an error.</p>
+<p>The benefit of <code>IF EXISTS</code> is that it’ll result in a warning instead of an error. The rest of the code will still run after a warning but not after an error.</p>
 
-<h3>Empty (Truncate)</h3>
+<h3 id="empty-truncate">Empty (Truncate)</h3>
 
 <p>Truncate deletes a table and then creates a new empty table of the same name.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    TRUNCATE TABLE movie_table;
     </code></pre></figure>
 
-<p>The <code>TRUNCATE</code> keyword doesn&#39;t need to take the <code>TABLE</code> keyword after it. The following will work just fine.</p>
+<p>The <code>TRUNCATE</code> keyword doesn’t need to take the <code>TABLE</code> keyword after it. The following will work just fine.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    TRUNCATE movie_table;
     </code></pre></figure>
 
-<h2>Altering Columns</h2>
+<h2 id="altering-columns">Altering Columns</h2>
 
-<p>| Keyword  | Meaning       |
-|----------|---------------|
-| <code>ADD</code>    | Add Column    |
-| <code>CHANGE</code> | Rename Column |
-| <code>DROP</code>   | Delete Column |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ADD</code></td>
+      <td>Add Column</td>
+    </tr>
+    <tr>
+      <td><code>CHANGE</code></td>
+      <td>Rename Column</td>
+    </tr>
+    <tr>
+      <td><code>DROP</code></td>
+      <td>Delete Column</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>To make changes to a column, first you&#39;ll specify the table which contains the column with <code>ALTER TABLE table_name</code> and then you&#39;ll use the keyword <code>ADD</code>, <code>CHANGE</code>, or <code>DELETE</code> followed by column name and values.</p>
+<p>To make changes to a column, first you’ll specify the table which contains the column with <code>ALTER TABLE table_name</code> and then you’ll use the keyword <code>ADD</code>, <code>CHANGE</code>, or <code>DELETE</code> followed by column name and values.</p>
 
-<h3>Add Columns <code>ADD COLUMN</code></h3>
+<h3 id="add-columns-add-column">Add Columns <code>ADD COLUMN</code></h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE movies ADD COLUMN genre VARCHAR(100);
     </code></pre></figure>
 
-<p><code>COLUMN</code> is an optional keyword, only <code>ADD</code> will also work. Here&#39;s another example</p>
+<p><code>COLUMN</code> is an optional keyword, only <code>ADD</code> will also work. Here’s another example</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE actors ADD (pob VARCHAR(100), dob DATE);
     </code></pre></figure>
 
-<h3>Rename Columns <code>CHANGE</code></h3>
+<h3 id="rename-columns-change">Rename Columns <code>CHANGE</code></h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE table_name CHANGE column_current_name column_new_name data_type;
     </code></pre></figure>
@@ -176,23 +210,23 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE actors CHANGE pob place_of_birth VARCHAR(100);
     </code></pre></figure>
 
-<p>Unlike <code>ADD</code>, <code>CHANGE</code> can not take multiple columns. For every column name you want to change, you&#39;ll have to create a new statement.</p>
+<p>Unlike <code>ADD</code>, <code>CHANGE</code> can not take multiple columns. For every column name you want to change, you’ll have to create a new statement.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE actors CHANGE pob place_of_birth VARCHAR(100);
     ALTER TABLE actors CHANGE dob date_of_birth DATE;
     </code></pre></figure>
 
-<h3>Change Data Type</h3>
+<h3 id="change-data-type">Change Data Type</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE movies CHANGE year year_released YEAR;
     </code></pre></figure>
 
-<h3>Delete Column <code>DROP</code></h3>
+<h3 id="delete-column-drop">Delete Column <code>DROP</code></h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE actors DROP date_of_birth;
     </code></pre></figure>
 
-<h3>Determing a Column&#39;s place</h3>
+<h3 id="determing-a-columns-place">Determing a Column’s place</h3>
 
 <p>You can determine where to add a column using the keywords <code>FIRST</code> and <code>AFTER</code>.</p>
 
@@ -209,16 +243,17 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE movies ADD COLUMN id INTEGER PRIMARY KEY AUTO_INCREMENT FIRST;
     </code></pre></figure>
 
-<h2>Removing Databases</h2>
+<h2 id="removing-databases">Removing Databases</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DROP (DATABASE | SCHEMA) [IF EXISTS] db_name;
     </code></pre></figure>
 
-<p>Using <code>IF EXISTS</code> when dropping a database which doesn&#39;t exist will return in a warning instead of an error, meaning the subsequent SQL commands will still run. Using <code>IF EXISTS</code> will keep your script running and avoid errors.</p>
+<p>Using <code>IF EXISTS</code> when dropping a database which doesn’t exist will return in a warning instead of an error, meaning the subsequent SQL commands will still run. Using <code>IF EXISTS</code> will keep your script running and avoid errors.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -264,6 +299,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

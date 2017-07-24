@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="# install Bash via Homebrewbrew update &amp;&amp; brew install bash">
+  <meta name="description" content="```bash# install Bash via Homebrewbrew update &amp;&amp; brew install bash">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-upgrade-3-4-macos">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Upgrade to Bash 4 on macOS</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2017
         </time>
@@ -91,35 +92,37 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Bash-upgrade-macos.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Bash-upgrade-macos.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># install Bash via Homebrew</span>
-brew update <span class="o">&amp;&amp;</span> brew install bash
+    <pre><code class="language-bash"># install Bash via Homebrew
+brew update &amp;&amp; brew install bash
 
-<span class="c"># Add the new shell to the list of allowed (white-listed) shells</span>
-<span class="c"># sudo bash -c 'echo /usr/local/bin/bash &gt;&gt; /etc/shells'</span>
-<span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>brew --prefix<span class="k">)</span><span class="s2">/bin/bash"</span> &gt;&gt; /etc/shells
+# Add the new shell to the list of allowed (white-listed) shells
+# sudo bash -c 'echo /usr/local/bin/bash &gt;&gt; /etc/shells'
+echo "$(brew --prefix)/bin/bash" &gt;&gt; /etc/shells
 
-<span class="c"># Change to the new shell</span>
-chsh -s <span class="k">$(</span>brew --prefix<span class="k">)</span>/bin/bash 
-</code></pre></div>
+# Change to the new shell
+chsh -s $(brew --prefix)/bin/bash 
+</code></pre>
+
 <ul>
-<li><code>sudo -i</code> let&#39;s you switch to <code>root</code> user</li>
-<li><code>brew --prefix</code> gives you the location of Homebrew install directory (/usr/local by default)</li>
-<li><code>cat /etc/shells</code> gives you the list of allowed shells</li>
+  <li><code>sudo -i</code> let’s you switch to <code>root</code> user</li>
+  <li><code>brew --prefix</code> gives you the location of Homebrew install directory (/usr/local by default)</li>
+  <li><code>cat /etc/shells</code> gives you the list of allowed shells</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -165,6 +168,7 @@ chsh -s <span class="k">$(</span>brew --prefix<span class="k">)</span>/bin/bash
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="$background: #f3f3f3;$text_color: #888;$link_color: #;$primary_color: mix(#ff0000, #fefefe);$secondary_color: complement($primary_color);$highlighted_text_co...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-sass-create-a-color-palette">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Create a Color Palette in Sass</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T19:26:53+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-color-palette.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-color-palette.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>compass</li>
       
@@ -102,53 +103,69 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$background</span><span class="p">:</span> <span class="mh">#f3f3f3</span><span class="err">;</span>
-<span class="nv">$text_color</span><span class="p">:</span> <span class="mh">#888</span><span class="err">;</span>
-<span class="nv">$link_color</span><span class="p">:</span> <span class="err">#;</span>
-<span class="nv">$primary_color</span><span class="p">:</span> <span class="nf">mix</span><span class="p">(</span><span class="mh">#ff0000</span><span class="o">,</span> <span class="mh">#fefefe</span><span class="p">)</span><span class="err">;</span>
-<span class="nv">$secondary_color</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="nv">$primary_color</span><span class="p">)</span><span class="err">;</span>
-<span class="nv">$highlighted_text_color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$text_color</span><span class="o">,</span> <span class="m">30%</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
-<h3>Light and Dark shades</h3>
+    <pre><code class="language-sass">$background: #f3f3f3;
+$text_color: #888;
+$link_color: #;
+$primary_color: mix(#ff0000, #fefefe);
+$secondary_color: complement($primary_color);
+$highlighted_text_color: darken($text_color, 30%);
+</code></pre>
 
-<h4>Get a darker shade</h4>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nl">color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$text_color</span><span class="o">,</span> <span class="m">20%</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
-<p>OR </p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nl">color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#888</span><span class="o">,</span> <span class="m">20%</span><span class="p">)</span>
-</code></pre></div>
-<p>will give you a 20% darker shade of <code>$text_color</code> or <code>#888</code>. If you use a variable, it&#39;ll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.</p>
+<h3 id="light-and-dark-shades">Light and Dark shades</h3>
 
-<h4>Get a lighter shade</h4>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nl">color</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$text_color</span><span class="o">,</span> <span class="m">20%</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
+<h4 id="get-a-darker-shade">Get a darker shade</h4>
+
+<pre><code class="language-sass">color: darken($text_color, 20%);
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nl">color</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#888</span><span class="o">,</span> <span class="m">20%</span><span class="p">)</span>
-</code></pre></div>
-<h4>Save the light/dark shades as variables</h4>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$highlighted_text_color</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$text_color</span><span class="o">,</span> <span class="m">30%</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
-<h3>Complementary Colors</h3>
 
+<pre><code class="language-sass">color: darken(#888, 20%)
+</code></pre>
+<p>will give you a 20% darker shade of <code>$text_color</code> or <code>#888</code>. If you use a variable, it’ll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.</p>
+
+<h4 id="get-a-lighter-shade">Get a lighter shade</h4>
+
+<pre><code class="language-sass">color: lighten($text_color, 20%);
+</code></pre>
+
+<p>OR</p>
+
+<pre><code class="language-sass">color: lighten(#888, 20%)
+</code></pre>
+
+<h4 id="save-the-lightdark-shades-as-variables">Save the light/dark shades as variables</h4>
+
+<pre><code class="language-sass">$highlighted_text_color: darken($text_color, 30%);
+</code></pre>
+
+<h3 id="complementary-colors">Complementary Colors</h3>
 <p>complimentary colors are at the opposite ends on the color wheel.</p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$text_color</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="nv">$background_color</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
-<p><img src="http://tldrdevnotes.com/assets/complimentary-colors.jpeg" alt="complimentary colors - color wheel"></p>
 
-<h3>Desaturate a Color</h3>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$background</span><span class="p">:</span> <span class="nf">desaturate</span><span class="p">(</span><span class="mh">#187</span><span class="o">,</span> <span class="m">30%</span><span class="p">)</span>
-</code></pre></div>
-<h3>Mix colors</h3>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$primary_color</span><span class="p">:</span> <span class="nf">mix</span><span class="p">(</span><span class="mh">#ff0000</span><span class="o">,</span> <span class="mh">#fefefe</span><span class="p">)</span><span class="err">;</span>
-</code></pre></div>
+<pre><code class="language-sass">$text_color: complement($background_color);
+</code></pre>
+
+<p><img src="http://tldrdevnotes.com/assets/complimentary-colors.jpeg" alt="complimentary colors - color wheel" /></p>
+
+<h3 id="desaturate-a-color">Desaturate a Color</h3>
+
+<pre><code class="language-sass">$background: desaturate(#187, 30%)
+</code></pre>
+
+<h3 id="mix-colors">Mix colors</h3>
+
+<pre><code class="language-sass">$primary_color: mix(#ff0000, #fefefe);
+</code></pre>
+
 <p>And this is not all, there are other functions such as hue and opacity that you can also use in Sass for making you color palette.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -194,6 +211,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

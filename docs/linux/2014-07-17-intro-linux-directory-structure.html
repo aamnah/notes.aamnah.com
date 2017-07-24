@@ -14,6 +14,7 @@
   <meta name="description" content="Home ~~ represents the home directory of the user. ~ is the same as /username. All user specific files are saved here and the user has permission to write fi...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux/2014-07-17-intro-linux-directory-structure.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Linux Directory Structure</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-07-17T23:04:19+05:00" itemprop="datePublished">
           Jul 17, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-07-17-intro-linux-directory-structure.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-07-17-intro-linux-directory-structure.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>LFS</li>
       
@@ -102,40 +103,35 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Home ~</h2>
+    <h2 id="home-">Home ~</h2>
+<p><code>~</code> represents the home directory of the user. <code>~</code> is the same as <code>/username</code>. All user specific files are saved here and the user has permission to write files by default in the home folder. Files in a user’s home directory can not be listed or viewed by other users.</p>
 
-<p><code>~</code> represents the home directory of the user. <code>~</code> is the same as <code>/username</code>. All user specific files are saved here and the user has permission to write files by default in the home folder. Files in a user&#39;s home directory can not be listed or viewed by other users.</p>
-
-<h2>Root / </h2>
+<h2 id="root-">Root /</h2>
 
 <p><code>/</code> is the root directory. Do not confuse it with <code>/root</code>. While <code>/</code> represents the root directory of the system, <code>/root</code> is the home directory for the root user. Do not save files in <code>/</code>.</p>
 
-<h2>/usr</h2>
-
+<h2 id="usr">/usr</h2>
 <p><code>/usr</code> contains the user applications and all the files needed to run them like documents, images, source code and more. <code>/usr</code> is the biggest directory on the system so it is recommended to give it its own partition.</p>
 
-<h2>/etc</h2>
-
+<h2 id="etc">/etc</h2>
 <p><code>/etc</code> stores your configuration files for the linux system and other software. Most of these are text files and can be tweaked using a text editor. For example, <code>/etc/init</code> which contains your boot procedures, can be easily tweaked in a text editor.</p>
 
-<h2>/dev</h2>
+<h2 id="dev">/dev</h2>
+<p><code>/dev</code> has your device files that relate to your computer’s hardware components. For example, your keyboard and printer’s info is located in <code>/dev/input</code>.</p>
 
-<p><code>/dev</code> has your device files that relate to your computer&#39;s hardware components. For example, your keyboard and printer&#39;s info is located in <code>/dev/input</code>.</p>
-
-<h2>/mnt</h2>
-
+<h2 id="mnt">/mnt</h2>
 <p>Similar to <code>/dev</code>, <code>/mnt</code> shows you your physical storage devices like hard drives, externals, dvd roms and such.</p>
 
-<h2>/lost+found</h2>
-
-<p>contains all your restored files that would have been lost after your system crashes or something strange happens to the mounted device. Kernel panics don&#39;t mean you have to panic. Every partition has a <code>lost+found</code> directory.</p>
+<h2 id="lostfound">/lost+found</h2>
+<p>contains all your restored files that would have been lost after your system crashes or something strange happens to the mounted device. Kernel panics don’t mean you have to panic. Every partition has a <code>lost+found</code> directory.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -181,6 +177,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

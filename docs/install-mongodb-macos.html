@@ -14,6 +14,7 @@
   <meta name="description" content="tl;dr">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/install-mongodb-macos">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Install MongoDB on MacOS</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2017-03-05T00:00:00+05:00" itemprop="datePublished">
           Mar 5, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2017-03-05-install-mongodb-macos.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2017-03-05-install-mongodb-macos.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>how-to</li>
       
@@ -102,53 +103,57 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>tl;dr</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># install Homebrew if not installed already</span>
-<span class="c"># /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+    <h2 id="tldr">tl;dr</h2>
 
-<span class="c"># install</span>
+<pre><code class="language-bash"># install Homebrew if not installed already
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install
 brew install mongodb
 
-<span class="c"># add MongoDB to startup processes</span>
+# add MongoDB to startup processes
 brew services start mongodb
 
-<span class="c"># create the `/data/db` directory, where mongo data will live</span>
+# create the `/data/db` directory, where mongo data will live
 mkdir -p /data/db
 
-<span class="c"># Make sure the `/data/db` directory has the right permissions</span>
-sudo chown -R <span class="sb">`</span>id -un<span class="sb">`</span> /data/db
+# Make sure the `/data/db` directory has the right permissions
+sudo chown -R `id -un` /data/db
 
-<span class="c"># Run the mongo daemon</span>
+# Run the mongo daemon
 mongod
-<span class="c"># sudo mongod</span>
+# sudo mongod
 
-<span class="c"># `quit()` to quit, `ctrl+c` to exit</span>
-</code></pre></div>
-<h3>Using MongoDB Client CLI</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># start mongo client</span>
+# `quit()` to quit, `ctrl+c` to exit
+</code></pre>
+
+<h3 id="using-mongodb-client-cli">Using MongoDB Client CLI</h3>
+
+<pre><code class="language-bash"># start mongo client
 mongo 
 
-mongo &gt; <span class="nb">help</span> <span class="c"># see a list of commands available</span>
+mongo &gt; help # see a list of commands available
 
-mongo &gt; show dbs <span class="c"># show all databases</span>
-mongo &gt; use foo <span class="c"># use/switch to a database</span>
-mongo &gt; show collections <span class="c"># show collections (like Tables in SQL dbs) in the database</span>
-mongo &gt; db.foo.find<span class="o">()</span> <span class="c"># show data inside a collection with `.find()`</span>
-</code></pre></div>
+mongo &gt; show dbs # show all databases
+mongo &gt; use foo # use/switch to a database
+mongo &gt; show collections # show collections (like Tables in SQL dbs) in the database
+mongo &gt; db.foo.find() # show data inside a collection with `.find()`
+</code></pre>
+
 <p>Alternatively, you can use a free MongoDB management tool called <a href="https://robomongo.org/">Robomongo</a></p>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://treehouse.github.io/installation-guides/mac/mongo-mac.html">Treehouse: Installing MongoDB on a Mac</a></li>
+  <li><a href="http://treehouse.github.io/installation-guides/mac/mongo-mac.html">Treehouse: Installing MongoDB on a Mac</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -194,6 +199,7 @@ mongo &gt; db.foo.find<span class="o">()</span> <span class="c"># show data insi
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Creating Database    CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;    ">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/database-foundations">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Database Foundations</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
           Feb 20, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-database-foundations.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-database-foundations.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>basics</li>
       
@@ -106,10 +107,10 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Creating Database</h2>
+    <h2 id="creating-database">Creating Database</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
     </code></pre></figure>
@@ -124,19 +125,19 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    USE `shop`;
     </code></pre></figure>
 
-<h3>Get info about the database</h3>
+<h3 id="get-info-about-the-database">Get info about the database</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SHOW ENGINES
     </code></pre></figure>
 
 <p>The default engine is InnoDB.</p>
 
-<h2>Creating Tables</h2>
+<h2 id="creating-tables">Creating Tables</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    CREATE TABLE actors (name VARCHAR(50));
     </code></pre></figure>
 
-<p><code>CREATE</code> is the command telling the database what to do. <code>TABLE</code> is telling the database what to create. <strong>actors</strong> is the name of that table. <strong>name</strong> is the column the table will have. The type of data it&#39;ll have is <code>VARCHAR</code>. <code>(50)</code> means we can store up to 50 characters.</p>
+<p><code>CREATE</code> is the command telling the database what to do. <code>TABLE</code> is telling the database what to create. <strong>actors</strong> is the name of that table. <strong>name</strong> is the column the table will have. The type of data it’ll have is <code>VARCHAR</code>. <code>(50)</code> means we can store up to 50 characters.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    CREATE TABLE movies (title VARCHAR(200), year INTEGER);
     </code></pre></figure>
@@ -154,37 +155,56 @@
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
     </code></pre></figure>
 
-<p><code>NULL</code> and <code>NOT NULL</code> determine the default for values. By default it is NULL. But if you want to force the user to always enter a value, you can set it to <code>NOT NULL</code> so it must always be entered by the user. If you want a <strong>required</strong> field, set it&#39;s value to <strong>NOT NULL</strong> in the database.</p>
+<p><code>NULL</code> and <code>NOT NULL</code> determine the default for values. By default it is NULL. But if you want to force the user to always enter a value, you can set it to <code>NOT NULL</code> so it must always be entered by the user. If you want a <strong>required</strong> field, set it’s value to <strong>NOT NULL</strong> in the database.</p>
 
-<h3>Temporary Tables</h3>
+<h3 id="temporary-tables">Temporary Tables</h3>
 
-<p>A temporary table is visible only to the current connection, and is dropped automatically when the connection is closed. </p>
+<p>A temporary table is visible only to the current connection, and is dropped automatically when the connection is closed.</p>
 
-<h2>CRUD (Create, Read, Update, Delete)</h2>
+<h2 id="crud-create-read-update-delete">CRUD (Create, Read, Update, Delete)</h2>
 
 <p>Each of these operations has a set of keywords associated with them.</p>
 
-<p>| CRUD    |            |
-|---------|------------|
-| Create  | <code>INSERT</code>   |
-| Read    | <code>SELECT</code>   |
-| Update  | <code>UPDATE</code>   |
-| Delete  | <code>DELETE</code>   |</p>
+<table>
+  <thead>
+    <tr>
+      <th>CRUD</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create</td>
+      <td><code>INSERT</code></td>
+    </tr>
+    <tr>
+      <td>Read</td>
+      <td><code>SELECT</code></td>
+    </tr>
+    <tr>
+      <td>Update</td>
+      <td><code>UPDATE</code></td>
+    </tr>
+    <tr>
+      <td>Delete</td>
+      <td><code>DELETE</code></td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>Inserting Data</h2>
+<h2 id="inserting-data">Inserting Data</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO movies VALUES("Avatar", 2009);
     </code></pre></figure>
 
-<p><code>INSERT INTO</code> tells what table to insert into, <strong>movies</strong> is the table&#39;s name and <code>VALUES</code> tells the list of values that we want to add to the table. </p>
+<p><code>INSERT INTO</code> tells what table to insert into, <strong>movies</strong> is the table’s name and <code>VALUES</code> tells the list of values that we want to add to the table.</p>
 
-<p>Avatar has <code>&quot; &quot;</code> around it because it is a string, 2009 has no quotes because it&#39;s an integer.</p>
+<p>Avatar has <code>" "</code> around it because it is a string, 2009 has no quotes because it’s an integer.</p>
 
-<p>The order of the values is important. It should be the same order as you have defined your columns. If you don&#39;t know/remember the ordering of the columns in the table, you can specify them in the command, like so:</p>
+<p>The order of the values is important. It should be the same order as you have defined your columns. If you don’t know/remember the ordering of the columns in the table, you can specify them in the command, like so:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO movies (title, year) VALUES("Avatar", 2009);
     </code></pre></figure>
-  
 
 <p>Even in this case, the order of the columns specified should match the order of the values. If, in the command, you have mentioned the title column first, then the values should have the title value first.</p>
 
@@ -192,15 +212,13 @@
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO movies (title, year) VALUES("Avatar", 2009), ("The Godfather", NULL);
     </code></pre></figure>
-  
 
-<p>If you don&#39;t know or don&#39;t want to enter a value, use <strong>NULL</strong>.</p>
+<p>If you don’t know or don’t want to enter a value, use <strong>NULL</strong>.</p>
 
 <p>You can also insert data using the <code>SET</code> keyword</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO movies SET title="Back to the Future", year = 1985;
     </code></pre></figure>
- 
 
 <p>Here is another example:</p>
 
@@ -212,42 +230,68 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO `products` (column1, column2) VALUES(value1, value2)
     </code></pre></figure>
 
-<h2>Reading and Retrieving data</h2>
+<h2 id="reading-and-retrieving-data">Reading and Retrieving data</h2>
 
-<p><code>SELECT</code> is the keyword for reading data </p>
+<p><code>SELECT</code> is the keyword for reading data</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies;
     </code></pre></figure>
 
-<p><code>SELECT</code> is for reading data, <code>*</code> means all columns, <code>FROM</code> means from, and the table is <strong>movies</strong>. The above statement says &#39;read data from all columns in the movies table&#39;.</p>
+<p><code>SELECT</code> is for reading data, <code>*</code> means all columns, <code>FROM</code> means from, and the table is <strong>movies</strong>. The above statement says ‘read data from all columns in the movies table’.</p>
 
 <p>You can also select which columns to show like this:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT movies.title, movies.year FROM movies;
     </code></pre></figure>
 
-<p>The order of the columns will be determined by the order in your query. Meaning, you can switch columns around. </p>
+<p>The order of the columns will be determined by the order in your query. Meaning, you can switch columns around.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT movies.year, movies.title FROM movies;
     </code></pre></figure>
 
-<p>You can drop the table names from columns and it&#39;ll still work, like so:</p>
+<p>You can drop the table names from columns and it’ll still work, like so:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT title, year FROM movies;
     </code></pre></figure>
 
-<h3>Querying Tables and Getting selective results</h3>
+<h3 id="querying-tables-and-getting-selective-results">Querying Tables and Getting selective results</h3>
 
 <p><code>WHERE</code> is the clause that limits the result set because you are constraining it to rows that meet a specified criteria. Using the WHERE clause you and add text or a condition to filter the results to only bring back rows fulfilling that condition.</p>
 
-<p>| Operator | Meaning                   |
-|----------|---------------------------|
-|  <code>=</code>     | Equal                     |
-|  <code>!=</code>    | Not Equal                 |
-|  <code>&gt;</code>     | Greater Than              |
-|  <code>&gt;=</code>    | Greater Than AND Equal to |
-|  <code>&lt;</code>     | Less Than                 |
-|  <code>&lt;=</code>    | Less Than AND Equal to    |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>=</code></td>
+      <td>Equal</td>
+    </tr>
+    <tr>
+      <td><code>!=</code></td>
+      <td>Not Equal</td>
+    </tr>
+    <tr>
+      <td><code>&gt;</code></td>
+      <td>Greater Than</td>
+    </tr>
+    <tr>
+      <td><code>&gt;=</code></td>
+      <td>Greater Than AND Equal to</td>
+    </tr>
+    <tr>
+      <td><code>&lt;</code></td>
+      <td>Less Than</td>
+    </tr>
+    <tr>
+      <td><code>&lt;=</code></td>
+      <td>Less Than AND Equal to</td>
+    </tr>
+  </tbody>
+</table>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies WHERE year = 1999;
     </code></pre></figure>
@@ -259,20 +303,37 @@
 
 <p>will select all movies where the years was not equal to 1999.</p>
 
-<h3>Combining Multiple Conditions</h3>
+<h3 id="combining-multiple-conditions">Combining Multiple Conditions</h3>
 
-<p>| Keyword    | Meaning          |
-|------------|------------------|
-| <code>AND</code>      | And              |
-| <code>OR</code>       | Or               |
-| <code>BETWEEN</code>  | Between          |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AND</code></td>
+      <td>And</td>
+    </tr>
+    <tr>
+      <td><code>OR</code></td>
+      <td>Or</td>
+    </tr>
+    <tr>
+      <td><code>BETWEEN</code></td>
+      <td>Between</td>
+    </tr>
+  </tbody>
+</table>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies WHERE year &lt; 1999 AND title = "The Matrix";
     </code></pre></figure>
 
-<p><code>SELECT</code> all (<code>*</code>) rows <code>FROM</code> the <strong>movies</strong> table <code>WHERE</code> the <strong>year</strong> column value is greater than (<code>&lt;</code>) <code>1999</code> <code>AND</code> the <strong>title</strong> column value is <strong>The Matrix</strong>. Since the title data type is string, we&#39;ve wrapped what we are looking for in <code>&quot; &quot;</code>.</p>
+<p><code>SELECT</code> all (<code>*</code>) rows <code>FROM</code> the <strong>movies</strong> table <code>WHERE</code> the <strong>year</strong> column value is greater than (<code>&lt;</code>) <code>1999</code> <code>AND</code> the <strong>title</strong> column value is <strong>The Matrix</strong>. Since the title data type is string, we’ve wrapped what we are looking for in <code>" "</code>.</p>
 
-<p>In other words, select all movies released after 1999 <strong>AND</strong> with the title The Matrix. </p>
+<p>In other words, select all movies released after 1999 <strong>AND</strong> with the title The Matrix.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies WHERE year = 1998 OR year = 2000;
     </code></pre></figure>
@@ -284,13 +345,30 @@
 
 <p>Show all movies released <strong>BETWEEN</strong> 1988 and 2000.</p>
 
-<h3>Search on a string based on part of a string</h3>
+<h3 id="search-on-a-string-based-on-part-of-a-string">Search on a string based on part of a string</h3>
 
-<p>| Keyword    | Meaning          |
-|------------|------------------|
-| <code>LIKE</code>     | Contains         |
-| <code>NOT LIKE</code> | Does not contain |
-| <code>%</code>        | Wildcard         |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>LIKE</code></td>
+      <td>Contains</td>
+    </tr>
+    <tr>
+      <td><code>NOT LIKE</code></td>
+      <td>Does not contain</td>
+    </tr>
+    <tr>
+      <td><code>%</code></td>
+      <td>Wildcard</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>For example, look for all movies that have the word <em>Godfather</em> in the title.</p>
 
@@ -298,9 +376,9 @@
     SHOW * FROM movies WHERE title LIKE "godfather"
     </code></pre></figure>
 
-<p><code>LIKE</code> is <strong>case-insensitive</strong>. </p>
+<p><code>LIKE</code> is <strong>case-insensitive</strong>.</p>
 
-<p>Wildcards are used to determine if something starts, contains or ends with a particular string. If a search string doesn&#39;t yield anything, wrap the string in wildcards and try again.</p>
+<p>Wildcards are used to determine if something starts, contains or ends with a particular string. If a search string doesn’t yield anything, wrap the string in wildcards and try again.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SHOW * FROM movies WHERE title LIKE "%godfather%"
     </code></pre></figure>
@@ -310,13 +388,30 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    select * FROM runs WHERE info is null or info NOT LIKE '%wrong%';
     </code></pre></figure>
 
-<h3>Ordering results <code>ORDER BY</code></h3>
+<h3 id="ordering-results-order-by">Ordering results <code>ORDER BY</code></h3>
 
-<p>| Keyword    | Meaning                    |
-|------------|----------------------------|
-| <code>ORDER BY</code> | Order                      |
-| <code>ASC</code>      | Ascending Order            |
-| <code>DESC</code>     | Descending (reverse) Order |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ORDER BY</code></td>
+      <td>Order</td>
+    </tr>
+    <tr>
+      <td><code>ASC</code></td>
+      <td>Ascending Order</td>
+    </tr>
+    <tr>
+      <td><code>DESC</code></td>
+      <td>Descending (reverse) Order</td>
+    </tr>
+  </tbody>
+</table>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SHOW * FROM movies ORDER BY year;
     </code></pre></figure>
@@ -333,49 +428,77 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SHOW * FROM movies ORDER BY year ASC, title DESC;
     </code></pre></figure>
 
-<p>will show the movies by ascending order of the year and in every year the title would be in descending (reverse) order. </p>
+<p>will show the movies by ascending order of the year and in every year the title would be in descending (reverse) order.</p>
 
 <p>The ordering of the chain matters. Whatever you want sorted first needs to be included first.</p>
 
-<h3>Limiting the Result Set</h3>
+<h3 id="limiting-the-result-set">Limiting the Result Set</h3>
 
-<p>| Keyword    | Meaning               |
-|------------|-----------------------|
-| <code>LIMIT</code>    | No. of result rows    |
-| <code>OFFSET</code>   | Offset of result rows |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>LIMIT</code></td>
+      <td>No. of result rows</td>
+    </tr>
+    <tr>
+      <td><code>OFFSET</code></td>
+      <td>Offset of result rows</td>
+    </tr>
+  </tbody>
+</table>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies LIMIT 10 OFFSET 20;
     </code></pre></figure>
 
-<p>is the same as </p>
+<p>is the same as</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies LIMIT 20,10;
     </code></pre></figure>
 
-<p>Keep in mind that the OFFSET of the initial row is 0, not 1. </p>
+<p>Keep in mind that the OFFSET of the initial row is 0, not 1.</p>
 
-<p>There is a <strong>default LIMIT</strong> of 1000 in some software (like MySQL Bench). Be aware of it when you are working with results in excess of 1000+. If you are working with a programming language (like PHP) this default limit won&#39;t be there.</p>
+<p>There is a <strong>default LIMIT</strong> of 1000 in some software (like MySQL Bench). Be aware of it when you are working with results in excess of 1000+. If you are working with a programming language (like PHP) this default limit won’t be there.</p>
 
-<h3>Dealing with NULL</h3>
+<h3 id="dealing-with-null">Dealing with NULL</h3>
 
-<p>| Keyword       | Meaning                    |
-|---------------|----------------------------|
-| <code>IS NULL</code>     | Has no value               |
-| <code>IS NOT NULL</code> | Is not empty (Has a value) |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>IS NULL</code></td>
+      <td>Has no value</td>
+    </tr>
+    <tr>
+      <td><code>IS NOT NULL</code></td>
+      <td>Is not empty (Has a value)</td>
+    </tr>
+  </tbody>
+</table>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies WHERE year IS NULL;
     </code></pre></figure>
 
-<p>Select all movies with the &quot;year&quot; column that hasn&#39;t been populated yet. In other words, show all movies with no year given. </p>
+<p>Select all movies with the “year” column that hasn’t been populated yet. In other words, show all movies with no year given.</p>
 
-<p>Null affects your sort order as it&#39;ll always come at top.</p>
+<p>Null affects your sort order as it’ll always come at top.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM movies WHERE year IS NOT NULL ORDER BY year;
     </code></pre></figure>
 
-<p>will exclude the empty results. Select all movies that have data in the &quot;year&quot; column.</p>
+<p>will exclude the empty results. Select all movies that have data in the “year” column.</p>
 
-<h2>Updating Data</h2>
+<h2 id="updating-data">Updating Data</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE movies SET year=2015;
     </code></pre></figure>
@@ -385,19 +508,19 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE movies SET year=2015 WHERE title="Avatar 2";
     </code></pre></figure>
 
-<h3>Update existing values</h3>
+<h3 id="update-existing-values">Update existing values</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE movies SET year=2016, title="Avatar Reloaded" WHERE title="Avatar 2";
     </code></pre></figure>
 
 <p>will update the existing Avatar 2 row to Avatar Reloaded and change the year to 2016.</p>
 
-<h2>Delete Data</h2>
+<h2 id="delete-data">Delete Data</h2>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM movies;
     </code></pre></figure>
 
-<p>will delete everything in the movies table. Not a good idea to do unless that&#39;s what you really want. You can use <code>WHERE</code> to narrow down your target.</p>
+<p>will delete everything in the movies table. Not a good idea to do unless that’s what you really want. You can use <code>WHERE</code> to narrow down your target.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELTE FROM moviews WHERE title = "Avatar Reloaded";
     </code></pre></figure>
@@ -407,11 +530,11 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELTE FROM moviews WHERE title = "Avatar Reloaded" AND year=2016;
     </code></pre></figure>
 
-<hr>
+<hr />
 
-<h2>NOTES</h2>
+<h2 id="notes">NOTES</h2>
 
-<h3>Follow convention</h3>
+<h3 id="follow-convention">Follow convention</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    update movies set year=2015;
     </code></pre></figure>
@@ -423,25 +546,25 @@
 
 <p>both will get the job done.</p>
 
-<p>You don&#39;t <em>have to</em> uppercase all SQL keywords, but <em>you should</em> because it is convention to do so. Also, it make your code more readable.</p>
+<p>You don’t <em>have to</em> uppercase all SQL keywords, but <em>you should</em> because it is convention to do so. Also, it make your code more readable.</p>
 
-<h3>Turn safe updates off</h3>
+<h3 id="turn-safe-updates-off">Turn safe updates off</h3>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SET SQL_SAFE_UPDATES = 0;
     </code></pre></figure>
 
 <p>To turn them back on, change the <strong>0</strong> to <strong>1</strong>. Safe mode lets you UPDATE and DELETE a little more safely.</p>
 
-<h2>Resources</h2>
-
+<h2 id="resources">Resources</h2>
 <ul>
-<li><a href="https://teamtreehouse.com/library/database-foundations">Treehouse - Database Foundations</a></li>
-<li><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html">MySQL Docs: SELECT Syntax</a></li>
+  <li><a href="https://teamtreehouse.com/library/database-foundations">Treehouse - Database Foundations</a></li>
+  <li><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html">MySQL Docs: SELECT Syntax</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -487,6 +610,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

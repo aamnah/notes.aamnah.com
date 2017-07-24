@@ -14,6 +14,7 @@
   <meta name="description" content="Transaction Check Error:  file /etc/pki/tls/certs/ca-bundle.crt from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9....">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/yum-transaction-check-error-package-conflict">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Yum Transaction Check Errors &amp; Dependencies/Package Conflicts</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-19T00:00:00+05:00" itemprop="datePublished">
           Jan 19, 2015
         </time>
@@ -91,40 +92,40 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-yum-transaction-check-error-package-conflict.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-yum-transaction-check-error-package-conflict.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-" data-lang="">Transaction Check Error:
+    <pre><code>Transaction Check Error:
   file /etc/pki/tls/certs/ca-bundle.crt from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686
   file /usr/share/man/man1/ca.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686
   file /usr/share/man/man1/req.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686
   file /usr/share/man/man1/x509.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686
-</code></pre></div>
+</code></pre>
+
 <p>This can happen if:</p>
 
 <ul>
-<li>package architecture is different (32-bit vs 64-bit)</li>
-<li>package source/repo is different</li>
-<li>you have a newer package installed while the repo you are trying to &#39;update&#39; from has an older version</li>
-<li>package already installed is 32-bit but 32-bit packages are excluded in /etc/yum.conf so it won&#39;t update</li>
+  <li>package architecture is different (32-bit vs 64-bit)</li>
+  <li>package source/repo is different</li>
+  <li>you have a newer package installed while the repo you are trying to ‘update’ from has an older version</li>
+  <li>package already installed is 32-bit but 32-bit packages are excluded in /etc/yum.conf so it won’t update</li>
 </ul>
 
 <p>This issue was resolved by adding <code>multilib_policy=best</code> to <code>/etc/yum.conf</code>.</p>
 
-<h2>Troubleshooting</h2>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
-<h3>1. Check if it&#39;s a conflict btween 32bit and 64bit architecture</h3>
-
+<h3 id="check-if-its-a-conflict-btween-32bit-and-64bit-architecture">1. Check if it’s a conflict btween 32bit and 64bit architecture</h3>
 <p>Packages ending in <strong>.i686</strong> are 32-bit and packages ending in <strong>.x86_64</strong> are 64-bit.</p>
 
-<p>You can configure the yum client to update only a package of the exact architecture installed on the system. </p>
+<p>You can configure the yum client to update only a package of the exact architecture installed on the system.</p>
 
 <p>(<strong>Tip</strong>: If you are unsure of what system architecture your server has, run: <code>uname -m</code>. If it shows i?86, you have a 32-bit system. i386/i486/i586/i686 are all 32-bit. If it shows x86_64, you have a 64-bit system).</p>
 
@@ -132,45 +133,44 @@
 
 <p>Install the <code>yum-utils</code> package:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum install yum-utils
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	yum install yum-utils
     </code></pre></figure>
 
 <p>The <code>package-cleanup --dupes</code> lists all duplicate packages:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    package-cleanup --dupes
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	package-cleanup --dupes
     </code></pre></figure>
 
 <p>The <code>package-cleanup --cleandupes</code> removes the duplicates (it asks for a confirmation to remove all duplicates unless the -y switch is given):</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    package-cleanup --cleandupes
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	package-cleanup --cleandupes
     </code></pre></figure>
 
 <p>Edit <code>/etc/yum.conf</code>, set the following line:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">exactarch</span><span class="o">=</span>1
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="nv">exactarch</span><span class="o">=</span>1
     </code></pre></figure>
 
 <p>Run <code>yum</code> command:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum clean all
-    yum update
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	yum clean all
+	yum update
     </code></pre></figure>
 
-<p>If the conflict is only due to the fact that yum isn&#39;t trying to update the 32 bit packages along with the 64 bit ones, this will solve the conflict.</p>
+<p>If the conflict is only due to the fact that yum isn’t trying to update the 32 bit packages along with the 64 bit ones, this will solve the conflict.</p>
 
 <p><strong>Note</strong>: If all above procedure fail, you can also check your <em>exclude</em> content in <code>/etc/yum.conf</code> file. Sometimes 32Bits Packages are in the yum blacklist and system will prevent it to install and you will see the Transaction Check Error.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># grep -i exclude /etc/yum.conf</span>
-    <span class="nv">exclude</span><span class="o">=</span>kernel<span class="k">*</span>,<span class="k">*</span>.i?86
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="c"># grep -i exclude /etc/yum.conf</span>
+	<span class="nv">exclude</span><span class="o">=</span>kernel<span class="k">*</span>,<span class="k">*</span>.i?86
     </code></pre></figure>
 
 <p><strong>Note 2</strong>: In case the systems cannot be connected to the internet for security reasons, one could replace the files with the <strong>rpm</strong> command as follow:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    rpm -Uvh --replacefiles openssl-<span class="k">*</span>.rpm
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	rpm -Uvh --replacefiles openssl-<span class="k">*</span>.rpm
     </code></pre></figure>
 
-<hr>
-
+<hr />
 <p>On CentOS 5 yum defaults to</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">multilib_policy</span><span class="o">=</span>all
@@ -178,85 +178,79 @@
 
 <p>which means ‘install all available architectures of packages’. This was changed in CentOS 6 to default to</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nv">multilib_policy</span><span class="o">=</span>best
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="nv">multilib_policy</span><span class="o">=</span>best
     </code></pre></figure>
 
-<p>which means ‘install the best packages for my architecture’ which on x86<em>64 means it will install x86</em>64 packages unless the packages is only available in a 32 bit format.</p>
+<p>which means ‘install the best packages for my architecture’ which on x86_64 means it will install x86_64 packages unless the packages is only available in a 32 bit format.</p>
 
-<p>To fix this problem on CentOS 5, you need to add <code>multilib_policy=best</code> to your <code>/etc/yum.conf</code>. </p>
+<p>To fix this problem on CentOS 5, you need to add <code>multilib_policy=best</code> to your <code>/etc/yum.conf</code>.</p>
 
 <p>You can optionally remove all the i386, i686, and other 32 bit friends with</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum remove <span class="k">*</span>.i386 <span class="k">*</span>.i486 <span class="k">*</span>.i586 <span class="k">*</span>.i686
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	yum remove <span class="k">*</span>.i386 <span class="k">*</span>.i486 <span class="k">*</span>.i586 <span class="k">*</span>.i686
     </code></pre></figure>
 
 <p>but be careful since you might actually need one of those 32 bit pacakges.</p>
 
 <p>CentOS has an entry in <a href="http://wiki.centos.org/FAQ/General#head-357346ff0bf7c14b0849c3bcce39677aaca528e9">their FAQ</a> about how to deal with this although I don’t like their solution since it will exclude all 32 bit RPMs, including ones that you might end up needing some day. It will also cause problems with your updates if you add it on a server that already has a bunch of 32 bit RPMs installed since yum will no longer be able to update them.</p>
 
-<h3>2. Sync/Update Repo Lists</h3>
+<h3 id="syncupdate-repo-lists">2. Sync/Update Repo Lists</h3>
 
-<p>The issue can happen if you have a newer package installed than the one you are trying to install from the repo. <a href="http://unix.stackexchange.com/questions/113442/centos-yum-errors-dependencies-conflict"><i class="fa fa-link"></i></a> </p>
+<p>The issue can happen if you have a newer package installed than the one you are trying to install from the repo. <a href="http://unix.stackexchange.com/questions/113442/centos-yum-errors-dependencies-conflict"><i class="fa fa-link"></i></a></p>
 
-<p>In this case <strong>openssl-0.9.8e-32.el5<em>11.x86</em>64</strong> is the newer version, released seven days ago, that you have already installed. The repo you are using to update has the older version <strong>openssl-0.9.8e-26.el5_9.1.i686</strong>, and so it creates a conflict.</p>
+<p>In this case <strong>openssl-0.9.8e-32.el5_11.x86_64</strong> is the newer version, released seven days ago, that you have already installed. The repo you are using to update has the older version <strong>openssl-0.9.8e-26.el5_9.1.i686</strong>, and so it creates a conflict.</p>
 
 <p>To fix this in future, make sure not to install packages from other repositories (or outside of YUM) that replace other core OS packages with their own versions (if that is what actually happened).</p>
 
-<p>This could happen because of a repo sync issue. Should just be a matter of waiting for the mirrors to get in sync; however, don&#39;t forget to try <code>yum clean all</code>, or at least <code>yum clean metadata</code>  if bandwidth limited and you want to avoid cleaning the package cache, and then <code>yum update</code>.</p>
+<p>This could happen because of a repo sync issue. Should just be a matter of waiting for the mirrors to get in sync; however, don’t forget to try <code>yum clean all</code>, or at least <code>yum clean metadata</code>  if bandwidth limited and you want to avoid cleaning the package cache, and then <code>yum update</code>.</p>
 
-<h3>3. Resolve Package Conflicts</h3>
+<h3 id="resolve-package-conflicts">3. Resolve Package Conflicts</h3>
 
-<h4>Figure out where the package came from</h4>
+<h4 id="figure-out-where-the-package-came-from">Figure out where the package came from</h4>
+<p>To fix this, first figure out where your package came from. Do an <code>rpm -qi package-name</code> to get some more information on its source.</p>
 
-<p>To fix this, first figure out where your package came from. Do an <code>rpm -qi package-name</code> to get some more information on its source. </p>
-
-<h4>If no dependencies, delete and re-install</h4>
-
-<p>What I would to, assuming you <strong>don&#39;t have another package that depends on that specific version</strong>, is to temporary delete it: <code>rpm -e package-name</code>, then re-install it with yum. </p>
+<h4 id="if-no-dependencies-delete-and-re-install">If no dependencies, delete and re-install</h4>
+<p>What I would to, assuming you <strong>don’t have another package that depends on that specific version</strong>, is to temporary delete it: <code>rpm -e package-name</code>, then re-install it with yum.</p>
 
 <p>You can try this <code>yum list | grep package-name</code>. It will list package-name in different packages, then you can make a decision to remove one of them and install package again.</p>
 
 <p>(Tip: Do <code>rpm -q --whatrequires openssl</code> to see the packages that use openssl).</p>
 
-<h4>Force downgrade</h4>
-
+<h4 id="force-downgrade">Force downgrade</h4>
 <p>Or, grab the version of <em>package-name</em> from your YUM repo that matches the package you are trying to install, and use <code>rpm --force</code> to force a downgrade of it.</p>
 
-<h4>Replace Files</h4>
-
-<p>Replacing files from another RPM package is bad idea in most cases and I strongly advice against what you&#39;re trying to do. That said, apply following at your own risk.</p>
+<h4 id="replace-files">Replace Files</h4>
+<p>Replacing files from another RPM package is bad idea in most cases and I strongly advice against what you’re trying to do. That said, apply following at your own risk.</p>
 
 <p>Yum does not provide an option to install conflicting files, I think. However, that does not prevent you from installing a RPM package with rpm(1) which does provide an option to override existing files from another package, namely <code>--replacefiles</code>.</p>
 
 <p>So, first get the RPM of the package you want to install on a local filesystem (<code>/usr/local/xenco...</code> makes me suspect that is the case already). Next install the RPM with <code>rpm -i --replacefiles &lt;your_rpm_file&gt;</code>.</p>
 
-<h3>4. Misc. Fixes</h3>
+<h3 id="misc-fixes">4. Misc. Fixes</h3>
 
-<h4>Enable Repos</h4>
-
+<h4 id="enable-repos">Enable Repos</h4>
 <p>If getting <strong>No package <em>package-name</em> available.</strong>, Check repo lists by running <code>yum repolist all</code>.</p>
 
 <p>To enable a repo, edit the file <strong>/etc/yum.repos.d/CentOS-Base.repo</strong> and change <code>enabled=0</code> to <strong>1</strong> and try again.</p>
 
-<h4>--skip-broken</h4>
-
+<h4 id="skip-broken">–skip-broken</h4>
 <p>If you are desperate, skip broken packages/updates by running yum update with <code>--skip-broken</code>.</p>
 
-<h2>Sources</h2>
-
+<h2 id="sources">Sources</h2>
 <ul>
-<li><a href="https://access.redhat.com/solutions/158883">yum update or yum install fails with package conflict between 64 bit and 32 bit package architectures ?</a></li>
-<li><a href="http://stackoverflow.com/questions/16243209/what-is-a-yum-package-conflict">What is a yum package conflict?</a></li>
-<li><a href="http://unix.stackexchange.com/questions/113442/centos-yum-errors-dependencies-conflict">Centos : yum errors : dependencies conflict</a></li>
-<li><a href="http://stackoverflow.com/questions/21246680/disable-yum-transaction-check-for-file-conflict">Disable yum transaction check for file conflict</a></li>
-<li><a href="http://www.linuxquestions.org/questions/fedora-35/yum-package-conflicts-548028/">yum - package conflicts</a></li>
-<li><a href="https://www.centos.org/forums/viewtopic.php?t=18032">Repo sync issues</a></li>
-<li><a href="http://blog.nexcess.net/2012/07/19/64-bit-centos-installing-32-bit-packages/">64 Bit CentOS Installing 32 Bit Packages</a></li>
+  <li><a href="https://access.redhat.com/solutions/158883">yum update or yum install fails with package conflict between 64 bit and 32 bit package architectures ?</a></li>
+  <li><a href="http://stackoverflow.com/questions/16243209/what-is-a-yum-package-conflict">What is a yum package conflict?</a></li>
+  <li><a href="http://unix.stackexchange.com/questions/113442/centos-yum-errors-dependencies-conflict">Centos : yum errors : dependencies conflict</a></li>
+  <li><a href="http://stackoverflow.com/questions/21246680/disable-yum-transaction-check-for-file-conflict">Disable yum transaction check for file conflict</a></li>
+  <li><a href="http://www.linuxquestions.org/questions/fedora-35/yum-package-conflicts-548028/">yum - package conflicts</a></li>
+  <li><a href="https://www.centos.org/forums/viewtopic.php?t=18032">Repo sync issues</a></li>
+  <li><a href="http://blog.nexcess.net/2012/07/19/64-bit-centos-installing-32-bit-packages/">64 Bit CentOS Installing 32 Bit Packages</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -302,6 +296,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

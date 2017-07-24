@@ -14,6 +14,7 @@
   <meta name="description" content="Querying is fancy word for searching/locating DOM elements using API methods, like getElementById() for example. The DOM (Document Object Model) represents a...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/querying-the-dom">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Querying the DOM</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-21T00:00:00+05:00" itemprop="datePublished">
           Mar 21, 2017
         </time>
@@ -91,82 +92,84 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Querying-the-DOM.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Querying-the-DOM.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><em>Querying</em> is fancy word for searching/locating DOM elements using API methods, like <code>getElementById()</code> for example. The DOM (Document Object Model) represents a document as a tree. The tree is made up of parent-child relationships, a parent can have one or many children nodes.</p>
 
-<p>Note that generally a DOM is a model for a structured document, it <q cite='http://stackoverflow.com/questions/4976344/what-is-dom-summary-and-importance'>is not restricted to or even invented for HTML or XML. A DOM is a general concept applicable to any document, especially those (the vast majority of them do) showing a hierarchical structure in which you need to navigate. You can speak about the DOM of a MS-Word document and there are APIs to navigate these as well</q>.</p>
+<p>Note that generally a DOM is a model for a structured document, it <q cite="http://stackoverflow.com/questions/4976344/what-is-dom-summary-and-importance">is not restricted to or even invented for HTML or XML. A DOM is a general concept applicable to any document, especially those (the vast majority of them do) showing a hierarchical structure in which you need to navigate. You can speak about the DOM of a MS-Word document and there are APIs to navigate these as well</q>.</p>
 
 <p>There are a few different ways in which you can get HTML elements in JavaScript</p>
 
 <ul>
-<li><code>getElementById()</code> returns an element by it&#39;s ID</li>
-<li><code>getElementsByClassName()</code> returns a live HTMLCollection (array-like object)</li>
-<li><code>getElementsByTagName()</code> returns a live HTMLCollection</li>
-<li><code>getElementsByTagNameNS()</code> returns a live NodeList</li>
-<li><code>querySelector()</code> returns the <strong>first</strong> element, takes a CSS selector (<code>.class</code>, <code>#id</code>, <code>input[type=&quot;text&quot;]</code>) as argument</li>
-<li><code>querySelectorAll()</code> returns a non-live NodeList of all elements</li>
-<li><code>getElementsByName()</code> returns a live NodeList</li>
+  <li><code>getElementById()</code> returns an element by it’s ID</li>
+  <li><code>getElementsByClassName()</code> returns a live HTMLCollection (array-like object)</li>
+  <li><code>getElementsByTagName()</code> returns a live HTMLCollection</li>
+  <li><code>getElementsByTagNameNS()</code> returns a live NodeList</li>
+  <li><code>querySelector()</code> returns the <strong>first</strong> element, takes a CSS selector (<code>.class</code>, <code>#id</code>, <code>input[type="text"]</code>) as argument</li>
+  <li><code>querySelectorAll()</code> returns a non-live NodeList of all elements</li>
+  <li><code>getElementsByName()</code> returns a live NodeList</li>
 </ul>
 
-<h3>Examples</h3>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// getElementByID()</span>
-<span class="c1">// gets an HTML element by providing it's ID attribute in HTML</span>
-<span class="c1">// Return an Element</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'modal'</span><span class="p">)</span>
+<h3 id="examples">Examples</h3>
 
-<span class="c1">// getElementsByClassName()</span>
-<span class="c1">// </span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">()</span> <span class="c1">// notice the S in ElementS? Return an array (HTMLCollection) of elements</span>
-</code></pre></div>
-<h2>Notes</h2>
+<pre><code class="language-javascript">// getElementByID()
+// gets an HTML element by providing it's ID attribute in HTML
+// Return an Element
+document.getElementById('modal')
 
-<h4>DOM, Element, Node</h4>
+// getElementsByClassName()
+// 
+document.getElementsByClassName() // notice the S in ElementS? Return an array (HTMLCollection) of elements
+</code></pre>
 
+<h2 id="notes">Notes</h2>
+
+<h4 id="dom-element-node">DOM, Element, Node</h4>
 <ul>
-<li>The <strong>DOM</strong> is a tree structure that represents the HTML of the website. It&#39;s the model of your HTML page that the browser cerates</li>
-<li>A <strong>Node</strong> is simply an HTML element. Specifically, <code>Node</code> is an interface object that is implemented by multiple other objects, including <code>Document</code> and <code>Element</code>. A parent node can have many children-nodes</li>
-<li>An <strong>Element</strong> is an object of a <code>Document</code></li>
+  <li>The <strong>DOM</strong> is a tree structure that represents the HTML of the website. It’s the model of your HTML page that the browser cerates</li>
+  <li>A <strong>Node</strong> is simply an HTML element. Specifically, <code>Node</code> is an interface object that is implemented by multiple other objects, including <code>Document</code> and <code>Element</code>. A parent node can have many children-nodes</li>
+  <li>An <strong>Element</strong> is an object of a <code>Document</code></li>
 </ul>
 
-<h4>HTMLCollection and NodeList</h4>
-
+<h4 id="htmlcollection-and-nodelist">HTMLCollection and NodeList</h4>
 <ul>
-<li>An <strong>HTMLCollection</strong> is a generic collection (an array-like object similar to arguments) of elements (in document order) and offers methods and properties for selecting from the list</li>
-<li><strong>NodeList</strong> objects are collections of nodes such as those returned by properties such as <code>Node.childNodes</code> and the <code>document.querySelectorAll()</code> method. Although it&#39;s not an array, it is still possible to run <code>forEach()</code> on it</li>
+  <li>An <strong>HTMLCollection</strong> is a generic collection (an array-like object similar to arguments) of elements (in document order) and offers methods and properties for selecting from the list</li>
+  <li><strong>NodeList</strong> objects are collections of nodes such as those returned by properties such as <code>Node.childNodes</code> and the <code>document.querySelectorAll()</code> method. Although it’s not an array, it is still possible to run <code>forEach()</code> on it</li>
 </ul>
 
-<h4>Live vs. Non-live</h4>
-
+<h4 id="live-vs-non-live">Live vs. Non-live</h4>
 <p>Live means an HTMLCollection or NodeList is automatically updated when the underlying document is changed (i.e. you make a change to the DOM). An HTMLCollection is pretty much always live, the changes in the DOM are reflected in the collection. A NodeList may or may not be live depending on the method used to get it.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">()</span> <span class="c1">// HTMLCollection, live</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">()</span> <span class="c1">// HTMLCollection, live</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByName</span><span class="p">()</span> <span class="c1">// NodeList, live</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">()</span> <span class="c1">// NodeList, non-live</span>
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-javascript">document.getElementsByClassName() // HTMLCollection, live
+document.getElementsByTagName() // HTMLCollection, live
+document.getElementsByName() // NodeList, live
+document.querySelectorAll() // NodeList, non-live
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="/javascript-web-api-interfaces">TLDR: (JavaScript) Web APIs and their Interfaces</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors">MDN: Locating DOM elements using selectors</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">MDN: Element</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection">MDN: HTMLCollection</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a></li>
-<li><a href="http://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static">StackOverflow: When is NodeList live and when is it static?</a></li>
-<li><a href="http://stackoverflow.com/questions/4976344/what-is-dom-summary-and-importance">StackOverflow: What is DOM? (summary and importance)</a></li>
+  <li><a href="/javascript-web-api-interfaces">TLDR: (JavaScript) Web APIs and their Interfaces</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors">MDN: Locating DOM elements using selectors</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">MDN: Element</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection">MDN: HTMLCollection</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: NodeList</a></li>
+  <li><a href="http://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static">StackOverflow: When is NodeList live and when is it static?</a></li>
+  <li><a href="http://stackoverflow.com/questions/4976344/what-is-dom-summary-and-importance">StackOverflow: What is DOM? (summary and importance)</a></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -212,6 +215,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

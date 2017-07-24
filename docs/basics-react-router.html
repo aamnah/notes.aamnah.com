@@ -1,56 +1,62 @@
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">((</span>
-  <span class="o">&lt;</span><span class="nx">Router</span> <span class="nx">history</span><span class="o">=</span><span class="p">{</span><span class="nx">browserHistory</span><span class="p">}</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Users</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/other'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Other</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/Router</span><span class="err">&gt;
-</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">))</span>
-</code></pre></div>
+<pre><code class="language-javascript">ReactDOM.render((
+  &lt;Router history={browserHistory}&gt;
+    &lt;Route path='/' component={Users} /&gt;
+    &lt;Route path='/other' component={Other} /&gt;
+  &lt;/Router&gt;
+), document.getElementById('root'))
+</code></pre>
+
 <p><code>history</code> is required.</p>
 
 <p>What we did above is we mounted a Router to the DOM, it is now going to take Routes. A route takes a path (URL) and shows a component on that path.</p>
 
-<h3>Link</h3>
+<h3 id="link">Link</h3>
 
-<p>If you want to navigate anywhere <em>within</em> the site, you use <code>Link</code>. You&#39;ll only use actual <code>href</code> when you want to move away from the site. A link looks like this:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s1">'/other'</span><span class="o">&gt;</span><span class="nx">Other</span><span class="o">&lt;</span><span class="sr">/Link</span><span class="err">&gt;
-</span></code></pre></div>
+<p>If you want to navigate anywhere <em>within</em> the site, you use <code>Link</code>. You’ll only use actual <code>href</code> when you want to move away from the site. A link looks like this:</p>
+
+<pre><code class="language-javascript">&lt;Link to='/other'&gt;Other&lt;/Link&gt;
+</code></pre>
+
 <p>You will not be making any server requests to go to any of these different links/pages.</p>
 
-<h3>Nested Routes</h3>
+<h3 id="nested-routes">Nested Routes</h3>
 
 <p>You can have nested routes just like you can have nested components</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">((</span>
-  <span class="o">&lt;</span><span class="nx">Router</span> <span class="nx">history</span><span class="o">=</span><span class="p">{</span><span class="nx">browserHistory</span><span class="p">}</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Main</span><span class="p">}</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/users'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Users</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>        <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/other'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Other</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="sr">/Route</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/Router</span><span class="err">&gt;
-</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">))</span>
-</code></pre></div>
-<p>What the could above will do is that it&#39;ll load the Users route/component <em>inside</em> the Main route/component.</p>
 
-<h3>IndexRoute</h3>
+<pre><code class="language-javascript">ReactDOM.render((
+  &lt;Router history={browserHistory}&gt;
+      &lt;Route path='/' component={Main}&gt;
+        &lt;Route path='/users' component={Users} /&gt;
+        &lt;Route path='/other' component={Other} /&gt;
+      &lt;/Route&gt;
+  &lt;/Router&gt;
+), document.getElementById('root'))
+</code></pre>
 
-<p><code>IndexRoute</code> let&#39;s you render props.children. It&#39;s aimed at setting a default UI that opens when you are at the route.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">((</span>
-  <span class="o">&lt;</span><span class="nx">Router</span> <span class="nx">history</span><span class="o">=</span><span class="p">{</span><span class="nx">browserHistory</span><span class="p">}</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">AppLayout</span><span class="p">}</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">IndexRoute</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Users</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/other'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Other</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/Route</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/Router</span><span class="err">&gt;
-</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">))</span>
-</code></pre></div>
-<h3>Props</h3>
+<p>What the could above will do is that it’ll load the Users route/component <em>inside</em> the Main route/component.</p>
 
+<h3 id="indexroute">IndexRoute</h3>
+<p><code>IndexRoute</code> let’s you render props.children. It’s aimed at setting a default UI that opens when you are at the route.</p>
+
+<pre><code class="language-javascript">ReactDOM.render((
+  &lt;Router history={browserHistory}&gt;
+    &lt;Route path='/' component={AppLayout}&gt;
+      &lt;IndexRoute component={Users} /&gt;
+      &lt;Route path='/other' component={Other} /&gt;
+    &lt;/Route&gt;
+  &lt;/Router&gt;
+), document.getElementById('root'))
+</code></pre>
+
+<h3 id="props">Props</h3>
 <p>You can also pass props, like so:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">((</span>
-  <span class="o">&lt;</span><span class="nx">Router</span> <span class="nx">history</span><span class="o">=</span><span class="p">{</span><span class="nx">browserHistory</span><span class="p">}</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">AppLayout</span><span class="p">}</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">IndexRoute</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Users</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s1">'/profile/:id'</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">UserProfile</span><span class="p">}}</span> <span class="sr">/</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/Route</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="sr">/Router</span><span class="err">&gt;
-</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">))</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">ReactDOM.render((
+  &lt;Router history={browserHistory}&gt;
+    &lt;Route path='/' component={AppLayout}&gt;
+      &lt;IndexRoute component={Users} /&gt;
+      &lt;Route path='/profile/:id' component={UserProfile}} /&gt;
+    &lt;/Route&gt;
+  &lt;/Router&gt;
+), document.getElementById('root'))
+</code></pre>

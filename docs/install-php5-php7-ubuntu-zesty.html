@@ -14,6 +14,7 @@
   <meta name="description" content="(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/install-php5-php7-ubuntu-zesty">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Install PHP5 on Ubuntu 17.04 Zesty Zapus</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-07-06T00:00:00+05:00" itemprop="datePublished">
           Jul 6, 2017
         </time>
@@ -91,14 +92,14 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/php5-ubuntu-zesty-1704.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/php5-ubuntu-zesty-1704.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.</p>
@@ -109,55 +110,74 @@
   <li>This leads to PhpMyAdmin not working if you install it afterwards.. 
   <li>Both versions working has not been tested in production.
   <li>If you check PHP version on system, <code>php --version</code>, it still shows <samp>PHP 7.0</samp>
-</ul>
-</div>
+&lt;/ul&gt;
+&lt;/div&gt;
 
-<h4>add repo</h4>
+#### add repo
 
-<p>There are no PHP 5.x packages in Zesty repositories. Only in the PPA, so you need to add the repo</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:ondrej/php
+There are no PHP 5.x packages in Zesty repositories. Only in the PPA, so you need to add the repo
+
+```bash
+sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-</code></pre></div>
-<hr>
+```
 
-<p>note: if you get </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo: add-apt-repository: command not found
-</code></pre></div>
-<p>then install the <code>software-properties-common</code> package. For my Ubuntu version (precise), I also had to install the python-software-properties package:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"> sudo apt-get install software-properties-common -y
-</code></pre></div>
-<hr>
+---
+note: if you get 
 
-<h4>install packages</h4>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># PHP 5.6</span>
+```
+sudo: add-apt-repository: command not found
+```
+then install the `software-properties-common` package. For my Ubuntu version (precise), I also had to install the python-software-properties package:
+
+```bash
+ sudo apt-get install software-properties-common -y
+```
+---
+
+#### install packages
+
+```bash
+# PHP 5.6
 apt-get install php5.6 libapache2-mod-php5.6 php5.6-cli php5.6-common php5.6-curl php5.6-dev php5.6-gd php5.6-intl php5.6-mcrypt php5.6-mysql  php5.6-recode php5.6-xsl php5.6-pspell php5.6-ps php5.6-imagick php-pear -y
 
-<span class="c"># PHP 7</span>
+# PHP 7
 apt-get install php7.0 libapache2-mod-php7.0 php7.0-cli php7.0-common php7.0-curl php7.0-dev php7.0-gd php7.0-intl php7.0-mcrypt php7.0-mysql php7.0-pspell php7.0-recode php7.0-xsl php-imagick php-pear -y
-</code></pre></div>
-<h4>Switch PHP version ( Apache ):</h4>
+```
 
-<p>from php5.6 to php7.0:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo a2dismod php5.6 ; sudo a2enmod php7.0 ; sudo service apache2 restart
-</code></pre></div>
-<p>from php7.0 to php5.6:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart
-</code></pre></div>
-<p>enable modules</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">a2enmod rewrite
-<span class="c"># phpenmod -v 5.6 mcrypt # PHP5</span>
-phpenmod -v 7.0 mcrypt <span class="c"># PHP7</span>
-</code></pre></div>
-<h2>Links</h2>
+#### Switch PHP version ( Apache ):
 
-<ul>
-<li>https://askubuntu.com/questions/756879/cant-install-php5-on-ubuntu-16-04</li>
-<li><a href="http://lifeonubuntu.com/ubuntu-missing-add-apt-repository-command/">Ubuntu Missing add-apt-repository command</a></li>
-</ul>
+from php5.6 to php7.0:
+
+```bash
+sudo a2dismod php5.6 ; sudo a2enmod php7.0 ; sudo service apache2 restart
+```
+from php7.0 to php5.6:
+
+```bash
+sudo a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart
+```
+
+enable modules
+
+```bash
+a2enmod rewrite
+# phpenmod -v 5.6 mcrypt # PHP5
+phpenmod -v 7.0 mcrypt # PHP7
+```
+
+
+Links
+---
+
+- https://askubuntu.com/questions/756879/cant-install-php5-on-ubuntu-16-04
+- [Ubuntu Missing add-apt-repository command](http://lifeonubuntu.com/ubuntu-missing-add-apt-repository-command/)
+</li></li></li></ul></div>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -203,6 +223,7 @@ phpenmod -v 7.0 mcrypt <span class="c"># PHP7</span>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="/* **********************************************     Begin prism-core.js********************************************** */">
+  <meta name="description" content="```javascript/* ****************     Begin prism-core.js**************** */">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/jekyll/2017-02-25-test-syntax-highlighting-theme.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">syntax highlighting colors</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2017-02-25T00:00:00+05:00" itemprop="datePublished">
           Feb 25, 2017
         </time>
@@ -91,578 +92,578 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_jekyll/2017-02-25-test-syntax-highlighting-theme.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_jekyll/2017-02-25-test-syntax-highlighting-theme.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* **********************************************
+    <pre><code class="language-javascript">/* **********************************************
      Begin prism-core.js
-********************************************** */</span>
+********************************************** */
 
-<span class="kd">var</span> <span class="nx">_self</span> <span class="o">=</span> <span class="p">(</span><span class="k">typeof</span> <span class="nb">window</span> <span class="o">!==</span> <span class="s1">'undefined'</span><span class="p">)</span>
-    <span class="p">?</span> <span class="nb">window</span>   <span class="c1">// if in browser</span>
-    <span class="p">:</span> <span class="p">(</span>
-        <span class="p">(</span><span class="k">typeof</span> <span class="nx">WorkerGlobalScope</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="o">&amp;&amp;</span> <span class="nx">self</span> <span class="k">instanceof</span> <span class="nx">WorkerGlobalScope</span><span class="p">)</span>
-        <span class="p">?</span> <span class="nx">self</span> <span class="c1">// if in worker</span>
-        <span class="p">:</span> <span class="p">{}</span>   <span class="c1">// if in node js</span>
-    <span class="p">);</span>
+var _self = (typeof window !== 'undefined')
+	? window   // if in browser
+	: (
+		(typeof WorkerGlobalScope !== 'undefined' &amp;&amp; self instanceof WorkerGlobalScope)
+		? self // if in worker
+		: {}   // if in node js
+	);
 
-<span class="cm">/**
+/**
  * Prism: Lightweight, robust, elegant syntax highlighting
  * MIT license http://www.opensource.org/licenses/mit-license.php/
  * @author Lea Verou http://lea.verou.me
- */</span>
-
-<span class="kd">var</span> <span class="nx">Prism</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-<span class="c1">// Private helper vars</span>
-<span class="kd">var</span> <span class="nx">lang</span> <span class="o">=</span> <span class="sr">/</span><span class="se">\b</span><span class="sr">lang</span><span class="se">(?:</span><span class="sr">uage</span><span class="se">)?</span><span class="sr">-</span><span class="se">(\w</span><span class="sr">+</span><span class="se">)\b</span><span class="sr">/i</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">uniqueId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">manual</span><span class="p">:</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span> <span class="o">&amp;&amp;</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span><span class="p">.</span><span class="nx">manual</span><span class="p">,</span>
-    <span class="na">util</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">encode</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">tokens</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">tokens</span> <span class="k">instanceof</span> <span class="nx">Token</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="nx">Token</span><span class="p">(</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">content</span><span class="p">),</span> <span class="nx">tokens</span><span class="p">.</span><span class="nx">alias</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">tokens</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'Array'</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">tokens</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">encode</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">tokens</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span> <span class="s1">'&amp;amp;'</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span> <span class="s1">'&amp;lt;'</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\u</span><span class="sr">00a0/g</span><span class="p">,</span> <span class="s1">' '</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-
-        <span class="na">type</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">).</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\[</span><span class="sr">object </span><span class="se">(\w</span><span class="sr">+</span><span class="se">)\]</span><span class="sr">/</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="p">},</span>
-
-        <span class="na">objId</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">obj</span><span class="p">[</span><span class="s1">'__id'</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">'__id'</span><span class="p">,</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="o">++</span><span class="nx">uniqueId</span> <span class="p">});</span>
-            <span class="p">}</span>
-            <span class="k">return</span> <span class="nx">obj</span><span class="p">[</span><span class="s1">'__id'</span><span class="p">];</span>
-        <span class="p">},</span>
-
-        <span class="c1">// Deep clone a language definition (e.g. to extend it)</span>
-        <span class="na">clone</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
-
-            <span class="k">switch</span> <span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">case</span> <span class="s1">'Object'</span><span class="p">:</span>
-                    <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="p">{};</span>
-
-                    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
-                            <span class="nx">clone</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-
-                    <span class="k">return</span> <span class="nx">clone</span><span class="p">;</span>
-
-                <span class="k">case</span> <span class="s1">'Array'</span><span class="p">:</span>
-                    <span class="c1">// Check for existence for IE8</span>
-                    <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">map</span> <span class="o">&amp;&amp;</span> <span class="nx">o</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span> <span class="p">});</span>
-            <span class="p">}</span>
-
-            <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-
-    <span class="na">languages</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">extend</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">redef</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">lang</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">[</span><span class="nx">id</span><span class="p">]);</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">redef</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">lang</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">redef</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-            <span class="p">}</span>
-
-            <span class="k">return</span> <span class="nx">lang</span><span class="p">;</span>
-        <span class="p">},</span>
-
-        <span class="cm">/**
-         * Insert a token before another token in a language literal
-         * As this needs to recreate the object (we cannot actually insert before keys in object literals),
-         * we cannot just provide an object, we need anobject and a key.
-         * @param inside The key (or language id) of the parent
-         * @param before The key to insert before. If not provided, the function appends instead.
-         * @param insert Object with the key/value pairs to insert
-         * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
-         */</span>
-        <span class="na">insertBefore</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">inside</span><span class="p">,</span> <span class="nx">before</span><span class="p">,</span> <span class="nx">insert</span><span class="p">,</span> <span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">root</span> <span class="o">=</span> <span class="nx">root</span> <span class="o">||</span> <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">grammar</span> <span class="o">=</span> <span class="nx">root</span><span class="p">[</span><span class="nx">inside</span><span class="p">];</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">insert</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-
-                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">newToken</span> <span class="k">in</span> <span class="nx">insert</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">insert</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">newToken</span><span class="p">))</span> <span class="p">{</span>
-                        <span class="nx">grammar</span><span class="p">[</span><span class="nx">newToken</span><span class="p">]</span> <span class="o">=</span> <span class="nx">insert</span><span class="p">[</span><span class="nx">newToken</span><span class="p">];</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-
-                <span class="k">return</span> <span class="nx">grammar</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">{};</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">token</span> <span class="k">in</span> <span class="nx">grammar</span><span class="p">)</span> <span class="p">{</span>
-
-                <span class="k">if</span> <span class="p">(</span><span class="nx">grammar</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">token</span><span class="p">))</span> <span class="p">{</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">token</span> <span class="o">==</span> <span class="nx">before</span><span class="p">)</span> <span class="p">{</span>
-
-                        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">newToken</span> <span class="k">in</span> <span class="nx">insert</span><span class="p">)</span> <span class="p">{</span>
-
-                            <span class="k">if</span> <span class="p">(</span><span class="nx">insert</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">newToken</span><span class="p">))</span> <span class="p">{</span>
-                                <span class="nx">ret</span><span class="p">[</span><span class="nx">newToken</span><span class="p">]</span> <span class="o">=</span> <span class="nx">insert</span><span class="p">[</span><span class="nx">newToken</span><span class="p">];</span>
-                            <span class="p">}</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-
-                    <span class="nx">ret</span><span class="p">[</span><span class="nx">token</span><span class="p">]</span> <span class="o">=</span> <span class="nx">grammar</span><span class="p">[</span><span class="nx">token</span><span class="p">];</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-
-            <span class="c1">// Update references in other language definitions</span>
-            <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">DFS</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">root</span><span class="p">[</span><span class="nx">inside</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">key</span> <span class="o">!=</span> <span class="nx">inside</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">ret</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">});</span>
-
-            <span class="k">return</span> <span class="nx">root</span><span class="p">[</span><span class="nx">inside</span><span class="p">]</span> <span class="o">=</span> <span class="nx">ret</span><span class="p">;</span>
-        <span class="p">},</span>
-
-        <span class="c1">// Traverse a language definition with Depth First Search</span>
-        <span class="na">DFS</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">visited</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">visited</span> <span class="o">=</span> <span class="nx">visited</span> <span class="o">||</span> <span class="p">{};</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">type</span> <span class="o">||</span> <span class="nx">i</span><span class="p">);</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">===</span> <span class="s1">'Object'</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">visited</span><span class="p">[</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">objId</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])])</span> <span class="p">{</span>
-                        <span class="nx">visited</span><span class="p">[</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">objId</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                        <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">DFS</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">callback</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">visited</span><span class="p">);</span>
-                    <span class="p">}</span>
-                    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">===</span> <span class="s1">'Array'</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">visited</span><span class="p">[</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">objId</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])])</span> <span class="p">{</span>
-                        <span class="nx">visited</span><span class="p">[</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">objId</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">])]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                        <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">DFS</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">visited</span><span class="p">);</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">plugins</span><span class="p">:</span> <span class="p">{},</span>
-
-    <span class="na">highlightAll</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">async</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="na">callback</span><span class="p">:</span> <span class="nx">callback</span><span class="p">,</span>
-            <span class="na">selector</span><span class="p">:</span> <span class="s1">'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'</span>
-        <span class="p">};</span>
-
-        <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s2">"before-highlightall"</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-        <span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">elements</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">selector</span><span class="p">);</span>
-
-        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">element</span><span class="p">;</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>
-            <span class="nx">_</span><span class="p">.</span><span class="nx">highlightElement</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">async</span> <span class="o">===</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">env</span><span class="p">.</span><span class="nx">callback</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-
-    <span class="na">highlightElement</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">async</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Find language</span>
-        <span class="kd">var</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">grammar</span><span class="p">,</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">element</span><span class="p">;</span>
-
-        <span class="k">while</span> <span class="p">(</span><span class="nx">parent</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">lang</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">className</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">parent</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">language</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">lang</span><span class="p">)</span> <span class="o">||</span> <span class="p">[,</span><span class="s1">''</span><span class="p">])[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
-            <span class="nx">grammar</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">[</span><span class="nx">language</span><span class="p">];</span>
-        <span class="p">}</span>
-
-        <span class="c1">// Set language on the element, if not present</span>
-        <span class="nx">element</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">lang</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/g</span><span class="p">,</span> <span class="s1">' '</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' language-'</span> <span class="o">+</span> <span class="nx">language</span><span class="p">;</span>
-
-        <span class="c1">// Set language on the parent, for styling</span>
-        <span class="nx">parent</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="sr">/pre/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">parent</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">lang</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/g</span><span class="p">,</span> <span class="s1">' '</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' language-'</span> <span class="o">+</span> <span class="nx">language</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span><span class="p">;</span>
-
-        <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="na">element</span><span class="p">:</span> <span class="nx">element</span><span class="p">,</span>
-            <span class="na">language</span><span class="p">:</span> <span class="nx">language</span><span class="p">,</span>
-            <span class="na">grammar</span><span class="p">:</span> <span class="nx">grammar</span><span class="p">,</span>
-            <span class="na">code</span><span class="p">:</span> <span class="nx">code</span>
-        <span class="p">};</span>
-
-        <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'before-sanity-check'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">env</span><span class="p">.</span><span class="nx">code</span> <span class="o">||</span> <span class="o">!</span><span class="nx">env</span><span class="p">.</span><span class="nx">grammar</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'before-highlight'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">async</span> <span class="o">&amp;&amp;</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Worker</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">filename</span><span class="p">);</span>
-
-            <span class="nx">worker</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">env</span><span class="p">.</span><span class="nx">highlightedCode</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-
-                <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'before-insert'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-                <span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">highlightedCode</span><span class="p">;</span>
-
-                <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
-                <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'after-highlight'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-                <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-            <span class="p">};</span>
-
-            <span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-                <span class="na">language</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">language</span><span class="p">,</span>
-                <span class="na">code</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span>
-                <span class="na">immediateClose</span><span class="p">:</span> <span class="kc">true</span>
-            <span class="p">}));</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">env</span><span class="p">.</span><span class="nx">highlightedCode</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">highlight</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">env</span><span class="p">.</span><span class="nx">grammar</span><span class="p">,</span> <span class="nx">env</span><span class="p">.</span><span class="nx">language</span><span class="p">);</span>
-
-            <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'before-insert'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-            <span class="nx">env</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">env</span><span class="p">.</span><span class="nx">highlightedCode</span><span class="p">;</span>
-
-            <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
-
-            <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'after-highlight'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-            <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-
-    <span class="na">highlight</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">grammar</span><span class="p">,</span> <span class="nx">language</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">grammar</span><span class="p">);</span>
-        <span class="k">return</span> <span class="nx">Token</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">tokens</span><span class="p">),</span> <span class="nx">language</span><span class="p">);</span>
-    <span class="p">},</span>
-
-    <span class="na">tokenize</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">grammar</span><span class="p">,</span> <span class="nx">language</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">Token</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">Token</span><span class="p">;</span>
-
-        <span class="kd">var</span> <span class="nx">strarr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">text</span><span class="p">];</span>
-
-        <span class="kd">var</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">grammar</span><span class="p">.</span><span class="nx">rest</span><span class="p">;</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">rest</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">token</span> <span class="k">in</span> <span class="nx">rest</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">grammar</span><span class="p">[</span><span class="nx">token</span><span class="p">]</span> <span class="o">=</span> <span class="nx">rest</span><span class="p">[</span><span class="nx">token</span><span class="p">];</span>
-            <span class="p">}</span>
-
-            <span class="k">delete</span> <span class="nx">grammar</span><span class="p">.</span><span class="nx">rest</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="nl">tokenloop</span><span class="p">:</span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">token</span> <span class="k">in</span> <span class="nx">grammar</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">grammar</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">grammar</span><span class="p">[</span><span class="nx">token</span><span class="p">])</span> <span class="p">{</span>
-                <span class="k">continue</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="kd">var</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="nx">grammar</span><span class="p">[</span><span class="nx">token</span><span class="p">];</span>
-            <span class="nx">patterns</span> <span class="o">=</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">patterns</span><span class="p">)</span> <span class="o">===</span> <span class="s2">"Array"</span><span class="p">)</span> <span class="p">?</span> <span class="nx">patterns</span> <span class="p">:</span> <span class="p">[</span><span class="nx">patterns</span><span class="p">];</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">patterns</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="nx">patterns</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span>
-                    <span class="nx">inside</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">inside</span><span class="p">,</span>
-                    <span class="nx">lookbehind</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">lookbehind</span><span class="p">,</span>
-                    <span class="nx">greedy</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">greedy</span><span class="p">,</span>
-                    <span class="nx">lookbehindLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="nx">alias</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">alias</span><span class="p">;</span>
-
-                <span class="k">if</span> <span class="p">(</span><span class="nx">greedy</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="c1">// Without the global flag, lastIndex won't work</span>
-                    <span class="kd">var</span> <span class="nx">flags</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">[</span><span class="sr">imuy</span><span class="se">]</span><span class="sr">*$/</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
-                    <span class="nx">pattern</span><span class="p">.</span><span class="nx">pattern</span> <span class="o">=</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">source</span><span class="p">,</span> <span class="nx">flags</span> <span class="o">+</span> <span class="s2">"g"</span><span class="p">);</span>
-                <span class="p">}</span>
-
-                <span class="nx">pattern</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">pattern</span> <span class="o">||</span> <span class="nx">pattern</span><span class="p">;</span>
-
-                <span class="c1">// Don’t cache length as it changes during the loop</span>
-                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">strarr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">pos</span> <span class="o">+=</span> <span class="nx">strarr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">,</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-
-                    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">strarr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">strarr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="c1">// Something went terribly wrong, ABORT, ABORT!</span>
-                        <span class="k">break</span> <span class="nx">tokenloop</span><span class="p">;</span>
-                    <span class="p">}</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="k">instanceof</span> <span class="nx">Token</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">continue</span><span class="p">;</span>
-                    <span class="p">}</span>
-
-                    <span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-                    <span class="kd">var</span> <span class="nx">match</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">),</span>
-                        <span class="nx">delNum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-                    <span class="c1">// Greedy patterns can override/remove up to two previously matched tokens</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span> <span class="o">&amp;&amp;</span> <span class="nx">greedy</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">!=</span> <span class="nx">strarr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="nx">pos</span><span class="p">;</span>
-                        <span class="nx">match</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span><span class="p">)</span> <span class="p">{</span>
-                            <span class="k">break</span><span class="p">;</span>
-                        <span class="p">}</span>
-
-                        <span class="kd">var</span> <span class="nx">from</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="p">(</span><span class="nx">lookbehind</span> <span class="p">?</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">length</span> <span class="p">:</span> <span class="mi">0</span><span class="p">),</span>
-                            <span class="nx">to</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="nx">match</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">,</span>
-                            <span class="nx">k</span> <span class="o">=</span> <span class="nx">i</span><span class="p">,</span>
-                            <span class="nx">p</span> <span class="o">=</span> <span class="nx">pos</span><span class="p">;</span>
-
-                        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">strarr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">len</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span> <span class="o">&lt;</span> <span class="nx">to</span><span class="p">;</span> <span class="o">++</span><span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
-                            <span class="nx">p</span> <span class="o">+=</span> <span class="nx">strarr</span><span class="p">[</span><span class="nx">k</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
-                            <span class="c1">// Move the index i to the element in strarr that is closest to from</span>
-                            <span class="k">if</span> <span class="p">(</span><span class="nx">from</span> <span class="o">&gt;=</span> <span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
-                                <span class="nx">pos</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
-                            <span class="p">}</span>
-                        <span class="p">}</span>
-
-                        <span class="cm">/*
-                         * If strarr[i] is a Token, then the match starts inside another Token, which is invalid
-                         * If strarr[k - 1] is greedy we are in conflict with another greedy pattern
-                         */</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="nx">strarr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Token</span> <span class="o">||</span> <span class="nx">strarr</span><span class="p">[</span><span class="nx">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">greedy</span><span class="p">)</span> <span class="p">{</span>
-                            <span class="k">continue</span><span class="p">;</span>
-                        <span class="p">}</span>
-
-                        <span class="c1">// Number of tokens to delete and replace with the new match</span>
-                        <span class="nx">delNum</span> <span class="o">=</span> <span class="nx">k</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span>
-                        <span class="nx">str</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">pos</span><span class="p">,</span> <span class="nx">p</span><span class="p">);</span>
-                        <span class="nx">match</span><span class="p">.</span><span class="nx">index</span> <span class="o">-=</span> <span class="nx">pos</span><span class="p">;</span>
-                    <span class="p">}</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">match</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">continue</span><span class="p">;</span>
-                    <span class="p">}</span>
-
-                    <span class="k">if</span><span class="p">(</span><span class="nx">lookbehind</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">lookbehindLength</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
-                    <span class="p">}</span>
-
-                    <span class="kd">var</span> <span class="nx">from</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="nx">lookbehindLength</span><span class="p">,</span>
-                        <span class="nx">match</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="nx">lookbehindLength</span><span class="p">),</span>
-                        <span class="nx">to</span> <span class="o">=</span> <span class="nx">from</span> <span class="o">+</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
-                        <span class="nx">before</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">from</span><span class="p">),</span>
-                        <span class="nx">after</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">to</span><span class="p">);</span>
-
-                    <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="nx">i</span><span class="p">,</span> <span class="nx">delNum</span><span class="p">];</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">before</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">before</span><span class="p">);</span>
-                    <span class="p">}</span>
-
-                    <span class="kd">var</span> <span class="nx">wrapped</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Token</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">inside</span><span class="p">?</span> <span class="nx">_</span><span class="p">.</span><span class="nx">tokenize</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">inside</span><span class="p">)</span> <span class="p">:</span> <span class="nx">match</span><span class="p">,</span> <span class="nx">alias</span><span class="p">,</span> <span class="nx">match</span><span class="p">,</span> <span class="nx">greedy</span><span class="p">);</span>
-
-                    <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wrapped</span><span class="p">);</span>
-
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">after</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">after</span><span class="p">);</span>
-                    <span class="p">}</span>
-
-                    <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">splice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">strarr</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">return</span> <span class="nx">strarr</span><span class="p">;</span>
-    <span class="p">},</span>
-
-    <span class="na">hooks</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">all</span><span class="p">:</span> <span class="p">{},</span>
-
-        <span class="na">add</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
-
-            <span class="nx">hooks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">hooks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
-
-            <span class="nx">hooks</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
-        <span class="p">},</span>
-
-        <span class="na">run</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">callbacks</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">all</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
-
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">callbacks</span> <span class="o">||</span> <span class="o">!</span><span class="nx">callbacks</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">callback</span><span class="p">;</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">callbacks</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>
-                <span class="nx">callback</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">Token</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">Token</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">alias</span><span class="p">,</span> <span class="nx">matchedStr</span><span class="p">,</span> <span class="nx">greedy</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">type</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">content</span> <span class="o">=</span> <span class="nx">content</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">alias</span> <span class="o">=</span> <span class="nx">alias</span><span class="p">;</span>
-    <span class="c1">// Copy of the full string this token was created from</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="p">(</span><span class="nx">matchedStr</span> <span class="o">||</span> <span class="s2">""</span><span class="p">).</span><span class="nx">length</span><span class="o">|</span><span class="mi">0</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">greedy</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">greedy</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="nx">Token</span><span class="p">.</span><span class="nx">stringify</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">o</span> <span class="o">==</span> <span class="s1">'string'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'Array'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">Token</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">o</span><span class="p">);</span>
-        <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">type</span><span class="p">:</span> <span class="nx">o</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>
-        <span class="na">content</span><span class="p">:</span> <span class="nx">Token</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">parent</span><span class="p">),</span>
-        <span class="na">tag</span><span class="p">:</span> <span class="s1">'span'</span><span class="p">,</span>
-        <span class="na">classes</span><span class="p">:</span> <span class="p">[</span><span class="s1">'token'</span><span class="p">,</span> <span class="nx">o</span><span class="p">.</span><span class="nx">type</span><span class="p">],</span>
-        <span class="na">attributes</span><span class="p">:</span> <span class="p">{},</span>
-        <span class="na">language</span><span class="p">:</span> <span class="nx">language</span><span class="p">,</span>
-        <span class="na">parent</span><span class="p">:</span> <span class="nx">parent</span>
-    <span class="p">};</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s1">'comment'</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">env</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="s1">'spellcheck'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'true'</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">alias</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">aliases</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">alias</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'Array'</span> <span class="p">?</span> <span class="nx">o</span><span class="p">.</span><span class="nx">alias</span> <span class="p">:</span> <span class="p">[</span><span class="nx">o</span><span class="p">.</span><span class="nx">alias</span><span class="p">];</span>
-        <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">classes</span><span class="p">,</span> <span class="nx">aliases</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'wrap'</span><span class="p">,</span> <span class="nx">env</span><span class="p">);</span>
-
-    <span class="kd">var</span> <span class="nx">attributes</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">attributes</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">'="'</span> <span class="o">+</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">||</span> <span class="s1">''</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span> <span class="s1">'&amp;quot;'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'"'</span><span class="p">;</span>
-    <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">);</span>
-
-    <span class="k">return</span> <span class="s1">'&lt;'</span> <span class="o">+</span> <span class="nx">env</span><span class="p">.</span><span class="nx">tag</span> <span class="o">+</span> <span class="s1">' class="'</span> <span class="o">+</span> <span class="nx">env</span><span class="p">.</span><span class="nx">classes</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'"'</span> <span class="o">+</span> <span class="p">(</span><span class="nx">attributes</span> <span class="p">?</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">attributes</span> <span class="p">:</span> <span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&gt;'</span> <span class="o">+</span> <span class="nx">env</span><span class="p">.</span><span class="nx">content</span> <span class="o">+</span> <span class="s1">'&lt;/'</span> <span class="o">+</span> <span class="nx">env</span><span class="p">.</span><span class="nx">tag</span> <span class="o">+</span> <span class="s1">'&gt;'</span><span class="p">;</span>
-
-<span class="p">};</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">_self</span><span class="p">.</span><span class="nb">document</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">_self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// in Node.js</span>
-        <span class="k">return</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// In worker</span>
-    <span class="nx">_self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">data</span><span class="p">),</span>
-            <span class="nx">lang</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">language</span><span class="p">,</span>
-            <span class="nx">code</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span>
-            <span class="nx">immediateClose</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">immediateClose</span><span class="p">;</span>
-
-        <span class="nx">_self</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">highlight</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">languages</span><span class="p">[</span><span class="nx">lang</span><span class="p">],</span> <span class="nx">lang</span><span class="p">));</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">immediateClose</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">_self</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
-
-    <span class="k">return</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">//Get current script and highlight</span>
-<span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">currentScript</span> <span class="o">||</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"script"</span><span class="p">)).</span><span class="nx">pop</span><span class="p">();</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">script</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">_</span><span class="p">.</span><span class="nx">filename</span> <span class="o">=</span> <span class="nx">script</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">manual</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">script</span><span class="p">.</span><span class="nx">hasAttribute</span><span class="p">(</span><span class="s1">'data-manual'</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">!==</span> <span class="s2">"loading"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">highlightAll</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">highlightAll</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'DOMContentLoaded'</span><span class="p">,</span> <span class="nx">_</span><span class="p">.</span><span class="nx">highlightAll</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">return</span> <span class="nx">_self</span><span class="p">.</span><span class="nx">Prism</span><span class="p">;</span>
-
-<span class="p">})();</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">module</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="o">&amp;&amp;</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Prism</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// hack for components to work correctly in node.js</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">global</span> <span class="o">!==</span> <span class="s1">'undefined'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">global</span><span class="p">.</span><span class="nx">Prism</span> <span class="o">=</span> <span class="nx">Prism</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-<span class="cm">/* **********************************************
+ */
+
+var Prism = (function(){
+
+// Private helper vars
+var lang = /\blang(?:uage)?-(\w+)\b/i;
+var uniqueId = 0;
+
+var _ = _self.Prism = {
+	manual: _self.Prism &amp;&amp; _self.Prism.manual,
+	util: {
+		encode: function (tokens) {
+			if (tokens instanceof Token) {
+				return new Token(tokens.type, _.util.encode(tokens.content), tokens.alias);
+			} else if (_.util.type(tokens) === 'Array') {
+				return tokens.map(_.util.encode);
+			} else {
+				return tokens.replace(/&amp;/g, '&amp;amp;').replace(/&lt;/g, '&amp;lt;').replace(/\u00a0/g, ' ');
+			}
+		},
+
+		type: function (o) {
+			return Object.prototype.toString.call(o).match(/\[object (\w+)\]/)[1];
+		},
+
+		objId: function (obj) {
+			if (!obj['__id']) {
+				Object.defineProperty(obj, '__id', { value: ++uniqueId });
+			}
+			return obj['__id'];
+		},
+
+		// Deep clone a language definition (e.g. to extend it)
+		clone: function (o) {
+			var type = _.util.type(o);
+
+			switch (type) {
+				case 'Object':
+					var clone = {};
+
+					for (var key in o) {
+						if (o.hasOwnProperty(key)) {
+							clone[key] = _.util.clone(o[key]);
+						}
+					}
+
+					return clone;
+
+				case 'Array':
+					// Check for existence for IE8
+					return o.map &amp;&amp; o.map(function(v) { return _.util.clone(v); });
+			}
+
+			return o;
+		}
+	},
+
+	languages: {
+		extend: function (id, redef) {
+			var lang = _.util.clone(_.languages[id]);
+
+			for (var key in redef) {
+				lang[key] = redef[key];
+			}
+
+			return lang;
+		},
+
+		/**
+		 * Insert a token before another token in a language literal
+		 * As this needs to recreate the object (we cannot actually insert before keys in object literals),
+		 * we cannot just provide an object, we need anobject and a key.
+		 * @param inside The key (or language id) of the parent
+		 * @param before The key to insert before. If not provided, the function appends instead.
+		 * @param insert Object with the key/value pairs to insert
+		 * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
+		 */
+		insertBefore: function (inside, before, insert, root) {
+			root = root || _.languages;
+			var grammar = root[inside];
+
+			if (arguments.length == 2) {
+				insert = arguments[1];
+
+				for (var newToken in insert) {
+					if (insert.hasOwnProperty(newToken)) {
+						grammar[newToken] = insert[newToken];
+					}
+				}
+
+				return grammar;
+			}
+
+			var ret = {};
+
+			for (var token in grammar) {
+
+				if (grammar.hasOwnProperty(token)) {
+
+					if (token == before) {
+
+						for (var newToken in insert) {
+
+							if (insert.hasOwnProperty(newToken)) {
+								ret[newToken] = insert[newToken];
+							}
+						}
+					}
+
+					ret[token] = grammar[token];
+				}
+			}
+
+			// Update references in other language definitions
+			_.languages.DFS(_.languages, function(key, value) {
+				if (value === root[inside] &amp;&amp; key != inside) {
+					this[key] = ret;
+				}
+			});
+
+			return root[inside] = ret;
+		},
+
+		// Traverse a language definition with Depth First Search
+		DFS: function(o, callback, type, visited) {
+			visited = visited || {};
+			for (var i in o) {
+				if (o.hasOwnProperty(i)) {
+					callback.call(o, i, o[i], type || i);
+
+					if (_.util.type(o[i]) === 'Object' &amp;&amp; !visited[_.util.objId(o[i])]) {
+						visited[_.util.objId(o[i])] = true;
+						_.languages.DFS(o[i], callback, null, visited);
+					}
+					else if (_.util.type(o[i]) === 'Array' &amp;&amp; !visited[_.util.objId(o[i])]) {
+						visited[_.util.objId(o[i])] = true;
+						_.languages.DFS(o[i], callback, i, visited);
+					}
+				}
+			}
+		}
+	},
+	plugins: {},
+
+	highlightAll: function(async, callback) {
+		var env = {
+			callback: callback,
+			selector: 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'
+		};
+
+		_.hooks.run("before-highlightall", env);
+
+		var elements = env.elements || document.querySelectorAll(env.selector);
+
+		for (var i=0, element; element = elements[i++];) {
+			_.highlightElement(element, async === true, env.callback);
+		}
+	},
+
+	highlightElement: function(element, async, callback) {
+		// Find language
+		var language, grammar, parent = element;
+
+		while (parent &amp;&amp; !lang.test(parent.className)) {
+			parent = parent.parentNode;
+		}
+
+		if (parent) {
+			language = (parent.className.match(lang) || [,''])[1].toLowerCase();
+			grammar = _.languages[language];
+		}
+
+		// Set language on the element, if not present
+		element.className = element.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
+
+		// Set language on the parent, for styling
+		parent = element.parentNode;
+
+		if (/pre/i.test(parent.nodeName)) {
+			parent.className = parent.className.replace(lang, '').replace(/\s+/g, ' ') + ' language-' + language;
+		}
+
+		var code = element.textContent;
+
+		var env = {
+			element: element,
+			language: language,
+			grammar: grammar,
+			code: code
+		};
+
+		_.hooks.run('before-sanity-check', env);
+
+		if (!env.code || !env.grammar) {
+			if (env.code) {
+				env.element.textContent = env.code;
+			}
+			_.hooks.run('complete', env);
+			return;
+		}
+
+		_.hooks.run('before-highlight', env);
+
+		if (async &amp;&amp; _self.Worker) {
+			var worker = new Worker(_.filename);
+
+			worker.onmessage = function(evt) {
+				env.highlightedCode = evt.data;
+
+				_.hooks.run('before-insert', env);
+
+				env.element.innerHTML = env.highlightedCode;
+
+				callback &amp;&amp; callback.call(env.element);
+				_.hooks.run('after-highlight', env);
+				_.hooks.run('complete', env);
+			};
+
+			worker.postMessage(JSON.stringify({
+				language: env.language,
+				code: env.code,
+				immediateClose: true
+			}));
+		}
+		else {
+			env.highlightedCode = _.highlight(env.code, env.grammar, env.language);
+
+			_.hooks.run('before-insert', env);
+
+			env.element.innerHTML = env.highlightedCode;
+
+			callback &amp;&amp; callback.call(element);
+
+			_.hooks.run('after-highlight', env);
+			_.hooks.run('complete', env);
+		}
+	},
+
+	highlight: function (text, grammar, language) {
+		var tokens = _.tokenize(text, grammar);
+		return Token.stringify(_.util.encode(tokens), language);
+	},
+
+	tokenize: function(text, grammar, language) {
+		var Token = _.Token;
+
+		var strarr = [text];
+
+		var rest = grammar.rest;
+
+		if (rest) {
+			for (var token in rest) {
+				grammar[token] = rest[token];
+			}
+
+			delete grammar.rest;
+		}
+
+		tokenloop: for (var token in grammar) {
+			if(!grammar.hasOwnProperty(token) || !grammar[token]) {
+				continue;
+			}
+
+			var patterns = grammar[token];
+			patterns = (_.util.type(patterns) === "Array") ? patterns : [patterns];
+
+			for (var j = 0; j &lt; patterns.length; ++j) {
+				var pattern = patterns[j],
+					inside = pattern.inside,
+					lookbehind = !!pattern.lookbehind,
+					greedy = !!pattern.greedy,
+					lookbehindLength = 0,
+					alias = pattern.alias;
+
+				if (greedy &amp;&amp; !pattern.pattern.global) {
+					// Without the global flag, lastIndex won't work
+					var flags = pattern.pattern.toString().match(/[imuy]*$/)[0];
+					pattern.pattern = RegExp(pattern.pattern.source, flags + "g");
+				}
+
+				pattern = pattern.pattern || pattern;
+
+				// Don’t cache length as it changes during the loop
+				for (var i=0, pos = 0; i&lt;strarr.length; pos += strarr[i].length, ++i) {
+
+					var str = strarr[i];
+
+					if (strarr.length &gt; text.length) {
+						// Something went terribly wrong, ABORT, ABORT!
+						break tokenloop;
+					}
+
+					if (str instanceof Token) {
+						continue;
+					}
+
+					pattern.lastIndex = 0;
+
+					var match = pattern.exec(str),
+					    delNum = 1;
+
+					// Greedy patterns can override/remove up to two previously matched tokens
+					if (!match &amp;&amp; greedy &amp;&amp; i != strarr.length - 1) {
+						pattern.lastIndex = pos;
+						match = pattern.exec(text);
+						if (!match) {
+							break;
+						}
+
+						var from = match.index + (lookbehind ? match[1].length : 0),
+						    to = match.index + match[0].length,
+						    k = i,
+						    p = pos;
+
+						for (var len = strarr.length; k &lt; len &amp;&amp; p &lt; to; ++k) {
+							p += strarr[k].length;
+							// Move the index i to the element in strarr that is closest to from
+							if (from &gt;= p) {
+								++i;
+								pos = p;
+							}
+						}
+
+						/*
+						 * If strarr[i] is a Token, then the match starts inside another Token, which is invalid
+						 * If strarr[k - 1] is greedy we are in conflict with another greedy pattern
+						 */
+						if (strarr[i] instanceof Token || strarr[k - 1].greedy) {
+							continue;
+						}
+
+						// Number of tokens to delete and replace with the new match
+						delNum = k - i;
+						str = text.slice(pos, p);
+						match.index -= pos;
+					}
+
+					if (!match) {
+						continue;
+					}
+
+					if(lookbehind) {
+						lookbehindLength = match[1].length;
+					}
+
+					var from = match.index + lookbehindLength,
+					    match = match[0].slice(lookbehindLength),
+					    to = from + match.length,
+					    before = str.slice(0, from),
+					    after = str.slice(to);
+
+					var args = [i, delNum];
+
+					if (before) {
+						args.push(before);
+					}
+
+					var wrapped = new Token(token, inside? _.tokenize(match, inside) : match, alias, match, greedy);
+
+					args.push(wrapped);
+
+					if (after) {
+						args.push(after);
+					}
+
+					Array.prototype.splice.apply(strarr, args);
+				}
+			}
+		}
+
+		return strarr;
+	},
+
+	hooks: {
+		all: {},
+
+		add: function (name, callback) {
+			var hooks = _.hooks.all;
+
+			hooks[name] = hooks[name] || [];
+
+			hooks[name].push(callback);
+		},
+
+		run: function (name, env) {
+			var callbacks = _.hooks.all[name];
+
+			if (!callbacks || !callbacks.length) {
+				return;
+			}
+
+			for (var i=0, callback; callback = callbacks[i++];) {
+				callback(env);
+			}
+		}
+	}
+};
+
+var Token = _.Token = function(type, content, alias, matchedStr, greedy) {
+	this.type = type;
+	this.content = content;
+	this.alias = alias;
+	// Copy of the full string this token was created from
+	this.length = (matchedStr || "").length|0;
+	this.greedy = !!greedy;
+};
+
+Token.stringify = function(o, language, parent) {
+	if (typeof o == 'string') {
+		return o;
+	}
+
+	if (_.util.type(o) === 'Array') {
+		return o.map(function(element) {
+			return Token.stringify(element, language, o);
+		}).join('');
+	}
+
+	var env = {
+		type: o.type,
+		content: Token.stringify(o.content, language, parent),
+		tag: 'span',
+		classes: ['token', o.type],
+		attributes: {},
+		language: language,
+		parent: parent
+	};
+
+	if (env.type == 'comment') {
+		env.attributes['spellcheck'] = 'true';
+	}
+
+	if (o.alias) {
+		var aliases = _.util.type(o.alias) === 'Array' ? o.alias : [o.alias];
+		Array.prototype.push.apply(env.classes, aliases);
+	}
+
+	_.hooks.run('wrap', env);
+
+	var attributes = Object.keys(env.attributes).map(function(name) {
+		return name + '="' + (env.attributes[name] || '').replace(/"/g, '&amp;quot;') + '"';
+	}).join(' ');
+
+	return '&lt;' + env.tag + ' class="' + env.classes.join(' ') + '"' + (attributes ? ' ' + attributes : '') + '&gt;' + env.content + '&lt;/' + env.tag + '&gt;';
+
+};
+
+if (!_self.document) {
+	if (!_self.addEventListener) {
+		// in Node.js
+		return _self.Prism;
+	}
+ 	// In worker
+	_self.addEventListener('message', function(evt) {
+		var message = JSON.parse(evt.data),
+		    lang = message.language,
+		    code = message.code,
+		    immediateClose = message.immediateClose;
+
+		_self.postMessage(_.highlight(code, _.languages[lang], lang));
+		if (immediateClose) {
+			_self.close();
+		}
+	}, false);
+
+	return _self.Prism;
+}
+
+//Get current script and highlight
+var script = document.currentScript || [].slice.call(document.getElementsByTagName("script")).pop();
+
+if (script) {
+	_.filename = script.src;
+
+	if (document.addEventListener &amp;&amp; !_.manual &amp;&amp; !script.hasAttribute('data-manual')) {
+		if(document.readyState !== "loading") {
+			if (window.requestAnimationFrame) {
+				window.requestAnimationFrame(_.highlightAll);
+			} else {
+				window.setTimeout(_.highlightAll, 16);
+			}
+		}
+		else {
+			document.addEventListener('DOMContentLoaded', _.highlightAll);
+		}
+	}
+}
+
+return _self.Prism;
+
+})();
+
+if (typeof module !== 'undefined' &amp;&amp; module.exports) {
+	module.exports = Prism;
+}
+
+// hack for components to work correctly in node.js
+if (typeof global !== 'undefined') {
+	global.Prism = Prism;
+}
+
+
+/* **********************************************
      Begin prism-markup.js
-********************************************** */</span>
+********************************************** */
 
-<span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">markup</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'comment'</span><span class="p">:</span> <span class="o">/</span><span class="c">&lt;!--</span><span class="p">[</span><span class="err">\</span><span class="nx">w</span><span class="err">\</span><span class="nx">W</span><span class="p">]</span><span class="o">*</span><span class="p">?</span><span class="o">--&gt;</span><span class="sr">/</span><span class="err">,
-</span>    <span class="s1">'prolog'</span><span class="p">:</span> <span class="sr">/&lt;</span><span class="se">\?[\w\W]</span><span class="sr">+</span><span class="se">?\?</span><span class="sr">&gt;/</span><span class="p">,</span>
-    <span class="s1">'doctype'</span><span class="p">:</span> <span class="o">/&lt;!</span><span class="nx">DOCTYPE</span><span class="p">[</span><span class="err">\</span><span class="nx">w</span><span class="err">\</span><span class="nx">W</span><span class="p">]</span><span class="o">+</span><span class="p">?</span><span class="o">&gt;</span><span class="sr">/i</span><span class="err">,
-</span>    <span class="s1">'cdata'</span><span class="p">:</span> <span class="sr">/&lt;!</span><span class="se">\[</span><span class="sr">CDATA</span><span class="se">\[[\w\W]</span><span class="sr">*</span><span class="se">?</span><span class="sr">]]&gt;/i</span><span class="p">,</span>
-    <span class="s1">'tag'</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">pattern</span><span class="p">:</span> <span class="sr">/&lt;</span><span class="se">\/?(?!\d)[^\s</span><span class="sr">&gt;</span><span class="se">\/</span><span class="sr">=$&lt;</span><span class="se">]</span><span class="sr">+</span><span class="se">(?:\s</span><span class="sr">+</span><span class="se">[^\s</span><span class="sr">&gt;</span><span class="se">\/</span><span class="sr">=</span><span class="se">]</span><span class="sr">+</span><span class="se">(?:</span><span class="sr">=</span><span class="se">(?:(</span><span class="sr">"|'</span><span class="se">)(?:\\\1</span><span class="sr">|</span><span class="se">\\?(?!\1)[\w\W])</span><span class="sr">*</span><span class="se">\1</span><span class="sr">|</span><span class="se">[^\s</span><span class="sr">'"&gt;=</span><span class="se">]</span><span class="sr">+</span><span class="se">))?)</span><span class="sr">*</span><span class="se">\s</span><span class="sr">*</span><span class="se">\/?</span><span class="sr">&gt;/i</span><span class="p">,</span>
-        <span class="na">inside</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">'tag'</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">pattern</span><span class="p">:</span> <span class="sr">/^&lt;</span><span class="se">\/?[^\s</span><span class="sr">&gt;</span><span class="se">\/]</span><span class="sr">+/i</span><span class="p">,</span>
-                <span class="na">inside</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s1">'punctuation'</span><span class="p">:</span> <span class="o">/^&lt;</span><span class="err">\</span><span class="o">/</span><span class="p">?</span><span class="sr">/</span><span class="err">,
-</span>                    <span class="s1">'namespace'</span><span class="p">:</span> <span class="sr">/^</span><span class="se">[^\s</span><span class="sr">&gt;</span><span class="se">\/</span><span class="sr">:</span><span class="se">]</span><span class="sr">+:/</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s1">'attr-value'</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">pattern</span><span class="p">:</span> <span class="sr">/=</span><span class="se">(?:(</span><span class="sr">'|"</span><span class="se">)[\w\W]</span><span class="sr">*</span><span class="se">?(\1)</span><span class="sr">|</span><span class="se">[^\s</span><span class="sr">&gt;</span><span class="se">]</span><span class="sr">+</span><span class="se">)</span><span class="sr">/i</span><span class="p">,</span>
-                <span class="na">inside</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s1">'punctuation'</span><span class="p">:</span> <span class="o">/</span><span class="p">[</span><span class="o">=&gt;</span><span class="s2">"']/
-                }
-            },
-            'punctuation': /\/?&gt;/,
-            'attr-name': {
-                pattern: /[^\s&gt;\/]+/,
-                inside: {
-                    'namespace': /^[^\s&gt;\/:]+:/
-                }
-            }
+Prism.languages.markup = {
+	'comment': /&lt;!--[\w\W]*?--&gt;/,
+	'prolog': /&lt;\?[\w\W]+?\?&gt;/,
+	'doctype': /&lt;!DOCTYPE[\w\W]+?&gt;/i,
+	'cdata': /&lt;!\[CDATA\[[\w\W]*?]]&gt;/i,
+	'tag': {
+		pattern: /&lt;\/?(?!\d)[^\s&gt;\/=$&lt;]+(?:\s+[^\s&gt;\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'"&gt;=]+))?)*\s*\/?&gt;/i,
+		inside: {
+			'tag': {
+				pattern: /^&lt;\/?[^\s&gt;\/]+/i,
+				inside: {
+					'punctuation': /^&lt;\/?/,
+					'namespace': /^[^\s&gt;\/:]+:/
+				}
+			},
+			'attr-value': {
+				pattern: /=(?:('|")[\w\W]*?(\1)|[^\s&gt;]+)/i,
+				inside: {
+					'punctuation': /[=&gt;"']/
+				}
+			},
+			'punctuation': /\/?&gt;/,
+			'attr-name': {
+				pattern: /[^\s&gt;\/]+/,
+				inside: {
+					'namespace': /^[^\s&gt;\/:]+:/
+				}
+			}
 
-        }
-    },
-    'entity': /&amp;#?[\da-z]{1,8};/i
+		}
+	},
+	'entity': /&amp;#?[\da-z]{1,8};/i
 };
 
 // Plugin to make entity title show the real entity, idea by Roman Komarov
 Prism.hooks.add('wrap', function(env) {
 
-    if (env.type === 'entity') {
-        env.attributes['title'] = env.content.replace(/&amp;amp;/, '&amp;');
-    }
+	if (env.type === 'entity') {
+		env.attributes['title'] = env.content.replace(/&amp;amp;/, '&amp;');
+	}
 });
 
 Prism.languages.xml = Prism.languages.markup;
@@ -676,55 +677,55 @@ Prism.languages.svg = Prism.languages.markup;
 ********************************************** */
 
 Prism.languages.css = {
-    'comment': /\/\*[\w\W]*?\*\//,
-    'atrule': {
-        pattern: /@[\w-]+?.*?(;|(?=\s*\{))/i,
-        inside: {
-            'rule': /@[\w-]+/
-            // See rest below
-        }
-    },
-    'url': /url\((?:(["</span><span class="s1">'])(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1|.*?)\)/i,
-    '</span><span class="nx">selector</span><span class="s1">': /[^\{\}\s][^\{\};]*?(?=\s*\{)/,
-    '</span><span class="nx">string</span><span class="s1">': {
-        pattern: /("|'</span><span class="p">)(</span><span class="err">\\</span><span class="p">(?:</span><span class="err">\</span><span class="nx">r</span><span class="err">\</span><span class="nx">n</span><span class="o">|</span><span class="p">[</span><span class="err">\</span><span class="nx">w</span><span class="err">\</span><span class="nx">W</span><span class="p">])</span><span class="o">|</span><span class="p">(?</span><span class="o">!</span><span class="err">\</span><span class="mi">1</span><span class="p">)[</span><span class="o">^</span><span class="err">\\\</span><span class="nx">r</span><span class="err">\</span><span class="nx">n</span><span class="p">])</span><span class="o">*</span><span class="err">\</span><span class="mi">1</span><span class="o">/</span><span class="p">,</span>
-        <span class="nx">greedy</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="s1">'property'</span><span class="p">:</span> <span class="o">/</span><span class="p">(</span><span class="err">\</span><span class="nx">b</span><span class="o">|</span><span class="err">\</span><span class="nx">B</span><span class="p">)[</span><span class="err">\</span><span class="nx">w</span><span class="o">-</span><span class="p">]</span><span class="o">+</span><span class="p">(?</span><span class="o">=</span><span class="err">\</span><span class="nx">s</span><span class="o">*</span><span class="p">:)</span><span class="o">/</span><span class="nx">i</span><span class="p">,</span>
-    <span class="s1">'important'</span><span class="p">:</span> <span class="o">/</span><span class="err">\</span><span class="nx">B</span><span class="o">!</span><span class="nx">important</span><span class="err">\</span><span class="nx">b</span><span class="o">/</span><span class="nx">i</span><span class="p">,</span>
-    <span class="s1">'function'</span><span class="p">:</span> <span class="o">/</span><span class="p">[</span><span class="o">-</span><span class="nx">a</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">+</span><span class="p">(?</span><span class="o">=</span><span class="err">\</span><span class="p">()</span><span class="o">/</span><span class="nx">i</span><span class="p">,</span>
-    <span class="s1">'punctuation'</span><span class="p">:</span> <span class="sr">/</span><span class="se">[</span><span class="sr">(){};:</span><span class="se">]</span><span class="sr">/</span>
-<span class="p">};</span>
+	'comment': /\/\*[\w\W]*?\*\//,
+	'atrule': {
+		pattern: /@[\w-]+?.*?(;|(?=\s*\{))/i,
+		inside: {
+			'rule': /@[\w-]+/
+			// See rest below
+		}
+	},
+	'url': /url\((?:(["'])(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1|.*?)\)/i,
+	'selector': /[^\{\}\s][^\{\};]*?(?=\s*\{)/,
+	'string': {
+		pattern: /("|')(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1/,
+		greedy: true
+	},
+	'property': /(\b|\B)[\w-]+(?=\s*:)/i,
+	'important': /\B!important\b/i,
+	'function': /[-a-z0-9]+(?=\()/i,
+	'punctuation': /[(){};:]/
+};
 
-<span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">css</span><span class="p">[</span><span class="s1">'atrule'</span><span class="p">].</span><span class="nx">inside</span><span class="p">.</span><span class="nx">rest</span> <span class="o">=</span> <span class="nx">Prism</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">css</span><span class="p">);</span>
+Prism.languages.css['atrule'].inside.rest = Prism.util.clone(Prism.languages.css);
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">markup</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="s1">'markup'</span><span class="p">,</span> <span class="s1">'tag'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span>
-            <span class="na">pattern</span><span class="p">:</span> <span class="sr">/</span><span class="se">(</span><span class="sr">&lt;style</span><span class="se">[\w\W]</span><span class="sr">*</span><span class="se">?</span><span class="sr">&gt;</span><span class="se">)[\w\W]</span><span class="sr">*</span><span class="se">?(?=</span><span class="sr">&lt;</span><span class="se">\/</span><span class="sr">style&gt;</span><span class="se">)</span><span class="sr">/i</span><span class="p">,</span>
-            <span class="na">lookbehind</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="na">inside</span><span class="p">:</span> <span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">css</span><span class="p">,</span>
-            <span class="na">alias</span><span class="p">:</span> <span class="s1">'language-css'</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
-
-    <span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="s1">'inside'</span><span class="p">,</span> <span class="s1">'attr-value'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">'style-attr'</span><span class="p">:</span> <span class="p">{</span>
-            <span class="na">pattern</span><span class="p">:</span> <span class="sr">/</span><span class="se">\s</span><span class="sr">*style=</span><span class="se">(</span><span class="sr">"|'</span><span class="se">)</span><span class="sr">.*</span><span class="se">?\1</span><span class="sr">/i</span><span class="p">,</span>
-            <span class="na">inside</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s1">'attr-name'</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">pattern</span><span class="p">:</span> <span class="sr">/^</span><span class="se">\s</span><span class="sr">*style/i</span><span class="p">,</span>
-                    <span class="na">inside</span><span class="p">:</span> <span class="nx">Prism</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">markup</span><span class="p">.</span><span class="nx">tag</span><span class="p">.</span><span class="nx">inside</span>
-                <span class="p">},</span>
-                <span class="s1">'punctuation'</span><span class="p">:</span> <span class="o">/^</span><span class="err">\</span><span class="nx">s</span><span class="o">*=</span><span class="err">\</span><span class="nx">s</span><span class="o">*</span><span class="p">[</span><span class="s1">'"]|['</span><span class="s2">"]\s*$/,
-                'attr-value': {
-                    pattern: /.+/i,
-                    inside: Prism.languages.css
-                }
-            },
-            alias: 'language-css'
-        }
-    }, Prism.languages.markup.tag);
+if (Prism.languages.markup) {
+	Prism.languages.insertBefore('markup', 'tag', {
+		'style': {
+			pattern: /(&lt;style[\w\W]*?&gt;)[\w\W]*?(?=&lt;\/style&gt;)/i,
+			lookbehind: true,
+			inside: Prism.languages.css,
+			alias: 'language-css'
+		}
+	});
+	
+	Prism.languages.insertBefore('inside', 'attr-value', {
+		'style-attr': {
+			pattern: /\s*style=("|').*?\1/i,
+			inside: {
+				'attr-name': {
+					pattern: /^\s*style/i,
+					inside: Prism.languages.markup.tag.inside
+				},
+				'punctuation': /^\s*=\s*['"]|['"]\s*$/,
+				'attr-value': {
+					pattern: /.+/i,
+					inside: Prism.languages.css
+				}
+			},
+			alias: 'language-css'
+		}
+	}, Prism.languages.markup.tag);
 }
 
 /* **********************************************
@@ -732,33 +733,33 @@ Prism.languages.css = {
 ********************************************** */
 
 Prism.languages.clike = {
-    'comment': [
-        {
-            pattern: /(^|[^\\])\/\*[\w\W]*?\*\//,
-            lookbehind: true
-        },
-        {
-            pattern: /(^|[^\\:])\/\/.*/,
-            lookbehind: true
-        }
-    ],
-    'string': {
-        pattern: /(["</span><span class="s1">'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
-        greedy: true
-    },
-    '</span><span class="kr">class</span><span class="o">-</span><span class="nx">name</span><span class="s1">': {
-        pattern: /((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,
-        lookbehind: true,
-        inside: {
-            punctuation: /(\.|\\)/
-        }
-    },
-    '</span><span class="nx">keyword</span><span class="s1">': /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
-    '</span><span class="kr">boolean</span><span class="s1">': /\b(true|false)\b/,
-    '</span><span class="kd">function</span><span class="s1">': /[a-z0-9_]+(?=\()/i,
-    '</span><span class="nx">number</span><span class="s1">': /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,
-    '</span><span class="nx">operator</span><span class="s1">': /--?|\+\+?|!=?=?|&lt;=?|&gt;=?|==?=?|&amp;&amp;?|\|\|?|\?|\*|\/|~|\^|%/,
-    '</span><span class="nx">punctuation</span><span class="s1">': /[{}[\];(),.:]/
+	'comment': [
+		{
+			pattern: /(^|[^\\])\/\*[\w\W]*?\*\//,
+			lookbehind: true
+		},
+		{
+			pattern: /(^|[^\\:])\/\/.*/,
+			lookbehind: true
+		}
+	],
+	'string': {
+		pattern: /(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+		greedy: true
+	},
+	'class-name': {
+		pattern: /((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,
+		lookbehind: true,
+		inside: {
+			punctuation: /(\.|\\)/
+		}
+	},
+	'keyword': /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
+	'boolean': /\b(true|false)\b/,
+	'function': /[a-z0-9_]+(?=\()/i,
+	'number': /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,
+	'operator': /--?|\+\+?|!=?=?|&lt;=?|&gt;=?|==?=?|&amp;&amp;?|\|\|?|\?|\*|\/|~|\^|%/,
+	'punctuation': /[{}[\];(),.:]/
 };
 
 
@@ -766,51 +767,51 @@ Prism.languages.clike = {
      Begin prism-javascript.js
 ********************************************** */
 
-Prism.languages.javascript = Prism.languages.extend('</span><span class="nx">clike</span><span class="s1">', {
-    '</span><span class="nx">keyword</span><span class="s1">': /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
-    '</span><span class="nx">number</span><span class="s1">': /\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,
-    // Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-    '</span><span class="kd">function</span><span class="s1">': /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i,
-    '</span><span class="nx">operator</span><span class="s1">': /--?|\+\+?|!=?=?|&lt;=?|&gt;=?|==?=?|&amp;&amp;?|\|\|?|\?|\*\*?|\/|~|\^|%|\.{3}/
+Prism.languages.javascript = Prism.languages.extend('clike', {
+	'keyword': /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
+	'number': /\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,
+	// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
+	'function': /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i,
+	'operator': /--?|\+\+?|!=?=?|&lt;=?|&gt;=?|==?=?|&amp;&amp;?|\|\|?|\?|\*\*?|\/|~|\^|%|\.{3}/
 });
 
-Prism.languages.insertBefore('</span><span class="nx">javascript</span><span class="s1">', '</span><span class="nx">keyword</span><span class="s1">', {
-    '</span><span class="nx">regex</span><span class="s1">': {
-        pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
-        lookbehind: true,
-        greedy: true
-    }
+Prism.languages.insertBefore('javascript', 'keyword', {
+	'regex': {
+		pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
+		lookbehind: true,
+		greedy: true
+	}
 });
 
-Prism.languages.insertBefore('</span><span class="nx">javascript</span><span class="s1">', '</span><span class="nx">string</span><span class="s1">', {
-    '</span><span class="nx">template</span><span class="o">-</span><span class="nx">string</span><span class="s1">': {
-        pattern: /`(?:\\\\|\\?[^\\])*?`/,
-        greedy: true,
-        inside: {
-            '</span><span class="nx">interpolation</span><span class="s1">': {
-                pattern: /\$\{[^}]+\}/,
-                inside: {
-                    '</span><span class="nx">interpolation</span><span class="o">-</span><span class="nx">punctuation</span><span class="s1">': {
-                        pattern: /^\$\{|\}$/,
-                        alias: '</span><span class="nx">punctuation</span><span class="s1">'
-                    },
-                    rest: Prism.languages.javascript
-                }
-            },
-            '</span><span class="nx">string</span><span class="s1">': /[\s\S]+/
-        }
-    }
+Prism.languages.insertBefore('javascript', 'string', {
+	'template-string': {
+		pattern: /`(?:\\\\|\\?[^\\])*?`/,
+		greedy: true,
+		inside: {
+			'interpolation': {
+				pattern: /\$\{[^}]+\}/,
+				inside: {
+					'interpolation-punctuation': {
+						pattern: /^\$\{|\}$/,
+						alias: 'punctuation'
+					},
+					rest: Prism.languages.javascript
+				}
+			},
+			'string': /[\s\S]+/
+		}
+	}
 });
 
 if (Prism.languages.markup) {
-    Prism.languages.insertBefore('</span><span class="nx">markup</span><span class="s1">', '</span><span class="nx">tag</span><span class="s1">', {
-        '</span><span class="nx">script</span><span class="s1">': {
-            pattern: /(&lt;script[\w\W]*?&gt;)[\w\W]*?(?=&lt;\/script&gt;)/i,
-            lookbehind: true,
-            inside: Prism.languages.javascript,
-            alias: '</span><span class="nx">language</span><span class="o">-</span><span class="nx">javascript</span><span class="s1">'
-        }
-    });
+	Prism.languages.insertBefore('markup', 'tag', {
+		'script': {
+			pattern: /(&lt;script[\w\W]*?&gt;)[\w\W]*?(?=&lt;\/script&gt;)/i,
+			lookbehind: true,
+			inside: Prism.languages.javascript,
+			alias: 'language-javascript'
+		}
+	});
 }
 
 Prism.languages.js = Prism.languages.javascript;
@@ -820,86 +821,88 @@ Prism.languages.js = Prism.languages.javascript;
 ********************************************** */
 
 (function () {
-    if (typeof self === '</span><span class="kc">undefined</span><span class="s1">' || !self.Prism || !self.document || !document.querySelector) {
-        return;
-    }
+	if (typeof self === 'undefined' || !self.Prism || !self.document || !document.querySelector) {
+		return;
+	}
 
-    self.Prism.fileHighlight = function() {
+	self.Prism.fileHighlight = function() {
 
-        var Extensions = {
-            '</span><span class="nx">js</span><span class="s1">': '</span><span class="nx">javascript</span><span class="s1">',
-            '</span><span class="nx">py</span><span class="s1">': '</span><span class="nx">python</span><span class="s1">',
-            '</span><span class="nx">rb</span><span class="s1">': '</span><span class="nx">ruby</span><span class="s1">',
-            '</span><span class="nx">ps1</span><span class="s1">': '</span><span class="nx">powershell</span><span class="s1">',
-            '</span><span class="nx">psm1</span><span class="s1">': '</span><span class="nx">powershell</span><span class="s1">',
-            '</span><span class="nx">sh</span><span class="s1">': '</span><span class="nx">bash</span><span class="s1">',
-            '</span><span class="nx">bat</span><span class="s1">': '</span><span class="nx">batch</span><span class="s1">',
-            '</span><span class="nx">h</span><span class="s1">': '</span><span class="nx">c</span><span class="s1">',
-            '</span><span class="nx">tex</span><span class="s1">': '</span><span class="nx">latex</span><span class="s1">'
-        };
+		var Extensions = {
+			'js': 'javascript',
+			'py': 'python',
+			'rb': 'ruby',
+			'ps1': 'powershell',
+			'psm1': 'powershell',
+			'sh': 'bash',
+			'bat': 'batch',
+			'h': 'c',
+			'tex': 'latex'
+		};
 
-        if(Array.prototype.forEach) { // Check to prevent error in IE8
-            Array.prototype.slice.call(document.querySelectorAll('</span><span class="nx">pre</span><span class="p">[</span><span class="nx">data</span><span class="o">-</span><span class="nx">src</span><span class="p">]</span><span class="s1">')).forEach(function (pre) {
-                var src = pre.getAttribute('</span><span class="nx">data</span><span class="o">-</span><span class="nx">src</span><span class="s1">');
+		if(Array.prototype.forEach) { // Check to prevent error in IE8
+			Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+				var src = pre.getAttribute('data-src');
 
-                var language, parent = pre;
-                var lang = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
-                while (parent &amp;&amp; !lang.test(parent.className)) {
-                    parent = parent.parentNode;
-                }
+				var language, parent = pre;
+				var lang = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
+				while (parent &amp;&amp; !lang.test(parent.className)) {
+					parent = parent.parentNode;
+				}
 
-                if (parent) {
-                    language = (pre.className.match(lang) || [, ''])[1];
-                }
+				if (parent) {
+					language = (pre.className.match(lang) || [, ''])[1];
+				}
 
-                if (!language) {
-                    var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                    language = Extensions[extension] || extension;
-                }
+				if (!language) {
+					var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+					language = Extensions[extension] || extension;
+				}
 
-                var code = document.createElement('</span><span class="nx">code</span><span class="s1">');
-                code.className = '</span><span class="nx">language</span><span class="o">-</span><span class="s1">' + language;
+				var code = document.createElement('code');
+				code.className = 'language-' + language;
 
-                pre.textContent = '';
+				pre.textContent = '';
 
-                code.textContent = '</span><span class="nx">Loading</span><span class="err">…</span><span class="s1">';
+				code.textContent = 'Loading…';
 
-                pre.appendChild(code);
+				pre.appendChild(code);
 
-                var xhr = new XMLHttpRequest();
+				var xhr = new XMLHttpRequest();
 
-                xhr.open('</span><span class="nx">GET</span><span class="s1">', src, true);
+				xhr.open('GET', src, true);
 
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState == 4) {
 
-                        if (xhr.status &lt; 400 &amp;&amp; xhr.responseText) {
-                            code.textContent = xhr.responseText;
+						if (xhr.status &lt; 400 &amp;&amp; xhr.responseText) {
+							code.textContent = xhr.responseText;
 
-                            Prism.highlightElement(code);
-                        }
-                        else if (xhr.status &gt;= 400) {
-                            code.textContent = '</span><span class="err">✖</span> <span class="nb">Error</span> <span class="s1">' + xhr.status + '</span> <span class="k">while</span> <span class="nx">fetching</span> <span class="na">file</span><span class="p">:</span> <span class="s1">' + xhr.statusText;
-                        }
-                        else {
-                            code.textContent = '</span><span class="err">✖</span> <span class="na">Error</span><span class="p">:</span> <span class="nx">File</span> <span class="nx">does</span> <span class="nx">not</span> <span class="nx">exist</span> <span class="nx">or</span> <span class="nx">is</span> <span class="nx">empty</span><span class="s1">';
-                        }
-                    }
-                };
+							Prism.highlightElement(code);
+						}
+						else if (xhr.status &gt;= 400) {
+							code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+						}
+						else {
+							code.textContent = '✖ Error: File does not exist or is empty';
+						}
+					}
+				};
 
-                xhr.send(null);
-            });
-        }
+				xhr.send(null);
+			});
+		}
 
-    };
+	};
 
-    document.addEventListener('</span><span class="nx">DOMContentLoaded</span><span class="err">'</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">Prism</span><span class="p">.</span><span class="nx">fileHighlight</span><span class="p">);</span>
+	document.addEventListener('DOMContentLoaded', self.Prism.fileHighlight);
 
-<span class="p">})();</span>
-</code></pre></div>
+})();
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -945,6 +948,7 @@ Prism.languages.js = Prism.languages.javascript;
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

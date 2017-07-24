@@ -14,6 +14,7 @@
   <meta name="description" content="Make a BACKUP before doing anything to the database. Be safe.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Opencart How-To Delete Multi-Store and Move Everything to the Default Store</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-26T00:00:00+05:00" itemprop="datePublished">
           Feb 26, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-26-Opencart_How-To_Delete_Multi-Store_and_Move_Everything_to_the_Default_Store.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-26-Opencart_How-To_Delete_Multi-Store_and_Move_Everything_to_the_Default_Store.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>how-to</li>
       
@@ -106,47 +107,45 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Make a BACKUP before doing anything to the database. Be safe.</p>
 
-<h3>Assumptions</h3>
-
+<h3 id="assumptions">Assumptions</h3>
 <p>This post assumes that</p>
 
 <ul>
-<li>the store_id for Default store is 0</li>
-<li>you have only 1 multi-store</li>
-<li>you are moving things from Multi-store to Default store</li>
-<li>you want to delete Multi-Store</li>
-<li>you have products that were added to both Default and Multi-store</li>
-<li>everything means products, categories, manufacturers and information</li>
+  <li>the store_id for Default store is 0</li>
+  <li>you have only 1 multi-store</li>
+  <li>you are moving things from Multi-store to Default store</li>
+  <li>you want to delete Multi-Store</li>
+  <li>you have products that were added to both Default and Multi-store</li>
+  <li>everything means products, categories, manufacturers and information</li>
 </ul>
 
-<p>We can&#39;t delete a multi-store if there are orders associated with it. So the first step of the process would be to update all existing orders to associate with our main (default) store.</p>
+<p>We can’t delete a multi-store if there are orders associated with it. So the first step of the process would be to update all existing orders to associate with our main (default) store.</p>
 
-<h2>Update Store details for all existing Orders</h2>
+<h2 id="update-store-details-for-all-existing-orders">Update Store details for all existing Orders</h2>
 
-<p>The table to edit is <code>oc_order</code> and the columns we&#39;ll be editing are <code>store_id</code>, <code>store_name</code> and <code>store_url</code>. The <code>store_id</code> for the Default store is <strong>0</strong>.</p>
+<p>The table to edit is <code>oc_order</code> and the columns we’ll be editing are <code>store_id</code>, <code>store_name</code> and <code>store_url</code>. The <code>store_id</code> for the Default store is <strong>0</strong>.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_order` SET `store_id`=0,`store_name`="Cakebox.ME", `store_url`="http://cakebox.me"
     </code></pre></figure>
 
 <p>Using this command, you can change Store details for all existing orders. Once you have linked all existing orders to the default store, you can go to the Admin and delete the multi-store.</p>
 
-<h2>Cleanup</h2>
+<h2 id="cleanup">Cleanup</h2>
 
-<p>After we&#39;re done with deleting multi-store, we need to do cleanup. For every Product, Category, Manufacturer, and Information page that was linked to the multi-store, there&#39;ll be a row in the database saying so. If you had hundreds of products for your multi-store, there&#39;ll be hundreds of rows for it in the database. </p>
+<p>After we’re done with deleting multi-store, we need to do cleanup. For every Product, Category, Manufacturer, and Information page that was linked to the multi-store, there’ll be a row in the database saying so. If you had hundreds of products for your multi-store, there’ll be hundreds of rows for it in the database.</p>
 
-<p>We need to <strong>a</strong>) update these rows to link to our Default store (in case you are moving everything to the default) and <strong>b</strong>) remove duplicates (in case you added a product to your default as well as multi-store, because then the same product will have a row for every store). </p>
+<p>We need to <strong>a</strong>) update these rows to link to our Default store (in case you are moving everything to the default) and <strong>b</strong>) remove duplicates (in case you added a product to your default as well as multi-store, because then the same product will have a row for every store).</p>
 
-<p>The cleanup, while not necessary, is recommended. You can go by without doing it, but if you have hundreds of useless rows in the database, it&#39;ll only slow things down and effect performance. Delete them to make your site faster.</p>
+<p>The cleanup, while not necessary, is recommended. You can go by without doing it, but if you have hundreds of useless rows in the database, it’ll only slow things down and effect performance. Delete them to make your site faster.</p>
 
-<p><strong>Note</strong>: You can use <a href="#">this extension</a> to Bulk move products, categories and manufacturers between stores. It&#39;ll, however, not delete duplicates.</p>
+<p><strong>Note</strong>: You can use <a href="#">this extension</a> to Bulk move products, categories and manufacturers between stores. It’ll, however, not delete duplicates.</p>
 
-<h3>Update Store ID for all existing Products</h3>
-
+<h3 id="update-store-id-for-all-existing-products">Update Store ID for all existing Products</h3>
 <p>The table to edit is <code>oc_product_to_store</code>, the column is <code>store_id</code>. We are going to delete duplicates first and then update all products to link them to Default store.</p>
 
 <p>Show all Products that are duplicates and are not linked to Default store</p>
@@ -164,13 +163,14 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
     </code></pre></figure>
 
-<p>If you get </p>
-<div class="highlight"><pre><code class="language-" data-lang=""># MySQL returned an empty result set (i.e. zero rows).
-</code></pre></div>
-<p>that&#39;s fine. It means that after deleting the duplicates, there were no products that didn&#39;t already link to the Default store.</p>
+<p>If you get</p>
 
-<h3>Update Store ID for all existing Categories</h3>
+<pre><code># MySQL returned an empty result set (i.e. zero rows).
+</code></pre>
 
+<p>that’s fine. It means that after deleting the duplicates, there were no products that didn’t already link to the Default store.</p>
+
+<h3 id="update-store-id-for-all-existing-categories">Update Store ID for all existing Categories</h3>
 <p>The table to edit is <code>oc_category_to_store</code>, the column is <code>store_id</code>.</p>
 
 <p>Show all Categories that are duplicates and are not linked to Default store</p>
@@ -188,8 +188,7 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
     </code></pre></figure>
 
-<h3>Update Store ID for all existing Manufacturers</h3>
-
+<h3 id="update-store-id-for-all-existing-manufacturers">Update Store ID for all existing Manufacturers</h3>
 <p>The table to edit is <code>oc_manufacturer_to_store</code>, the column is <code>store_id</code>.</p>
 
 <p>Show all Manufacturers that are duplicates and are not linked to Default store</p>
@@ -207,8 +206,7 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
     </code></pre></figure>
 
-<h3>Update Store ID for all existing Information pages</h3>
-
+<h3 id="update-store-id-for-all-existing-information-pages">Update Store ID for all existing Information pages</h3>
 <p>The table to edit is <code>oc_information_to_store</code>, the column is <code>store_id</code>.</p>
 
 <p>Show all Information pages that are duplicates and are not linked to Default store</p>
@@ -226,9 +224,9 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
     </code></pre></figure>
 
-<h2>Get everything done in one step</h2>
+<h2 id="get-everything-done-in-one-step">Get everything done in one step</h2>
 
-<p>The following code deletes duplicates and updates <em>store</em>id_ for all products, categories, manufacturers and information in one go. Only use this if you understand everything i have explained above, are confident in what you are doing and have a backup that you can restore if anything goes wrong.</p>
+<p>The following code deletes duplicates and updates <em>store_id</em> for all products, categories, manufacturers and information in one go. Only use this if you understand everything i have explained above, are confident in what you are doing and have a backup that you can restore if anything goes wrong.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
     DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0;
@@ -241,11 +239,12 @@
     UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
     </code></pre></figure>
 
-<p>That&#39;s it. You should now have all existing products, categories, manufacturers and information linked to your Default store, have no duplicates and gotten rid of your multi-store.</p>
+<p>That’s it. You should now have all existing products, categories, manufacturers and information linked to your Default store, have no duplicates and gotten rid of your multi-store.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -291,6 +290,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

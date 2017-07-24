@@ -14,6 +14,7 @@
   <meta name="description" content="ifconfig is for configuring a network interface. (Interface Configuration)">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/ifconfig-get-internal-external-ip-address">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">[ifconfig] Get IP address of your machine (internal & external)</h1>
+    <h1 class="Post-title" itemprop="name headline">[ifconfig] Get IP address of your machine (internal &amp; external)</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-02T00:00:00+05:00" itemprop="datePublished">
           Dec 2, 2015
         </time>
@@ -91,74 +92,85 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[ifconfig] Get IP address (internal).md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[ifconfig] Get IP address (internal).md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><code>ifconfig</code> is for configuring a network <em>interface</em>. (<strong>I</strong>nter<strong>f</strong>ace <strong>Conf</strong>iguration)</p>
 
-<h2>Get IP by interface (eth, wlan, lo etc)</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ifconfig <span class="nv">$1</span> | grep <span class="s2">"inet addr"</span> | awk -F: <span class="s1">'{print $2}'</span> | awk <span class="s1">'{print $1}'</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-ifconfig-3.png" alt="cmd-ifconfig-3"> </p>
+<h2 id="get-ip-by-interface-eth-wlan-lo-etc">Get IP by interface (eth, wlan, lo etc)</h2>
+
+<pre><code class="language-bash">ifconfig $1 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
+</code></pre>
+
+<p><img src="/assets/img/cmd-ifconfig-3.png" alt="cmd-ifconfig-3" /></p>
 
 <p><code>grep</code> prints lines mathcing a pattern
 <code>awk</code> is a pattern scanning and processing language.</p>
 
-<h3>interfaces</h3>
-
+<h3 id="interfaces">interfaces</h3>
 <ul>
-<li>eth0 = Ethernet<br></li>
-<li>wlan0 = Wi-Fi<br></li>
-<li>lo = Local Network (127.0.0.1)<br></li>
-<li>inet = TCP/IP, default<br></li>
-<li>inet6 = IPv6</li>
+  <li>eth0 = Ethernet</li>
+  <li>wlan0 = Wi-Fi</li>
+  <li>lo = Local Network (127.0.0.1)</li>
+  <li>inet = TCP/IP, default</li>
+  <li>inet6 = IPv6</li>
 </ul>
 
 <p>See more about <a href="https://wiki.openwrt.org/doc/networking/network.interfaces">linux interface</a>. <code>ifconfig -l</code> on a Mac lists all inetrfaces available.</p>
 
-<h2>Get IP of every interface</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ifconfig |grep -B1 <span class="s2">"inet addr"</span> |awk <span class="s1">'{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }'</span> |awk -F: <span class="s1">'{ print $1 ": " $3 }'</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-ifconfig-2.png" alt="cmd-ifconfig-2"></p>
+<h2 id="get-ip-of-every-interface">Get IP of every interface</h2>
 
-<h2>Get IPv6</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ifconfig eth | grep --color <span class="s1">'inet6'</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-ifconfig.png" alt="cmd-ifconfig"></p>
+<pre><code class="language-bash">ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }'
+</code></pre>
+
+<p><img src="/assets/img/cmd-ifconfig-2.png" alt="cmd-ifconfig-2" /></p>
+
+<h2 id="get-ipv6">Get IPv6</h2>
+
+<pre><code class="language-bash">ifconfig eth | grep --color 'inet6'
+</code></pre>
+
+<p><img src="/assets/img/cmd-ifconfig.png" alt="cmd-ifconfig" /></p>
 
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ifconfig eth | grep <span class="s1">'inet6'</span> | awk <span class="s1">'{print $3}'</span>
-</code></pre></div>
-<p><img src="/assets/img/cmd-ifconfig-4.png" alt="cmd-ifconfig-4"></p>
 
-<h2>external IP</h2>
+<pre><code class="language-bash">ifconfig eth | grep 'inet6' | awk '{print $3}'
+</code></pre>
 
+<p><img src="/assets/img/cmd-ifconfig-4.png" alt="cmd-ifconfig-4" /></p>
+
+<h2 id="external-ip">external IP</h2>
 <p>You can curl an <em>endpoint</em> for your external public IP, like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl http://ipecho.net/plain; <span class="nb">echo</span>
-</code></pre></div>
+
+<pre><code class="language-bash">curl http://ipecho.net/plain; echo
+</code></pre>
+
 <p>There are plenty of services that give you your public IP address by going to a URL. You can then curl that URL to see your extrenal public IP in CLI.</p>
 
 <p>Some alternatives are:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl http://ip.appspot.com/
-curl https://icanhazip.com/
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-bash">curl http://ip.appspot.com/
+curl https://icanhazip.com/
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.if-not-true-then-false.com/2010/linux-get-ip-address/">Linux: Get IP (internal/external) on Command Line/Shell</a></li>
-<li>http://superuser.com/questions/468727/how-to-get-the-ipv6-ip-address-of-linux-machine</li>
+  <li><a href="http://www.if-not-true-then-false.com/2010/linux-get-ip-address/">Linux: Get IP (internal/external) on Command Line/Shell</a></li>
+  <li>http://superuser.com/questions/468727/how-to-get-the-ipv6-ip-address-of-linux-machine</li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -204,6 +216,7 @@ curl https://icanhazip.com/
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

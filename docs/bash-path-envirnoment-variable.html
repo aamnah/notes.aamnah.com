@@ -14,6 +14,7 @@
   <meta name="description" content="UbuntuThe following command adds a path to your current path:">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-path-envirnoment-variable">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[Bash] Bash PATH Environment Variable</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-20T00:00:00+05:00" itemprop="datePublished">
           Nov 20, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,75 +98,98 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/bash-path-environment-variable.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/bash-path-environment-variable.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>bash</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Ubuntu</h1>
-
+    <h1 id="ubuntu">Ubuntu</h1>
 <p>The following command adds a path to your current path:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/my/custom/path
-</code></pre></div>
+
+<pre><code class="language-bash">export PATH=$PATH:/my/custom/path
+</code></pre>
+
 <p>If you want your setup to execute this command every time, there are a number of places where you can put it. When you login, the following scripts will be executed in this order:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">/etc/profile      <span class="o">(</span>which starts by loading everything <span class="k">in</span> /etc/profile.d<span class="o">)</span>
-~/.profile        <span class="o">(</span>which starts by loading ~/.bashrc <span class="k">if </span>you are running bash<span class="o">)</span>
-</code></pre></div>
+
+<pre><code class="language-bash">/etc/profile      (which starts by loading everything in /etc/profile.d)
+~/.profile        (which starts by loading ~/.bashrc if you are running bash)
+</code></pre>
+
 <p>To <strong>overwrite an existing PATH</strong>, use the same export command without the $PATH included in the value. LIke so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-</code></pre></div>
+
+<pre><code class="language-bash">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+</code></pre>
+
 <p><code>:</code> is the seperator between different PATH locations.</p>
 
 <p>To <strong>find out if a command is in the path</strong>, use <code>which</code>. For example:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">which node
-</code></pre></div>
-<p>on a Mac will give you</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/bin/node
-</code></pre></div>
-<p>If you get nothing from the which node coomand, node&#39;s not in the path.</p>
 
-<h3>Notes</h3>
+<pre><code class="language-bash">which node
+</code></pre>
+
+<p>on a Mac will give you</p>
+
+<pre><code>/usr/local/bin/node
+</code></pre>
+
+<p>If you get nothing from the which node coomand, node’s not in the path.</p>
+
+<h3 id="notes">Notes</h3>
 
 <ul>
-<li><p><strong>~/.profile</strong> is only loaded if <strong>~/.bash_profile</strong> or <strong>~/.bash_login</strong> DO NOT EXIST. Otherwise, at least bash, will load them instead. It is suggest to use .profile and not the bash specific scripts. So, if in these attempts you created <strong>.bash_login</strong>, <em>please delete it now</em>.</p></li>
-<li><p>~/.bashrc is only loaded if you are running an interactive session. (something with a prompt where you can actually type something.</p></li>
-<li><p>~/.bashrc is loaded again and again, <em>everytime you open up a new terminal</em>. So a new tab in gnome-terminal, a new virtual terminal, etc. So even if you don&#39;t login again, .bashrc is loaded (and thereby resets its environment) everytime you open a new shell.</p></li>
-<li><p>Something like byobu should really go into .profile, (otherwise it won&#39;t work ;-)</p></li>
-<li><p>Something like paths should go into .profile if you want it to work outside of the interactive sessions. (say when you press alt+f2 in gnome)</p></li>
+  <li>
+    <p><strong>~/.profile</strong> is only loaded if <strong>~/.bash_profile</strong> or <strong>~/.bash_login</strong> DO NOT EXIST. Otherwise, at least bash, will load them instead. It is suggest to use .profile and not the bash specific scripts. So, if in these attempts you created <strong>.bash_login</strong>, <em>please delete it now</em>.</p>
+  </li>
+  <li>
+    <p>~/.bashrc is only loaded if you are running an interactive session. (something with a prompt where you can actually type something.</p>
+  </li>
+  <li>
+    <p>~/.bashrc is loaded again and again, <em>everytime you open up a new terminal</em>. So a new tab in gnome-terminal, a new virtual terminal, etc. So even if you don’t login again, .bashrc is loaded (and thereby resets its environment) everytime you open a new shell.</p>
+  </li>
+  <li>
+    <p>Something like byobu should really go into .profile, (otherwise it won’t work ;-)</p>
+  </li>
+  <li>
+    <p>Something like paths should go into .profile if you want it to work outside of the interactive sessions. (say when you press alt+f2 in gnome)</p>
+  </li>
 </ul>
 
-<h1>Mac OS X</h1>
-
+<h1 id="mac-os-x">Mac OS X</h1>
 <p>Check what current $PATH is:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$PATH</span><span class="s2">"</span>
-</code></pre></div>
+
+<pre><code class="language-bash">echo "$PATH"
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">printf</span> <span class="s2">"%s</span><span class="se">\n</span><span class="s2">"</span> <span class="nv">$PATH</span>
-</code></pre></div>
+
+<pre><code class="language-bash">printf "%s\n" $PATH
+</code></pre>
+
 <p>You can add path to any one of the following method:</p>
 
 <ul>
-<li><code>$HOME/.bash_profile</code> file using export syntax. e.g. <code>export PATH=$PATH:/new/dir/location1</code></li>
-<li><code>/etc/paths.d</code> directory.</li>
+  <li><code>$HOME/.bash_profile</code> file using export syntax. e.g. <code>export PATH=$PATH:/new/dir/location1</code></li>
+  <li><code>/etc/paths.d</code> directory.</li>
 </ul>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://askubuntu.com/questions/3744/how-do-i-modify-my-path-so-that-the-changes-are-available-in-every-terminal-sess">AskUbuntu: How do I modify my PATH so that the changes are available in every Terminal session</a></li>
-<li><a href="http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/">nixCraft: Mac OS X: Set / Change $PATH Variable</a></li>
+  <li><a href="http://askubuntu.com/questions/3744/how-do-i-modify-my-path-so-that-the-changes-are-available-in-every-terminal-sess">AskUbuntu: How do I modify my PATH so that the changes are available in every Terminal session</a></li>
+  <li><a href="http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/">nixCraft: Mac OS X: Set / Change $PATH Variable</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -211,6 +235,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

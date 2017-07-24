@@ -14,6 +14,7 @@
   <meta name="description" content="tl;dr">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-sync-entire-aws-s3-bucket-locally">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to sync an entire Amazon S3 bucket locally</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-02-23T00:00:00+05:00" itemprop="datePublished">
           Feb 23, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_aws/2017-02-23-sync-entire-aws-s3-bucket-locally.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_aws/2017-02-23-sync-entire-aws-s3-bucket-locally.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>aws</li>
       
@@ -104,64 +105,81 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>tl;dr</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install awscli <span class="c"># MacOS</span>
-<span class="c"># apt-get update &amp;&amp; apt install awscli -y # Ubuntu</span>
-<span class="c"># pip install --upgrade --user awscli # Unix</span>
+    <h3 id="tldr">tl;dr</h3>
+
+<pre><code class="language-bash">brew install awscli # MacOS
+# apt-get update &amp;&amp; apt install awscli -y # Ubuntu
+# pip install --upgrade --user awscli # Unix
 aws configure
 aws s3 ls 
 aws s3 sync s3://my-bucket . 
-</code></pre></div>
-<h3>install</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">pip install --upgrade --user awscli
-</code></pre></div>
+</code></pre>
+
+<h3 id="install">install</h3>
+
+<pre><code class="language-bash">pip install --upgrade --user awscli
+</code></pre>
+
 <p>to upgrade, run the same command above. To uninstall, <code>pip uninstall awscli</code></p>
 
-<h3>Ubuntu install</h3>
-
+<h3 id="ubuntu-install">Ubuntu install</h3>
 <p>this is on a fresh Ubuntu system.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="sb">`</span>python --version<span class="sb">`</span> <span class="sb">`</span>pip --version<span class="sb">`</span>
-</code></pre></div>
+
+<pre><code class="language-bash">echo `python --version` `pip --version`
+</code></pre>
+
 <p>install pip</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -O https://bootstrap.pypa.io/get-pip.py <span class="o">&amp;&amp;</span> python get-pip.py
+
+<pre><code class="language-bash">curl -O https://bootstrap.pypa.io/get-pip.py &amp;&amp; python get-pip.py
 pip --version
-</code></pre></div>
+</code></pre>
+
 <p>install AWS CLI</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">pip install awscli --upgrade --user
-</code></pre></div>
-<h3>configuration</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">aws configure
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+
+<pre><code class="language-bash">pip install awscli --upgrade --user
+</code></pre>
+
+<h3 id="configuration">configuration</h3>
+
+<pre><code class="language-bash">aws configure
+</code></pre>
+<pre><code>AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
 Default output format [None]: ENTER
-</code></pre></div>
-<p>For Amazon S3, region doesn&#39;t matter. But you must enter a value, so pick whichever you like from <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">here</a>.</p>
+</code></pre>
 
-<p>Default output format can be either <code>json</code>, <code>text</code>, or <code>table</code>. If you don&#39;t specify an output format, json will be used.  To skip having to specify anything hit ENTER.</p>
+<p>For Amazon S3, region doesn’t matter. But you must enter a value, so pick whichever you like from <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">here</a>.</p>
+
+<p>Default output format can be either <code>json</code>, <code>text</code>, or <code>table</code>. If you don’t specify an output format, json will be used.  To skip having to specify anything hit ENTER.</p>
 
 <p>You can change or update these later. The access_key and ID are stored in <code>~/.aws/credentials</code> and the region and default format are saved in <code>~/.aws/config</code>. You can also have multiple profiles with different configurations.</p>
 
-<h3>List and sync buckets</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># List all buckets</span>
+<h3 id="list-and-sync-buckets">List and sync buckets</h3>
+
+<pre><code class="language-bash"># List all buckets
 aws s3 ls
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Sync the 'my-bucket' bucket on S3 to current directory</span>
+</code></pre>
+
+<pre><code class="language-bash"># Sync the 'my-bucket' bucket on S3 to current directory
 aws s3 sync s3://my-bucket . 
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface</a></li>
-<li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html">AWS CLI Command Reference: sync</a></li>
-<li><a href="http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket">StackOverflow: Downloading an entire S3 bucket?</a></li>
+  <li><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface</a></li>
+  <li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3/sync.html">AWS CLI Command Reference: sync</a></li>
+  <li><a href="http://stackoverflow.com/questions/8659382/downloading-an-entire-s3-bucket">StackOverflow: Downloading an entire S3 bucket?</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -207,6 +225,7 @@ aws s3 sync s3://my-bucket .
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

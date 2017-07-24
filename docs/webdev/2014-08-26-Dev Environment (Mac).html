@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Dev Environment (Mac)How to Check the Version of a Script/Tool toolName --version">
+  <meta name="description" content="#Dev Environment (Mac)How to Check the Version of a Script/Tool toolName --version">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/webdev/2014-08-26-Dev%20Environment%20(Mac).html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Dev environment (mac)</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,155 +92,180 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2014-08-26-Dev Environment (Mac).md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2014-08-26-Dev Environment (Mac).md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Dev Environment (Mac)</h1>
+    <p>#Dev Environment (Mac)
+How to Check the Version of a Script/Tool <code>toolName --version</code></p>
 
-<p>How to Check the Version of a Script/Tool <code>toolName --version</code></p>
+<h2 id="homebrewhttpbrewsh"><a href="http://brew.sh">homebrew</a></h2>
 
-<h2><a href="http://brew.sh">homebrew</a></h2>
+<p><a href="https://github.com/Homebrew/homebrew/wiki/installation">Install</a></p>
 
-<p><a href="https://github.com/Homebrew/homebrew/wiki/installation">Install</a> </p>
-<div class="highlight"><pre><code class="language-" data-lang="">ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-</code></pre></div>
+<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+</code></pre>
+
 <p>Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your <strong>~/.bashrc</strong> file</p>
-<div class="highlight"><pre><code class="language-" data-lang="">export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-</code></pre></div>
+
+<pre><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+</code></pre>
+
 <p>update: <code>brew update</code>
 check outdated: <code>brew outdated</code>
 upgrade: <code>brew upgrade</code>
 upgrade specific package: <code>brew upgrade package</code>
 troubleshoot: <code>brew doctor</code></p>
 
-<h2>mongodb</h2>
-
+<h2 id="mongodb">mongodb</h2>
 <p><a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">install</a></p>
-<div class="highlight"><pre><code class="language-" data-lang="">brew update &amp;&amp; brew install mongodb --with-openssl
-</code></pre></div>
+
+<pre><code>brew update &amp;&amp; brew install mongodb --with-openssl
+</code></pre>
+
 <p>Create the data directory</p>
-<div class="highlight"><pre><code class="language-" data-lang="">mkdir -p /data/db
-</code></pre></div>
+
+<pre><code>mkdir -p /data/db
+</code></pre>
+
 <p><code>-p</code> is for creating intermediate directories as required.</p>
 
-<h5>Set permissions for the data directory.</h5>
+<p>#####Set permissions for the data directory.
+Before running <strong>mongod</strong> for the first time, ensure that the user account running <strong>mongod</strong> has read and write permissions for the directory.</p>
 
-<p>Before running <strong>mongod</strong> for the first time, ensure that the user account running <strong>mongod</strong> has read and write permissions for the directory.</p>
-
-<p>...
+<p>…
 To have launchd start mongodb at login:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
-</code></pre></div>
+
+<pre><code>ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+</code></pre>
+
 <p>Then to load mongodb now:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-</code></pre></div>
-<p>Or, if you don&#39;t want/need launchctl, you can just run:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">mongod --config /usr/local/etc/mongod.conf
-</code></pre></div>
-<h1>Python</h1>
+
+<pre><code>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+</code></pre>
+
+<p>Or, if you don’t want/need launchctl, you can just run:</p>
+
+<pre><code>mongod --config /usr/local/etc/mongod.conf
+</code></pre>
+
+<p>#Python</p>
 
 <p><a href="http://docs.python-guide.org/en/latest/starting/install/osx/">Installing Python on Mac OS X (Python 2.7, Homebrew, Pip, Setuptools &amp; Virtualenv)</a>
 <a href="http://wolfpaulus.com/jounal/mac/installing_python_osx/">Upgrading Python to v3.x</a></p>
 
-<h2>pip</h2>
+<h2 id="pip">pip</h2>
 
-<p><a href="http://pip.readthedocs.org/en/latest/installing.html">Install</a> </p>
-<div class="highlight"><pre><code class="language-" data-lang="">wget https://bootstrap.pypa.io/get-pip.py &amp;&amp; python get-pip.py
-</code></pre></div>
-<p>Upgrade </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo pip install -U pip
-</code></pre></div>
+<p><a href="http://pip.readthedocs.org/en/latest/installing.html">Install</a></p>
+
+<pre><code>wget https://bootstrap.pypa.io/get-pip.py &amp;&amp; python get-pip.py
+</code></pre>
+
+<p>Upgrade</p>
+
+<pre><code>sudo pip install -U pip
+</code></pre>
+
 <p>If setuptools (or distribute) is not already installed, <strong>get-pip.py will install setuptools</strong> for you.</p>
 
 <p><strong>Pip is worth using over easy_install for its uninstall capabilities alone, but I should mention that pip is actively maintained while setuptools is mostly dead.</strong></p>
 
-<h2><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></h2>
+<h2 id="setuptoolshttpspypipythonorgpypisetuptools"><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></h2>
 
-<p><a href="https://pypi.python.org/pypi/setuptools#unix-including-mac-os-x-curl">Install</a> </p>
-<div class="highlight"><pre><code class="language-" data-lang="">curl https://bootstrap.pypa.io/ez_setup.py -o - | python
-</code></pre></div>
-<p>Upgrade </p>
-<div class="highlight"><pre><code class="language-" data-lang="">pip install -U setuptools
-</code></pre></div>
-<h2>virtualenv</h2>
+<p><a href="https://pypi.python.org/pypi/setuptools#unix-including-mac-os-x-curl">Install</a></p>
+
+<pre><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+</code></pre>
+
+<p>Upgrade</p>
+
+<pre><code>pip install -U setuptools
+</code></pre>
+
+<h2 id="virtualenv">virtualenv</h2>
 
 <p>Install</p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo pip install virtualenv
-</code></pre></div>
-<h2>Installing MySQL</h2>
 
+<pre><code>sudo pip install virtualenv
+</code></pre>
+
+<h2 id="installing-mysql">Installing MySQL</h2>
 <ul>
-<li><code>brew doctor</code> and fix any errors</li>
-<li><code>brew update</code> update packages </li>
-<li>(optional) run upgarde <code>brew upgrade</code> afterwards. upgrade might take some time</li>
-<li><code>brew install mysql</code> install mysql</li>
-<li><code>unset TMPDIR</code></li>
-<li><code>mysql_install_db --verbose --user=</code>whoami<code>--basedir=&quot;$(brew --prefix mysql)&quot; --datadir=/usr/local/var/mysql --tmpdir=/tmp</code></li>
-<li><code>mysql.server start</code></li>
-<li>run the commands Brew suggests, add MySQL to <code>launchctl</code> so it automatically launches at startup</li>
+  <li><code>brew doctor</code> and fix any errors</li>
+  <li><code>brew update</code> update packages</li>
+  <li>(optional) run upgarde <code>brew upgrade</code> afterwards. upgrade might take some time</li>
+  <li><code>brew install mysql</code> install mysql</li>
+  <li><code>unset TMPDIR</code></li>
+  <li><code>mysql_install_db --verbose --user=</code>whoami<code> --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp</code></li>
+  <li><code>mysql.server start</code></li>
+  <li>run the commands Brew suggests, add MySQL to <code>launchctl</code> so it automatically launches at startup</li>
 </ul>
 
 <p>mysql should now work and be running all the time as expected</p>
 
-<h4>Info</h4>
+<p>####Info</p>
 
 <p>To connect:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">mysql -uroot
-</code></pre></div>
-<p>To have launchd start mysql at login:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
-</code></pre></div>
-<p>Then to load mysql now:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-</code></pre></div>
-<p>Or, if you don&#39;t want/need launchctl, you can just run:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">mysql.server start
-</code></pre></div>
-<hr>
 
+<pre><code>mysql -uroot
+</code></pre>
+
+<p>To have launchd start mysql at login:</p>
+
+<pre><code>ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents Then to load mysql now:
+
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist Or, if you don't want/need launchctl, you can just run:
+
+mysql.server start
+</code></pre>
+
+<hr />
 <p>To start mysqld at boot time you have to copy <code>support-files/mysql.server</code> to the right place for your system</p>
 
 <p>Set password:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/opt/mysql/bin/mysqladmin -u root password 'new-password'
+
+<pre><code>/usr/local/opt/mysql/bin/mysqladmin -u root password 'new-password'
 /usr/local/opt/mysql/bin/mysqladmin -u root -h Serenity.local password 'new-password'
-</code></pre></div>
+</code></pre>
+
 <p>Alternatively you can run:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/opt/mysql/bin/mysql_secure_installation
-</code></pre></div>
+
+<pre><code>/usr/local/opt/mysql/bin/mysql_secure_installation
+</code></pre>
+
 <p>which will also give you the option of removing the test databases and anonymous user created by default.  This is strongly recommended for production servers.</p>
 
 <p>Start/Stop/Restart MySQL: <code>mysql.server start</code>, <code>mysql.server stop</code> and <code>mysql.server restart</code></p>
 
 <p>See option: <code>brew info mysql</code></p>
 
-<h1>Other Tools</h1>
+<p>#Other Tools</p>
 
 <p><strong><a href="http://www.gnu.org/software/wget/">wget</a></strong> <code>brew install wget</code>
 <strong><a href="http://en.wikipedia.org/wiki/GNU_nano">nano</a></strong> <code>brew install nano</code>
 <strong><a href="http://www.computerhope.com/unix/tree.htm">tree</a></strong> <code>brew install tree</code>
-<strong><a href="http://kassiopeia.juls.savba.sk/%7Egarabik/software/grc.html">GRC</a></strong> <code>brew install grc</code> and then </p>
-<div class="highlight"><pre><code class="language-" data-lang="">echo 'source "`brew --prefix grc`/etc/grc.bashrc"' &gt;&gt; ~/.bash_profile
-</code></pre></div>
-<p>so new shell sessions start using GRC.</p>
+<strong><a href="http://kassiopeia.juls.savba.sk/~garabik/software/grc.html">GRC</a></strong> <code>brew install grc</code> and then</p>
+
+<pre><code>echo 'source "`brew --prefix grc`/etc/grc.bashrc"' &gt;&gt; ~/.bash_profile so new shell sessions start using GRC.
+</code></pre>
 
 <p>install all tools in one go with the following command:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">brew doctor &amp;&amp; brew update &amp;&amp; brew upgrade &amp;&amp; brew install wget &amp;&amp; brew install nano &amp;&amp; brew install tree &amp;&amp; brew install grc &amp;&amp; echo 'source "`brew --prefix grc`/etc/grc.bashrc"' &gt;&gt; ~/.bash_profile
-</code></pre></div>
-<h2>Resource links:</h2>
 
+<pre><code>brew doctor &amp;&amp; brew update &amp;&amp; brew upgrade &amp;&amp; brew install wget &amp;&amp; brew install nano &amp;&amp; brew install tree &amp;&amp; brew install grc &amp;&amp; echo 'source "`brew --prefix grc`/etc/grc.bashrc"' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<h2 id="resource-links">Resource links:</h2>
 <p><a href="http://www.davidfischer.name/2010/04/why-you-should-be-using-pip-and-virtualenv/">why you should be using pip and virtualenv</a>
 MySQL install: <a href="https://coderwall.com/p/os6woq">Uninstall all those broken versions of MySQL and re-install it with Brew on Mac Mavericks</a>
 Installing multiple brew packages in one go: <a href="http://superuser.com/questions/428713/is-it-safe-to-run-multiple-brew-install-commands-at-the-same-time">Is it safe to run multiple brew install commands at the same time?</a></p>
 
-<h2>LAMP on Mac</h2>
-
+<h2 id="lamp-on-mac">LAMP on Mac</h2>
 <p><a href="http://jason.pureconcepts.net/2012/10/install-apache-php-mysql-mac-os-x/">Installing Apache, PHP, and MySQL on Mac OS X</a>
 <a href="http://www.astonishdesign.com/blog/native-lamp-stack-mac-os-x">Native LAMP stack</a>
 <a href="http://machiine.com/2013/how-to-install-apache-and-php-on-a-mac-with-osx-10-8-mamp-part-1/">How to install Apache and PHP on a Mac with OSX 10.8</a>
@@ -249,7 +275,8 @@ Installing multiple brew packages in one go: <a href="http://superuser.com/quest
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -295,6 +322,7 @@ Installing multiple brew packages in one go: <a href="http://superuser.com/quest
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

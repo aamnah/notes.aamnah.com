@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Code:$(document).ready(function() {">
+  <meta name="description" content="Code:```javascript$(document).ready(function() {">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/working-with-ajax-json-api">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Working with APIs using AJAX and JSON</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-04T00:00:00+05:00" itemprop="datePublished">
           Nov 4, 2015
         </time>
@@ -91,35 +92,41 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/AJAX-Working with APIs using AJAX and JSON.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/AJAX-Working with APIs using AJAX and JSON.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Code:</h2>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <h2 id="code">Code:</h2>
+<pre><code class="language-javascript">$(document).ready(function() {
 
-<span class="p">});</span> <span class="c1">// end ready</span>
-</code></pre></div>
-<h2>Explanation:</h2>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+}); // end ready
+</code></pre>
 
-<span class="p">});</span>
-</code></pre></div>
+<h2 id="explanation">Explanation:</h2>
+
+<pre><code class="language-javascript">$(document).ready(function() {
+
+});
+</code></pre>
+
 <p>tells the function to wait until the HTML for the page has completely loaded before running the JavaScript code placed inside it.</p>
 
-<h4>making an ajax request when a button is pushed</h4>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">flickerAPI</span><span class="p">,</span> <span class="nx">flickrOptions</span><span class="p">,</span> <span class="nx">displayPhotos</span><span class="p">);</span>
-<span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
-</code></pre></div>
+<h4 id="making-an-ajax-request-when-a-button-is-pushed">making an ajax request when a button is pushed</h4>
+
+<pre><code class="language-javascript">$.getJSON(flickerAPI, flickrOptions, displayPhotos);
+.getJSON(url, data, callback);
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -165,6 +172,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

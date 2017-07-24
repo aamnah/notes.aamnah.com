@@ -14,6 +14,7 @@
   <meta name="description" content="tl;dr">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/prototypal-inheritance-constructor-functions">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Prototypal Inheritance and Constructor Functions</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-17T00:00:00+05:00" itemprop="datePublished">
           Mar 17, 2017
         </time>
@@ -91,92 +92,94 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/Prototypal Inheritance and Constructor Functions.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/Prototypal Inheritance and Constructor Functions.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>tl;dr</h2>
+    <h2 id="tldr">tl;dr</h2>
 
 <ul>
-<li>A constructor function is just a normal function that creates (constructs) an object</li>
-<li>Every object has a Prototype object <code>__proto__</code></li>
-<li>Every object inherits from it&#39;s Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too</li>
-<li>Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created</li>
-<li>You would ideally use them both, methods in object constructor and methods in object prototype, in order to maximize on the performance and situation</li>
+  <li>A constructor function is just a normal function that creates (constructs) an object</li>
+  <li>Every object has a Prototype object <code>__proto__</code></li>
+  <li>Every object inherits from it’s Prototype object. If the prototype has a method or a property, the object using or  pointing to that prototype will have those too</li>
+  <li>Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created</li>
+  <li>You would ideally use them both, methods in object constructor and methods in object prototype, in order to maximize on the performance and situation</li>
 </ul>
 
 <p>You can edit the prototype in order to pass data to every instance of the object.</p>
 
-<h3>Object Prototype vs. Object Constructor</h3>
-
+<h3 id="object-prototype-vs-object-constructor">Object Prototype vs. Object Constructor</h3>
 <p>Why create properties and methods in the prototype when you can just as easily create them in the object constructor itself?</p>
 
 <ul>
-<li>Properties and methods in the Prototype are passed on to all objects created. If you update a Prototype later, all objects using that Prototype will also be updated</li>
-<li>Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don&#39;t update when you update the object later. If you make changes to an object, the changes will only be passed to new instances, created after the changes were made.</li>
-<li>Methods in Prototype will only be stored in memory once because objects coming from the same constructor point to one common prototype object, while methods in the constructor will get <strong>re-declared</strong> for every instance you create, effecting negatively on memory usage (modern Javascript engines such as V8 are smart enough for not to recreate instances of a method thanks to hidden classes)</li>
-<li>Properties and methods in an object constructor function are very much like <em>static</em>. Because you have used <code>this</code> to bind to only that particular instance, you have no relation with the object constructor. You are <strong>binding to the particular instance</strong>. Whereas in Prototype, you bind to the constructor. You&#39;re not pointing to methods in the instance you created, you&#39;re <strong>pointing to methods in constructor</strong>. Any change in constructor gets reflected in all instances because they&#39;re all pointing to the same prototype.</li>
+  <li>Properties and methods in the Prototype are passed on to all objects created. If you update a Prototype later, all objects using that Prototype will also be updated</li>
+  <li>Properties and methods in an object constructor function are added when you create an object using that constructor, but existing objects don’t update when you update the object later. If you make changes to an object, the changes will only be passed to new instances, created after the changes were made.</li>
+  <li>Methods in Prototype will only be stored in memory once because objects coming from the same constructor point to one common prototype object, while methods in the constructor will get <strong>re-declared</strong> for every instance you create, effecting negatively on memory usage (modern Javascript engines such as V8 are smart enough for not to recreate instances of a method thanks to hidden classes)</li>
+  <li>Properties and methods in an object constructor function are very much like <em>static</em>. Because you have used <code>this</code> to bind to only that particular instance, you have no relation with the object constructor. You are <strong>binding to the particular instance</strong>. Whereas in Prototype, you bind to the constructor. You’re not pointing to methods in the instance you created, you’re <strong>pointing to methods in constructor</strong>. Any change in constructor gets reflected in all instances because they’re all pointing to the same prototype.</li>
 </ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Object constructor function</span>
-<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstName</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastName</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-  <span class="c1">// Object method</span>
-  <span class="c1">// Changes to an object method only effects object instances created AFTER the change</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">Hello</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 
-<span class="c1">// Prototype</span>
-<span class="c1">// Adding a method to prototype</span>
-<span class="c1">// Changes to a prototype method instantly updates all objects using that prototype</span>
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">details</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// it's not the prototype of Person, it's the prototype of any object created from Person</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span> <span class="nx">year</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="nx">old</span><span class="err">`</span><span class="p">)</span>
-<span class="p">}</span>
+<pre><code class="language-javascript">// Object constructor function
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+  // Object method
+  // Changes to an object method only effects object instances created AFTER the change
+  this.greet = function() {
+    console.info(`Hello ${this.firstName} ${this.lastName}`)
+  }
+}
 
-<span class="c1">// Creating a new instance of the Person object</span>
-<span class="kd">let</span> <span class="nx">john</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Denver'</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">)</span> <span class="c1">// Person { firstName: 'John', lastName: 'Denver', age: 28, greet: [Function] }</span>
+// Prototype
+// Adding a method to prototype
+// Changes to a prototype method instantly updates all objects using that prototype
+Person.prototype.details = function() { // it's not the prototype of Person, it's the prototype of any object created from Person
+  console.info(`${this.firstName} ${this.lastName} is ${this.age} year(s) old`)
+}
 
-<span class="c1">// Test Prototype method and Object method</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">details</span><span class="p">())</span> <span class="c1">// John Denver is 28 year(s) old</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">greet</span><span class="p">())</span> <span class="c1">// Hello John Denver</span>
+// Creating a new instance of the Person object
+let john = new Person('John', 'Denver', 28)
+console.info(john) // Person { firstName: 'John', lastName: 'Denver', age: 28, greet: [Function] }
 
-<span class="c1">// Changes to an Object Method vs. Changes to a Prototype Method</span>
-<span class="nx">Person</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">Hello</span> <span class="nx">there</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastname</span><span class="p">},</span> <span class="nx">you</span> <span class="nx">amazing</span> <span class="nx">fellow</span><span class="o">!</span><span class="err">`</span><span class="p">)</span>
-<span class="p">}</span>
+// Test Prototype method and Object method
+console.info(john.details()) // John Denver is 28 year(s) old
+console.info(john.greet()) // Hello John Denver
 
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">details</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span> <span class="nx">year</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="nx">old</span> <span class="nx">and</span> <span class="nx">he</span> <span class="nx">is</span> <span class="nx">amazing</span><span class="o">!</span><span class="err">`</span><span class="p">)</span>
-<span class="p">}</span>
+// Changes to an Object Method vs. Changes to a Prototype Method
+Person.greet = function() {
+	console.info(`Hello there ${this.firstName} ${this.lastname}, you amazing fellow!`)
+}
 
-<span class="c1">// Let's test the changes</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">details</span><span class="p">())</span> <span class="c1">// John Denver is 28 year(s) old and he is amazing! &gt;&gt; Prototype method updated the existing object</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">greet</span><span class="p">())</span> <span class="c1">// Hello John Denver &gt;&gt; Object method missing our updates</span>
+Person.prototype.details = function() {
+  console.info(`${this.firstName} ${this.lastName} is ${this.age} year(s) old and he is amazing!`)
+}
 
-<span class="c1">// Check out the prototype of an object</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">john</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">)</span> <span class="c1">// Person { details: [Function] }</span>
-</code></pre></div>
-<h2>Links</h2>
+// Let's test the changes
+console.info(john.details()) // John Denver is 28 year(s) old and he is amazing! &gt;&gt; Prototype method updated the existing object
+console.info(john.greet()) // Hello John Denver &gt;&gt; Object method missing our updates
+
+// Check out the prototype of an object
+console.info(john.__proto__) // Person { details: [Function] }
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3494208">Udemy: Prototypal Inheritance and Function Constructors</a></li>
-<li><a href="http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/">Methods Within Constructor vs Prototype in Javascript</a></li>
-<li><a href="/es6-classes-vs-constructor-functions">TLDR: ES6 Classes vs. Constructor Functions</a></li>
+  <li><a href="https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3494208">Udemy: Prototypal Inheritance and Function Constructors</a></li>
+  <li><a href="http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/">Methods Within Constructor vs Prototype in Javascript</a></li>
+  <li><a href="/es6-classes-vs-constructor-functions">TLDR: ES6 Classes vs. Constructor Functions</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -222,6 +225,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

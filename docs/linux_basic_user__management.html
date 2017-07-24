@@ -14,6 +14,7 @@
   <meta name="description" content="Cheatsheet">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux_basic_user__management">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Linux - Basic User Management</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-31T00:00:00+05:00" itemprop="datePublished">
           Aug 31, 2014
         </time>
@@ -91,90 +92,129 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-31-Linux Basic user management.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-31-Linux Basic user management.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>cli,</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Cheatsheet</h3>
+    <h3 id="cheatsheet">Cheatsheet</h3>
 
-<p>|command|meaning|
-|-|-|
-| whoami | show which user is logged in |
-| passwd | change password of current user |
-| passwd jane | change Jane&#39;s password |
-| su | become <strong>s</strong>uper<strong>u</strong>ser / change user to root |
-| su jane | change user to jane |
-|sudo | superuser do = do it as a superuser |
-| adduser james | add a user named &#39;james&#39; |
-| deluser james | delete the user &#39;james&#39; |
-| passwd -l jane | lock jane&#39;s password |
-| passwd --lock jane | lock jane&#39;s password |</p>
+<table>
+  <thead>
+    <tr>
+      <th>command</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>whoami</td>
+      <td>show which user is logged in</td>
+    </tr>
+    <tr>
+      <td>passwd</td>
+      <td>change password of current user</td>
+    </tr>
+    <tr>
+      <td>passwd jane</td>
+      <td>change Jane’s password</td>
+    </tr>
+    <tr>
+      <td>su</td>
+      <td>become <strong>s</strong>uper<strong>u</strong>ser / change user to root</td>
+    </tr>
+    <tr>
+      <td>su jane</td>
+      <td>change user to jane</td>
+    </tr>
+    <tr>
+      <td>sudo</td>
+      <td>superuser do = do it as a superuser</td>
+    </tr>
+    <tr>
+      <td>adduser james</td>
+      <td>add a user named ‘james’</td>
+    </tr>
+    <tr>
+      <td>deluser james</td>
+      <td>delete the user ‘james’</td>
+    </tr>
+    <tr>
+      <td>passwd -l jane</td>
+      <td>lock jane’s password</td>
+    </tr>
+    <tr>
+      <td>passwd –lock jane</td>
+      <td>lock jane’s password</td>
+    </tr>
+  </tbody>
+</table>
 
-<h4><code>whoami</code></h4>
-
+<h4 id="whoami"><code>whoami</code></h4>
 <p>shows which user is logged in</p>
 
-<h4><code>passwd</code></h4>
+<h4 id="passwd"><code>passwd</code></h4>
+<p>change the password for the current user. <code>passwd jane</code> = Change Jane’s password</p>
 
-<p>change the password for the current user. <code>passwd jane</code> = Change Jane&#39;s password</p>
+<h4 id="su"><code>su</code></h4>
+<p><strong>S</strong>uper<strong>U</strong>ser. login to a different user, for example <code>su jalal</code> = login to jalal’s account. only <code>su</code> without a username provided will change to root user by default.</p>
 
-<h4><code>su</code></h4>
-
-<p><strong>S</strong>uper<strong>U</strong>ser. login to a different user, for example <code>su jalal</code> = login to jalal&#39;s account. only <code>su</code> without a username provided will change to root user by default.</p>
-
-<h4><code>su root</code></h4>
-
+<h4 id="su-root"><code>su root</code></h4>
 <p>login to a different user, in this case root. <code>su</code> and <code>su root</code> will both do the same thing.</p>
 
-<h4><code>adduser</code></h4>
-
+<h4 id="adduser"><code>adduser</code></h4>
 <p>add a user. for example, <code>adduser jane</code> will add a user called jane. You need root/sudo access/permissions to cerate or delete a user.</p>
 
-<h4><code>userdel</code></h4>
+<h4 id="userdel"><code>userdel</code></h4>
+<p>delete a user. for example: <code>userdel jalal</code> will delete the user named jalal. Use the <code>-r</code> flag to delete the user BUT keep the user’s directory/files. For example: <code>userdel -r jalal</code> will delete a user named jalal but keep his home directory and other files.</p>
 
-<p>delete a user. for example: <code>userdel jalal</code> will delete the user named jalal. Use the <code>-r</code> flag to delete the user BUT keep the user&#39;s directory/files. For example: <code>userdel -r jalal</code> will delete a user named jalal but keep his home directory and other files.</p>
+<h4 id="locking-a-users-password--l-or---lock">Locking a user’s password <code>-l</code> or <code>--lock</code></h4>
 
-<h4>Locking a user&#39;s password <code>-l</code> or <code>--lock</code></h4>
-<div class="highlight"><pre><code class="language-" data-lang="">passwd -l jane
-</code></pre></div>
+<pre><code>passwd -l jane
+</code></pre>
+
 <p>The <strong>passwd</strong> command with the <code>-l</code> or <code>--lock</code> flag will lock the password of the named account (in our example, jane). Users with a locked password are not allowed to change their password.</p>
 
-<p>Note that this does not disable the account. You need to be root (or have sudo priveleges) to be able to lock a user&#39;s password.</p>
+<p>Note that this does not disable the account. You need to be root (or have sudo priveleges) to be able to lock a user’s password.</p>
 
-<h2>Adding trusted sudo users</h2>
+<h2 id="adding-trusted-sudo-users">Adding trusted sudo users</h2>
+<p>Sudo allows regular users to run commands as a super user. That way you won’t have to be running as root the whole time.</p>
 
-<p>Sudo allows regular users to run commands as a super user. That way you won&#39;t have to be running as root the whole time.</p>
+<p>If you are on Ubuntu, sudo is already installed for you. If you are on Debian, you’ll have to install sudo:</p>
 
-<p>If you are on Ubuntu, sudo is already installed for you. If you are on Debian, you&#39;ll have to install sudo:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">apt-get install sudo
-</code></pre></div>
-<p>If the package is not found then you&#39;ll have to update the system.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">apt-get update
-</code></pre></div>
+<pre><code>apt-get install sudo
+</code></pre>
+
+<p>If the package is not found then you’ll have to update the system.</p>
+
+<pre><code>apt-get update
+</code></pre>
+
 <p>The above command will update our linux machine with all of the available source for apt-get.</p>
 
-<p>Now that you have sudo installed, you&#39;ll need to create/edit the <code>sudoers</code> file. This file is located in the <code>/etc</code> directory.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cd /etc
-nano sudoers
-</code></pre></div>
-<h2>Resources:</h2>
+<p>Now that you have sudo installed, you’ll need to create/edit the <code>sudoers</code> file. This file is located in the <code>/etc</code> directory.</p>
 
+<pre><code>cd /etc
+nano sudoers
+</code></pre>
+
+<h2 id="resources">Resources:</h2>
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps">How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS</a></li>
-<li><a href="http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line">How can I add a new user as sudoer using the command line?</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps">How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS</a></li>
+  <li><a href="http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line">How can I add a new user as sudoer using the command line?</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -220,6 +260,7 @@ nano sudoers
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

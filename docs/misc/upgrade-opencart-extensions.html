@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Coding standardsRemoved the PHP ending tag ?&gt; from php files">
+  <meta name="description" content="Coding standards  Removed the PHP ending tag ?&gt; from php files">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/misc/upgrade-opencart-extensions.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Upgrading OpenCart Extensions</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-06-30T00:00:00+05:00" itemprop="datePublished">
           Jun 30, 2017
         </time>
@@ -91,81 +92,91 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/upgrade-opencart-extensions.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/upgrade-opencart-extensions.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Coding standards</h3>
-
+    <h3 id="coding-standards">Coding standards</h3>
 <ul>
-<li>Removed the PHP ending tag <code>?&gt;</code> from php files</li>
+  <li>Removed the PHP ending tag <code>?&gt;</code> from php files</li>
 </ul>
 
-<h3>Load the Language File</h3>
-
+<h3 id="load-the-language-file">Load the Language File</h3>
 <p>In 1.5.x, you would use the following snippet to load the corresponding module language file.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;language-&gt;load('account/account');
-</code></pre></div>
+
+<pre><code class="language-php">$this-&gt;language-&gt;load('account/account');
+</code></pre>
+
 <p>On the other hand, you need to use a slightly different version in the case of OpenCart 2.x.x, as shown in the following snippet.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;load-&gt;language('account/account');
-</code></pre></div>
-<h3>Controller</h3>
 
-<h4>1. Assigning template variables</h4>
+<pre><code class="language-php">$this-&gt;load-&gt;language('account/account');
+</code></pre>
 
-<p>most of the time you&#39;ll end up assigning your variables so that you can access them in the view template files</p>
+<h3 id="controller">Controller</h3>
+<p>#### 1. Assigning template variables</p>
+
+<p>most of the time you’ll end up assigning your variables so that you can access them in the view template files</p>
 
 <p>OpenCart 1.5:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;data['foo'] = $foo;
+
+<pre><code class="language-php">$this-&gt;data['foo'] = $foo;
 
 $this-&gt;data['heading_title'] = $this-&gt;language-&gt;get('heading_title');
-</code></pre></div>
+</code></pre>
+
 <p>OpenCart 2.0:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$data['foo'] = $foo;
+
+<pre><code class="language-php">$data['foo'] = $foo;
 
 $data['heading_title'] = $this-&gt;language-&gt;get('heading_title');
-</code></pre></div>
-<h4>2. Assigning a template</h4>
+</code></pre>
 
+<h4 id="assigning-a-template">2. Assigning a template</h4>
 <p>OpenCart 1.5:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;template = 'module/module.tpl';
+
+<pre><code class="language-php">$this-&gt;template = 'module/module.tpl';
 
 $this-&gt;response-&gt;setOutput($this-&gt;render()); // OC 1.5.6.x
-</code></pre></div>
+</code></pre>
+
 <p>OpenCart 2.0:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view('module/module', $data));
+
+<pre><code class="language-php">$this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view('module/module', $data));
 
 $this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view('default/template/account/account.tpl', $data)); // OC 2.1.0.2
 
 $this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view('extension/total/total', $data)); // OC 2.3.0.2+ (no .tpl at the end)
-</code></pre></div>
+</code></pre>
 <p>In the earlier version of OpenCart, you would have used the following code to assign the template file and render it.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">if (file_exists(DIR_TEMPLATE . $this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl')) {
+
+<pre><code class="language-php">if (file_exists(DIR_TEMPLATE . $this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl')) {
   $this-&gt;template = $this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl';
 } else {
   $this-&gt;template = 'default/template/account/account.tpl';
 }
 $this-&gt;response-&gt;setOutput($this-&gt;render());
-</code></pre></div>
-<p>In the recent version, you&#39;ll need to use a slightly different and shorter way to handle it.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">if (file_exists(DIR_TEMPLATE . $this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl')) {
+</code></pre>
+
+<p>In the recent version, you’ll need to use a slightly different and shorter way to handle it.</p>
+
+<pre><code class="language-php">if (file_exists(DIR_TEMPLATE . $this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl')) {
   $this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view($this-&gt;config-&gt;get('config_template') . '/template/account/account.tpl', $data));
 } else {
   $this-&gt;response-&gt;setOutput($this-&gt;load-&gt;view('default/template/account/account.tpl', $data));
 }
-</code></pre></div>
-<p>As you can see, in the recent version we&#39;re using the view method of the Loader class.</p>
+</code></pre>
+<p>As you can see, in the recent version we’re using the view method of the Loader class.</p>
 
-<h4>3. Children Template Assignment</h4>
-
+<h4 id="children-template-assignment">3. Children Template Assignment</h4>
 <p>In 1.5.x, you needed to provide an array to assign all the children templates like <code>header</code>, <code>footer</code>,  <code>column_left</code>, etc.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;children = array(
+
+<pre><code class="language-php">$this-&gt;children = array(
   'common/column_left',
   'common/column_right',
   'common/content_top',
@@ -173,60 +184,72 @@ $this-&gt;response-&gt;setOutput($this-&gt;render());
   'common/footer',
   'common/header'       
 );
-</code></pre></div>
-<p>In the case of the 2.x.x version, you&#39;ll use the controller method of the Loader class. (You can load controllers now)</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$data['column_left'] = $this-&gt;load-&gt;controller('common/column_left');
+</code></pre>
+
+<p>In the case of the 2.x.x version, you’ll use the controller method of the Loader class. (You can load controllers now)</p>
+
+<pre><code class="language-php">$data['column_left'] = $this-&gt;load-&gt;controller('common/column_left');
 $data['column_right'] = $this-&gt;load-&gt;controller('common/column_right');
 $data['content_top'] = $this-&gt;load-&gt;controller('common/content_top');
 $data['content_bottom'] = $this-&gt;load-&gt;controller('common/content_bottom');
 $data['footer'] = $this-&gt;load-&gt;controller('common/footer');
 $data['header'] = $this-&gt;load-&gt;controller('common/header');
-</code></pre></div>
-<h4>4. URL Redirection</h4>
+</code></pre>
 
-<p>OpenCart 1.5:<br>
+<h4 id="url-redirection">4. URL Redirection</h4>
+
+<p>OpenCart 1.5:<br />
 In the older version, the <code>redirect</code> method was part of the abstract <code>Controller</code> class, so you could call that directly using the <code>$this</code> object.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;redirect($this-&gt;url-&gt;link('extension/module', 'token=' . $this-&gt;session-&gt;data['token'], 'SSL'));
-</code></pre></div>
-<p>OpenCart 2.0:<br>
+
+<pre><code class="language-php">$this-&gt;redirect($this-&gt;url-&gt;link('extension/module', 'token=' . $this-&gt;session-&gt;data['token'], 'SSL'));
+</code></pre>
+
+<p>OpenCart 2.0:<br />
  In the recent version, the <code>redirect</code> method belongs to the <code>Response</code> class and is thus accessed via that object.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;response-&gt;redirect($this-&gt;url-&gt;link('extension/module', 'token=' . $this-&gt;session-&gt;data['token'], 'SSL'));
-</code></pre></div>
-<h4>5. Breadcrumb</h4>
 
-<p>In the recent version, you don&#39;t need to provide a &quot;separator&quot; as an array key as opposed to the earlier version.</p>
+<pre><code class="language-php">$this-&gt;response-&gt;redirect($this-&gt;url-&gt;link('extension/module', 'token=' . $this-&gt;session-&gt;data['token'], 'SSL'));
+</code></pre>
 
-<p>Here&#39;s the snippet from the 1.5.x version:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$this-&gt;data['breadcrumbs'][] = array(
+<h4 id="breadcrumb">5. Breadcrumb</h4>
+<p>In the recent version, you don’t need to provide a “separator” as an array key as opposed to the earlier version.</p>
+
+<p>Here’s the snippet from the 1.5.x version:</p>
+
+<pre><code class="language-php">$this-&gt;data['breadcrumbs'][] = array(
   'text'      =&gt; $this-&gt;language-&gt;get('text_home'),
   'href'      =&gt; $this-&gt;url-&gt;link('common/home'),
   'separator' =&gt; false
 );
-</code></pre></div>
+</code></pre>
+
 <p>A similar result can be achieved by using the following code:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">$data['breadcrumbs'][] = array(
+
+<pre><code class="language-php">$data['breadcrumbs'][] = array(
   'text' =&gt; $this-&gt;language-&gt;get('text_home'),
   'href' =&gt; $this-&gt;url-&gt;link('common/home')
 );
-</code></pre></div>
-<h4>6. Status field is mandatory for the module now</h4>
-<div class="highlight"><pre><code class="language-php" data-lang="php">if (isset($this-&gt;request-&gt;post['moduleName_status'])) {
-    $data['moduleName_status'] = $this-&gt;request-&gt;post['moduleName_status'];
-} else {
-    $data['moduleName_status'] = $this-&gt;config-&gt;get('moduleName_status')
-}
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
+<h4 id="status-field-is-mandatory-for-the-module-now">6. Status field is mandatory for the module now</h4>
+
+<pre><code class="language-php">if (isset($this-&gt;request-&gt;post['moduleName_status'])) {
+	$data['moduleName_status'] = $this-&gt;request-&gt;post['moduleName_status'];
+} else {
+	$data['moduleName_status'] = $this-&gt;config-&gt;get('moduleName_status')
+}
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://sv2109.com/en/article/upgrading-modules-opencart-15x-opencart-20x-or-changes-opencart-20x">Upgrading modules from OpenCart 1.5.x to OpenCart 2.0.x or changes in the OpenCart 2.0.x</a></li>
-<li><a href="https://code.tutsplus.com/tutorials/convert-opencart-modules-from-15x-to-2xx--cms-25051">TutsPlus: Convert OpenCart Modules From 1.5.x to 2.x.x</a></li>
-<li><a href="https://code.tutsplus.com/tutorials/from-beginner-to-advanced-in-opencart-module-development--cms-21873">TutsPlus: From Beginner to Advanced in OpenCart: Module Development</a></li>
+  <li><a href="http://sv2109.com/en/article/upgrading-modules-opencart-15x-opencart-20x-or-changes-opencart-20x">Upgrading modules from OpenCart 1.5.x to OpenCart 2.0.x or changes in the OpenCart 2.0.x</a></li>
+  <li><a href="https://code.tutsplus.com/tutorials/convert-opencart-modules-from-15x-to-2xx--cms-25051">TutsPlus: Convert OpenCart Modules From 1.5.x to 2.x.x</a></li>
+  <li><a href="https://code.tutsplus.com/tutorials/from-beginner-to-advanced-in-opencart-module-development--cms-21873">TutsPlus: From Beginner to Advanced in OpenCart: Module Development</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -272,6 +295,7 @@ In the older version, the <code>redirect</code> method was part of the abstract 
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

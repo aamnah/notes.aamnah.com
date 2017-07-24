@@ -14,6 +14,7 @@
   <meta name="description" content="In Linux, everything is a file. Redirection comes in very handy because you can move data from a file to another file, from the resulting output of a command...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux/2014-07-17-howto-redirection-in-linux.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Redirection in Linux</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-07-17T22:34:46+05:00" itemprop="datePublished">
           Jul 17, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-07-17-howto-redirection-in-linux.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-07-17-howto-redirection-in-linux.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>Bash</li>
       
@@ -102,44 +103,43 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>In Linux, everything is a file. Redirection comes in very handy because you can move data from a file to another file, from the resulting output of a command to a file. You can also redirect the output of one command and feed it as an input to  another command.</p>
 
-<h2>Output &gt;</h2>
-
+<h2 id="output-">Output &gt;</h2>
 <p>The <code>&gt;</code> symbol is used for redirecting output of one command to a new file or another command.</p>
 
-<p>For example:
-<pre class="lang:sh decode:true " >ls -al &gt; listing.txt</pre> </p>
+<p>For example:</p>
+<pre class="lang:sh decode:true ">ls -al &gt; listing.txt</pre>
 
-<p>or </p>
+<p>or</p>
 
-<pre class="lang:sh decode:true " >echo 'hello, this is some info' &gt; hello.txt</pre> 
+<pre class="lang:sh decode:true ">echo 'hello, this is some info' &gt; hello.txt</pre>
 
-<p><code>&gt;</code> <strong>writes</strong> the output. Meaning, if there is anything already in that file, or if there is an existing file with the same name, it&#39;ll be overwritten. To <strong>append</strong> the redirected output at the end of a file, use <code>&gt;&gt;</code>.</p>
+<p><code>&gt;</code> <strong>writes</strong> the output. Meaning, if there is anything already in that file, or if there is an existing file with the same name, it’ll be overwritten. To <strong>append</strong> the redirected output at the end of a file, use <code>&gt;&gt;</code>.</p>
 
-<p>For example:
-<pre class="lang:sh decode:true " >echo &#39;my name is Aamnah, add this at the end&#39; &gt;&gt; hello.txt</pre> </p>
+<p>For example:</p>
+<pre class="lang:sh decode:true ">echo 'my name is Aamnah, add this at the end' &gt;&gt; hello.txt</pre>
 
-<h2>Notes:</h2>
-
+<h2 id="notes">Notes:</h2>
 <ul>
-<li><code>&gt;&amp;</code> redirects the outputs of one file to another while <code>&lt;</code> is the input redirection operator.<br></li>
-<li>You can use error using its corresponding File Descriptor 2.</li>
-<li><code>&amp;&gt;</code> redirects stdout as well as stderr</li>
+  <li><code>&gt;&amp;</code> redirects the outputs of one file to another while <code>&lt;</code> is the input redirection operator.</li>
+  <li>You can use error using its corresponding File Descriptor 2.</li>
+  <li><code>&amp;&gt;</code> redirects stdout as well as stderr</li>
 </ul>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.youtube.com/watch?v=Bzd7XfApxLI">[Video] More about Redirection, Input, Output, Error Redirection and FD (File Descriptor)</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Bzd7XfApxLI">[Video] More about Redirection, Input, Output, Error Redirection and FD (File Descriptor)</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -185,6 +185,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

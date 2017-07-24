@@ -14,6 +14,7 @@
   <meta name="description" content="Coloring the list and tree command outputs (GNU)">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/command-line-color-settings-gnu">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Command line color settings (GNU)</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,41 +92,60 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-Command line color settings (GNU).md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-Command line color settings (GNU).md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Coloring the <code>list</code> and <code>tree</code> command outputs (GNU)</h1>
+    <h1 id="coloring-the-list-and-tree-command-outputs-gnu">Coloring the <code>list</code> and <code>tree</code> command outputs (GNU)</h1>
 
-<h2>Customizing Colors (GNU)</h2>
-
-<p>The format is as follows: <code>LS_COLORS=&quot;di=01;90:ow=01;90&quot;</code></p>
+<h2 id="customizing-colors-gnu">Customizing Colors (GNU)</h2>
+<p>The format is as follows: <code>LS_COLORS="di=01;90:ow=01;90"</code></p>
 
 <p>The LS_COLORS environment variable is a colon <code>:</code> separated list of key=colour pairs. There are 2 types of key: file types and file extensions.</p>
 
-<p>| key | effect | color | meaning |
-|---|---|---|---|
-| di | 01 | 90 | color all dirs dark grey and make it bold |
-| ow | 01 | 90 | color all other_writable (o+w) dirs dark grey and make it bold |</p>
+<table>
+  <thead>
+    <tr>
+      <th>key</th>
+      <th>effect</th>
+      <th>color</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>di</td>
+      <td>01</td>
+      <td>90</td>
+      <td>color all dirs dark grey and make it bold</td>
+    </tr>
+    <tr>
+      <td>ow</td>
+      <td>01</td>
+      <td>90</td>
+      <td>color all other_writable (o+w) dirs dark grey and make it bold</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>Links:</h2>
-
+<h2 id="links">Links:</h2>
 <ul>
-<li><a href="http://www.bigsoft.co.uk/blog/index.php/2008/04/11/configuring-ls_colors">Configuring LS_COLORS (GNU)</a></li>
-<li><a href="http://ubuntuforums.org/showthread.php?t=41538">Howto: Add custom color to directory listings</a></li>
-<li><a href="http://linux-sxs.org/housekeeping/dircolor.html">COLORS-Dircolors</a></li>
-<li><a href="http://unix.stackexchange.com/questions/94299/dircolors-modify-color-settings-globaly">dircolors: modify color settings globaly</a></li>
+  <li><a href="http://www.bigsoft.co.uk/blog/index.php/2008/04/11/configuring-ls_colors">Configuring LS_COLORS (GNU)</a></li>
+  <li><a href="http://ubuntuforums.org/showthread.php?t=41538">Howto: Add custom color to directory listings</a></li>
+  <li><a href="http://linux-sxs.org/housekeeping/dircolor.html">COLORS-Dircolors</a></li>
+  <li><a href="http://unix.stackexchange.com/questions/94299/dircolors-modify-color-settings-globaly">dircolors: modify color settings globaly</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -171,6 +191,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Here is a sample file names.txt that we&#39;ll be using regex on.">
+  <meta name="description" content="Here is a sample file names.txt that we’ll be using regex on.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/regex_in_python">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Regex in Python</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-22T00:00:00+05:00" itemprop="datePublished">
           Feb 22, 2015
         </time>
@@ -91,18 +92,19 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-02-22-Regex_in_Python.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-02-22-Regex_in_Python.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>Here is a sample file <strong>names.txt</strong> that we&#39;ll be using regex on.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Love, Kenneth   kenneth@teamtreehouse.com   (555) 555-5555  Teacher, Treehouse  @kennethlove
+    <p>Here is a sample file <strong>names.txt</strong> that we’ll be using regex on.</p>
+
+<pre><code>Love, Kenneth   kenneth@teamtreehouse.com   (555) 555-5555  Teacher, Treehouse  @kennethlove
 McFarland, Dave dave@teamtreehouse.com  (555) 555-5554  Teacher, Treehouse
 Arthur, King    king_arthur@camelot.co.uk       King, Camelot
 Österberg, Sven-Erik    governor@norrbotten.co.se       Governor, Norrbotten    @sverik
@@ -114,22 +116,29 @@ Obama, Barack   president.44@us.gov 555 555-5551    President, United States of 
 Chalkley, Andrew    andrew@teamtreehouse.com    (555) 555-5553  Teacher, Treehouse  @chalkers
 Vader, Darth    darth-vader@empire.gov  (555) 555-4444  Sith Lord, Galactic Empire  @darthvader
 Fernández de la Vega Sanz, María Teresa mtfvs@spain.gov     First Deputy Prime Minister, Spanish Govt.
-</code></pre></div>
-<p>Let&#39;s create our python script file called <strong>regex.py</strong>. First things first, you need to import the <strong>r</strong>egex <strong>e</strong>xpressions module.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">import re
-</code></pre></div>
-<p>Then we&#39;ll open the names.txt file, read it and close it.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">names_file = open("names.txt")
+</code></pre>
+
+<p>Let’s create our python script file called <strong>regex.py</strong>. First things first, you need to import the <strong>r</strong>egex <strong>e</strong>xpressions module.</p>
+
+<pre><code>import re
+</code></pre>
+
+<p>Then we’ll open the names.txt file, read it and close it.</p>
+
+<pre><code>names_file = open("names.txt")
 data = names_file.read()
 names_file.close()
-</code></pre></div>
+</code></pre>
+
 <p>Now we have all the content of the names.txt file in a variable called <code>data</code> which we can now use to run regex on.</p>
 
-<p>Let&#39;s try searching for a name</p>
-<div class="highlight"><pre><code class="language-" data-lang="">print(re.match(r'Love', data))
+<p>Let’s try searching for a name</p>
+
+<pre><code>print(re.match(r'Love', data))
 print(re.search(r'Kenneth', data))
-</code></pre></div>
-<p><code>r&#39;string&#39;</code> - A raw string that makes writing regular expressions easier.</p>
+</code></pre>
+
+<p><code>r'string'</code> - A raw string that makes writing regular expressions easier.</p>
 
 <p><code>re.match(pattern, text, flags)</code> - Tries to match a pattern against the beginning of the text.</p>
 
@@ -138,54 +147,123 @@ print(re.search(r'Kenneth', data))
 <p><code>.match</code> searches for a pattern in the beginning of $data and <code>.search</code> searches for a pattern anywhere in $data.</p>
 
 <p>The result we would get would be something like this:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;_sre.SRE_Match object; span=(0, 4), match='Love'&gt;
+
+<pre><code>&lt;_sre.SRE_Match object; span=(0, 4), match='Love'&gt;
 &lt;_sre.SRE_Match object; span=(6, 13), match='Kenneth'&gt; 
-</code></pre></div>
+</code></pre>
+
 <p>You can make the script easier to read by defining your search patterns as variables.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">first_name = r'Love'
+
+<pre><code>first_name = r'Love'
 last_name = r'Kenneth'
 print(re.match(first_name, data))
 print(re.search(last_name, data)) 
-</code></pre></div>
-<h2>Escape Characters</h2>
+</code></pre>
 
-<p>| Character | Meaning                                           |
-|-----------|---------------------------------------------------|
-| \w        | any Unicode word character                        |
-| \W        | anything that isn&#39;t a Unicode character           |
-| \s        | matches whitespace (spaces, tabs, newlines etc.)  |
-| \S        | anything that isn&#39;t whitespace                    |
-| \d        | matches any number 0-9                            |
-| \D        | matches anything that isn&#39;t a number              |
-| \b        | matches word boundries (edges of the word)        | 
-| \B        | matches anything that isn&#39;t the edge of a word    | </p>
+<h2 id="escape-characters">Escape Characters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\w</td>
+      <td>any Unicode word character</td>
+    </tr>
+    <tr>
+      <td>\W</td>
+      <td>anything that isn’t a Unicode character</td>
+    </tr>
+    <tr>
+      <td>\s</td>
+      <td>matches whitespace (spaces, tabs, newlines etc.)</td>
+    </tr>
+    <tr>
+      <td>\S</td>
+      <td>anything that isn’t whitespace</td>
+    </tr>
+    <tr>
+      <td>\d</td>
+      <td>matches any number 0-9</td>
+    </tr>
+    <tr>
+      <td>\D</td>
+      <td>matches anything that isn’t a number</td>
+    </tr>
+    <tr>
+      <td>\b</td>
+      <td>matches word boundries (edges of the word)</td>
+    </tr>
+    <tr>
+      <td>\B</td>
+      <td>matches anything that isn’t the edge of a word</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><code>\w</code> means any Unicode character including numbers, letters both uppercase and lowercase, special characters etc.</p>
 
-<p>Let&#39;s try searching for a phone number now, say (555) 555-5555</p>
-<div class="highlight"><pre><code class="language-" data-lang="">number_pattern = r'\(\d\d\d\) \d\d\d-\d\d\d\d'
-print(re.search(number_pattern, data))
-</code></pre></div>
-<p>notice that we have escaped the parantheses <code>( )</code>. By default, parantheses mean a regex group. To use parantheses in a match pattern, you need to escape them. The output would be:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;_sre.SRE_Match object; span=(40, 54), match='(555) 555-5555'&gt;    
-</code></pre></div>
-<h2>Counts</h2>
+<p>Let’s try searching for a phone number now, say (555) 555-5555</p>
 
+<pre><code>number_pattern = r'\(\d\d\d\) \d\d\d-\d\d\d\d'
+print(re.search(number_pattern, data))
+</code></pre>
+
+<p>notice that we have escaped the parantheses <code>( )</code>. By default, parantheses mean a regex group. To use parantheses in a match pattern, you need to escape them. The output would be:</p>
+
+<pre><code>&lt;_sre.SRE_Match object; span=(40, 54), match='(555) 555-5555'&gt;    
+</code></pre>
+
+<h2 id="counts">Counts</h2>
 <p>Instead of doing <code>\d\d\d\d\d</code> for 5 numbers, we can specify counts like <code>{3}</code> for somethnig that occurs 3 times and <code>{,3}</code> for something that occurs 0 to 3 times.</p>
 
-<p>| Counts | Meaning                                    |
-|--------|--------------------------------------------|
-| {3}    | something that occurs <strong>exactly 3</strong> times  |
-| {,3}   | something that occurs <strong>0 to 3</strong> times     |
-| {3,}   | something that occurs <strong>3 or more</strong> times  |
-| {3,5}  | something that occurs <strong>3, 4 or 5</strong> times  |
-| ?      | something that occurs <strong>0 or 1</strong> times     |
-| *    | something that occurs <strong>at least 0</strong> times (there is no upper bound) |
-| +    | something that occurs <strong>at least once</strong> (there is no upper bound)    |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Counts</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{3}</td>
+      <td>something that occurs <strong>exactly 3</strong> times</td>
+    </tr>
+    <tr>
+      <td>{,3}</td>
+      <td>something that occurs <strong>0 to 3</strong> times</td>
+    </tr>
+    <tr>
+      <td>{3,}</td>
+      <td>something that occurs <strong>3 or more</strong> times</td>
+    </tr>
+    <tr>
+      <td>{3,5}</td>
+      <td>something that occurs <strong>3, 4 or 5</strong> times</td>
+    </tr>
+    <tr>
+      <td>?</td>
+      <td>something that occurs <strong>0 or 1</strong> times</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>something that occurs <strong>at least 0</strong> times (there is no upper bound)</td>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td>something that occurs <strong>at least once</strong> (there is no upper bound)</td>
+    </tr>
+  </tbody>
+</table>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -231,6 +309,7 @@ print(re.search(number_pattern, data))
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

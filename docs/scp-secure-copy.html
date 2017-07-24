@@ -14,6 +14,7 @@
   <meta name="description" content="Basic syntax is this:">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/scp-secure-copy">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[scp] Secure Copy</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-02-11T00:00:00+05:00" itemprop="datePublished">
           Feb 11, 2016
         </time>
@@ -91,46 +92,55 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[scp] Secure Copy.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[scp] Secure Copy.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Basic syntax is this:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">scp fileToCopy user@remoteServer:Location
-</code></pre></div>
-<h2>SCP using port number:</h2>
 
+<pre><code>scp fileToCopy user@remoteServer:Location
+</code></pre>
+
+<h2 id="scp-using-port-number">SCP using port number:</h2>
 <p>use the <code>-P</code> (capital P) flag for port. <code>-p</code> (small p) is reserved for rsync time.</p>
-<div class="highlight"><pre><code class="language-" data-lang=""> scp -P 2200 /file-to-copy user@server.com:/location-to-copy-to
-</code></pre></div>
-<h2>Passing an authentication key:</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">scp -P 2200 -i ~/.ssh/rsa_key /file-to-copy user@server.com:/location-to-copy-to
-</code></pre></div>
+
+<pre><code> scp -P 2200 /file-to-copy user@server.com:/location-to-copy-to
+</code></pre>
+
+<h2 id="passing-an-authentication-key">Passing an authentication key:</h2>
+
+<pre><code>scp -P 2200 -i ~/.ssh/rsa_key /file-to-copy user@server.com:/location-to-copy-to
+</code></pre>
+
 <p>If you have saved ssh keys already and there is only one key for the server you are copying to, scp much like ssh will automatically pick up the key and you will not have to pass the -i argument. You will still have to specify the port you are using though if it is anything other than 22.</p>
 
-<h2>Passing options for ssh:</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">scp -P 2200 -i ~/.ssh/rsa_key  /file-to-copy user@server.com:/location-to-copy-to
-</code></pre></div>
-<h3>Working Example:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">scp -P2200 -i ~/.ssh/kh /Users/aamnah/Dropbox/backup-7.14.2013_06-03-28_noor.tar.gz root@server9.hostmarkaz.com:~/
-</code></pre></div>
+<h2 id="passing-options-for-ssh">Passing options for ssh:</h2>
+
+<pre><code>scp -P 2200 -i ~/.ssh/rsa_key  /file-to-copy user@server.com:/location-to-copy-to
+</code></pre>
+
+<h3 id="working-example">Working Example:</h3>
+
+<pre><code>scp -P2200 -i ~/.ssh/kh /Users/aamnah/Dropbox/backup-7.14.2013_06-03-28_noor.tar.gz root@server9.hostmarkaz.com:~/
+</code></pre>
+
 <p>you can pass all ssh options to scp as well.</p>
 
-<h2>Resources</h2>
-
+<h2 id="resources">Resources</h2>
 <ul>
-<li>http://www.hypexr.org/linux<em>scp</em>help.php</li>
+  <li>http://www.hypexr.org/linux_scp_help.php</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -176,6 +186,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

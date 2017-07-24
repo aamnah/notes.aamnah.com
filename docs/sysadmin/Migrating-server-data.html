@@ -14,6 +14,7 @@
   <meta name="description" content="Migrating data from a barebones server to another barebones server">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/sysadmin/Migrating-server-data.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Migrating server data and databases</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-02-02T00:00:00+05:00" itemprop="datePublished">
           Feb 2, 2017
         </time>
@@ -91,68 +92,74 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/Migrating-server-data.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/Migrating-server-data.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Migrating data from a barebones server to another barebones server</h1>
+    <h1 id="migrating-data-from-a-barebones-server-to-another-barebones-server">Migrating data from a barebones server to another barebones server</h1>
 
-<h3>Compress files</h3>
+<h3 id="compress-files">Compress files</h3>
+<p>Let’s say you have websites in <code>/var/www</code> folder that you want to transfer. Compressing them first will save bandwidth as well as transfer time.</p>
 
-<p>Let&#39;s say you have websites in <code>/var/www</code> folder that you want to transfer. Compressing them first will save bandwidth as well as transfer time.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># tar czf &lt;filename&gt; &lt;source&gt;</span>
+<pre><code class="language-bash"># tar czf &lt;filename&gt; &lt;source&gt;
 tar czf aamnah.tar.gz /var/www/aamnah.com
-</code></pre></div>
+</code></pre>
 <p><code>c</code> - create
 <code>z</code> - compress (gzip)
 <code>f</code> - take a filename
 <code>v</code> - verbose (optional, if you wanna see lines fly by on the termianl)</p>
 
-<h3>Transfer files</h3>
-
+<h3 id="transfer-files">Transfer files</h3>
 <p>SCP (Secure Copy) to the rescue</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">scp -P 1234 -i ~/.ssh/blah file1.tar.gz file2.tar.gz file3 file4.sql.gz user@server.domain.com:/location-on-new-server
-</code></pre></div>
+
+<pre><code class="language-bash">scp -P 1234 -i ~/.ssh/blah file1.tar.gz file2.tar.gz file3 file4.sql.gz user@server.domain.com:/location-on-new-server
+</code></pre>
+
 <ul>
-<li>You can copy multiple files with one command</li>
-<li>You can specify the SSH port with <code>-P</code> for the target server</li>
-<li>You can pass in an SSH key with <code>-i</code>, saves you the password prompt. Key must already be authenticated with target server.</li>
+  <li>You can copy multiple files with one command</li>
+  <li>You can specify the SSH port with <code>-P</code> for the target server</li>
+  <li>You can pass in an SSH key with <code>-i</code>, saves you the password prompt. Key must already be authenticated with target server.</li>
 </ul>
 
-<h3>Backup MySQL databases</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># mysqldump -u &lt;uname&gt; -p&lt;pass&gt; &lt;dbname&gt; | gzip -9 &gt; &lt;backupfile.sql.gz&gt;</span>
+<h3 id="backup-mysql-databases">Backup MySQL databases</h3>
+
+<pre><code class="language-bash"># mysqldump -u &lt;uname&gt; -p&lt;pass&gt; &lt;dbname&gt; | gzip -9 &gt; &lt;backupfile.sql.gz&gt;
 mysqldump -u username -p --all-databases | gzip -9 &gt; allDatabases.sql.gz
-</code></pre></div>
+</code></pre>
+
 <p><code>--all-databases</code> will backup ALL databases, including <code>mysql</code>, <code>use</code>, <code>db</code>, <code>tables_priv</code>, and <code>columns_priv</code> etc. These tables include user accounts and global privilieges etc.</p>
 
-<h3>Restore MySQL databases</h3>
+<h3 id="restore-mysql-databases">Restore MySQL databases</h3>
 
 <p>To restore compressed backups</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># gunzip &lt; [backupfile.sql.gz] | mysql -u [uname] -p[pass] [dbname]</span>
+
+<pre><code class="language-bash"># gunzip &lt; [backupfile.sql.gz] | mysql -u [uname] -p[pass] [dbname]
 gunzip allDatabases.sql.gz
 mysql -u username -p &lt; allDatabases.sql
-</code></pre></div>
+</code></pre>
 <p>For the above to work, the databases need to exits or the backup script needs to have the <code>CREATE DATABASE</code> queries for the databases.</p>
 
-<p>If you&#39;re importing into existing databases, use the <code>mysqlimport</code> command</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mysqlimport -u <span class="o">[</span>uname] -p[pass] <span class="o">[</span>dbname] <span class="o">[</span>backupfile.sql]
-</code></pre></div>
-<h2>Links</h2>
+<p>If you’re importing into existing databases, use the <code>mysqlimport</code> command</p>
 
+<pre><code class="language-bash">mysqlimport -u [uname] -p[pass] [dbname] [backupfile.sql]
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://webcheatsheet.com/sql/mysql_backup_restore.php">How to Back Up and Restore a MySQL Database</a></li>
-<li><a href="http://stackoverflow.com/questions/597732/backup-mysql-users">StackOverflow: Backup MySQL users</a></li>
+  <li><a href="http://webcheatsheet.com/sql/mysql_backup_restore.php">How to Back Up and Restore a MySQL Database</a></li>
+  <li><a href="http://stackoverflow.com/questions/597732/backup-mysql-users">StackOverflow: Backup MySQL users</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -198,6 +205,7 @@ mysql -u username -p &lt; allDatabases.sql
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

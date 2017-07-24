@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Restart SSH">
+  <meta name="description" content="  Restart SSH">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-restart-services-in-linux">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Restart services in Linux</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T15:33:52+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-05-21-howto-linux-restart-services.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-05-21-howto-linux-restart-services.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>linux</li>
       
@@ -104,25 +105,31 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ul>
-<li><strong>Restart SSH</strong></li>
+  <li><strong>Restart SSH</strong></li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo service sshd restart
-</code></pre></div>
-<p>or </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo service ssh restart
-</code></pre></div>
+
+<pre><code class="language-bash">sudo service sshd restart
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="language-bash">sudo service ssh restart
+</code></pre>
 <ul>
-<li><strong>Restart Apache</strong></li>
+  <li><strong>Restart Apache</strong></li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo service apache2 restart
-</code></pre></div>
+
+<pre><code class="language-bash">sudo service apache2 restart
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -168,6 +175,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

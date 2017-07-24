@@ -14,6 +14,7 @@
   <meta name="description" content="Filesystem Hierarchy Standard">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/fhs-linux-file-system">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">FHS, File System Architecture and Directory Structure</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-12T00:00:00+05:00" itemprop="datePublished">
           Nov 12, 2015
         </time>
@@ -91,77 +92,75 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/FHS-File-system-architecture-and-Directory Structure.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/FHS-File-system-architecture-and-Directory Structure.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2>
+    <h2 id="filesystem-hierarchy-standard"><strong>F</strong>ilesystem <strong>H</strong>ierarchy <strong>S</strong>tandard</h2>
 
 <blockquote>
-<p><strong>FHS</strong> is the standard method of laying out the directory structure in Linux distributions, so that the contents follow a standard layout. That you can always depend upon certain types of files being in certain types of directories, and that they are generally consistent accross distributions.</p>
+  <p><strong>FHS</strong> is the standard method of laying out the directory structure in Linux distributions, so that the contents follow a standard layout. That you can always depend upon certain types of files being in certain types of directories, and that they are generally consistent accross distributions.</p>
 </blockquote>
 
-<p>Some systems may deviate from FHS in some areas. The current FHS is v2.3, was actually announced Jan 29th, 2004. v3 has been under development for almost 5 years. It stands to reason that some Linux file systems or dirs may have developed over the last ten years use of Linux that don&#39;t quite fit this FHS standard.</p>
+<p>Some systems may deviate from FHS in some areas. The current FHS is v2.3, was actually announced Jan 29th, 2004. v3 has been under development for almost 5 years. It stands to reason that some Linux file systems or dirs may have developed over the last ten years use of Linux that don’t quite fit this FHS standard.</p>
 
-<h1>Structure</h1>
+<h1 id="structure">Structure</h1>
 
-<p>Please note that OSX is not FHS-compliant. I&#39;ve added screenshots because i&#39;m a Mac user and am interested in seeing the similarities and differences with Linux.</p>
+<p>Please note that OSX is not FHS-compliant. I’ve added screenshots because i’m a Mac user and am interested in seeing the similarities and differences with Linux.</p>
 
 <p>file system structure on Ubuntu</p>
 
-<p><img src="/assets/img/resources/8DBDC808-06B2-4860-9FF7-7F800E68C6B2.jpg" alt="file system structure on Ubuntu"></p>
+<p><img src="/assets/img/resources/8DBDC808-06B2-4860-9FF7-7F800E68C6B2.jpg" alt="file system structure on Ubuntu" /></p>
 
 <p>file system structure on Mac</p>
 
-<p><img src="/assets/img/resources/5EEAF980-E1C8-4B89-86D0-57BF835645B5.png" alt="file system structure on Mac"></p>
+<p><img src="/assets/img/resources/5EEAF980-E1C8-4B89-86D0-57BF835645B5.png" alt="file system structure on Mac" /></p>
 
-<p><img src="/assets/img/resources/B227BFB020BAB95E9BBBF7396AF7138C.png" alt="Screenshot 2015-11-21 12.19.16.png"></p>
+<p><img src="/assets/img/resources/B227BFB020BAB95E9BBBF7396AF7138C.png" alt="Screenshot 2015-11-21 12.19.16.png" /></p>
 
-<p><img src="/assets/img/resources/95121B382DD49EDA93505D3F8DF92EF8.png" alt="Screenshot 2015-11-21 12.21.51.png"></p>
+<p><img src="/assets/img/resources/95121B382DD49EDA93505D3F8DF92EF8.png" alt="Screenshot 2015-11-21 12.21.51.png" /></p>
 
 <p>You can do <code>man hier</code> to get help and explanations concerning the <strong>layout of filesystems</strong>. This command works on both Linux and Mac</p>
 
 <ul>
-<li><code>/</code> entire System hierarchy, primary hierarchy</li>
-<li><code>/bin</code> Command binaries and other executable files</li>
-<li><code>/boot</code> Boot files, boot loaders, kernel</li>
-<li><code>/cdrom</code> Mount point for CD ROMs</li>
-<li><code>/dev</code> Devices</li>
-<li><code>/etc</code> System Configuration files</li>
-<li><code>/home</code> User Home directories</li>
-<li><code>/media</code> Removeable media, like CDs</li>
-<li><code>/mnt</code> Mounted devices and disks</li>
-<li><code>/opt</code> Optional or third party sofwtare</li>
-<li><code>/proc</code> Provides info about running processes</li>
-<li><code>/root</code> Home dir for the root user</li>
-<li><code>/sbin</code> System administration binaries</li>
-<li><code>/tmp</code> Temporary space, typically cleared on reboot</li>
-<li><code>/usr</code> User realted programs, binaries and docs</li>
-<li><code>/usr/bin</code> most of our executable progarms live here</li>
-<li><code>/usr/sbin</code> system adminisration programs</li>
-<li><code>/usr/lib</code> libraries for <code>/usr/bin</code></li>
-<li><code>/usr/libexec</code></li>
-<li><code>/usr/local</code> Locally installed software that is not part of the base OS</li>
-<li><code>/usr/share/man</code> man pages reside here</li>
-<li><code>/var</code> Variable data, most notably log files</li>
-<li><code>/var/log</code> Log files</li>
+  <li><code>/</code> entire System hierarchy, primary hierarchy</li>
+  <li><code>/bin</code> Command binaries and other executable files</li>
+  <li><code>/boot</code> Boot files, boot loaders, kernel</li>
+  <li><code>/cdrom</code> Mount point for CD ROMs</li>
+  <li><code>/dev</code> Devices</li>
+  <li><code>/etc</code> System Configuration files</li>
+  <li><code>/home</code> User Home directories</li>
+  <li><code>/media</code> Removeable media, like CDs</li>
+  <li><code>/mnt</code> Mounted devices and disks</li>
+  <li><code>/opt</code> Optional or third party sofwtare</li>
+  <li><code>/proc</code> Provides info about running processes</li>
+  <li><code>/root</code> Home dir for the root user</li>
+  <li><code>/sbin</code> System administration binaries</li>
+  <li><code>/tmp</code> Temporary space, typically cleared on reboot</li>
+  <li><code>/usr</code> User realted programs, binaries and docs</li>
+  <li><code>/usr/bin</code> most of our executable progarms live here</li>
+  <li><code>/usr/sbin</code> system adminisration programs</li>
+  <li><code>/usr/lib</code> libraries for <code>/usr/bin</code></li>
+  <li><code>/usr/libexec</code></li>
+  <li><code>/usr/local</code> Locally installed software that is not part of the base OS</li>
+  <li><code>/usr/share/man</code> man pages reside here</li>
+  <li><code>/var</code> Variable data, most notably log files</li>
+  <li><code>/var/log</code> Log files</li>
 </ul>
 
-<h1>/</h1>
-
+<h1 id="section">/</h1>
 <p><code>/</code> aka root is the top of your file system. Do not confuse this with <code>/root</code> because /root is the home user directory of the root user. Do not store files in <code>/</code></p>
 
-<h1>/bin</h1>
-
+<h1 id="bin">/bin</h1>
 <p>Essential command binaries and executable programs. These need to be available to all users, if you run in Single User Mode. Anything (command) that you might need, whether it is <code>ls</code> or <code>cp</code> or <code>mv</code> or <code>cat</code>, these commands are gonna be in the <em>/bin</em> directory for any Linux distribution that complies with FSH.</p>
 
-<p>If you&#39;re booting in Single User Mode to recover your system, you&#39;re going to need the binaries in <em>/bin</em>.</p>
+<p>If you’re booting in Single User Mode to recover your system, you’re going to need the binaries in <em>/bin</em>.</p>
 
 <p>They are called <em>binaries</em> because machine reads binary code, which is ones and zeros.</p>
 
@@ -169,34 +168,31 @@
 
 <p>/bin on Linux</p>
 
-<p><img src="/assets/img/resources/0770FCDE-4277-4A6C-B8FF-1BE87B402990.png" alt=""></p>
+<p><img src="/assets/img/resources/0770FCDE-4277-4A6C-B8FF-1BE87B402990.png" alt="" /></p>
 
 <p>/bin on Mac</p>
 
-<p><img src="/assets/img/resources/F2508E8F-6707-4F7A-8575-F82A02424942.png" alt=""></p>
+<p><img src="/assets/img/resources/F2508E8F-6707-4F7A-8575-F82A02424942.png" alt="" /></p>
 
-<h1>/boot</h1>
-
+<h1 id="boot">/boot</h1>
 <p>Boot files: boot loaders, initrd files, kernel files etc. These are files that are necessary for the kernel to pass into the boot stage from the grub boot loader</p>
 
-<p><img src="/assets/img/resources/E0EC0C8E-3C51-4437-83F9-BE1BE0AAC439.png" alt=""></p>
+<p><img src="/assets/img/resources/E0EC0C8E-3C51-4437-83F9-BE1BE0AAC439.png" alt="" /></p>
 
-<h1>/dev</h1>
-
+<h1 id="dev">/dev</h1>
 <p>Device directory. These are essential devices. /dev/null, /dev/random, /dev/urandom.. These are the devices that are actually on our system. Our hard drives, CD ROMs etc.</p>
 
-<p>For example, you may have the first hard drive as /dev/sda/, the second as /dev/sdb/ and so on. If they have partitions they&#39;d even have furthermore numbers that&#39;d follow them , like /dev/sda1/ /dev/sda2/ etc.</p>
+<p>For example, you may have the first hard drive as /dev/sda/, the second as /dev/sdb/ and so on. If they have partitions they’d even have furthermore numbers that’d follow them , like /dev/sda1/ /dev/sda2/ etc.</p>
 
 <p>In Linux, devices are treated as files and you can write them as such.</p>
 
 <p>There are actually two sorts of device files that can be stored in /dev/ folder. Character oriented and Block type. Character oriented device files are used for devices that send or receive data sequentially, one character at a time. Like printers. Block oriented device files manage data in what is known as blocks. Like your actual hard drive, USB drives etc.</p>
 
-<h1>/etc</h1>
-
+<h1 id="etc">/etc</h1>
 <p>Host system specific configuration file directory. Most of these are text files and can be edited using a text editor.</p>
 
 <p>/etc on Linux
-<img src="/assets/img/resources/5BDB3285C1752FE5491F1A0718D2C758.png" alt="Screenshot 2015-11-21 12.47.01.png"></p>
+<img src="/assets/img/resources/5BDB3285C1752FE5491F1A0718D2C758.png" alt="Screenshot 2015-11-21 12.47.01.png" /></p>
 
 <p>For example:
 Apache conf (Ubuntu): <code>/etc/apache2/apache2.conf</code>
@@ -206,155 +202,151 @@ System-wide php.ini: <code>/etc/php5/apache2/php.ini</code>
 PHPMyAdmin: <code>/etc/apache2/phpmyadmin.conf</code>
 MySQL: <code>etc/mysql/my.cnf</code></p>
 
-<p><img src="/assets/img/resources/55767302F5585E86A017AA59F31E4132.png" alt="Screenshot 2015-12-18 12.50.50.png">
-<img src="/assets/img/resources/4EB455D278466E54AD4EB863C541643A.png" alt="Screenshot 2015-12-18 01.08.14.png"></p>
+<p><img src="/assets/img/resources/55767302F5585E86A017AA59F31E4132.png" alt="Screenshot 2015-12-18 12.50.50.png" />
+<img src="/assets/img/resources/4EB455D278466E54AD4EB863C541643A.png" alt="Screenshot 2015-12-18 01.08.14.png" /></p>
 
-<p>It inculdes backronyms such as editable text configurations and extended tool chest. You&#39;ll find all of the configuration of run level files that you need to configure for your system from the boot up and boot devices that are connected to the run levels of your system.</p>
+<p>It inculdes backronyms such as editable text configurations and extended tool chest. You’ll find all of the configuration of run level files that you need to configure for your system from the boot up and boot devices that are connected to the run levels of your system.</p>
 
 <p>Condig files for X Windows systems and your root documents.</p>
 
-<h1>/home</h1>
+<h1 id="home">/home</h1>
+<p>User home dirs. Typically with Linux distros, it’s the (only) place where you have write perms by default.</p>
 
-<p>User home dirs. Typically with Linux distros, it&#39;s the (only) place where you have write perms by default.</p>
-
-<h1>/lib</h1>
-
+<h1 id="lib">/lib</h1>
 <p>Essential libraries (dependencies?) for all of our binaries that are in /bin and /sbin</p>
 
-<h1>/media</h1>
-
+<h1 id="media">/media</h1>
 <p>Temporarily mounted file systems. Removable media, an extenral USB drive e.g. Linux distros that have /media include OpenSUSE, Fedora and Debian Ubuntu</p>
 
-<h1>/mnt</h1>
-
+<h1 id="mnt">/mnt</h1>
 <p>The mount directory is used by some Linux distros to mount other external devices like CD-drives, DVD drives, USB drives and so on.</p>
 
-<h1>/opt</h1>
-
+<h1 id="opt">/opt</h1>
 <p>Optional applciation software packages, or third party software. Things that we have insatlled. Software that do not come with the OS. For example, Google Earth</p>
 
-<h1>/proc</h1>
-
+<h1 id="proc">/proc</h1>
 <p>All of the info for ecerything inculding our kernel core, IO ports as well as references to all the running PIDs on the system.</p>
 
 <p>/proc is actually a pseudo filesystem that is dynamically created whenever it is actually accessed. Within our /proc directories there are furthermore sub-directories and each of these sub-directories is identifiable with a number and not a name. That number is a PID (Process ID) number. The directory stands for a process. (You can check PIDs with the <code>ps ax</code> command)</p>
 
-<p><img src="/assets/img/resources/0F2406EBD4C954A01612BB893C31828D.png" alt="Screenshot 2015-12-18 12.58.40.png"></p>
+<p><img src="/assets/img/resources/0F2406EBD4C954A01612BB893C31828D.png" alt="Screenshot 2015-12-18 12.58.40.png" /></p>
 
 <p>There are also other files in this /proc folder, like /proc/cpuinfo that might be of interest</p>
 
-<p><img src="/assets/img/resources/697F29FB1C063A81C033BFE9260994EF.png" alt="Screenshot 2015-12-18 13.02.00.png"></p>
+<p><img src="/assets/img/resources/697F29FB1C063A81C033BFE9260994EF.png" alt="Screenshot 2015-12-18 13.02.00.png" /></p>
 
-<h1>/root</h1>
-
+<h1 id="root">/root</h1>
 <p>Home dir for root user. This is usually at the base of the file system instead of in /home/root like the home directories for normal users</p>
 
-<h1>/sbin</h1>
-
+<h1 id="sbin">/sbin</h1>
 <p>Similar to /bin, only the /sbin folder conatins essential <strong>system management and administration files</strong>/bianries. This includes utilities such as <code>init</code>, <code>netstat</code>, <code>sysctl</code>, <code>fsck</code>, <code>fdisk</code>, <code>fsch</code>, <code>ifconfig</code>, <code>mkfs</code>, <code>shutdown</code> and <code>halt</code> etc. All <strong>administrator users</strong> will need these binaries at some point.</p>
 
-<h1>/srv</h1>
-
+<h1 id="srv">/srv</h1>
 <p>Site specific data served by the system. Contains sub-dirs for services running on our system such as <em>httpd</em> for apache or <em>ftpd</em> for FTP</p>
 
-<h1>/sys</h1>
-
+<h1 id="sys">/sys</h1>
 <p>The /sys folder contains info about hardware that is on our system</p>
 
-<p><img src="/assets/img/resources/4B83A9A3CEF7E7AA5245D22038044112.png" alt="Screenshot 2015-12-18 13.08.52.png"></p>
+<p><img src="/assets/img/resources/4B83A9A3CEF7E7AA5245D22038044112.png" alt="Screenshot 2015-12-18 13.08.52.png" /></p>
 
-<h1>/tmp</h1>
-
+<h1 id="tmp">/tmp</h1>
 <p>Temporary space, typically cleared on reboot. all of our users have read/write access to /tmp.</p>
 
-<h1>/usr</h1>
-
+<h1 id="usr">/usr</h1>
 <p>The /usr directory contains application files. Most of the application files used on our system are stored in a sub-dir of the /usr dir.</p>
 
 <ul>
-<li><code>/usr/bin</code> is where most of our executable programs live</li>
-<li><code>/usr/lib</code> is library files for the application in /usr/bin</li>
-<li><code>/usr/lib64</code> is similar to <code>/usr/lib</code>, however it only contains 64-bit libraries</li>
-<li><code>/usr/local</code> is locally insalled software that we have cerated (installed?) ourselves.</li>
-<li><code>/usr/sbin</code> similar to <code>/usr/bin</code>, only that it contains <strong>s</strong>ystem administration programs</li>
-<li><code>/usr/share</code> is where the documentation and man pages reside</li>
+  <li><code>/usr/bin</code> is where most of our executable programs live</li>
+  <li><code>/usr/lib</code> is library files for the application in /usr/bin</li>
+  <li><code>/usr/lib64</code> is similar to <code>/usr/lib</code>, however it only contains 64-bit libraries</li>
+  <li><code>/usr/local</code> is locally insalled software that we have cerated (installed?) ourselves.</li>
+  <li><code>/usr/sbin</code> similar to <code>/usr/bin</code>, only that it contains <strong>s</strong>ystem administration programs</li>
+  <li><code>/usr/share</code> is where the documentation and man pages reside</li>
 </ul>
 
 <p>Secondary hierarchy, read-only user data. Contains the majority of multi-user.</p>
 
 <p><code>/usr</code> conatins software applications and all the files necessary to run them (aka <em>dependencies</em>).
-It&#39;s the biggest dir on the file system. It&#39;s recommended giving it it&#39;s own partition.</p>
+It’s the biggest dir on the file system. It’s recommended giving it it’s own partition.</p>
 
-<h1>/var</h1>
-
+<h1 id="var">/var</h1>
 <p>Variable files. Log files, spool dir for printing, run files etc.</p>
 
-<h1>/lost+found</h1>
+<h1 id="lostfound">/lost+found</h1>
+<p>Stores all of your restored files that would’ve been lost after a system crashes or something strange happens.. e.g. kernel panics</p>
 
-<p>Stores all of your restored files that would&#39;ve been lost after a system crashes or something strange happens.. e.g. kernel panics</p>
+<p>Every partition has a lost+found in it’s upper directory.</p>
 
-<p>Every partition has a lost+found in it&#39;s upper directory.</p>
-
-<h2>Notes</h2>
-
+<h2 id="notes">Notes</h2>
 <ul>
-<li>try to follow the naming convention when creating your files: lowercase, no spaces, slashes or astericks. </li>
-<li>Remember, files that begin with a <code>.</code> are hidden.</li>
+  <li>try to follow the naming convention when creating your files: lowercase, no spaces, slashes or astericks.</li>
+  <li>Remember, files that begin with a <code>.</code> are hidden.</li>
 </ul>
 
-<h2>Application Directory Structure</h2>
-
+<h2 id="application-directory-structure">Application Directory Structure</h2>
 <ul>
-<li>/opt</li>
-<li>/usr/lcoal</li>
+  <li>/opt</li>
+  <li>/usr/lcoal</li>
 </ul>
 
 <p>Software that you install is usually installed in <code>/usr/local/</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/PROGRAM/bin
+
+<pre><code>/usr/local/PROGRAM/bin
 /usr/local/PROGRAM/etc
 /usr/local/PROGRAM/lib
 /usr/local/PROGRAM/log
-</code></pre></div>
-<p>OR in a fodler in <code>/opt/</code>. The folder name could be the program&#39;s name or the company&#39;s name. Like in Windows they have the <em>Adobe</em> folder for Adobe software.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/opt/PROGRAM/bin
+</code></pre>
+
+<p>OR in a fodler in <code>/opt/</code>. The folder name could be the program’s name or the company’s name. Like in Windows they have the <em>Adobe</em> folder for Adobe software.</p>
+
+<pre><code>/opt/PROGRAM/bin
 /opt/PROGRAM/etc
 /opt/PROGRAM/lib
 /opt/PROGRAM/log
-</code></pre></div>
+</code></pre>
+
 <p>or in <code>/opt/</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">/opt/COMPANY
+
+<pre><code>/opt/COMPANY
 /opt/COMPANY/bin
 /opt/COMPANY/etc
-</code></pre></div>
+</code></pre>
+
 <p>or in <code>/opt/</code> using both company and program names as folders.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/opt/google
+
+<pre><code>/opt/google
 /opt/google/chrome
 /opt/google/earth
-</code></pre></div>
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/etc/opt/PROGRAM =&gt; Config files
+
+<pre><code>/etc/opt/PROGRAM =&gt; Config files
 /opt/PROGRAM/etc
 /opt/PROGRAM/lib
 /var/opt/PROGRAM =&gt; Log files
-</code></pre></div>
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/bin/PROGRAM 
+
+<pre><code>/usr/local/bin/PROGRAM 
 /usr/local/etc/PROGRAM.conf
 /usr/local/lib/libPROGRAM.so
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.pdf">Filesystem Hierarchy Standard: Official documentation</a></li>
-<li><a href="http://apple.stackexchange.com/questions/119230/what-is-standard-for-os-x-filesystem-e-g-opt-vs-usr">What is standard for os x filesystem? e.g. /opt/ vs. /usr/</a></li>
-<li><a href="https://www.youtube.com/watch?v=2qQTXp4rBEE">YouTube: Nixie Pixel: The Linux File System Explained </a></li>
-<li><a href="https://linuxacademy.com/cp/courses/lesson/course/331/lesson/1/module/38">Linux Academy: The Linux Filesystem</a></li>
-<li><a href="https://stackskills.com/courses/learn-linux-in-5-days-and-level-up-your-career/lectures/488038">Linux Training Academy: The Linux Directory Structure</a></li>
+  <li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.pdf">Filesystem Hierarchy Standard: Official documentation</a></li>
+  <li><a href="http://apple.stackexchange.com/questions/119230/what-is-standard-for-os-x-filesystem-e-g-opt-vs-usr">What is standard for os x filesystem? e.g. /opt/ vs. /usr/</a></li>
+  <li><a href="https://www.youtube.com/watch?v=2qQTXp4rBEE">YouTube: Nixie Pixel: The Linux File System Explained </a></li>
+  <li><a href="https://linuxacademy.com/cp/courses/lesson/course/331/lesson/1/module/38">Linux Academy: The Linux Filesystem</a></li>
+  <li><a href="https://stackskills.com/courses/learn-linux-in-5-days-and-level-up-your-career/lectures/488038">Linux Training Academy: The Linux Directory Structure</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -400,6 +392,7 @@ It&#39;s the biggest dir on the file system. It&#39;s recommended giving it it&#
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

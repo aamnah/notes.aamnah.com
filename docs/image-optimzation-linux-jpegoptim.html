@@ -14,6 +14,7 @@
   <meta name="description" content="jpegoptim">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/image-optimzation-linux-jpegoptim">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Image Optimization on a Linux server</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-06-20T00:00:00+05:00" itemprop="datePublished">
           Jun 20, 2016
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,69 +98,73 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/Image Optimization on a Linux server.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/Image Optimization on a Linux server.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>jpegoptim</h1>
+    <h1 id="jpegoptim">jpegoptim</h1>
 
 <p>You can do a test run with the <code>-n</code> aka <code>--noaction</code> flag. It will print results without taking any action</p>
-<div class="highlight"><pre><code class="language-" data-lang="">jpegoptim -n img/
-</code></pre></div>
-<h2>opencart directories with images</h2>
 
+<pre><code>jpegoptim -n img/
+</code></pre>
+
+<h2 id="opencart-directories-with-images">opencart directories with images</h2>
 <ul>
-<li>image/catalog/</li>
-<li>catalog/view/</li>
+  <li>image/catalog/</li>
+  <li>catalog/view/</li>
 </ul>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/bash</span>
 
-<span class="c"># optimize-images.sh</span>
+<pre><code class="language-sh">#!/bin/bash
 
-install<span class="o">()</span> <span class="o">{</span>
-  <span class="c"># Install tools if not already installed</span>
+# optimize-images.sh
+
+install() {
+  # Install tools if not already installed
   sudo apt-get install jpegoptim optipng
-<span class="o">}</span>
+}
 
 
-optimize_jpeg<span class="o">()</span> <span class="o">{</span>
-  <span class="c"># jpegoptim -pqt --all-progressive *.jpeg</span>
+optimize_jpeg() {
+  # jpegoptim -pqt --all-progressive *.jpeg
+  
+  # -p, --preserve, Preserve file modification times.
+  # -q, --quiet, Quiet mode.
+  # -t, --totals, Print totals after processing all files.
+  # --all-progressive, Force  all output files to be progressive.
+  
+  find -type f -name "*.jpg" -exec jpegoptim -pqtn --all-progressive {} \;
+}
 
-  <span class="c"># -p, --preserve, Preserve file modification times.</span>
-  <span class="c"># -q, --quiet, Quiet mode.</span>
-  <span class="c"># -t, --totals, Print totals after processing all files.</span>
-  <span class="c"># --all-progressive, Force  all output files to be progressive.</span>
-
-  find -type f -name <span class="s2">"*.jpg"</span> -exec jpegoptim -pqtn --all-progressive <span class="o">{}</span> <span class="se">\;</span>
-<span class="o">}</span>
-
-optimize_png<span class="o">()</span> <span class="o">{</span>
-  find -type f -name <span class="s2">"*.png"</span> -exec optipng -simulate -quiet <span class="o">{}</span> <span class="se">\;</span>
-  <span class="nb">echo</span> <span class="s2">"Optimizing PNGs.. .. "</span>
-<span class="o">}</span>
+optimize_png() {
+  find -type f -name "*.png" -exec optipng -simulate -quiet {} \;
+  echo "Optimizing PNGs.. .. "
+}
 
 install
 optimize_jpeg
 optimize_png
 
-<span class="nb">echo</span> <span class="s2">"Success: Image files have been optimized."</span>
-</code></pre></div>
-<h2>Links </h2>
+echo "Success: Image files have been optimized."
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.tecmint.com/optimize-and-compress-jpeg-or-png-batch-images-linux-commandline/">How to Optimize and Compress JPEG or PNG Images in Linux Commandline</a></li>
-<li><a href="http://www.mariusc.name/how-use-jpegoptim-recursively/58/snippets">How to use Jpegoptim recursively</a></li>
+  <li><a href="http://www.tecmint.com/optimize-and-compress-jpeg-or-png-batch-images-linux-commandline/">How to Optimize and Compress JPEG or PNG Images in Linux Commandline</a></li>
+  <li><a href="http://www.mariusc.name/how-use-jpegoptim-recursively/58/snippets">How to use Jpegoptim recursively</a></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -205,6 +210,7 @@ optimize_png
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

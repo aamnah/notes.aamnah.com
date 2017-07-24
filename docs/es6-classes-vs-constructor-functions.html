@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="tl;drA constructor function is just a normal function that creates (constructs) an objectJavaScript does not has classes and hence it does not has methods. W...">
+  <meta name="description" content="tl;dr  A constructor function is just a normal function that creates (constructs) an object  JavaScript does not has classes and hence it does not has method...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/es6-classes-vs-constructor-functions">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">ES6 Classes vs. Constructor Functions</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-19T00:00:00+05:00" itemprop="datePublished">
           Mar 19, 2017
         </time>
@@ -91,107 +92,111 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/es2015-classes-vs-constructor-functions.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/es2015-classes-vs-constructor-functions.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>tl;dr</h2>
-
+    <h2 id="tldr">tl;dr</h2>
 <ul>
-<li>A constructor function is just a normal function that creates (constructs) an object</li>
-<li>JavaScript does not has <em>classes</em> and hence it does not has <em>methods</em>. What you have are <em>properties</em> in an object, some of which may be <em>functions</em> </li>
-<li>Javascript is not your classic <strong>class-based</strong> language but rather a <strong>prototype-based</strong> language.</li>
-<li>Classes in JavasScript are <em>syntactic sugar</em>, meaning they&#39;re a feature that only changes how you type something, but nothing changes under the hood.</li>
-<li>The <code>class</code> syntax makes writing and building objects easier/neat.</li>
+  <li>A constructor function is just a normal function that creates (constructs) an object</li>
+  <li>JavaScript does not has <em>classes</em> and hence it does not has <em>methods</em>. What you have are <em>properties</em> in an object, some of which may be <em>functions</em></li>
+  <li>Javascript is not your classic <strong>class-based</strong> language but rather a <strong>prototype-based</strong> language.</li>
+  <li>Classes in JavasScript are <em>syntactic sugar</em>, meaning they’re a feature that only changes how you type something, but nothing changes under the hood.</li>
+  <li>The <code>class</code> syntax makes writing and building objects easier/neat.</li>
 </ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s1">'use strict'</span><span class="p">;</span> <span class="c1">// older version of Nodejs only allowed classes in Strcit mode</span>
 
-<span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
-  <span class="c1">// constructor function</span>
-  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstName</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastName</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-  <span class="p">}</span>
+<pre><code class="language-javascript">'use strict'; // older version of Nodejs only allowed classes in Strcit mode
 
-  <span class="c1">// adding stuff to prototype to pass on to all instances of this class</span>
-  <span class="c1">// any methods that exist in the class will be automatically added to the prototype</span>
-  <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="err">`</span><span class="nx">Hello</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span>
-  <span class="p">}</span>
+class Person {
+  // constructor function
+  constructor (firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
 
-  <span class="nx">details</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span> <span class="nx">year</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="nx">old</span><span class="err">`</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  // adding stuff to prototype to pass on to all instances of this class
+  // any methods that exist in the class will be automatically added to the prototype
+  greet() {
+    return `Hello ${this.firstName} ${this.lastName}`
+  }
 
-<span class="kd">let</span> <span class="nx">jane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'Jane'</span><span class="p">,</span> <span class="s1">'Davis'</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+  details() {
+	  return `${this.firstName} ${this.lastName} is ${this.age} year(s) old`
+  }
+}
 
-<span class="c1">// test</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">)</span> <span class="c1">// Person { firstName: 'Jane', lastName: 'Davis', age: 28 }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">greet</span><span class="p">)</span> <span class="c1">// [Function: greet]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">greet</span><span class="p">())</span> <span class="c1">// Hello Jane Davis</span>
+let jane = new Person('Jane', 'Davis', 28)
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">)</span> <span class="c1">// Person {}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">jane</span><span class="p">))</span> <span class="c1">// Person {}</span>
+// test
+console.info(jane) // Person { firstName: 'Jane', lastName: 'Davis', age: 28 }
+console.info(jane.greet) // [Function: greet]
+console.info(jane.greet()) // Hello Jane Davis
 
-<span class="c1">// Get all methods/functions inside the class</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">))</span> <span class="c1">// [ 'constructor', 'greet', 'details' ]</span>
+console.info(jane.__proto__) // Person {}
+console.info(Object.getPrototypeOf(jane)) // Person {}
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">Person</span><span class="p">)</span> <span class="c1">// [Function: Person]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">constructor</span><span class="p">)</span> <span class="c1">// [Function: Person]</span>
-</code></pre></div>
+// Get all methods/functions inside the class
+console.info(Object.getOwnPropertyNames(Person.prototype)) // [ 'constructor', 'greet', 'details' ]
+
+console.info(Person) // [Function: Person]
+console.info(jane.constructor) // [Function: Person]
+</code></pre>
+
 <p>is functionally equivalent to</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// constructor function</span>
-<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstName</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastName</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span>
-<span class="p">}</span>
 
-<span class="c1">// adding stuff to prototype to pass on to all instances of this class</span>
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="err">`</span><span class="nx">Hello</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span>
-<span class="p">}</span>
+<pre><code class="language-javascript">// constructor function
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age
+}
 
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">details</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span> <span class="nx">year</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="nx">old</span><span class="err">`</span>
-<span class="p">}</span>
+// adding stuff to prototype to pass on to all instances of this class
+Person.prototype.greet = function() {
+  return `Hello ${this.firstName} ${this.lastName}`
+}
 
-<span class="kd">let</span> <span class="nx">jane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">'Jane'</span><span class="p">,</span> <span class="s1">'Davis'</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+Person.prototype.details = function() {
+  return `${this.firstName} ${this.lastName} is ${this.age} year(s) old`
+}
 
-<span class="c1">// test</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">)</span> <span class="c1">// Person { firstName: 'Jane', lastName: 'Davis', age: 28 }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">greet</span><span class="p">)</span> <span class="c1">// [Function]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">greet</span><span class="p">())</span> <span class="c1">// Hello Jane Davis</span>
+let jane = new Person('Jane', 'Davis', 28)
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">jane</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">)</span> <span class="c1">// Person { greet: [Function], details: [Function] }</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">jane</span><span class="p">))</span> <span class="c1">// Person { greet: [Function], details: [Function] }</span>
+// test
+console.info(jane) // Person { firstName: 'Jane', lastName: 'Davis', age: 28 }
+console.info(jane.greet) // [Function]
+console.info(jane.greet()) // Hello Jane Davis
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">Person</span><span class="p">)</span> <span class="c1">// [Function: Person]</span>
-</code></pre></div>
-<p>Note that while <code>jane.__proto__</code> in a normal constructor function gives us details for everything on the prototype <code>Person { greet: [Function], details: [Function] }</code>, <code>jane.__proto__</code> in a class constructor only gives the class <code>Person {}</code>, not methods. Technically, there are no <em>methods</em> in JavaScript. </p>
+console.info(jane.__proto__) // Person { greet: [Function], details: [Function] }
+console.info(Object.getPrototypeOf(jane)) // Person { greet: [Function], details: [Function] }
+
+console.info(Person) // [Function: Person]
+</code></pre>
+
+<p>Note that while <code>jane.__proto__</code> in a normal constructor function gives us details for everything on the prototype <code>Person { greet: [Function], details: [Function] }</code>, <code>jane.__proto__</code> in a class constructor only gives the class <code>Person {}</code>, not methods. Technically, there are no <em>methods</em> in JavaScript.</p>
 
 <p>Notice that since classes are just syntactic sugar, there is no easy way of finding all (prototype) <em>methods</em> in a class. You can however use <code>Object.getOwnPropertyNames(Foo.prototype)</code> to find all <em>properties</em> in a class prototype.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3604652">Udemy: JavaScript Aside: ES6 Classes</a></li>
-<li><a href="http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/">Methods Within Constructor vs Prototype in Javascript</a></li>
-<li><a href="/prototypal-inheritance-constructor-functions">TLDR: Prototypal Inheritance and Constructor Functions</a></li>
-<li><a href="http://stackoverflow.com/questions/31054910/get-functions-methods-of-a-class">StackOverflow: Get functions (methods) of a class</a></li>
+  <li><a href="https://www.udemy.com/understand-nodejs/learn/v4/t/lecture/3604652">Udemy: JavaScript Aside: ES6 Classes</a></li>
+  <li><a href="http://thecodeship.com/web-development/methods-within-constructor-vs-prototype-in-javascript/">Methods Within Constructor vs Prototype in Javascript</a></li>
+  <li><a href="/prototypal-inheritance-constructor-functions">TLDR: Prototypal Inheritance and Constructor Functions</a></li>
+  <li><a href="http://stackoverflow.com/questions/31054910/get-functions-methods-of-a-class">StackOverflow: Get functions (methods) of a class</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -237,6 +242,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

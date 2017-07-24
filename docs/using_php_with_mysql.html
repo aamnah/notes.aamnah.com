@@ -14,6 +14,7 @@
   <meta name="description" content="Connecting to Database using PDOThe format is like this">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/using_php_with_mysql">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Using PHP with MySQL</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-24T00:00:00+05:00" itemprop="datePublished">
           Feb 24, 2015
         </time>
@@ -91,18 +92,17 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Using_PHP_with_MySQL.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Using_PHP_with_MySQL.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Connecting to Database using PDO</h3>
-
+    <h3 id="connecting-to-database-using-pdo">Connecting to Database using PDO</h3>
 <p>The format is like this</p>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">    <span class="cp">&lt;?php</span> 
@@ -119,8 +119,7 @@
 
 <p>In database details <code>mysql:</code> tells what database engine to use.</p>
 
-<h3>Handling Exceptions</h3>
-
+<h3 id="handling-exceptions">Handling Exceptions</h3>
 <p>Exceptions happen when something goes wrong. Any code connecting to an external system needs to handle exceptions.</p>
 
 <p>To handle exceptions in PHP we use <code>try</code> and <code>catch</code></p>
@@ -139,11 +138,11 @@
     <span class="cp">?&gt;</span>
     </code></pre></figure>
 
-<p>Exception is actually an object instantiating PHP&#39;s native exception class. The variable <code>$e</code> will contain the details of the exception. After the exception, stop any more code from executing using the <code>exit</code> command.</p>
+<p>Exception is actually an object instantiating PHP’s native exception class. The variable <code>$e</code> will contain the details of the exception. After the exception, stop any more code from executing using the <code>exit</code> command.</p>
 
-<p>It&#39;s a good idea to use a separate <code>try</code> block for each point of interaction.</p>
+<p>It’s a good idea to use a separate <code>try</code> block for each point of interaction.</p>
 
-<h3>Querying the Database</h3>
+<h3 id="querying-the-database">Querying the Database</h3>
 
 <p>To call a method on an object, you first specify the object name followed by a single arrow <code>-&gt;</code>. After that you specify the method name.</p>
 
@@ -154,13 +153,12 @@
 
 <p><code>exec</code> is short for execute SQL command. This method is used to run a sql command on the database. Methods are like functions, they receive arguments. <code>SET NAMES</code> defines the character set, in this case <strong>utf8</strong></p>
 
-<h4>Handling Exception with PDO</h4>
+<h4 id="handling-exception-with-pdo">Handling Exception with PDO</h4>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">    <span class="cp">&lt;?php</span> 
         <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
     <span class="cp">?&gt;</span>
     </code></pre></figure>
-  
 
 <p>The command above will throw an exception when there is an error in the query.</p>
 
@@ -184,9 +182,11 @@
     <span class="cp">?&gt;</span>
     </code></pre></figure>
 
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -232,6 +232,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

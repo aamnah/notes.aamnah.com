@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="According to cPanel docs, it&#39;s easier to use EasyApache for configuring and regenerating Apache. If you want the recommended way, skip this article. I&#3...">
+  <meta name="description" content="According to cPanel docs, it’s easier to use EasyApache for configuring and regenerating Apache. If you want the recommended way, skip this article. I’m more...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/edit-apache-config-centos-cpanel-command-line">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Editing Apache Configuration on a cPanel/CentOS Server</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-19T00:00:00+05:00" itemprop="datePublished">
           Jan 19, 2015
         </time>
@@ -91,55 +92,62 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-edit-apache-config-centos-cpanel-command-line.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-edit-apache-config-centos-cpanel-command-line.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>According to cPanel docs, it&#39;s easier to use EasyApache for configuring and regenerating Apache. If you want the recommended way, skip this article. I&#39;m more of a command line gal, so i&#39;ll go ahead and detail the process of editing <strong>httpd.conf</strong> from the command line, enabling some modules, adding configurations, retaining the configuration and checking if your configuration has been preserved.</p>
+    <p>According to cPanel docs, it’s easier to use EasyApache for configuring and regenerating Apache. If you want the recommended way, skip this article. I’m more of a command line gal, so i’ll go ahead and detail the process of editing <strong>httpd.conf</strong> from the command line, enabling some modules, adding configurations, retaining the configuration and checking if your configuration has been preserved.</p>
 
-<p>On Debian/Ubuntu it&#39;s easier to enable a module. You run the command <code>a2enmod</code> followed by the name of the module and it gets enabled. Then you restart Apache by running another command <code>sudo /etc/init.d/apache2 restart</code> so your configurations take effect.</p>
+<p>On Debian/Ubuntu it’s easier to enable a module. You run the command <code>a2enmod</code> followed by the name of the module and it gets enabled. Then you restart Apache by running another command <code>sudo /etc/init.d/apache2 restart</code> so your configurations take effect.</p>
 
-<p>On a CentOS (cPanel runs on CentOS) server however, you have to edit the <strong>httpd.conf</strong> file and add the modules we want loaded (or use EasyApache). Then you run a few commands to make sure your configuration changes aren&#39;t lost upon subsequent regeneration of the configuration file.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">nano /etc/httpd/conf/httpd.conf
-</code></pre></div>
-<p>To have modifications retained, all modifications must be checked into the configuration system by running: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/cpanel/bin/apache_conf_distiller --update
-</code></pre></div>
-<p>To see if your changes will be conserved, regenerate the Apache configuration file by running: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/cpanel/bin/build_apache_conf
-</code></pre></div>
-<h2>Running EasyApache via Command Line</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">/scripts/easyapache
-</code></pre></div>
+<p>On a CentOS (cPanel runs on CentOS) server however, you have to edit the <strong>httpd.conf</strong> file and add the modules we want loaded (or use EasyApache). Then you run a few commands to make sure your configuration changes aren’t lost upon subsequent regeneration of the configuration file.</p>
+
+<pre><code>nano /etc/httpd/conf/httpd.conf
+</code></pre>
+
+<p>To have modifications retained, all modifications must be checked into the configuration system by running:</p>
+
+<pre><code>/usr/local/cpanel/bin/apache_conf_distiller --update
+</code></pre>
+
+<p>To see if your changes will be conserved, regenerate the Apache configuration file by running:</p>
+
+<pre><code>/usr/local/cpanel/bin/build_apache_conf
+</code></pre>
+
+<h2 id="running-easyapache-via-command-line">Running EasyApache via Command Line</h2>
+
+<pre><code>/scripts/easyapache
+</code></pre>
+
 <p>Create a new profile, save it and then build from that profile.</p>
 
-<h2>Further info</h2>
+<h2 id="further-info">Further info</h2>
 
-<h3>httpd.conf vs .htaccess</h3>
-
-<p>Simply put, <strong>httpd.conf</strong> is what applies to the whole server and <strong>.htaccess</strong> is what applies to individual accounts. There is only one httpd.conf for the whole server. Every individual website/account has it&#39;s own .htaccess. In most cases when you are on shared hosting, you will not have access to httpd.conf but you are free to create/modify your .htaccess file.</p>
+<h3 id="httpdconf-vs-htaccess">httpd.conf vs .htaccess</h3>
+<p>Simply put, <strong>httpd.conf</strong> is what applies to the whole server and <strong>.htaccess</strong> is what applies to individual accounts. There is only one httpd.conf for the whole server. Every individual website/account has it’s own .htaccess. In most cases when you are on shared hosting, you will not have access to httpd.conf but you are free to create/modify your .htaccess file.</p>
 
 <p>Using <code>.htaccess</code> files slows down Apache, therefore, if you have access to the main server configuration file (which is usually called <code>httpd.conf</code>), you should add your configuration there.</p>
 
 <p><em>.htaccess</em> is in <code>/home/username/public_html</code> while <em>http.conf</em> is in <code>/etc/httpd/conf/http.conf</code></p>
 
-<h2>Sources</h2>
-
+<h2 id="sources">Sources</h2>
 <ul>
-<li><a href="http://serverfault.com/questions/56394/how-do-i-enable-apache-modules-from-the-command-line-in-redhat">How do I enable apache modules from the command line in RedHat?</a></li>
-<li><a href="https://documentation.cpanel.net/display/EA/EasyApache">cPanel Docs - Easy Apache</a></li>
-<li><a href="https://documentation.cpanel.net/display/EA/Custom+Templates">cPanel Docs - Easy Apache - Custom Templates</a></li>
+  <li><a href="http://serverfault.com/questions/56394/how-do-i-enable-apache-modules-from-the-command-line-in-redhat">How do I enable apache modules from the command line in RedHat?</a></li>
+  <li><a href="https://documentation.cpanel.net/display/EA/EasyApache">cPanel Docs - Easy Apache</a></li>
+  <li><a href="https://documentation.cpanel.net/display/EA/Custom+Templates">cPanel Docs - Easy Apache - Custom Templates</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -185,6 +193,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

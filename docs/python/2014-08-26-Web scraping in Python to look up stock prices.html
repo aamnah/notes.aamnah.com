@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="ObjectiveWe are going to scrape the FT.com website for current stock prices for selected stocks. You&#39;ll learn:">
+  <meta name="description" content="ObjectiveWe are going to scrape the FT.com website for current stock prices for selected stocks. You’ll learn:">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/python/2014-08-26-Web%20scraping%20in%20Python%20to%20look%20up%20stock%20prices.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Web scraping in Python to look up stock prices</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,29 +92,28 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-26-Web scraping in Python to look up stock prices.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-26-Web scraping in Python to look up stock prices.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Objective</h2>
-
-<p>We are going to scrape the FT.com website for current stock prices for selected stocks. You&#39;ll learn:</p>
+    <h2 id="objective">Objective</h2>
+<p>We are going to scrape the FT.com website for current stock prices for selected stocks. You’ll learn:</p>
 
 <ul>
-<li>scraping web page</li>
-<li>fetching price/quote (with regex)</li>
-<li>presenting results</li>
-<li>error handling</li>
-<li>coloring the output</li>
+  <li>scraping web page</li>
+  <li>fetching price/quote (with regex)</li>
+  <li>presenting results</li>
+  <li>error handling</li>
+  <li>coloring the output</li>
 </ul>
 
-<h2>Step 1: Taking input, Opening URL and Grabbing data</h2>
+<h2 id="step-1-taking-input-opening-url-and-grabbing-data">Step 1: Taking input, Opening URL and Grabbing data</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c"># import 'urllib2' to open the url and 'sys' so we could take input from console</span>
     <span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">sys</span>
@@ -130,48 +130,47 @@
     <span class="n">data</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    </code></pre></figure>
+	</code></pre></figure>
 
 <p>We are going to import <strong>urllib2</strong> and <strong>sys</strong> so we could a) open a url and b) take input from console.
-Next, we&#39;ll take input (i.e the stock symbol we want to look up) from console and save it in a variable called <strong>symbol</strong>. <em>sys.argv[1]</em> basically means the first argument that was given to the system. 
-The URL we are going to scrape is from the Financial Times website. We&#39;ll save that url in a variable aptly names <strong>url</strong>.
-Then, we are going to open that URL and save it&#39;s content in a variable called <strong>content</strong>. We&#39;ll then read that content and save whatever it read in a variable called <strong>data</strong>.</p>
+Next, we’ll take input (i.e the stock symbol we want to look up) from console and save it in a variable called <strong>symbol</strong>. <em>sys.argv[1]</em> basically means the first argument that was given to the system. 
+The URL we are going to scrape is from the Financial Times website. We’ll save that url in a variable aptly names <strong>url</strong>.
+Then, we are going to open that URL and save it’s content in a variable called <strong>content</strong>. We’ll then read that content and save whatever it read in a variable called <strong>data</strong>.</p>
 
-<p>Lastly, we&#39;ll print that data to make sure everything is working. At this point it&#39;ll output a whole lot of jumbled up code in your terminal (which is basically what you&#39;ll get if you &#39;View Page Source&#39; in the browser)</p>
+<p>Lastly, we’ll print that data to make sure everything is working. At this point it’ll output a whole lot of jumbled up code in your terminal (which is basically what you’ll get if you ‘View Page Source’ in the browser)</p>
 
-<h2>Step 2: Making sense of the data, extracting what we want and presenting the results</h2>
+<h2 id="step-2-making-sense-of-the-data-extracting-what-we-want-and-presenting-the-results">Step 2: Making sense of the data, extracting what we want and presenting the results</h2>
+<p>So you have ALL the data on the page now.. What we really want is just the latest stock price. Say hello to Regex! Regex (aka Regular Expressions) let’s you define an expression and look up that expression in a whole lot of data to get what you want. For a layman, it is the equivalent of doing Ctrl+F in the browser but way more powerful and complex.</p>
 
-<p>So you have ALL the data on the page now.. What we really want is just the latest stock price. Say hello to Regex! Regex (aka Regular Expressions) let&#39;s you define an expression and look up that expression in a whole lot of data to get what you want. For a layman, it is the equivalent of doing Ctrl+F in the browser but way more powerful and complex.</p>
+<p>But first, we need to know what we are looking for. To do that, i’m going to save the data in a text file, do a search for the price and check for something unique that represents that price so i can look for it every time with the regex i write.</p>
 
-<p>But first, we need to know what we are looking for. To do that, i&#39;m going to save the data in a text file, do a search for the price and check for something unique that represents that price so i can look for it every time with the regex i write.</p>
-
-<h4>save the data to a file</h4>
-
+<h4 id="save-the-data-to-a-file">save the data to a file</h4>
 <p>Use the <code>&gt;&gt;</code> redirection operator in the shell to redirect the results (output) of whatever we get after running <em>stock_portfolio.py</em> and save that in a text file called <em>output.txt</em> You need to run the following commadn in the Terminal (console).</p>
-<div class="highlight"><pre><code class="language-" data-lang="">python stock_portfolio.py &gt;&gt; output.txt
-</code></pre></div>
-<h4>searching for a unique identifier</h4>
 
+<pre><code>python stock_portfolio.py &gt;&gt; output.txt
+</code></pre>
+
+<h4 id="searching-for-a-unique-identifier">searching for a unique identifier</h4>
 <p>Now open that output in your favorite code editor. The reason for opening it in a code editor is so that i can view it with syntax highlighting, makes it easier to make sense of the file and look for what we want. Start with searching (ctrl+F) for the exact stock price. Then look for code before and after that stock price that makes it unique.</p>
 
-<p>For example, i looked up the stock APL, i know the stock price was 593.76 at the time i extracted the data so i searched for &#39;593.76&#39; in the output. That gave me the position in the file where the latest stock price is mentioned. Then i looked for unique identifiers before and after the price and found that <code>_last_lastPrice&quot; data-stream-feed=&quot;rmds_streamer&quot;&gt;</code> was always mentioned exactly before the latest price and it was only used for the price and nothing else. So, i used that to base my regular expression on.</p>
+<p>For example, i looked up the stock APL, i know the stock price was 593.76 at the time i extracted the data so i searched for ‘593.76’ in the output. That gave me the position in the file where the latest stock price is mentioned. Then i looked for unique identifiers before and after the price and found that <code>_last_lastPrice" data-stream-feed="rmds_streamer"&gt;</code> was always mentioned exactly before the latest price and it was only used for the price and nothing else. So, i used that to base my regular expression on.</p>
 
-<h4>adding regex  and getting the price</h4>
+<h4 id="adding-regex--and-getting-the-price">adding regex  and getting the price</h4>
 
-<p>To be able to use regular expressions in our script, we&#39;ll import the <strong>re</strong> library.</p>
+<p>To be able to use regular expressions in our script, we’ll import the <strong>re</strong> library.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python">	<span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
 
-    <span class="n">symbol</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	<span class="n">symbol</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'http://markets.ft.com/research/markets/Tearsheets/Summary?s='</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="n">symbol</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s">'http://markets.ft.com/research/markets/Tearsheets/Summary?s='</span>
+	<span class="n">content</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="n">symbol</span><span class="p">)</span>
+	<span class="n">data</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-    <span class="c"># Regex</span>
-    <span class="c"># 'm' is for match, it is frequently used to represent return of a match</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'_last_lastPrice" data-stream-feed="rmds_streamer"&gt;(</span><span class="err">\</span><span class="s">d*[.]</span><span class="err">\</span><span class="s">d*)'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-    <span class="c"># we are searching for the latest stock price (\d*[.]\d*) placed after a specific span tag, in whatever is stored in 'data'.</span>
+	<span class="c"># Regex</span>
+	<span class="c"># 'm' is for match, it is frequently used to represent return of a match</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'_last_lastPrice" data-stream-feed="rmds_streamer"&gt;(</span><span class="err">\</span><span class="s">d*[.]</span><span class="err">\</span><span class="s">d*)'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+	<span class="c"># we are searching for the latest stock price (\d*[.]\d*) placed after a specific span tag, in whatever is stored in 'data'.</span>
     
      <span class="c"># if we have a match, then quote is equal to the first group we looked up. the () represent a group in regex.</span>
      <span class="n">quote</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -179,18 +178,19 @@ Then, we are going to open that URL and save it&#39;s content in a variable call
      <span class="k">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
      </code></pre></figure>
 
-<p>We are running the <strong>search</strong> method on the <strong>re</strong> module to search for <code>_last_lastPrice&quot; data-stream-feed=&quot;rmds_streamer&quot;&gt;(\d*[.]\d*)</code> where <code>(\d*[.]\d*)</code> represents the format of the price 593.76 ( <strong>\d</strong> is for digits and ***** means all ). Look for this price, it comes immidiately after <code>_last_lastPrice&quot; data-stream-feed=&quot;rmds_streamer&quot;&gt;</code> and look for it in the <strong>data</strong> variable. Save the result of the search in a variable called <strong>m</strong>.</p>
+<p>We are running the <strong>search</strong> method on the <strong>re</strong> module to search for <code>_last_lastPrice" data-stream-feed="rmds_streamer"&gt;(\d*[.]\d*)</code> where <code>(\d*[.]\d*)</code> represents the format of the price 593.76 ( <strong>\d</strong> is for digits and <strong>*** means all ). Look for this price, it comes immidiately after <code>_last_lastPrice" data-stream-feed="rmds_streamer"&gt;</code> and look for it in the **data</strong> variable. Save the result of the search in a variable called <strong>m</strong>.</p>
 
 <p>Use <a href="http://www.regexr.com/">RegExr</a> to find exact match in text and learn about writing regex queries. Getting it right may take you a few tries if you are new to regex. It took me three to get the expression right. This might be the most difficult part of this whole tutorial if you have never used regex before.</p>
 
 <p>At this point the result of <code>print(m)</code> would be <code>&lt;_sre.SRE_Match object at 0x1086c1990&gt;</code> which basically means that it searched and a match exists. Now we save the result of the match in a variable called <strong>quote</strong>.</p>
 
 <p>And finally, print that quote. <code>print(quote)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">593.76
-</code></pre></div>
-<h2>Error handling</h2>
 
-<p>What if the symbol given has a typo, or is incorrect or doesn&#39;t exist? Python by defualt will stop running the script after the error and if you had any other symbols after the error they won&#39;t show since the script stopped running.</p>
+<pre><code>593.76
+</code></pre>
+
+<h2 id="error-handling">Error handling</h2>
+<p>What if the symbol given has a typo, or is incorrect or doesn’t exist? Python by defualt will stop running the script after the error and if you had any other symbols after the error they won’t show since the script stopped running.</p>
 
 <p>To counter that, we are going to add an if/else statement so that if the value exists, it is shown and if not, it shows an error message. In case of an error, the script will show an error message and keep running.</p>
 
@@ -203,9 +203,8 @@ Then, we are going to open that URL and save it&#39;s content in a variable call
     <span class="k">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
     </code></pre></figure>
 
-<h2>Getting prices for multiple stocks in one go (Looping)</h2>
-
-<p>instead of taking input from the system, i&#39;m going to save the multiple symbols i want to look up in a list. that way i won&#39;t have to type the symbols every time i want to look up the prices.</p>
+<h2 id="getting-prices-for-multiple-stocks-in-one-go-looping">Getting prices for multiple stocks in one go (Looping)</h2>
+<p>instead of taking input from the system, i’m going to save the multiple symbols i want to look up in a list. that way i won’t have to type the symbols every time i want to look up the prices.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c"># SYMBOLS TO LOOK FOR:</span>
     <span class="n">symbol_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'APL'</span><span class="p">,</span> <span class="s">'PPL'</span><span class="p">,</span> <span class="s">'HUBC'</span><span class="p">,</span> <span class="s">'FFC'</span><span class="p">]</span>
@@ -227,7 +226,7 @@ Then, we are going to open that URL and save it&#39;s content in a variable call
             <span class="k">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
        </code></pre></figure>
 
-<h2>Final script</h2>
+<h2 id="final-script">Final script</h2>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">re</span>
     <span class="c"># urllib2 is required to open the url</span>
@@ -249,22 +248,21 @@ Then, we are going to open that URL and save it&#39;s content in a variable call
         <span class="k">else</span><span class="p">:</span>
             <span class="n">quote</span> <span class="o">=</span> <span class="n">symbol</span> <span class="o">+</span> <span class="s">' is not a correct symbol or it doesn'</span><span class="n">t</span> <span class="n">exist</span><span class="s">'</span><span class="err">
 </span><span class="s">            print(quote)</span><span class="err">
-</span><span class="s"> </span></code></pre></figure>
+</span><span class="s">	</span></code></pre></figure>
 
-<h2>Error handling:</h2>
-
+<h2 id="error-handling-1">Error handling:</h2>
 <ul>
-<li>when provided symbol isn&#39;t correct or it doesn&#39;t exist </li>
+  <li>when provided symbol isn’t correct or it doesn’t exist</li>
 </ul>
 
-<h2>Resources:</h2>
-
+<h2 id="resources">Resources:</h2>
 <p><a href="http://www.regexr.com/">RegExr</a>
 <a href="http://stackoverflow.com/questions/287871/print-in-terminal-with-colors-using-python">Print in terminal with colors using Python?</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -310,6 +308,7 @@ Then, we are going to open that URL and save it&#39;s content in a variable call
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

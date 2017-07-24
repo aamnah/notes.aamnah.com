@@ -14,6 +14,7 @@
   <meta name="description" content="OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older th...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/create-ocmod-vqmod-template-opencart-bash-script">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash script to create OCMOD and vQmod templates with a single command</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-16T00:00:00+05:00" itemprop="datePublished">
           Feb 16, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2015-02-16-create-ocmod-vqmod-template-opencart-bash-script.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2015-02-16-create-ocmod-vqmod-template-opencart-bash-script.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>how-to</li>
       
@@ -106,18 +107,18 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older than 2.x, vQmod was the king. With version 2.x Opencart launched it&#39;s own modification system to replace the need for installing a separate extension.</p>
+    <p>OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older than 2.x, vQmod was the king. With version 2.x Opencart launched it’s own modification system to replace the need for installing a separate extension.</p>
 
-<p>The state Opencart is in right now, you&#39;ll find yourself dealing with both vqmod and ocmod scripts. I know i do. So i have written this neat bash script which allows me to type <code>ocmod foo</code> to create a file called <strong>foo.ocmod.xml</strong> with the basic template ocmod. Same for vqmod, type <code>vqmod bar</code> and it&#39;ll create a file called <strong>bar.xml</strong> with vqmod tempalte code.</p>
+<p>The state Opencart is in right now, you’ll find yourself dealing with both vqmod and ocmod scripts. I know i do. So i have written this neat bash script which allows me to type <code>ocmod foo</code> to create a file called <strong>foo.ocmod.xml</strong> with the basic template ocmod. Same for vqmod, type <code>vqmod bar</code> and it’ll create a file called <strong>bar.xml</strong> with vqmod tempalte code.</p>
 
 <p>An alternative to this is creating a snippet in your code editor. I prefer the bash way becuase it takes care of creating the file as well.</p>
 
 <p>Here is the bash script. For ease of use i have added these to my <code>.bash_profile</code> so the commands are available globally.</p>
 
-<h2>Code</h2>
+<h2 id="code">Code</h2>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># ocmod()</span>
     <span class="c"># -------</span>
@@ -170,17 +171,18 @@
     <span class="o">}</span>
     </code></pre></figure>
 
-<h2>Usage</h2>
-
+<h2 id="usage">Usage</h2>
 <ul>
-<li>Add the code to your <code>.bash_profile</code>. </li>
-<li>To create a vQmod file, type <code>vqmod</code> and provide the name of the script. For example: <code>vqmod replace</code> will create <strong>replace.xml</strong></li>
-<li>To create a OCMOD file, type <code>ocmod</code> and provide the name of the script. For example: <code>ocmod replace</code> will create <strong>replace.ocmod.xml</strong></li>
+  <li>Add the code to your <code>.bash_profile</code>.</li>
+  <li>To create a vQmod file, type <code>vqmod</code> and provide the name of the script. For example: <code>vqmod replace</code> will create <strong>replace.xml</strong></li>
+  <li>To create a OCMOD file, type <code>ocmod</code> and provide the name of the script. For example: <code>ocmod replace</code> will create <strong>replace.ocmod.xml</strong></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -226,6 +228,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

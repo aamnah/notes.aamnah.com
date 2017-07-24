@@ -14,6 +14,7 @@
   <meta name="description" content="First things first, read How to create a Snippet in Sublime Text for some basics.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/create-grunt-snippet-sublime-text">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Create Grunt Snippets in Sublime Text</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-15T00:00:00+05:00" itemprop="datePublished">
           Feb 15, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2015-02-15-create-grunt-snippet-sublime-text.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/2015-02-15-create-grunt-snippet-sublime-text.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>grunt,</li>
       
@@ -104,7 +105,7 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>First things first, read <a href="http://tldrdevnotes.comcreate-sublime-text-snippet/">How to create a Snippet in Sublime Text</a> for some basics.</p>
@@ -115,7 +116,7 @@
 
 <p>For every snippet that you want to add, you create a new file.</p>
 
-<p>Let&#39;s start!</p>
+<p>Let’s start!</p>
 
 <p>Create a file called <code>grunt.sublime-snippet</code> in the packages folder. Add the following to it:</p>
 
@@ -141,9 +142,9 @@
     <span class="nt">&lt;/snippet&gt;</span>
     </code></pre></figure>
 
-<p>Save the file and restart Sublime. Now whenever you type <code>grunt</code> and press <code>Tab</code>, it&#39;ll insert the initial Grunt config code for you. Let&#39;s add some more snippets for common plugins. You should of course edit the following template code with your own preferences. Add them in their respective <code>name.sublime-snippet</code> files in the Packages fodler.</p>
+<p>Save the file and restart Sublime. Now whenever you type <code>grunt</code> and press <code>Tab</code>, it’ll insert the initial Grunt config code for you. Let’s add some more snippets for common plugins. You should of course edit the following template code with your own preferences. Add them in their respective <code>name.sublime-snippet</code> files in the Packages fodler.</p>
 
-<h2>uglify</h2>
+<h2 id="uglify">uglify</h2>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;snippet&gt;</span>
       <span class="nt">&lt;description&gt;</span>Minify files with UglifyJS<span class="nt">&lt;/description&gt;</span>
@@ -161,7 +162,7 @@
     <span class="nt">&lt;/snippet&gt;</span>
     </code></pre></figure>
 
-<h2>cssmin</h2>
+<h2 id="cssmin">cssmin</h2>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;snippet&gt;</span>
       <span class="nt">&lt;description&gt;</span>Minify CSS<span class="nt">&lt;/description&gt;</span>
@@ -196,7 +197,7 @@
     <span class="nt">&lt;/snippet&gt;</span>
     </code></pre></figure>
 
-<h2>imagemin</h2>
+<h2 id="imagemin">imagemin</h2>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;snippet&gt;</span>
       <span class="nt">&lt;description&gt;</span>Minify Images<span class="nt">&lt;/description&gt;</span>
@@ -228,7 +229,7 @@
     <span class="nt">&lt;/snippet&gt;</span>
     </code></pre></figure>
 
-<h2>watch</h2>
+<h2 id="watch">watch</h2>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;snippet&gt;</span>
       <span class="nt">&lt;description&gt;</span>Run predefined tasks whenever watched file patterns are added, changed or deleted<span class="nt">&lt;/description&gt;</span>
@@ -247,7 +248,7 @@
     <span class="nt">&lt;/snippet&gt;</span>
     </code></pre></figure>
 
-<h2>s3</h2>
+<h2 id="s3">s3</h2>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;snippet&gt;</span>
       <span class="nt">&lt;description&gt;</span>https://github.com/jpillora/grunt-aws<span class="nt">&lt;/description&gt;</span>
@@ -272,9 +273,11 @@
 
 <p>Here is a <a href="https://gist.github.com/aamnah/582eb66781b20d8534ee">bash script to add all grunt snippet files in one go</a>. Open a Terminal and go to the folder you downloaed the script in. For example: <code>cd ~/Downloads</code> to go to the downloads folder. Run the script by typing <code>bash grunt-snippets.sh</code>. It will add all the above snippets to the packages folder.</p>
 
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -320,6 +323,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

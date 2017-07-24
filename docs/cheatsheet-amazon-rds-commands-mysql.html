@@ -14,6 +14,7 @@
   <meta name="description" content="Connect to Amazon RDS">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/cheatsheet-amazon-rds-commands-mysql">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Amazon RDS + MySQL</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2014-05-21T16:16:36+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_Amazon-RDS.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_Amazon-RDS.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>amazon rds</li>
       
@@ -106,64 +107,89 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Connect to Amazon RDS<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">uaamnah</span> <span class="c1">--password --host=mysql.hostmarkaz.com</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql -uaamnah --password --host=mysql.hostmarkaz.com
+</code></pre>
+
 <p>Creating MySQL database<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">databasename</span> <span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql&gt; CREATE DATABASE databasename ;
+</code></pre>
+
 <p>Creating MySQL User<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'password'</span> <span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql&gt; CREATE USER 'username'@'host' IDENTIFIED BY 'password' ;
+</code></pre>
+
 <p>Allowing User to Connect<br />
 // grant usage on server so the user can connect<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">USAGE</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql&gt; GRANT USAGE ON *.* TO 'username'@'host' ;
+</code></pre>
+
 <p>Granting Privileges<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">databasename</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql&gt; GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'host' ;
+</code></pre>
+
 <p>CHECK if you can connect to the created database with the user you crteated<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">p</span> <span class="c1">--host=mysql.hostmarkaz.com databasename</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql -uusername -p --host=mysql.hostmarkaz.com databasename
+</code></pre>
+
 <p>Deleting MySQL User<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">DROP</span> <span class="k">USER</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql&gt; DROP USER 'username'@'host' ;
+</code></pre>
+
 <p>Import SQL database<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="n">password</span> <span class="n">databasename</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">filename</span><span class="p">.</span><span class="k">sql</span>
-</code></pre></div>
+
+<pre><code class="language-sql">mysql -u username -p password databasename &amp;lt; filename.sql
+</code></pre>
+
 <p>List all users<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">User</span><span class="p">,</span><span class="k">Host</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
-</code></pre></div>
+
+<pre><code class="language-sql">SELECT User,Host FROM mysql.user;
+</code></pre>
+
 <p>View Users and Permissions<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">user</span><span class="p">,</span> <span class="k">host</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">select_priv</span><span class="p">,</span> <span class="n">insert_priv</span><span class="p">,</span> <span class="n">shutdown_priv</span><span class="p">,</span> <span class="n">grant_priv</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span>
-</code></pre></div>
+
+<pre><code class="language-sql">SELECT user, host, password, select_priv, insert_priv, shutdown_priv, grant_priv FROM mysql.user
+</code></pre>
+
 <p>View User Permissions for individual Databases<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">user</span><span class="p">,</span> <span class="k">host</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">select_priv</span><span class="p">,</span> <span class="n">insert_priv</span><span class="p">,</span> <span class="n">grant_priv</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="n">db</span>
-</code></pre></div>
+
+<pre><code class="language-sql">SELECT user, host, db, select_priv, insert_priv, grant_priv FROM mysql.db
+</code></pre>
+
 <p>Sample Command:<br /></p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="c1">--user=root --password=password --host=host.aamnah.com wpblog | mysql --host=host.hostmarkaz.com --user=aamnah --password=password wpblog</span>
-</code></pre></div>
-<h3>NOTES</h3>
+
+<pre><code class="language-sql">mysqldump --user=root --password=password --host=host.aamnah.com wpblog | mysql --host=host.hostmarkaz.com --user=aamnah --password=password wpblog
+</code></pre>
+
+<h3 id="notes">NOTES</h3>
 
 <ul>
-<li>If can not connect, check if the port is open on the server you are connecting from. RDS uses <code>3306</code> (default MySQL port). On KH server it couldn’t connect because the port was closed</li>
-<li>If the connection is not getting through the error would be <code>could not connect</code></li>
-<li>If login is incorrect the error would be <code>‘access denied’. mysql_connect(): Access denied for user</code></li>
-<li>The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not</li>
+  <li>If can not connect, check if the port is open on the server you are connecting from. RDS uses <code>3306</code> (default MySQL port). On KH server it couldn’t connect because the port was closed</li>
+  <li>If the connection is not getting through the error would be <code>could not connect</code></li>
+  <li>If login is incorrect the error would be <code>‘access denied’. mysql_connect(): Access denied for user</code></li>
+  <li>The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not</li>
 </ul>
 
-<h3>Opening Ports</h3>
+<h3 id="opening-ports">Opening Ports</h3>
 
 <p>Make sure ports are opened in the firewall configuration.</p>
 
-<p>This can be accessed in <em>WHM &gt;&gt; Plugins » ConfigServer Security &amp; Firewall &gt;&gt; Firewall configuration &gt;&gt; Port settings</em>.</p>
+<p>This can be accessed in <em>WHM » Plugins » ConfigServer Security &amp; Firewall » Firewall configuration » Port settings</em>.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -209,6 +235,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

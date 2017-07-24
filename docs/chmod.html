@@ -14,6 +14,7 @@
   <meta name="description" content="change permissions on all dirs">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/chmod">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[chmod] Permissions</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-19T00:00:00+05:00" itemprop="datePublished">
           Nov 19, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2015-11-20T00:00:00+05:00" itemprop="datePublished">
           Nov 20, 2015
         </time>
@@ -97,56 +98,67 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[chmod] Permission.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[chmod] Permission.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>change permissions on all dirs</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -type d -exec chmod 700 <span class="o">{}</span> <span class="se">\;</span>
-</code></pre></div>
-<h2>change permissions on all files</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -type f -exec chmod 600 <span class="o">{}</span> <span class="se">\;</span>
-</code></pre></div>
-<h2>change permissions recursively</h2>
+    <h2 id="change-permissions-on-all-dirs">change permissions on all dirs</h2>
 
+<pre><code class="language-bash">find . -type d -exec chmod 700 {} \;
+</code></pre>
+
+<h2 id="change-permissions-on-all-files">change permissions on all files</h2>
+
+<pre><code class="language-bash">find . -type f -exec chmod 600 {} \;
+</code></pre>
+
+<h2 id="change-permissions-recursively">change permissions recursively</h2>
 <p>use the <code>-R</code> flag</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">chmod 755 -R var/
-</code></pre></div>
-<h2>make executable</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">chmod +x file
-</code></pre></div>
-<h2>copy permissions from another file</h2>
+
+<pre><code class="language-bash">chmod 755 -R var/
+</code></pre>
+
+<h2 id="make-executable">make executable</h2>
+
+<pre><code class="language-bash">chmod +x file
+</code></pre>
+
+<h2 id="copy-permissions-from-another-file">copy permissions from another file</h2>
 
 <p>On GNU/Linux <code>chown</code> and <code>chmod</code> have a <code>--reference</code> option</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">chown --reference<span class="o">=</span>otherfile thisfile
-chmod --reference<span class="o">=</span>otherfile thisfile
-</code></pre></div>
-<h2>Example from Magento</h2>
+
+<pre><code class="language-bash">chown --reference=otherfile thisfile
+chmod --reference=otherfile thisfile
+</code></pre>
+
+<h2 id="example-from-magento">Example from Magento</h2>
 
 <p>Enter the following commands to set permissions:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -type f -exec chmod 400 <span class="o">{}</span> <span class="se">\;</span>
-find . -type d -exec chmod 500 <span class="o">{}</span> <span class="se">\;</span> 
-find var/ -type f -exec chmod 600 <span class="o">{}</span> <span class="se">\;</span> 
-find media/ -type f -exec chmod 600 <span class="o">{}</span> <span class="se">\;</span>
-find var/ -type d -exec chmod 700 <span class="o">{}</span> <span class="se">\;</span> 
-find media/ -type d -exec chmod 700 <span class="o">{}</span> <span class="se">\;</span>
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-bash">find . -type f -exec chmod 400 {} \;
+find . -type d -exec chmod 500 {} \; 
+find var/ -type f -exec chmod 600 {} \; 
+find media/ -type f -exec chmod 600 {} \;
+find var/ -type d -exec chmod 700 {} \; 
+find media/ -type d -exec chmod 700 {} \;
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://devdocs.magento.com/guides/m1x/install/installer-privileges_after.html">After You Install Magento: Recommended File System Ownership and Privileges</a></li>
-<li><a href="http://unix.stackexchange.com/questions/20645/clone-ownership-and-permissions-from-another-file">StackOverflow: Clone ownership and permissions from another file?</a></li>
+  <li><a href="http://devdocs.magento.com/guides/m1x/install/installer-privileges_after.html">After You Install Magento: Recommended File System Ownership and Privileges</a></li>
+  <li><a href="http://unix.stackexchange.com/questions/20645/clone-ownership-and-permissions-from-another-file">StackOverflow: Clone ownership and permissions from another file?</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -192,6 +204,7 @@ find media/ -type d -exec chmod 700 <span class="o">{}</span> <span class="se">\
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

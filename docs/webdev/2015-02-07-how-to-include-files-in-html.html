@@ -14,6 +14,7 @@
   <meta name="description" content="via JavaScripta.html">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/webdev/2015-02-07-how-to-include-files-in-html.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to include files in HTML</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-07T00:00:00+05:00" itemprop="datePublished">
           Feb 7, 2015
         </time>
@@ -91,23 +92,22 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2015-02-07-how-to-include-files-in-html.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2015-02-07-how-to-include-files-in-html.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>how-to</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>via JavaScript</h2>
-
+    <h2 id="via-javascript">via JavaScript</h2>
 <p><strong>a.html</strong></p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;html&gt;</span> 
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;html&gt;</span> 
       <span class="nt">&lt;body&gt;</span>
       <span class="nt">&lt;h1&gt;</span>Put here your HTML content before insertion of b.js.<span class="nt">&lt;/h1&gt;</span>
           ...
@@ -138,11 +138,10 @@
 
 <p>In order to insert the escape characters without much work, it is recommended to use a simple regular expression that matches whole lines (<code>^.*$</code>) and adds <code>\</code> at the end of each line. For example, you could use <code>sed</code> on the command line like this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    sed <span class="s1">'s/^.*$/&amp;\\/g;'</span> b.html &gt; escapedB.html
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	sed <span class="s1">'s/^.*$/&amp;\\/g;'</span> b.html &gt; escapedB.html
     </code></pre></figure>
 
-<h2>via jQuery</h2>
-
+<h2 id="via-jquery">via jQuery</h2>
 <p><strong>a.html:</strong></p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;html&gt;</span> 
@@ -163,27 +162,27 @@
 
 <p><strong>b.html:</strong></p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;p&gt;</span> This is my include file <span class="nt">&lt;/p&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;p&gt;</span> This is my include file <span class="nt">&lt;/p&gt;</span>
     </code></pre></figure>
 
 <p><a href="http://api.jquery.com/load/">jQuery .load() Documentation</a></p>
 
-<h2>via Server Side Includes (SSI)</h2>
-
+<h2 id="via-server-side-includes-ssi">via Server Side Includes (SSI)</h2>
 <p>A simple server side include directive to include another file found in the same folder looks like this:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="c">&lt;!-- #include virtual="a.html" --&gt;</span> 
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="c">&lt;!-- #include virtual="a.html" --&gt;</span> 
     </code></pre></figure>
 
 <p><a href="http://httpd.apache.org/docs/2.4/howto/ssi.html#configuring">configuring SSI for your server</a></p>
 
-<hr>
+<hr />
 
 <p><a href="http://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file">Source</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -229,6 +228,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

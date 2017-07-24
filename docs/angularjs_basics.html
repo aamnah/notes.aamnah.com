@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="||||-------------|--------------------------------------------|| Directives  | HTML annotations that trigger JS behaviors || Modules     | Where our applicat...">
+  <meta name="description" content="                                      Directives      HTML annotations that trigger JS behaviors              Modules      Where our application components l...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/angularjs_basics">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">AngularJS Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-04-14T00:00:00+05:00" itemprop="datePublished">
           Apr 14, 2015
         </time>
@@ -91,22 +92,42 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2015-04-14-basics_angularjs.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2015-04-14-basics_angularjs.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>|||
-|-------------|--------------------------------------------|
-| Directives  | HTML annotations that trigger JS behaviors |
-| Modules     | Where our application components live      |
-| Controllers | Where we add application behavior          |
-| Expressions | How values get displayed within the page   |</p>
+    <table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Directives</td>
+      <td>HTML annotations that trigger JS behaviors</td>
+    </tr>
+    <tr>
+      <td>Modules</td>
+      <td>Where our application components live</td>
+    </tr>
+    <tr>
+      <td>Controllers</td>
+      <td>Where we add application behavior</td>
+    </tr>
+    <tr>
+      <td>Expressions</td>
+      <td>How values get displayed within the page</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><code>ng-app</code> Specifies where our app exists on the page
 <code>ng-model</code> Binds the value of the input to the variable, in both directions</p>
@@ -115,53 +136,62 @@
 
 <p>Controller manages some portion of our application or a scope on our page</p>
 
-<h2>Directive</h2>
-
+<h2 id="directive">Directive</h2>
 <p>A directive is a marker on an HTML tag that tells Angular to run or reference some JavaScript code. Directives is how we bind the behaviour</p>
 
 <p>For example <code>ng-controller</code>, <code>ng-app</code>, <code>ng-model</code> etc.</p>
 
 <p><code>ng-hide</code> and <code>ng-show</code> hide and show things respectively, based on boolean values. For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;button ng-show="store.product.canPurchase"&gt;Add to Cart&lt;/button&gt;
-</code></pre></div>
-<p>will only show the &#39;Add to Cart&#39; button if <code>canPurchase</code> is set to <code>true</code>..</p>
+
+<pre><code>&lt;button ng-show="store.product.canPurchase"&gt;Add to Cart&lt;/button&gt;
+</code></pre>
+
+<p>will only show the ‘Add to Cart’ button if <code>canPurchase</code> is set to <code>true</code>..</p>
 
 <p><code>ng-repeat</code> will repeat (loop) the properties of an array, like the jQuery <code>each()</code> method.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;div ng-repeat="product in store.products" class="product row"&gt;
-  &lt;h3&gt;
 
+<pre><code>&lt;div ng-repeat="product in store.products" class="product row"&gt;
+  &lt;h3&gt;
+    
     &lt;em class="pull-right"&gt;$&lt;/em&gt;
   &lt;/h3&gt;
 &lt;/div&gt;
-</code></pre></div>
-<h2>Modules</h2>
+</code></pre>
 
+<h2 id="modules">Modules</h2>
 <p>Modules are where we write pieces of our Angular application.
 Where we define dependencies for our app.</p>
 
-<h2>Expressions</h2>
-
+<h2 id="expressions">Expressions</h2>
 <p>Expressions allow you to insert dynamic values in your HTML</p>
 
 <p>For example: <code>,</code> etc.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;4&lt;/p&gt;
-</code></pre></div>
-<p>will output</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;10&lt;/p&gt;
-</code></pre></div>
-<p>Similarly</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;hello &lt;/p&gt;
-</code></pre></div>
-<p>will output</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;p&gt;hello you&lt;/p&gt;
-</code></pre></div>
-<h2>Controllers</h2>
 
-<p>Controllers are where we define our app&#39;s behavior by defining functions and values.</p>
+<pre><code>&lt;p&gt;4&lt;/p&gt;
+</code></pre>
+
+<p>will output</p>
+
+<pre><code>&lt;p&gt;10&lt;/p&gt;
+</code></pre>
+
+<p>Similarly</p>
+
+<pre><code>&lt;p&gt;hello &lt;/p&gt;
+</code></pre>
+
+<p>will output</p>
+
+<pre><code>&lt;p&gt;hello you&lt;/p&gt;
+</code></pre>
+
+<h2 id="controllers">Controllers</h2>
+<p>Controllers are where we define our app’s behavior by defining functions and values.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -207,6 +237,7 @@ Where we define dependencies for our app.</p>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

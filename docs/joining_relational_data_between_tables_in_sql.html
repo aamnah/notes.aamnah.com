@@ -14,6 +14,7 @@
   <meta name="description" content="Keys and Auto-Incrementing Values">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/joining_relational_data_between_tables_in_sql">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Joining Relational Data between Tables in SQL</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-24T00:00:00+05:00" itemprop="datePublished">
           Feb 24, 2015
         </time>
@@ -91,40 +92,40 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Joining_Relational_Data_between_Tables_in_SQL.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-24-Joining_Relational_Data_between_Tables_in_SQL.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Keys and Auto-Incrementing Values</h2>
+    <h2 id="keys-and-auto-incrementing-values">Keys and Auto-Incrementing Values</h2>
 
-<h3>PRIMARY keys (id)</h3>
+<h3 id="primary-keys-id">PRIMARY keys (id)</h3>
 
-<p>Used to uniquely define each row in a table. It can&#39;t be duplicated, can&#39;t be null.</p>
+<p>Used to uniquely define each row in a table. It can’t be duplicated, can’t be null.</p>
 
-<h3>UNIQUE keys (email_address, ssn)</h3>
+<h3 id="unique-keys-emailaddress-ssn">UNIQUE keys (email_address, ssn)</h3>
 
-<p>Is similar to Primary keys but enforces uniqueness, can&#39;t be duplicated but can be null.</p>
+<p>Is similar to Primary keys but enforces uniqueness, can’t be duplicated but can be null.</p>
 
-<h3>FOREIGN keys (genre_id)</h3>
+<h3 id="foreign-keys-genreid">FOREIGN keys (genre_id)</h3>
 
 <p>Special keys that describe the relationship between data in two in two tables. Also known as <strong>reference keys</strong> because they reference data from another table. These can be duplicated and can be null.</p>
 
 <p><code>AUTO-INCREMENT</code> increments the integer by 1 every time you insert a new row.</p>
 
-<p>Let&#39;s create a genres table with a primary key as id and a unique key for name.</p>
+<p>Let’s create a genres table with a primary key as id and a unique key for name.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    CREATE TABLE genres (id INTEGER NOT NULL AUTO-INCREMENT PRIMARY, name VARCHAR(30) NOT NULL UNIQUE)
     </code></pre></figure>
 
 <p>By definition, <code>PRIMARY KEY</code> is always not null. But you can specify it for clarity.</p>
 
-<p>Mentioning &#39;KEY&#39; is optional. You can use <code>PRIMARY</code>, <code>UNIQUE</code> and <code>REFERNCE</code> instead of PRIMARY KEY, UNIQUE KEY, and REFERENCE KEY.</p>
+<p>Mentioning ‘KEY’ is optional. You can use <code>PRIMARY</code>, <code>UNIQUE</code> and <code>REFERNCE</code> instead of PRIMARY KEY, UNIQUE KEY, and REFERENCE KEY.</p>
 
 <p><code>UNIQUE</code>, <code>UNIQUE KEY</code>, and <code>UNIQUE INDEX</code> all mean the same thing.</p>
 
@@ -133,16 +134,15 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    CREATE TABLE table_name (column_name data_type [NOT NULL | NULL] [DEFAULT default_value] [AUTO_INCREMENT] [UNIQUE|PRIMARY] [reference_definition]
     </code></pre></figure>
 
-<p>Let&#39;s add values to the <em>genres</em> tables</p>
+<p>Let’s add values to the <em>genres</em> tables</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    INSERT INTO genres (name) VALUES("Sci Fi");
     </code></pre></figure>
 
-<p>Since the <em>id</em> will be auto-incremented, we don&#39;t need to specify it in our name. And because we set our genres <em>name</em> column to be <em>unique</em>, we won&#39;t be able to add &#39;Sci Fi&#39; again.</p>
+<p>Since the <em>id</em> will be auto-incremented, we don’t need to specify it in our name. And because we set our genres <em>name</em> column to be <em>unique</em>, we won’t be able to add ‘Sci Fi’ again.</p>
 
-<h2>Linking data between tables</h2>
-
-<p>In the statement below, we want our <em>genre</em>id_ to be a foreign key, meaning it references a key from another table. </p>
+<h2 id="linking-data-between-tables">Linking data between tables</h2>
+<p>In the statement below, we want our <em>genre_id</em> to be a foreign key, meaning it references a key from another table.</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    ALTER TABLE movies ADD COLUMN genre_id INTEGER NULL, ADD CONSTRAINT FOREIGN KEY (genre_id) REFERENCES genres(id);
     </code></pre></figure>
@@ -152,13 +152,13 @@
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE movies SET genre_id = 1 WHERE id = 8 OR id = 9;
     </code></pre></figure>
 
-<h2>References</h2>
-
+<h2 id="references">References</h2>
 <p><a href="http://dev.mysql.com/doc/refman/5.1/en/create-table.html">MySQL 5.1 Reference Manual</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -204,6 +204,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="JavaScript Objects">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/js-objects">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">JavaScript Objects</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-11-21T00:00:00+05:00" itemprop="datePublished">
           Nov 21, 2016
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-19T00:00:00+05:00" itemprop="datePublished">
           Mar 19, 2017
         </time>
@@ -97,223 +98,237 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/JS-Objects.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/JS-Objects.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>JavaScript Objects</h1>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="w">
-    </span><span class="err">key:</span><span class="w"> </span><span class="err">value</span><span class="w">
-    </span><span class="err">property:</span><span class="w"> </span><span class="err">value</span><span class="w">
-    </span><span class="err">method:</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">()</span><span class="w"> </span><span class="err">{</span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span></code></pre></div>
-<p>Object is a value type that contains key value pairs inside curly barces. Keys are also known as properties and everything in JavaScript that isn&#39;t a primitive type is an object. Primitive types are Strings, Numbers, Booleans, Undefined, Null and Symbols (ES6). Yes, arrays are objects. Functions are objects too. The difference between functions and objects is that functions can be called.</p>
+    <h1 id="javascript-objects">JavaScript Objects</h1>
 
-<p>When variables are used in objects they&#39;re called <em>properties</em> and when functions are used inside and object they&#39;re called <em>methods</em>.</p>
+<pre><code>{
+	key: value
+	property: value
+	method: function () {}
+}
+</code></pre>
 
-<p>to create an object, we assign a variable to an <em>object literal</em> </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">{};</span>
-</code></pre></div>
-<p><strong>NOTE</strong>: <code>[ ]</code> create an array, <code>{ }</code> create an object. Pay attention if you&#39;re a beginner, i have already mixed these in code, code didn&#39;t work..</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s2">"Dave"</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>property/key doesn&#39;t need to be in quotes. </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s2">"Dave"</span><span class="p">,</span>
-    <span class="na">grades</span><span class="p">:</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">79</span><span class="p">]</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>separate each key:value pair with a <code>,</code> the last pair doesn&#39;t need one.</p>
+<p>Object is a value type that contains key value pairs inside curly barces. Keys are also known as properties and everything in JavaScript that isn’t a primitive type is an object. Primitive types are Strings, Numbers, Booleans, Undefined, Null and Symbols (ES6). Yes, arrays are objects. Functions are objects too. The difference between functions and objects is that functions can be called.</p>
 
-<p>FYI, there are multiple ways in which you can create an object </p>
+<p>When variables are used in objects they’re called <em>properties</em> and when functions are used inside and object they’re called <em>methods</em>.</p>
+
+<p>to create an object, we assign a variable to an <em>object literal</em></p>
+
+<pre><code class="language-javascript">var students = {};
+</code></pre>
+
+<p><strong>NOTE</strong>: <code>[ ]</code> create an array, <code>{ }</code> create an object. Pay attention if you’re a beginner, i have already mixed these in code, code didn’t work..</p>
+
+<pre><code class="language-javascript">var students = {
+    name: "Dave"
+};
+</code></pre>
+<p>property/key doesn’t need to be in quotes.</p>
+
+<pre><code class="language-javascript">var students = {
+    name: "Dave",
+    grades: [99, 85, 80, 79]
+};
+</code></pre>
+<p>separate each key:value pair with a <code>,</code> the last pair doesn’t need one.</p>
+
+<p>FYI, there are multiple ways in which you can create an object</p>
 
 <ul>
-<li>the literal way <code>myObj = {}</code></li>
-<li>with <code>Object.create()</code> the method</li>
-<li>with <em>constructor functions</em> and the <code>new</code> keyword <code>new Car()</code></li>
+  <li>the literal way <code>myObj = {}</code></li>
+  <li>with <code>Object.create()</code> the method</li>
+  <li>with <em>constructor functions</em> and the <code>new</code> keyword <code>new Car()</code></li>
 </ul>
 
-<h2>Accessing and Modifying data</h2>
-
+<h2 id="accessing-and-modifying-data">Accessing and Modifying data</h2>
 <p>You access values by their property names:</p>
 
 <ul>
-<li><code>person[&#39;name&#39;]</code></li>
-<li><code>person.name</code></li>
+  <li><code>person['name']</code></li>
+  <li><code>person.name</code></li>
 </ul>
 
 <p>You create and modify data the same way, with an <code>=</code> sign</p>
 
 <ul>
-<li><code>person.name = &quot;Anna&quot;</code></li>
-<li><code>person.age = 27</code></li>
+  <li><code>person.name = "Anna"</code></li>
+  <li><code>person.age = 27</code></li>
 </ul>
 
-<p>if a property exists, it&#39;ll update the value. if it doesn&#39;t, it&#39;ll create the property AND update the value.</p>
+<p>if a property exists, it’ll update the value. if it doesn’t, it’ll create the property AND update the value.</p>
 
 <p><strong>You can use array methods (like <code>.join()</code>) on an object property</strong></p>
 
-<h2>Loops (for .. in)</h2>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// do something</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><code>key</code> is the property name, this will change every time it loops. this doesn&#39;t have to called <code>key</code>, you can call it <code>jojo</code>, <code>x</code>, <code>k</code>, <code>prop</code> or whatever. <code>object</code> is the object name, the object you want to loop through.</p>
+<h2 id="loops-for--in">Loops (for .. in)</h2>
+
+<pre><code class="language-javascript">for (var key in object) {
+    // do something
+}
+</code></pre>
+
+<p><code>key</code> is the property name, this will change every time it loops. this doesn’t have to called <code>key</code>, you can call it <code>jojo</code>, <code>x</code>, <code>k</code>, <code>prop</code> or whatever. <code>object</code> is the object name, the object you want to loop through.</p>
 
 <p>You need <strong>bracket notation</strong> <code>person[key]</code> to access property values in a <code>for in</code> loop. <code>person.</code> <em>inside a for in loop</em> will look for a property that is <em>literally named</em> <code>key</code> in the object.</p>
 
 <ul>
-<li><code>person[key]</code> CORRECT</li>
-<li><code>person.key</code> WRONG - will look for one property literally called <code>key</code> instead of looping through properties</li>
-<li><code>person[&quot;key&quot;]</code> WRONG - will get the <code>key</code> property if it exists</li>
+  <li><code>person[key]</code> CORRECT</li>
+  <li><code>person.key</code> WRONG - will look for one property literally called <code>key</code> instead of looping through properties</li>
+  <li><code>person["key"]</code> WRONG - will get the <code>key</code> property if it exists</li>
 </ul>
 
 <p>FYI, you can <code>console.log()</code> multiple strings separated with a <code>,</code></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="s1">' : '</span><span class="p">,</span> <span class="nx">person</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">console.log(key, ' : ', person[name]);
+</code></pre>
+
 <p>or just use template strings</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">key</span><span class="p">}</span> <span class="err">:</span> <span class="nx">$</span><span class="p">{</span><span class="nx">person</span><span class="p">[</span><span class="nx">name</span><span class="p">]}</span><span class="err">`</span><span class="p">;</span>
-</code></pre></div>
-<h2>Constructor functions</h2>
 
+<pre><code class="language-javascript">console.log(`${key} : ${person[name]}`;
+</code></pre>
+
+<h2 id="constructor-functions">Constructor functions</h2>
 <p><em>Constructor functions</em> create objects. They are used with the <code>new</code> keyword, which creates the objects, sets <code>this</code> within the function to the object (i.e. <code>this</code> refers to the new object), and return the object.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Object constructor function</span>
-<span class="kd">function</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">year</span> <span class="o">=</span> <span class="nx">year</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">getFullDescription</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 
-<span class="c1">// create a new instance of the object using the `new` keyword</span>
-<span class="kd">let</span> <span class="nx">myCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">'2016'</span><span class="p">,</span> <span class="s1">'Honda'</span><span class="p">,</span> <span class="s1">'Civic'</span><span class="p">)</span>
-</code></pre></div>
-<h2>Factory functions</h2>
+<pre><code class="language-javascript">// Object constructor function
+function Vehicle(year, make, model) {
+  this.year = year;
+  this.make = make;
+  this.model = model;
+  this.getFullDescription = function() {
+    return `${this.year} ${this.make} ${this.model}`
+  }
+}
 
-<p>Factory functions return objects but they don&#39;t need to use the <code>new</code> keyword and they don&#39;t set <code>this</code> inside the function to the object being created. They just create and return an object</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Factory function (using ES6 enhanced object literal syntax)</span>
-<span class="kd">function</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">year</span><span class="p">,</span>
-    <span class="nx">make</span><span class="p">,</span>
-    <span class="nx">model</span><span class="p">,</span>
-    <span class="nx">getFullDescription</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+// create a new instance of the object using the `new` keyword
+let myCar = new Vehicle('2016', 'Honda', 'Civic')
+</code></pre>
 
-<span class="c1">// create a new instance of the object</span>
-<span class="kd">let</span> <span class="nx">myCar</span> <span class="o">=</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="s1">'2016'</span><span class="p">,</span> <span class="s1">'Honda'</span><span class="p">,</span> <span class="s1">'Civic'</span><span class="p">)</span>
-</code></pre></div>
-<h2>JSON</h2>
+<h2 id="factory-functions">Factory functions</h2>
+<p>Factory functions return objects but they don’t need to use the <code>new</code> keyword and they don’t set <code>this</code> inside the function to the object being created. They just create and return an object</p>
 
+<pre><code class="language-javascript">// Factory function (using ES6 enhanced object literal syntax)
+function createVehicle(year, make, model) {
+  return {
+    year,
+    make,
+    model,
+    getFullDescription() {
+      return `${year} ${make} ${model}`
+    }
+  }
+}
+
+// create a new instance of the object
+let myCar = createVehicle('2016', 'Honda', 'Civic')
+</code></pre>
+
+<h2 id="json">JSON</h2>
 <p>JSON is just a <strong>string</strong> that is formatted as a JS Object. Servers are really good at sending and receiving strings (like HTML/CSS). Once a browser gets the string, it converts it to a pure JS object.</p>
 
-<h2>Examples</h2>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Object literal</span>
-<span class="kd">let</span> <span class="nx">car</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">make</span><span class="p">:</span>  <span class="s1">'Honda'</span><span class="p">,</span>
-  <span class="na">model</span><span class="p">:</span> <span class="s1">'Civic'</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">:</span> <span class="mi">2016</span>
-<span class="p">}</span>
+<h2 id="examples">Examples</h2>
 
-<span class="c1">// Bracket notation</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">I</span> <span class="nx">have</span> <span class="nx">a</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">[</span><span class="s1">'make'</span><span class="p">]}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]}</span><span class="err">`</span><span class="p">)</span>
+<pre><code class="language-javascript">// Object literal
+let car = {
+  make:  'Honda',
+  model: 'Civic',
+  year: 2016
+}
 
-<span class="c1">// Dot notation</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">I</span> <span class="nx">have</span> <span class="nx">a</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">.</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">.</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">car</span><span class="p">.</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+// Bracket notation
+console.info(`I have a ${car['year']} ${car['make']} ${car['model']}`)
 
-<span class="c1">// When property key is a variable (e.g. inside loops)</span>
-<span class="c1">// console.info(`I have a ${car[year]} ${car[make]} ${car[model]}`)</span>
+// Dot notation
+console.info(`I have a ${car.year} ${car.make} ${car.model}`)
 
-
-<span class="c1">// Object literal</span>
-<span class="kd">let</span> <span class="nx">employee</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="c1">// properties</span>
-  <span class="na">firstName</span><span class="p">:</span> <span class="s1">'Harry'</span><span class="p">,</span>
-  <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Denver'</span><span class="p">,</span>
-  <span class="c1">//method</span>
-  <span class="na">fullName</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="err">`</span> <span class="c1">// this refers to the object that owns the function</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// reference a property</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">Our</span> <span class="nx">manager</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">employee</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
-
-<span class="c1">// call a method</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">His</span> <span class="nx">full</span> <span class="nx">name</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span><span class="p">()}</span><span class="err">`</span><span class="p">)</span>
-
-<span class="c1">// Object constructor function</span>
-<span class="kd">function</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// notice the capital V? it's convention for constructor functions</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span> <span class="c1">// notice the semicolons and equal signs</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">year</span> <span class="o">=</span> <span class="nx">year</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">getFullDescription</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// create new instances with the new keyword</span>
-<span class="kd">let</span> <span class="nx">myCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">'2015'</span><span class="p">,</span> <span class="s1">'Honda'</span><span class="p">,</span> <span class="s1">'City'</span><span class="p">)</span>
-<span class="kd">let</span> <span class="nx">mySistersCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">'2013'</span><span class="p">,</span> <span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corolla Fielder'</span><span class="p">)</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">myCar</span><span class="p">.</span><span class="nx">getFullDescription</span><span class="p">()}</span><span class="err">`</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">mySistersCar</span><span class="p">.</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">mySistersCar</span><span class="p">.</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">mySistersCar</span><span class="p">.</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
-
-<span class="c1">// factory functions?</span>
-<span class="kd">function</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="na">make</span><span class="p">:</span> <span class="nx">make</span><span class="p">,</span>
-        <span class="na">year</span><span class="p">:</span> <span class="nx">year</span><span class="p">,</span>
-        <span class="na">model</span><span class="p">:</span> <span class="nx">model</span><span class="p">,</span>
-        <span class="na">getFullDescription</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myCar2</span> <span class="o">=</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="s1">'2015'</span><span class="p">,</span> <span class="s1">'Honda'</span><span class="p">,</span> <span class="s1">'Civic'</span><span class="p">)</span> <span class="c1">// no `new` keyword</span>
-<span class="kd">let</span> <span class="nx">mySistersCar2</span> <span class="o">=</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="s1">'2013'</span><span class="p">,</span> <span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corolla Fielder'</span><span class="p">)</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">myCar2</span><span class="p">.</span><span class="nx">getFullDescription</span><span class="p">()}</span><span class="err">`</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">mySistersCar2</span><span class="p">.</span><span class="nx">getFullDescription</span><span class="p">()}</span><span class="err">`</span><span class="p">)</span>
+// When property key is a variable (e.g. inside loops)
+// console.info(`I have a ${car[year]} ${car[make]} ${car[model]}`)
 
 
-<span class="c1">// ES6 Enhanced Object literal syntax</span>
-<span class="kd">function</span> <span class="nx">createVehicle</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="nx">make</span><span class="p">,</span> <span class="c1">// if the property name and value variable name are the same, you don't have to type both</span>
-        <span class="nx">year</span><span class="p">,</span>
-        <span class="nx">model</span><span class="p">,</span>
-        <span class="nx">getFullDescription</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// we can remove the function keyword</span>
-            <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">year</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">make</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">model</span><span class="p">}</span><span class="err">`</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Links</h2>
+// Object literal
+let employee = {
+  // properties
+  firstName: 'Harry',
+  lastName: 'Denver',
+  //method
+  fullName: function () {
+    return `${this.firstName} ${this.lastName}` // this refers to the object that owns the function
+  }
+}
 
+// reference a property
+console.info(`Our manager is ${employee.firstName}`)
+
+// call a method
+console.info(`His full name is ${employee.fullName()}`)
+
+// Object constructor function
+function Vehicle(year, make, model) { // notice the capital V? it's convention for constructor functions
+	this.make = make; // notice the semicolons and equal signs
+	this.model = model;
+	this.year = year;
+	this.getFullDescription = function () {
+		return `${this.year} ${this.make} ${this.model}`;
+	}
+}
+
+// create new instances with the new keyword
+let myCar = new Vehicle('2015', 'Honda', 'City')
+let mySistersCar = new Vehicle('2013', 'Toyota', 'Corolla Fielder')
+
+console.info(`${myCar.getFullDescription()}`)
+console.info(`${mySistersCar.year} ${mySistersCar.make} ${mySistersCar.model}`)
+
+// factory functions?
+function createVehicle(year, make, model) {
+	return {
+		make: make,
+		year: year,
+		model: model,
+		getFullDescription: function () {
+			return `${year} ${make} ${model}`
+		}
+	}
+}
+
+let myCar2 = createVehicle('2015', 'Honda', 'Civic') // no `new` keyword
+let mySistersCar2 = createVehicle('2013', 'Toyota', 'Corolla Fielder')
+
+console.info(`${myCar2.getFullDescription()}`)
+console.info(`${mySistersCar2.getFullDescription()}`)
+
+
+// ES6 Enhanced Object literal syntax
+function createVehicle(year, make, model) {
+	return {
+		make, // if the property name and value variable name are the same, you don't have to type both
+		year,
+		model,
+		getFullDescription() { // we can remove the function keyword
+			return `${year} ${make} ${model}`
+		}
+	}
+}
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">MDN: Working with Objects</a></li>
-<li><a href="http://stackoverflow.com/questions/8698726/constructor-function-vs-factory-functions">StackOverflow: Constructor functions vs. Factory functions</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">MDN: Working with Objects</a></li>
+  <li><a href="http://stackoverflow.com/questions/8698726/constructor-function-vs-factory-functions">StackOverflow: Constructor functions vs. Factory functions</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -359,6 +374,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

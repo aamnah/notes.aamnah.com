@@ -14,6 +14,7 @@
   <meta name="description" content="MOTD = Message Of The Day">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/change-raspberry-pi-motd-system-startup-message">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Change Raspberry Pi's system startup message (MOTD)</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-09-04T00:00:00+05:00" itemprop="datePublished">
           Sep 4, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2014-09-04-Change Raspberry Pi's system startup message (MOTD).md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2014-09-04-Change Raspberry Pi's system startup message (MOTD).md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>raspberry</li>
       
@@ -102,18 +103,18 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>MOTD = <strong>M</strong>essage <strong>O</strong>f <strong>T</strong>he <strong>D</strong>ay</p>
 
 <p>Add the following to <code>~/.bashrc</code></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c">################################</span>
-    <span class="c"># CUSTOM MOTD FOR RASPBERRY PI  </span>
-    <span class="c">################################</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="c">################################</span>
+	<span class="c"># CUSTOM MOTD FOR RASPBERRY PI	</span>
+	<span class="c">################################</span>
 
-    <span class="nb">let </span><span class="nv">upSeconds</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/cut -d. -f1 /proc/uptime<span class="k">)</span><span class="s2">"</span>
+	<span class="nb">let </span><span class="nv">upSeconds</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/cut -d. -f1 /proc/uptime<span class="k">)</span><span class="s2">"</span>
     <span class="nb">let </span><span class="nv">secs</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
     <span class="nb">let </span><span class="nv">mins</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">60</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
     <span class="nb">let </span><span class="nv">hours</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">3600</span><span class="o">%</span><span class="m">24</span><span class="k">))</span>
@@ -137,27 +138,29 @@
       $(tput sgr0)"
       </span></code></pre></figure>
 
-<p><img src="http://tldrdevnotes.comassets/img/raspberrypi-motd.png" alt="Raspberry Pi - Custom MOTD"></p>
+<p><img src="http://tldrdevnotes.comassets/img/raspberrypi-motd.png" alt="Raspberry Pi - Custom MOTD" /></p>
 
-<h3>Location:</h3>
-
+<h3 id="location">Location:</h3>
 <p>For the location info, we are using <code>curl</code> to get live weather updates from the AccuWeather website. To change the location for the weather edit the <code>locCode=ASI|PK|PK007|LAHORE|</code> bit. Mine was Lahore at the time i set this. Here is an extensive list of <a href="http://pastebin.com/dbtemx5F">region codes for Accuweather</a>.</p>
 
-<h3>Remove last login text:</h3>
+<h3 id="remove-last-login-text">Remove last login text:</h3>
 
-<p>Change from &#39;PrintLastLog yes&#39; in <code>/etc/ssh/sshd_config</code> to</p>
-<div class="highlight"><pre><code class="language-" data-lang="">PrintLastLog no
-</code></pre></div>
-<h2>Sources:</h2>
+<p>Change from ‘PrintLastLog yes’ in <code>/etc/ssh/sshd_config</code> to</p>
+
+<pre><code>PrintLastLog no
+</code></pre>
+
+<h2 id="sources">Sources:</h2>
 
 <ul>
-<li><a href="http://www.raspberrypi.org/forums/viewtopic.php?f=91&t=23440">Custom MOTD - Message of the Day</a> </li>
-<li><a href="http://www.mewbies.com/how_to_customize_your_console_login_message_tutorial.htm">Customize your MOTD - Linux</a></li>
+  <li><a href="http://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=23440">Custom MOTD - Message of the Day</a></li>
+  <li><a href="http://www.mewbies.com/how_to_customize_your_console_login_message_tutorial.htm">Customize your MOTD - Linux</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -203,6 +206,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="dateObj.toLocaleTimeString([locales[, options]])">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-format-dates-in-javascript">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Formatting dates in JavaScript</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-28T00:00:00+05:00" itemprop="datePublished">
           Mar 28, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/Date-format-date-strings.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/Date-format-date-strings.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>date</li>
       
@@ -102,88 +103,93 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-" data-lang="">dateObj.toLocaleTimeString([locales[, options]])
-</code></pre></div>
+    <pre><code>dateObj.toLocaleTimeString([locales[, options]])
+</code></pre>
+
 <ul>
-<li>Locales (string/array of strings, optional) <code>en-US</code>, <code>en-GB</code>, <code>ar-EG</code> etc.</li>
-<li>Options (object, optional) where you can specify properties and their values, e.g. <code>timeZone: &#39;Asia/Karachi&#39;</code></li>
+  <li>Locales (string/array of strings, optional) <code>en-US</code>, <code>en-GB</code>, <code>ar-EG</code> etc.</li>
+  <li>Options (object, optional) where you can specify properties and their values, e.g. <code>timeZone: 'Asia/Karachi'</code></li>
 </ul>
 
-<h4>Formatting locale strings</h4>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Locale Strings</span>
-<span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'en-us'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'en-us'</span><span class="p">))</span> <span class="c1">// "1/10/2017, 3:29:15 PM"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'en-GB'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'en-GB'</span><span class="p">))</span> <span class="c1">// "10/01/2017, 15:29:15"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'ar-EG'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'ar-EG'</span><span class="p">))</span> <span class="c1">// "١٠‏/١‏/٢٠١٧ ٣:٣٢:٣٣ م"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'de-DE'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'de-DE'</span><span class="p">))</span> <span class="c1">// "10.1.2017, 15:32:33"</span>
+<h4 id="formatting-locale-strings">Formatting locale strings</h4>
 
-<span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userLangauge</span> <span class="c1">// find out the browser's locale</span>
+<pre><code class="language-javascript">// Locale Strings
+let date = new Date()
+console.info('en-us', date.toLocaleString('en-us')) // "1/10/2017, 3:29:15 PM"
+console.info('en-GB', date.toLocaleString('en-GB')) // "10/01/2017, 15:29:15"
+console.info('ar-EG', date.toLocaleString('ar-EG')) // "١٠‏/١‏/٢٠١٧ ٣:٣٢:٣٣ م"
+console.info('de-DE', date.toLocaleString('de-DE')) // "10.1.2017, 15:32:33"
 
-<span class="kd">let</span> <span class="nx">localeStringFormat</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">weekday</span><span class="p">:</span> <span class="s1">'long'</span><span class="p">,</span>
-  <span class="na">month</span><span class="p">:</span> <span class="s1">'long'</span><span class="p">,</span>
-  <span class="na">day</span><span class="p">:</span> <span class="s1">'numeric'</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">:</span> <span class="s1">'numeric'</span>
-<span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="nx">locale</span><span class="p">,</span> <span class="p">{</span><span class="na">month</span><span class="p">:</span> <span class="s1">'long'</span><span class="p">}))</span> <span class="c1">// "January"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'en-us'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'en-us'</span><span class="p">,</span> <span class="nx">localeStringFormat</span><span class="p">))</span> <span class="c1">// "Tuesday, January 10, 2017"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'en-GB'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'en-GB'</span><span class="p">,</span> <span class="nx">localeStringFormat</span><span class="p">))</span> <span class="c1">// "Tuesday, 10 January 2017"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'ar-EG'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'ar-EG'</span><span class="p">,</span> <span class="nx">localeStringFormat</span><span class="p">))</span> <span class="c1">// "الثلاثاء، ١٠ يناير، ٢٠١٧"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'de-DE'</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'de-DE'</span><span class="p">,</span> <span class="nx">localeStringFormat</span><span class="p">))</span> <span class="c1">// "Dienstag, 10. Januar 2017"</span>
+const locale = navigator.language || navigator.userLangauge // find out the browser's locale
 
-</code></pre></div>
-<h4>Validating and formatting dates</h4>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">UNIX</span> <span class="o">=</span> <span class="s1">'1481884441'</span>
-<span class="kr">const</span> <span class="nx">ISO8601</span> <span class="o">=</span> <span class="s1">'2016-11-04T17:39:59.910Z'</span>
-<span class="kr">const</span> <span class="nx">time</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">ISO8601</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="s1">'en-US'</span>
-<span class="cm">/* Locales
+let localeStringFormat = {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric'
+}
+console.info('month', date.toLocaleString(locale, {month: 'long'})) // "January"
+console.info('en-us', date.toLocaleString('en-us', localeStringFormat)) // "Tuesday, January 10, 2017"
+console.info('en-GB', date.toLocaleString('en-GB', localeStringFormat)) // "Tuesday, 10 January 2017"
+console.info('ar-EG', date.toLocaleString('ar-EG', localeStringFormat)) // "الثلاثاء، ١٠ يناير، ٢٠١٧"
+console.info('de-DE', date.toLocaleString('de-DE', localeStringFormat)) // "Dienstag, 10. Januar 2017"
+
+</code></pre>
+
+<h4 id="validating-and-formatting-dates">Validating and formatting dates</h4>
+
+<pre><code class="language-javascript">const UNIX = '1481884441'
+const ISO8601 = '2016-11-04T17:39:59.910Z'
+const time = new Date(ISO8601)
+const locale = 'en-US'
+/* Locales
 * en-US: November 4, 2016, 22:39
 * en-GB: 4 November 2016, 10:39 PM
-*/</span>
+*/
 
 
-<span class="c1">// Format using Moment.js</span>
-<span class="kr">const</span> <span class="nx">formattedUnix</span> <span class="o">=</span> <span class="nx">moment</span><span class="p">.</span><span class="nx">unix</span><span class="p">(</span><span class="nx">UNIX</span><span class="p">).</span><span class="nx">format</span><span class="p">(</span><span class="s1">'MMM D, YYYY, HH:mm'</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">formattedISO</span> <span class="o">=</span> <span class="nx">moment</span><span class="p">(</span><span class="nx">ISO8601</span><span class="p">).</span><span class="nx">format</span><span class="p">(</span><span class="s1">'MMM D, YYYY, HH:mm'</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'formatted Unix:'</span><span class="p">,</span> <span class="nx">formattedUnix</span><span class="p">)</span> <span class="c1">// "Dec 16, 2016, 15:34"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'formatted ISO:'</span><span class="p">,</span> <span class="nx">formattedISO</span><span class="p">)</span> <span class="c1">// "Nov 4, 2016, 22:39"</span>
+// Format using Moment.js
+const formattedUnix = moment.unix(UNIX).format('MMM D, YYYY, HH:mm')
+const formattedISO = moment(ISO8601).format('MMM D, YYYY, HH:mm')
+console.info('formatted Unix:', formattedUnix) // "Dec 16, 2016, 15:34"
+console.info('formatted ISO:', formattedISO) // "Nov 4, 2016, 22:39"
 
 
-<span class="c1">// Format using Date methods</span>
-<span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span>
-<span class="kd">let</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="nx">locale</span><span class="p">,</span> <span class="p">{</span><span class="na">month</span><span class="p">:</span> <span class="s1">'short'</span><span class="p">})</span>
-<span class="kd">let</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span>
-<span class="kd">let</span> <span class="nx">hours</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span>
-<span class="kd">let</span> <span class="nx">mins</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span>
+// Format using Date methods
+let date = time.getDate()
+let month = time.toLocaleString(locale, {month: 'short'})
+let year = time.getFullYear()
+let hours = time.getHours()
+let mins = time.getMinutes()
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">month</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">date</span><span class="p">},</span> <span class="nx">$</span><span class="p">{</span><span class="nx">year</span><span class="p">},</span> <span class="nx">$</span><span class="p">{</span><span class="nx">hours</span><span class="p">}</span><span class="err">:</span><span class="nx">$</span><span class="p">{</span><span class="nx">mins</span><span class="p">}</span><span class="err">`</span><span class="p">)</span> <span class="c1">// "Nov 4, 2016, 22:39"</span>
+console.info(`${month} ${date}, ${year}, ${hours}:${mins}`) // "Nov 4, 2016, 22:39"
 
 
-<span class="c1">// Format using Locale string</span>
-<span class="kr">const</span> <span class="nx">dateStringFormat</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">month</span><span class="p">:</span> <span class="s1">'short'</span><span class="p">,</span>
-  <span class="na">day</span><span class="p">:</span> <span class="s1">'numeric'</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">:</span> <span class="s1">'numeric'</span><span class="p">,</span>
-  <span class="na">hour</span><span class="p">:</span> <span class="s1">'numeric'</span><span class="p">,</span>
-  <span class="na">minute</span><span class="p">:</span> <span class="s1">'numeric'</span>
-<span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'locale string'</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="nx">locale</span><span class="p">,</span> <span class="nx">dateStringFormat</span><span class="p">))</span> <span class="c1">// "Nov 4, 2016, 10:39 PM"</span>
-</code></pre></div>
-<h2>Links</h2>
+// Format using Locale string
+const dateStringFormat = {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric'
+}
+console.info('locale string', time.toLocaleString(locale, dateStringFormat)) // "Nov 4, 2016, 10:39 PM"
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://jsbin.com/lihuzu/3/edit?js,console">JSBin: Formatting Locale Strings</a></li>
-<li><a href="https://jsbin.com/giwudo/12/edit?js,console">JSBin: Validating and Formatting dates in JavaScript</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString">MDN: .toLocaleTimeString()</a></li>
+  <li><a href="https://jsbin.com/lihuzu/3/edit?js,console">JSBin: Formatting Locale Strings</a></li>
+  <li><a href="https://jsbin.com/giwudo/12/edit?js,console">JSBin: Validating and Formatting dates in JavaScript</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString">MDN: .toLocaleTimeString()</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -229,6 +235,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

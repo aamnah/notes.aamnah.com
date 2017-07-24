@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="FunctionAdd this to your Sass (functions) file. It is recommended that you keep a separate functions.scss file and @import &#39;functions&#39;; at the top of...">
+  <meta name="description" content="FunctionAdd this to your Sass (functions) file. It is recommended that you keep a separate functions.scss file and @import 'functions'; at the top of your ma...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/sass-function-convert-pixels-px-ems">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Sass Function to Auto-Convert Pixels to Ems</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-01-17T00:00:00+05:00" itemprop="datePublished">
           Jan 17, 2015
         </time>
@@ -91,26 +92,25 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-convert-pixels-px-ems.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-convert-pixels-px-ems.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Function</h3>
-
-<p>Add this to your Sass (functions) file. It is recommended that you keep a separate <strong>functions.scss</strong> file and <code>@import &#39;functions&#39;;</code> at the top of your main/global css file. This way it keeps things organized. OR you could just add this function to the top of your main scss file.</p>
+    <h3 id="function">Function</h3>
+<p>Add this to your Sass (functions) file. It is recommended that you keep a separate <strong>functions.scss</strong> file and <code>@import 'functions';</code> at the top of your main/global css file. This way it keeps things organized. OR you could just add this function to the top of your main scss file.</p>
 
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss">    <span class="k">@function</span> <span class="nf">pem</span><span class="p">(</span><span class="nv">$pixels</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">@return</span> <span class="si">#{</span><span class="nv">$pixels</span><span class="o">/</span><span class="m">16</span><span class="mi">.0</span><span class="si">}</span><span class="n">em</span>
     <span class="p">}</span>
     </code></pre></figure>
 
-<h3>Usage</h3>
+<h3 id="usage">Usage</h3>
 
 <p>Using scss syntax:</p>
 
@@ -132,7 +132,8 @@
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -178,6 +179,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

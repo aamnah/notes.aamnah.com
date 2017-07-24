@@ -14,6 +14,7 @@
   <meta name="description" content="Sort result ORDER based on frequencyHere is a nifty way of influencing the ORDER of rows returned by a query that helps in displaying a list with frequently ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/querying-selecting-showing-data-from-mysql-database-tips">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Tips for Querying a MySQL Database</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
           Feb 20, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-querying-selecting-showing-data-from-mysql-database.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-querying-selecting-showing-data-from-mysql-database.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>basics</li>
       
@@ -106,11 +107,10 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Sort result ORDER based on frequency</h2>
-
+    <h2 id="sort-result-order-based-on-frequency">Sort result ORDER based on frequency</h2>
 <p>Here is a nifty way of influencing the ORDER of rows returned by a query that helps in displaying a list with frequently accessed items at the top.</p>
 
 <p>An example is a name/address form where the country is a selectable list. If most of your users are from the UK and US you may want to do something like:</p>
@@ -119,7 +119,8 @@
     </code></pre></figure>
 
 <p>Which returns something like:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">+----------+----------------------------------------+
+
+<pre><code>+----------+----------------------------------------+
 | iso_code | name                                   |
 +----------+----------------------------------------+
 | UK       | United Kingdom                         |
@@ -128,34 +129,36 @@
 | AL       | Albania                                |
 | DZ       | Algeria                                |
 | AS       | American Samoa                         |
-</code></pre></div>
-<p>Tip from <a href="mailto:megazoid@hotmail.com">Imran</a></p>
+</code></pre>
 
-<p>I found that if you also add in another &#39;iso_code&#39; column in the order by statment after the first one containing the IN() statment, it will sort the remaining records:</p>
+<p>Tip from <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#109;&#101;&#103;&#097;&#122;&#111;&#105;&#100;&#064;&#104;&#111;&#116;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Imran</a></p>
+
+<p>I found that if you also add in another ‘iso_code’ column in the order by statment after the first one containing the IN() statment, it will sort the remaining records:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM countries ORDER by iso_code IN ('UK', 'US') desc, iso_code
     </code></pre></figure>
 
 <p>Tip from <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html">Gregory</a></p>
 
-<h2>Check for NULL when anti-matching (NOT LIKE)</h2>
-
+<h2 id="check-for-null-when-anti-matching-not-like">Check for NULL when anti-matching (NOT LIKE)</h2>
 <p>In order to anti-match fields by wildcards, one has to check whether the value of the field is not NULL:</p>
 
-<p>For example: The table &#39;runs&#39; contains 34876 rows. 205 rows have an &#39;info&#39; field containing the string &#39;wrong&#39;.</p>
+<p>For example: The table ‘runs’ contains 34876 rows. 205 rows have an ‘info’ field containing the string ‘wrong’.</p>
 
-<p>To select those rows for which the &#39;info&#39; column does <em>NOT</em> contain the word &#39;wrong&#39; one has to do:</p>
+<p>To select those rows for which the ‘info’ column does <em>NOT</em> contain the word ‘wrong’ one has to do:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    mysql&gt; select count(*) FROM runs WHERE info is NULL or info not like '%wrong%';
     </code></pre></figure>
 
 <p>which will result</p>
-<div class="highlight"><pre><code class="language-" data-lang="">+----------+
+
+<pre><code>+----------+
 | count(*) |
 +----------+
 |    34671 |
 +----------+
-</code></pre></div>
+</code></pre>
+
 <p>but not:</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    
@@ -163,21 +166,23 @@
     </code></pre></figure>
 
 <p>resulting with</p>
-<div class="highlight"><pre><code class="language-" data-lang="">+----------+
+
+<pre><code>+----------+
 | count(*) |
 +----------+
 |     5537 |
 +----------+
-</code></pre></div>
+</code></pre>
+
 <p>which would lead to a much smaller number of selected rows.</p>
 
 <p>Tip from <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html">MySQL Docs: SELECT</a></p>
 
-<h2>Use Parantheses <strong>( )</strong> when combining complex statements</h2>
+<h2 id="use-parantheses---when-combining-complex-statements">Use Parantheses <strong>( )</strong> when combining complex statements</h2>
 
 <p>I discovered a well placed parentheses can make a difference in output. This Query search at least three columns for data like the $query variable.</p>
 
-<p>Example 1: (This doesn&#39;t work)</p>
+<p>Example 1: (This doesn’t work)</p>
 
 <figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    $query = "Whatever text";
 
@@ -193,9 +198,11 @@
 
 <p>Tip from <a href="http://www.sioure.com">Elliot</a></p>
 
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -241,6 +248,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

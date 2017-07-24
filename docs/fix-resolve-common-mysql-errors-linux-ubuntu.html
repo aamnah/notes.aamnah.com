@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Error: Can&#39;t connect to local MySQL server through socket &#39;/var/run/mysqld/mysqld.sock&#39; (2)">
+  <meta name="description" content="Error: Can’t connect to local MySQL server through socket ‘/var/run/mysqld/mysqld.sock’ (2)">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/fix-resolve-common-mysql-errors-linux-ubuntu">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Common MySQL Errors</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-07-06T00:00:00+05:00" itemprop="datePublished">
           Jul 6, 2017
         </time>
@@ -91,59 +92,75 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/resolving-mysql-errors.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/resolving-mysql-errors.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Error: Can&#39;t connect to local MySQL server through socket &#39;/var/run/mysqld/mysqld.sock&#39; (2)</h3>
+    <h3 id="error-cant-connect-to-local-mysql-server-through-socket-varrunmysqldmysqldsock-2">Error: Can’t connect to local MySQL server through socket ‘/var/run/mysqld/mysqld.sock’ (2)</h3>
 
 <p>See if a socket file exists. To find all socket files on your system run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo find / -type s
-</code></pre></div>
+
+<pre><code class="language-bash">sudo find / -type s
+</code></pre>
+
 <p>Mysql server is usually open at <code>/var/lib/mysql/mysql.sock</code></p>
 
 <p>The MySQl configuration file is usually at <code>/etc/mysql/my.cnf</code> (Ubuntu 17.04)</p>
 
 <p>stop MySQL</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo service mysqld stop
-</code></pre></div>
+
+<pre><code class="language-bash">sudo service mysqld stop
+</code></pre>
+
 <p>Look for a <code>.pid</code> file and delete it if found</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls -alh /var/run/mysqld/
-</code></pre></div>
+
+<pre><code class="language-bash">ls -alh /var/run/mysqld/
+</code></pre>
+
 <p>create a new <code>.sock</code> file and chmod it</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">touch /var/run/mysqld/mysqld.sock
+
+<pre><code class="language-bash">touch /var/run/mysqld/mysqld.sock
 chmod 777 /var/run/mysqld/mysqld.sock
-</code></pre></div>
+</code></pre>
+
 <p>also set <code>mysql</code> as the owner of <code>/var/run/mysqld</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">chown mysql:mysql /var/run/mysqld
-</code></pre></div>
+
+<pre><code class="language-bash">chown mysql:mysql /var/run/mysqld
+</code></pre>
+
 <p>start MySQL again</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo service mysql restart
-</code></pre></div>
-<h3>Failed! Error: The MySQL server is running with the --skip-grant-tables option so it cannot execute this statement</h3>
+
+<pre><code class="language-bash">sudo service mysql restart
+</code></pre>
+
+<h3 id="failed-error-the-mysql-server-is-running-with-the---skip-grant-tables-option-so-it-cannot-execute-this-statement">Failed! Error: The MySQL server is running with the –skip-grant-tables option so it cannot execute this statement</h3>
 
 <p>Login to MySQL</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mysql
-</code></pre></div>
+
+<pre><code class="language-bash">mysql
+</code></pre>
 <p>execute</p>
-<div class="highlight"><pre><code class="language-mysql" data-lang="mysql">FLUSH PRIVILEGES;
+
+<pre><code class="language-mysql">FLUSH PRIVILEGES;
 exit
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li>https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq</li>
+  <li>https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -189,6 +206,7 @@ exit
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

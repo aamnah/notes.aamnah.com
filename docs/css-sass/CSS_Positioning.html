@@ -1,109 +1,183 @@
 <ul>
-<li><p>CSS treats each HTML element as it&#39;s own box which is usually referred to as the <strong>CSS Box Model</strong></p></li>
-<li><p><strong>Block-level</strong> elements automatically start on a new line (think headings, paragraphs and divs)</p></li>
-<li><p><strong>Inline elements</strong> sit within surrounding context (think images and spans)</p></li>
-<li><p>The default layout of elements in this way is called the <strong>normal flow</strong> of a document, but CSS offers the position property to override it.</p></li>
-<li><p>Setting a <strong>position</strong> (<code>relative</code>, <code>absolute</code>, <code>fixed</code>) allows you the use of offset properties (<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>). In other words, you need to set a position (other than default static) first in order to adjust it&#39;s position in the viewport using offset property values.</p></li>
-<li><p><strong>Offset properties</strong> are <code>left</code>, <code>right</code>, <code>bottom</code> and <code>top</code>. They let you move the element <strong>away</strong> from it&#39;s normal position. Offset properties only work on positioned elements (non-static)</p></li>
-<li><p>Offset properties move the element <em>away</em> from it&#39;s current position in normal flow. So if you do <code>left: 10px;</code>, it&#39;ll essentially move the item 10px to the right. Similarly <code>bottom: 25px;</code> will move the item 25px up.</p></li>
+  <li>
+    <p>CSS treats each HTML element as it’s own box which is usually referred to as the <strong>CSS Box Model</strong></p>
+  </li>
+  <li>
+    <p><strong>Block-level</strong> elements automatically start on a new line (think headings, paragraphs and divs)</p>
+  </li>
+  <li>
+    <p><strong>Inline elements</strong> sit within surrounding context (think images and spans)</p>
+  </li>
+  <li>
+    <p>The default layout of elements in this way is called the <strong>normal flow</strong> of a document, but CSS offers the position property to override it.</p>
+  </li>
+  <li>
+    <p>Setting a <strong>position</strong> (<code>relative</code>, <code>absolute</code>, <code>fixed</code>) allows you the use of offset properties (<code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>). In other words, you need to set a position (other than default static) first in order to adjust it’s position in the viewport using offset property values.</p>
+  </li>
+  <li>
+    <p><strong>Offset properties</strong> are <code>left</code>, <code>right</code>, <code>bottom</code> and <code>top</code>. They let you move the element <strong>away</strong> from it’s normal position. Offset properties only work on positioned elements (non-static)</p>
+  </li>
+  <li>
+    <p>Offset properties move the element <em>away</em> from it’s current position in normal flow. So if you do <code>left: 10px;</code>, it’ll essentially move the item 10px to the right. Similarly <code>bottom: 25px;</code> will move the item 25px up.</p>
+  </li>
 </ul>
 
-<h3>position</h3>
-
+<h3 id="position">position</h3>
 <p>When an element is referred to as a <strong>positioned element</strong>, it means that its position has been changed from being static, to one of four available values: relative, absolute, fixed, sticky.</p>
 
 <p>Once an element has been positioned (given a non-static value), its position on the page is determined using the <em>offset properties</em>: top, right, bottom, and left.</p>
 
 <ul>
-<li>static (default)</li>
-<li>relative</li>
-<li>absolute</li>
-<li>fixed</li>
-<li>sticky</li>
+  <li>static (default)</li>
+  <li>relative</li>
+  <li>absolute</li>
+  <li>fixed</li>
+  <li>sticky</li>
 </ul>
 
-<p>| value | positioning | stays in normal flow | allows offset properties |
-|-------|---|----------------------|----------------------------|
-| static | default | yes | no |
-| relative | relative to its current position, acts as an anchor point for absolutely positioned elements | yes | yes |
-| absolute | locks the element in place relative to it&#39;s <em>positioned</em> parent | no | yes |
-| fixed | locks the element to the browser window (viewport) | no | yes |</p>
+<table>
+  <thead>
+    <tr>
+      <th>value</th>
+      <th>positioning</th>
+      <th>stays in normal flow</th>
+      <th>allows offset properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>static</td>
+      <td>default</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>relative</td>
+      <td>relative to its current position, acts as an anchor point for absolutely positioned elements</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>absolute</td>
+      <td>locks the element in place relative to it’s <em>positioned</em> parent</td>
+      <td>no</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>fixed</td>
+      <td>locks the element to the browser window (viewport)</td>
+      <td>no</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>relative</h3>
-
+<h3 id="relative">relative</h3>
 <ul>
-<li>When the position of an element is set to <code>relative</code>, it allows you to specify how CSS should move it <em>relative to its current position</em> in the normal flow of the page</li>
-<li>It pairs with CSS offset properties of <code>left</code> or <code>right</code>, and <code>top</code> or <code>bottom</code></li>
-<li>Offset properties say how many pixels, percentages, or ems to move the item away from where it is normally positioned</li>
-<li>Acts as an anchor point for absolutely positioned elements</li>
+  <li>When the position of an element is set to <code>relative</code>, it allows you to specify how CSS should move it <em>relative to its current position</em> in the normal flow of the page</li>
+  <li>It pairs with CSS offset properties of <code>left</code> or <code>right</code>, and <code>top</code> or <code>bottom</code></li>
+  <li>Offset properties say how many pixels, percentages, or ems to move the item away from where it is normally positioned</li>
+  <li>Acts as an anchor point for absolutely positioned elements</li>
 </ul>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">p</span> <span class="p">{</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-  <span class="nl">bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3>absolute</h3>
 
+<pre><code class="language-css">p {
+  position: relative;
+  bottom: 10px;
+}
+</code></pre>
+
+<h3 id="absolute">absolute</h3>
 <ul>
-<li>Absolute locks the element in place relative to it&#39;s <em>positioned</em> parent element</li>
-<li>If you forgot to add a <code>position: relative;</code> to it&#39;s intended parent, the browser will keep looking up the chain and ultimately default to the body tag</li>
-<li>Removes the element from normal flow (is no longer contained), so the surrounding elements ignore it</li>
-<li>Absolute elements are no longer block elements. The size of the element is determined by it&#39;s content. If you want it to be a certain size, you have to explicitly define the size</li>
+  <li>Absolute locks the element in place relative to it’s <em>positioned</em> parent element</li>
+  <li>If you forgot to add a <code>position: relative;</code> to it’s intended parent, the browser will keep looking up the chain and ultimately default to the body tag</li>
+  <li>Removes the element from normal flow (is no longer contained), so the surrounding elements ignore it</li>
+  <li>Absolute elements are no longer block elements. The size of the element is determined by it’s content. If you want it to be a certain size, you have to explicitly define the size</li>
 </ul>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: relative; padding: 1em; background: plum"</span><span class="nt">&gt;</span>
+
+<pre><code class="language-html">&lt;div style="position: relative; padding: 1em; background: plum"&gt;
   RELATIVE
-<span class="nt">&lt;/div&gt;</span>
+&lt;/div&gt;
 
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: absolute; padding: 1em; background: salmon"</span><span class="nt">&gt;</span>
+&lt;div style="position: absolute; padding: 1em; background: salmon"&gt;
   ABSOLUTE
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
+&lt;/div&gt;
+</code></pre>
+
 <ul>
-<li>Absolutes (<code>absolute</code> and <code>fixed</code>) elements can not be contained. Since absolute elements move out of the normal flow, it&#39;ll look like the relative parent disowned the absolute child (For example, the padding for a parent <code>relative</code> element will not wrap around a child <code>absolute</code> element, the absolute element will not be <em>contained</em> inside the relative) TIP: You can add height/width to the parent element to make it look like it is containing the child.</li>
+  <li>Absolutes (<code>absolute</code> and <code>fixed</code>) elements can not be contained. Since absolute elements move out of the normal flow, it’ll look like the relative parent disowned the absolute child (For example, the padding for a parent <code>relative</code> element will not wrap around a child <code>absolute</code> element, the absolute element will not be <em>contained</em> inside the relative) TIP: You can add height/width to the parent element to make it look like it is containing the child.</li>
 </ul>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: relative; padding: 1em; background: rgba(0,255,255, .5);"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: absolute; padding: 1em; background: rgba(221,160,221, .5);"</span><span class="nt">&gt;</span>
+
+<pre><code class="language-html">&lt;div style="position: relative; padding: 1em; background: rgba(0,255,255, .5);"&gt;
+  &lt;div style="position: absolute; padding: 1em; background: rgba(221,160,221, .5);"&gt;
     ABSOLUTE inside a relative parent element
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+  &lt;/div&gt;
+&lt;/div&gt;
 
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: relative; padding: 1em; background: rgba(70, 130, 180, .5);"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"position: fixed; padding: 1em; background: rgba(102, 51, 153, .5);"</span><span class="nt">&gt;</span>
+&lt;div style="position: relative; padding: 1em; background: rgba(70, 130, 180, .5);"&gt;
+  &lt;div style="position: fixed; padding: 1em; background: rgba(102, 51, 153, .5);"&gt;
     FIXED inside a relative parent element
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
-<h3>fixed</h3>
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
+<h3 id="fixed">fixed</h3>
 <ul>
-<li>Fixed is a type of absolute positioning that locks the element relative to the browser window</li>
-<li>Unlike absolute elements, fixed elements won&#39;t move when the user scrolls. Meaning, if you fixed something to the top, it&#39;ll always be in the top of viewport even if you scroll. (<em>click to top</em> buttons are an example, they are usually fixed in bottom right)</li>
-<li>Other elements don&#39;t &#39;realize&#39; where fixed items are positioned, which may require some layout adjustments elsewhere. Meaning, they won&#39;t move to give space to your fixed element. (For example, if you fixed a navbar to top, it&#39;ll cover the header, because the header didn&#39;t move. You&#39;ll have to adjust the header in order to move it away from the navbar)</li>
-<li>Fixed elements are no longer block elements. The size of the element is determined by it&#39;s content. If you want it to be a certain size, you have to explicitly define the size</li>
+  <li>Fixed is a type of absolute positioning that locks the element relative to the browser window</li>
+  <li>Unlike absolute elements, fixed elements won’t move when the user scrolls. Meaning, if you fixed something to the top, it’ll always be in the top of viewport even if you scroll. (<em>click to top</em> buttons are an example, they are usually fixed in bottom right)</li>
+  <li>Other elements don’t ‘realize’ where fixed items are positioned, which may require some layout adjustments elsewhere. Meaning, they won’t move to give space to your fixed element. (For example, if you fixed a navbar to top, it’ll cover the header, because the header didn’t move. You’ll have to adjust the header in order to move it away from the navbar)</li>
+  <li>Fixed elements are no longer block elements. The size of the element is determined by it’s content. If you want it to be a certain size, you have to explicitly define the size</li>
 </ul>
 
-<p>| relative | absolute | fixed |
-|----------|-----------|-------|
-| acts as <strong>anchor point</strong> for absolutely positioned (both absolute and fixed) elements | positioned relative to the closest <code>relative</code> positioned parent element | positioned relative to the closest <code>relative</code> or <code>absolute</code> positioned parent element |
-| | sticks to the <strong>document</strong> | sticks to the <strong>viewport</strong> |
-| | <strong>moves with the document</strong> when you scroll | <strong>stays in place</strong> when you scroll |
-| stays in the normal flow | breaks normal flow | breaks normal flow | 
-| Block elements, take up full width of the containing element | size determined by content, unless explicitly defined | size determined by content, unless explicitly defined |</p>
+<table>
+  <thead>
+    <tr>
+      <th>relative</th>
+      <th>absolute</th>
+      <th>fixed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>acts as <strong>anchor point</strong> for absolutely positioned (both absolute and fixed) elements</td>
+      <td>positioned relative to the closest <code>relative</code> positioned parent element</td>
+      <td>positioned relative to the closest <code>relative</code> or <code>absolute</code> positioned parent element</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>sticks to the <strong>document</strong></td>
+      <td>sticks to the <strong>viewport</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>moves with the document</strong> when you scroll</td>
+      <td><strong>stays in place</strong> when you scroll</td>
+    </tr>
+    <tr>
+      <td>stays in the normal flow</td>
+      <td>breaks normal flow</td>
+      <td>breaks normal flow</td>
+    </tr>
+    <tr>
+      <td>Block elements, take up full width of the containing element</td>
+      <td>size determined by content, unless explicitly defined</td>
+      <td>size determined by content, unless explicitly defined</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>absolute vs. fixed</h3>
-
+<h3 id="absolute-vs-fixed">absolute vs. fixed</h3>
 <ul>
-<li>Absolute stays in place in the <em>document</em>, while fixed stays in place in the <em>viewport</em></li>
-<li>Absolute is positioned relative to the nearest <em>relative</em> parent element in the document, while Fixed is positioned relative to the nearest <em>positioned</em> (either relative or absolute) parent element</li>
-<li><code>absolute</code> and <code>fixed</code> are both absolutes. (fixed is a type of absolutely positioned elements). Absolutes (both absolute and fixed) are positioned relative to the closest parent <code>relative</code> element, while <code>fixed</code> are positioned relative to the closest <em>positioned</em> (absolute or relative) parent element</li>
+  <li>Absolute stays in place in the <em>document</em>, while fixed stays in place in the <em>viewport</em></li>
+  <li>Absolute is positioned relative to the nearest <em>relative</em> parent element in the document, while Fixed is positioned relative to the nearest <em>positioned</em> (either relative or absolute) parent element</li>
+  <li><code>absolute</code> and <code>fixed</code> are both absolutes. (fixed is a type of absolutely positioned elements). Absolutes (both absolute and fixed) are positioned relative to the closest parent <code>relative</code> element, while <code>fixed</code> are positioned relative to the closest <em>positioned</em> (absolute or relative) parent element</li>
 </ul>
 
-<p>When using offsets to move elements, it only moves the element you targeted, the rest stay in place. So even though elements are positioned relatively, they <strong>don&#39;t move relatively</strong>, they stay in their places in the document where they occured.</p>
+<p>When using offsets to move elements, it only moves the element you targeted, the rest stay in place. So even though elements are positioned relatively, they <strong>don’t move relatively</strong>, they stay in their places in the document where they occured.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://cssreference.io/positioning/">cssreference.io - positioning</a></li>
-<li><a href="https://tympanus.net/codrops/css_reference/position/">Codrops CSS Reference - position</a></li>
-<li><a href="http://beta.freecodecamp.com/en/challenges/applied-visual-design/change-an-elements-relative-position">FCC - Applied Visual Design: Change an Element&#39;s Relative Position</a></li>
+  <li><a href="http://cssreference.io/positioning/">cssreference.io - positioning</a></li>
+  <li><a href="https://tympanus.net/codrops/css_reference/position/">Codrops CSS Reference - position</a></li>
+  <li><a href="http://beta.freecodecamp.com/en/challenges/applied-visual-design/change-an-elements-relative-position">FCC - Applied Visual Design: Change an Element’s Relative Position</a></li>
 </ul>

@@ -14,6 +14,7 @@
   <meta name="description" content="Issue: I cannot upload big dump files (memory, HTTP or timeout problems).">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/increase-filesize-phpmyadmin-uploads">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">increasing file size for PHPMyAdmin uploads</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-02-25T00:00:00+05:00" itemprop="datePublished">
           Feb 25, 2016
         </time>
@@ -91,28 +92,33 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/increase-filesize-phpmyadmin-upload.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/increase-filesize-phpmyadmin-upload.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Issue: 
 I cannot upload big dump files (memory, HTTP or timeout problems).</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">nano /etc/php5/apache2/php.ini
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">post_max_size = 128M
+
+<pre><code class="language-bash">nano /etc/php5/apache2/php.ini
+</code></pre>
+
+<pre><code>post_max_size = 128M
 memory_limit = 128M
 upload_max_filesize = 64M
-</code></pre></div>
+</code></pre>
+
 <p>http://docs.phpmyadmin.net/en/latest/faq.html#faq1-16</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -158,6 +164,7 @@ upload_max_filesize = 64M
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

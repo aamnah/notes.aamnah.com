@@ -14,6 +14,7 @@
   <meta name="description" content="Web APIsJavaScript is a scripting language. In the context of a web browser, scripting usually refers to program code written in JavaScript that is executed ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/javascript-web-api-interfaces">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">(JavaScript) Web APIs and their Interfaces</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-21T00:00:00+05:00" itemprop="datePublished">
           Mar 21, 2017
         </time>
@@ -91,72 +92,72 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/JavaScript Web APIs and their Interfaces.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/JavaScript Web APIs and their Interfaces.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Web APIs</h1>
-
+    <h1 id="web-apis">Web APIs</h1>
 <p>JavaScript is a scripting language. In the context of a web browser, scripting usually refers to program code written in JavaScript that is executed by the browser when a page is downloaded, or in response to an event triggered by the user. <a href="https://www.w3.org/standards/webdesign/script">1</a></p>
 
-<p>A Web API is an API for either a web server or web browser. There&#39;s a lot we can do inside a browser: animate graphics, send messages, edit photos, edit files etc. and to do all that we can utilize the browser&#39;s API, aka the Web API. Web API is usually consistent across browsers, and documented by W3C. JavaScript <strong>shims</strong> can be used to cover inconsistencies across browsers.</p>
+<p>A Web API is an API for either a web server or web browser. There’s a lot we can do inside a browser: animate graphics, send messages, edit photos, edit files etc. and to do all that we can utilize the browser’s API, aka the Web API. Web API is usually consistent across browsers, and documented by W3C. JavaScript <strong>shims</strong> can be used to cover inconsistencies across browsers.</p>
 
 <p>HTML5: Audio, Video, Canvas, Geolocation, Storage</p>
 
 <p>With the web API, you can</p>
 
 <ul>
-<li>add, change, remove page elements</li>
-<li>move, resize, transform elements</li>
-<li>manipulate forms and user input (validation)</li>
-<li>make server requests (AJAX)</li>
-<li>store data (cookies, HTML5 LocalStorage)</li>
+  <li>add, change, remove page elements</li>
+  <li>move, resize, transform elements</li>
+  <li>manipulate forms and user input (validation)</li>
+  <li>make server requests (AJAX)</li>
+  <li>store data (cookies, HTML5 LocalStorage)</li>
 </ul>
 
-<h1>Interface (objects)</h1>
-
-<p>An API is an Application Programming INTERFACE. </p>
+<h1 id="interface-objects">Interface (objects)</h1>
+<p>An API is an Application Programming INTERFACE.</p>
 
 <blockquote>
-<p>The most basic scripting interface developed at W3C is the <strong>DOM</strong>, the Document Object Model which allows programs and scripts to dynamically access and update the content, structure and style of documents. </p>
+  <p>The most basic scripting interface developed at W3C is the <strong>DOM</strong>, the Document Object Model which allows programs and scripts to dynamically access and update the content, structure and style of documents.</p>
 
-<p>Modifications of the content using the DOM by the user and by scripts trigger events that developers can make use of to build rich user interfaces.</p>
+  <p>Modifications of the content using the DOM by the user and by scripts trigger events that developers can make use of to build rich user interfaces.</p>
 
-<p><a href="https://www.w3.org/standards/webdesign/script">W3C</a></p>
+  <p><a href="https://www.w3.org/standards/webdesign/script">W3C</a></p>
 </blockquote>
 
 <ul>
-<li>XMLHttpRequest makes it possible to load additional content from the Web without loading a new document, a core component of AJAX,</li>
-<li>the Geolocation API makes the user’s current location available to browser-based applications,</li>
-<li>several APIs make the integration of Web applications with the local file system and storage seamless.</li>
+  <li>XMLHttpRequest makes it possible to load additional content from the Web without loading a new document, a core component of AJAX,</li>
+  <li>the Geolocation API makes the user’s current location available to browser-based applications,</li>
+  <li>several APIs make the integration of Web applications with the local file system and storage seamless.</li>
 </ul>
 
-<p>Simply put, an interface is a <strong>type of object</strong>, that you&#39;re able to use in your web app or site. Node, Element, Document, Navigator, Storage, Event are all interface objects.</p>
+<p>Simply put, an interface is a <strong>type of object</strong>, that you’re able to use in your web app or site. Node, Element, Document, Navigator, Storage, Event are all interface objects.</p>
 
 <p>All objects implementing the same interface can be treated similarly. For example</p>
 
 <blockquote>
-<p><code>Node</code> is an interface that is implemented by multiple other objects, including <code>Document</code> and <code>Element</code>. All objects implementing the <code>Node</code> interface can be treated similarly. The term <strong>node</strong> therefore (in the DOM context) means any object that implements the <code>Node</code> interface. Most commonly that is an element object representing a HTML element.</p>
+  <p><code>Node</code> is an interface that is implemented by multiple other objects, including <code>Document</code> and <code>Element</code>. All objects implementing the <code>Node</code> interface can be treated similarly. The term <strong>node</strong> therefore (in the DOM context) means any object that implements the <code>Node</code> interface. Most commonly that is an element object representing a HTML element.</p>
 
-<p><a href="http://stackoverflow.com/a/24974667/890814">StackOverflow</a></p>
+  <p><a href="http://stackoverflow.com/a/24974667/890814">StackOverflow</a></p>
 </blockquote>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API">MDN: Web APIs</a></li>
-<li><a href="https://www.udemy.com/html5-apis-for-javascript-a-course-for-web-developers/">Udemy: HTML5 APIs For JavaScript - A Course For Web Developers</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API">MDN: Web APIs</a></li>
+  <li><a href="https://www.udemy.com/html5-apis-for-javascript-a-course-for-web-developers/">Udemy: HTML5 APIs For JavaScript - A Course For Web Developers</a></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -202,6 +203,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

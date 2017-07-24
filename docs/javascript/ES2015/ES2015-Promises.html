@@ -1,38 +1,35 @@
-<h1>Promises</h1>
-
+<h1 id="promises">Promises</h1>
 <p>Promises are like callback functions, but so much better. Promises are meant to save you from callback hell.</p>
 
 <p>ES6 feature, started out as libraries. Natively supported in all modern browsers.</p>
 
-<p>A promise is a pattern for handling asynchronous operations. The promise allows you to call a method called &quot;then&quot; that lets you specify the function(s) to use as the callbacks.</p>
+<p>A promise is a pattern for handling asynchronous operations. The promise allows you to call a method called “then” that lets you specify the function(s) to use as the callbacks.</p>
 
-<p>A promise is an eventual value. </p>
+<p>A promise is an eventual value.</p>
 
 <p>three states</p>
 
 <ul>
-<li>pending</li>
-<li>fulfilled or resolved</li>
-<li>rejected</li>
+  <li>pending</li>
+  <li>fulfilled or resolved</li>
+  <li>rejected</li>
 </ul>
 
 <p>Now of course the more levels of nesting we have, the harder the code is to read, debug, maintain, upgrade, and basically work with. This is generally known as <em>Pyramid of Doom</em> or <em>Callback Hell</em>. Also, if we needed to handle errors, we need to possibly pass in another function to each xhrGET call to tell it what it needs to do in case of an error. If we wanted to have just one common error handler, that is not possible.</p>
 
-<h2>Notes</h2>
-
+<h2 id="notes">Notes</h2>
 <ul>
-<li>Promises are objects</li>
-<li>Promises compose</li>
-<li>Instead of having separate callback functions to deal with resource loads, you can just deal with them all in Promises with <code>.all</code>, which takes an array of resources.</li>
+  <li>Promises are objects</li>
+  <li>Promises compose</li>
+  <li>Instead of having separate callback functions to deal with resource loads, you can just deal with them all in Promises with <code>.all</code>, which takes an array of resources.</li>
 </ul>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=2d7s3spWAzo">YouTube: FunFunFunction - Promises</a></li>
-<li><a href="https://www.sitepoint.com/overview-javascript-promises/">SitePoint: An Overview of JavaScript Promises</a></li>
-<li>https://developers.google.com/web/fundamentals/getting-started/primers/promises#promisifying_xmlhttprequest</li>
-<li>http://stackoverflow.com/questions/3884281/what-does-the-function-then-mean-in-javascript</li>
-<li>http://spion.github.io/promise-nuggets/</li>
-<li><a href="https://teamtreehouse.com/library/understanding-promises-in-javascript">Treehouse: Understanding Promises in JavaScript</a></li>
+  <li><a href="https://www.youtube.com/watch?v=2d7s3spWAzo">YouTube: FunFunFunction - Promises</a></li>
+  <li><a href="https://www.sitepoint.com/overview-javascript-promises/">SitePoint: An Overview of JavaScript Promises</a></li>
+  <li>https://developers.google.com/web/fundamentals/getting-started/primers/promises#promisifying_xmlhttprequest</li>
+  <li>http://stackoverflow.com/questions/3884281/what-does-the-function-then-mean-in-javascript</li>
+  <li>http://spion.github.io/promise-nuggets/</li>
+  <li><a href="https://teamtreehouse.com/library/understanding-promises-in-javascript">Treehouse: Understanding Promises in JavaScript</a></li>
 </ul>

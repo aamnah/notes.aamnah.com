@@ -14,6 +14,7 @@
   <meta name="description" content="Libraries">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/opencart_architecture">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Opencart Architecture</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-04-04T00:00:00+05:00" itemprop="datePublished">
           Apr 4, 2015
         </time>
@@ -91,53 +92,61 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/2015-04-04-Opencart_Architecture.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/2015-04-04-Opencart_Architecture.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Libraries</h2>
+    <h2 id="libraries">Libraries</h2>
 
-<h2>Languages </h2>
-
+<h2 id="languages">Languages</h2>
 <p>Languages are stored in <code>catalog/language/</code> and loaded in <em>Controllers</em></p>
 
-<h3>Define a language key</h3>
-
+<h3 id="define-a-language-key">Define a language key</h3>
 <p>The Values that are used across many pages are stored is english.php. If you want to add a new value just follow the syntax below:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">$_['language_key']='This is test';
-</code></pre></div>
-<h3>Load a language</h3>
 
+<pre><code>$_['language_key']='This is test';
+</code></pre>
+
+<h3 id="load-a-language">Load a language</h3>
 <p>The languages based on special pages are located inside the folders. For example, for error page the language file can be found at:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">catalog/language/english/error/not_found.php
-</code></pre></div>
-<p>Language file can be loaded into controller by using the syntax as below:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">$this-&gt;language-&gt;load('error/not_found');
-</code></pre></div>
-<h3>Fetch Language Value</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">$this-&gt;language-&gt;get('language_key');
-</code></pre></div>
-<h2>Loading and Using a language</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">$this-&gt;language-&gt;load('route path of the language');
-</code></pre></div>
-<p>to get the specific language data use this syntax </p>
-<div class="highlight"><pre><code class="language-" data-lang="">$this-&gt;language-&gt;get('language file data keyword');
-</code></pre></div>
-<h2>References</h2>
 
+<pre><code>catalog/language/english/error/not_found.php
+</code></pre>
+
+<p>Language file can be loaded into controller by using the syntax as below:</p>
+
+<pre><code>$this-&gt;language-&gt;load('error/not_found');
+</code></pre>
+
+<h3 id="fetch-language-value">Fetch Language Value</h3>
+
+<pre><code>$this-&gt;language-&gt;get('language_key');
+</code></pre>
+
+<h2 id="loading-and-using-a-language">Loading and Using a language</h2>
+<pre><code>$this-&gt;language-&gt;load('route path of the language');
+</code></pre>
+
+<p>to get the specific language data use this syntax</p>
+
+<pre><code>$this-&gt;language-&gt;get('language file data keyword');
+</code></pre>
+
+<h2 id="references">References</h2>
 <ul>
-<li><a href="http://code.tutsplus.com/articles/from-beginner-to-advanced-in-opencart-the-architecture--cms-21482"></a></li>
+  <li><a href="http://code.tutsplus.com/articles/from-beginner-to-advanced-in-opencart-the-architecture--cms-21482"></a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -183,6 +192,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

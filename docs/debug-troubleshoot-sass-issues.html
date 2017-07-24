@@ -14,6 +14,7 @@
   <meta name="description" content="sass --help OR sass -h OR sass -?will give you a whole list of commands you can use and how to use them.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/debug-troubleshoot-sass-issues">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Debugging Sass</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-22T06:08:52+05:00" itemprop="datePublished">
           May 22, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-debugging.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-debugging.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>compass</li>
       
@@ -102,7 +103,7 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><code>sass --help</code> OR <code>sass -h</code> OR <code>sass -?</code>
@@ -115,25 +116,27 @@ will output a compressed version of main.css in the console.</p>
 the file before the : is the input file and the one after is the output file.</p>
 
 <p><code>sass --style expanded main.css:main.css</code>
-converts to &#39;expanded&#39; style, which is nested but without the indentation.</p>
+converts to ‘expanded’ style, which is nested but without the indentation.</p>
 
 <p><code>sass -l main.css:main.css</code>
 <code>-l</code> flag adds line numbers (as well as file name) corresponding to where the code is in the .sass file and adds it as comments to the .css output.</p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="k">@mixin</span> <span class="nf">old</span> <span class="err">{</span>
-    <span class="k">@warn</span> <span class="s2">"Please use new() instead"</span>
-<span class="err">}</span>
-</code></pre></div>
-<p><code>@warn</code> let&#39;s you warn users about the code. For example, if a mixin/code/function is deprecated, you can warn the users about it and tell them to use the new one. @warn is added in the .scss file and is outputted in the console. In other words, it prints an error to Terminal showing a defined message.</p>
 
-<h2>Notes:</h2>
+<pre><code class="language-sass">@mixin old {
+    @warn "Please use new() instead"
+}
+</code></pre>
 
+<p><code>@warn</code> let’s you warn users about the code. For example, if a mixin/code/function is deprecated, you can warn the users about it and tell them to use the new one. @warn is added in the .scss file and is outputted in the console. In other words, it prints an error to Terminal showing a defined message.</p>
+
+<h2 id="notes">Notes:</h2>
 <ul>
-<li>When an error is at the end of a line, it is usually a missed semi colon <code>;</code></li>
+  <li>When an error is at the end of a line, it is usually a missed semi colon <code>;</code></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -179,6 +182,7 @@ converts to &#39;expanded&#39; style, which is nested but without the indentatio
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
