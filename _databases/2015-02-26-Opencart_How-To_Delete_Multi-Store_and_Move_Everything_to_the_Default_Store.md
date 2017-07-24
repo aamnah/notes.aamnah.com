@@ -26,9 +26,9 @@ Update Store details for all existing Orders
 
 The table to edit is `oc_order` and the columns we'll be editing are `store_id`, `store_name` and `store_url`. The `store_id` for the Default store is **0**.
 
-    {% highlight mysql %}
-    UPDATE `oc_order` SET `store_id`=0,`store_name`="Cakebox.ME", `store_url`="http://cakebox.me"
-    {% endhighlight %}
+```sql
+UPDATE `oc_order` SET `store_id`=0,`store_name`="Cakebox.ME", `store_url`="http://cakebox.me"
+```
 
 Using this command, you can change Store details for all existing orders. Once you have linked all existing orders to the default store, you can go to the Admin and delete the multi-store.
 
@@ -49,21 +49,21 @@ The table to edit is `oc_product_to_store`, the column is `store_id`. We are goi
 
 Show all Products that are duplicates and are not linked to Default store
 
-    {% highlight mysql %}
-    SELECT * FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    {% endhighlight %}
+```sql
+SELECT * FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+```
 
 Delete duplicates
 
-    {% highlight mysql %}
-    DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    {% endhighlight %}
+```sql
+DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+```
 
 Link all products to Default store
 
-    {% highlight mysql %}
-    UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    {% endhighlight %}
+```sql
+UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+```
 
 If you get 
 
@@ -77,79 +77,79 @@ The table to edit is `oc_category_to_store`, the column is `store_id`.
 
 Show all Categories that are duplicates and are not linked to Default store
 
-    {% highlight mysql %}
-    SELECT * FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
-    {% endhighlight %}
+```sql
+SELECT * FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
+```
 
 Delete them
 
-    {% highlight mysql %}
-    DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
-    {% endhighlight %}
+```sql
+DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
+```
 
 Link all Categories to Default store
 
-    {% highlight mysql %}
-    UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    {% endhighlight %}
+```sql
+UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+```
 
 ### Update Store ID for all existing Manufacturers
 The table to edit is `oc_manufacturer_to_store`, the column is `store_id`.
 
 Show all Manufacturers that are duplicates and are not linked to Default store
 
-    {% highlight mysql %}
-    SELECT * FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
-    {% endhighlight %}
+```sql
+SELECT * FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
+```
 
 Delete them
 
-    {% highlight mysql %}
-    DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
-    {% endhighlight %}
+```sql
+DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
+```
 
 Link all Manufacturers to Default store
 
-    {% highlight mysql %}
-    UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    {% endhighlight %}
+```sql
+UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+```
 
 ### Update Store ID for all existing Information pages
 The table to edit is `oc_information_to_store`, the column is `store_id`.
 
 Show all Information pages that are duplicates and are not linked to Default store
 
-    {% highlight mysql %}
-    SELECT * FROM `oc_information_to_store` WHERE `information_id` = `information_id` AND `store_id` != 0
-    {% endhighlight %}
+```sql
+SELECT * FROM `oc_information_to_store` WHERE `information_id` = `information_id` AND `store_id` != 0
+```
 
 Delete them
 
-    {% highlight mysql %}
-    DELETE FROM  `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0
-    {% endhighlight %}
+```sql
+DELETE FROM  `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0
+```
 
 Link all Information pages to Default store
 
-    {% highlight mysql %}
-    UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    {% endhighlight %}
+```sql
+UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+```
 
 Get everything done in one step
 ---
 
 The following code deletes duplicates and updates _store_id_ for all products, categories, manufacturers and information in one go. Only use this if you understand everything i have explained above, are confident in what you are doing and have a backup that you can restore if anything goes wrong.
 
-    {% highlight mysql %}
-    DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0;
-    DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0;
-    DELETE FROM `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0;
+```sql
+DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0;
+DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0;
+DELETE FROM `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0;
 
-    UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    {% endhighlight %}
+UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+```
 
 That's it. You should now have all existing products, categories, manufacturers and information linked to your Default store, have no duplicates and gotten rid of your multi-store.

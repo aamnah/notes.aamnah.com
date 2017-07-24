@@ -22,9 +22,7 @@
 
   <body>
     <header class="Site-header">
-
   <div class="wrapper">
-
     <div>
       <a class="Site-title" href="/">TLDR Dev Notes</a>
       <small>Aamnah's developer notes</small>
@@ -70,19 +68,18 @@
     </nav>
 
   </div>
-
 </header>
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Opencart How-To Delete Multi-Store and Move Everything to the Default Store</h1>
     <p class="Post-meta">
       
       
-      <span class="date">
+      <span class='date'>
         <time datetime="2015-02-26T00:00:00+05:00" itemprop="datePublished">
           Feb 26, 2015
         </time>
@@ -92,10 +89,10 @@
       
 
       <!---->
-      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-26-Opencart_How-To_Delete_Multi-Store_and_Move_Everything_to_the_Default_Store.md" target="_blank">Edit this page on Github</a>
-    &lt;/p&gt;
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-26-Opencart_How-To_Delete_Multi-Store_and_Move_Everything_to_the_Default_Store.md" target='_blank'>Edit this page on Github</a>
+    </p>
     
-      <ul class="tags">
+      <ul class='tags'>
       
         <li>how-to</li>
       
@@ -107,7 +104,7 @@
       
       </ul>
     
-  &lt;/header&gt;
+  </header>
 
   <div class="Post-content" itemprop="articleBody">
     <p>Make a BACKUP before doing anything to the database. Be safe.</p>
@@ -130,8 +127,8 @@
 
 <p>The table to edit is <code>oc_order</code> and the columns we’ll be editing are <code>store_id</code>, <code>store_name</code> and <code>store_url</code>. The <code>store_id</code> for the Default store is <strong>0</strong>.</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_order` SET `store_id`=0,`store_name`="Cakebox.ME", `store_url`="http://cakebox.me"
-    </code></pre></figure>
+<pre><code class="language-sql">UPDATE `oc_order` SET `store_id`=0,`store_name`="Cakebox.ME", `store_url`="http://cakebox.me"
+</code></pre>
 
 <p>Using this command, you can change Store details for all existing orders. Once you have linked all existing orders to the default store, you can go to the Admin and delete the multi-store.</p>
 
@@ -150,18 +147,18 @@
 
 <p>Show all Products that are duplicates and are not linked to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">SELECT * FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+</code></pre>
 
 <p>Delete duplicates</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+</code></pre>
 
 <p>Link all products to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+</code></pre>
 
 <p>If you get</p>
 
@@ -175,76 +172,75 @@
 
 <p>Show all Categories that are duplicates and are not linked to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
-    </code></pre></figure>
+<pre><code class="language-sql">SELECT * FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
+</code></pre>
 
 <p>Delete them</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
-    </code></pre></figure>
+<pre><code class="language-sql">DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0
+</code></pre>
 
 <p>Link all Categories to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+</code></pre>
 
 <h3 id="update-store-id-for-all-existing-manufacturers">Update Store ID for all existing Manufacturers</h3>
 <p>The table to edit is <code>oc_manufacturer_to_store</code>, the column is <code>store_id</code>.</p>
 
 <p>Show all Manufacturers that are duplicates and are not linked to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
-    </code></pre></figure>
+<pre><code class="language-sql">SELECT * FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
+</code></pre>
 
 <p>Delete them</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
-    </code></pre></figure>
+<pre><code class="language-sql">DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0
+</code></pre>
 
 <p>Link all Manufacturers to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+</code></pre>
 
 <h3 id="update-store-id-for-all-existing-information-pages">Update Store ID for all existing Information pages</h3>
 <p>The table to edit is <code>oc_information_to_store</code>, the column is <code>store_id</code>.</p>
 
 <p>Show all Information pages that are duplicates and are not linked to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    SELECT * FROM `oc_information_to_store` WHERE `information_id` = `information_id` AND `store_id` != 0
-    </code></pre></figure>
+<pre><code class="language-sql">SELECT * FROM `oc_information_to_store` WHERE `information_id` = `information_id` AND `store_id` != 0
+</code></pre>
 
 <p>Delete them</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM  `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0
-    </code></pre></figure>
+<pre><code class="language-sql">DELETE FROM  `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0
+</code></pre>
 
 <p>Link all Information pages to Default store</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    </code></pre></figure>
+<pre><code class="language-sql">UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+</code></pre>
 
 <h2 id="get-everything-done-in-one-step">Get everything done in one step</h2>
 
 <p>The following code deletes duplicates and updates <em>store_id</em> for all products, categories, manufacturers and information in one go. Only use this if you understand everything i have explained above, are confident in what you are doing and have a backup that you can restore if anything goes wrong.</p>
 
-<figure class="highlight"><pre><code class="language-mysql" data-lang="mysql">    DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
-    DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0;
-    DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0;
-    DELETE FROM `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0;
+<pre><code class="language-sql">DELETE FROM `oc_product_to_store` WHERE `product_id` = `product_id` AND `store_id` != 0;
+DELETE FROM `oc_category_to_store` WHERE `category_id` = `category_id` AND `store_id` != 0;
+DELETE FROM `oc_manufacturer_to_store` WHERE `manufacturer_id` = `manufacturer_id` AND `store_id` != 0;
+DELETE FROM `oc_information_to_store` WHERE  `information_id` =  `information_id` AND  `store_id` !=0;
 
-    UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
-    </code></pre></figure>
+UPDATE `oc_product_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_category_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_manufacturer_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+UPDATE `oc_information_to_store` SET `store_id` = 0 WHERE `store_id` != 0;
+</code></pre>
 
 <p>That’s it. You should now have all existing products, categories, manufacturers and information linked to your Default store, have no duplicates and gotten rid of your multi-store.</p>
 
   </div>
 
-&lt;/article&gt;
-</span></p></header></article>
+</article>
 
       </div>
     </div>
@@ -289,8 +285,9 @@
 
   </div>
 
+  <script src="/js/prism.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 </footer>
-<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
