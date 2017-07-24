@@ -14,6 +14,7 @@
   <meta name="description" content="Demo">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/play-sound-video-image-click">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Play sound/video when image/link is clicked</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-10-29T00:00:00+05:00" itemprop="datePublished">
           Oct 29, 2015
         </time>
@@ -91,14 +92,14 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/play-sound-video-image-click.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/play-sound-video-image-click.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><a href="http://codepen.io/aamnah/pen/gazjYa?editors=100">Demo</a></p>
@@ -106,37 +107,42 @@
 <p>We need:</p>
 
 <ul>
-<li>a js <em>function</em> for playing sound/video</li>
-<li>a reference to that js function in the <em>href</em> tag of the image/link/video</li>
-<li>an audio/video file with a unique id</li>
+  <li>a js <em>function</em> for playing sound/video</li>
+  <li>a reference to that js function in the <em>href</em> tag of the image/link/video</li>
+  <li>an audio/video file with a unique id</li>
 </ul>
 
-<h2>JS</h2>
+<h2 id="js">JS</h2>
 
 <p>Basically, get the media file by <em>id</em> and use <code>.play()</code> to play it.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">play</span><span class="p">(</span><span class="nx">media</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">media</span><span class="p">).</span><span class="nx">play</span><span class="p">();</span>
-  <span class="p">}</span>
-</code></pre></div>
-<h2>HTML</h2>
 
-<p>The magic in using direct reference to js functions in the <em>href</em> tag. Like so: <code>href=&quot;javascript:play(&#39;media&#39;)&quot;</code></p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- image --&gt;</span> 
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:play('dog')"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"img/dog.png"</span><span class="nt">&gt;&lt;/img&gt;&lt;/a&gt;</span>
+<pre><code class="language-javascript">  function play(media) {
+    document.getElementById(media).play();
+  }
+</code></pre>
 
-<span class="c">&lt;!-- link --&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:play('dog')"</span><span class="nt">&gt;</span>Dog<span class="nt">&lt;/a&gt;</span>
+<h2 id="html">HTML</h2>
 
-<span class="c">&lt;!-- audio file --&gt;</span>
-<span class="nt">&lt;audio</span>
-    <span class="na">id=</span><span class="s">"dog"</span>
-    <span class="na">src=</span><span class="s">"media/dog.wav"</span>
-    <span class="na">preload=</span><span class="s">"auto"</span>
-<span class="nt">&gt;&lt;/audio&gt;</span>
-</code></pre></div>
+<p>The magic in using direct reference to js functions in the <em>href</em> tag. Like so: <code>href="javascript:play('media')"</code></p>
+
+<pre><code class="language-html">&lt;!-- image --&gt; 
+&lt;a href="javascript:play('dog')"&gt;&lt;img src="img/dog.png"&gt;&lt;/img&gt;&lt;/a&gt;
+  
+&lt;!-- link --&gt;
+&lt;a href="javascript:play('dog')"&gt;Dog&lt;/a&gt;
+  
+&lt;!-- audio file --&gt;
+&lt;audio
+    id="dog"
+    src="media/dog.wav"
+    preload="auto"
+&gt;&lt;/audio&gt;
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -182,6 +188,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

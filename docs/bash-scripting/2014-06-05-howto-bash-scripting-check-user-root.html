@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="The following script will use the whoami command to see what user you are. If you are root, it&#39;ll continue running the script. If not, it&#39;ll exist th...">
+  <meta name="description" content="The following script will use the whoami command to see what user you are. If you are root, it’ll continue running the script. If not, it’ll exist the script...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to check if a user is root</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-06-05T04:02:25+05:00" itemprop="datePublished">
           Jun 5, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2014-06-05-howto-bash-scripting-check-user-root.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2014-06-05-howto-bash-scripting-check-user-root.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>bash</li>
       
@@ -102,22 +103,26 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>The following script will use the <code>whoami</code> command to see what user you are. If you are root, it&#39;ll continue running the script. If not, it&#39;ll exist the script telling you that you are not root and need to use sudo.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+    <p>The following script will use the <code>whoami</code> command to see what user you are. If you are root, it’ll continue running the script. If not, it’ll exist the script telling you that you are not root and need to use sudo.</p>
 
-<span class="nv">owner</span><span class="o">=</span><span class="k">$(</span>who am i | awk <span class="s1">'{print $1}'</span><span class="k">)</span>
+<pre><code class="language-bash">#!/bin/bash
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">"</span> !<span class="o">=</span> <span class="s1">'root'</span> <span class="o">]</span>; <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"You don't have permission to run </span><span class="nv">$0</span><span class="s2"> as non-root user. Use sudo"</span>
-        <span class="nb">exit </span>1;
-<span class="k">fi</span>
-</code></pre></div>
+owner=$(who am i | awk '{print $1}')
+ 
+if [ "$(whoami)" != 'root' ]; then
+  	echo "You don't have permission to run $0 as non-root user. Use sudo"
+		exit 1;
+fi
+</code></pre>
+
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -163,6 +168,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

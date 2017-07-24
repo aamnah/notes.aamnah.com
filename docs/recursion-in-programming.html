@@ -14,6 +14,7 @@
   <meta name="description" content="RecursionA recursive function is a function which calls itself.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/recursion-in-programming">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Recursion</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-12-26T00:00:00+05:00" itemprop="datePublished">
           Dec 26, 2016
         </time>
@@ -91,59 +92,60 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/Recursion.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/Recursion.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Recursion</h1>
-
+    <h1 id="recursion">Recursion</h1>
 <p>A recursive function is a function which calls itself.</p>
 
-<p>Here&#39;s how it goes: beginning recursion -&gt; recursive loop of repeating a task -&gt; until we hit our base case.</p>
+<p>Here’s how it goes: beginning recursion -&gt; recursive loop of repeating a task -&gt; until we hit our base case.</p>
 
 <blockquote>
-<p>a function being defined is applied within its own definition.  While this apparently defines an infinite number of instances (function values), it is often done in such a way that no loop or infinite chain of references can occur.</p>
-
-<p>Recursion is the process a procedure goes through when one of the steps of the procedure involves invoking the procedure itself. </p>
+  <p>a function being defined is applied within its own definition.  While this apparently defines an infinite number of instances (function values), it is often done in such a way that no loop or infinite chain of references can occur.</p>
 </blockquote>
 
-<h2>Notes</h2>
+<blockquote>
+  <p>Recursion is the process a procedure goes through when one of the steps of the procedure involves invoking the procedure itself.</p>
+</blockquote>
 
+<h2 id="notes">Notes</h2>
 <ul>
-<li>like <code>while</code> loops but much cleaner</li>
-<li>self-referential definitions</li>
-<li>Recursion vs. Iteration: Iteration explicitly uses repetition structures to achieve results. Recursion on the other hand repeats through function calls</li>
-<li>a <em>base case</em> is used to stop recursion </li>
+  <li>like <code>while</code> loops but much cleaner</li>
+  <li>self-referential definitions</li>
+  <li>Recursion vs. Iteration: Iteration explicitly uses repetition structures to achieve results. Recursion on the other hand repeats through function calls</li>
+  <li>a <em>base case</em> is used to stop recursion</li>
 </ul>
 
 <p>There are 4 distinct pieces of a recursive function:</p>
 
 <ol>
-<li><strong>Repeated task</strong>: this is the function task you want to run on each function invocation</li>
-<li><strong>Base case</strong>: this is how we stop recursion! when the base case condition is met, recursion stops. it&#39;s very important you stop a recursive function, otherwise it&#39;ll keep recurring infinitely</li>
-<li><strong>Recursion</strong>: this is where we run the function again</li>
-<li><strong>Beginning recursion</strong>: this is where we kick things off!</li>
+  <li><strong>Repeated task</strong>: this is the function task you want to run on each function invocation</li>
+  <li><strong>Base case</strong>: this is how we stop recursion! when the base case condition is met, recursion stops. it’s very important you stop a recursive function, otherwise it’ll keep recurring infinitely</li>
+  <li><strong>Recursion</strong>: this is where we run the function again</li>
+  <li><strong>Beginning recursion</strong>: this is where we kick things off!</li>
 </ol>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://kiranrao.azurewebsites.net/understanding-recursion-javascript-example/">Understanding recursion (Javascript example)</a></li>
-<li><a href="https://www.codecademy.com/courses/javascript-lesson-205/0/1">Codecademy: Recursion in JavaScript</a></li>
-<li>https://en.wikipedia.org/wiki/Recursion</li>
-<li>https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/recursion.html</li>
-<li>https://www.youtube.com/watch?v=t4MSwiqfLaY</li>
+  <li><a href="http://kiranrao.azurewebsites.net/understanding-recursion-javascript-example/">Understanding recursion (Javascript example)</a></li>
+  <li><a href="https://www.codecademy.com/courses/javascript-lesson-205/0/1">Codecademy: Recursion in JavaScript</a></li>
+  <li>https://en.wikipedia.org/wiki/Recursion</li>
+  <li>https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/recursion.html</li>
+  <li>https://www.youtube.com/watch?v=t4MSwiqfLaY</li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -189,6 +191,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Source: [Youtube] Nixie Pixel: Top 5 Command Line Essentials - BASH Basics">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/commands/%5Bwget,%20grep,%20nano,%20ps,%20ssh%5D%20Top%205%20Commands.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[wget, grep, nano, ps, ssh] Top 5 Commands</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-21T00:00:00+05:00" itemprop="datePublished">
           Nov 21, 2015
         </time>
@@ -91,81 +92,91 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[wget, grep, nano, ps, ssh] Top 5 Commands.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[wget, grep, nano, ps, ssh] Top 5 Commands.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Source: <a href="https://www.youtube.com/watch?v=DbC6vQLczQA">[Youtube] Nixie Pixel: Top 5 Command Line Essentials - BASH Basics</a></p>
 
-<h2>5. wget</h2>
+<h2 id="wget">5. wget</h2>
+<p>### download files</p>
 
-<h3>download files</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget -O filename http://url.com
-</code></pre></div>
-<p><code>-O</code> is for <code>--output-document</code>. This flag let&#39;s you specify the file to which save in/as. an output document</p>
-<div class="highlight"><pre><code class="language-" data-lang="">-O file
+<pre><code class="language-bash">wget -O filename http://url.com
+</code></pre>
+
+<p><code>-O</code> is for <code>--output-document</code>. This flag let’s you specify the file to which save in/as. an output document</p>
+
+<pre><code>-O file
 --output-document=file
-</code></pre></div>
+</code></pre>
 <blockquote>
-<p>Use of -O is not intended to mean simply &quot;use the name file instead of the one in the URL;&quot; rather, it is analogous to shell redirection: 
+  <p>Use of -O is not intended to mean simply “use the name file instead of the one in the URL;” rather, it is analogous to shell redirection: 
 <code>wget -O file http://foo</code> is intended to work like <code>wget -O - http://foo &gt; file;</code> file will be truncated immediately, and all downloaded content will be written there.</p>
 </blockquote>
 
-<p><code>-c</code> is for <code>--continue</code></p>
+<p><code>-c</code> is for <code>--continue</code>
+&gt; Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.  For instance:</p>
 
-<blockquote>
-<p>Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.  For instance:</p>
-</blockquote>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z
-</code></pre></div>
-<h2>4. grep</h2>
+<pre><code class="language-bash">wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z
+</code></pre>
 
-<h3>find text or patterns within files</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">grep -i -R towel 
-</code></pre></div>
+<h2 id="grep">4. grep</h2>
+<p>### find text or patterns within files</p>
+
+<pre><code class="language-bash">grep -i -R towel 
+</code></pre>
+
 <p>grep everything on your computer for towel.</p>
 
 <p><code>-i</code> is for <code>--ignore-case</code>, case insenitive search
 <code>-r</code> is for <code>--recursive</code>, read all files under each directory recursively
 <code>-R</code> is for <code>--dereference-recursive</code>, read all files under each directory recursively and follow symlinks too, unlike <code>-r</code> which only follows suymlinks if they are on the command line.</p>
 
-<h2>3. nano</h2>
+<h2 id="nano">3. nano</h2>
+<p>### editor - simple yet versatile
+nano is installed by default in most distros. and it is WYSIWIG, unlike Vim.</p>
 
-<h3>editor - simple yet versatile</h3>
+<h2 id="ps">2. ps</h2>
+<p>### process status, good for power users</p>
 
-<p>nano is installed by default in most distros. and it is WYSIWIG, unlike Vim.</p>
+<pre><code class="language-bash">ps aux
+</code></pre>
+<p>OR</p>
 
-<h2>2. ps</h2>
+<pre><code>ps -aux
+</code></pre>
 
-<h3>process status, good for power users</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ps aux
-</code></pre></div>
-<p>OR </p>
-<div class="highlight"><pre><code class="language-" data-lang="">ps -aux
-</code></pre></div>
 <p>sort by cpu usage:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ps -aux k%cpu
-</code></pre></div>
-<p>find how much resources a program is using by piping the result to grep</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ps -aux | grep chromium
-</code></pre></div>
-<p>kill a program</p>
-<div class="highlight"><pre><code class="language-" data-lang="">kill -9 pid 
-</code></pre></div>
-<h2>1. shh</h2>
 
-<h3>secure login to virtual location</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh nixie@home.nixiepixel.com -D 8080
-</code></pre></div>
+<pre><code>ps -aux k%cpu
+</code></pre>
+
+<p>find how much resources a program is using by piping the result to grep</p>
+
+<pre><code class="language-bash">ps -aux | grep chromium
+</code></pre>
+
+<p>kill a program</p>
+
+<pre><code>kill -9 pid 
+</code></pre>
+
+<h2 id="shh">1. shh</h2>
+<p>### secure login to virtual location</p>
+
+<pre><code class="language-bash">ssh nixie@home.nixiepixel.com -D 8080
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -211,6 +222,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

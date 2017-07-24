@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="AJAX ConceptsProgramming AJAXjQuery and AJAXAJAX and APIs">
+  <meta name="description" content="  AJAX Concepts  Programming AJAX  jQuery and AJAX  AJAX and APIs">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/ajax-basics">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">AJAX Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2014-09-03T00:00:00+05:00" itemprop="datePublished">
           Sep 3, 2014
         </time>
@@ -91,42 +92,40 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/ajax basics.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_api/ajax basics.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ol>
-<li>AJAX Concepts</li>
-<li>Programming AJAX</li>
-<li>jQuery and AJAX</li>
-<li>AJAX and APIs</li>
+  <li>AJAX Concepts</li>
+  <li>Programming AJAX</li>
+  <li>jQuery and AJAX</li>
+  <li>AJAX and APIs</li>
 </ol>
 
-<h2>AJAX Concepts</h2>
+<h2 id="ajax-concepts">AJAX Concepts</h2>
 
-<h2>Intro</h2>
-
+<h2 id="intro">Intro</h2>
 <p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML</p>
 
-<p>It lets you request info from web server, post data to a web server and update content on a web page with loading a new web page. It works with pretty much all major server side languages (PHP, JavaScript, Ruby, Python etc.). </p>
+<p>It lets you request info from web server, post data to a web server and update content on a web page with loading a new web page. It works with pretty much all major server side languages (PHP, JavaScript, Ruby, Python etc.).</p>
 
 <p>The whole process of sending data back and forth involves the client (browser) sending a <strong>request</strong> and the server sending back a <strong>response</strong>.</p>
 
 <p><strong>JavaScript</strong> is the language that makes all the AJAX stuff happen. You use JavaScript to send a request, JavaScript to process the response that comes back and again JavaScript to update your website based on that response.</p>
 
-<p><strong>Asynchronous</strong> refers to how the request is sent to the server. Asynchorous means that you don&#39;t stop doing everything when you send a request and wait for a response. If the server ever did send a response that is, sometimes they don&#39;t. Instead you keep mousing around the web page, your JavaScript program will keep running and only do something when the response comes back. You can send multiple AJAX requests without waiting for a response for every individual request.</p>
+<p><strong>Asynchronous</strong> refers to how the request is sent to the server. Asynchorous means that you don’t stop doing everything when you send a request and wait for a response. If the server ever did send a response that is, sometimes they don’t. Instead you keep mousing around the web page, your JavaScript program will keep running and only do something when the response comes back. You can send multiple AJAX requests without waiting for a response for every individual request.</p>
 
 <p>X stands for <strong>XML</strong>. Originally, XML is the format the response should be sent in, but it is not the only format you can receive data in. As a matter of fact, it is not even the most common or preferred format any longer.</p>
 
-<h2>How AJAX works</h2>
-
-<p>AJAX has been around a long time. Microsoft first introduced with IE5 in 1999. AJAX isn&#39;t really its official name. Technically it&#39;s called an <strong>XMLHttpRequest object</strong> or shortened to just <strong>XHR object</strong>.</p>
+<h2 id="how-ajax-works">How AJAX works</h2>
+<p>AJAX has been around a long time. Microsoft first introduced with IE5 in 1999. AJAX isn’t really its official name. Technically it’s called an <strong>XMLHttpRequest object</strong> or shortened to just <strong>XHR object</strong>.</p>
 
 <p>Put simply, AJAX is the process of sending a request to a web server, receive a response back and then do something with that response.</p>
 
@@ -135,147 +134,153 @@
 <p>There are four major steps in</p>
 
 <ol>
-<li>Create an XMLHTTP Request object</li>
-<li>Define a callback function</li>
-<li>Open a request</li>
-<li>Send the request</li>
+  <li>Create an XMLHTTP Request object</li>
+  <li>Define a callback function</li>
+  <li>Open a request</li>
+  <li>Send the request</li>
 </ol>
 
 <p>AJAX requests only work through a web server. You can not just locally preview a file on your computer and expect your AJAX to work.</p>
 
-<h3>A Simple AJAX Example</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>AJAX Example<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;script&gt;</span>
-    <span class="c1">// STEP 1. Create an XMLHttpRequest object</span>
-    <span class="c1">// the name of the variable could be anything you want</span>
-    <span class="c1">// in our case we are calling it 'xhr'</span>
-    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<h3 id="a-simple-ajax-example">A Simple AJAX Example</h3>
 
-    <span class="c1">// STEP 2. Define a callback function</span>
-    <span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// check for readystate, 4 means done</span>
-      <span class="c1">// if readyState is equal to 4 then</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// get &lt;div id="ajax"&gt;&lt;/div&gt; from the html page </span>
-        <span class="c1">// and place the data we receive (responseText) inside it</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'ajax'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">};</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;AJAX Example&lt;/title&gt;
+    &lt;script&gt;
+    // STEP 1. Create an XMLHttpRequest object
+    // the name of the variable could be anything you want
+    // in our case we are calling it 'xhr'
+    var xhr = new XMLHttpRequest();
 
-    <span class="c1">// STEP 3. Open a request</span>
-    <span class="c1">// method = get, url = sidebar.html</span>
-    <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'sidebar.html'</span><span class="p">);</span>
+    // STEP 2. Define a callback function
+    xhr.onreadystatechange = function () {
+      // check for readystate, 4 means done
+      // if readyState is equal to 4 then
+      if (xhr.readyState === 4) {
+        // get &lt;div id="ajax"&gt;&lt;/div&gt; from the html page 
+        // and place the data we receive (responseText) inside it
+        document.getElementById('ajax').innerHTML = xhr.responseText;
+      }
+    };
 
-    <span class="c1">// STEP 4. Send the request</span>
-    <span class="c1">// put the send request in a function called 'sendAJAX'</span>
-    <span class="c1">// to use with the button #load</span>
-    <span class="kd">function</span> <span class="nx">sendAJAX</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
-      <span class="c1">// make the button disappear after it's clicked</span>
-      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'load'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
+    // STEP 3. Open a request
+    // method = get, url = sidebar.html
+    xhr.open('GET', 'sidebar.html');
 
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Bring on the AJAX!<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"load"</span> <span class="na">onclick=</span><span class="s">"sendAJAX()"</span><span class="nt">&gt;</span>Bring it!<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"ajax"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
+    // STEP 4. Send the request
+    // put the send request in a function called 'sendAJAX'
+    // to use with the button #load
+    function sendAJAX() {
+      xhr.send();
+      // make the button disappear after it's clicked
+      document.getElementById('load').style.display = "none";
+    }
+    &lt;/script&gt;
+  &lt;/head&gt;
 
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
-<h5>XMLHttpRequest</h5>
+  &lt;body&gt;
+    &lt;h1&gt;Bring on the AJAX!&lt;/h1&gt;
+    &lt;button id="load" onclick="sendAJAX()"&gt;Bring it!&lt;/button&gt;
+    &lt;div id="ajax"&gt;&lt;/div&gt;
+  &lt;/body&gt;
 
+&lt;/html&gt;
+</code></pre>
+
+<h5 id="xmlhttprequest">XMLHttpRequest</h5>
 <p>The <code>new XMLHttpRequest();</code> tells the browser to get ready to work with AJAX. You should create a new XMLHttpRequest object for every AJAX request that you want to send.</p>
 
-<h5>Callback Functiom</h5>
-
+<h5 id="callback-functiom">Callback Functiom</h5>
 <p>The callback function is the heart of your AJAX request. All the fun things you intednd on doing with AJAX, you define them in the callback function.</p>
 
-<p>If you send multiple AJAX requests, you&#39;ll never know which request will be handled first. You can never tell in which order your AJAX callback will run.</p>
+<p>If you send multiple AJAX requests, you’ll never know which request will be handled first. You can never tell in which order your AJAX callback will run.</p>
 
 <p>To trigger the callback we use a special browser event. If you have programmed in javascript before, you should know all about events. An event is something that happens in the web bowser, an action that the user takes like clicking a button or  submitting a form. There are eventa for mouse clicking, key pressing, scrolling and even closing a window. AJAX has its own set of events.</p>
 
 <p><code>onreadystatechange</code> is trigerred whenever there is a chnage in the AJAX request, like opeing a new request, sending it or receiving a response. We are creating our callback to respond to that request. The XMLHttpRequest object keeps track of the state using a special property called <code>readyState</code>. This property contains a number to represent the current state of the request. When that number is <code>4</code>, it means that the request is done and the server has sent back a response.</p>
 
-<h4>GET vs. POST (HTTP Methods)</h4>
+<h4 id="get-vs-post-http-methods">GET vs. POST (HTTP Methods)</h4>
+<p><strong>GET</strong> is for requesting resources (web page, image, css files etc.) Use GET when you want to “get” something from the server. With the GET method, all of the data is sent in the URL (query string).</p>
 
-<p><strong>GET</strong> is for requesting resources (web page, image, css files etc.) Use GET when you want to &quot;get&quot; something from the server. With the GET method, all of the data is sent in the URL (query string). </p>
-
-<p>The GET method is not good for sensitive information like SSNs or passowrd etc. It&#39;ll show up in the browser history and show up in the server&#39;s log files. Also, there is only so much information you can out in a URL. For example, IE can only handle URLs that are a max of 2080 characters long. When you need to send lots of information, like a blog post, the GET method isn&#39;t good.</p>
+<p>The GET method is not good for sensitive information like SSNs or passowrd etc. It’ll show up in the browser history and show up in the server’s log files. Also, there is only so much information you can out in a URL. For example, IE can only handle URLs that are a max of 2080 characters long. When you need to send lots of information, like a blog post, the GET method isn’t good.</p>
 
 <p><strong>POST</strong> is for sending data (form data). Use POST when sending data that will store, delete or update information from a database.</p>
 
 <p>POST method sends data separate from the URL in what is called the <em>body</em> of the request.</p>
 
-<h4>Query Strings</h4>
+<h4 id="query-strings">Query Strings</h4>
 
-<h4>AJAX Response Formats (XML and JSON)</h4>
-
+<h4 id="ajax-response-formats-xml-and-json">AJAX Response Formats (XML and JSON)</h4>
 <p><strong>XML</strong></p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;music&gt;</span>
-  <span class="nt">&lt;song&gt;</span>
-    <span class="nt">&lt;title&gt;</span>Le Vie En Rose<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;singer&gt;</span>Edith Piaf<span class="nt">&lt;/singer&gt;</span>
-    <span class="nt">&lt;language&gt;</span>French<span class="nt">&lt;/language&gt;</span>
-    <span class="nt">&lt;year&gt;</span>1947<span class="nt">&lt;/year&gt;</span>
-  <span class="nt">&lt;/song&gt;</span>
-<span class="nt">&lt;/music&gt;</span>
-</code></pre></div>
+
+<pre><code class="language-xml">&lt;music&gt;
+  &lt;song&gt;
+    &lt;title&gt;Le Vie En Rose&lt;/title&gt;
+    &lt;singer&gt;Edith Piaf&lt;/singer&gt;
+    &lt;language&gt;French&lt;/language&gt;
+    &lt;year&gt;1947&lt;/year&gt;
+  &lt;/song&gt;
+&lt;/music&gt;
+</code></pre>
+
 <p>Using XML with JavaScript is kinda cumbersome. You have to analyze/parse the XML then go through each of its <em>nodes</em> to extract data from the tags. JSON on the other hand is easier to work with.</p>
 
 <p><strong>JSON</strong></p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-  </span><span class="nt">"music"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"song"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le Vie En Rose"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"singer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edith Piaf"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"French"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1947"</span><span class="w">
-    </span><span class="p">}</span><span class="w"> 
-  </span><span class="p">}</span><span class="w">  
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3>AJAX Limitations</h3>
 
-<ul>
-<li>Same origin policy
+<pre><code class="language-json">{
+  "music" : {
+    "song" : {
+      "title": "Le Vie En Rose",
+      "singer": "Edith Piaf",
+      "language": "French",
+      "year": "1947"
+    } 
+  }  
+}
+</code></pre>
 
+<h3 id="ajax-limitations">AJAX Limitations</h3>
 <ul>
-<li>Web proxy</li>
-<li>JSONP (JSON with Padding)</li>
-<li>CORS (Cross-Origin Resource Sharing)</li>
-</ul></li>
+  <li>Same origin policy
+    <ul>
+      <li>Web proxy</li>
+      <li>JSONP (JSON with Padding)</li>
+      <li>CORS (Cross-Origin Resource Sharing)</li>
+    </ul>
+  </li>
 </ul>
 
-<h4>JSON Objects vs. JavaScript Objects</h4>
+<h4 id="json-objects-vs-javascript-objects">JSON Objects vs. JavaScript Objects</h4>
+<p>JSON formatted data has extra requirements. In regular JavaScript objects, keys don’t have to be quoted. However, valid JSON not only requires quotes around the property name, it requires <strong>double quotes</strong> around both keys and values. Single quotes won’t work. Strings also require double quotes.</p>
 
-<p>JSON formatted data has extra requirements. In regular JavaScript objects, keys don&#39;t have to be quoted. However, valid JSON not only requires quotes around the property name, it requires <strong>double quotes</strong> around both keys and values. Single quotes won&#39;t work. Strings also require double quotes.</p>
-
-<h4>Parsing JSON</h4>
-
+<h4 id="parsing-json">Parsing JSON</h4>
 <p>We use the <code>JSON.parse()</code> function.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">employees</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-</code></pre></div>
-<h4>Looping through data</h4>
+
+<pre><code class="language-javascript">var employees = JSON.parse(xhr.responseText);
+</code></pre>
+
+<h4 id="looping-through-data">Looping through data</h4>
 
 <p>JavaScript:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// do seomthing</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">for (i = 0, i &lt; employees.length, i++) {
+  // do seomthing
+}
+</code></pre>
+
 <p><code>i++</code> is the same as <code>i += 1</code>. This loop will run once for each item in the array. Start with the first item (index of zero.)</p>
 
 <p>jQuery:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">()</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">$.each()
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -321,6 +326,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

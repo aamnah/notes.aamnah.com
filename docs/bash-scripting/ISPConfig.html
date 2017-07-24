@@ -14,6 +14,7 @@
   <meta name="description" content="source">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-scripting/ISPConfig.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash script for installing ISPConfig 3.1 on Ubuntu 17.04</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2017
         </time>
@@ -91,159 +92,161 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/ISPConfig.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/ISPConfig.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><a href="https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">source</a></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">### SYSTEM SETTINGS</span>
-<span class="c">####################</span>
 
-<span class="c"># Check your hostname</span>
-<span class="c"># cat /etc/hostname</span>
-<span class="c"># cat /etc/hosts</span>
-<span class="c"># reboot</span>
+<pre><code class="language-bash">### SYSTEM SETTINGS
+####################
 
-<span class="c"># Change the default shell</span>
-dpkg-reconfigure dash <span class="c"># change to NO</span>
+# Check your hostname
+# cat /etc/hostname
+# cat /etc/hosts
+# reboot
 
-<span class="c"># Update repos</span>
-apt update <span class="o">&amp;&amp;</span> apt upgrade -y
+# Change the default shell
+dpkg-reconfigure dash # change to NO
 
-<span class="c"># Disable AppArmor</span>
+# Update repos
+apt update &amp;&amp; apt upgrade -y
+
+# Disable AppArmor
 sudo service apparmor stop
 sudo service apparmor teardown
 sudo update-rc.d -f apparmor remove
 sudo remove apparmor apparmor-utils -y
 
-<span class="c"># Update system time zone</span>
+# Update system time zone
 dpkg-reconfigure tzdata
 
-<span class="c"># Synchronize the System Clock</span>
+# Synchronize the System Clock
 apt install ntp -y
 
-<span class="c">### COMPONENTS</span>
-<span class="c">#######################</span>
+### COMPONENTS
+#######################
 
-<span class="c"># Disable and remove Sendmail</span>
+# Disable and remove Sendmail
 service sendmail stop; update-rc.d -f sendmail remove
-<span class="c"># `Failed to stop sendmail.service: Unit sendmail.service not loaded.` </span>
-<span class="c"># means Sendmail wasn't installed, carry on..</span>
+# `Failed to stop sendmail.service: Unit sendmail.service not loaded.` 
+# means Sendmail wasn't installed, carry on..
 
-<span class="c"># Postfix</span>
+# Postfix
 apt -y install postfix postfix-mysql postfix-doc openssl getmail4
 
-<span class="c"># Dovecot</span>
+# Dovecot
 apt -y install dovecot-imapd dovecot-pop3d dovecot-mysql dovecot-sieve dovecot-lmtpd
 
-<span class="c"># MySQL</span>
+# MySQL
 apt -y install mysql-server mysql-client
 
-<span class="c"># PureFTP</span>
+# PureFTP
 apt -y install pure-ftpd-common pure-ftpd-mysql
 
-<span class="c"># rkhunter &amp; binutils</span>
+# rkhunter &amp; binutils
 apt -y install rkhunter binutils
-<span class="c">## General type of mail configuration: &lt;-- Internet Site</span>
-<span class="c">## System mail name: &lt;-- server1.example.com</span>
+## General type of mail configuration: &lt;-- Internet Site
+## System mail name: &lt;-- server1.example.com
 
-<span class="c"># 7. Install Amavisd-new, SpamAssassin, and Clamav</span>
-<span class="c">##################################################</span>
+# 7. Install Amavisd-new, SpamAssassin, and Clamav
+##################################################
 apt-get -y install amavisd-new spamassassin clamav clamav-daemon zoo unzip bzip2 arj nomarch lzop cabextract apt-listchanges libnet-ldap-perl libauthen-sasl-perl clamav-docs daemon libio-string-perl libio-socket-ssl-perl libnet-ident-perl zip libnet-dns-perl postgrey
 
-<span class="c"># The ISPConfig 3 setup uses amavisd which loads the SpamAssassin filter library internally, so we can stop SpamAssassin to free up some RAM</span>
+# The ISPConfig 3 setup uses amavisd which loads the SpamAssassin filter library internally, so we can stop SpamAssassin to free up some RAM
 service spamassassin stop
 update-rc.d -f spamassassin remove
 
-<span class="c"># To start ClamAV use</span>
+# To start ClamAV use
 freshclam
 service clamav-daemon start
 
-<span class="c"># The following error can be ignored on the first run of freshclam.</span>
-<span class="c"># ERROR: /var/log/clamav/freshclam.log is locked by another process</span>
-<span class="c"># ERROR: Problem with internal logger (UpdateLogFile = /var/log/clamav/freshclam.log).</span>
+# The following error can be ignored on the first run of freshclam.
+# ERROR: /var/log/clamav/freshclam.log is locked by another process
+# ERROR: Problem with internal logger (UpdateLogFile = /var/log/clamav/freshclam.log).
 
-<span class="c"># 7.1 Install Metronome XMPP Server (optional)</span>
-<span class="c">##############################################</span>
-<span class="c"># The Metronome XMPP Server provides an XMPP chat server. This step is optional, if you do not need a chat server, then you can skip this step. No other ISPConfig functions depend on this software.</span>
+# 7.1 Install Metronome XMPP Server (optional)
+##############################################
+# The Metronome XMPP Server provides an XMPP chat server. This step is optional, if you do not need a chat server, then you can skip this step. No other ISPConfig functions depend on this software.
 apt-get -y install git lua5.1 liblua5.1-0-dev lua-filesystem libidn11-dev libssl-dev lua-zlib lua-expat lua-event lua-bitop lua-socket lua-sec luarocks luarocks
 
 luarocks install lpc
 
-<span class="c"># Add a shell user for Metronome.</span>
-adduser --no-create-home --disabled-login --gecos <span class="s1">'Metronome'</span> metronome
+# Add a shell user for Metronome.
+adduser --no-create-home --disabled-login --gecos 'Metronome' metronome
 
-<span class="c"># Download Metronome to the /opt directory and compile it.</span>
-<span class="nb">cd</span> /opt; git clone https://github.com/maranda/metronome.git metronome
-<span class="nb">cd</span> ./metronome; ./configure --ostype<span class="o">=</span>debian --prefix<span class="o">=</span>/usr
+# Download Metronome to the /opt directory and compile it.
+cd /opt; git clone https://github.com/maranda/metronome.git metronome
+cd ./metronome; ./configure --ostype=debian --prefix=/usr
 make
 make install
 
-<span class="c"># Metronome has now be installed to /opt/metronome.</span>
+# Metronome has now be installed to /opt/metronome.
 
-<span class="c"># 8. Install Apache, PHP, phpMyAdmin, FCGI, SuExec, Pear, and mcrypt</span>
-<span class="c">####################################################################</span>
+# 8. Install Apache, PHP, phpMyAdmin, FCGI, SuExec, Pear, and mcrypt
+####################################################################
 
-<span class="c"># Apache2, PHP 7, phpMyAdmin, FCGI, suExec, Pear, and mcrypt can be installed as follows:</span>
+# Apache2, PHP 7, phpMyAdmin, FCGI, suExec, Pear, and mcrypt can be installed as follows:
 apt-get -y install apache2 apache2-doc apache2-utils libapache2-mod-php php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap phpmyadmin php7.0-cli php7.0-cgi libapache2-mod-fcgid apache2-suexec-pristine php-pear php7.0-mcrypt mcrypt  imagemagick libruby libapache2-mod-python php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl memcached php-memcache php-imagick php-gettext php7.0-zip php7.0-mbstring
 
-<span class="c"># You will see the following question:</span>
-<span class="c"># Web server to reconfigure automatically: &lt;-- apache2 </span>
-<span class="c"># Configure database for phpmyadmin with dbconfig-common? &lt;-- Yes</span>
-<span class="c"># MySQL application password for phpmyadmin: &lt;-- Press enter</span>
+# You will see the following question:
+# Web server to reconfigure automatically: &lt;-- apache2 
+# Configure database for phpmyadmin with dbconfig-common? &lt;-- Yes
+# MySQL application password for phpmyadmin: &lt;-- Press enter
 
-<span class="c"># Then run the following command to enable the Apache modules suexec, rewrite, ssl, actions, and include (plus dav, dav_fs, and auth_digest if you want to use WebDAV):</span>
+# Then run the following command to enable the Apache modules suexec, rewrite, ssl, actions, and include (plus dav, dav_fs, and auth_digest if you want to use WebDAV):
 a2enmod suexec rewrite ssl actions include cgi
 a2enmod dav_fs dav auth_digest headers
 
-<span class="c"># To ensure that the server can not be attacked trough the HTTPOXY vulnerability, I will disable the HTTP_PROXY header in apache globally. </span>
+# To ensure that the server can not be attacked trough the HTTPOXY vulnerability, I will disable the HTTP_PROXY header in apache globally. 
 
-<span class="c"># Create a new httpoxy.conf file</span>
+# Create a new httpoxy.conf file
 touch /etc/apache2/conf-available/httpoxy.conf
 
-<span class="c"># Paste this content to the file</span>
-<span class="nb">echo</span> -e <span class="s2">"&lt;IfModule mod_headers.c&gt;
+# Paste this content to the file
+echo -e "&lt;IfModule mod_headers.c&gt;
     RequestHeader unset Proxy early
-&lt;/IfModule&gt;"</span> &gt; /etc/apache2/conf-available/httpoxy.conf
+&lt;/IfModule&gt;" &gt; /etc/apache2/conf-available/httpoxy.conf
 
-<span class="c"># Enable the config file by running:</span>
+# Enable the config file by running:
 a2enconf httpoxy
 
-<span class="c"># Restart Apache afterward:</span>
+# Restart Apache afterward:
 service apache2 restart
 
 
-<span class="c"># 8.1 PHP Opcode cache (optional)</span>
-<span class="c">##############################################</span>
+# 8.1 PHP Opcode cache (optional)
+##############################################
 
-<span class="c"># Opcache is a free PHP opcode cacher for caching and optimizing PHP intermediate code. APCu is a compatibility module which provides APC compatible functions for Opcache which is used by many CMS caching systems.  It is recommended to have these PHP extensions installed to speed up your PHP page.</span>
+# Opcache is a free PHP opcode cacher for caching and optimizing PHP intermediate code. APCu is a compatibility module which provides APC compatible functions for Opcache which is used by many CMS caching systems.  It is recommended to have these PHP extensions installed to speed up your PHP page.
 
-<span class="c"># APCu can be installed as follows:</span>
+# APCu can be installed as follows:
 apt-get -y install php7.0-opcache php-apcu
 
-<span class="c"># Now restart Apache:</span>
+# Now restart Apache:
 service apache2 restart
 
-<span class="c">### CONFIGURATION</span>
-<span class="c">#######################</span>
+### CONFIGURATION
+#######################
 nano /etc/postfix/master.cf
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ispconfig3-on-an-ubuntu-14-04-server">DigitalOcean: How To Install ISPConfig3 on an Ubuntu 14.04 Server</a></li>
-<li><a href="https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">The Perfect Server - Ubuntu 17.04 (Zesty Zapus) with Apache, PHP, MySQL, PureFTPD, BIND, Postfix, Dovecot and ISPConfig 3.1</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ispconfig3-on-an-ubuntu-14-04-server">DigitalOcean: How To Install ISPConfig3 on an Ubuntu 14.04 Server</a></li>
+  <li><a href="https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/">The Perfect Server - Ubuntu 17.04 (Zesty Zapus) with Apache, PHP, MySQL, PureFTPD, BIND, Postfix, Dovecot and ISPConfig 3.1</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -289,6 +292,7 @@ nano /etc/postfix/master.cf
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

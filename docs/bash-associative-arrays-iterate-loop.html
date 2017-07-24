@@ -14,6 +14,7 @@
   <meta name="description" content="Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-associative-arrays-iterate-loop">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Associative Arrays in Bash</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2017
         </time>
@@ -91,62 +92,64 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Associative-arrays.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Associative-arrays.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.</p>
 
-<h3>create (declare) an associative array</h3>
-
+<h3 id="create-declare-an-associative-array">create (declare) an associative array</h3>
 <p>This is done with the <code>declare -A</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">declare</span> -A foo <span class="c"># declare an array</span>
-<span class="nb">declare</span> -A foo bar baz <span class="c"># declare multiple arrays</span>
-<span class="nb">declare</span> -A <span class="nv">myArray</span><span class="o">=(</span> <span class="o">[</span>key1]<span class="o">=</span>value1 <span class="o">[</span>key2]<span class="o">=</span>value2 <span class="o">[</span>key3]<span class="o">=</span>value3 <span class="o">)</span> <span class="c"># Initialise all at once</span>
-</code></pre></div>
-<h3>add values to the array</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">foo[key]<span class="o">=</span>value
-</code></pre></div>
+
+<pre><code class="language-bash">declare -A foo # declare an array
+declare -A foo bar baz # declare multiple arrays
+declare -A myArray=( [key1]=value1 [key2]=value2 [key3]=value3 ) # Initialise all at once
+</code></pre>
+
+<h3 id="add-values-to-the-array">add values to the array</h3>
+
+<pre><code class="language-bash">foo[key]=value
+</code></pre>
+
 <p>Note the lack of spaces before and after the equal <code>=</code> sign</p>
 
-<h3>iterate over key/value pairs</h3>
-
+<h3 id="iterate-over-keyvalue-pairs">iterate over key/value pairs</h3>
 <p>The keys are accessed using an exclamation point: <code>${!array[@]}</code>, the values are accessed using <code>${array[@]}</code></p>
 
 <p>You can iterate over the key/value pairs like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="p">!array[@]</span><span class="k">}</span><span class="s2">"</span>
-<span class="k">do
-  </span><span class="nb">echo</span> <span class="s2">"key  : </span><span class="nv">$i</span><span class="s2">"</span>
-  <span class="nb">echo</span> <span class="s2">"value: </span><span class="k">${</span><span class="nv">array</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="k">}</span><span class="s2">"</span>
-<span class="k">done</span>
-</code></pre></div>
+
+<pre><code class="language-bash">for i in "${!array[@]}"
+do
+  echo "key  : $i"
+  echo "value: ${array[$i]}"
+done
+</code></pre>
 <p>Note the use of quotes around the variable in the <code>for</code> statement (plus the use of <code>@</code> instead of <code>*</code>). This is necessary in case any keys include spaces.</p>
 
-<h3>Troubleshooting</h3>
-
+<h3 id="troubleshooting">Troubleshooting</h3>
 <ul>
-<li><code>declare: -A: invalid option</code> On macOS, the Bash version is 3.2.57. Bash 3 has no associative arrays, they are supported in Bash 4. You can install Bash 4 with Homebrew <code>brew update &amp;&amp; brew install bash</code></li>
-<li><code>extensions_modules[key]: command not found</code> make sure there are no space before and after the equal sign when assign values</li>
+  <li><code>declare: -A: invalid option</code> On macOS, the Bash version is 3.2.57. Bash 3 has no associative arrays, they are supported in Bash 4. You can install Bash 4 with Homebrew <code>brew update &amp;&amp; brew install bash</code></li>
+  <li><code>extensions_modules[key]: command not found</code> make sure there are no space before and after the equal sign when assign values</li>
 </ul>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.linuxjournal.com/content/bash-associative-arrays">Bash Associative Arrays</a></li>
-<li><a href="http://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/">Bash associative array examples</a></li>
-<li><a href="http://wiki.bash-hackers.org/syntax/arrays">Bash Hackers Wiki: Arrays Syntax</a></li>
-<li><a href="http://stackoverflow.com/questions/3112687/how-to-iterate-over-associative-arrays-in-bash">StackOverflow: How to iterate over associative arrays in Bash</a></li>
+  <li><a href="http://www.linuxjournal.com/content/bash-associative-arrays">Bash Associative Arrays</a></li>
+  <li><a href="http://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/">Bash associative array examples</a></li>
+  <li><a href="http://wiki.bash-hackers.org/syntax/arrays">Bash Hackers Wiki: Arrays Syntax</a></li>
+  <li><a href="http://stackoverflow.com/questions/3112687/how-to-iterate-over-associative-arrays-in-bash">StackOverflow: How to iterate over associative arrays in Bash</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -192,6 +195,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

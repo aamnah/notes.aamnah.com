@@ -14,6 +14,7 @@
   <meta name="description" content="Basics">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-scripting-getting-started">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash Scripting 101</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-07T00:00:00+05:00" itemprop="datePublished">
           Dec 7, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,70 +98,75 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Bash Scripting 101.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Bash Scripting 101.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Basics</p>
 
 <ul>
-<li>variables</li>
-<li>functions</li>
-<li>Loops</li>
-<li>Conditionals (If statements)</li>
-<li>taking user input</li>
-<li>check if a user is root</li>
-<li>check if a file or directory already exists</li>
-<li>colouring the output</li>
-<li>writing and redirecting data</li>
-<li>find your IP address</li>
-<li>find your hostname</li>
-<li><a href="http://www.linuxquestions.org/questions/programming-9/shell-script-to-check-apache-installed-or-not-262115/">check if a package is already installed</a></li>
-<li>check if package dependencies are met</li>
-<li>how to make a link clickable</li>
-<li>exit if unmet dependencies/deps can’t be installed</li>
-<li>exit statuses (0-255, <code>$?</code>)</li>
-<li><code>$?</code> exit status of last command</li>
-<li>logging</li>
-<li>wildcards</li>
-<li><a href="http://stackoverflow.com/questions/255898/how-to-iterate-over-arguments-in-a-bash-script">looping over multiple arguments</a></li>
+  <li>variables</li>
+  <li>functions</li>
+  <li>Loops</li>
+  <li>Conditionals (If statements)</li>
+  <li>taking user input</li>
+  <li>check if a user is root</li>
+  <li>check if a file or directory already exists</li>
+  <li>colouring the output</li>
+  <li>writing and redirecting data</li>
+  <li>find your IP address</li>
+  <li>find your hostname</li>
+  <li><a href="http://www.linuxquestions.org/questions/programming-9/shell-script-to-check-apache-installed-or-not-262115/">check if a package is already installed</a></li>
+  <li>check if package dependencies are met</li>
+  <li>how to make a link clickable</li>
+  <li>exit if unmet dependencies/deps can’t be installed</li>
+  <li>exit statuses (0-255, <code>$?</code>)</li>
+  <li><code>$?</code> exit status of last command</li>
+  <li>logging</li>
+  <li>wildcards</li>
+  <li><a href="http://stackoverflow.com/questions/255898/how-to-iterate-over-arguments-in-a-bash-script">looping over multiple arguments</a></li>
 </ul>
 
-<h3>echo</h3>
-
+<h3 id="echo">echo</h3>
 <ul>
-<li>When using <code>echo -e</code> use double quotation marks <code>”</code> or it won’t work.</li>
-<li>When using variables inside a string, you need to encapsulate the string in double quotation marks <code>”</code></li>
-<li>When using If statements, always wrap your variables in <a href="http://stackoverflow.com/a/67458/890814">double quotation marks</a> <code>“”</code> to account for spaces in file/dir names </li>
-<li>Use <code>\n</code> in the beginning to give a line break between your response text and the command output</li>
-<li>http://stackoverflow.com/questions/13617843/unary-operator-expected</li>
-<li>you can check for exit statuses of multiple commands with <code>||</code>. This can be used where you are unsure of which OS will be running the command</li>
+  <li>When using <code>echo -e</code> use double quotation marks <code>”</code> or it won’t work.</li>
+  <li>When using variables inside a string, you need to encapsulate the string in double quotation marks <code>”</code></li>
+  <li>When using If statements, always wrap your variables in <a href="http://stackoverflow.com/a/67458/890814">double quotation marks</a> <code>“”</code> to account for spaces in file/dir names</li>
+  <li>Use <code>\n</code> in the beginning to give a line break between your response text and the command output</li>
+  <li>http://stackoverflow.com/questions/13617843/unary-operator-expected</li>
+  <li>you can check for exit statuses of multiple commands with <code>||</code>. This can be used where you are unsure of which OS will be running the command</li>
 </ul>
 
-<h4>Find external IP</h4>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">SERVER_IP</span><span class="o">=</span><span class="sb">`</span>dig +short myip.opendns.com @resolver1.opendns.com<span class="sb">`</span> # External IP of the server
-</code></pre></div>
-<h4>Multiple commands on the same line</h4>
+<h4 id="find-external-ip">Find external IP</h4>
 
+<pre><code class="language-bash">SERVER_IP=`dig +short myip.opendns.com @resolver1.opendns.com` # External IP of the server
+</code></pre>
+
+<h4 id="multiple-commands-on-the-same-line">Multiple commands on the same line</h4>
 <p>You can put multiple commands on the same line by separating them with a semicolon <code>;</code></p>
 
 <p>For example</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> “<span class="nv">$?</span>” -eq “0” <span class="o">]</span>; <span class="k">then</span>
-  <span class="c"># do something</span>
-<span class="k">fi</span>
-</code></pre></div>
-<h4>Make script executable</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">chmod +x foo.sh
-</code></pre></div>
+
+<pre><code class="language-bash">if [ “$?” -eq “0” ]; then
+  # do something
+fi
+</code></pre>
+
+<h4 id="make-script-executable">Make script executable</h4>
+
+<pre><code>chmod +x foo.sh
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -206,6 +212,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

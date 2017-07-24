@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="This requires that you have PyYAML installed. ">
+  <meta name="description" content="This requires that you have PyYAML installed.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/convert_yaml_to_python">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to convert yaml data to python data</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-29T00:00:00+05:00" itemprop="datePublished">
           Aug 29, 2014
         </time>
@@ -91,43 +92,41 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-how to convert YAML data to Python data.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-how to convert YAML data to Python data.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>This requires that you have <a href="http://pyyaml.org/wiki/PyYAMLDocumentation">PyYAML</a> installed. </p>
+    <p>This requires that you have <a href="http://pyyaml.org/wiki/PyYAMLDocumentation">PyYAML</a> installed.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    sudo pip install pyyaml
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	sudo pip install pyyaml
     </code></pre></figure>
 
-<h3>YAML file</h3>
+<h3 id="yaml-file">YAML file</h3>
+<p>Let’s assume your YAML file is called <code>post.yml</code>.</p>
 
-<p>Let&#39;s assume your YAML file is called <code>post.yml</code>. </p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="err">	</span><span class="s">---</span>
+<span class="err">	</span><span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="err">	</span><span class="s">author</span><span class="pi">:</span> <span class="s">aamnah</span>
+<span class="err">	</span><span class="s">date</span><span class="pi">:</span> <span class="s">28-08-2014</span>
+<span class="err">	</span><span class="s">slug</span><span class="pi">:</span> <span class="s">sample-post</span>
+<span class="err">	</span><span class="s">tags</span><span class="pi">:</span> <span class="s">sample, post, example</span>
+<span class="err">	</span><span class="s">categories</span><span class="pi">:</span> <span class="s">code</span>
+<span class="err">	</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="err">  </span><span class="s">---</span>
-<span class="err">  </span><span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
-<span class="err">  </span><span class="s">author</span><span class="pi">:</span> <span class="s">aamnah</span>
-<span class="err">  </span><span class="s">date</span><span class="pi">:</span> <span class="s">28-08-2014</span>
-<span class="err">  </span><span class="s">slug</span><span class="pi">:</span> <span class="s">sample-post</span>
-<span class="err">  </span><span class="s">tags</span><span class="pi">:</span> <span class="s">sample, post, example</span>
-<span class="err">  </span><span class="s">categories</span><span class="pi">:</span> <span class="s">code</span>
-<span class="err">  </span></code></pre></figure>
+<h3 id="code">Code:</h3>
+<p>Let’s save our code in a file called <code>convertyaml.py</code>.</p>
 
-<h3>Code:</h3>
-
-<p>Let&#39;s save our code in a file called <code>convertyaml.py</code>. </p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c"># Let's open the .yml file, read it and save it in a variable called data</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'post.yml'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python">	<span class="c"># Let's open the .yml file, read it and save it in a variable called data</span>
+	<span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'post.yml'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
     <span class="c"># Load the YAML library and convert it</span>
-    <span class="kn">import</span> <span class="nn">yaml</span>
+	<span class="kn">import</span> <span class="nn">yaml</span>
     <span class="n">myvars</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     
     <span class="c"># Let's pretty print that data to screen</span>
@@ -135,27 +134,28 @@
     <span class="n">pp</span><span class="p">(</span><span class="n">myvars</span><span class="p">)</span>
     </code></pre></figure>
 
-<h3>Output:</h3>
+<h3 id="output">Output:</h3>
+<p>To run the script we just created we’ll do <code>python convertyaml.py</code>.</p>
 
-<p>To run the script we just created we&#39;ll do <code>python convertyaml.py</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="err">'author':</span><span class="w"> </span><span class="err">'aamnah',</span><span class="w">
-</span><span class="err">'categories':</span><span class="w"> </span><span class="err">'code',</span><span class="w">
-</span><span class="err">'date':</span><span class="w"> </span><span class="err">'28-08-2014',</span><span class="w">
-</span><span class="err">'layout':</span><span class="w"> </span><span class="err">'post',</span><span class="w">
-</span><span class="err">'slug':</span><span class="w"> </span><span class="err">'sample-post',</span><span class="w">
-</span><span class="err">'tags':</span><span class="w"> </span><span class="err">'sample,</span><span class="w"> </span><span class="err">post,</span><span class="w"> </span><span class="err">example'</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+<pre><code>{'author': 'aamnah',
+ 	'categories': 'code',
+ 	'date': '28-08-2014',
+ 	'layout': 'post',
+ 	'slug': 'sample-post',
+ 	'tags': 'sample, post, example'}
+</code></pre>
+
 <p>Note that it lists the variables in alphabetical order.</p>
 
-<h5>Resources:</h5>
-
+<h5 id="resources">Resources:</h5>
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/YAML">YAML</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/YAML">YAML</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -201,6 +201,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Delete everything">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/doomsday-commands">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Doomsday Commands</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-01-19T00:00:00+05:00" itemprop="datePublished">
           Jan 19, 2016
         </time>
@@ -91,49 +92,58 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Doomsday Commands.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Doomsday Commands.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Delete everything</h3>
+    <h3 id="delete-everything">Delete everything</h3>
 
 <p>Use these to annihilate your computer.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo rm -rf / --no-preserve-root
-sudo rm -rf /<span class="k">*</span>
-</code></pre></div>
-<p>Deletes everything, rm rf&#39;s the root directory.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo shred dev/sda
 
-<span class="c"># fill disk with zeroes</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda 
-</code></pre></div>
+<pre><code class="language-bash">sudo rm -rf / --no-preserve-root
+sudo rm -rf /*
+</code></pre>
+
+<p>Deletes everything, rm rf’s the root directory.</p>
+
+<pre><code class="language-bash">sudo shred dev/sda
+
+# fill disk with zeroes
+dd if=/dev/zero of=/dev/sda 
+</code></pre>
+
 <p>completely wipes all data on a drive by overwriting the whole thing, i.e. write zeros (or pseudorandom numbers) over the entire drive</p>
 
-<p><strong>dd</strong> has a nickname as <strong>Disk Destroyer</strong> as it&#39;s very easy to blank the wrong device :)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># fill disk with pseudorandom data</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/random <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1m 
-</code></pre></div>
-<p>The command reads &quot;copy input file /dev/[whatever] to output file /dev/[whatever], by copying 1MB at a time (the blocksize)&quot;.</p>
+<p><strong>dd</strong> has a nickname as <strong>Disk Destroyer</strong> as it’s very easy to blank the wrong device :)</p>
 
-<h3>Fork bomb</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">:<span class="o">(){</span> :|:&amp; <span class="o">}</span>;:
-</code></pre></div>
-<h3>Notes</h3>
+<pre><code class="language-bash"># fill disk with pseudorandom data
+dd if=/dev/random of=/dev/sda bs=1m 
+</code></pre>
 
+<p>The command reads “copy input file /dev/[whatever] to output file /dev/[whatever], by copying 1MB at a time (the blocksize)”.</p>
+
+<h3 id="fork-bomb">Fork bomb</h3>
+
+<pre><code class="language-bash">:(){ :|:&amp; };:
+</code></pre>
+
+<h3 id="notes">Notes</h3>
 <ul>
-<li>Most of these were inspired from TwitchInstallArchLinux chat.</li>
-<li><a href="http://www.unixmen.com/fork-bomb-can-prevent-danger/">Fork bomb</a></li>
+  <li>Most of these were inspired from TwitchInstallArchLinux chat.</li>
+  <li><a href="http://www.unixmen.com/fork-bomb-can-prevent-danger/">Fork bomb</a></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -179,6 +189,7 @@ dd <span class="k">if</span><span class="o">=</span>/dev/random <span class="nv"
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

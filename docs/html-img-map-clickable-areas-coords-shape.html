@@ -14,6 +14,7 @@
   <meta name="description" content="tl;dr">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/html-img-map-clickable-areas-coords-shape">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Define a clickable interactive map over an image with &lt;map&gt;</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-15T11:15:00+05:00" itemprop="datePublished">
           Mar 15, 2017
         </time>
@@ -91,76 +92,79 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/html-map-img.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/html-map-img.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>tl;dr</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;map</span> <span class="na">name=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">shape=</span><span class="s">"circle"</span> <span class="na">coords=</span><span class="s">"75,75,75"</span> <span class="na">href=</span><span class="s">"left.html"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">shape=</span><span class="s">"circle"</span> <span class="na">coords=</span><span class="s">"275,75,75"</span> <span class="na">href=</span><span class="s">"right.html"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/map&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">usemap=</span><span class="s">"#primary"</span> <span class="na">src=</span><span class="s">"http://placehold.it/350x150"</span> <span class="na">alt=</span><span class="s">"350 x 150 pic"</span><span class="nt">&gt;</span>
-</code></pre></div>
-<ul>
-<li>in an <code>&lt;img&gt;</code> tag, specify the <code>usemap</code> attribute and provide the name of whatever map you want to use, for example <code>#world-continents</code></li>
-<li>define a map with the <code>&lt;map&gt;</code> tag. Each map takes an <code>&lt;area&gt;</code> tag with <code>shape</code>, <code>coords</code> and <code>href</code> attributes</li>
-<li><code>shape</code> could be a <code>rect</code>, <code>circle</code> or <code>poly</code>. The amount of <code>coords</code> provided and their placement depends on the shape</li>
-<li><code>rect</code> takes <code>x,y</code> positions of all four corners in a clockwise manner, starting from top-left</li>
-<li><code>circle</code> takes <code>x,y</code> positions at the <strong>the horizontal middle of circle</strong> and <code>radius</code> (half the width of circle)</li>
-<li><code>poly</code> can make pretty much any shape you want. It takes sets of <code>x,y</code> positions.</li>
-</ul>
+    <h2 id="tldr">tl;dr</h2>
 
-<hr>
-
-<h2>Notes</h2>
+<pre><code class="language-html">&lt;map name="primary"&gt;
+  &lt;area shape="circle" coords="75,75,75" href="left.html"&gt;
+  &lt;area shape="circle" coords="275,75,75" href="right.html"&gt;
+&lt;/map&gt;
+&lt;img usemap="#primary" src="http://placehold.it/350x150" alt="350 x 150 pic"&gt;
+</code></pre>
 
 <ul>
-<li>You can use an image editing program with Rulers visible to find the  x and y coordinates in a picture. Photoshop, Sketch or even Microsoft Paint will do.</li>
-<li>Polygons are really easy to draw with <a href="http://imagemap-generator.dariodomi.de/">this <strong>online tool</strong></a></li>
-<li>In <strong>Sketch</strong> it&#39;s really easy to pinpoint coords for rectangles, just look in the top right. For circles, get the x and y and add half of the size to each to get the exact coords</li>
-<li>Watch <a href="https://www.youtube.com/watch?v=YkdWRBL2BsM">this tutorial</a> to learn how to easily find positions with the Info panel (Window &gt; Info (F8)) in <strong>Photoshop</strong></li>
-<li>The image <strong>maps are NOT responsive</strong>. If an image gets shrinked due to less space or whatever reason, it messes up the coordinates (as they are fixed pixels, not percentages). To get responsive maps you&#39;ll need to use a plugin</li>
-<li><strong>Alternatively</strong> you can use an <strong>svg</strong> instead of an image map, svg will be responsive as well. <a href="http://stackoverflow.com/a/28277021/890814">example</a></li>
-<li>Right clicking any shape highlights the shape outline</li>
+  <li>in an <code>&lt;img&gt;</code> tag, specify the <code>usemap</code> attribute and provide the name of whatever map you want to use, for example <code>#world-continents</code></li>
+  <li>define a map with the <code>&lt;map&gt;</code> tag. Each map takes an <code>&lt;area&gt;</code> tag with <code>shape</code>, <code>coords</code> and <code>href</code> attributes</li>
+  <li><code>shape</code> could be a <code>rect</code>, <code>circle</code> or <code>poly</code>. The amount of <code>coords</code> provided and their placement depends on the shape</li>
+  <li><code>rect</code> takes <code>x,y</code> positions of all four corners in a clockwise manner, starting from top-left</li>
+  <li><code>circle</code> takes <code>x,y</code> positions at the <strong>the horizontal middle of circle</strong> and <code>radius</code> (half the width of circle)</li>
+  <li><code>poly</code> can make pretty much any shape you want. It takes sets of <code>x,y</code> positions.</li>
 </ul>
 
-<h2>Demo 1</h2>
+<hr />
+
+<h2 id="notes">Notes</h2>
+<ul>
+  <li>You can use an image editing program with Rulers visible to find the  x and y coordinates in a picture. Photoshop, Sketch or even Microsoft Paint will do.</li>
+  <li>Polygons are really easy to draw with <a href="http://imagemap-generator.dariodomi.de/">this <strong>online tool</strong></a></li>
+  <li>In <strong>Sketch</strong> it’s really easy to pinpoint coords for rectangles, just look in the top right. For circles, get the x and y and add half of the size to each to get the exact coords</li>
+  <li>Watch <a href="https://www.youtube.com/watch?v=YkdWRBL2BsM">this tutorial</a> to learn how to easily find positions with the Info panel (Window &gt; Info (F8)) in <strong>Photoshop</strong></li>
+  <li>The image <strong>maps are NOT responsive</strong>. If an image gets shrinked due to less space or whatever reason, it messes up the coordinates (as they are fixed pixels, not percentages). To get responsive maps you’ll need to use a plugin</li>
+  <li><strong>Alternatively</strong> you can use an <strong>svg</strong> instead of an image map, svg will be responsive as well. <a href="http://stackoverflow.com/a/28277021/890814">example</a></li>
+  <li>Right clicking any shape highlights the shape outline</li>
+</ul>
+
+<h2 id="demo-1">Demo 1</h2>
 
 <p>Every continent links to a different corresponding article on Wikipedia</p>
 
-<p><img src="/assets/img/world-continents.png" alt="World Continents" width="320" height="160" orgwidth="320" orgheight="160" usemap="#world-continents"></p>
+<p><img src="/assets/img/world-continents.png" alt="World Continents" width="320" height="160" orgwidth="320" orgheight="160" usemap="#world-continents" /></p>
 
-<p><map name="world-continents">
-  <area title="North America" href="https://en.wikipedia.org/wiki/North_America" shape="poly" coords="48,89,67,69,77,49,140,0,68,0,6,10,4,31,16,69">
-  <area title="South America" href="https://en.wikipedia.org/wiki/South_America" shape="poly" coords="48,88,61,74,119,99,95,160,66,159">
-  <area title="Europe" href="https://en.wikipedia.org/wiki/Europe" shape="poly" coords="124,49,145,46,158,50,187,43,198,6,146,1,115,21">
-  <area title="Africa" href="https://en.wikipedia.org/wiki/Africa" shape="poly" coords="121,53,140,47,169,51,186,77,196,80,188,137,156,136,138,97,118,86">
-  <area title="Asia" href="https://en.wikipedia.org/wiki/Asia" shape="poly" coords="166,50,184,77,201,74,215,91,258,108,263,87,283,74,297,8,192,3,191,29,187,46,170,42">
-  <area title="Australia" href="https://en.wikipedia.org/wiki/Australia_(continent)" shape="poly" coords="257,107,263,85,314,89,316,137,294,151,249,132,248,114">
-</map></p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/images/world-continents.png"</span> <span class="na">alt=</span><span class="s">"World Continents"</span> <span class="na">width=</span><span class="s">"320"</span> <span class="na">height=</span><span class="s">"160"</span> <span class="na">orgwidth=</span><span class="s">"320"</span> <span class="na">orgheight=</span><span class="s">"160"</span> <span class="na">usemap=</span><span class="s">"#world-continents"</span><span class="nt">&gt;</span>
+<map name="world-continents">
+  <area title="North America" href="https://en.wikipedia.org/wiki/North_America" shape="poly" coords="48,89,67,69,77,49,140,0,68,0,6,10,4,31,16,69" />
+  <area title="South America" href="https://en.wikipedia.org/wiki/South_America" shape="poly" coords="48,88,61,74,119,99,95,160,66,159" />
+  <area title="Europe" href="https://en.wikipedia.org/wiki/Europe" shape="poly" coords="124,49,145,46,158,50,187,43,198,6,146,1,115,21" />
+  <area title="Africa" href="https://en.wikipedia.org/wiki/Africa" shape="poly" coords="121,53,140,47,169,51,186,77,196,80,188,137,156,136,138,97,118,86" />
+  <area title="Asia" href="https://en.wikipedia.org/wiki/Asia" shape="poly" coords="166,50,184,77,201,74,215,91,258,108,263,87,283,74,297,8,192,3,191,29,187,46,170,42" />
+  <area title="Australia" href="https://en.wikipedia.org/wiki/Australia_(continent)" shape="poly" coords="257,107,263,85,314,89,316,137,294,151,249,132,248,114" />
+</map>
 
-<span class="nt">&lt;map</span> <span class="na">name=</span><span class="s">"world-continents"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"North America"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/North_America"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"48,89,67,69,77,49,140,0,68,0,6,10,4,31,16,69"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"South America"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/South_America"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"48,88,61,74,119,99,95,160,66,159"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Europe"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Europe"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"124,49,145,46,158,50,187,43,198,6,146,1,115,21"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Africa"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Africa"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"121,53,140,47,169,51,186,77,196,80,188,137,156,136,138,97,118,86"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Asia"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Asia"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"166,50,184,77,201,74,215,91,258,108,263,87,283,74,297,8,192,3,191,29,187,46,170,42"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Australia"</span> <span class="na">href=</span><span class="s">"https://en.wikipedia.org/wiki/Australia_(continent)"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"257,107,263,85,314,89,316,137,294,151,249,132,248,114"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/map&gt;</span>
-</code></pre></div>
-<h2>Demo 2</h2>
+<pre><code class="language-html">&lt;img src="/images/world-continents.png" alt="World Continents" width="320" height="160" orgwidth="320" orgheight="160" usemap="#world-continents"&gt;
+
+&lt;map name="world-continents"&gt;
+  &lt;area title="North America" href="https://en.wikipedia.org/wiki/North_America" shape="poly" coords="48,89,67,69,77,49,140,0,68,0,6,10,4,31,16,69"&gt;
+  &lt;area title="South America" href="https://en.wikipedia.org/wiki/South_America" shape="poly" coords="48,88,61,74,119,99,95,160,66,159"&gt;
+  &lt;area title="Europe" href="https://en.wikipedia.org/wiki/Europe" shape="poly" coords="124,49,145,46,158,50,187,43,198,6,146,1,115,21"&gt;
+  &lt;area title="Africa" href="https://en.wikipedia.org/wiki/Africa" shape="poly" coords="121,53,140,47,169,51,186,77,196,80,188,137,156,136,138,97,118,86"&gt;
+  &lt;area title="Asia" href="https://en.wikipedia.org/wiki/Asia" shape="poly" coords="166,50,184,77,201,74,215,91,258,108,263,87,283,74,297,8,192,3,191,29,187,46,170,42"&gt;
+  &lt;area title="Australia" href="https://en.wikipedia.org/wiki/Australia_(continent)" shape="poly" coords="257,107,263,85,314,89,316,137,294,151,249,132,248,114"&gt;
+&lt;/map&gt;
+</code></pre>
+
+<h2 id="demo-2">Demo 2</h2>
 
 <p>Every frame links somewhere different <a href="http://codepen.io/aamnah/pen/PpKLrd?editors=1000">codepen</a></p>
 
-<p><img src="/assets/img/usemap-frames.png" alt="Usemap Example Frames" usemap="#Map" width="795" height="509" orgwidth="795" orgheight="509" />
+<p><img src="/assets/img/usemap-frames.png" alt="Usemap Example Frames" usemap="#Map" width="795" height="509" orgwidth="795" orgheight="509" /></p>
 <map name="Map" id="Map">
   <area title="Yellow area" href="#circle" shape="circle" coords="187,81,50" />
   <area title="Green area" href="#green" shape="poly" coords="383,46, 484,46, 485,192, 385,192" />
@@ -170,61 +174,70 @@
   <area title="University badge" href="http://referrals.trhou.se/aamnah" target="_blank" shape="circle" coords="167,287,95" />
   <area title="JavaScript Badge" href="http://referrals.trhou.se/aamnah" target="_blank" shape="poly" coords="396,245,313,290,307,303,307,382,314,396,396,441,479,398,487,383,488,305,478,288" />
   <area title="Oval area" href="#oval" shape="poly" coords="266,138,274,110,286,89,297,80,308,76,318,81,327,88,333,98,338,111,344,124,346,138,347,158,346,177,344,196,338,214,330,228,321,242,306,246,296,243,286,234,276,220,268,190,266,167" />
-</map></p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://image.ibb.co/juLDmF/usemap_frames.png"</span> <span class="na">alt=</span><span class="s">"Usemap Example Frames"</span> <span class="na">usemap=</span><span class="s">"#Map"</span> <span class="na">width=</span><span class="s">"795"</span> <span class="na">height=</span><span class="s">"509"</span> <span class="na">orgwidth=</span><span class="s">"795"</span> <span class="na">orgheight=</span><span class="s">"509"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;map</span> <span class="na">name=</span><span class="s">"Map"</span> <span class="na">id=</span><span class="s">"Map"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Yellow area"</span> <span class="na">href=</span><span class="s">"#circle"</span> <span class="na">shape=</span><span class="s">"circle"</span> <span class="na">coords=</span><span class="s">"187,81,50"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Green area"</span> <span class="na">href=</span><span class="s">"#green"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"383,46, 484,46, 485,192, 385,192"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Orange area"</span> <span class="na">href=</span><span class="s">"#orange"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"549,67, 643,67, 643,162, 550,162"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Blue Rectangle"</span> <span class="na">href=</span><span class="s">"#blue"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"502,222, 643,222, 644,287, 502,287"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Purple area"</span> <span class="na">href=</span><span class="s">"#purple"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"545,432,610,307,692,431"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"University badge"</span> <span class="na">href=</span><span class="s">"http://referrals.trhou.se/aamnah"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">shape=</span><span class="s">"circle"</span> <span class="na">coords=</span><span class="s">"167,287,95"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"JavaScript Badge"</span> <span class="na">href=</span><span class="s">"http://referrals.trhou.se/aamnah"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"396,245,313,290,307,303,307,382,314,396,396,441,479,398,487,383,488,305,478,288"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;area</span> <span class="na">title=</span><span class="s">"Oval area"</span> <span class="na">href=</span><span class="s">"#oval"</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"266,138,274,110,286,89,297,80,308,76,318,81,327,88,333,98,338,111,344,124,346,138,347,158,346,177,344,196,338,214,330,228,321,242,306,246,296,243,286,234,276,220,268,190,266,167"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/map&gt;</span>
-</code></pre></div>
-<h3>shape</h3>
+</map>
+
+<pre><code class="language-html">&lt;img src="https://image.ibb.co/juLDmF/usemap_frames.png" alt="Usemap Example Frames" usemap="#Map" width="795" height="509" orgwidth="795" orgheight="509" /&gt;
+&lt;map name="Map" id="Map"&gt;
+  &lt;area title="Yellow area" href="#circle" shape="circle" coords="187,81,50" /&gt;
+  &lt;area title="Green area" href="#green" shape="poly" coords="383,46, 484,46, 485,192, 385,192" /&gt;
+  &lt;area title="Orange area" href="#orange" shape="poly" coords="549,67, 643,67, 643,162, 550,162" /&gt;
+  &lt;area title="Blue Rectangle" href="#blue" shape="poly" coords="502,222, 643,222, 644,287, 502,287" /&gt;
+  &lt;area title="Purple area" href="#purple" shape="poly" coords="545,432,610,307,692,431" /&gt;
+  &lt;area title="University badge" href="http://referrals.trhou.se/aamnah" target="_blank" shape="circle" coords="167,287,95" /&gt;
+  &lt;area title="JavaScript Badge" href="http://referrals.trhou.se/aamnah" target="_blank" shape="poly" coords="396,245,313,290,307,303,307,382,314,396,396,441,479,398,487,383,488,305,478,288" /&gt;
+  &lt;area title="Oval area" href="#oval" shape="poly" coords="266,138,274,110,286,89,297,80,308,76,318,81,327,88,333,98,338,111,344,124,346,138,347,158,346,177,344,196,338,214,330,228,321,242,306,246,296,243,286,234,276,220,268,190,266,167" /&gt;
+&lt;/map&gt;
+</code></pre>
+
+<h3 id="shape">shape</h3>
 
 <p>There are three shapes you can draw, <code>rect</code>, <code>circle</code> and <code>poly</code>. How many <code>coords</code> you provide depends on the shape you want. a set of <code>x</code> and <code>y</code> define a point on the map, multiple sets means multiple meeting points.</p>
 
 <ul>
-<li><code>rect</code> takes 4 sets of x an y (top-left, top-right, bottom-left, bottom-right)</li>
-<li><code>circle</code> takes x, y and radius (along the horizontal middle of the circle)</li>
-<li><code>poly</code> takes as many sets of x,y as you want</li>
+  <li><code>rect</code> takes 4 sets of x an y (top-left, top-right, bottom-left, bottom-right)</li>
+  <li><code>circle</code> takes x, y and radius (along the horizontal middle of the circle)</li>
+  <li><code>poly</code> takes as many sets of x,y as you want</li>
 </ul>
 
-<h4>rect</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- x,y (top-left), x,y (top-right), x,y (bottom-left), x,y (bottom-right) --&gt;</span>
+<h4 id="rect">rect</h4>
+
+<pre><code class="language-html">&lt;!-- x,y (top-left), x,y (top-right), x,y (bottom-left), x,y (bottom-right) --&gt;
 coords='383,46, 484,46, 485,192, 385,192'
-</code></pre></div>
-<h4>circle</h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- x, y, radius --&gt;</span>
+</code></pre>
+
+<h4 id="circle">circle</h4>
+
+<pre><code class="language-html">&lt;!-- x, y, radius --&gt;
 coords='187, 81, 50'
-</code></pre></div>
-<h4>poly</h4>
+</code></pre>
 
-<p>With <code>poly</code> you can make any shape you want.. a pyramid, octagon or even someone&#39;s head (see <a href="http://sethgodin.com/sg/">Seth Godin&#39;s site</a>, he wants you to click on his head to go to his blog..)</p>
+<h4 id="poly">poly</h4>
+<p>With <code>poly</code> you can make any shape you want.. a pyramid, octagon or even someone’s head (see <a href="http://sethgodin.com/sg/">Seth Godin’s site</a>, he wants you to click on his head to go to his blog..)</p>
 
-<p><img src="/assets/img/seth-godin-head-blog-img-map.png" alt="An example of image map, Seth Godin&#39;s head to go to his blog"></p>
+<p><img src="/assets/img/seth-godin-head-blog-img-map.png" alt="An example of image map, Seth Godin's head to go to his blog" /></p>
 
-<p>The coords for poly are <em>sets</em> of <em>x and y</em> positions. </p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- x,y, x,y, x,y, x,y, x,y, x,y, x,y --&gt;</span>
+<p>The coords for poly are <em>sets</em> of <em>x and y</em> positions.</p>
+
+<pre><code class="language-html">&lt;!-- x,y, x,y, x,y, x,y, x,y, x,y, x,y --&gt;
 coords='257,107, 263,85, 314,89, 316,137, 294,151, 249,132, 248,114'
-</code></pre></div>
+</code></pre>
+
 <p>actually has 7 sets of x,y positions. You can write them with spaces for better legibility.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.youtube.com/watch?v=YkdWRBL2BsM">YouTube: How to make an image map in HTML</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area">MDN: &lt;area&gt;</a></li>
-<li><a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/map">MDN: &lt;map&gt;</a></li>
-<li><a href="http://stackoverflow.com/questions/7844399/responsive-image-map">StackOverflow: Responsive image map</a></li>
+  <li><a href="https://www.youtube.com/watch?v=YkdWRBL2BsM">YouTube: How to make an image map in HTML</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area">MDN: &lt;area&gt;</a></li>
+  <li><a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/map">MDN: &lt;map&gt;</a></li>
+  <li><a href="http://stackoverflow.com/questions/7844399/responsive-image-map">StackOverflow: Responsive image map</a></li>
 </ul>
+
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -270,6 +283,7 @@ coords='257,107, 263,85, 314,89, 316,137, 294,151, 249,132, 248,114'
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

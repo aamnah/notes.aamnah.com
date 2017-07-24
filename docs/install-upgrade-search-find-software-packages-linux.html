@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Update packages list: sudo apt updateSee packages that can be upgraded: apt list --upgradableSee all packages that can be upgraded: apt list --upgradable -aU...">
+  <meta name="description" content="  Update packages list: sudo apt update  See packages that can be upgraded: apt list --upgradable  See all packages that can be upgraded: apt list --upgradab...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/install-upgrade-search-find-software-packages-linux">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Find, install and upgrade Linux software</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2017-03-05T00:00:00+05:00" itemprop="datePublished">
           Mar 5, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2017-03-05-install-upgrade-search-find-software-packages-linux.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2017-03-05-install-upgrade-search-find-software-packages-linux.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>system management</li>
       
@@ -108,32 +109,31 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ul>
-<li>Update packages list: <code>sudo apt update</code></li>
-<li>See packages that can be upgraded: <code>apt list --upgradable</code></li>
-<li>See all packages that can be upgraded: <code>apt list --upgradable -a</code></li>
-<li>Upgrade packages: <code>apt upgrade</code></li>
-<li>Upgrade packages without asking me yes/no: <code>apt upgrade -y</code></li>
-<li>Search for packages: <code>apt-cache search foo</code> OR <code>apt search foo</code></li>
-<li>Get details about a specific package: <code>apt-cache show foo</code> OR <code>apt show foo</code></li>
+  <li>Update packages list: <code>sudo apt update</code></li>
+  <li>See packages that can be upgraded: <code>apt list --upgradable</code></li>
+  <li>See all packages that can be upgraded: <code>apt list --upgradable -a</code></li>
+  <li>Upgrade packages: <code>apt upgrade</code></li>
+  <li>Upgrade packages without asking me yes/no: <code>apt upgrade -y</code></li>
+  <li>Search for packages: <code>apt-cache search foo</code> OR <code>apt search foo</code></li>
+  <li>Get details about a specific package: <code>apt-cache show foo</code> OR <code>apt show foo</code></li>
 </ul>
 
-<h4><code>apt-cache</code></h4>
+<h4 id="apt-cache"><code>apt-cache</code></h4>
+<p>The <code>apt-cache</code> command can display much of the information stored in APT’s internal database. This information is a sort of cache since it is gathered from the different sources listed in the <code>sources.list</code> file. This happens during the <code>apt update</code> operation.</p>
 
-<p>The <code>apt-cache</code> command can display much of the information stored in APT&#39;s internal database. This information is a sort of cache since it is gathered from the different sources listed in the <code>sources.list</code> file. This happens during the <code>apt update</code> operation.</p>
-
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://debian-handbook.info/browse/stable/sect.apt-cache.html">The Debian Administrator&#39;s Handbook: 6.3. The <code>apt-cache</code> Command</a></li>
+  <li><a href="https://debian-handbook.info/browse/stable/sect.apt-cache.html">The Debian Administrator’s Handbook: 6.3. The <code>apt-cache</code> Command</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -179,6 +179,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

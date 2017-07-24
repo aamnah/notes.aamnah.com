@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="In this post you&#39;ll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style...">
+  <meta name="description" content="In this post you’ll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style a w...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/how-to-make-websites-in-urdu-use-custom-fonts">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to make websites in Urdu and use custom fonts</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-29T00:00:00+05:00" itemprop="datePublished">
           Aug 29, 2014
         </time>
@@ -95,20 +96,19 @@
           <span itemprop="name">aamnah</span>
         </span>
       -->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2014-08-29-How to make websites in Urdu and use custom fonts.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2014-08-29-How to make websites in Urdu and use custom fonts.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>In this post you&#39;ll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style a website in Urdu.</p>
+    <p>In this post you’ll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style a website in Urdu.</p>
 
-<h3>Finding a font</h3>
-
+<h3 id="finding-a-font">Finding a font</h3>
 <p>First things first, find an Urdu font that you like. I decided to use <a href="">Nafees Nastaleeq</a>. Other good fonts are:
 <a href="">Nazanin</a>
 <a href="">Nazanin Bold</a>
@@ -116,70 +116,67 @@
 
 <p>If you are having difficulty finding good Urdu fonts (type faces), try Persian. Persian is written very similar to Urdu (both are written in Nastaleeq script) and will do nicely for our use.</p>
 
-<p>After Persian, Arabic comes at a close second in similarity. While it&#39;s easier to find arabic fonts,  using it for Urdu has caveats: some alphabets (like chay and gaaf) will be missing. </p>
+<p>After Persian, Arabic comes at a close second in similarity. While it’s easier to find arabic fonts,  using it for Urdu has caveats: some alphabets (like chay and gaaf) will be missing.</p>
 
 <p>Make sure you have the right to use the font.</p>
 
-<h3>HTML <code>dir</code> tag</h3>
-
+<h3 id="html-dir-tag">HTML <code>dir</code> tag</h3>
 <p>Urdu is a Right To Left (rtl) language. You start writing from the right side and move to the left. When using an RTL language on your website, you can specify it in the HTML code using the <code>dir</code> tag.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;p</span> <span class="na">dir=</span><span class="s">"rtl"</span><span class="nt">&gt;</span>Write this text right-to-left!<span class="nt">&lt;/p&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;p</span> <span class="na">dir=</span><span class="s">"rtl"</span><span class="nt">&gt;</span>Write this text right-to-left!<span class="nt">&lt;/p&gt;</span>
     </code></pre></figure>
 
 <blockquote>
-<p>The dir attribute tells the browser the direction in which the displayed text is intended to be read. The browser will render text from left to right by default, but as with the lang attribute, you’ll need to override the intended reading direction if you’re including text that runs in the opposite direction (for example, Arabic or Hebrew).</p>
+  <p>The dir attribute tells the browser the direction in which the displayed text is intended to be read. The browser will render text from left to right by default, but as with the lang attribute, you’ll need to override the intended reading direction if you’re including text that runs in the opposite direction (for example, Arabic or Hebrew).</p>
 </blockquote>
 
 <p><strong>NOTE: The <code>dir</code> tag is deprecated, it is not supported in HTML5. Use CSS instead.</strong></p>
 
-<h3>CSS <code>@font-face</code>, <code>font-family</code> and <code>direction</code></h3>
-
+<h3 id="css-font-face-font-family-and-direction">CSS <code>@font-face</code>, <code>font-family</code> and <code>direction</code></h3>
 <p>Since our website is going to be bilingual, i.e. it will have both English and Urdu posts, we will add a CSS class <code>.urdu</code> to the content whenever the content is going to be in Urdu. Our custom font and any specific styling will also be mentioned in the <code>.urdu</code> CSS class and applied when needed.</p>
 
-<p>The direction can also be mentioned in the CSS. </p>
+<p>The direction can also be mentioned in the CSS.</p>
 
 <figure class="highlight"><pre><code class="language-css" data-lang="css">    <span class="k">@font-face</span> <span class="p">{</span>
-        <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Nafees Nastaleeq'</span><span class="p">;</span>
-        <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.eot')</span><span class="p">;</span>
-        <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
-            <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
-            <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
-            <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.svg#nafeesregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
-        <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
-        <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Nafees Nastaleeq'</span><span class="p">;</span>
+    	<span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.eot')</span><span class="p">;</span>
+    	<span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         	<span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+         	<span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+         	<span class="sx">url('../fonts/nafees_nastaleeq__v1.02-webfont.svg#nafeesregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+    	<span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    	<span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
 
-    <span class="p">}</span>
-    <span class="nc">.urdu</span> <span class="p">{</span>
-        <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Nafees Nastaleeq"</span><span class="p">;</span>
-        <span class="nl">direction</span><span class="p">:</span> <span class="n">rtl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nc">.urdu</span> <span class="p">{</span>
+    	<span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Nafees Nastaleeq"</span><span class="p">;</span>
+    	<span class="nl">direction</span><span class="p">:</span> <span class="n">rtl</span><span class="p">;</span>
     <span class="p">}</span>
     </code></pre></figure>
 
-<h3>Using custom fonts</h3>
-
+<h3 id="using-custom-fonts">Using custom fonts</h3>
 <p>Once we have found a font, we will use the Webfont Generator to convert our fonts in formats for use on website and get the <strong>@font-face kit</strong>.</p>
 
 <p>we are going to generate our magical fonts for use on the web with support for all browsers.</p>
 
-<p>Font faces are defined in the css stylesheet. So we&#39;ll take the code from the @font-face kit and add it to our stylesheet.</p>
+<p>Font faces are defined in the css stylesheet. So we’ll take the code from the @font-face kit and add it to our stylesheet.</p>
 
-<h3><a href="http://tldrdevnotes.com/lets_write_in_urdu/">Demo</a> ###</h3>
+<h3 id="demohttptldrdevnotescomletswriteinurdu"><a href="http://tldrdevnotes.com/lets_write_in_urdu/">Demo</a></h3>
 
-<h2>Sources:</h2>
-
+<h2 id="sources">Sources:</h2>
 <ul>
-<li><a href="http://reference.sitepoint.com/html/core-attributes/dir">HTML dir Attribute</a></li>
-<li><a href="http://nicewebtype.com/notes/2009/10/30/how-to-use-css-font-face/">How to use CSS @font-face</a></li>
-<li><a href="http://css-tricks.com/snippets/css/using-font-face/">Using @font-face</a></li>
-<li><a href="http://www.fontsquirrel.com/tools/webfont-generator">Webfont Generator</a></li>
-<li><a href="http://www.fonts.com/search/web-fonts?SortColumn=relevancy&searchtext=arabic&ShowAllFonts=Desktop&SearchType=WebFonts#product_top">Arabic Web Fonts</a></li>
-<li><a href="http://stackoverflow.com/questions/7185106/what-are-my-web-font-choices-for-arabic">What are my “web font” choices for Arabic?</a></li>
+  <li><a href="http://reference.sitepoint.com/html/core-attributes/dir">HTML dir Attribute</a></li>
+  <li><a href="http://nicewebtype.com/notes/2009/10/30/how-to-use-css-font-face/">How to use CSS @font-face</a></li>
+  <li><a href="http://css-tricks.com/snippets/css/using-font-face/">Using @font-face</a></li>
+  <li><a href="http://www.fontsquirrel.com/tools/webfont-generator">Webfont Generator</a></li>
+  <li><a href="http://www.fonts.com/search/web-fonts?SortColumn=relevancy&amp;searchtext=arabic&amp;ShowAllFonts=Desktop&amp;SearchType=WebFonts#product_top">Arabic Web Fonts</a></li>
+  <li><a href="http://stackoverflow.com/questions/7185106/what-are-my-web-font-choices-for-arabic">What are my “web font” choices for Arabic?</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -225,6 +222,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

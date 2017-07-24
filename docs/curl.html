@@ -14,6 +14,7 @@
   <meta name="description" content="external IP using dig">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/curl">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[curl] Get IP address (external) using URL endpoints</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-02T00:00:00+05:00" itemprop="datePublished">
           Dec 2, 2015
         </time>
@@ -91,84 +92,93 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[curl] Get IP address (external) using URL endpoints.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[curl] Get IP address (external) using URL endpoints.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>external IP using <code>dig</code></h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">dig +short myip.opendns.com @resolver1.opendns.com
-</code></pre></div>
+    <h2 id="external-ip-using-dig">external IP using <code>dig</code></h2>
+
+<pre><code class="language-bash">dig +short myip.opendns.com @resolver1.opendns.com
+</code></pre>
+
 <p>This asks the IP address of <code>myip.opendns.com</code> from the name server <code>resolver1.opendns.com</code> (something you trust), which will return your external IP address.</p>
 
 <p><code>curl</code> works over HTTP, and therefore less efficient than the direct DNS query with dig.</p>
 
-<h2>external IP using <code>curl</code></h2>
-
+<h2 id="external-ip-using-curl">external IP using <code>curl</code></h2>
 <p>You can curl an <em>endpoint</em> for your external public IP, like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl http://ipecho.net/plain; <span class="nb">echo</span>
-</code></pre></div>
+
+<pre><code class="language-bash">curl http://ipecho.net/plain; echo
+</code></pre>
+
 <p>There are plenty of services that give you your public IP address by going to a URL. You can then curl that URL to see your external public IP in CLI.</p>
 
 <p>Some alternatives are:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl https://icanhazip.com/
+
+<pre><code class="language-bash">curl https://icanhazip.com/
 curl http://ifconfig.me/ip
 curl http://ip.appspot.com/
 curl http://ip-addr.es/
 curl http://eth0.me/
 curl http://curlmyip.com/
 curl http://checkip.dyndns.org/ 
-curl -s http://checkip.dyndns.org/ | grep -o <span class="s2">"[[:digit:].]</span><span class="se">\+</span><span class="s2">"</span> <span class="c"># get onlt the IP digits</span>
-</code></pre></div>
+curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+" # get onlt the IP digits
+</code></pre>
+
 <p>You can also get other details as well. For example:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl ifcfg.me/all
-</code></pre></div>
+
+<pre><code class="language-bash">curl ifcfg.me/all
+</code></pre>
+
 <p>will give you your ISP and Country as well</p>
 
-<p><img src="/assets/img/cmd-curl-isp.png" alt="curl ifcfg.me/all"></p>
+<p><img src="/assets/img/cmd-curl-isp.png" alt="curl ifcfg.me/all" /></p>
 
-<h2>Notes</h2>
-
+<h2 id="notes">Notes</h2>
 <ul>
-<li><code>icanhaz</code> should be the most preferred since it works over SSL (https). It also seems to be well monitored for uptime.</li>
-<li>ifcfg.me is better than ifconfig.me.</li>
-<li>ifcfg.me has other interesting info as well: ISP, Country</li>
+  <li><code>icanhaz</code> should be the most preferred since it works over SSL (https). It also seems to be well monitored for uptime.</li>
+  <li>ifcfg.me is better than ifconfig.me.</li>
+  <li>ifcfg.me has other interesting info as well: ISP, Country</li>
 </ul>
 
-<h3>icanhaz tools</h3>
-
+<h3 id="icanhaz-tools">icanhaz tools</h3>
 <ul>
-<li>icanhazip.com – returns your IP address</li>
-<li>icanhazptr.com – returns the <strong>reverse DNS record</strong> (PTR) for your IP</li>
-<li>icanhaztrace.com – returns a <strong>traceroute</strong> from my servers to your IP address</li>
-<li>icanhaztraceroute.com – returns a <strong>traceroute</strong> from my servers to your IP address</li>
-<li>icanhazepoch.com – returns the <strong>epoch time</strong> (also called Unix time)</li>
-<li>icanhazproxy.com – can determine if your traffic is being proxied</li>
+  <li>icanhazip.com – returns your IP address</li>
+  <li>icanhazptr.com – returns the <strong>reverse DNS record</strong> (PTR) for your IP</li>
+  <li>icanhaztrace.com – returns a <strong>traceroute</strong> from my servers to your IP address</li>
+  <li>icanhaztraceroute.com – returns a <strong>traceroute</strong> from my servers to your IP address</li>
+  <li>icanhazepoch.com – returns the <strong>epoch time</strong> (also called Unix time)</li>
+  <li>icanhazproxy.com – can determine if your traffic is being proxied</li>
 </ul>
 
-<h2>Get JSON</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">https://wtfismyip.com/json
-</code></pre></div>
+<h2 id="get-json">Get JSON</h2>
+
+<pre><code class="language-bash">https://wtfismyip.com/json
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl https://wtfismyip.com/json
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-bash">curl https://wtfismyip.com/json
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://www.commandlinefu.com/commands/view/5427/get-your-external-ip-address#comment">CommandLineFu: Get your external IP address</a></li>
-<li><a href="https://major.io/icanhazip-com-faq/">icanhaz.com FAQ</a></li>
-<li><a href="http://4.ifcfg.me/?">ifcfg.me Commandlist</a></li>
-<li><a href="https://coderwall.com/p/lyrjsq/extract-your-external-ip-using-command-line-tools">Coderwall: Extract your external IP using command line tools</a></li>
+  <li><a href="http://www.commandlinefu.com/commands/view/5427/get-your-external-ip-address#comment">CommandLineFu: Get your external IP address</a></li>
+  <li><a href="https://major.io/icanhazip-com-faq/">icanhaz.com FAQ</a></li>
+  <li><a href="http://4.ifcfg.me/?">ifcfg.me Commandlist</a></li>
+  <li><a href="https://coderwall.com/p/lyrjsq/extract-your-external-ip-using-command-line-tools">Coderwall: Extract your external IP using command line tools</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -214,6 +224,7 @@ curl -s http://checkip.dyndns.org/ | grep -o <span class="s2">"[[:digit:].]</spa
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

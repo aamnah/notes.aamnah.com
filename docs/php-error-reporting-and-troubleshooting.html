@@ -14,6 +14,7 @@
   <meta name="description" content="Enable error reporting">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/php-error-reporting-and-troubleshooting">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Error Reporting and Troubleshooting</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-08-09T00:00:00+05:00" itemprop="datePublished">
           Aug 9, 2016
         </time>
@@ -91,57 +92,61 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/error-reporting-troubleshooting.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/error-reporting-troubleshooting.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Enable error reporting</h3>
+    <h3 id="enable-error-reporting">Enable error reporting</h3>
 
-<h4>System level</h4>
-
+<h4 id="system-level">System level</h4>
 <p>Display errors could be turned off in the <code>php.ini</code> or your Apache config file.</p>
 
-<h4>User level</h4>
+<h4 id="user-level">User level</h4>
 
-<p>In your index.php (or whatever script you&#39;re running) file, add this:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">ini_set('display_startup_errors',1);
+<p>In your index.php (or whatever script you’re running) file, add this:</p>
+
+<pre><code class="language-php">ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 // error_reporting(E_ALL);
-</code></pre></div>
-<h3>Check error logs</h3>
+</code></pre>
+
+<h3 id="check-error-logs">Check error logs</h3>
 
 <p>Errors and warnings usually appear in <code>....\logs\php_error.log</code> or <code>....\logs\apache_error.log</code> depending on your <code>php.ini</code> settings.</p>
 
 <p>Also useful errors are often directed to the browser, but as they are not valid html they are not displayed.</p>
 
-<p>So <code>tail -f</code> your log files and when you get a blank screen use IEs &quot;view&quot; -&gt; &quot;source&quot; menu options to view the raw output.</p>
+<p>So <code>tail -f</code> your log files and when you get a blank screen use IEs “view” -&gt; “source” menu options to view the raw output.</p>
 
 <p>http://stackoverflow.com/questions/1475297/phps-white-screen-of-death</p>
 
-<h3>Run the script via command line</h3>
-<div class="highlight"><pre><code class="language-php" data-lang="php">php -f foo.php
-</code></pre></div>
+<h3 id="run-the-script-via-command-line">Run the script via command line</h3>
+
+<pre><code class="language-php">php -f foo.php
+</code></pre>
+
 <ul>
-<li><code>-f</code> takes a file name.</li>
+  <li><code>-f</code> takes a file name.</li>
 </ul>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://stackoverflow.com/questions/1475297/phps-white-screen-of-death">StackOverflow: PHP&#39;s white screen of death</a></li>
-<li><a href="https://stackoverflow.com/questions/5438060/showing-all-errors-and-warnings">StackOverflow: Showing all errors and warnings</a></li>
+  <li><a href="http://stackoverflow.com/questions/1475297/phps-white-screen-of-death">StackOverflow: PHP’s white screen of death</a></li>
+  <li><a href="https://stackoverflow.com/questions/5438060/showing-all-errors-and-warnings">StackOverflow: Showing all errors and warnings</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -187,6 +192,7 @@ error_reporting(-1);
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

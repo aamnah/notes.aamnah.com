@@ -14,6 +14,7 @@
   <meta name="description" content="&lt;?phpmysql_connect("db_host","db_user","db_pass");mysql_select_db("db_name");?&gt;">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/databases/2014-06-07-howto-making-mysql-database-connection-php.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Making a MySQL database connection with PHP</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-06-07T04:54:08+05:00" itemprop="datePublished">
           Jun 7, 2014
         </time>
@@ -91,29 +92,34 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-06-07-howto-making-mysql-database-connection-php.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-06-07-howto-making-mysql-database-connection-php.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="nb">mysql_connect</span><span class="p">(</span><span class="s2">"db_host"</span><span class="p">,</span><span class="s2">"db_user"</span><span class="p">,</span><span class="s2">"db_pass"</span><span class="p">);</span>
-<span class="nb">mysql_select_db</span><span class="p">(</span><span class="s2">"db_name"</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre></div>
-<p>Where db<em>host, db</em>user, db<em>pass and db</em>name is the host, username, password and name for your database respectively.</p>
+    <pre><code class="language-php">&lt;?php
+mysql_connect("db_host","db_user","db_pass");
+mysql_select_db("db_name");
+?&gt;
+</code></pre>
 
-<p>General practice is to save the code in a separate file in the &#39;includes&#39; folder and including it on the page where you need it.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="k">include</span><span class="p">(</span><span class="s2">"database.php"</span><span class="p">)</span> <span class="cp">?&gt;</span>
-</code></pre></div>
+<p>Where db_host, db_user, db_pass and db_name is the host, username, password and name for your database respectively.</p>
+
+<p>General practice is to save the code in a separate file in the ‘includes’ folder and including it on the page where you need it.</p>
+
+<pre><code class="language-php">&lt;?php include("database.php") ?&gt;
+</code></pre>
+
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -159,6 +165,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

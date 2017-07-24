@@ -14,6 +14,7 @@
   <meta name="description" content="Docs">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/python/2014-08-29-virtualenvwrapper.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">virtualenvwrapper</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-29T00:00:00+05:00" itemprop="datePublished">
           Aug 29, 2014
         </time>
@@ -91,26 +92,25 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-virtualenvwrapper.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-virtualenvwrapper.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p><a href="http://virtualenvwrapper.readthedocs.org/en/latest/">Docs</a></p>
 
-<h3>Features</h3>
-
+<h3 id="features">Features</h3>
 <ol>
-<li>Organizes all of your virtual environments in one place.</li>
-<li>Wrappers for managing your virtual environments (create, delete, copy).</li>
-<li>Use a single command to switch between environments.</li>
-<li>Tab completion for commands that take a virtual environment as argument.</li>
-<li>User-configurable hooks for all operations (see <a href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html#scripts">Per-User Customization</a>).
+  <li>Organizes all of your virtual environments in one place.</li>
+  <li>Wrappers for managing your virtual environments (create, delete, copy).</li>
+  <li>Use a single command to switch between environments.</li>
+  <li>Tab completion for commands that take a virtual environment as argument.</li>
+  <li>User-configurable hooks for all operations (see <a href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html#scripts">Per-User Customization</a>).
 6.Plugin system for more creating sharable extensions (see <a href="http://virtualenvwrapper.readthedocs.org/en/latest/plugins.html#plugins">Extending Virtualenvwrapper</a>).</li>
 </ol>
 
@@ -119,12 +119,11 @@
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    pip install virtualenvwrapper
     </code></pre></figure>
 
-<h3>setting up:</h3>
+<h3 id="setting-up">setting up:</h3>
+<p>We need to specify the directory that’ll be the home of all of our virtual environments. To do that we need to set an environment variable <code>WORKON_HOME</code> and set it’s value to our virtualenv home directory. We also need to source the actual virtualenvwrapper shell script that’ll allow us to run virtualenvwrapper commands.</p>
 
-<p>We need to specify the directory that&#39;ll be the home of all of our virtual environments. To do that we need to set an environment variable <code>WORKON_HOME</code> and set it&#39;s value to our virtualenv home directory. We also need to source the actual virtualenvwrapper shell script that&#39;ll allow us to run virtualenvwrapper commands.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c"># Set the WORKON_HOME variable for virtualenvwrapper</span>
-    <span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="s2">"~/.virtualenvs"</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="c"># Set the WORKON_HOME variable for virtualenvwrapper</span>
+	<span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="s2">"~/.virtualenvs"</span>
     
     <span class="c"># Source the virtualenvwrapper shell script to be able to run commands</span>
     <span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
@@ -132,54 +131,70 @@
 
 <p>All in one command:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="nb">echo</span> -e <span class="s1">'\n# Set the WORKON_HOME variable for virtualenvwrapper \nexport WORKON_HOME="~/.virtualenvs"'</span> &gt;&gt; ~/.bash_profile <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s1">'\n# Source the virtualenvwrapper shell script to be able to run commands \nsource /usr/local/bin/virtualenvwrapper.sh'</span> &gt;&gt; ~/.bash_profile <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.bash_profile
-    </code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="nb">echo</span> -e <span class="s1">'\n# Set the WORKON_HOME variable for virtualenvwrapper \nexport WORKON_HOME="~/.virtualenvs"'</span> &gt;&gt; ~/.bash_profile <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s1">'\n# Source the virtualenvwrapper shell script to be able to run commands \nsource /usr/local/bin/virtualenvwrapper.sh'</span> &gt;&gt; ~/.bash_profile <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.bash_profile
+	</code></pre></figure>
 
-<h3>creating environments:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">mkvirtualenv foo
-</code></pre></div>
+<h3 id="creating-environments">creating environments:</h3>
+
+<pre><code>mkvirtualenv foo
+</code></pre>
+
 <p>Use <code>tab</code> for command auto-completion (or make an alias for the command).</p>
 
 <p>Creating a virtual environment also automatically activates it (contrary to virtualenv).</p>
 
 <p>to deactivate environment:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">deactivate
-</code></pre></div>
-<h3>change your current dir to virtualenv dir:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">cdvirtualenv
-</code></pre></div>
-<h3>changing environments</h3>
+
+<pre><code>deactivate
+</code></pre>
+
+<h3 id="change-your-current-dir-to-virtualenv-dir">change your current dir to virtualenv dir:</h3>
+
+<pre><code>cdvirtualenv
+</code></pre>
+
+<h3 id="changing-environments">changing environments</h3>
 
 <p>get a list of all the virtual environments:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">workon
-</code></pre></div>
-<p>switch environnment:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">workon foobar
-</code></pre></div>
-<h3>packages</h3>
 
+<pre><code>workon
+</code></pre>
+
+<p>switch environnment:</p>
+
+<pre><code>workon foobar
+</code></pre>
+
+<h3 id="packages">packages</h3>
 <p>list packages for the environment:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">lssitepackages
-</code></pre></div>
+
+<pre><code>lssitepackages
+</code></pre>
+
 <p>go to site packages directory:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cdsitepackages
-</code></pre></div>
-<h3>associating a project (code) foler with a virtual environment</h3>
+
+<pre><code>cdsitepackages
+</code></pre>
+
+<h3 id="associating-a-project-code-foler-with-a-virtual-environment">associating a project (code) foler with a virtual environment</h3>
 
 <p>Activate/switch to the virtual environment and cd to the project folder and run the command <code>setvirtualenvproject</code> while you have the <strong>virtualenv activated</strong>. For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">(foo)[~] $ cd ~/Sandbox/foo
+
+<pre><code>(foo)[~] $ cd ~/Sandbox/foo
 (foo)[~/Sandbox/foo] $ setvirtualenvproject
-</code></pre></div>
+</code></pre>
+
 <p>The <code>setvirtualenvproject</code> creates a <code>.project</code> file in the virtualenv directory and adds the path of the project to it. To remove the project connection all you have to do is delete this file.</p>
 
-<h3><a href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html#scripts">hooks</a></h3>
+<h3 id="hookshttpvirtualenvwrapperreadthedocsorgenlatestscriptshtmlscripts"><a href="http://virtualenvwrapper.readthedocs.org/en/latest/scripts.html#scripts">hooks</a></h3>
 
 <p>Hooks basically let you run commands at certain intervals/places in the setup.
 For example, <code>postmkvirtualenv</code> lets you run commands after an env is created, <code>postactivate</code> lets you automatically run commands right after an env is activated. <code>predeactivate</code> lets you run a command before an env is deactivated. These hook files are located in <code>$VIRTUAL_ENV/bin</code></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -225,6 +240,7 @@ For example, <code>postmkvirtualenv</code> lets you run commands after an env is
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

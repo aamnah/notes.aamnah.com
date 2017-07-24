@@ -14,6 +14,7 @@
   <meta name="description" content="grepgrep matches patterns. it uses regex to match patterns">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/commands/%5Bgrep,%20egrep,%20fgrep%5D%20Search%20files%20based%20on%20patterns.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[grep, egrep, fgrep] Search files based on patterns</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-06-19T00:00:00+05:00" itemprop="datePublished">
           Jun 19, 2016
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-16T00:00:00+05:00" itemprop="datePublished">
           Mar 16, 2017
         </time>
@@ -97,124 +98,131 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[grep, egrep, fgrep] Search files based on patterns.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[grep, egrep, fgrep] Search files based on patterns.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>grep</h2>
-
+    <h2 id="grep">grep</h2>
 <p>grep matches patterns. it uses regex to match patterns</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep expression file
-</code></pre></div>
+
+<pre><code>grep expression file
+</code></pre>
+
 <p>Example</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep hello helloworld.txt
-</code></pre></div>
+
+<pre><code>grep hello helloworld.txt
+</code></pre>
+
 <p>will searhc for <em>hello</em> in the file helloworld.txt</p>
 
-<h2>^</h2>
-
+<h2 id="section">^</h2>
 <p><code>^</code> matches all the lines that begin with hello. <code>^</code> goes at the beginning of the search expression.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep ^hello helloworld.txt
-</code></pre></div>
-<h2>$</h2>
 
+<pre><code>grep ^hello helloworld.txt
+</code></pre>
+
+<h2 id="section-1">$</h2>
 <p><code>$</code> will give you all the lines that end with your search expression. <code>$</code> goes at the end of the search expression.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep hello$ helloworld.txt 
-</code></pre></div>
+
+<pre><code>grep hello$ helloworld.txt 
+</code></pre>
+
 <p>will give you all the lines that end with hello in your helloworld.txt file.</p>
 
-<h2>-c, --count</h2>
-
+<h2 id="c---count">-c, –count</h2>
 <p><code>-c</code> gives you count. For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep -c ^hello helloworld.txt
-grep -c hello$ helloworld.txt
-</code></pre></div>
-<p>will give you the amount of lines that start with hello and the amount of lines that end with hello.</p>
 
-<h2>-i, --ignore-case</h2>
+<pre><code>grep -c ^hello helloworld.txt
+grep -c hello$ helloworld.txt will give you the amount of lines that start with hello and the amount of lines that end with hello.
+</code></pre>
 
+<h2 id="i---ignore-case">-i, –ignore-case</h2>
 <p>By default, <code>grep</code> is case-sensitive. <code>-i</code> gives you case-insensitive results.</p>
 
-<h2>-v, --invert-case</h2>
-
+<h2 id="v---invert-case">-v, –invert-case</h2>
 <p>select non-mathcing lines</p>
-<div class="highlight"><pre><code class="language-" data-lang="">egrep -vi 'hello|world' file.txt
-</code></pre></div>
+
+<pre><code>egrep -vi 'hello|world' file.txt
+</code></pre>
+
 <p>will find all lines that do not contain hello or world.</p>
 
-<h2>Chracters</h2>
+<h2 id="chracters">Chracters</h2>
+<p>## [ ] search for a character
+<code>[]</code> let you search for a character. For example:</p>
 
-<h2>[ ] search for a character</h2>
+<pre><code>grep [h] in helloworld.txt
+</code></pre>
 
-<p><code>[]</code> let you search for a character. For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep [h] in helloworld.txt
-</code></pre></div>
 <p>will output all the <em>h</em> instances in helloworld.txt. You can also search for multiple characters, like so:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep [hpokj] hellowolrd.txt
-</code></pre></div>
-<p>will return all the lines that have our given characters.</p>
 
-<h2><code>^</code>[ ] and [ ]<code>$</code></h2>
+<pre><code>grep [hpokj] hellowolrd.txt will return all the lines that have our given characters.
+</code></pre>
 
+<h2 id="and--"><code>^</code>[ ] and [ ]<code>$</code></h2>
 <p>will output lines that begin <code>^</code> or end <code>$</code> with our specified characters. For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep ^[hpokj] hellowolrd.txt
+
+<pre><code>grep ^[hpokj] hellowolrd.txt
 grep [hpokj]$ hellowolrd.txt
-</code></pre></div>
-<h2>[a-z] search for a character range</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">grep [a-g] file.txt
+</code></pre>
+
+<h2 id="a-z-search-for-a-character-range">[a-z] search for a character range</h2>
+
+<pre><code>grep [a-g] file.txt
 grep [1-9] file.txt
-</code></pre></div>
-<h2>-f, --file=FILE take pattern input from a file</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">grep -f grepinput file.txt
-</code></pre></div>
-<p>OR</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep -f inputFile.txt fileToSearch.txt
-</code></pre></div>
-<h2>-l, --files-with-matches</h2>
+</code></pre>
 
+<h2 id="f---filefile-take-pattern-input-from-a-file">-f, –file=FILE take pattern input from a file</h2>
+
+<pre><code>grep -f grepinput file.txt OR
+
+grep -f inputFile.txt fileToSearch.txt
+</code></pre>
+
+<h2 id="l---files-with-matches">-l, –files-with-matches</h2>
 <p>list files that match our pattern in the file name or somewhere within in the files.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">grep -lr cron /etc/
-</code></pre></div>
-<p>By default, grep outputs <em>lines</em> that have your pattern. <code>-l</code> is so it output <em>file names</em> of files that have that pattern, whether in the file name or in the file content.</p>
 
-<h2>-R, -r, --recursive</h2>
+<pre><code>grep -lr cron /etc/
+</code></pre>
+
+<p>By default, grep outputs <em>lines</em> that have your pattern. <code>-l</code> is so it output <em>file names</em> of files that have that pattern, whether in the file name or in the file content.
+## -R, -r, –recursive</p>
 
 <p>grep is great for parsing websites. For example, you can download a website and get only image links from it.</p>
 
-<h2>egrep (grep -E)</h2>
-
+<h2 id="egrep-grep--e">egrep (grep -E)</h2>
 <p>allows use of extended regex.</p>
 
-<h2>.* = AND</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">egrep -i 'hello.*world' file.txt
-</code></pre></div>
-<p>will search for <em>hello world</em> case-insesitively</p>
+<h2 id="and">.* = AND</h2>
 
-<h2>| = OR</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">egrep -i 'hello|world' file.txt
-</code></pre></div>
-<p>will search for <em>hello</em> or <em>world</em> case-insesitively</p>
+<pre><code>egrep -i 'hello.*world' file.txt will search for _hello world_ case-insesitively
+</code></pre>
+
+<h2 id="or">| = OR</h2>
+
+<pre><code>egrep -i 'hello|world' file.txt will search for _hello_ or _world_ case-insesitively
+</code></pre>
 
 <p>You can pipe multiple grep commands to get selective results</p>
-<div class="highlight"><pre><code class="language-" data-lang="">egrep 'hello|world' file.txt | grep -v jeff
-</code></pre></div>
-<p>will find all the lines that contain either hello or world but do not contain jeff</p>
 
-<h2>fgrep (grep -F)</h2>
+<pre><code>egrep 'hello|world' file.txt | grep -v jeff will find all the lines that contain either hello or world but do not contain jeff
+</code></pre>
 
-<p>special characters don&#39;t have any meaning. <code>hello$</code> will search for <strong>lines with hello$</strong> and not <em>every line that ends with hello</em>. The results are literally what you asked for.</p>
+<h2 id="fgrep-grep--f">fgrep (grep -F)</h2>
+<p>special characters don’t have any meaning. <code>hello$</code> will search for <strong>lines with hello$</strong> and not <em>every line that ends with hello</em>. The results are literally what you asked for.</p>
 
-<p>Good in cases where you have to search a lot of files. since youre not using regex, there&#39;s less cpu usage. fgrep finishes much faster.</p>
+<p>Good in cases where you have to search a lot of files. since youre not using regex, there’s less cpu usage. fgrep finishes much faster.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -260,6 +268,7 @@ grep [1-9] file.txt
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

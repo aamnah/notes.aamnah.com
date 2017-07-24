@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="The Easy Waysudo yum install gitgit --version to make sure it&#39;s installed.">
+  <meta name="description" content="The Easy Waysudo yum install gitgit --version to make sure it’s installed.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux/2015-01-18-howto-install-git-centos-6-7.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to Install Git on CentOS</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-18T00:00:00+05:00" itemprop="datePublished">
           Jan 18, 2015
         </time>
@@ -91,73 +92,93 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-18-howto-install-git-centos-6-7.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-18-howto-install-git-centos-6-7.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>The Easy Way</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo yum install git
-</code></pre></div>
-<p><code>git --version</code> to make sure it&#39;s installed.</p>
+    <h2 id="the-easy-way">The Easy Way</h2>
+<pre><code>sudo yum install git
+</code></pre>
 
-<h2>Compiling from Source</h2>
+<p><code>git --version</code> to make sure it’s installed.</p>
 
+<h2 id="compiling-from-source">Compiling from Source</h2>
 <p>Make sure you have sudo access.</p>
 
-<h3>Install Compilation tools</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo yum groupinstall "Development Tools"
-</code></pre></div>
-<h3>Instll Dependencies</h3>
+<h3 id="install-compilation-tools">Install Compilation tools</h3>
+<pre><code>sudo yum groupinstall "Development Tools"
+</code></pre>
 
+<h3 id="instll-dependencies">Instll Dependencies</h3>
 <p>CentOS 6.x</p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
-</code></pre></div>
+
+<pre><code>sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
+</code></pre>
+
 <p>CentOS 7.x</p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel
-</code></pre></div>
-<h3>Fetch source files</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">wget https://github.com/git/git/archive/v2.2.2.tar.gz -O git.tar.gz
-</code></pre></div>
+
+<pre><code>sudo yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel
+</code></pre>
+
+<h3 id="fetch-source-files">Fetch source files</h3>
+
+<pre><code>wget https://github.com/git/git/archive/v2.2.2.tar.gz -O git.tar.gz
+</code></pre>
+
 <p>Check <a href="https://github.com/git/git/releases">Github Release page</a> for the latest stable version. Or install teh latest <code>-rc</code> (release candidate) version if you are feeling dangerous. Latest stable is recommended.</p>
 
-<h3>Extract and go to folder</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">tar -zxf git.tar.gz &amp;&amp; cd git-*
-</code></pre></div>
-<h3>Compile</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">make configure
-./configure --prefix=/usr/local
-</code></pre></div>
-<h3>Install</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo make install
-</code></pre></div>
-<h3>Check if working</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">git --version
-</code></pre></div>
-<h2>Set up Git</h2>
-<div class="highlight"><pre><code class="language-" data-lang="">git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-</code></pre></div>
-<p>To confirm that these configurations were added successfully, we can see all of the configuration items that have been set by typing:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">git config --list
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">user.name=Your Name
-user.email=you@example.com 
-</code></pre></div>
-<h2>Source</h2>
+<h3 id="extract-and-go-to-folder">Extract and go to folder</h3>
 
+<pre><code>tar -zxf git.tar.gz &amp;&amp; cd git-*
+</code></pre>
+
+<h3 id="compile">Compile</h3>
+
+<pre><code>make configure
+./configure --prefix=/usr/local
+</code></pre>
+
+<h3 id="install">Install</h3>
+
+<pre><code>sudo make install
+</code></pre>
+
+<h3 id="check-if-working">Check if working</h3>
+
+<pre><code>git --version
+</code></pre>
+
+<h2 id="set-up-git">Set up Git</h2>
+
+<pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+</code></pre>
+
+<p>To confirm that these configurations were added successfully, we can see all of the configuration items that have been set by typing:</p>
+
+<pre><code>git config --list
+</code></pre>
+
+<pre><code>user.name=Your Name
+user.email=you@example.com 
+</code></pre>
+
+<h2 id="source">Source</h2>
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps">How to Install Git on CentOS 6.4 VPS</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-centos-7">How to Install Git on CentOS 7</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps">How to Install Git on CentOS 6.4 VPS</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-centos-7">How to Install Git on CentOS 7</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -203,6 +224,7 @@ user.email=you@example.com
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

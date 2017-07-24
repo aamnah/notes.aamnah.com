@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="tar creates a compressed archive. the file extension of the resulting archive is .tar and the tar archives are called tarballs.. ">
+  <meta name="description" content="tar creates a compressed archive. the file extension of the resulting archive is .tar and the tar archives are called tarballs..">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/tar-compressed-archives">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[tar] Compressed Archives</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-22T00:00:00+05:00" itemprop="datePublished">
           Nov 22, 2015
         </time>
@@ -91,124 +92,128 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[tar] Compressed Archives.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[tar] Compressed Archives.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p><code>tar</code> creates a compressed archive. the file extension of the resulting archive is <code>.tar</code> and the tar archives are called <code>tarballs</code>.. </p>
+    <p><code>tar</code> creates a compressed archive. the file extension of the resulting archive is <code>.tar</code> and the tar archives are called <code>tarballs</code>..</p>
 
 <blockquote>
-<p>GNU ‘tar’ saves many files together into a single tape or disk archive, and can restore individual files from the archive.</p>
+  <p>GNU ‘tar’ saves many files together into a single tape or disk archive, and can restore individual files from the archive.</p>
 </blockquote>
 
-<p>A <code>.tar</code> file is an archive, but it&#39;s not compressed. <code>.tar.gz</code> is a an archive that is compressed.</p>
+<p>A <code>.tar</code> file is an archive, but it’s not compressed. <code>.tar.gz</code> is a an archive that is compressed.</p>
 
-<h2>Flags</h2>
-
+<h2 id="flags">Flags</h2>
 <ul>
-<li><code>c</code> is for create, --create a new archive</li>
-<li><code>v</code> is for --verbose, verbosely list files processed, list out files as they are added to the archive</li>
-<li><code>f</code> is for --file=ARCHIVE, use archive file or device ARCHIVE, basically, specify the tar file that you wanna create. Since <code>f</code> lets you take an input it should always be the last flag..</li>
+  <li><code>c</code> is for create, –create a new archive</li>
+  <li><code>v</code> is for –verbose, verbosely list files processed, list out files as they are added to the archive</li>
+  <li><code>f</code> is for –file=ARCHIVE, use archive file or device ARCHIVE, basically, specify the tar file that you wanna create. Since <code>f</code> lets you take an input it should always be the last flag..</li>
 </ul>
 
 <p><code>tar</code> can also work off of STDIN and STDOUT, <code>f</code> lets you specify if you wanna work with an existing tar file or if you wanna create one.</p>
 
 <ul>
-<li><code>z</code> is for compression, --compress (gzip) and --uncompress (gunzip)</li>
-<li><code>x</code> is for --extract</li>
-<li><code>t</code> is for --list, list the contents of an archive</li>
-<li><code>r</code> is for --append, add more files to an existing archive</li>
-<li><code>u</code> is for --update</li>
-<li><code>-p</code> restore permissions (can only be ysed with <code>x</code>)</li>
-<li><code>-P</code> preserve pathnames</li>
-<li><code>-k</code> Keep (don&#39;t overwrite) existing files</li>
+  <li><code>z</code> is for compression, –compress (gzip) and –uncompress (gunzip)</li>
+  <li><code>x</code> is for –extract</li>
+  <li><code>t</code> is for –list, list the contents of an archive</li>
+  <li><code>r</code> is for –append, add more files to an existing archive</li>
+  <li><code>u</code> is for –update</li>
+  <li><code>-p</code> restore permissions (can only be ysed with <code>x</code>)</li>
+  <li><code>-P</code> preserve pathnames</li>
+  <li><code>-k</code> Keep (don’t overwrite) existing files</li>
 </ul>
 
-<h2>Example <code>tar</code> commands:</h2>
+<h2 id="example-tar-commands">Example <code>tar</code> commands:</h2>
 
 <p>compress a dir:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar dir-to-archive
-</code></pre></div>
+
+<pre><code class="language-bash">tar -cvf archive.tar dir-to-archive
+</code></pre>
+
 <p>compress multiple files</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar file1 file2 file3
-</code></pre></div>
+
+<pre><code class="language-bash">tar -cvf archive.tar file1 file2 file3
+</code></pre>
+
 <p>compress multiple files and dirs</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -cvf archive.tar dir1 dir2 file2 file3
-</code></pre></div>
-<h2>Compresses tar archives</h2>
 
+<pre><code class="language-bash">tar -cvf archive.tar dir1 dir2 file2 file3
+</code></pre>
+
+<h2 id="compresses-tar-archives">Compresses tar archives</h2>
 <p>You can compress on the fly with the <code>z</code> flag</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -czvf archive.tar.gz dir-to-archive
-</code></pre></div>
-<p>You can also use <code>gzip</code> on a tarball to compress it.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">gzip archive.tar
-</code></pre></div>
-<h2>Extract tarballs</h2>
 
+<pre><code class="language-bash">tar -czvf archive.tar.gz dir-to-archive
+</code></pre>
+
+<p>You can also use <code>gzip</code> on a tarball to compress it.</p>
+
+<pre><code class="language-bash">gzip archive.tar
+</code></pre>
+
+<h2 id="extract-tarballs">Extract tarballs</h2>
 <p>Use the <code>x</code> flag instead of <code>c</code></p>
 
 <p>Extract all files from archive.tar.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -xf archive.tar
-</code></pre></div>
-<p>Extract a compressed tarball</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -xzvf archive.tar.gz 
-</code></pre></div>
-<h3>Extract tarballs while restoring permissions</h3>
 
-<p>Use the <code>-p</code> flag. It&#39;s to </p>
+<pre><code class="language-bash">tar -xf archive.tar
+</code></pre>
+
+<p>Extract a compressed tarball</p>
+
+<pre><code class="language-bash">tar -xzvf archive.tar.gz 
+</code></pre>
+
+<h3 id="extract-tarballs-while-restoring-permissions">Extract tarballs while restoring permissions</h3>
+<p>Use the <code>-p</code> flag. It’s to</p>
 
 <blockquote>
-<p>Restore permissions (including ACLs, owner, file flags)</p>
+  <p>Restore permissions (including ACLs, owner, file flags)</p>
 </blockquote>
 
-<h2>List the contents of a tarball without extracting it</h2>
-
+<h2 id="list-the-contents-of-a-tarball-without-extracting-it">List the contents of a tarball without extracting it</h2>
 <p>Use the <code>t</code> or <code>--list</code> flag</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar -tzvf archive.tar.gz 
-</code></pre></div>
-<p>Handy when you wanna know what&#39;s in a tarball, or to see if it&#39;ll extract in the current dir or in it&#39;s own subdir. Sometimes, you get a <em>tar bomb</em> when a tarball starts extracting all the files in your current dir instead of making its own folder.. Potentially clobbering files in your current dir, like README or something, that you might already have in the folder you are working in.</p>
 
-<h2>Getting a single file out of a tarball</h2>
+<pre><code class="language-bash">tar -tzvf archive.tar.gz 
+</code></pre>
 
-<h2>Add more files to a previously created archive</h2>
+<p>Handy when you wanna know what’s in a tarball, or to see if it’ll extract in the current dir or in it’s own subdir. Sometimes, you get a <em>tar bomb</em> when a tarball starts extracting all the files in your current dir instead of making its own folder.. Potentially clobbering files in your current dir, like README or something, that you might already have in the folder you are working in.</p>
 
+<h2 id="getting-a-single-file-out-of-a-tarball">Getting a single file out of a tarball</h2>
+
+<h2 id="add-more-files-to-a-previously-created-archive">Add more files to a previously created archive</h2>
 <p>Use the <code>r</code> flag</p>
 
-<h2>Update the archive with new files</h2>
+<h2 id="update-the-archive-with-new-files">Update the archive with new files</h2>
+<p>Use the <code>u</code> flag. It updates the archive with new files, it also updates the existing files to their newer versions. 
+&gt; only append files newer than copy in archive</p>
 
-<p>Use the <code>u</code> flag. It updates the archive with new files, it also updates the existing files to their newer versions. </p>
-
-<blockquote>
-<p>only append files newer than copy in archive</p>
-</blockquote>
-
-<h2>Read compressed files</h2>
-
+<h2 id="read-compressed-files">Read compressed files</h2>
 <p><code>cat</code> in a compressed file is <code>zcat</code>. Use <code>zcat</code> to read files in an archive..</p>
 
-<h2>Notes:</h2>
-
+<h2 id="notes">Notes:</h2>
 <ul>
-<li><code>f</code> should be the last flag because it takes an option</li>
-<li>it makes more sense to start flags with <code>c</code>, <code>x</code> and <code>t</code> so it&#39;s clear right away if you are creating, extracting or listing..</li>
+  <li><code>f</code> should be the last flag because it takes an option</li>
+  <li>it makes more sense to start flags with <code>c</code>, <code>x</code> and <code>t</code> so it’s clear right away if you are creating, extracting or listing..</li>
 </ul>
 
-<hr>
-
+<hr />
 <ul>
-<li><a href="https://www.youtube.com/watch?v=CUdwDEKlDrw">YouTube: CLImagic: Linux tar command tutorial</a></li>
-<li><a href="https://www.youtube.com/watch?v=yR0r_3svzUU">YouTube: Nixie Pixel: Linux Commands 101 : Tar / GZ File Compression &amp; Archive</a></li>
+  <li><a href="https://www.youtube.com/watch?v=CUdwDEKlDrw">YouTube: CLImagic: Linux tar command tutorial</a></li>
+  <li><a href="https://www.youtube.com/watch?v=yR0r_3svzUU">YouTube: Nixie Pixel: Linux Commands 101 : Tar / GZ File Compression &amp; Archive</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -254,6 +259,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

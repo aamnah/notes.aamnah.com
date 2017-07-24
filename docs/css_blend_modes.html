@@ -14,6 +14,7 @@
   <meta name="description" content="CSS Blend Modes let you blend two or more layers together to create visual effects. You can use blend-modes on pretty much an HTML element including text, sv...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/css_blend_modes">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">CSS Blend Modes</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-04-09T00:00:00+05:00" itemprop="datePublished">
           Apr 9, 2015
         </time>
@@ -91,42 +92,43 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS_Blend_Modes.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS_Blend_Modes.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>CSS Blend Modes let you blend two or more layers together to create visual effects. You can use blend-modes on pretty much an HTML element including text, svg, images, and videos.</p>
 
-<h2>background-blend-mode</h2>
-
+<h2 id="background-blend-mode">background-blend-mode</h2>
 <p>Default value is normal, meaning no blending. There are 16 values for <a href="https://docs.webplatform.org/wiki/css/properties/background-blend-mode">background-blend-mode</a> including darken, lighten, multiply, overlay, screen,soft-light, color-burn and color-dodge. These blend modes are pretty much the same as what comes with Photoshop and Sketch.</p>
 
 <p>Combining blend modes with gradients, you can create some cool Instagram-like retro filters.</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="sx">url('image.jpeg')</span> <span class="nb">no-repeat</span><span class="p">,</span> <span class="n">radial-gradient</span><span class="p">(</span><span class="m">#6de590</span><span class="p">,</span> <span class="m">#e67478</span><span class="p">);</span>
-    <span class="py">background-blend-mode</span><span class="p">:</span> <span class="n">multiply</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>mix-blend-mode</h2>
 
+<pre><code class="language-css">body {
+    background: url('image.jpeg') no-repeat, radial-gradient(#6de590, #e67478);
+    background-blend-mode: multiply;
+}
+</code></pre>
+
+<h2 id="mix-blend-mode">mix-blend-mode</h2>
 <p>Blends the content of any HTML or SVG element.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://docs.webplatform.org/wiki/css/properties/background-blend-mode">background-blend-mode</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">MDN: mix-blend-mode</a></li>
+  <li><a href="https://docs.webplatform.org/wiki/css/properties/background-blend-mode">background-blend-mode</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">MDN: mix-blend-mode</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -172,6 +174,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

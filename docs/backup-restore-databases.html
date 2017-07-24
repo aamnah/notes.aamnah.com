@@ -14,6 +14,7 @@
   <meta name="description" content="Export">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/backup-restore-databases">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Backing up and Restoring Databases</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-20T00:00:00+05:00" itemprop="datePublished">
           Feb 20, 2015
         </time>
@@ -91,31 +92,38 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-backup-restore-databases.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2015-02-20-backup-restore-databases.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Export</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">--host<span class="o">=</span><span class="s2">"host"</span> --user<span class="o">=</span><span class="s2">"username"</span> --password --port<span class="o">=</span>3306 <span class="s2">"db_name"</span>
-</code></pre></div>
+    <h3 id="export">Export</h3>
+
+<pre><code class="language-bash">--host="host" --user="username" --password --port=3306 "db_name"
+</code></pre>
+
 <p>You can use the exported backup file to rename that database. What is the database called and what database to use is defined in the first two lines.</p>
 
-<h3>Rename</h3>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="nv">`database_wp`</span><span class="p">;</span>
-<span class="n">USE</span> <span class="nv">`database_wp`</span><span class="p">;</span>
-</code></pre></div>
-<h3>Import</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">--host<span class="o">=</span><span class="s2">"host"</span> --user<span class="o">=</span><span class="s2">"username"</span> --password --port<span class="o">=</span>3306 --database<span class="o">=</span>db_name &lt; <span class="s2">"path/to/backup/file.sql"</span>
-</code></pre></div>
+<h3 id="rename">Rename</h3>
+
+<pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS `database_wp`;
+USE `database_wp`;
+</code></pre>
+
+<h3 id="import">Import</h3>
+
+<pre><code class="language-bash">--host="host" --user="username" --password --port=3306 --database=db_name &lt; "path/to/backup/file.sql"
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -161,6 +169,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

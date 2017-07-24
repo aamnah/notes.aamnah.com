@@ -14,6 +14,7 @@
   <meta name="description" content="Transformstransform lets you modify the visual appearance (coordinate space) of css elements. Elements can be translated, rotated, scaled, and skewed">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/css-sass/CSS-transforms%20and%20transitions.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">CSS Transitions and Transforms</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-20T00:00:00+05:00" itemprop="datePublished">
           Mar 20, 2017
         </time>
@@ -91,52 +92,54 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-transforms and transitions.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-transforms and transitions.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h1>Transforms</h1>
-
+    <h1 id="transforms">Transforms</h1>
 <p><code>transform</code> lets you modify the visual appearance (coordinate space) of css elements. Elements can be <code>translated</code>, <code>rotated</code>, <code>scaled</code>, and <code>skewed</code></p>
 
-<h2>Examples</h2>
+<h2 id="examples">Examples</h2>
 
-<h3>Scale (resizes elements)</h3>
+<h3 id="scale-resizes-elements">Scale (resizes elements)</h3>
+<p>Scale the <code>.box</code> by increasing it 20 times it’s original size. Value is in <strong>percentage</strong></p>
 
-<p>Scale the <code>.box</code> by increasing it 20 times it&#39;s original size. Value is in <strong>percentage</strong></p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.box</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
-  <span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">20</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3>Translate (moves elements)</h3>
+<pre><code class="language-css">.box {
+  width: 20px;
+  height: 20px;
+  transform: scale(20);
+}
+</code></pre>
+<p>### Translate (moves elements)</p>
 
-<h3>Skew</h3>
+<h3 id="skew">Skew</h3>
 
-<h3>Rotate</h3>
+<h3 id="rotate">Rotate</h3>
 
 <p>center an element</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/* center the element */</span>
-<span class="nl">top</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
-<span class="nl">left</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
-<span class="nl">transform</span><span class="p">:</span> <span class="nf">translate</span><span class="p">(</span><span class="m">-50%</span><span class="o">,</span> <span class="m">-50%</span><span class="p">);</span>
-</code></pre></div>
-<h2>Links</h2>
+
+<pre><code class="language-scss">/* center the element */
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://developer.mozilla.org/en/docs/Web/CSS/transform">MDN: transform</a></li>
+  <li><a href="https://developer.mozilla.org/en/docs/Web/CSS/transform">MDN: transform</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -182,6 +185,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

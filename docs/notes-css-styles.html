@@ -14,6 +14,7 @@
   <meta name="description" content="Typography">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/notes-css-styles">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">CSS Style Notes</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-02-25T00:00:00+05:00" itemprop="datePublished">
           Feb 25, 2017
         </time>
@@ -91,99 +92,105 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-Styling-Tips.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/CSS-Styling-Tips.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Typography</h2>
+    <h2 id="typography">Typography</h2>
 
-<h3>Responsive Typography</h3>
-
+<h3 id="responsive-typography">Responsive Typography</h3>
 <p><a href="https://developer.mozilla.org/en/docs/Web/CSS/length">x</a></p>
 
-<p>Use <code>calc</code> and <code>vw</code> to your advantage. <code>calc</code> let&#39;s you easily calculate values based on unknown variables like percentages and ems and <code>vw</code> is the width of the viewport at any given time. One viewport unit is 1% (1/100th) of the viewport size.</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">14px</span> <span class="err">+</span> <span class="m">.3vw</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Here 14px is going to be the smallest font size and it&#39;s going to increase with the width of the viewport (screen).</p>
+<p>Use <code>calc</code> and <code>vw</code> to your advantage. <code>calc</code> let’s you easily calculate values based on unknown variables like percentages and ems and <code>vw</code> is the width of the viewport at any given time. One viewport unit is 1% (1/100th) of the viewport size.</p>
 
-<p>To achieve responsive typography, you should only have to adjust the font size of the <code>:root</code>. All other font sizes should adjust based on the root size (i.e. use <code>rem</code> units). </p>
+<pre><code class="language-css">body {
+  font-size: calc(14px + .3vw);
+}
+</code></pre>
 
-<h3>Line height</h3>
+<p>Here 14px is going to be the smallest font size and it’s going to increase with the width of the viewport (screen).</p>
+
+<p>To achieve responsive typography, you should only have to adjust the font size of the <code>:root</code>. All other font sizes should adjust based on the root size (i.e. use <code>rem</code> units).</p>
+
+<h3 id="line-height">Line height</h3>
 
 <p><code>1.6</code> is usually a good starting point.</p>
 
-<h3>Font stacks</h3>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Open Sans"</span><span class="p">,</span> <span class="n">Tahoma</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Helvetica Neue"</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id="font-stacks">Font stacks</h3>
 
-<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+<pre><code class="language-css">body {
+  font-family: "Open Sans", Tahoma, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  <span class="c">/* 
+h1, h2, h3, h4, h5, h6 {
+
+  /* 
     Merriweather,
     are all good fonts for headings
-  */</span>
-<span class="p">}</span>
+  */
+}
 
-<span class="nt">code</span><span class="o">,</span> <span class="nt">pre</span> <span class="p">{</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Consolas"</span><span class="p">,</span> <span class="n">Monaco</span><span class="p">,</span> <span class="n">Lucida</span> <span class="n">Console</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">;</span>
-  <span class="c">/* 
+code, pre {
+  font-family: "Consolas", Monaco, Lucida Console, monospace;
+  /* 
   'Source Code Pro' is also a good font
   'Menlo' is the one used by Visual Code
-  */</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2>Using <code>rem</code> units</h2>
+  */
+}
+</code></pre>
 
+<h2 id="using-rem-units">Using <code>rem</code> units</h2>
 <p><a href="https://snook.ca/archives/html_and_css/font-size-with-rem">x</a></p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">html</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">62.5%</span><span class="p">;</span> <span class="p">}</span> 
-<span class="nt">body</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.4rem</span><span class="p">;</span> <span class="p">}</span> <span class="c">/* =14px */</span>
-<span class="nt">h1</span>   <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.4rem</span><span class="p">;</span> <span class="p">}</span> <span class="c">/* =24px */</span>
-</code></pre></div>
+
+<pre><code class="language-css">html { font-size: 62.5%; } 
+body { font-size: 1.4rem; } /* =14px */
+h1   { font-size: 2.4rem; } /* =24px */
+</code></pre>
 <p>By defining a base font-size of <code>62.5%</code>, you have the convenience of sizing rems in a way that is similar to using px, i.e. 2.4rem for 24px, 1.8rem for 18px etc.</p>
 
-<h2>Sticky footer</h2>
-
+<h2 id="sticky-footer">Sticky footer</h2>
 <p><a href="https://css-tricks.com/couple-takes-sticky-footer/">x</a></p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">html</span> <span class="p">{</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span>
-<span class="p">}</span>
 
-<span class="nt">body</span> <span class="p">{</span>
-  <span class="nl">min-height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
-  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
-<span class="p">}</span>
- <span class="nc">.content</span> <span class="p">{</span>
-   <span class="nl">flex</span><span class="p">:</span> <span class="m">1</span>
- <span class="p">}</span>
-</code></pre></div>
-<h2>Media Queries using Sass</h2>
+<pre><code class="language-css">html {
+  height: 100%
+}
 
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ .content {
+   flex: 1
+ }
+</code></pre>
+
+<h2 id="media-queries-using-sass">Media Queries using Sass</h2>
 <p><a href="http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32">x</a></p>
 
-<h2>Favicon and Site Icons</h2>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Favicon --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/favicon.ico"</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span><span class="nt">&gt;</span>
+<h2 id="favicon-and-site-icons">Favicon and Site Icons</h2>
 
-<span class="c">&lt;!-- Apple Touch Icons --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/apple-touch-icon-57x57.png"</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"57x57"</span> <span class="na">type=</span><span class="s">"image/png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/apple-touch-icon-72x72.png"</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"72x72"</span> <span class="na">type=</span><span class="s">"image/png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/apple-touch-icon-114x114.png"</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"114x114"</span> <span class="na">type=</span><span class="s">"image/png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/apple-touch-icon-144x144.png"</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"144x144"</span> <span class="na">type=</span><span class="s">"image/png"</span><span class="nt">&gt;</span>
-</code></pre></div>
+<pre><code class="language-html">&lt;!-- Favicon --&gt;
+&lt;link href="/favicon.ico" rel="shortcut icon"&gt;
+
+&lt;!-- Apple Touch Icons --&gt;
+&lt;link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" type="image/png"&gt;
+&lt;link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png"&gt;
+&lt;link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" type="image/png"&gt;
+&lt;link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" type="image/png"&gt;
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -229,6 +236,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

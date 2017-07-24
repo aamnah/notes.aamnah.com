@@ -14,6 +14,7 @@
   <meta name="description" content="Install FileConveyer:Change to the directory you want to hold the fileconveyor files, then run:">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/fileconveyer">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">fileconveyer</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/2014-05-21-fileconveyer.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_misc/2014-05-21-fileconveyer.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>backups</li>
       
@@ -102,45 +103,53 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Install FileConveyer:</h3>
-
+    <h3 id="install-fileconveyer">Install FileConveyer:</h3>
 <p>Change to the directory you want to hold the fileconveyor files, then run:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt install git python-setuptools <span class="o">&amp;&amp;</span> sudo easy_install pip <span class="o">&amp;&amp;</span> sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg<span class="o">=</span>fileconveyor
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo nano src/fileconveyor/fileconveyor/config.xml
-</code></pre></div><div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;config&gt;</span>
-    <span class="c">&lt;!-- Sources --&gt;</span>
-    <span class="nt">&lt;sources</span> <span class="na">ignoredDirs=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;source</span> <span class="na">name=</span><span class="s">"test"</span> <span class="na">scanPath=</span><span class="s">"/var/www/html/test"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/sources&gt;</span>
 
-    <span class="c">&lt;!-- Servers --&gt;</span>
-    <span class="nt">&lt;servers&gt;</span>
-    <span class="nt">&lt;server</span> <span class="na">name=</span><span class="s">"Rackspace Cloud Files"</span> <span class="na">transporter=</span><span class="s">"cloudfiles"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;username&gt;</span>USERNAME<span class="nt">&lt;/username&gt;</span>
-            <span class="nt">&lt;api_key&gt;</span>APIKEY<span class="nt">&lt;/api_key&gt;</span>
-            <span class="nt">&lt;container&gt;</span>CONTAINER<span class="nt">&lt;/container&gt;</span>
-    <span class="nt">&lt;/server&gt;</span>
-    <span class="nt">&lt;/servers&gt;</span>
-    <span class="c">&lt;!-- Rules --&gt;</span>
-    <span class="nt">&lt;rules&gt;</span>
-    <span class="nt">&lt;rule</span> <span class="na">for=</span><span class="s">"test"</span> <span class="na">label=</span><span class="s">"Test"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;destinations&gt;</span>
-        <span class="nt">&lt;destination</span> <span class="na">server=</span><span class="s">"Rackspace Cloud Files"</span> <span class="na">path=</span><span class="s">"test"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/destinations&gt;</span>
-    <span class="nt">&lt;/rule&gt;</span>
-    <span class="nt">&lt;/rules&gt;</span>
-<span class="nt">&lt;/config&gt;</span>
-</code></pre></div>
-<p>Add this to /etc/rc.local  </p>
-<div class="highlight"><pre><code class="language-" data-lang="">/usr/bin/python/db_backups/fileconveyor/fileconveyer/arbitrator.py
-</code></pre></div>
+<pre><code class="language-bash">sudo apt install git python-setuptools &amp;&amp; sudo easy_install pip &amp;&amp; sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor
+</code></pre>
+
+<pre><code class="language-bash">sudo nano src/fileconveyor/fileconveyor/config.xml
+</code></pre>
+
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;config&gt;
+	&lt;!-- Sources --&gt;
+	&lt;sources ignoredDirs=""&gt;
+  	&lt;source name="test" scanPath="/var/www/html/test" /&gt;
+	&lt;/sources&gt;
+
+	&lt;!-- Servers --&gt;
+	&lt;servers&gt;
+  	&lt;server name="Rackspace Cloud Files" transporter="cloudfiles"&gt;
+    		&lt;username&gt;USERNAME&lt;/username&gt;
+    		&lt;api_key&gt;APIKEY&lt;/api_key&gt;
+    		&lt;container&gt;CONTAINER&lt;/container&gt;
+  	&lt;/server&gt;
+	&lt;/servers&gt;
+	&lt;!-- Rules --&gt;
+	&lt;rules&gt;
+  	&lt;rule for="test" label="Test"&gt;
+    	&lt;destinations&gt;
+      	&lt;destination server="Rackspace Cloud Files" path="test" /&gt;
+    	&lt;/destinations&gt;
+  	&lt;/rule&gt;
+	&lt;/rules&gt;
+&lt;/config&gt;
+</code></pre>
+
+<p>Add this to /etc/rc.local</p>
+
+<pre><code>/usr/bin/python/db_backups/fileconveyor/fileconveyer/arbitrator.py
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -186,6 +195,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

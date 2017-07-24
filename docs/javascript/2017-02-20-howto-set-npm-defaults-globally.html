@@ -1,21 +1,26 @@
 <p>You can either edit the global configuration file for <code>npm</code>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm config edit --global
-</code></pre></div>
-<p>(it&#39;ll open the file in Vim)</p>
+
+<pre><code class="language-bash">npm config edit --global
+</code></pre>
+
+<p>(it’ll open the file in Vim)</p>
 
 <p>Or, you can set the defaults one by one:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># npm config set &lt;key&gt; &lt;value&gt; [-g|--global]</span>
-npm config <span class="nb">set</span> -g init-author-name <span class="s1">'Aamnah'</span>
-npm config <span class="nb">set</span> -g init-author-email <span class="s1">'hello@aamnah.com'</span>
-npm config <span class="nb">set</span> -g init-author-url <span class="s1">'http://aamnah.com'</span>
-npm config <span class="nb">set</span> -g init-license <span class="s1">'CC-BY-SA-4.0'</span>
-npm config <span class="nb">set</span> -g init-version <span class="s1">'0.1.0'</span>
-</code></pre></div>
-<p>You can also use the <code>npm init</code> command with the <code>y</code> flag to initiate a project with the default values without prompting you for details.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm init -y
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-bash"># npm config set &lt;key&gt; &lt;value&gt; [-g|--global]
+npm config set -g init-author-name 'Aamnah'
+npm config set -g init-author-email 'hello@aamnah.com'
+npm config set -g init-author-url 'http://aamnah.com'
+npm config set -g init-license 'CC-BY-SA-4.0'
+npm config set -g init-version '0.1.0'
+</code></pre>
+
+<p>You can also use the <code>npm init</code> command with the <code>y</code> flag to initiate a project with the default values without prompting you for details.</p>
+
+<pre><code class="language-bash">npm init -y
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://docs.npmjs.com/cli/config">npm-config</a></li>
+  <li><a href="https://docs.npmjs.com/cli/config">npm-config</a></li>
 </ul>

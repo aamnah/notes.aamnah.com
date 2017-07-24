@@ -14,6 +14,7 @@
   <meta name="description" content="Downloading and Including files">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/using_a_third-party_library_with_php">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Using a third-party library with PHP</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-24T00:00:00+05:00" itemprop="datePublished">
           Feb 24, 2015
         </time>
@@ -91,71 +92,80 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/2015-02-24-Using_a_third-party_library_with_PHP.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_php/2015-02-24-Using_a_third-party_library_with_PHP.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Downloading and Including files</h3>
+    <h3 id="downloading-and-including-files">Downloading and Including files</h3>
 
-<p>For this example, we&#39;ll use <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>. Grab the latest stable release.</p>
+<p>For this example, we’ll use <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>. Grab the latest stable release.</p>
 
 <p>The main file we need is <strong>class.phpmailer.php</strong></p>
 
-<p>First we&#39;ll include the file using <code>require_once()</code>.</p>
+<p>First we’ll include the file using <code>require_once()</code>.</p>
 
-<p>Require_once is similar to <code>include()</code>. The difference between the two is what happens when we encounter an error. If we use the include command and the file doesn&#39;t exist, PHP will throw a warning but it&#39;ll execute the rest of the code. On the other hand, if you use require and the file doesn&#39;t exist then PHP will error and will not execute any more code.</p>
+<p>Require_once is similar to <code>include()</code>. The difference between the two is what happens when we encounter an error. If we use the include command and the file doesn’t exist, PHP will throw a warning but it’ll execute the rest of the code. On the other hand, if you use require and the file doesn’t exist then PHP will error and will not execute any more code.</p>
 
-<p>The other difference between them is how many times PHP will include the file. If you use include and require on a file multiple times, it&#39;ll load that file multiple times.</p>
+<p>The other difference between them is how many times PHP will include the file. If you use include and require on a file multiple times, it’ll load that file multiple times.</p>
 
 <p>PHPMailer should be included once.</p>
 
 <p>There are actually four commands we might use</p>
 
 <ul>
-<li><code>include()</code></li>
-<li><code>include_once()</code></li>
-<li><code>require()</code></li>
-<li><code>require_once()</code></li>
+  <li><code>include()</code></li>
+  <li><code>include_once()</code></li>
+  <li><code>require()</code></li>
+  <li><code>require_once()</code></li>
 </ul>
 
-<h3>Composer</h3>
+<h3 id="composer">Composer</h3>
 
 <p><a href="https://getcomposer.org/">Composer</a> is a dependency manager for PHP, like npm is for node.js. The good thing about using Composer is that it makes copying your particular project setup fast and easy, all you need to do is include the <code>composer.json</code> file and anyone can then install the exact same versions of the libs you used on their systems.</p>
 
 <p>Instead of copying all the bulk, (or uploading it to Github), they can just copy one file and re-install it on their computers without wasting bandwidth and time. Once you have the <code>composer.json</code> file, you can include the <code>vendors</code> folder (that is where  Composer installs stuff) in <code>.gitignore</code></p>
 
-<h5>Install</h5>
+<h5 id="install">Install</h5>
 
 <p>Linux / Unix / Mac</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer | sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer
-</code></pre></div>
+
+<pre><code class="language-bash">curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+</code></pre>
+
 <p>Confirm install with: <code>composer -V</code></p>
 
-<h4>Getting started</h4>
+<h4 id="getting-started">Getting started</h4>
 
 <p>In your project folder, create the <code>composer.json</code> file with the command</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer init
-</code></pre></div>
+
+<pre><code class="language-bash">composer init
+</code></pre>
 <p>To add a package to the <code>composer.json</code> file</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer require
-</code></pre></div>
+
+<pre><code class="language-bash">composer require
+</code></pre>
 <p>If you have an existing <code>composer.json</code> file, install dependencies with</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer install
-</code></pre></div>
-<h5>Using the libraries composer installed in your project</h5>
+
+<pre><code class="language-bash">composer install
+</code></pre>
+
+<h5 id="using-the-libraries-composer-installed-in-your-project">Using the libraries composer installed in your project</h5>
 
 <p>To use the library you installed via composer in your project, all you need is a <code>require</code> statement in your script, like so:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php">require 'vendor/autoload.php';
-</code></pre></div>
+
+<pre><code class="language-php">require 'vendor/autoload.php';
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -201,6 +211,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

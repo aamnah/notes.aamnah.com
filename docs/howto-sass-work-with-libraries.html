@@ -14,6 +14,7 @@
   <meta name="description" content="By far the most popular Sass based UI framework is Bootstrap. Another one is Foundation.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-sass-work-with-libraries">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Sass: Working with Libraries</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T20:13:51+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-work-with-libraries.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-work-with-libraries.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>compass</li>
       
@@ -102,31 +103,35 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>By far the most popular Sass based UI framework is <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>. Another one is <a href="http://foundation.zurb.com" target="_blank">Foundation</a>.</p>
 
 <p>Sass libraries are more like a collection of mixins, funtcions and classes. The most common is <a href="http://compass-style.org/" target="_blank">Compass</a>. Then there is <a href="http://bourbon.io" target="_blank">Bourbon</a>.</p>
 
-<h2>Installing Bourbon</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install bourbon
-</code></pre></div>
-<h2>Including Bourbon in a Project</h2>
+<h2 id="installing-bourbon">Installing Bourbon</h2>
 
+<pre><code class="language-bash">sudo gem install bourbon
+</code></pre>
+
+<h2 id="including-bourbon-in-a-project">Including Bourbon in a Project</h2>
 <p>just include the bourbon .scss file in the main stylesheet.</p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="k">@import</span> <span class="s">"bourbon_bourbon.scss";</span>
-</code></pre></div>
-<h2>Benefits</h2>
+
+<pre><code class="language-sass">@import "bourbon_bourbon.scss";
+</code></pre>
+
+<h2 id="benefits">Benefits</h2>
 
 <ul>
-<li>You can use all the new CSS3 features without having to worry about backwards compatibility as Bourbon and Compass take care of adding vendor prefixes.</li>
-<li>Font families and their fall back families are defined as variables so you don&#39;t have to type your long list.</li>
+  <li>You can use all the new CSS3 features without having to worry about backwards compatibility as Bourbon and Compass take care of adding vendor prefixes.</li>
+  <li>Font families and their fall back families are defined as variables so you don’t have to type your long list.</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -172,6 +177,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Why?Makes it easier to copy a default OpenCart extension. Find the files by name and copy them while also creating the required folder structure.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/copy-files-recreate-folder-structure">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[gcp --parents] Copy selected files and recreate folder structure</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-06-23T00:00:00+05:00" itemprop="datePublished">
           Jun 23, 2017
         </time>
@@ -91,43 +92,50 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[gcp, --parents]Copy selected file and recreate folders.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[gcp, --parents]Copy selected file and recreate folders.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Why?</h3>
-
+    <h3 id="why">Why?</h3>
 <p>Makes it easier to copy a default OpenCart extension. Find the files by name and copy them while also creating the required folder structure.</p>
 
-<h3>How</h3>
+<h3 id="how">How</h3>
+<p>Use the <code>cp</code> command with <code>--parents</code> flag.</p>
 
-<p>Use the <code>cp</code> command with <code>--parents</code> flag. </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">cp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/
-</code></pre></div>
-<p>Won&#39;t work on macOS by default, so <code>brew install coreutils</code> first and then use <code>gcp</code> instead of <code>cp</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">gcp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">easypaisa
+<pre><code class="language-bash">cp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/
+</code></pre>
+
+<p>Won’t work on macOS by default, so <code>brew install coreutils</code> first and then use <code>gcp</code> instead of <code>cp</code></p>
+
+<pre><code class="language-bash">gcp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/
+</code></pre>
+
+<pre><code>easypaisa
 └── admin
     └── controller
         └── extension
             └── payment
                 └── bank_transfer.php
-</code></pre></div>
-<h2>Examples</h2>
+</code></pre>
 
-<h3>Extract/Clone an OpenCart Extension with one command</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -iname <span class="s1">'bank_transfer.*'</span> -exec gcp --parents <span class="o">{}</span> foo/ <span class="se">\;</span>
-</code></pre></div>
-<p><code>{}</code> will be replaced with the path name of the file. The last token, <code>\;</code> is there only to mark the end of the exec expression. <code>foo</code> is the directory you&#39;re assumed to have created before running the command</p>
+<h2 id="examples">Examples</h2>
+
+<h3 id="extractclone-an-opencart-extension-with-one-command">Extract/Clone an OpenCart Extension with one command</h3>
+
+<pre><code class="language-bash">find . -iname 'bank_transfer.*' -exec gcp --parents {} foo/ \;
+</code></pre>
+
+<p><code>{}</code> will be replaced with the path name of the file. The last token, <code>\;</code> is there only to mark the end of the exec expression. <code>foo</code> is the directory you’re assumed to have created before running the command</p>
 
 <p>Basically, with <code>find</code> and <code>gcp</code> you have extracted a particular extension.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">../bank_transfer/
+
+<pre><code>../bank_transfer/
 ├── admin
 │   ├── controller
 │   │   └── extension
@@ -169,30 +177,34 @@
                     └── extension
                         └── payment
                             └── bank_transfer.tpl
-</code></pre></div>
-<h3>Recreate and Rename an OpenCart extension with two commands</h3>
+</code></pre>
 
+<h3 id="recreate-and-rename-an-opencart-extension-with-two-commands">Recreate and Rename an OpenCart extension with two commands</h3>
 <p>First, find and copy all the files (Assuming you have already created the new folder, in this case <em>easypaisa</em>)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find . -iname <span class="s1">'bank_transfer.*'</span> -exec gcp --parents <span class="o">{}</span> easypaisa/ <span class="se">\;</span>
-</code></pre></div>
-<p>The thing with using <code>--parents</code> is that the destination must be a directory. So you can&#39;t copy <em>and</em> rename files in one go, like you are usually able to do with <code>cp</code>.</p>
+
+<pre><code class="language-bash">find . -iname 'bank_transfer.*' -exec gcp --parents {} easypaisa/ \;
+</code></pre>
+
+<p>The thing with using <code>--parents</code> is that the destination must be a directory. So you can’t copy <em>and</em> rename files in one go, like you are usually able to do with <code>cp</code>.</p>
 
 <p>Renaming files once they are copied is easy though, just run a <code>find</code> command to find all the copied files based on their name and rename all of them.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># TOO BUSY TO DO THE GOOGLE</span>
-<span class="c"># to-be-continued, will update the code if i ever get a chance later</span>
-<span class="c"># manually rename the files for now</span>
-</code></pre></div>
-<h2>Links</h2>
 
+<pre><code class="language-bash"># TOO BUSY TO DO THE GOOGLE
+# to-be-continued, will update the code if i ever get a chance later
+# manually rename the files for now
+</code></pre>
+
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/947954/how-to-have-the-cp-command-create-any-necessary-folders-for-copying-a-file-to-a">StackOverflow: How to have the cp command create any necessary folders for copying a file to a destination</a></li>
-<li><a href="https://unix.stackexchange.com/questions/12902/how-to-run-find-exec">StackOverflow: How to run find -exec?</a></li>
-<li><a href="https://stackoverflow.com/questions/5241625/find-and-copy-files">StackOverflow: Find and copy files</a></li>
+  <li><a href="https://stackoverflow.com/questions/947954/how-to-have-the-cp-command-create-any-necessary-folders-for-copying-a-file-to-a">StackOverflow: How to have the cp command create any necessary folders for copying a file to a destination</a></li>
+  <li><a href="https://unix.stackexchange.com/questions/12902/how-to-run-find-exec">StackOverflow: How to run find -exec?</a></li>
+  <li><a href="https://stackoverflow.com/questions/5241625/find-and-copy-files">StackOverflow: Find and copy files</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -238,6 +250,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

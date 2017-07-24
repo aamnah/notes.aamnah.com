@@ -14,6 +14,7 @@
   <meta name="description" content="Initialize the project and install and save express to package.json">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/getting-started-express-node-js">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Getting started with Express</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2017-03-07T00:00:00+05:00" itemprop="datePublished">
           Mar 7, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2017-03-07-getting-started-express-js.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2017-03-07-getting-started-express-js.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>expressjs</li>
       
@@ -104,107 +105,122 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Initialize the project and install and save express to <code>package.json</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm init -y
+
+<pre><code class="language-bash">npm init -y
 npm i -S express
-</code></pre></div>
-<p>Here&#39;s the code for a very basic server up and running</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+</code></pre>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Bonjour la monde!'</span><span class="p">)</span>
-<span class="p">})</span>
+<p>Here’s the code for a very basic server up and running</p>
 
-<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3001</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">Server</span> <span class="nx">running</span> <span class="nx">at</span> <span class="nx">http</span><span class="err">:</span><span class="c1">//localhost:${server.address().port}`)</span>
-<span class="p">})</span>
-</code></pre></div>
+<pre><code class="language-javascript">const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Bonjour la monde!')
+})
+
+const server = app.listen(3001, function () {
+  console.info(`Server running at http://localhost:${server.address().port}`)
+})
+</code></pre>
+
 <p>install <code>nodemon</code> and add npm scripts to <code>package.json</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">npm i -D nodemon
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
-  <span class="s2">"start"</span><span class="err">:</span> <span class="s2">"node index.js"</span><span class="p">,</span>
-  <span class="s2">"dev"</span><span class="err">:</span> <span class="s2">"nodemon index.js"</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3>Routes</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">app.METHOD(PATH, HANDLER)
-</code></pre></div>
+
+<pre><code class="language-bash">npm i -D nodemon
+</code></pre>
+
+<pre><code class="language-javascript">"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+</code></pre>
+
+<h3 id="routes">Routes</h3>
+<pre><code>app.METHOD(PATH, HANDLER)
+</code></pre>
 <p>For every route, you need a path and a <strong>route handler function</strong> (callback function) for that path</p>
 
 <ul>
-<li>Path could be a string (<code>&#39;home&#39;</code>), path pattern (<code>*.json</code>), regex, or an array.<br></li>
-<li>Callback could be a middleware function, a series of middleware functions, and array of middleware functions or all of these combined.</li>
+  <li>Path could be a string (<code>'home'</code>), path pattern (<code>*.json</code>), regex, or an array.</li>
+  <li>Callback could be a middleware function, a series of middleware functions, and array of middleware functions or all of these combined.</li>
 </ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/yo'</span><span class="p">,</span>  <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'HEYO!'</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
-<p>whenever someone visits <code>/yo</code>, they&#39;ll get a <em>HEYO!</em> in response.</p>
+
+<pre><code class="language-javascript">app.get('/yo',  function (req, res) {
+  res.send('HEYO!')
+})
+</code></pre>
+<p>whenever someone visits <code>/yo</code>, they’ll get a <em>HEYO!</em> in response.</p>
 
 <p>You can pass in multiple handlers, like so</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// function verifyUser (req, res, next) { .. }</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/:username'</span><span class="p">,</span> <span class="nx">verifyUser</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span>
-  <span class="nx">rese</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'user'</span><span class="p">,</span> <span class="p">{</span>
-    <span class="na">user</span><span class="p">:</span> <span class="nx">user</span><span class="p">,</span>
-    <span class="na">address</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">location</span>
-  <span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-<h4>Response</h4>
+<pre><code class="language-javascript">// function verifyUser (req, res, next) { .. }
 
-<p>Response <code>res</code> in our callback route handler is an object, it has it&#39;s own methods, like <code>.send()</code>, <code>.redirect()</code>, <code>.status()</code> etc. The <a href="https://expressjs.com/en/4x/api.html#res"><code>res</code> object</a> is an enhanced version of Node’s own response object and supports all <a href="https://nodejs.org/api/http.html#http_class_http_serverresponse">built-in fields and methods</a>.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Some example responses</span>
+app.get('/:username', verifyUser, function (req, res) {
+  let user = req.params.username
+  rese.render('user', {
+    user: user,
+    address: user.location
+  })
+})
+</code></pre>
 
-<span class="c1">// send a very simple string response</span>
-<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span>
+<h4 id="response">Response</h4>
 
-<span class="c1">// send an 404</span>
-<span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="err">`</span><span class="nx">No</span> <span class="nx">username</span> <span class="nx">$</span><span class="p">{</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span> <span class="nx">found</span><span class="err">`</span><span class="p">)</span>
+<p>Response <code>res</code> in our callback route handler is an object, it has it’s own methods, like <code>.send()</code>, <code>.redirect()</code>, <code>.status()</code> etc. The <a href="https://expressjs.com/en/4x/api.html#res"><code>res</code> object</a> is an enhanced version of Node’s own response object and supports all <a href="https://nodejs.org/api/http.html#http_class_http_serverresponse">built-in fields and methods</a>.</p>
 
-<span class="c1">// redirect to a page</span>
-<span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="err">`</span><span class="o">/</span><span class="nx">error</span><span class="o">/</span><span class="nx">$</span><span class="p">{</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+<pre><code class="language-javascript">// Some example responses
 
-<span class="c1">// download a resource</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'*.json'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// whenever someone goes to a path ending in .json, download the corresponding file</span>
-  <span class="c1">// e.g. i go to /mojojojo.json, i download the file at /users/mojojojo.json</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">download</span><span class="p">(</span><span class="err">`</span><span class="p">.</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">$</span><span class="p">{</span><span class="nx">req</span><span class="p">.</span><span class="nx">path</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
-  <span class="c1">// You can optionally provide a second param as file name</span>
-  <span class="c1">// res.download('filePath', 'fileName')</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">download</span><span class="p">(</span><span class="err">`</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">$</span><span class="p">{</span><span class="nx">req</span><span class="p">.</span><span class="nx">path</span><span class="p">}</span><span class="err">`</span><span class="p">,</span> <span class="err">'</span><span class="nx">virus</span><span class="p">.</span><span class="nx">exe</span><span class="err">`</span><span class="p">)</span> <span class="c1">// buahahaa</span>
-<span class="p">})</span>
+// send a very simple string response
+res.send('Hello')
 
-<span class="c1">// JSON, send data back as json, like an API server</span>
-<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span>
-</code></pre></div>
-<h4>Route parameters</h4>
+// send an 404
+res.status(404).send(`No username ${req.params.username} found`)
 
+// redirect to a page
+res.redirect(`/error/${req.params.username}`)
+
+// download a resource
+app.get('*.json', function (req, res) {
+  // whenever someone goes to a path ending in .json, download the corresponding file
+  // e.g. i go to /mojojojo.json, i download the file at /users/mojojojo.json
+  res.download(`./users/${req.path}`)
+  // You can optionally provide a second param as file name
+  // res.download('filePath', 'fileName')
+  res.download(`/users/${req.path}`, 'virus.exe`) // buahahaa
+})
+
+// JSON, send data back as json, like an API server
+res.json(foo)
+</code></pre>
+
+<h4 id="route-parameters">Route parameters</h4>
 <p>The captured values are populated in the <code>req.params</code> object, with the name of the route parameter specified in the path as their respective keys.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/users/:userId/books/:bookId'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">Route path: /users/:userId/books/:bookId
+
+<pre><code class="language-javascript">app.get('/users/:userId/books/:bookId', function (req, res) {
+  res.send(req.params)
+})
+</code></pre>
+<pre><code>Route path: /users/:userId/books/:bookId
 Request URL: http://localhost:3000/users/34/books/8989
 req.params: { "userId": "34", "bookId": "8989" }
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://expressjs.com/en/starter/basic-routing.html">Express Docs: Basic routing</a></li>
-<li><a href="https://expressjs.com/en/guide/routing.html">Express Docs: Routing Guide</a></li>
-<li><a href="https://expressjs.com/en/4x/api.html">Express Docs: API 4.0</a></li>
-<li><a href="https://egghead.io/lessons/node-js-getting-started-with-express-advanced-routing">Egghead.io: Getting Started with Express - Advanced Routing</a></li>
+  <li><a href="https://expressjs.com/en/starter/basic-routing.html">Express Docs: Basic routing</a></li>
+  <li><a href="https://expressjs.com/en/guide/routing.html">Express Docs: Routing Guide</a></li>
+  <li><a href="https://expressjs.com/en/4x/api.html">Express Docs: API 4.0</a></li>
+  <li><a href="https://egghead.io/lessons/node-js-getting-started-with-express-advanced-routing">Egghead.io: Getting Started with Express - Advanced Routing</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -250,6 +266,7 @@ req.params: { "userId": "34", "bookId": "8989" }
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

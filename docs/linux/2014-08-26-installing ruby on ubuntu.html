@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="# update packagessudo apt-get update# install curl if not already theresudo apt-get install curl -y# install RVM\curl -L https://get.rvm.io | bash -s stable#...">
+  <meta name="description" content="```bash	# update packagessudo apt-get update# install curl if not already theresudo apt-get install curl -y# install RVM\curl -L https://get.rvm.io | bash -s...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/linux/2014-08-26-installing%20ruby%20on%20ubuntu.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Install Ruby on Ubuntu</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,66 +92,65 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-installing ruby on ubuntu.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-installing ruby on ubuntu.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># update packages</span>
+    <pre><code class="language-bash"># update packages
 sudo apt-get update
-<span class="c"># install curl if not already there</span>
+# install curl if not already there
 sudo apt-get install curl -y
-<span class="c"># install RVM</span>
-<span class="se">\c</span>url -L https://get.rvm.io | bash -s stable
-<span class="c"># load RVM</span>
-<span class="nb">source</span> ~/.rvm/scripts/rvm
-<span class="c"># install RVM dependencies</span>
+# install RVM
+\curl -L https://get.rvm.io | bash -s stable
+# load RVM
+source ~/.rvm/scripts/rvm
+# install RVM dependencies
 rvm requirements
 
-<span class="c"># install ruby</span>
+# install ruby
 rvm install ruby
-<span class="c"># use default ruby version (latest)</span>
+# use default ruby version (latest)
 rvm use ruby --default
-<span class="c"># install rubygems</span>
+# install rubygems
 rvm rubygems current
-<span class="c"># install Rails</span>
+# install Rails
 gem install rails
-</code></pre></div>
-<h2>notes</h2>
+</code></pre>
 
+<h2 id="notes">notes</h2>
 <ul>
-<li>the setup seems to be user specific</li>
+  <li>the setup seems to be user specific</li>
 </ul>
 
-<h2>issues</h2>
-
+<h2 id="issues">issues</h2>
 <ul>
-<li><code>rvm requirements</code> needs to be run as root. may require a password.  sudo rvm rquiremenst for some unknown reason does not seem to work.</li>
+  <li><code>rvm requirements</code> needs to be run as root. may require a password.  sudo rvm rquiremenst for some unknown reason does not seem to work.</li>
 </ul>
 
-<h2>more on rvm requirements issue</h2>
-
+<h2 id="more-on-rvm-requirements-issue">more on rvm requirements issue</h2>
 <ul>
-<li>the error happens when there are broken sources in /etc/apt/sources.list or /etc/apt/sources.list.d/*.list <a href="http://stackoverflow.com/questions/19373560/why-do-i-get-a-requirements-error-when-trying-to-install-ruby-with-rvm">x</a></li>
-<li>the broken source list is because &quot;Ubuntu 12.10 is not supported any more since May 2014. You either need to update to a more recent version of Ubuntu (i.e. 14.04), or find an alternative repository.&quot; <a href="http://askubuntu.com/questions/499738/not-able-to-install-software-on-ubuntu-12-10">x</a> </li>
-<li><strong>solution</strong> <code>sudo apt-get update &amp;&amp; sudo apt-get install update-manager-core &amp;&amp; sudo do-release-upgrade</code> <a href="http://www.cyberciti.biz/faq/howto-upgrade-to-ubuntu-14-04-from-ubuntu-13-10-or-12-04/">x</a></li>
-<li><strong>the problem with the solution</strong>: Ubuntu can only be updated to the next version. Direct upgrades to the latest version only works LTS to LTS. In my case, the server is still on 12.10 (12.04 was LTS, the latest at the moment is 14.04 has already arrived) the best strategy at this point is to <a href="http://askubuntu.com/questions/298334/unable-to-locate-package-update-manager-core">take backups</a> and restore on a fresh install of latest version.</li>
+  <li>the error happens when there are broken sources in /etc/apt/sources.list or /etc/apt/sources.list.d/*.list <a href="http://stackoverflow.com/questions/19373560/why-do-i-get-a-requirements-error-when-trying-to-install-ruby-with-rvm">x</a></li>
+  <li>the broken source list is because “Ubuntu 12.10 is not supported any more since May 2014. You either need to update to a more recent version of Ubuntu (i.e. 14.04), or find an alternative repository.” <a href="http://askubuntu.com/questions/499738/not-able-to-install-software-on-ubuntu-12-10">x</a></li>
+  <li><strong>solution</strong> <code>sudo apt-get update &amp;&amp; sudo apt-get install update-manager-core &amp;&amp; sudo do-release-upgrade</code> <a href="http://www.cyberciti.biz/faq/howto-upgrade-to-ubuntu-14-04-from-ubuntu-13-10-or-12-04/">x</a></li>
+  <li><strong>the problem with the solution</strong>: Ubuntu can only be updated to the next version. Direct upgrades to the latest version only works LTS to LTS. In my case, the server is still on 12.10 (12.04 was LTS, the latest at the moment is 14.04 has already arrived) the best strategy at this point is to <a href="http://askubuntu.com/questions/298334/unable-to-locate-package-update-manager-core">take backups</a> and restore on a fresh install of latest version.</li>
 </ul>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm">How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm">How To Install Ruby on Rails on Ubuntu 12.04 LTS (Precise Pangolin) with RVM</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -196,6 +196,7 @@ gem install rails
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

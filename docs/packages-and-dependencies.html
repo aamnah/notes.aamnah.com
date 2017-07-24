@@ -14,6 +14,7 @@
   <meta name="description" content="They call it package, because many times you would have a collection of libraries that are packaged together, and you download that package rather than each ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/packages-and-dependencies">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Packages and Dependencies</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-01-12T00:00:00+05:00" itemprop="datePublished">
           Jan 12, 2016
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,33 +98,57 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/packages-dependencies.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_programming/packages-dependencies.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>They call it package, because many times you would have a collection of libraries that are packaged together, and you download that package rather than each individual library. As for dependency, many times a package will depend on another package, and the dependency manager can help solve that problem.</p>
 
 <p>A dependency manager also takes care of versioning and package updates.</p>
 
-<p>Each programming language has it&#39;s own flavor of dependency manager. For instance, for Javascript Node.js you have NPM, for Ruby you have Bundler, for Python Pip, etc.</p>
+<p>Each programming language has it’s own flavor of dependency manager. For instance, for Javascript Node.js you have NPM, for Ruby you have Bundler, for Python Pip, etc.</p>
 
-<p>| Language | Dependency Manager |
-|-------------|---------------------------|
-| JavaScrippt, Node.js | npm |
-| Ruby | Bundler |
-| Python | pip |
-| Swift, Objective-C Cocoa | <a href="https://cocoapods.org">CocoaPods</a> |
-| PHP | Composer |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Dependency Manager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JavaScrippt, Node.js</td>
+      <td>npm</td>
+    </tr>
+    <tr>
+      <td>Ruby</td>
+      <td>Bundler</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td>pip</td>
+    </tr>
+    <tr>
+      <td>Swift, Objective-C Cocoa</td>
+      <td><a href="https://cocoapods.org">CocoaPods</a></td>
+    </tr>
+    <tr>
+      <td>PHP</td>
+      <td>Composer</td>
+    </tr>
+  </tbody>
+</table>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -169,6 +194,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -25,16 +25,22 @@ github_username:  Aamnah
 timezone: Asia/Karachi
 
 # Build settings
-markdown: redcarpet
 
-redcarpet:
-  extension: [
-    "no_intra_emphasis",
-    "tables",
-    "autolink",
-    "strikethrough",
-    "with_toc_data"
-  ]
+# markdown: redcarpet
+
+# redcarpet:
+#   extension: [
+#     "no_intra_emphasis",
+#     "tables",
+#     "autolink",
+#     "strikethrough",
+#     "with_toc_data"
+#   ]
+
+markdown: kramdown
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
 
 # Collections
 # permalink default for collections is /:collection/:path/:title:output_ext

@@ -14,6 +14,7 @@
   <meta name="description" content="This how to will teach you how to take automated backups of all your MySQL databases and send them to Amazon S3">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/automated-mysql-backups-with-automysqlbackups">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-19T12:59:41+05:00" itemprop="datePublished">
           Aug 19, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-08-19-howto-automated-mysql-backups-amazon-s3-automysqlbackups.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-08-19-howto-automated-mysql-backups-amazon-s3-automysqlbackups.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>amazon s3</li>
       
@@ -108,136 +109,158 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>This how-to will teach you how to take automated backups of all your MySQL databases and send them to Amazon S3.</p>
 
-<h2>Access (Logins) required</h2>
+<h2 id="access-logins-required">Access (Logins) required</h2>
 
 <ol>
-<li><p>root login for the server (sudo is required to run automysqlbackup, root is req. to add to root user’s cron)</p></li>
-<li><p>admin login for the mysql server (to provide for backup config file)</p></li>
-<li><p>IAM access keys to use with s3cmd (to configure s3cmd)</p></li>
+  <li>
+    <p>root login for the server (sudo is required to run automysqlbackup, root is req. to add to root user’s cron)</p>
+  </li>
+  <li>
+    <p>admin login for the mysql server (to provide for backup config file)</p>
+  </li>
+  <li>
+    <p>IAM access keys to use with s3cmd (to configure s3cmd)</p>
+  </li>
 </ol>
 
-<p>sudo is required to run the AutoMySQLBackup script, so when adding the command to cron, you&#39;d need to add it to the root user&#39;s cron (so that it runs successfully on set intervals without asking for a password). </p>
+<p>sudo is required to run the AutoMySQLBackup script, so when adding the command to cron, you’d need to add it to the root user’s cron (so that it runs successfully on set intervals without asking for a password).</p>
 
-<h2>Tools</h2>
+<h2 id="tools">Tools</h2>
 
 <ol>
-<li><a href="http://sourceforge.net/projects/automysqlbackup/">AutoMySQLBackup</a></li>
-<li><a href="http://s3tools.org/repositories">s3cmd</a></li>
-<li>SSH client (Terminal on Mac / <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/">putty</a> on Windows)</li>
+  <li><a href="http://sourceforge.net/projects/automysqlbackup/">AutoMySQLBackup</a></li>
+  <li><a href="http://s3tools.org/repositories">s3cmd</a></li>
+  <li>SSH client (Terminal on Mac / <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a> on Windows)</li>
 </ol>
 
-<h2>Installing S3cmd on Debian</h2>
-
+<h2 id="installing-s3cmd-on-debian">Installing S3cmd on Debian</h2>
 <p>Check the <a href="http://s3tools.org/repositories">Repos</a> page for install on other systems.</p>
 
 <ol>
-<li>Import S3tools signing key: 
-<code>wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -</code></li>
-<li>Add the repo to sources.list: 
-<code>sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list</code></li>
-<li>Refresh package cache and install the newest s3cmd: 
-<code>sudo apt-get update &amp;&amp; sudo apt-get install s3cmd</code></li>
+  <li>Import S3tools signing key: 
+  <code>wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -</code></li>
+  <li>Add the repo to sources.list: 
+  <code>sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list</code></li>
+  <li>Refresh package cache and install the newest s3cmd: 
+  <code>sudo apt-get update &amp;&amp; sudo apt-get install s3cmd</code></li>
 </ol>
 
 <p>Run <code>s3cmd --configure</code> to configure settings and add IAM access keys for Amazon S3.</p>
 
-<h2>Installing AutoMySQLBackup</h2>
-
+<h2 id="installing-automysqlbackup">Installing AutoMySQLBackup</h2>
 <p>Download and extract the latest tarball and run the install script.</p>
 
 <ul>
-<li>Create a directory where you want to download and extract the AutoMySQLBackup file and move to that directory.</li>
+  <li>Create a directory where you want to download and extract the AutoMySQLBackup file and move to that directory.</li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo mkdir /automysqlbackup <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /automysqlbackup
-</code></pre></div>
+
+<pre><code class="language-bash">sudo mkdir /automysqlbackup &amp;&amp; cd /automysqlbackup
+</code></pre>
+
 <ul>
-<li>Download automysqlbackup (v3.0<em>rc6) to the server. (Check <a href="http://sourceforge.net/projects/automysqlbackup">Sourceforge</a> for the latest version of AutoMySQLBackup. As of this writing v3.0</em>rc6 is the latest)</li>
+  <li>Download automysqlbackup (v3.0_rc6) to the server. (Check <a href="http://sourceforge.net/projects/automysqlbackup">Sourceforge</a> for the latest version of AutoMySQLBackup. As of this writing v3.0_rc6 is the latest)</li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget http://kaz.dl.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/AutoMySQLBackup%20VER%203.0/automysqlbackup-v3.0_rc6.tar.gz
-</code></pre></div>
+
+<pre><code class="language-bash">wget http://kaz.dl.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/AutoMySQLBackup%20VER%203.0/automysqlbackup-v3.0_rc6.tar.gz
+</code></pre>
+
 <ul>
-<li>Extraxt the downloaded tarball </li>
+  <li>Extraxt the downloaded tarball</li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">tar zxvf automysqlbackup-v3.0_rc6.tar.gz
-</code></pre></div>
+
+<pre><code class="language-bash">tar zxvf automysqlbackup-v3.0_rc6.tar.gz
+</code></pre>
+
 <ul>
-<li>Run the installer </li>
+  <li>Run the installer</li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">./install.sh
-</code></pre></div>
+
+<pre><code class="language-bash">./install.sh
+</code></pre>
+
 <p>By default it will install the configuration files in <code>/etc/automysqlbackup</code> and the executable files in <code>/usr/local/bin</code>.</p>
 
-<h2>Configuring AutoMySQLBackup</h2>
-
+<h2 id="configuring-automysqlbackup">Configuring AutoMySQLBackup</h2>
 <p>Edit the <code>/etc/automysqlbackup/myserver.conf</code> file to customise your settings. 
-The myserver.conf file is VERY well documented, all you have to do is read and it&#39;ll tell you what setting is supposed to do what and how you should configure it. You do not need to edit beyond the basics. What you generally edit are basic settings (username, passsword, host and backup directory), database settings (which ones to backups, which ones to not), rotation settings (when to backup), and notification settings (who and what to tell when a backup is complete).</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Basic Settings</span>
-<span class="nv">CONFIG_mysql_dump_username</span><span class="o">=</span><span class="s1">'root'</span>
-<span class="nv">CONFIG_mysql_dump_password</span><span class="o">=</span><span class="s1">'password'</span>
-<span class="nv">CONFIG_mysql_dump_host</span><span class="o">=</span><span class="s1">'localhost'</span>
-<span class="nv">CONFIG_mysql_dump_host_friendly</span><span class="o">=</span><span class="s1">'Main MySQL Server'</span>
-<span class="nv">CONFIG_backup_dir</span><span class="o">=</span><span class="s1">'/backup/db'</span>
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Databases to backup</span>
+The myserver.conf file is VERY well documented, all you have to do is read and it’ll tell you what setting is supposed to do what and how you should configure it. You do not need to edit beyond the basics. What you generally edit are basic settings (username, passsword, host and backup directory), database settings (which ones to backups, which ones to not), rotation settings (when to backup), and notification settings (who and what to tell when a backup is complete).</p>
 
-<span class="c"># List of databases for Daily/Weekly Backup e.g. ( 'DB1' 'DB2' 'DB3' ... )</span>
-<span class="c"># set to (), i.e. empty, if you want to backup all databases</span>
-<span class="nv">CONFIG_db_names</span><span class="o">=()</span>
+<pre><code class="language-bash"># Basic Settings
+CONFIG_mysql_dump_username='root'
+CONFIG_mysql_dump_password='password'
+CONFIG_mysql_dump_host='localhost'
+CONFIG_mysql_dump_host_friendly='Main MySQL Server'
+CONFIG_backup_dir='/backup/db'
+</code></pre>
 
-<span class="c"># List of databases for Monthly Backups.</span>
-<span class="c"># set to (), i.e. empty, if you want to backup all databases</span>
-<span class="nv">CONFIG_db_month_names</span><span class="o">=()</span>
+<pre><code class="language-bash"># Databases to backup
 
-<span class="c"># List of DBNAMES to EXLUCDE if DBNAMES is empty, i.e. ().</span>
-<span class="nv">CONFIG_db_exclude</span><span class="o">=(</span> <span class="s1">'information_schema'</span> <span class="o">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Rotation Settings</span>
+# List of databases for Daily/Weekly Backup e.g. ( 'DB1' 'DB2' 'DB3' ... )
+# set to (), i.e. empty, if you want to backup all databases
+CONFIG_db_names=()
 
-<span class="c"># Which day do you want backups?</span>
-<span class="nv">CONFIG_do_monthly</span><span class="o">=</span><span class="s2">"01"</span>
-<span class="nv">CONFIG_do_weekly</span><span class="o">=</span><span class="s2">"5"</span>
+# List of databases for Monthly Backups.
+# set to (), i.e. empty, if you want to backup all databases
+CONFIG_db_month_names=()
 
-<span class="c"># Set rotation of daily backups.</span>
-<span class="nv">CONFIG_rotation_daily</span><span class="o">=</span>7
-<span class="nv">CONFIG_rotation_weekly</span><span class="o">=</span>14
-<span class="nv">CONFIG_rotation_monthly</span><span class="o">=</span>12
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Notification setup</span>
+# List of DBNAMES to EXLUCDE if DBNAMES is empty, i.e. ().
+CONFIG_db_exclude=( 'information_schema' )
+</code></pre>
 
-<span class="c"># What would you like to be mailed to you?</span>
-<span class="c"># - log   : send only log file</span>
-<span class="c"># - files : send log file and sql files as attachments (see docs)</span>
-<span class="c"># - stdout : will simply output the log to the screen if run manually.</span>
-<span class="c"># - quiet : Only send logs if an error occurs to the MAILADDR.</span>
-<span class="nv">CONFIG_mailcontent</span><span class="o">=</span><span class="s1">'log'</span>
+<pre><code class="language-bash"># Rotation Settings
 
-<span class="c"># Email Address to send mail to? (user@domain.com)</span>
-<span class="nv">CONFIG_mail_address</span><span class="o">=</span><span class="s1">'hello@aamnah.com'</span>
-</code></pre></div>
-<p>Don&#39;t forget to <strong>create the backup directory</strong>. To test run, run the command <code>automysqlbackup /etc/automysqlbackup/myserver.conf</code></p>
+# Which day do you want backups?
+CONFIG_do_monthly="01"
+CONFIG_do_weekly="5"
 
-<h2>Adding AutoMySQLBackup to Cron</h2>
+# Set rotation of daily backups.
+CONFIG_rotation_daily=7
+CONFIG_rotation_weekly=14
+CONFIG_rotation_monthly=12
+</code></pre>
 
+<pre><code class="language-bash"># Notification setup
+
+# What would you like to be mailed to you?
+# - log   : send only log file
+# - files : send log file and sql files as attachments (see docs)
+# - stdout : will simply output the log to the screen if run manually.
+# - quiet : Only send logs if an error occurs to the MAILADDR.
+CONFIG_mailcontent='log'
+
+# Email Address to send mail to? (user@domain.com)
+CONFIG_mail_address='hello@aamnah.com'
+</code></pre>
+
+<p>Don’t forget to <strong>create the backup directory</strong>. To test run, run the command <code>automysqlbackup /etc/automysqlbackup/myserver.conf</code></p>
+
+<h2 id="adding-automysqlbackup-to-cron">Adding AutoMySQLBackup to Cron</h2>
 <p>Edit crontab <code>sudo crontab -e</code> and add the following at the end.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># AutoMySQLbackup run command for backing up databases every day at 12:05am.</span>
-5 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sudo automysqlbackup /etc/automysqlbackup/myserver.conf
 
-<span class="c"># Copy backed up databases to Amazon S3 via s3cmd, daily at 5am.</span>
-0 5 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sudo s3cmd -r sync /backup/location/ s3://location/
-</code></pre></div>
-<h2>Creating an Alias</h2>
+<pre><code class="language-bash"># AutoMySQLbackup run command for backing up databases every day at 12:05am.
+5 0 * * * sudo automysqlbackup /etc/automysqlbackup/myserver.conf
 
+# Copy backed up databases to Amazon S3 via s3cmd, daily at 5am.
+0 5 * * * sudo s3cmd -r sync /backup/location/ s3://location/
+</code></pre>
+
+<h2 id="creating-an-alias">Creating an Alias</h2>
 <p>To run database backups and send them to S3 with one single word, make an alias for it. Edit your <code>.bash_profile</code> (or <code>.bashrc</code>) and add the following at the end:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># backup databases and send them to S3</span>
-<span class="nb">alias </span><span class="nv">backupdb</span><span class="o">=</span><span class="s1">'automysqlbackup /etc/automysqlbackup/myserver.conf &amp;&amp; s3cmd sync -r /backup/location/ s3://location/'</span>
-</code></pre></div>
-<p>Now that you have made an alias, every time you run <code>backupdb</code> in the terminal, it&#39;ll take database backups and send them to S3. Creating an alias is good for manually taking database backups as it saves you the effort of remembering and writing two different commands.</p>
+
+<pre><code class="language-bash"># backup databases and send them to S3
+alias backupdb='automysqlbackup /etc/automysqlbackup/myserver.conf &amp;&amp; s3cmd sync -r /backup/location/ s3://location/'
+</code></pre>
+
+<p>Now that you have made an alias, every time you run <code>backupdb</code> in the terminal, it’ll take database backups and send them to S3. Creating an alias is good for manually taking database backups as it saves you the effort of remembering and writing two different commands.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -283,6 +306,7 @@ The myserver.conf file is VERY well documented, all you have to do is read and i
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

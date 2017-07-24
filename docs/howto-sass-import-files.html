@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See Bootstrap&#39;s Sass files for an example. Every css...">
+  <meta name="description" content="Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See Bootstrap’s Sass files for an example. Every css com...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-sass-import-files">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Import Files in Sass with `@import`</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T19:51:45+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-import-files.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-import-files.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>compass</li>
       
@@ -102,36 +103,39 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See <a href="http://getbootstrap.com/css/#sass" target="_blank">Bootstrap&#39;s Sass files</a> for an example. Every css component gets it&#39;s own .scss file and they all get compiled into one main stylesheet.</p>
+    <p>Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See <a href="http://getbootstrap.com/css/#sass" target="_blank">Bootstrap’s Sass files</a> for an example. Every css component gets it’s own .scss file and they all get compiled into one main stylesheet.</p>
 
 <p>The usual imports in a main.scss file are something like this:</p>
-<div class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="c1">// Reset
-</span><span class="k">@import</span> <span class="s">"_reset.scss";</span>
 
-<span class="c1">// Definings
-</span><span class="k">@import</span> <span class="s">"_varables.scss";</span>
-<span class="k">@import</span> <span class="s">"_mixins.scss";</span>
+<pre><code class="language-sass">// Reset
+@import "_reset.scss";
 
-<span class="c1">// Global Styles
-</span><span class="k">@imprt</span> <span class="s2">"_globals.scss"</span><span class="o">;</span>
+// Definings
+@import "_varables.scss";
+@import "_mixins.scss";
 
-<span class="c1">// Page specifics
-</span><span class="k">@import</span> <span class="s">"pages/_about_us.scss";</span>
-</code></pre></div>
-<h2>Notes:</h2>
+// Global Styles
+@imprt "_globals.scss";
+
+// Page specifics
+@import "pages/_about_us.scss";
+</code></pre>
+
+<h2 id="notes">Notes:</h2>
 
 <ul>
-<li>Files that start with an <code>_</code> are left alone by sass. They are not compiled. (similar to Jekyll..)</li>
-<li>Order in which files are imported is important because of the cascading nature of css. Things that are defined first are often overwritten by later definitions.</li>
-<li>You can import a file that&#39;s already importing six other files. Nested imports work.</li>
+  <li>Files that start with an <code>_</code> are left alone by sass. They are not compiled. (similar to Jekyll..)</li>
+  <li>Order in which files are imported is important because of the cascading nature of css. Things that are defined first are often overwritten by later definitions.</li>
+  <li>You can import a file that’s already importing six other files. Nested imports work.</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -177,6 +181,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

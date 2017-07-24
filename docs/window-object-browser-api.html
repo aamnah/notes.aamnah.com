@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Window is the browser windowalert(&#39;hello&#39;) is the same as window.alert(&#39;hello&#39;)When we refer to variable or function, it looks in the local s...">
+  <meta name="description" content="  Window is the browser window  alert('hello') is the same as window.alert('hello')  When we refer to variable or function, it looks in the local scope first...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/window-object-browser-api">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Window object</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-21T00:00:00+05:00" itemprop="datePublished">
           Mar 21, 2017
         </time>
@@ -91,36 +92,39 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Window Object.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/Window Object.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ul>
-<li>Window is the browser window</li>
-<li><code>alert(&#39;hello&#39;)</code> is the same as <code>window.alert(&#39;hello&#39;)</code></li>
-<li>When we refer to variable or function, it looks in the local scope first. If it is not found there, it moves up the chain until it reaches the Window object, at which point it is global</li>
-<li>All global variables are part of the Window object. They can be referenced as <code>window.foo</code></li>
-<li>You can overwrite global (Window object) functions by redeclaring them with the same name</li>
-<li>Window object is in the global namespace</li>
+  <li>Window is the browser window</li>
+  <li><code>alert('hello')</code> is the same as <code>window.alert('hello')</code></li>
+  <li>When we refer to variable or function, it looks in the local scope first. If it is not found there, it moves up the chain until it reaches the Window object, at which point it is global</li>
+  <li>All global variables are part of the Window object. They can be referenced as <code>window.foo</code></li>
+  <li>You can overwrite global (Window object) functions by redeclaring them with the same name</li>
+  <li>Window object is in the global namespace</li>
 </ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="s1">'Bonjour!'</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">greeting</span><span class="p">)</span>
-</code></pre></div>
-<h2>Links</h2>
+
+<pre><code class="language-javascript">let greeting = 'Bonjour!'
+window.alert(window.greeting)
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.udemy.com/html5-apis-for-javascript-a-course-for-web-developers/learn/v4/t/lecture/178025?start=0">Udemy: The Window Object</a></li>
+  <li><a href="https://www.udemy.com/html5-apis-for-javascript-a-course-for-web-developers/learn/v4/t/lecture/178025?start=0">Udemy: The Window Object</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -166,6 +170,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

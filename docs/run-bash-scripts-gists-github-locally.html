@@ -14,6 +14,7 @@
   <meta name="description" content="This post is about running install scripts saved in Gists on Github locally from a Mac Terminal using curl. However, this should work for just about any scri...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/run-bash-scripts-gists-github-locally">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Directly run bash scripts in Github Gists locally in Terminal.</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2015-02-17T00:00:00+05:00" itemprop="datePublished">
           Feb 17, 2015
         </time>
@@ -97,50 +98,60 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/directly-run-bash-scripts-from-github-gist.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/directly-run-bash-scripts-from-github-gist.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>This post is about running install scripts saved in Gists on Github locally from a Mac Terminal using curl. However, this should work for just about any script saved online and is not in any way limited to gists.</p>
 
 <p>You need to have <strong>Command Line Tools for Xocde</strong> installed.</p>
 
-<h2>Run a script off a Github Gist</h2>
+<h2 id="run-a-script-off-a-github-gist">Run a script off a Github Gist</h2>
 
 <p>First things first, find a script that you want to install. <a href="https://gist.github.com/aamnah/aa48749844fffbd42633">Here</a> is a bash script that i wrote for installing WordPress.</p>
 
 <p>Get the <strong>raw</strong> version of it and copy the link. Now we are going to <code>curl</code> that link to get the content in the file and then pass that content to <code>bash</code>.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -L https://gist.githubusercontent.com/aamnah/aa48749844fffbd42633/raw/install-wp.sh | bash
-</code></pre></div>
+
+<pre><code class="language-bash">curl -L https://gist.githubusercontent.com/aamnah/aa48749844fffbd42633/raw/install-wp.sh | bash
+</code></pre>
+
 <p>The <code>-L</code> flag is for location. If the server reports that the requested page  has  moved  to  a  different  location, this option will make curl redo the request on the new place.</p>
 
 <p>The pipe <code>|</code> links the two commands so that the output of the <code>curl</code> command becomes the input of the <code>bash</code> command.</p>
 
-<h2>Run any bash script off the internet</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -L http://xrl.us/installperlosx | bash
-</code></pre></div>
-<p>The above command will use an install script for Perl off the internet and run it on your Mac. </p>
+<h2 id="run-any-bash-script-off-the-internet">Run any bash script off the internet</h2>
 
-<p><img src="http://tldrdevnotes.comassets/img/bash-install-perl.png" alt="Install Perl locally via an online install script"></p>
+<pre><code class="language-bash">curl -L http://xrl.us/installperlosx | bash
+</code></pre>
 
-<h2>Run a script from Gist and pass an argument</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sL http://script/location | bash /dev/stdin arg1 arg2
-</code></pre></div>
+<p>The above command will use an install script for Perl off the internet and run it on your Mac.</p>
+
+<p><img src="http://tldrdevnotes.comassets/img/bash-install-perl.png" alt="Install Perl locally via an online install script" /></p>
+
+<h2 id="run-a-script-from-gist-and-pass-an-argument">Run a script from Gist and pass an argument</h2>
+<pre><code class="language-bash">curl -sL http://script/location | bash /dev/stdin arg1 arg2
+</code></pre>
+
 <p>Bourne shell also supports <code>-s</code> to read from stdin.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sL http://script/location | bash -s arg1 arg2
-</code></pre></div>
-<p>For example, the following command runs the <a href="https://gist.github.com/aamnah/265f2433659b762b480c">script to create a virtual host file</a> while also passing it the argument &#39;mydomain.com&#39; which is needed for the creation of <em>.conf</em> file and <em>/var/www/</em> directory.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -L https://gist.githubusercontent.com/aamnah/265f2433659b762b480c/raw/aacb8938f27e789812570bf2467816133c2bb9e2/vhost.sh | bash /dev/stdin mydomain.com
-</code></pre></div>
+
+<pre><code class="language-bash">curl -sL http://script/location | bash -s arg1 arg2
+</code></pre>
+
+<p>For example, the following command runs the <a href="https://gist.github.com/aamnah/265f2433659b762b480c">script to create a virtual host file</a> while also passing it the argument ‘mydomain.com’ which is needed for the creation of <em>.conf</em> file and <em>/var/www/</em> directory.</p>
+
+<pre><code class="language-bash">curl -L https://gist.githubusercontent.com/aamnah/265f2433659b762b480c/raw/aacb8938f27e789812570bf2467816133c2bb9e2/vhost.sh | bash /dev/stdin mydomain.com
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -186,6 +197,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

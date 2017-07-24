@@ -14,6 +14,7 @@
   <meta name="description" content="Generate an SSH Key Pair">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/ssh-bitbucket-mac-linux">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Setup SSH Keys for Bitbucket on Mac/Linux</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-18T00:00:00+05:00" itemprop="datePublished">
           Jan 18, 2015
         </time>
@@ -91,42 +92,56 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-18-ssh-bitbucket-mac-linux.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-18-ssh-bitbucket-mac-linux.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Generate an SSH Key Pair</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">cd ~/.ssh &amp;&amp; ssh-keygen -t rsa
-</code></pre></div>
-<h3>Copy the Public key</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">cat ~/.ssh/keyname.pub
-</code></pre></div>
-<p>Copy the output given as a result of the command above. It is the content of your <em>keyname.pub</em> file. </p>
+    <h3 id="generate-an-ssh-key-pair">Generate an SSH Key Pair</h3>
+
+<pre><code>cd ~/.ssh &amp;&amp; ssh-keygen -t rsa
+</code></pre>
+
+<h3 id="copy-the-public-key">Copy the Public key</h3>
+
+<pre><code>cat ~/.ssh/keyname.pub
+</code></pre>
+
+<p>Copy the output given as a result of the command above. It is the content of your <em>keyname.pub</em> file.</p>
 
 <p>If you are on a Mac, you can directly copy the contents of <em>keyname.pub</em> by running</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cat ~/.ssh/keyname.pub | pbcopy
-</code></pre></div>
-<h3>Start the SSH Agent and Load your keys</h3>
+
+<pre><code>cat ~/.ssh/keyname.pub | pbcopy
+</code></pre>
+
+<h3 id="start-the-ssh-agent-and-load-your-keys">Start the SSH Agent and Load your keys</h3>
 
 <p>See if <strong>ssh-agent</strong> is running</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ps -e | grep [s]sh-agent
-</code></pre></div>
+
+<pre><code>ps -e | grep [s]sh-agent
+</code></pre>
+
 <p>If no output is given then it means it is not running. Start the agent by running:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ssh-agent /bin/bash
-</code></pre></div>
+
+<pre><code>ssh-agent /bin/bash
+</code></pre>
+
 <p>Load your SSH Key with the <strong>ssh-add</strong> command</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ssh-add ~/.ssh/keyname
-</code></pre></div>
+
+<pre><code>ssh-add ~/.ssh/keyname
+</code></pre>
+
 <p>List the loaded keys to make sure it has been added.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ssh-add -l
-</code></pre></div>
-<h3>Add it to Bitbucket</h3>
+
+<pre><code>ssh-add -l
+</code></pre>
+
+<h3 id="add-it-to-bitbucket">Add it to Bitbucket</h3>
 
 <p>Go to <strong>Manage Account</strong> &gt; Security &gt; <strong>SSH Keys</strong> &gt; <strong><a href="https://bitbucket.org/account/user/USERNAME/ssh-keys/">Add Key</a></strong></p>
 
@@ -134,7 +149,8 @@
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -180,6 +196,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Here's how you redirect a URL in JavaScript. Just set the value of window.location.replace to the URL you want.&lt;script type="text/javascript"&gt;window.lo...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-redirect-url-javascript">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">how to redirect a URL in JavaScript</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-07-07T09:02:44+05:00" itemprop="datePublished">
           Jul 7, 2014
         </time>
@@ -91,42 +92,39 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2014-07-07-howto-redirect-url-javascript.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2014-07-07-howto-redirect-url-javascript.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>javascript</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Here's how you redirect a URL in JavaScript. Just set the value of <code>window.location.replace</code> to the URL you want.</p>
-
 <pre class="lang:js decode:true ">&lt;script type="text/javascript"&gt;
 window.location.href = "http://www.url.com"
 &lt;/script&gt;</pre>
-
 <p>When redirecting, <code>window.location.replace</code> is preferred over <code>window.location.href</code>.</p>
-
 <pre class="lang:js decode:true ">// similar behavior as an HTTP redirect
 window.location.replace("http://stackoverflow.com");
 
 // similar behavior as clicking on a link
 window.location.href = "http://stackoverflow.com";</pre>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-in-jquery-javascript">StackOverflow: How do I redirect to another page in JavaScript/jQuery?</a></li>
-<li><a href="http://www.tizag.com/javascriptT/javascriptredirect.php">how to do a time delay redirect in JavaScript</a></li>
+  <li><a href="http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-in-jquery-javascript">StackOverflow: How do I redirect to another page in JavaScript/jQuery?</a></li>
+  <li><a href="http://www.tizag.com/javascriptT/javascriptredirect.php">how to do a time delay redirect in JavaScript</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -172,6 +170,7 @@ window.location.href = "http://stackoverflow.com";</pre>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

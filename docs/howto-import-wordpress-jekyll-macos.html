@@ -1,19 +1,23 @@
-<p>install <code>jekyll-import</code> and it&#39;s dependencies</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># install homebrew if not already installed</span>
-<span class="c"># /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+<p>install <code>jekyll-import</code> and it’s dependencies</p>
+
+<pre><code class="language-bash"># install homebrew if not already installed
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install mysql
 sudo gem install unidecode sequel mysql2 htmlentities hpricot open_uri_redirections 
 sudo gem install jekyll-import
-</code></pre></div>
-<p>Export your WordPress site content (Dashboard &gt; Tools &gt; Export). Now import the downloaded file using the following command: </p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ruby</span> <span class="o">-</span><span class="n">rubygems</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'require "jekyll-import"; 
+</code></pre>
+
+<p>Export your WordPress site content (Dashboard &gt; Tools &gt; Export). Now import the downloaded file using the following command:</p>
+
+<pre><code class="language-ruby">ruby -rubygems -e 'require "jekyll-import"; 
   JekyllImport::Importers::WordpressDotCom.run({ 
     "source"    =&gt; "/Users/aamnah/tldrdevnotes.wordpress.2017-02-23.xml",
-  })'</span>
-</code></pre></div>
+  })'
+</code></pre>
 <p>Make sure to update the source, it should have the location of your downloaded wordpress export file. You should something like below:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Downloading images for Sass: Creating a Color Palette
+
+<pre><code>Downloading images for Sass: Creating a Color Palette
   http://mysite.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-0.23.21-300x220.jpeg
     OK!
 Imported 6 attachments
@@ -21,4 +25,4 @@ Imported 18 nav_menu_items
 Imported 1 custom_csss
 Imported 1 pages
 Imported 73 posts
-</code></pre></div>
+</code></pre>

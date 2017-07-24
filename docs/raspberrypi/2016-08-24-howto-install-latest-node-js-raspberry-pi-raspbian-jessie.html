@@ -14,6 +14,7 @@
   <meta name="description" content="The Node.js version that comes pre-installed with Raspbian Jessie is old. If you check the version using `node -v`, it'll give you v0.10.29. The latest ARM-v...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/raspberrypi/2016-08-24-howto-install-latest-node-js-raspberry-pi-raspbian-jessie.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Install/Upgrade Node.js on Raspberry Pi (Raspbian Jessie)</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2016-08-24T17:07:46+05:00" itemprop="datePublished">
           Aug 24, 2016
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2016-08-24-howto-install-latest-node-js-raspberry-pi-raspbian-jessie.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2016-08-24-howto-install-latest-node-js-raspberry-pi-raspbian-jessie.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>Raspberry Pi</li>
       
@@ -102,47 +103,58 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>tl;dr</h2>
+    <h2 id="tldr">tl;dr</h2>
 
 <p>Run this one command in Terminal:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | bash
-</code></pre></div>
+
+<pre><code class="language-bash">curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | bash
+</code></pre>
+
 <p>This will automatically run a script i wrote that takes care of removing existing Node.js stuff, downloading and installing the latest version, and cleaning up afterwards. It also confirms the Node.js version once the installation is done.</p>
 
-<hr>
+<hr />
 
-<p>The Node.js version that comes pre-installed with Raspbian Jessie is old. If you check the version using <code>node -v</code>, it&#39;ll give you v0.10.29. The latest ARM-version of Node.js as of this writing is v4.2.1. Let&#39;s remove the old and install the latest version available on our Raspberry Pi.</p>
+<p>The Node.js version that comes pre-installed with Raspbian Jessie is old. If you check the version using <code>node -v</code>, it’ll give you v0.10.29. The latest ARM-version of Node.js as of this writing is v4.2.1. Let’s remove the old and install the latest version available on our Raspberry Pi.</p>
 
-<h3>Remove existing Node.js</h3>
+<h3 id="remove-existing-nodejs">Remove existing Node.js</h3>
 
 <p>Run the following commands one by one:</p>
-<div class="highlight"><pre><code class="language-shell" data-lang="shell">sudo apt-get remove nodered -y
+
+<pre><code class="language-shell">sudo apt-get remove nodered -y
 sudo apt-get remove nodejs nodejs-legacy -y
 sudo apt-get remove npm -y
-</code></pre></div>
-<h3>Install latest Node.js ARM-release</h3>
+</code></pre>
+
+<h3 id="install-latest-nodejs-arm-release">Install latest Node.js ARM-release</h3>
 
 <p>Download:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget https://node-arm.herokuapp.com/node_latest_armhf.deb
-</code></pre></div>
-<p>Install:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg -i node_latest_armhf.deb
-</code></pre></div>
-<p>That&#39;s it, you now have the latest Node.js version available for the Raspberry Pi. You can confirm the version using <code>node -v</code>.</p>
 
-<h3>Re-install Node-RED</h3>
+<pre><code class="language-bash">wget https://node-arm.herokuapp.com/node_latest_armhf.deb
+</code></pre>
+
+<p>Install:</p>
+
+<pre><code class="language-bash">sudo dpkg -i node_latest_armhf.deb
+</code></pre>
+
+<p>That’s it, you now have the latest Node.js version available for the Raspberry Pi. You can confirm the version using <code>node -v</code>.</p>
+
+<h3 id="re-install-node-red">Re-install Node-RED</h3>
 
 <p>We uninstalled Node-RED as part of removing Node. If you want to re-install it, you can do so by running the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt update <span class="o">&amp;&amp;</span> sudo apt install nodered -y
-</code></pre></div>
+
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt install nodered -y
+</code></pre>
+
 <p><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=34&amp;t=140747">source</a></p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -188,6 +200,7 @@ sudo apt-get remove npm -y
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -14,6 +14,7 @@
   <meta name="description" content="Git Basics">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/basics-git">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Git Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T16:17:32+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/2014-05-21-basics-git.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/2014-05-21-basics-git.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>cheatsheet</li>
       
@@ -104,13 +105,12 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Git Basics</h2>
+    <h2 id="git-basics">Git Basics</h2>
 
-<h2>Repositories</h2>
-
+<h2 id="repositories">Repositories</h2>
 <p>Start a git repo
 <code>bash
 git init my_new-repo
@@ -121,16 +121,14 @@ git init my_new-repo
 git init
 </code></p>
 
-<p>Removing the repo = just remove the .git folder, it&#39;s the brains
+<p>Removing the repo = just remove the .git folder, it’s the brains
 <code>bash
 rm -r my_project/.git
 </code></p>
 
-<p>where my_project is the project folder you are removing git from.</p>
-
-<h2>Adding Code</h2>
-
-<p>Add files to track
+<p>where my_project is the project folder you are removing git from.
+## Adding Code
+Add files to track
 <code>bash
 git add filename.txt
 </code></p>
@@ -140,8 +138,7 @@ git add filename.txt
 git add -A
 </code></p>
 
-<h2>Committing Code</h2>
-
+<h2 id="committing-code">Committing Code</h2>
 <p>Adding a file
 <code>bash
 git add README.md
@@ -160,11 +157,10 @@ git commit -a
 
 <p>Commit all code with a message (-m)
 <code>bash
-git commit -a -m &#39;&#39;your commit message&#39;&#39;
+git commit -a -m ''your commit message''
 </code></p>
 
-<h2>Check Status</h2>
-
+<h2 id="check-status">Check Status</h2>
 <p>show git status
 <code>bash
 git status
@@ -194,20 +190,18 @@ check difference between two commits
 git diff commit1 commit2
 </code></p>
 
-<h2>Configuration</h2>
-
+<h2 id="configuration">Configuration</h2>
 <p>configure username
 <code>bash
-git config --global user.name &quot;Your Name&quot;
+git config --global user.name "Your Name"
 </code></p>
 
 <p>configure email
 <code>bash
-git config --global user.name &quot;me@mydomain.com&quot;
+git config --global user.name "me@mydomain.com"
 </code></p>
 
-<h2>Branches</h2>
-
+<h2 id="branches">Branches</h2>
 <p>Bracnhes are like alternate realities for your repositry. They let you pursue different courses of action on your project in parallel.
 Check what branch you are in
 <code>bash
@@ -241,37 +235,39 @@ git branch
 </code></p>
 
 <ul>
-<li>asterisk indicates what branch you&#39;re currently on.
+  <li>asterisk indicates what branch you’re currently on.
 delete branch
 <code>bash
 git branch -D branchName
 </code></li>
 </ul>
 
-<p>-D flag will delete the branch. you can&#39;t delete the branch you are in, so switch before deleting.
+<p>-D flag will delete the branch. you can’t delete the branch you are in, so switch before deleting.
 push branch to remote
 <code>bash
 git push origin branchName
 </code></p>
 
-<h2>Merging</h2>
-
+<h2 id="merging">Merging</h2>
 <p>Merge a branch
 <code>bash
 git merge branchName
 </code></p>
 
 <p>after manually taking care of merge conflicts,</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git add conflictedFile
-</code></pre></div>
-<p>and then</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git commit
-</code></pre></div>
-<h2>Cloning</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone remoteRepo  yourNewRepoName
-</code></pre></div>
-<h2>Working with Remotes</h2>
 
+<pre><code class="language-bash">git add conflictedFile
+</code></pre>
+<p>and then</p>
+
+<pre><code class="language-bash">git commit
+</code></pre>
+
+<h2 id="cloning">Cloning</h2>
+<pre><code class="language-bash">git clone remoteRepo  yourNewRepoName
+</code></pre>
+
+<h2 id="working-with-remotes">Working with Remotes</h2>
 <p>show list of remote repos
 <code>bash
 git remote
@@ -294,7 +290,7 @@ git push -u origin  master
 
 <p>origin is the name of remote repo and master is the branch.</p>
 
-<h2>Git Flow</h2>
+<h2 id="git-flow">Git Flow</h2>
 
 <p>installing git-flow on Linux
 <code>bash
@@ -316,25 +312,26 @@ git flow Flow_banch start BranchName
 git flow Flow_banch finish BranchName
 </code></p>
 
-<h2>Notes</h2>
+<h2 id="notes">Notes</h2>
 
 <ul>
-<li>The most important part in the repo is the <strong>.git</strong> folder. The .git folder is what tracks everything. The name of the folder you initiate a git repo with/in doesn&#39;t matter. The files inside doesn&#39;t matter. Whether you delete all those files doesn&#39;t matter either. If you have the .git folder intact, you&#39;ll be able to restore all those files</li>
-<li><strong>--global</strong> flag means that we&#39;d like to apply these changes for all our repositories</li>
-<li>the answer to &#39;should i commit?&#39; is &#39;do you have a good commit message?&#39;</li>
-<li>when you add a file, git adds it to what&#39;s called the staging area.</li>
-<li>check <a href="https://coderwall.com/p/euwpig">this link</a> for a better commit log.</li>
-<li>the most recent commit = <strong>HEAD</strong></li>
-<li>the commit before the last commit = <strong>HEAD~1</strong></li>
-<li>master is like the trunk of your project. It&#39;s usually the main code of your project that&#39;s deployed.</li>
-<li>when we create a branch, it starts with a copy of the branch we are in. If you are in a branch other than master, <strong>your new branch will copy the branch you are currently in</strong>. Consider actual tree branches, they branch out from where they are already.</li>
+  <li>The most important part in the repo is the <strong>.git</strong> folder. The .git folder is what tracks everything. The name of the folder you initiate a git repo with/in doesn’t matter. The files inside doesn’t matter. Whether you delete all those files doesn’t matter either. If you have the .git folder intact, you’ll be able to restore all those files</li>
+  <li><strong>–global</strong> flag means that we’d like to apply these changes for all our repositories</li>
+  <li>the answer to ‘should i commit?’ is ‘do you have a good commit message?’</li>
+  <li>when you add a file, git adds it to what’s called the staging area.</li>
+  <li>check <a href="https://coderwall.com/p/euwpig">this link</a> for a better commit log.</li>
+  <li>the most recent commit = <strong>HEAD</strong></li>
+  <li>the commit before the last commit = <strong>HEAD~1</strong></li>
+  <li>master is like the trunk of your project. It’s usually the main code of your project that’s deployed.</li>
+  <li>when we create a branch, it starts with a copy of the branch we are in. If you are in a branch other than master, <strong>your new branch will copy the branch you are currently in</strong>. Consider actual tree branches, they branch out from where they are already.</li>
 </ul>
 
 <p>For a more detailed, easy to understand and video demonstrated intro to Git, take the <a href="http://referrals.trhou.se/aamnah"><em>Git Basics</em> course on Treehouse</a>. This article was written while taking that course.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -380,6 +377,7 @@ git flow Flow_banch finish BranchName
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

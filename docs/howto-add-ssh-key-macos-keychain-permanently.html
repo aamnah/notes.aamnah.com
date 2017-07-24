@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Run ssh-agent if it&#39;s not already running">
+  <meta name="description" content="Run ssh-agent if it’s not already running">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-add-ssh-key-macos-keychain-permanently">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Add SSH Key to MacOS Keychain permanently</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2017-02-20T00:00:00+05:00" itemprop="datePublished">
           Feb 20, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2017-02-20-howto-add-ssh-key-macos-keychain-permanently.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2017-02-20-howto-add-ssh-key-macos-keychain-permanently.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>ssh</li>
       
@@ -104,50 +105,63 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>Run <code>ssh-agent</code> if it&#39;s not already running</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">"</span>
-</code></pre></div>
-<p>Add SSH key to ssh-agent</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-add -K ~/.ssh/id_rsa
-</code></pre></div>
-<p>where <code>id_rsa</code> is the actual filename of the key you&#39;re adding. This should do it for OSX before Sierra.</p>
+    <p>Run <code>ssh-agent</code> if it’s not already running</p>
 
-<h3>MacOS Sierra</h3>
+<pre><code class="language-bash">eval "$(ssh-agent -s)"
+</code></pre>
+
+<p>Add SSH key to ssh-agent</p>
+
+<pre><code class="language-bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre>
+
+<p>where <code>id_rsa</code> is the actual filename of the key you’re adding. This should do it for OSX before Sierra.</p>
+
+<h3 id="macos-sierra">MacOS Sierra</h3>
 
 <p>Create an SSH config file</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">nano ~/.ssh/config
-</code></pre></div>
+
+<pre><code class="language-bash">nano ~/.ssh/config
+</code></pre>
+
 <p>Add the following to it</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Host <span class="k">*</span>
+
+<pre><code class="language-bash">Host *
 UseKeychain yes
 AddKeysToAgent yes
 IdentityFile ~/.ssh/id_rsa
-</code></pre></div>
+</code></pre>
+
 <ul>
-<li><code>UseKeychain yes</code> tells SSH to look in your OSX keychain for the key passphrase.</li>
-<li><code>IdentityFile</code> specifies the key you want to load. If you want to load multiple keys just add more <code>IdentityFile</code> entries, one per line.</li>
+  <li><code>UseKeychain yes</code> tells SSH to look in your OSX keychain for the key passphrase.</li>
+  <li><code>IdentityFile</code> specifies the key you want to load. If you want to load multiple keys just add more <code>IdentityFile</code> entries, one per line.</li>
 </ul>
 
 <p>Now add your key(s)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-add -K ~/.ssh/id_rsa
-</code></pre></div>
+
+<pre><code class="language-bash">ssh-add -K ~/.ssh/id_rsa
+</code></pre>
+
 <p>For multiple keys, the config file will look like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Host <span class="k">*</span>
+
+<pre><code class="language-bash">Host *
 UseKeychain yes
 AddKeysToAgent yes
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/foo
 IdentityFile ~/.ssh/bar
-</code></pre></div>
-<h3>More about the <code>~/.ssh/config</code> file</h3>
+</code></pre>
+
+<h3 id="more-about-the-sshconfig-file">More about the <code>~/.ssh/config</code> file</h3>
 
 <p>The SSH config file lets you set defaults for all servers (host) as well as save settings like which key/port/user to use for specific ssh connections. Usually, i use <a href="https://fitztrev.github.io/shuttle/">Shuttle</a> for one-click connections, and it picks up and lists all hosts from the ssh config file as well.</p>
 
-<p>If you&#39;re using the config file to add shortcuts for different servers, your config file may look like this</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Host server1
+<p>If you’re using the config file to add shortcuts for different servers, your config file may look like this</p>
+
+<pre><code class="language-bash">Host server1
      HostName server1.cyberciti.biz
      User nixcraft
      Port 4242
@@ -157,26 +171,29 @@ Host nas01
      HostName 192.168.1.100
      User root
      IdentityFile ~/.ssh/nas01.key
-</code></pre></div>
+</code></pre>
+
 <p>Once you have servers saved in your config file, you can connect to them by specifying their names, like so</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh server1
-</code></pre></div>
-<div class='Post-note'>
+
+<pre><code class="language-bash">ssh server1
+</code></pre>
+
+<div class="Post-note">
 NOTE: You can not have `@` in the `Host` value. For example, i tried configuring `Host user@server` because i had multiple users, and it didn't work. Will give a `ssh: Could not resolve hostname titan: nodename nor servname provided, or not known` error.
 </div>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically">StackOverflow: How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?</a></li>
-<li><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Github: Generating a new SSH key and adding it to the ssh-agent</a></li>
-<li><a href="https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/">nixCraft: OpenSSH Config File Examples</a></li>
-<li><a href="https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html">Configure multiple SSH identities for GitBash, Mac OSX, &amp; Linux</a></li>
+  <li><a href="http://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically">StackOverflow: How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?</a></li>
+  <li><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Github: Generating a new SSH key and adding it to the ssh-agent</a></li>
+  <li><a href="https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/">nixCraft: OpenSSH Config File Examples</a></li>
+  <li><a href="https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html">Configure multiple SSH identities for GitBash, Mac OSX, &amp; Linux</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -222,6 +239,7 @@ NOTE: You can not have `@` in the `Host` value. For example, i tried configuring
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

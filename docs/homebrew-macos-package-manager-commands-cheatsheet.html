@@ -14,6 +14,7 @@
   <meta name="description" content="Homebrew is a package manager for MacOS, very much like apt is a package manager for Ubuntu/Debian Linux.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/homebrew-macos-package-manager-commands-cheatsheet">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Homebrew Commands</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-03-05T00:00:00+05:00" itemprop="datePublished">
           Mar 5, 2017
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_Homebrew-macos-package-manager-commands.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_Homebrew-macos-package-manager-commands.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>macos</li>
       
@@ -104,50 +105,99 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Homebrew is a package manager for MacOS, very much like <code>apt</code> is a package manager for Ubuntu/Debian Linux.</p>
 
-<p>It lets you install, update, upgrade and uninstall programs via the command line. It also let&#39;s you install some Linux programs for your Mac, like <code>wget</code> for example.</p>
+<p>It lets you install, update, upgrade and uninstall programs via the command line. It also let’s you install some Linux programs for your Mac, like <code>wget</code> for example.</p>
 
-<p>Homebrew also let&#39;s you add programs to <code>launchd</code> so that they automatically start and restart with login. For example <code>brew services start mongodb</code></p>
+<p>Homebrew also let’s you add programs to <code>launchd</code> so that they automatically start and restart with login. For example <code>brew services start mongodb</code></p>
 
 <p>install Homebrew with this command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">/usr/bin/ruby -e <span class="s2">"</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
-</code></pre></div>
-<h3>Commands</h3>
 
-<p>| Command           | Description |
-|---------------------|---------------|
-| <code>brew install foo</code> | Install package |
-| <code>brew upgrade foo</code> | Upgrade package |
-| <code>brew unlink foo</code> | Unlink (removes symlinks, e.g. before upgrades) |
-| <code>brew link foo</code> | Link |
-| <code>brew switch foo 2.5.0</code> | Change versions |
-| <code>brew list --versions foo</code> | See what versions you have |
-| <code>brew info foo</code> | Get info about package, List versions, caveats, etc |
-| <code>brew cleanup foo</code> | Remove old versions |
-| <code>brew edit foo</code> | Edit this formula |
-| <code>brew home foo</code> | Open homepage |
-| <code>brew update</code> |   Update brew and cask |
-| <code>brew list</code> | List installed |
-| <code>brew outdated</code> | What’s due for upgrades? |</p>
+<pre><code class="language-bash">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<h3 id="commands">Commands</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>brew install foo</code></td>
+      <td>Install package</td>
+    </tr>
+    <tr>
+      <td><code>brew upgrade foo</code></td>
+      <td>Upgrade package</td>
+    </tr>
+    <tr>
+      <td><code>brew unlink foo</code></td>
+      <td>Unlink (removes symlinks, e.g. before upgrades)</td>
+    </tr>
+    <tr>
+      <td><code>brew link foo</code></td>
+      <td>Link</td>
+    </tr>
+    <tr>
+      <td><code>brew switch foo 2.5.0</code></td>
+      <td>Change versions</td>
+    </tr>
+    <tr>
+      <td><code>brew list --versions foo</code></td>
+      <td>See what versions you have</td>
+    </tr>
+    <tr>
+      <td><code>brew info foo</code></td>
+      <td>Get info about package, List versions, caveats, etc</td>
+    </tr>
+    <tr>
+      <td><code>brew cleanup foo</code></td>
+      <td>Remove old versions</td>
+    </tr>
+    <tr>
+      <td><code>brew edit foo</code></td>
+      <td>Edit this formula</td>
+    </tr>
+    <tr>
+      <td><code>brew home foo</code></td>
+      <td>Open homepage</td>
+    </tr>
+    <tr>
+      <td><code>brew update</code></td>
+      <td>Update brew and cask</td>
+    </tr>
+    <tr>
+      <td><code>brew list</code></td>
+      <td>List installed</td>
+    </tr>
+    <tr>
+      <td><code>brew outdated</code></td>
+      <td>What’s due for upgrades?</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Upgrade a package:</p>
 
 <p><code>brew unlink foo</code> and then <code>brew upgrade foo</code></p>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="http://ricostacruz.com/cheatsheets/homebrew.html">Homebrew cheatsheet by Rico Sta. Cruz.</a></li>
-<li><a href="http://docs.brew.sh/FAQ.html">Homebrew FAQs</a></li>
+  <li><a href="http://ricostacruz.com/cheatsheets/homebrew.html">Homebrew cheatsheet by Rico Sta. Cruz.</a></li>
+  <li><a href="http://docs.brew.sh/FAQ.html">Homebrew FAQs</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -193,6 +243,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

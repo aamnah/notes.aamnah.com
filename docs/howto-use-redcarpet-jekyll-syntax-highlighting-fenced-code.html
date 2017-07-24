@@ -1,34 +1,38 @@
 <p>why?
-- because i don&#39;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the <em>posts</em> elsewhere
+- because i don’t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the <em>posts</em> elsewhere
 - because Github uses Redcarpet for rendering <code>.md</code> content
 - because it supports fenced code blocks.
 - because it makes working with imported/exported sites easy</p>
 
-<h3>install</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install redcarpet
-</code></pre></div>
-<h3>configuration</h3>
+<h3 id="install">install</h3>
+
+<pre><code class="language-bash">sudo gem install redcarpet
+</code></pre>
+
+<h3 id="configuration">configuration</h3>
 
 <p>In your <code>_config.yml</code> file, add the entry for <code>redcarpet</code> and update the value for <code>markdown</code>.</p>
-<div class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="s">markdown</span><span class="pi">:</span> <span class="s">redcarpet</span>
 
-<span class="s">redcarpet</span><span class="pi">:</span>
-  <span class="s">extension</span><span class="pi">:</span> <span class="pi">[</span>
-    <span class="s2">"</span><span class="s">no_intra_emphasis"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">autolink"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">strikethrough"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">with_toc_data"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">fenced_code_blocks"</span><span class="pi">,</span> <span class="c1"># ```javascript ```</span>
-    <span class="s2">"</span><span class="s">highlight"</span><span class="pi">,</span> <span class="c1"># ==highlight==</span>
-    <span class="s2">"</span><span class="s">superscript"</span><span class="pi">,</span> <span class="c1"># 2^(nd)</span>
-    <span class="s2">"</span><span class="s">footnotes"</span><span class="pi">,</span> <span class="c1"># [^somesamplefootnote]</span>
+<pre><code class="language-yml">markdown: redcarpet
 
-  <span class="pi">]</span>
-</code></pre></div>
-<h2>Links</h2>
+redcarpet:
+  extension: [
+    "no_intra_emphasis",
+    "tables",
+    "autolink",
+    "strikethrough",
+    "with_toc_data",
+    "fenced_code_blocks", # ```javascript ```
+    "highlight", # ==highlight==
+    "superscript", # 2^(nd)
+    "footnotes", # [^somesamplefootnote]
+
+  ]
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://github.com/vmg/redcarpet/">Github: Redcarpet</a></li>
-<li><a href="https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html">Redcarpet Extensions</a></li>
+  <li><a href="https://github.com/vmg/redcarpet/">Github: Redcarpet</a></li>
+  <li><a href="https://george-hawkins.github.io/basic-gfm-jekyll/redcarpet-extensions.html">Redcarpet Extensions</a></li>
 </ul>

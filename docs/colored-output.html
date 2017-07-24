@@ -14,6 +14,7 @@
   <meta name="description" content="Start=`\033[`Color=`0;32m`Close=`0m`">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/colored-output">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Colored Output</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-07T00:00:00+05:00" itemprop="datePublished">
           Dec 7, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,52 +98,108 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Coloured Output.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Coloured Output.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">Start</span><span class="o">=</span><span class="sb">`</span><span class="se">\0</span>33[<span class="sb">`</span>
-<span class="nv">Color</span><span class="o">=</span><span class="sb">`</span>0;32m<span class="sb">`</span>
-<span class="nv">Close</span><span class="o">=</span><span class="sb">`</span>0m<span class="sb">`</span>
-</code></pre></div>
-<p><code>\033[0;32</code> marks the beginning of color and <code>\0333[0m</code> marks the end. </p>
+    <pre><code class="language-bash">Start=`\033[`
+Color=`0;32m`
+Close=`0m`
+</code></pre>
+
+<p><code>\033[0;32</code> marks the beginning of color and <code>\0333[0m</code> marks the end.</p>
 
 <p>What you do is:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">"</span><span class="se">\0</span><span class="s2">33[0;32m This text is green </span><span class="se">\0</span><span class="s2">33[0m"</span>
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">StartColor</span><span class="k">}</span><span class="s2"> This text is green </span><span class="k">${</span><span class="nv">StartClose</span><span class="k">}</span><span class="s2">"</span>
-</code></pre></div>
-<p><strong>NOTE</strong>: When referencing variables inside an <code>echo</code>, the <code>-e</code> flag is important. So are the double quotation marks <code>&quot;</code></p>
+
+<pre><code class="language-bash">echo -e "\033[0;32m This text is green \033[0m"
+</code></pre>
+
+<pre><code class="language-bash">echo -e "${StartColor} This text is green ${StartClose}"
+</code></pre>
+
+<p><strong>NOTE</strong>: When referencing variables inside an <code>echo</code>, the <code>-e</code> flag is important. So are the double quotation marks <code>"</code></p>
 
 <p>In Bash, the <code>&lt;Esc&gt;</code> character can be obtained with the following syntaxes:</p>
 
 <ul>
-<li><code>\e</code></li>
-<li><code>\033</code></li>
-<li><code>\x1B</code></li>
+  <li><code>\e</code></li>
+  <li><code>\033</code></li>
+  <li><code>\x1B</code></li>
 </ul>
 
-<p><a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">http://misc.flogisoft.com/bash/tip<em>colors</em>and_formatting</a> has very detailed examples with pictures.</p>
+<p><a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">http://misc.flogisoft.com/bash/tip_colors_and_formatting</a> has very detailed examples with pictures.</p>
 
-<p>|Color         | Code | Color        | Code |
-|--------------|------|--------------|------|
-| Black        | 0;30 | Dark Gray    | 1;30 |
-| Red          | 0;31 | Light Red    | 1;31 |
-| Green        | 0;32 | Light Green  | 1;32 |
-| Brown/Orange | 0;33 | Yellow       | 1;33 |
-| Blue         | 0;34 | Light Blue   | 1;34 |
-| Purple       | 0;35 | Light Purple | 1;35 |
-| Cyan         | 0;36 | Light Cyan   | 1;36 |
-| Light Gray   | 0;37 | White      | 1;37cl |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Color</th>
+      <th>Code</th>
+      <th>Color</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Black</td>
+      <td>0;30</td>
+      <td>Dark Gray</td>
+      <td>1;30</td>
+    </tr>
+    <tr>
+      <td>Red</td>
+      <td>0;31</td>
+      <td>Light Red</td>
+      <td>1;31</td>
+    </tr>
+    <tr>
+      <td>Green</td>
+      <td>0;32</td>
+      <td>Light Green</td>
+      <td>1;32</td>
+    </tr>
+    <tr>
+      <td>Brown/Orange</td>
+      <td>0;33</td>
+      <td>Yellow</td>
+      <td>1;33</td>
+    </tr>
+    <tr>
+      <td>Blue</td>
+      <td>0;34</td>
+      <td>Light Blue</td>
+      <td>1;34</td>
+    </tr>
+    <tr>
+      <td>Purple</td>
+      <td>0;35</td>
+      <td>Light Purple</td>
+      <td>1;35</td>
+    </tr>
+    <tr>
+      <td>Cyan</td>
+      <td>0;36</td>
+      <td>Light Cyan</td>
+      <td>1;36</td>
+    </tr>
+    <tr>
+      <td>Light Gray</td>
+      <td>0;37</td>
+      <td>White</td>
+      <td>1;37cl</td>
+    </tr>
+  </tbody>
+</table>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -188,6 +245,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

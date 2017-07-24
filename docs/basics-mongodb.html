@@ -14,6 +14,7 @@
   <meta name="description" content="Basic Commands">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/basics-mongodb">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">MongoDB Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T16:24:07+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-05-21-basics-mongodb.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_databases/2014-05-21-basics-mongodb.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>commands</li>
       
@@ -104,79 +105,103 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Basic Commands</h3>
+    <h3 id="basic-commands">Basic Commands</h3>
 
 <ul>
-<li><code>show dbs</code> Show databases<br></li>
-<li><code>use dbName</code> Connect/Select database<br></li>
-<li><code>use dbName</code> Create database (MongoDB doesn&#39;t actually create a db until we start storing documents, so although you now have the db bookmarks, it&#39;s not actually saved anywhere until we put some data in it. Same goes for collectons )<br></li>
-<li><code>db</code> show the db you are using<br></li>
-<li><code>doc</code> show the document content</li>
+  <li><code>show dbs</code> Show databases</li>
+  <li><code>use dbName</code> Connect/Select database</li>
+  <li><code>use dbName</code> Create database (MongoDB doesn’t actually create a db until we start storing documents, so although you now have the db bookmarks, it’s not actually saved anywhere until we put some data in it. Same goes for collectons )</li>
+  <li><code>db</code> show the db you are using</li>
+  <li><code>doc</code> show the document content</li>
 </ul>
 
-<h3>NoSQL Database  Terms</h3>
+<h3 id="nosql-database--terms">NoSQL Database  Terms</h3>
 
-<p>| MongoDB                  | MySQL   |
-|--------------------------|---------|
-| Collections              | Tables  |
-| Documents                | Rows    |
-| Fields (key:value pairs) | Columns |</p>
+<table>
+  <thead>
+    <tr>
+      <th>MongoDB</th>
+      <th>MySQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Collections</td>
+      <td>Tables</td>
+    </tr>
+    <tr>
+      <td>Documents</td>
+      <td>Rows</td>
+    </tr>
+    <tr>
+      <td>Fields (key:value pairs)</td>
+      <td>Columns</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>Adding Data</h3>
+<h3 id="adding-data">Adding Data</h3>
 
 <p>There are two methods. One uses <code>.insert()</code></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">links</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="na">title</span><span class="p">:</span> <span class="s2">"Courses"</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="s2">"http://tutsplus.com"</span><span class="p">,</span> <span class="na">comment</span><span class="p">:</span> <span class="s2">"advanced programming video courses"</span><span class="p">,</span> <span class="na">tag</span><span class="p">:</span> <span class="p">[</span><span class="s2">"tutorials"</span><span class="p">,</span> <span class="s2">"dev "</span><span class="p">],</span> <span class="na">saved_on</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">db.links.insert({ title: "Courses", url: "http://tutsplus.com", comment: "advanced programming video courses", tag: ["tutorials", "dev "], saved_on: new Date() });
+</code></pre>
+
 <p>and the other us saving an empty document and then adding data to it. e.g:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">comment</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">tags</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">saved_on</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">;</span> 
-</code></pre></div>
-<p>adding sub-objects inside of objects </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">doc</span><span class="p">.</span><span class="nx">meta</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">browser</span> <span class="o">=</span> <span class="s1">'Google Chrome 31'</span>
-<span class="nx">doc</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">OS</span> <span class="o">=</span> <span class="s1">'Mac OS 10.9.2'</span>
-</code></pre></div>
-<h3>Saving and Updating data</h3>
+
+<pre><code class="language-javascript">var doc = {};
+doc.title = '';
+doc.url = '';
+doc.comment = '';
+doc.tags = '';
+doc.saved_on = new Date; 
+</code></pre>
+
+<p>adding sub-objects inside of objects</p>
+
+<pre><code class="language-javascript">doc.meta = {}
+doc.meta.browser = 'Google Chrome 31'
+doc.meta.OS = 'Mac OS 10.9.2'
+</code></pre>
+
+<h3 id="saving-and-updating-data">Saving and Updating data</h3>
 
 <ul>
-<li><code>db.links.save(doc)</code> save all data in the doc <em>collection</em> to the links <em>database</em><br></li>
-<li><code>db.links.update()</code><br></li>
+  <li><code>db.links.save(doc)</code> save all data in the doc <em>collection</em> to the links <em>database</em></li>
+  <li><code>db.links.update()</code></li>
 </ul>
 
-<h3>Methods</h3>
+<h3 id="methods">Methods</h3>
 
 <ul>
-<li><code>.insert()</code> add data<br></li>
-<li><code>.count()</code> show the number of collections/documents<br></li>
-<li><code>.date()</code> shows the date the data was entered<br></li>
-<li><code>.find()</code> find with no parameters given will just output all data, e.g: - <code>db.links.find()</code></li>
-<li><code>.save()</code><br></li>
-<li><code>.update()</code><br></li>
-<li><code>.forEach(printjson);</code>  print documents nicely formatted e.g: <code>db.links.find()- .forEach(printjson);</code><br></li>
-<li><code>.getTimestap()</code> use this method on an _id to get the time the object was created.</li>
+  <li><code>.insert()</code> add data</li>
+  <li><code>.count()</code> show the number of collections/documents</li>
+  <li><code>.date()</code> shows the date the data was entered</li>
+  <li><code>.find()</code> find with no parameters given will just output all data, e.g: - <code>db.links.find()</code></li>
+  <li><code>.save()</code></li>
+  <li><code>.update()</code></li>
+  <li><code>.forEach(printjson);</code>  print documents nicely formatted e.g: <code>db.links.find()- .forEach(printjson);</code></li>
+  <li><code>.getTimestap()</code> use this method on an _id to get the time the object was created.</li>
 </ul>
 
-<h3>Object IDs</h3>
+<h3 id="object-ids">Object IDs</h3>
 
-<p>This <code>_id</code> or <strong>ObjectId</strong> object field is immutable and unique. You can&#39;t have two documents with the same <code>_id</code></p>
+<p>This <code>_id</code> or <strong>ObjectId</strong> object field is immutable and unique. You can’t have two documents with the same <code>_id</code></p>
 
 <ul>
-<li>12 byte value</li>
-<li>BSON data type</li>
-<li>based on the hostname of the machine, the prcess id of the server process, the time the record was saved and a random incrementing number.</li>
-<li>since they are based on the time they are created, we can get the time an object was created by its ID. We don&#39;t need the created<em>at or saved</em>at fields in MongoDB because the ID already has that info.</li>
+  <li>12 byte value</li>
+  <li>BSON data type</li>
+  <li>based on the hostname of the machine, the prcess id of the server process, the time the record was saved and a random incrementing number.</li>
+  <li>since they are based on the time they are created, we can get the time an object was created by its ID. We don’t need the created_at or saved_at fields in MongoDB because the ID already has that info.</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -222,6 +247,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

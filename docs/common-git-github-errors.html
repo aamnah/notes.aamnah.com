@@ -14,6 +14,7 @@
   <meta name="description" content="fatal: refusing to merge unrelated histories">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/common-git-github-errors">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Common Git/Github Errors</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2017
         </time>
@@ -91,23 +92,25 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/Common-Git-Github-Issues.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/Common-Git-Github-Issues.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>fatal: refusing to merge unrelated histories</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">$ git pull origin master
+    <h3 id="fatal-refusing-to-merge-unrelated-histories">fatal: refusing to merge unrelated histories</h3>
+
+<pre><code>$ git pull origin master
 From github.com:aamnah/myproject.com
  * branch            master     -&gt; FETCH_HEAD
 fatal: refusing to merge unrelated histories
-</code></pre></div>
-<p>Newly created Guthub repo, has only a <code>.gitignore</code> file that the local repo doesn&#39;t. can&#39;t push without pulling first.</p>
+</code></pre>
+
+<p>Newly created Guthub repo, has only a <code>.gitignore</code> file that the local repo doesn’t. can’t push without pulling first.</p>
 
 <p><strong>Solution</strong>: You can use <code>--allow-unrelated-histories</code> to force the merge to happen.</p>
 
@@ -115,7 +118,8 @@ fatal: refusing to merge unrelated histories
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -161,6 +165,7 @@ fatal: refusing to merge unrelated histories
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

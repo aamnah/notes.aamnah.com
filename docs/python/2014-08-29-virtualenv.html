@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Why use virtualenv?it lets you use a newer version of python () instead of using the system default (2.7.5 on Mac), without effecting the default. It is reco...">
+  <meta name="description" content="Why use virtualenv?  it lets you use a newer version of python () instead of using the system default (2.7.5 on Mac), without effecting the default. It is re...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/python/2014-08-29-virtualenv.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">virtualenv</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-29T00:00:00+05:00" itemprop="datePublished">
           Aug 29, 2014
         </time>
@@ -91,83 +92,102 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-virtualenv.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2014-08-29-virtualenv.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Why use virtualenv?</h3>
-
+    <h3 id="why-use-virtualenv">Why use virtualenv?</h3>
 <ul>
-<li>it lets you use a newer version of python () instead of using the system default (2.7.5 on Mac), without effecting the default. It is recommeneded that you start using Python 3 but at the same time it is not really all that feasible yet for several project. For example, Django still is not Python 3 ready. Virtualenv lets you work in different version of python at the same time.</li>
-<li>it is a boxed environment. You can install different packages in different environments. They won&#39;t interfare with each other.</li>
+  <li>it lets you use a newer version of python () instead of using the system default (2.7.5 on Mac), without effecting the default. It is recommeneded that you start using Python 3 but at the same time it is not really all that feasible yet for several project. For example, Django still is not Python 3 ready. Virtualenv lets you work in different version of python at the same time.</li>
+  <li>it is a boxed environment. You can install different packages in different environments. They won’t interfare with each other.</li>
 </ul>
 
-<h3>install:</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo pip install virtualenv
-</code></pre></div>
+<h3 id="install">install:</h3>
+
+<pre><code>sudo pip install virtualenv
+</code></pre>
+
 <p>see help:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">virtualenv -h
-</code></pre></div>
+
+<pre><code>virtualenv -h
+</code></pre>
+
 <p>By default a new virtual environment is started with no packages installed. If you want to start with access to all system packages, start virtualenv with the <code>--system-site-packages</code> flag.</p>
 
-<h3>starting a virtual environment:</h3>
-
+<h3 id="starting-a-virtual-environment">starting a virtual environment:</h3>
 <p>cd to the folder you want to start a virtual environment in.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">virtualenv foo
-</code></pre></div>
+
+<pre><code>virtualenv foo
+</code></pre>
+
 <p>where <strong>foo</strong> is the name of your environment. This will create a virtualenv, but not activate it.</p>
 
 <p>In order to activate, source the activate script:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">source foo/bin/activate
-</code></pre></div>
-<p>To see the packages installed inside of our virtual environment:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">pip freeze
-</code></pre></div>
-<p>to stop a virtualenv:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">deactivate
-</code></pre></div>
-<h3>Specifying which Python version to use:</h3>
 
+<pre><code>source foo/bin/activate
+</code></pre>
+
+<p>To see the packages installed inside of our virtual environment:</p>
+
+<pre><code>pip freeze
+</code></pre>
+
+<p>to stop a virtualenv:</p>
+
+<pre><code>deactivate
+</code></pre>
+
+<h3 id="specifying-which-python-version-to-use">Specifying which Python version to use:</h3>
 <p>The <code>-p</code> flag is for the python interpreator to use. The default is the interpretor that python was installed with (/usr/bin/python)</p>
 
 <p>start virtualenv with Python 3:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">virtualenv -p python3 foobar
-</code></pre></div>
-<p>You odn&#39;t really have to give it the full path, you can just say <strong>python3</strong>.</p>
+
+<pre><code>virtualenv -p python3 foobar
+</code></pre>
+
+<p>You odn’t really have to give it the full path, you can just say <strong>python3</strong>.</p>
 
 <p>To check python version:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">python --version
-</code></pre></div>
-<h3>Configuring virtualenv:</h3>
 
+<pre><code>python --version
+</code></pre>
+
+<h3 id="configuring-virtualenv">Configuring virtualenv:</h3>
 <p>There are two ways to do it. One is to pass attributes to export command and the other is to config the virtualenv.ini file.</p>
 
 <p>1.
-Take the attribute name, replaces all the dashes (-) with underscroes (<em>) and then prefixing that with `VIRTUALENV</em>`</p>
+Take the attribute name, replaces all the dashes (-) with underscroes (_) and then prefixing that with <code>VIRTUALENV_</code></p>
 
 <p>For example, we are going to setup <code>distribute</code> to be the default package management library that we are installing with our virtualenv.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">export VIRTUALENV_DISTRIBUTE=TRUE
-</code></pre></div>
-<p>Now if you create a virtualenv it&#39;ll install distribute by default. If you want this to be permanent, you can save the export statement to your ~/.bashrc or ~/.bash_profile or any of your startup scripts that you have.</p>
+
+<pre><code>export VIRTUALENV_DISTRIBUTE=TRUE
+</code></pre>
+
+<p>Now if you create a virtualenv it’ll install distribute by default. If you want this to be permanent, you can save the export statement to your ~/.bashrc or ~/.bash_profile or any of your startup scripts that you have.</p>
 
 <p>2.
-The config file is supposed to in the <code>~/.virtualenv</code> folder which may not exist. To create and edit a </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo mkdir ~/.virtualenv &amp;&amp; touch ~/.virtualenv/virtualenv.ini &amp;&amp; nano ~/.virtualenv/virtualenv.ini
-</code></pre></div>
+The config file is supposed to in the <code>~/.virtualenv</code> folder which may not exist. To create and edit a</p>
+
+<pre><code>sudo mkdir ~/.virtualenv &amp;&amp; touch ~/.virtualenv/virtualenv.ini &amp;&amp; nano ~/.virtualenv/virtualenv.ini
+</code></pre>
+
 <p>Format:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">[virtualenv]
+
+<pre><code>[virtualenv]
 python = python3
 [/virtualenv]
-</code></pre></div>
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -213,6 +233,7 @@ python = python3
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

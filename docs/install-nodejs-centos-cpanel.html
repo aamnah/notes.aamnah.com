@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Run as root on RHEL, CentOS or Fedora:    curl -sL https://rpm.nodesource.com/setup | bash -    ">
+  <meta name="description" content="Run as root on RHEL, CentOS or Fedora:	curl -sL https://rpm.nodesource.com/setup | bash -    ">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/install-nodejs-centos-cpanel">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to install Node.js on CentOS/cPanel</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-19T00:00:00+05:00" itemprop="datePublished">
           Jan 19, 2015
         </time>
@@ -91,33 +92,33 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-install-nodejs-centos-cpanel.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2015-01-19-install-nodejs-centos-cpanel.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Run as root on RHEL, CentOS or Fedora:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    curl -sL https://rpm.nodesource.com/setup | bash -
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	curl -sL https://rpm.nodesource.com/setup | bash -
     </code></pre></figure>
 
 <p>Then install, as root:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum install -y nodejs
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	yum install -y nodejs
     </code></pre></figure>
 
-<p>The <code>-y</code> flag will automatically answer &quot;yes&quot; to every confirmation question, so leave it out if you want to be able to say no to something.</p>
+<p>The <code>-y</code> flag will automatically answer “yes” to every confirmation question, so leave it out if you want to be able to say no to something.</p>
 
 <p><strong>Optional</strong>: install build tools</p>
 
 <p>To compile and install native addons from npm you may also need to install build tools:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum install gcc-c++ make
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	yum install gcc-c++ make
     </code></pre></figure>
 
 <p>OR</p>
@@ -125,16 +126,16 @@
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    yum groupinstall <span class="s1">'Development Tools'</span>
     </code></pre></figure>
 
-<p>This command will pull a &quot;Development Tools&quot; group with the applications needed to compile node.js.</p>
+<p>This command will pull a “Development Tools” group with the applications needed to compile node.js.</p>
 
 <p>To test an installation, run:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    curl -sL https://deb.nodesource.com/test | bash -
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	curl -sL https://deb.nodesource.com/test | bash -
     </code></pre></figure>
 
-<p>If you get an error saying &#39;<strong>-bash: npm: command not found</strong>&#39;, try the alternative method of installing Node.js by compiling from source.</p>
+<p>If you get an error saying ‘<strong>-bash: npm: command not found</strong>’, try the alternative method of installing Node.js by compiling from source.</p>
 
-<h3>Alternative: Compiling from Source</h3>
+<h3 id="alternative-compiling-from-source">Alternative: Compiling from Source</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    su - 
     <span class="c"># install dev tools</span>
@@ -154,7 +155,7 @@
     make install
     </code></pre></figure>
 
-<p>Note that this requires Python 2.6+ to use <strong>./configure</strong> above. Otherwise, you&#39;ll get an error like this: </p>
+<p>Note that this requires Python 2.6+ to use <strong>./configure</strong> above. Otherwise, you’ll get an error like this:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">    File <span class="s2">"./configure"</span>, line 452
         fpu <span class="o">=</span> <span class="s1">'vfpv3'</span> <span class="k">if </span>armv7 <span class="k">else</span> <span class="s1">'vfpv2'</span>
@@ -164,19 +165,19 @@
 
 <p>To avoid that, run <code>python2.7 ./configure</code></p>
 
-<h4>Source</h4>
-
+<h4 id="source">Source</h4>
 <ul>
-<li><a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager">Installing Node.js via package manager</a></li>
-<li><a href="http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos">How do you install Node.JS on CentOS?</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit">How To Install And Run A Node.js App On Centos 6.4 64bit</a></li>
-<li><a href="http://stackoverflow.com/questions/14989164/node-js-configure-file-syntax-error-line-433">node.js configure file syntax error</a></li>
-<li><a href="http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script">How do I check what version of Python is running my script?</a></li>
+  <li><a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager">Installing Node.js via package manager</a></li>
+  <li><a href="http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos">How do you install Node.JS on CentOS?</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit">How To Install And Run A Node.js App On Centos 6.4 64bit</a></li>
+  <li><a href="http://stackoverflow.com/questions/14989164/node-js-configure-file-syntax-error-line-433">node.js configure file syntax error</a></li>
+  <li><a href="http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script">How do I check what version of Python is running my script?</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -222,6 +223,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

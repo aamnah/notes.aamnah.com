@@ -14,6 +14,7 @@
   <meta name="description" content="Our bio.txt contains">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/opening_and_writing_to_files_in_python">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Opening and Writing to Files in Python</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-04-10T00:00:00+05:00" itemprop="datePublished">
           Apr 10, 2015
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-04-10-Opening_and_writing_to_files_in_Python.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_python/2015-04-10-Opening_and_writing_to_files_in_Python.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>python</li>
       
@@ -104,22 +105,24 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Our <code>bio.txt</code> contains</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Name: Aamnah
+
+<pre><code>Name: Aamnah
 Age: 26
 Location: Dubai
 Gender: Female
-</code></pre></div>
-<p>To open it in Python: </p>
+</code></pre>
+
+<p>To open it in Python:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'bio.txt'</span><span class="p">)</span>
     </code></pre></figure>
 
-<p>The function <code>open()</code> can take two parameters, one is the path of the file<br>
-<code>bio.txt</code> (required). The other is mode (optional) which specifies the mode in which the file is opened, for example <code>w+b</code>. The default mode is <code>r</code> which means open for reading in text mode. </p>
+<p>The function <code>open()</code> can take two parameters, one is the path of the file  <br />
+<code>bio.txt</code> (required). The other is mode (optional) which specifies the mode in which the file is opened, for example <code>w+b</code>. The default mode is <code>r</code> which means open for reading in text mode.</p>
 
 <p>The <code>w</code> flag opens a file for writing only. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.</p>
 
@@ -134,36 +137,39 @@ Gender: Female
     </code></pre></figure>
 
 <p>This will output:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Name: Aamnah
+
+<pre><code>Name: Aamnah
 
 Age: 26
 
 Location: Dubai
 
 Gender: Female
-</code></pre></div>
+</code></pre>
+
 <p>To remove the extra space at the end of the line, use the following code:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">''</span><span class="p">)</span>
     </code></pre></figure>
 
-<p>The output now will be </p>
-<div class="highlight"><pre><code class="language-" data-lang="">Name: Aamnah
+<p>The output now will be</p>
+
+<pre><code>Name: Aamnah
 Age: 26
 Location: Dubai
 Gender: Female
-</code></pre></div>
-<h2>Writing to the open file</h2>
+</code></pre>
 
+<h2 id="writing-to-the-open-file">Writing to the open file</h2>
 <p>Once you have the file open, you can use any of the following commands to write to the file</p>
 
 <ul>
-<li><code>write(&#39;stuff&#39;)</code> -- Writes &quot;stuff&quot; to the file.</li>
-<li><code>close</code> -- Closes the file. Like File-&gt;Save.. in your editor.</li>
-<li><code>read</code> -- Reads the contents of the file. You can assign the result to a variable.</li>
-<li><code>readline</code> -- Reads just one line of a text file.</li>
-<li><code>truncate</code> -- Empties the file. Watch out if you care about the file.</li>
+  <li><code>write('stuff')</code> – Writes “stuff” to the file.</li>
+  <li><code>close</code> – Closes the file. Like File-&gt;Save.. in your editor.</li>
+  <li><code>read</code> – Reads the contents of the file. You can assign the result to a variable.</li>
+  <li><code>readline</code> – Reads just one line of a text file.</li>
+  <li><code>truncate</code> – Empties the file. Watch out if you care about the file.</li>
 </ul>
 
 <p>For example</p>
@@ -190,18 +196,37 @@ Gender: Female
 
 <p><a href="http://learnpythonthehardway.org/book/ex16.html">Example of writing to file with system input <i class="fa fa-link"></i></a></p>
 
-<h2>Getting file details</h2>
-
+<h2 id="getting-file-details">Getting file details</h2>
 <p>The open function creates a file <em>object</em>. You can get various information related to that object using the following attributes:</p>
 
-<p>| Attribute    | Description                                      |
-|--------------|--------------------------------------------------|
-| <code>closed</code>    | Returns true if file is closed, false otherwise.  |
-| <code>mode</code>      | Returns access mode with which file was opened.   |
-| <code>name</code>      | Returns name of the file.                         |
-| <code>softspace</code> | Returns false if space explicitly required with print, true otherwise. |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>closed</code></td>
+      <td>Returns true if file is closed, false otherwise.</td>
+    </tr>
+    <tr>
+      <td><code>mode</code></td>
+      <td>Returns access mode with which file was opened.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>Returns name of the file.</td>
+    </tr>
+    <tr>
+      <td><code>softspace</code></td>
+      <td>Returns false if space explicitly required with print, true otherwise.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>For example: </p>
+<p>For example:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="c">#!/usr/bin/python</span>
 
@@ -214,21 +239,23 @@ Gender: Female
     </code></pre></figure>
 
 <p>This would produce the following result:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">File name:  bio.txt
+
+<pre><code>File name:  bio.txt
 Is the file open? :  False
 Opening mode :  wb
 Softspace flag :  0
-</code></pre></div>
-<h2>Resources</h2>
+</code></pre>
 
+<h2 id="resources">Resources</h2>
 <ul>
-<li><a href="http://learnpythonthehardway.org/book/ex16.html">Learn Python the Hard Way - Exercise 16: Reading and Writing Files</a></li>
-<li><a href="http://www.tutorialspoint.com/python/python_files_io.htm">Python Files I/O</a></li>
+  <li><a href="http://learnpythonthehardway.org/book/ex16.html">Learn Python the Hard Way - Exercise 16: Reading and Writing Files</a></li>
+  <li><a href="http://www.tutorialspoint.com/python/python_files_io.htm">Python Files I/O</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -274,6 +301,7 @@ Softspace flag :  0
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

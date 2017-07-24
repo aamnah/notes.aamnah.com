@@ -14,6 +14,7 @@
   <meta name="description" content="Use rename, which is a Perl script and maybe on your system already. You can use the rename command to quickly rename files using a regular expression patter...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/batch-rename-files-bash">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Batch renaming files in Bash</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-04-17T00:00:00+05:00" itemprop="datePublished">
           Apr 17, 2015
         </time>
@@ -91,77 +92,96 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Batch_renaming_files_in_Bash.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/Batch_renaming_files_in_Bash.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Use <code>rename</code>, which is a Perl script and maybe on your system already. You can use the rename command to quickly rename files using a regular expression pattern. For instance, if you wanted to rename all files containing foo to contain bar instead, you could use a command like this one:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">rename –v <span class="s1">'s/foo/bar/g'</span> <span class="k">*</span>    
-</code></pre></div>
-<h2>How to rename multiple files based on a pattern</h2>
 
+<pre><code class="language-bash">rename –v 's/foo/bar/g' *    
+</code></pre>
+
+<h2 id="how-to-rename-multiple-files-based-on-a-pattern">How to rename multiple files based on a pattern</h2>
 <p><a href="http://stackoverflow.com/questions/15380205/rename-multiple-files-in-bash"><i class="fa fa-link"></i></a></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>f <span class="k">in</span> <span class="k">*</span> ; <span class="k">do </span>cp <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> 2014-08-26-<span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> ; <span class="k">done</span>    
-</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">mv <span class="nv">$f</span> <span class="k">${</span><span class="nv">f</span><span class="p">#[0-9]*-</span><span class="k">}</span>
-</code></pre></div>
-<p>Test</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ls
-23-a  aa23-a  hello
-<span class="gp">$ </span><span class="k">for </span>f <span class="k">in</span> <span class="k">*</span>; <span class="k">do </span>mv <span class="nv">$f</span> <span class="k">${</span><span class="nv">f</span><span class="p">#[0-9]*-</span><span class="k">}</span>; <span class="k">done</span>
-<span class="gp">$ </span>ls
-a  aa23-a  hello
-</code></pre></div>
-<h2>Batch rename files based on file type, remove space</h2>
 
-<p>Let&#39;s say you have image files named like this:</p>
+<pre><code class="language-bash">for f in * ; do cp "$f" 2014-08-26-"$f" ; done    
+</code></pre>
+
+<pre><code class="language-bash">mv $f ${f#[0-9]*-}
+</code></pre>
+<p>Test</p>
+
+<pre><code class="language-bash">$ ls
+23-a  aa23-a  hello
+$ for f in *; do mv $f ${f#[0-9]*-}; done
+$ ls
+a  aa23-a  hello
+</code></pre>
+
+<h2 id="batch-rename-files-based-on-file-type-remove-space">Batch rename files based on file type, remove space</h2>
+
+<p>Let’s say you have image files named like this:</p>
 
 <ul>
-<li>a88d09 989_01.jpg</li>
-<li>a88d09 989_03.jpg</li>
-<li>a88d09 989_05.jpg</li>
-<li>a88d09 989_07.jpg</li>
+  <li>a88d09 989_01.jpg</li>
+  <li>a88d09 989_03.jpg</li>
+  <li>a88d09 989_05.jpg</li>
+  <li>a88d09 989_07.jpg</li>
 </ul>
 
-<p>The following will rename all these .jpg files and <strong>remove the space</strong> in file name. </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">IFS</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="k">for </span>file <span class="k">in</span> <span class="k">*</span>.jpg;
-<span class="k">do
-    </span>mv <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">file</span><span class="p">//[[</span>:space:]]<span class="k">}</span><span class="s2">"</span>
-<span class="k">done</span>    
-</code></pre></div>
-<h2>Change spaces into Underscores</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">rename <span class="s2">"s/ /_/g"</span> <span class="k">*</span>    
-</code></pre></div>
-<p>OR, if you don&#39;t have <code>rename</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>f <span class="k">in</span> <span class="k">*</span><span class="se">\ </span><span class="k">*</span>; <span class="k">do </span>mv <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">f</span><span class="p">// /_</span><span class="k">}</span><span class="s2">"</span>; <span class="k">done</span>
-</code></pre></div>
-<h3>Rename only files to change spaces into Underscores</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find -name <span class="s2">"* *"</span> -type f | rename <span class="s1">'s/ /_/g'</span>
-</code></pre></div>
-<h3>Rename only dirs to change spaces into Underscores</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find -name <span class="s2">"* *"</span> -type d | rename <span class="s1">'s/ /_/g'</span>
-</code></pre></div>
-<h2>Change spaces into underscores, recursively</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">find /tmp/ -depth -name <span class="s2">"* *"</span> -execdir rename <span class="s1">'s/ /_/g'</span> <span class="s2">"{}"</span> <span class="se">\;</span>
-</code></pre></div>
-<p><code>/tmp/</code> is the folder where you are looking for files, </p>
+<p>The following will rename all these .jpg files and <strong>remove the space</strong> in file name.</p>
 
-<h2>Links</h2>
+<pre><code class="language-bash">IFS="\n"
+for file in *.jpg;
+do
+    mv "$file" "${file//[[:space:]]}"
+done    
+</code></pre>
+
+<h2 id="change-spaces-into-underscores">Change spaces into Underscores</h2>
+
+<pre><code class="language-bash">rename "s/ /_/g" *    
+</code></pre>
+
+<p>OR, if you don’t have <code>rename</code></p>
+
+<pre><code class="language-bash">for f in *\ *; do mv "$f" "${f// /_}"; done
+</code></pre>
+
+<h3 id="rename-only-files-to-change-spaces-into-underscores">Rename only files to change spaces into Underscores</h3>
+
+<pre><code class="language-bash">find -name "* *" -type f | rename 's/ /_/g'
+</code></pre>
+
+<h3 id="rename-only-dirs-to-change-spaces-into-underscores">Rename only dirs to change spaces into Underscores</h3>
+
+<pre><code class="language-bash">find -name "* *" -type d | rename 's/ /_/g'
+</code></pre>
+
+<h2 id="change-spaces-into-underscores-recursively">Change spaces into underscores, recursively</h2>
+
+<pre><code class="language-bash">find /tmp/ -depth -name "* *" -execdir rename 's/ /_/g' "{}" \;
+</code></pre>
+
+<p><code>/tmp/</code> is the folder where you are looking for files,</p>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names">Bash script to replace spaces in file names</a></li>
-<li><a href="http://detox.sourceforge.net">Detox - clean up file name</a></li>
+  <li><a href="http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names">Bash script to replace spaces in file names</a></li>
+  <li><a href="http://detox.sourceforge.net">Detox - clean up file name</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -207,6 +227,7 @@ a  aa23-a  hello
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

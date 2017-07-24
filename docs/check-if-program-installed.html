@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="They key is in using hash or type to see if a command is available. For example, the output of ">
+  <meta name="description" content="They key is in using hash or type to see if a command is available. For example, the output of">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/check-if-program-installed">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Check if a program is installed</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-30T00:00:00+05:00" itemprop="datePublished">
           Nov 30, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,52 +98,63 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/check-if-program-installed.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/check-if-program-installed.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>They key is in using <code>hash</code> or <code>type</code> to see if a command is available. For example, the output of </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">hash </span>nano
-</code></pre></div>
-<p>will change based on whether <code>nano</code> is installed or not. If nano is installed, you&#39;ll get nothing. If <code>nano</code> is <em>not</em> installed, you&#39;ll get an error.</p>
+    <p>They key is in using <code>hash</code> or <code>type</code> to see if a command is available. For example, the output of</p>
+
+<pre><code class="language-bash">hash nano
+</code></pre>
+
+<p>will change based on whether <code>nano</code> is installed or not. If nano is installed, you’ll get nothing. If <code>nano</code> is <em>not</em> installed, you’ll get an error.</p>
 
 <p>So, we check for an error to see if something is not installed.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">command</span> -v foo &gt;/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &gt;&amp;2 <span class="s2">"I require foo but it's not installed.  Aborting."</span>; <span class="nb">exit </span>1; <span class="o">}</span>
-</code></pre></div>
+
+<pre><code class="language-bash">command -v foo &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 "I require foo but it's not installed.  Aborting."; exit 1; }
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">type </span>foo &gt;/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &gt;&amp;2 <span class="s2">"I require foo but it's not installed.  Aborting."</span>; <span class="nb">exit </span>1; <span class="o">}</span>
-</code></pre></div>
+
+<pre><code class="language-bash">type foo &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 "I require foo but it's not installed.  Aborting."; exit 1; }
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">hash </span>foo 2&gt;/dev/null <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &gt;&amp;2 <span class="s2">"I require foo but it's not installed.  Aborting."</span>; <span class="nb">exit </span>1; <span class="o">}</span>
-</code></pre></div>
+
+<pre><code class="language-bash">hash foo 2&gt;/dev/null || { echo &gt;&amp;2 "I require foo but it's not installed.  Aborting."; exit 1; }
+</code></pre>
+
 <p>Where <code>bash</code> is your shell/hashbang, consistently use <code>hash</code> (for commands) or <code>type</code> (to consider built-ins &amp; keywords).</p>
 
 <p>When writing a POSIX script, use <code>command -v</code>.</p>
 
 <p>We can also use this in a function, like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">gnudate<span class="o">()</span> <span class="o">{</span>
-    <span class="k">if </span><span class="nb">hash </span>gdate 2&gt;/dev/null; <span class="k">then
-        </span>gdate <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
-    <span class="k">else
-        </span>date <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
-    <span class="k">fi</span>
-<span class="o">}</span>
-</code></pre></div>
-<h2>Links</h2>
+
+<pre><code class="language-bash">gnudate() {
+    if hash gdate 2&gt;/dev/null; then
+        gdate "$@"
+    else
+        date "$@"
+    fi
+}
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script">StackOverflow: Check if a program exists from a Bash script</a></li>
+  <li><a href="http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script">StackOverflow: Check if a program exists from a Bash script</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -188,6 +200,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

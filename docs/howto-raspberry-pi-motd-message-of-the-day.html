@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"let secs=$((${upSeconds}%60))let mins=$((${upSeconds}/60%60))let hours=$((${upSeconds}/3600%24))let days=...">
+  <meta name="description" content="```bashlet upSeconds=”$(/usr/bin/cut -d. -f1 /proc/uptime)”let secs=$((${upSeconds}%60))let mins=$((${upSeconds}/60%60))let hours=$((${upSeconds}/3600%24))le...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-raspberry-pi-motd-message-of-the-day">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Custom Raspberry Pi MOTD (Message Of The Day)</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T16:25:33+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2014-05-21-howto-raspi-motd-message-of-the-day.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_raspberrypi/2014-05-21-howto-raspi-motd-message-of-the-day.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>raspberry pi</li>
       
@@ -102,49 +103,55 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">let </span><span class="nv">upSeconds</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/cut -d. -f1 /proc/uptime<span class="k">)</span><span class="s2">"</span>
-<span class="nb">let </span><span class="nv">secs</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
-<span class="nb">let </span><span class="nv">mins</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">60</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
-<span class="nb">let </span><span class="nv">hours</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">3600</span><span class="o">%</span><span class="m">24</span><span class="k">))</span>
-<span class="nb">let </span><span class="nv">days</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">86400</span><span class="k">))</span>
-<span class="nv">UPTIME</span><span class="o">=</span><span class="sb">`</span><span class="nb">printf</span> <span class="s2">"%d days, %02dh%02dm%02ds"</span> <span class="s2">"</span><span class="nv">$days</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$hours</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$mins</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$secs</span><span class="s2">"</span><span class="sb">`</span>
+    <pre><code class="language-bash">let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+let secs=$((${upSeconds}%60))
+let mins=$((${upSeconds}/60%60))
+let hours=$((${upSeconds}/3600%24))
+let days=$((${upSeconds}/86400))
+UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
 
-<span class="c"># get the load averages</span>
-<span class="nb">read </span>one five fifteen rest &lt; /proc/loadavg
+# get the load averages
+read one five fifteen rest &lt; /proc/loadavg
 
-<span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>tput setaf 2<span class="k">)</span><span class="s2">
-    .~~.   .~~.    </span><span class="sb">`</span>date +<span class="s2">"%A, %e %B %Y, %r"</span><span class="sb">`</span><span class="s2">
-    '. </span><span class="se">\ </span><span class="s2">' ' / .'   </span><span class="sb">`</span>uname -srmo<span class="sb">`</span><span class="k">$(</span>tput setaf 1<span class="k">)</span><span class="s2">
+echo "$(tput setaf 2)
+    .~~.   .~~.    `date +"%A, %e %B %Y, %r"`
+    '. \ ' ' / .'   `uname -srmo`$(tput setaf 1)
     .~ .~~~..~.   
-    : .~.'~'.~. :   Uptime.............: </span><span class="k">${</span><span class="nv">UPTIME</span><span class="k">}</span><span class="s2">
-    ~ (   ) (   ) ~  Memory.............: </span><span class="sb">`</span>cat /proc/meminfo | grep MemFree | awk <span class="o">{</span><span class="s1">'print $2'</span><span class="o">}</span><span class="sb">`</span><span class="s2">kB (Free) / </span><span class="sb">`</span>cat /proc/meminfo | grep MemTotal | awk <span class="o">{</span><span class="s1">'print $2'</span><span class="o">}</span><span class="sb">`</span><span class="s2">kB (Total)
-( : '~'.~.'~' : ) Load Averages......: </span><span class="k">${</span><span class="nv">one</span><span class="k">}</span><span class="s2">, </span><span class="k">${</span><span class="nv">five</span><span class="k">}</span><span class="s2">, </span><span class="k">${</span><span class="nv">fifteen</span><span class="k">}</span><span class="s2"> (1, 5, 15 min)
-    ~ .~ (   ) ~. ~  Running Processes..: </span><span class="sb">`</span>ps ax | wc -l | tr -d <span class="s2">" "</span><span class="sb">`</span><span class="s2">
-    (  : '~' :  )   IP Addresses.......: </span><span class="sb">`</span>/sbin/ifconfig eth0 | /bin/grep <span class="s2">"inet addr"</span> | /usr/bin/cut -d <span class="s2">":"</span> -f 2 | /usr/bin/cut -d <span class="s2">" "</span> -f 1<span class="sb">`</span><span class="s2"> and </span><span class="sb">`</span>wget -q -O - http://icanhazip.com/ | tail<span class="sb">`</span><span class="s2">
-    '~ .~~~. ~'    Weather............: </span><span class="sb">`</span>curl -s <span class="s2">"http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&amp;locCode=EUR|UK|UK001|NAILSEA|"</span> | sed -n <span class="s1">'/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2°\3, \1/p'</span><span class="sb">`</span><span class="s2">
+    : .~.'~'.~. :   Uptime.............: ${UPTIME}
+    ~ (   ) (   ) ~  Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
+( : '~'.~.'~' : ) Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+    ~ .~ (   ) ~. ~  Running Processes..: `ps ax | wc -l | tr -d " "`
+    (  : '~' :  )   IP Addresses.......: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
+    '~ .~~~. ~'    Weather............: `curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&amp;locCode=EUR|UK|UK001|NAILSEA|" | sed -n '/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2°\3, \1/p'`
         '~'
-</span><span class="k">$(</span>tput sgr0<span class="k">)</span><span class="s2">"</span>
+$(tput sgr0)"
 
-Free Disk Space....: <span class="sb">`</span>df -Pk | grep -E <span class="s1">'^/dev/sda1'</span> | awk <span class="s1">'{ print $4 }'</span> | awk -F <span class="s1">'.'</span> <span class="s1">'{ print $1 }'</span><span class="sb">`</span>k on /dev/sda1
-</code></pre></div>
+Free Disk Space....: `df -Pk | grep -E '^/dev/sda1' | awk '{ print $4 }' | awk -F '.' '{ print $1 }'`k on /dev/sda1
+</code></pre>
+
 <p>I had to change eth0 to wlan0 in order to show the local IP of Raspberry Pi. This depends on the way you are connected to the network, change this accrodingly. eth0 is for ethernet and wlan0 is for wifi.</p>
 
-<h3>Changing Location</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">    For Lahore: 
+<h3 id="changing-location">Changing Location</h3>
 
-        ASI|PK|PK007|LAHORE 
-</code></pre></div>
-<h3>Remove existing stuff</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo nano motd
-</code></pre></div>
+<pre><code class="language-bash">    For Lahore: 
+    
+    	ASI|PK|PK007|LAHORE 
+</code></pre>
+
+<h3 id="remove-existing-stuff">Remove existing stuff</h3>
+
+<pre><code class="language-bash">sudo nano motd
+</code></pre>
+
 <p>Press Ctrl+K for a few seconds. Then Ctrl+O, Enter and Ctrl+X</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -190,6 +197,7 @@ Free Disk Space....: <span class="sb">`</span>df -Pk | grep -E <span class="s1">
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

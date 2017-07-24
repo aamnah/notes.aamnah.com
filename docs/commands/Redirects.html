@@ -14,6 +14,7 @@
   <meta name="description" content="&gt; write/overwriteWrite (will overwrite existing file if any, otherwise will create a new one)">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/commands/Redirects.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Redirects (&gt;, &gt;&gt;, 2&gt;, 2&gt;&amp;1)</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-12-15T00:00:00+05:00" itemprop="datePublished">
           Dec 15, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-16T00:00:00+05:00" itemprop="datePublished">
           Mar 16, 2017
         </time>
@@ -97,72 +98,78 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Redirects.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/Redirects.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2><code>&gt;</code> write/overwrite</h2>
-
+    <h2 id="writeoverwrite"><code>&gt;</code> write/overwrite</h2>
 <p>Write (will overwrite existing file if any, otherwise will create a new one)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"Bonjour la monde!"</span> &gt; helloworld.txt
 
-<span class="c"># write the output of ls in /etc/ to file.txt</span>
+<pre><code class="language-bash">echo "Bonjour la monde!" &gt; helloworld.txt
+
+# write the output of ls in /etc/ to file.txt
 ls /etc/ &gt; file.txt
-</code></pre></div>
-<p><code>&gt;</code> will write the <em>stdout</em>. </p>
+</code></pre>
 
-<h2><code>&gt;&gt;</code> append</h2>
+<p><code>&gt;</code> will write the <em>stdout</em>.</p>
 
-<p>Append (will <em>append</em> at the end of existing file content, will create file if file doesn&#39;t exist)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"Bonjour la monde!"</span> &gt;&gt; helloworld.txt
-<span class="nb">echo</span> <span class="s2">"alias dl='cd /Users/aamnah/Downloads'"</span> &gt;&gt; .aliases
-</code></pre></div>
-<h2><code>2&gt;</code> write stderr</h2>
+<h2 id="append"><code>&gt;&gt;</code> append</h2>
+<p>Append (will <em>append</em> at the end of existing file content, will create file if file doesn’t exist)</p>
 
+<pre><code class="language-bash">echo "Bonjour la monde!" &gt;&gt; helloworld.txt
+echo "alias dl='cd /Users/aamnah/Downloads'" &gt;&gt; .aliases
+</code></pre>
+
+<h2 id="write-stderr"><code>2&gt;</code> write stderr</h2>
 <p>Write stderr. By default <code>&gt;</code> does not write <em>stderr</em>, it only writes <em>stdout</em>. For stderr, you use <code>2&gt;</code>.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls avdkaeudvaev 2&gt; error.txt
-</code></pre></div>
-<p><img src="/assets/img/redirect-stderr.png" alt="Redirect stderr"></p>
 
-<h2><code>2&gt;&gt;</code> append stderr</h2>
+<pre><code class="language-bash">ls avdkaeudvaev 2&gt; error.txt
+</code></pre>
 
+<p><img src="/assets/img/redirect-stderr.png" alt="Redirect stderr" /></p>
+
+<h2 id="append-stderr"><code>2&gt;&gt;</code> append stderr</h2>
 <p>Append stderr. Same as <code>2&gt;</code> but appends instead of writing/overwriting.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls avdkaeudvaev 2&gt;&gt; /dev/null
-</code></pre></div>
-<h2><code>2&gt;&amp;1</code> write stdin + stdout</h2>
 
+<pre><code class="language-bash">ls avdkaeudvaev 2&gt;&gt; /dev/null
+</code></pre>
+
+<h2 id="write-stdin--stdout"><code>2&gt;&amp;1</code> write stdin + stdout</h2>
 <p>Write stderr as well as stdin in the same file.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">cat file1 file2 nofile &gt; mystdoutput 2&gt;&amp;1
-</code></pre></div>
+
+<pre><code class="language-bash">cat file1 file2 nofile &gt; mystdoutput 2&gt;&amp;1
+</code></pre>
+
 <p>This will come in handy more often than you think, specially when you are writing scripts, automating things and such.</p>
 
-<h2>prevent overwriting specific files</h2>
-
+<h2 id="prevent-overwriting-specific-files">prevent overwriting specific files</h2>
 <p><strong>noclobber</strong> prevents you from overwiting existing files.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">set -o noclobber
-</code></pre></div>
-<p>Don&#39;t <em>clobber</em> the existing file.</p>
 
-<p>This is when you want to create a new file if the file doesn&#39;t exist, but you don&#39;t want to append to a file that already exists and you don&#39;t want to remove files that already exists.</p>
+<pre><code>set -o noclobber
+</code></pre>
 
-<h2>Uses:</h2>
+<p>Don’t <em>clobber</em> the existing file.</p>
 
+<p>This is when you want to create a new file if the file doesn’t exist, but you don’t want to append to a file that already exists and you don’t want to remove files that already exists.</p>
+
+<h2 id="uses">Uses:</h2>
 <ul>
-<li>Storing information</li>
-<li>Creating new log files</li>
-<li>Writing data</li>
-<li>Concatenating files</li>
+  <li>Storing information</li>
+  <li>Creating new log files</li>
+  <li>Writing data</li>
+  <li>Concatenating files</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -208,6 +215,7 @@ ls /etc/ &gt; file.txt
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

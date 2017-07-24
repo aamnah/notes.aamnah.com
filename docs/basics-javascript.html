@@ -14,6 +14,7 @@
   <meta name="description" content="Comparison Operators">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/basics-javascript">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">JavaScript Basics</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T16:22:38+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,133 +92,141 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2014-05-21-basics-javascript.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_javascript/2014-05-21-basics-javascript.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Comparison Operators</h2>
+    <h2 id="comparison-operators">Comparison Operators</h2>
 
-<p><code>&gt;</code> Greater than<br>
-<code>&lt;</code> Less than<br>
-<code>&gt;=</code> Greater than equal to<br>
-<code>&lt;=</code> Less than equal to<br>
-<code>===</code> Equal to<br>
+<p><code>&gt;</code> Greater than<br />
+<code>&lt;</code> Less than<br />
+<code>&gt;=</code> Greater than equal to<br />
+<code>&lt;=</code> Less than equal to<br />
+<code>===</code> Equal to<br />
 <code>!==</code> Not equal to</p>
 
-<h2>logical operators</h2>
+<h2 id="logical-operators">logical operators</h2>
 
 <p>JavaScript has three: <strong>and</strong> <code>&amp;&amp;</code>, <strong>or</strong> <code>||</code>, and <strong>not</strong> <code>!</code>.</p>
 
-<p><strong>Modulo</strong><br>
+<p><strong>Modulo</strong><br />
 Modulo is the same as <strong>remainder</strong>. When % is placed between two numbers, the computer will divide the first number by the second, and then return the remainder of that division.</p>
 
-<h2>Function</h2>
+<h2 id="function">Function</h2>
 
-<p>A function takes in inputs, does something with them, and produces an output.<br>
-Function syntax is as follows  </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">functionName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">parameter</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
-</code></pre></div>
-<h2>Global vs Local vars</h2>
+<p>A function takes in inputs, does something with them, and produces an output.<br />
+Function syntax is as follows</p>
 
-<p>Global = variable made outside a function, Local = variable made inside a function.<br>
+<pre><code class="language-javascript">var functionName = function (parameter) { };
+</code></pre>
+
+<h2 id="global-vs-local-vars">Global vs Local vars</h2>
+
+<p>Global = variable made outside a function, Local = variable made inside a function.<br />
 Variables defined <strong>outside</strong> a function are accessible anywhere once they have been declared. They are called <strong>global variables</strong> and their scope is <strong>global</strong>.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">globalVar</span> <span class="o">=</span> <span class="s2">"hello"</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalVar</span><span class="p">);</span>  <span class="c1">// prints "hello"</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre><code class="language-javascript">var globalVar = "hello";
+
+var foo = function() {
+    console.log(globalVar);  // prints "hello"
+}
+</code></pre>
 <p>The variable globalVar can be accessed anywhere, even inside the function foo.</p>
 
 <p>Variables defined <strong>inside</strong> a function are <strong>local variables</strong>. They cannot be accessed outside of that function.</p>
 
-<p>For example:  </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
-    <span class="kd">var</span> <span class="nx">localVar</span> <span class="o">=</span> <span class="s2">"howdy"</span><span class="p">;</span>  
-<span class="p">}</span>  
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localVar</span><span class="p">);</span>  <span class="c1">// error</span>
-</code></pre></div>
+<p>For example:</p>
+
+<pre><code class="language-javascript">var bar = function() {  
+    var localVar = "howdy";  
+}  
+console.log(localVar);  // error
+</code></pre>
+
 <p>The variable <code>localVar</code> only exists inside the function <code>bar</code>. Trying to print <code>localVar</code> outside the function gives a error.</p>
 
-<h2>Null, Undefined and NaN</h2>
+<h2 id="null-undefined-and-nan">Null, Undefined and NaN</h2>
 
-<p><strong>Null</strong> means the value is null.<br>
-<strong>Undefined</strong> means the value isn&#39;t defined. Undefined is given when the variable is mentioned but the value isn&#39;t defined. If the variable wasn&#39;t metioned it would give a &#39;ReferenceError: variable is not defined.&#39;<br>
+<p><strong>Null</strong> means the value is null.<br />
+<strong>Undefined</strong> means the value isn’t defined. Undefined is given when the variable is mentioned but the value isn’t defined. If the variable wasn’t metioned it would give a ‘ReferenceError: variable is not defined.’<br />
 <strong>NaN</strong> means not a number.</p>
 
-<h2>Incrementing and Decrementing</h2>
+<h2 id="incrementing-and-decrementing">Incrementing and Decrementing</h2>
 
-<p><code>i = i + 1</code> means we have incremented (increased) the variable <code>i</code> by 1 each time. </p>
+<p><code>i = i + 1</code> means we have incremented (increased) the variable <code>i</code> by 1 each time.</p>
 
 <ul>
-<li>A more efficient way to code to increment up by 1 is to write i++.<br></li>
-<li>We decrement down by 1 by writing i--.<br></li>
-<li>We can increment up by any value by writing i += x, where x is how much we want to increment up by e.g., i += 3 counts up by 3s.<br></li>
-<li>We can decrement down by any value by writing i -= x. (See the Hint for more.)</li>
+  <li>A more efficient way to code to increment up by 1 is to write i++.</li>
+  <li>We decrement down by 1 by writing i–.</li>
+  <li>We can increment up by any value by writing i += x, where x is how much we want to increment up by e.g., i += 3 counts up by 3s.</li>
+  <li>We can decrement down by any value by writing i -= x. (See the Hint for more.)</li>
 </ul>
 
-<h2>HTTP Status Codes</h2>
+<h2 id="http-status-codes">HTTP Status Codes</h2>
 
 <p>A successful request to the server results in a response, which is the message the server sends back to you, the client.</p>
 
 <p>The response from the server will contain a three-digit status code. These codes can start with a 1, 2, 3, 4, or 5, and each set of codes means something different. (You can read the full list here). They work like this:</p>
 
-<p><strong>1xx</strong>: You won&#39;t see these a lot. The server is saying, &quot;Got it! I&#39;m working on your request.&quot;</p>
+<p><strong>1xx</strong>: You won’t see these a lot. The server is saying, “Got it! I’m working on your request.”</p>
 
-<p><strong>2xx</strong>: These mean &quot;okay!&quot; The server sends these when it&#39;s successfully responding to your request. (Remember when you got a &quot;200&quot; back from Codecademy?)</p>
+<p><strong>2xx</strong>: These mean “okay!” The server sends these when it’s successfully responding to your request. (Remember when you got a “200” back from Codecademy?)</p>
 
-<p><strong>3xx</strong>: These mean &quot;I can do what you want, but I have to do something else first.&quot; You might see this if a website has changed addresses and you&#39;re using the old one; the server might have to reroute the request before it can get you the resource you asked for.</p>
+<p><strong>3xx</strong>: These mean “I can do what you want, but I have to do something else first.” You might see this if a website has changed addresses and you’re using the old one; the server might have to reroute the request before it can get you the resource you asked for.</p>
 
-<p><strong>4xx</strong>: These mean you probably made a mistake. The most famous is &quot;404,&quot; meaning &quot;file not found&quot;: you asked for a resource or web page that doesn&#39;t exist.</p>
+<p><strong>4xx</strong>: These mean you probably made a mistake. The most famous is “404,” meaning “file not found”: you asked for a resource or web page that doesn’t exist.</p>
 
-<p><strong>5xx</strong>: These mean the server goofed up and can&#39;t successfully respond to your request.</p>
+<p><strong>5xx</strong>: These mean the server goofed up and can’t successfully respond to your request.</p>
 
-<h2>for vs. while</h2>
+<h2 id="for-vs-while">for vs. while</h2>
 
-<p>In situations where you don&#39;t know in advance when to stop looping, we can use a while loop.</p>
+<p>In situations where you don’t know in advance when to stop looping, we can use a while loop.</p>
 
-<h2>.toUpperCase() and .toLowerCase()</h2>
+<h2 id="touppercase-and-tolowercase">.toUpperCase() and .toLowerCase()</h2>
 
 <p>turns text to all capps and all lower case respectively.</p>
 
-<h2>Methods</h2>
+<h2 id="methods">Methods</h2>
 
-<p><strong>.length</strong> tells the length of the string<br>
-<strong>indexOf(&#39;string&#39;)</strong> tells what is the index (starting point) of the given string<br>
-<strong>charAt(8)</strong> tells the character at index 8. since it is zero based it&#39;ll tell you the letter at the ninth place.<br>
+<p><strong>.length</strong> tells the length of the string<br />
+<strong>indexOf(‘string’)</strong> tells what is the index (starting point) of the given string<br />
+<strong>charAt(8)</strong> tells the character at index 8. since it is zero based it’ll tell you the letter at the ninth place.<br />
 <strong>.substr(start, length)</strong> gets a sub-string, or gets part of a string out based on the index given.</p>
 
-<h2>Notes:</h2>
+<h2 id="notes">Notes:</h2>
 
 <ul>
-<li>in JS, <code>!</code> means none or not.</li>
-<li><code>parseInt</code> will convert a string to an integer. <code>parsefloat</code> will give a decimal (floating) value. There is also <code>parsebool</code>.</li>
-<li>Be very careful with your syntax—if you write a loop that can&#39;t properly end, it&#39;s called an <strong>infinite loop</strong>. It will crash your browser! It is important that there is a way for the for loop to end. If the for loop is always going to be true, then you will be stuck in an infinite loop and your browser will crash.</li>
-<li>a <strong>transfer protocol</strong> is a fancy way of saying &quot;rules for getting something from one place to another.&quot; On web, the rules are for transferring web pages to your browser.</li>
-<li><strong>REST</strong> = <strong>Re</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer</li>
-<li><strong>Endpoints</strong> are API-defined locations where particular data are stored. For instance, if you&#39;re using the API for a video hosting service, there might be endpoints for the most popular videos, the most recent videos, or videos belonging to a certain genre or category.</li>
-<li>JavaScript understands <code>1</code> to mean <code>true</code> and <code>0</code> to mean <code>false</code>.</li>
-<li><strong>heterogeneous arrays</strong>, means a mixture of data types, like so: <code>var mix = [42, true, &quot;towel&quot;];</code></li>
-<li><strong>two-dimensional array</strong> by nesting arrays one layer deep. array inside an array. like so: <code>var twoDimensional = [[1, 1], [1, 1]];</code></li>
-<li><strong>multi-dimensional array</strong> if you really wanted, you could put arrays inside arrays inside arrays for even more dimensions.</li>
-<li>Sometimes you want arrays that aren&#39;t as nice and even as your 3 x 3 two-dimensional array: you may have three elements in the first row, one element in the second row, and two elements in the third row. JavaScript allows those, and they&#39;re called <strong>jagged arrays</strong>.</li>
-<li>You can also think of <strong>objects</strong> as combinations of key-value pairs (like arrays), only their keys don&#39;t have to be numbers like 0, 1, or 2: they can be strings and variables.</li>
+  <li>in JS, <code>!</code> means none or not.</li>
+  <li><code>parseInt</code> will convert a string to an integer. <code>parsefloat</code> will give a decimal (floating) value. There is also <code>parsebool</code>.</li>
+  <li>Be very careful with your syntax—if you write a loop that can’t properly end, it’s called an <strong>infinite loop</strong>. It will crash your browser! It is important that there is a way for the for loop to end. If the for loop is always going to be true, then you will be stuck in an infinite loop and your browser will crash.</li>
+  <li>a <strong>transfer protocol</strong> is a fancy way of saying “rules for getting something from one place to another.” On web, the rules are for transferring web pages to your browser.</li>
+  <li><strong>REST</strong> = <strong>Re</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer</li>
+  <li><strong>Endpoints</strong> are API-defined locations where particular data are stored. For instance, if you’re using the API for a video hosting service, there might be endpoints for the most popular videos, the most recent videos, or videos belonging to a certain genre or category.</li>
+  <li>JavaScript understands <code>1</code> to mean <code>true</code> and <code>0</code> to mean <code>false</code>.</li>
+  <li><strong>heterogeneous arrays</strong>, means a mixture of data types, like so: <code>var mix = [42, true, "towel"];</code></li>
+  <li><strong>two-dimensional array</strong> by nesting arrays one layer deep. array inside an array. like so: <code>var twoDimensional = [[1, 1], [1, 1]];</code></li>
+  <li><strong>multi-dimensional array</strong> if you really wanted, you could put arrays inside arrays inside arrays for even more dimensions.</li>
+  <li>Sometimes you want arrays that aren’t as nice and even as your 3 x 3 two-dimensional array: you may have three elements in the first row, one element in the second row, and two elements in the third row. JavaScript allows those, and they’re called <strong>jagged arrays</strong>.</li>
+  <li>You can also think of <strong>objects</strong> as combinations of key-value pairs (like arrays), only their keys don’t have to be numbers like 0, 1, or 2: they can be strings and variables.</li>
 </ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>  
-<span class="na">key</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span>  
-<span class="na">key</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span>  
-<span class="na">key</span><span class="p">:</span> <span class="nx">value</span>  
-<span class="p">};</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">var myObject = {  
+key: value,  
+key: value,  
+key: value  
+};
+</code></pre>
+
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -263,6 +272,7 @@ Variables defined <strong>outside</strong> a function are accessible anywhere on
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

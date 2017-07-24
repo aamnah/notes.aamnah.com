@@ -14,6 +14,7 @@
   <meta name="description" content="mkdir ~/.ssh &amp;&amp; chmod 700 ~/.sshtouch ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys# copy key.pub to authorized_keys# nano /etc/...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/generate_ssh_keys_copy_remote_server">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Generating an SSH Key and Copying it to Remote Server</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-08-26T00:00:00+05:00" itemprop="datePublished">
           Aug 26, 2014
         </time>
@@ -91,59 +92,67 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-generate_ssh_keys_copy_remote_server.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/2014-08-26-generate_ssh_keys_copy_remote_server.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/.ssh <span class="o">&amp;&amp;</span> chmod 700 ~/.ssh
-touch ~/.ssh/authorized_keys <span class="o">&amp;&amp;</span> chmod 600 ~/.ssh/authorized_keys
-<span class="c"># copy key.pub to authorized_keys</span>
-<span class="c"># nano /etc/ssh/sshd_config</span>
+    <pre><code class="language-bash">mkdir ~/.ssh &amp;&amp; chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys
+# copy key.pub to authorized_keys
+# nano /etc/ssh/sshd_config
 service ssh reload
-</code></pre></div>
-<h3>Generate the Key (on local server)</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">cd ~/.ssh &amp;&amp; ssh-keygen -t rsa
-</code></pre></div>
-<h3>Making Sure the Remote Server Accepts SSH Keys</h3>
+</code></pre>
 
-<p>view the server&#39;s sshd_config file</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cat /etc/ssh/sshd_config
-</code></pre></div>
+<h3 id="generate-the-key-on-local-server">Generate the Key (on local server)</h3>
+<pre><code>cd ~/.ssh &amp;&amp; ssh-keygen -t rsa
+</code></pre>
+
+<h3 id="making-sure-the-remote-server-accepts-ssh-keys">Making Sure the Remote Server Accepts SSH Keys</h3>
+<p>view the server’s sshd_config file</p>
+
+<pre><code>cat /etc/ssh/sshd_config
+</code></pre>
+
 <p>Check the following:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">RSAAuthentication yes
+
+<pre><code>RSAAuthentication yes
 PubkeyAuthentication yes
-AuthorizedKeysFile  ~/.ssh/authorized_keys
-</code></pre></div>
-<h3>Making sure the .ssh folder and authorized_keys file exists on Remote server</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo mkdir ~/.ssh &amp;&amp; sudo touch ~/.sh/authorized_keys
-</code></pre></div>
-<h3>Setting Permission on Remote Server</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo chmod go-w ~/ &amp;&amp; sudo chmod 700 ~/.ssh &amp;&amp; sudo chmod 600 ~/.ssh/authorized_keys
-</code></pre></div>
-<h3>Copying SSH Public Key from Local to Remote Server</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">cat ~/.ssh/id_rsa.pub | ssh username@example.com "cat &gt;&gt; ~/.ssh/authorized_keys"
-</code></pre></div>
+AuthorizedKeysFile	~/.ssh/authorized_keys
+</code></pre>
+
+<h3 id="making-sure-the-ssh-folder-and-authorizedkeys-file-exists-on-remote-server">Making sure the .ssh folder and authorized_keys file exists on Remote server</h3>
+<pre><code>sudo mkdir ~/.ssh &amp;&amp; sudo touch ~/.sh/authorized_keys
+</code></pre>
+
+<h3 id="setting-permission-on-remote-server">Setting Permission on Remote Server</h3>
+<pre><code>sudo chmod go-w ~/ &amp;&amp; sudo chmod 700 ~/.ssh &amp;&amp; sudo chmod 600 ~/.ssh/authorized_keys
+</code></pre>
+
+<h3 id="copying-ssh-public-key-from-local-to-remote-server">Copying SSH Public Key from Local to Remote Server</h3>
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh username@example.com "cat &gt;&gt; ~/.ssh/authorized_keys"
+</code></pre>
+
 <p>replace <code>id_rsa.pub</code> with your generated key.</p>
 
-<h2>Troubleshooting</h2>
-
+<h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
-<li>make sure the authorized_keys file isn&#39;t empty. </li>
-<li>make sure you copied the correct authorized_keys file (.pub file that is)</li>
-<li>make sure the user you are connecting to owns the .ssh folder and the authorized_keys file</li>
-<li>make sure the permissions for the .ssh (700) folder and the authorized_keys (600) file are correct on the remote server</li>
-<li>make sure the path given in &#39;sshd<em>config&#39; is correct. `/home/.ssh/authorized</em>keys<code>and</code>~/.ssh/authorized<em>keys<code>are different if the user you are connecting to isn&#39;t root.</code>~/.ssh/authorized</em>keys` is preferred since it is relative to the user.</li>
+  <li>make sure the authorized_keys file isn’t empty.</li>
+  <li>make sure you copied the correct authorized_keys file (.pub file that is)</li>
+  <li>make sure the user you are connecting to owns the .ssh folder and the authorized_keys file</li>
+  <li>make sure the permissions for the .ssh (700) folder and the authorized_keys (600) file are correct on the remote server</li>
+  <li>make sure the path given in ‘sshd_config’ is correct. <code>/home/.ssh/authorized_keys</code> and <code>~/.ssh/authorized_keys</code> are different if the user you are connecting to isn’t root. <code>~/.ssh/authorized_keys</code> is preferred since it is relative to the user.</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -189,6 +198,7 @@ AuthorizedKeysFile  ~/.ssh/authorized_keys
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

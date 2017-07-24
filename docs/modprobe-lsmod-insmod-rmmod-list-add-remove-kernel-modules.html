@@ -14,6 +14,7 @@
   <meta name="description" content="Building on previous lessons in this section, we will learn how to probe our kernel with the appropriate device driver and determine whether it is loaded and...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/modprobe-lsmod-insmod-rmmod-list-add-remove-kernel-modules">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[modprobe, lsmod, insmod, rmmod] List, Add, Remove Kernel Modules</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2016-01-17T00:00:00+05:00" itemprop="datePublished">
           Jan 17, 2016
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-03-13T00:00:00+05:00" itemprop="datePublished">
           Mar 13, 2017
         </time>
@@ -97,88 +98,91 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/modprobe-lsmod-insmod-rmmod-List-Add-Remove Kernel Modules.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_linux/modprobe-lsmod-insmod-rmmod-List-Add-Remove Kernel Modules.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Building on previous lessons in this section, we will learn how to probe our kernel with the appropriate device driver and determine whether it is loaded and functioning as expected. We will also discuss how we can use the configuration of modprobe to blacklist or prevent some device drivers from loading even if the hardware is present on our system as well as why we might need to do that.</p>
 
-<h3>modprobe</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">modprobe -l <span class="c"># list modules</span>
-modprobe -r moduleName <span class="c"># remove modules e.g. `modprobe -r floppy`</span>
-modprobe moduleName <span class="c"># insert modules e.g. `modprobe floppy`</span>
-</code></pre></div>
-<ul>
-<li><code>modprobe -l</code> works on CentOS 6.6 and Ubuntu 12 or before. </li>
-<li><code>modprobe</code>, unlike <code>insmod</code> can add modules without specifying complete module file paths. <code>modprobe</code> fully understands where the kernel modules are installed on the system.</li>
-<li>When compiling our kernel, we used to be able to use <code>modprobe</code> to not only insert and remove modules but also query (list) the modules that were already installed on the system (by using <code>modprobe -l</code>).</li>
-<li><code>modprobe</code> is replaced by <code>lsmod</code> in modern systems (CentOS 7, RHEL 7, Ubuntu 13+, basically any modern distribution that has come out in late 2014, early 2015). We can still use <code>modprobe</code> to remove modules though.</li>
-<li>Modern systems are unifying the toolset into anything that lists modules or hardware or devices on your system is now part of the <code>ls</code> type kernel and system management tools, like <code>lspci</code> (all the PCI devices that are connected), <code>lsusb</code> (all the USB devices that are connected), and in this case <code>lsmod</code> is replacing <code>modprobe -l</code>.</li>
-<li><code>modprobe</code> still works for adding and removing modules but we can no longer use it to list modules that are installed or available on our system.</li>
-</ul>
-
-<h3>lsmod</h3>
+<h3 id="modprobe">modprobe</h3>
+<pre><code class="language-bash">modprobe -l # list modules
+modprobe -r moduleName # remove modules e.g. `modprobe -r floppy`
+modprobe moduleName # insert modules e.g. `modprobe floppy`
+</code></pre>
 
 <ul>
-<li><code>lsmod</code> is what we use to look for kernel modules that are installed on our system. It tells us what modules are installed and we can grep for different modules as well. It will not tell us all of the modules that are <em>available</em> on our system, like <code>modprobe -l</code> did.</li>
-<li><code>lsmod</code> nicely formats the info that is listed in <em>/proc/modules</em></li>
-<li>You can use the <code>grep</code> utility to look for particular modules, like the sound modules for example:</li>
-</ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">lsmod | grep snd
-</code></pre></div>
-<ul>
-<li>The <code>lsmod</code> is a very basic utility for listing modules, it has no advanced options or flags. It hides the hexadecimal info (that we generally won&#39;t care about) which is in the actual <em>/proc/modules</em> file. <em>/proc/modules</em> has the same info in a space delimited format that is read by various utilities like <code>insmod</code>, <code>modprobe</code>, <code>lsmod</code> etc. </li>
+  <li><code>modprobe -l</code> works on CentOS 6.6 and Ubuntu 12 or before.</li>
+  <li><code>modprobe</code>, unlike <code>insmod</code> can add modules without specifying complete module file paths. <code>modprobe</code> fully understands where the kernel modules are installed on the system.</li>
+  <li>When compiling our kernel, we used to be able to use <code>modprobe</code> to not only insert and remove modules but also query (list) the modules that were already installed on the system (by using <code>modprobe -l</code>).</li>
+  <li><code>modprobe</code> is replaced by <code>lsmod</code> in modern systems (CentOS 7, RHEL 7, Ubuntu 13+, basically any modern distribution that has come out in late 2014, early 2015). We can still use <code>modprobe</code> to remove modules though.</li>
+  <li>Modern systems are unifying the toolset into anything that lists modules or hardware or devices on your system is now part of the <code>ls</code> type kernel and system management tools, like <code>lspci</code> (all the PCI devices that are connected), <code>lsusb</code> (all the USB devices that are connected), and in this case <code>lsmod</code> is replacing <code>modprobe -l</code>.</li>
+  <li><code>modprobe</code> still works for adding and removing modules but we can no longer use it to list modules that are installed or available on our system.</li>
 </ul>
 
-<p><img src="/assets/img/resources/A3B138BA-581C-4001-84CD-404E4819DD3B.png" alt="lsmod"></p>
+<h3 id="lsmod">lsmod</h3>
+<ul>
+  <li><code>lsmod</code> is what we use to look for kernel modules that are installed on our system. It tells us what modules are installed and we can grep for different modules as well. It will not tell us all of the modules that are <em>available</em> on our system, like <code>modprobe -l</code> did.</li>
+  <li><code>lsmod</code> nicely formats the info that is listed in <em>/proc/modules</em></li>
+  <li>You can use the <code>grep</code> utility to look for particular modules, like the sound modules for example:</li>
+</ul>
+
+<pre><code class="language-bash">lsmod | grep snd
+</code></pre>
+
+<ul>
+  <li>The <code>lsmod</code> is a very basic utility for listing modules, it has no advanced options or flags. It hides the hexadecimal info (that we generally won’t care about) which is in the actual <em>/proc/modules</em> file. <em>/proc/modules</em> has the same info in a space delimited format that is read by various utilities like <code>insmod</code>, <code>modprobe</code>, <code>lsmod</code> etc.</li>
+</ul>
+
+<p><img src="/assets/img/resources/A3B138BA-581C-4001-84CD-404E4819DD3B.png" alt="lsmod" /></p>
 
 <p>You can grep <em>/proc/modules</em> just like you can grep <code>lsmod</code>.</p>
 
-<p><img src="/assets/img/resources/43BBFEF5-A698-43A4-9BF1-1D56B0ED26E5.png" alt="grep /proc/modules"></p>
+<p><img src="/assets/img/resources/43BBFEF5-A698-43A4-9BF1-1D56B0ED26E5.png" alt="grep /proc/modules" /></p>
 
-<h3>insmod</h3>
-
+<h3 id="insmod">insmod</h3>
 <ul>
-<li><code>insmod</code> = <strong>Ins</strong>ert <strong>Mod</strong>ule. </li>
-<li><code>modprobe moduleName</code> still works for adding modules and is simpler to use. Use <code>modprobe</code>, <code>insmod</code> is a chore.</li>
-<li><code>insmod</code> needs a full path to the actiual binary object file that&#39;s loaded into the kernel. <code>insmod</code> is not smart enough, nor is it configured by default, to look for the kernel object without passing in a full path.</li>
+  <li><code>insmod</code> = <strong>Ins</strong>ert <strong>Mod</strong>ule.</li>
+  <li><code>modprobe moduleName</code> still works for adding modules and is simpler to use. Use <code>modprobe</code>, <code>insmod</code> is a chore.</li>
+  <li><code>insmod</code> needs a full path to the actiual binary object file that’s loaded into the kernel. <code>insmod</code> is not smart enough, nor is it configured by default, to look for the kernel object without passing in a full path.</li>
 </ul>
 
 <p>An example command would be like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">insmod /lib/modules/Kernel-Version/kernel/drivers/block/floppy.ko
+
+<pre><code class="language-bash">insmod /lib/modules/Kernel-Version/kernel/drivers/block/floppy.ko
 
 insmod /lib/modules/3.13.0-40-generic/kernel/drivers/block/floppy.ko
-</code></pre></div>
-<h3>rmmod</h3>
+</code></pre>
+
+<h3 id="rmmod">rmmod</h3>
 
 <ul>
-<li><code>rmmod</code> = <strong>R</strong>e<strong>m</strong>ove <strong>Mod</strong>ule</li>
-<li><code>rmmod</code> does not require a full path because it looks at the current kernel objects that are running</li>
-<li><code>modprobe -r moduleName</code> still works for removing modules.</li>
+  <li><code>rmmod</code> = <strong>R</strong>e<strong>m</strong>ove <strong>Mod</strong>ule</li>
+  <li><code>rmmod</code> does not require a full path because it looks at the current kernel objects that are running</li>
+  <li><code>modprobe -r moduleName</code> still works for removing modules.</li>
 </ul>
 
-<h4>Misc. Commands</h4>
+<h4 id="misc-commands">Misc. Commands</h4>
 
 <ul>
-<li>check CentOS  version: <code>cat /etc/issue</code></li>
-<li>check kernel version: <code>uname -a</code></li>
+  <li>check CentOS  version: <code>cat /etc/issue</code></li>
+  <li>check kernel version: <code>uname -a</code></li>
 </ul>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://linuxacademy.com/cp/courses/lesson/course/26/lesson/4/module/1">Linux Academy: Linux+ LPIC Level 1 Exam 1</a></li>
+  <li><a href="https://linuxacademy.com/cp/courses/lesson/course/26/lesson/4/module/1">Linux Academy: Linux+ LPIC Level 1 Exam 1</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -224,6 +228,7 @@ insmod /lib/modules/3.13.0-40-generic/kernel/drivers/block/floppy.ko
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

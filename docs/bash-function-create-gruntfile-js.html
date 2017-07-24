@@ -14,6 +14,7 @@
   <meta name="description" content="Here is how it worksEveryt time i type gruntfile in the Terminal, it creates a gruntfile.js for me in the folder i am in. The resulting gruntfile.js has the ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash-function-create-gruntfile-js">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Write a Bash Function to Create a gruntfile.js for your project</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-02-15T00:00:00+05:00" itemprop="datePublished">
           Feb 15, 2015
         </time>
@@ -91,55 +92,57 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2015-02-15-bash-function-create-gruntfile.js.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/2015-02-15-bash-function-create-gruntfile.js.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>workflow</li>
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h3>Here is how it works</h3>
-
+    <h3 id="here-is-how-it-works">Here is how it works</h3>
 <p>Everyt time i type <code>gruntfile</code> in the Terminal, it creates a <strong>gruntfile.js</strong> for me in the folder i am in. The resulting <strong>gruntfile.js</strong> has the following template code:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
-    <span class="na">pkg</span><span class="p">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">'package.json'</span><span class="p">),</span>
 
-    <span class="c1">// CONFIG</span>
+<pre><code class="language-javascript">module.exports = function(grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-    <span class="p">});</span>
+    // CONFIG
 
-    <span class="c1">// PLUGINS</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+    });
 
-    <span class="c1">// TASKS</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">]);</span>
-<span class="p">};</span>
-</code></pre></div>
+    // PLUGINS
+    grunt.loadNpmTasks('');
+
+    // TASKS
+    grunt.registerTask('default', ['', '']);
+};
+</code></pre>
+
 <p>I can now add my Grunt config to it.</p>
 
 <p>What i have done is create a function <code>gruntfile</code> for me and saved in my <code>.bash_profile</code> so it is available to me anywhere in the Terminal.</p>
 
-<h3>Here is the code</h3>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">color_green</span><span class="o">=</span><span class="s1">'\033[92m'</span> 
-<span class="nv">color_red</span><span class="o">=</span><span class="s1">'\033[91m'</span> 
-<span class="nv">color_off</span><span class="o">=</span><span class="s1">'\033[0m'</span>
+<h3 id="here-is-the-code">Here is the code</h3>
 
-gruntfile<span class="o">()</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">[</span> -e <span class="s2">"gruntfile.js"</span> <span class="o">]</span> ; <span class="k">then
-    </span><span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">color_red</span><span class="k">}</span><span class="s2">gruntfile.js already exists</span><span class="k">${</span><span class="nv">color_off</span><span class="k">}</span><span class="s2">"</span>
+<pre><code class="language-bash">color_green='\033[92m' 
+color_red='\033[91m' 
+color_off='\033[0m'
 
-    <span class="k">if</span> <span class="o">[</span> -e <span class="s2">"Gruntfile.js"</span> <span class="o">]</span> ; <span class="k">then
-      </span><span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">color_red</span><span class="k">}</span><span class="s2">Gruntfile.js already exists</span><span class="k">${</span><span class="nv">color_off</span><span class="k">}</span><span class="s2">"</span>
-    <span class="k">fi
+gruntfile() {
+  if [ -e "gruntfile.js" ] ; then
+    echo -e "${color_red}gruntfile.js already exists${color_off}"
+
+    if [ -e "Gruntfile.js" ] ; then
+      echo -e "${color_red}Gruntfile.js already exists${color_off}"
+    fi
 
   else
-  </span><span class="nb">echo</span> -e <span class="s2">"
+  echo -e "
     module.exports = function(grunt) {
       grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -154,23 +157,23 @@ gruntfile<span class="o">()</span> <span class="o">{</span>
         // TASKS
         grunt.registerTask('default', ['', '']);
     };
-  "</span> &gt;&gt; gruntfile.js
+  " &gt;&gt; gruntfile.js
 
-  <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">color_green</span><span class="k">}</span><span class="s2">Gruntfile has been created</span><span class="k">${</span><span class="nv">color_off</span><span class="k">}</span><span class="s2">"</span>
-  <span class="k">fi</span>
-<span class="o">}</span>
-</code></pre></div>
+  echo -e "${color_green}Gruntfile has been created${color_off}"
+  fi
+}
+</code></pre>
+
 <p>Copy this code to the bottom of your <code>.bash_profile</code>.</p>
 
 <p>Quit and re-open the Terminal after you are done editing. Alternatively, you can also run <code>source .bash_profile</code> to load the changes you just made.</p>
 
-<h2>Notes</h2>
-
+<h2 id="notes">Notes</h2>
 <ul>
-<li>The <code>echo</code> command must be run with the <code>-e</code> flag to execute it as a command instead of just printing it out to the terminal.</li>
-<li>Also, <code>echo</code> only seems to work if you wrap the statement in double quotes <code>&quot; &quot;</code>. It will not work with single quotes <code>&#39; &#39;</code></li>
-<li>Since there is no simple way of checking case-insensitively if a file exists, i have added an if statement twice to check for both <code>gruntfile.js</code> and <code>Gruntfile.js</code></li>
-<li>I have added color coding so that it&#39;ll show a red response if the file already exists and a green one if a file was succesfully created after running the function.</li>
+  <li>The <code>echo</code> command must be run with the <code>-e</code> flag to execute it as a command instead of just printing it out to the terminal.</li>
+  <li>Also, <code>echo</code> only seems to work if you wrap the statement in double quotes <code>" "</code>. It will not work with single quotes <code>' '</code></li>
+  <li>Since there is no simple way of checking case-insensitively if a file exists, i have added an if statement twice to check for both <code>gruntfile.js</code> and <code>Gruntfile.js</code></li>
+  <li>I have added color coding so that it’ll show a red response if the file already exists and a green one if a file was succesfully created after running the function.</li>
 </ul>
 
 <p>If this all seems too technical, you can just <a href="http://tldrdevnotes.comcreate-grunt-snippet-sublime-text">create a sublime text snippet for Grunt</a>.</p>
@@ -179,7 +182,8 @@ gruntfile<span class="o">()</span> <span class="o">{</span>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -225,6 +229,7 @@ gruntfile<span class="o">()</span> <span class="o">{</span>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

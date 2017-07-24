@@ -14,6 +14,7 @@
   <meta name="description" content="df -h">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/df-disk-free">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">[df] Disk Free</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-11-21T00:00:00+05:00" itemprop="datePublished">
           Nov 21, 2015
         </time>
@@ -91,57 +92,75 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[df] Disk Free.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_commands/[df] Disk Free.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <div class="highlight"><pre><code class="language-bash" data-lang="bash">df -h
-</code></pre></div>
+    <pre><code class="language-bash">df -h
+</code></pre>
+
 <p>The <code>-h</code> flag is for human readable output, show 30G instead of 30830588.</p>
 
-<p><img src="/assets/img/df-h.png" alt="Screenshot df -h"></p>
+<p><img src="/assets/img/df-h.png" alt="Screenshot df -h" /></p>
 
-<h3>Summing numbers in the output of <code>df</code></h3>
-
+<h3 id="summing-numbers-in-the-output-of-df">Summing numbers in the output of <code>df</code></h3>
 <p>We can do that by pip the output of the df command to something like awk and have awk sum up the numbers, like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{}'</span>
-df -lP | awk <span class="s1">'{do math} END {print result}'</span>
-</code></pre></div>
+
+<pre><code class="language-bash">df -lP | awk '{}'
+df -lP | awk '{do math} END {print result}'
+</code></pre>
+
 <p>If the device names are long, df splits the output on multiple line to fit it in the normal 80 character long terminal. <code>-P</code> is for portability, use the POSIX output format (and not try to fit everything in by breaking lines) Get the foramt data in a consistent format, every device on one line.</p>
 
 <p>FYI: You can also get a nicer output y piping the output to <code>column</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | column -t
-</code></pre></div>
+
+<pre><code class="language-bash">df -lP | column -t
+</code></pre>
+
 <p>(To me it just looks like <code>column -t</code> right aligned the column data..)</p>
 
-<p><img src="/assets/img/df-lp.png" alt="Screenshot df -lp"></p>
+<p><img src="/assets/img/df-lp.png" alt="Screenshot df -lp" /></p>
 
 <p>So, back to summing..</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3}'</span>
-</code></pre></div>
-<p>the <code>sum</code> variable is equal to the sum of values in the third column <code>$3</code> (take the value of sum and add the third column to it).</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3} END { printf sum }`
-</span></code></pre></div>
-<p>Get the sum and and at the end of it, print the value of <code>sum</code>.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">df -lP | awk <span class="s1">'{sum += $3} END { printf "%d GiB\n", sum/2^20}`
-</span></code></pre></div>
-<p><img src="/assets/img/df-lp-awk.png" alt="Screenshot df -lp | awk"></p>
 
-<h2>Links</h2>
+<pre><code class="language-bash">df -lP | awk '{sum += $3}'
+</code></pre>
+
+<p>the <code>sum</code> variable is equal to the sum of values in the third column <code>$3</code> (take the value of sum and add the third column to it).</p>
+
+<pre><code class="language-bash">df -lP | awk '{sum += $3} END { printf sum }`
+</code></pre>
+
+<p>Get the sum and and at the end of it, print the value of <code>sum</code>.</p>
+
+<pre><code class="language-bash">df -lP | awk '{sum += $3} END { printf "%d GiB\n", sum/2^20}`
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Screenshot df -lp</td>
+      <td>awk](/assets/img/df-lp-awk.png)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://www.youtube.com/watch?v=oBZ1-E_NcMg">YouTube: climagic: Summing numbers in the output of df</a></li>
+  <li><a href="https://www.youtube.com/watch?v=oBZ1-E_NcMg">YouTube: climagic: Summing numbers in the output of df</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -187,6 +206,7 @@ df -lP | awk <span class="s1">'{do math} END {print result}'</span>
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

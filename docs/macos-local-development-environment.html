@@ -14,6 +14,7 @@
   <meta name="description" content="Why not just MAMP?Becaus i was running low on space. MAMP takes about 1.8GB+ on my current MacBook Air with 128GB of base storage.. I am assuming this local ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/macos-local-development-environment">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Set up Apache, PHP, MySQL, PHPMyAdmin on macOS Sierra</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2017-07-16T00:00:00+05:00" itemprop="datePublished">
           Jul 16, 2017
         </time>
@@ -91,49 +92,50 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/mac-local-dev-env.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_workflow/mac-local-dev-env.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h4>Why not just MAMP?</h4>
-
+    <h4 id="why-not-just-mamp">Why not just MAMP?</h4>
 <p>Becaus i was running low on space. MAMP takes about 1.8GB+ on my current MacBook Air with 128GB of base storage.. I am assuming this local setup takes much less space. XAMPP also takes about 2GB+, which is too much when i just want a simple local server with PHP.</p>
 
 <div class="Post-note">
 You will need to run some commands as the root (super) user. You can switch to root with <code>sudo -s</code> or <code>sudo su -</code>
 </div>
 
-<h3>Apache</h3>
+<h3 id="apache">Apache</h3>
+<p>Apache is already installed on macOS Sierra</p>
 
-<p>Apache is already installed on macOS Sierra </p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">httpd -v <span class="c"># check version (Apache/2.4.23 on Sierra) </span>
-sudo apachectl start <span class="c"># start Apache</span>
-sudo apachectl stop <span class="c"># stop Apache</span>
-sudo apachectl restart <span class="c"># restart Apache</span>
-sudo apachectl configtest <span class="c"># test Apache setup (good for troubleshooting)</span>
-</code></pre></div>
+<pre><code class="language-bash">httpd -v # check version (Apache/2.4.23 on Sierra) 
+sudo apachectl start # start Apache
+sudo apachectl stop # stop Apache
+sudo apachectl restart # restart Apache
+sudo apachectl configtest # test Apache setup (good for troubleshooting)
+</code></pre>
+
 <p>You should see the <strong>It Works!</strong> text on <strong>http://localhost</strong>.</p>
 
-<p>TO BE CONTINUED...</p>
+<p>TO BE CONTINUED…</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li>https://coolestguidesontheplanet.com/get-apache-mysql-php-and-phpmyadmin-working-on-macos-sierra/</li>
-<li>https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba</li>
-<li>https://jason.pureconcepts.net/2016/09/install-apache-php-mysql-mac-os-x-sierra/</li>
-<li>https://jason.pureconcepts.net/2016/09/upgrade-php-mac-os-x/</li>
+  <li>https://coolestguidesontheplanet.com/get-apache-mysql-php-and-phpmyadmin-working-on-macos-sierra/</li>
+  <li>https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba</li>
+  <li>https://jason.pureconcepts.net/2016/09/install-apache-php-mysql-mac-os-x-sierra/</li>
+  <li>https://jason.pureconcepts.net/2016/09/upgrade-php-mac-os-x/</li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -179,6 +181,7 @@ sudo apachectl configtest <span class="c"># test Apache setup (good for troubles
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

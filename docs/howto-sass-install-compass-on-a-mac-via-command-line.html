@@ -14,6 +14,7 @@
   <meta name="description" content="Compass is a Ruby gem, so in order to install it you must have Ruby installed. Macs come pre-installed with Ruby.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/howto-sass-install-compass-on-a-mac-via-command-line">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">How to install Compass on a Mac via Command Line</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2014-05-21T15:34:28+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-install-compass-mac-via-command-line.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_css-sass/Sass-install-compass-mac-via-command-line.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>compass</li>
       
@@ -102,30 +103,35 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <p>Compass is a Ruby gem, so in order to install it you must have Ruby installed. Macs come pre-installed with Ruby.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem update --system
+
+<pre><code class="language-bash">sudo gem update --system
 sudo gem install compass 
 compass --version
-</code></pre></div>
-<h2>Notes</h2>
+</code></pre>
+
+<h2 id="notes">Notes</h2>
 
 <ul>
-<li><code>sudo gem update --system</code> will make sure all gems are up to date</li>
-<li>You can use <code>sass --version</code> to see if you have installed or what version of Sass is it</li>
-<li><code>sudo gem install compass</code> will also install Sass if it isn&#39;t already installed</li>
-<li><code>compass --version</code> will confirm the installation by telling you what version of Compass you have installed</li>
-<li><p>If command line scares you, you can install GUI apps for Compass, like: </p></li>
-<li><p><a href="http://compass.kkbox.com">compass.app - $10 - Mac, Windows, Linux</a>  </p></li>
-<li><p><a href="http://mhs.github.io/scout-app/">Scout - Free - Mac, Windows</a>  </p></li>
-<li><p><a href="https://incident57.com/codekit/">CodeKit - $29 - Mac only</a>  </p></li>
+  <li><code>sudo gem update --system</code> will make sure all gems are up to date</li>
+  <li>You can use <code>sass --version</code> to see if you have installed or what version of Sass is it</li>
+  <li><code>sudo gem install compass</code> will also install Sass if it isn’t already installed</li>
+  <li><code>compass --version</code> will confirm the installation by telling you what version of Compass you have installed</li>
+  <li>
+    <p>If command line scares you, you can install GUI apps for Compass, like:</p>
+  </li>
+  <li><a href="http://compass.kkbox.com">compass.app - $10 - Mac, Windows, Linux</a></li>
+  <li><a href="http://mhs.github.io/scout-app/">Scout - Free - Mac, Windows</a></li>
+  <li><a href="https://incident57.com/codekit/">CodeKit - $29 - Mac only</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -171,6 +177,7 @@ compass --version
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

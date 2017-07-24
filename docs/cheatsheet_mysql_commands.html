@@ -14,6 +14,7 @@
   <meta name="description" content="Connect to MySQL">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/cheatsheet_mysql_commands">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">MySQL Commands</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-04-10T00:00:00+05:00" itemprop="datePublished">
           Apr 10, 2015
         </time>
@@ -89,7 +90,7 @@
       
 
       
-      <span class='mtime'>Modified
+      <span class="mtime">Modified
         <time datetime="2017-07-06T00:00:00+05:00" itemprop="datePublished">
           Jul 6, 2017
         </time>
@@ -97,10 +98,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_MySQL.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_cheatsheets/cheatsheet_MySQL.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>cheatsheet</li>
       
@@ -108,117 +109,190 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Connect to MySQL</h2>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">aamnah</span> <span class="o">-</span><span class="n">p</span> <span class="err">—</span><span class="n">h</span> <span class="n">db</span><span class="p">.</span><span class="n">mysite</span><span class="p">.</span><span class="n">com</span> <span class="o">-</span><span class="n">P</span> <span class="mi">3306</span> <span class="n">db_name</span>  
-</code></pre></div>
+    <h2 id="connect-to-mysql">Connect to MySQL</h2>
+
+<pre><code class="language-sql">mysql -u aamnah -p —h db.mysite.com -P 3306 db_name  
+</code></pre>
+
 <p>OR</p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="c1">--user=username --password=password --host=host --port=3306 db_name</span>
-</code></pre></div>
-<p>| options              | values                    |
-|----------------------|---------------------------|
-| <code>-u</code> or <code>--user</code>     | username                  |
-| <code>-p</code> or <code>--password</code> | password                  |
-| <code>-h</code> or <code>--host</code>     | host (default: localhost) |
-| <code>-P</code> or <code>--port</code>     | Port (default: 3306)      |</p>
 
-<p>Replace <em>db</em>name_ with the name of the database you want to connect to.</p>
+<pre><code class="language-sql">mysql --user=username --password=password --host=host --port=3306 db_name
+</code></pre>
 
-<h2>CRUD Databases</h2>
+<table>
+  <thead>
+    <tr>
+      <th>options</th>
+      <th>values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-u</code> or <code>--user</code></td>
+      <td>username</td>
+    </tr>
+    <tr>
+      <td><code>-p</code> or <code>--password</code></td>
+      <td>password</td>
+    </tr>
+    <tr>
+      <td><code>-h</code> or <code>--host</code></td>
+      <td>host (default: localhost)</td>
+    </tr>
+    <tr>
+      <td><code>-P</code> or <code>--port</code></td>
+      <td>Port (default: 3306)</td>
+    </tr>
+  </tbody>
+</table>
 
-<h5>Create MySQL database</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">foo</span> <span class="p">;</span>
-</code></pre></div>
-<h2>Users and Privileges</h2>
+<p>Replace <em>db_name</em> with the name of the database you want to connect to.</p>
 
-<h5>Creating MySQL User</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'password'</span> <span class="p">;</span>
-</code></pre></div>
+<h2 id="crud-databases">CRUD Databases</h2>
+
+<h5 id="create-mysql-database">Create MySQL database</h5>
+
+<pre><code class="language-sql">mysql &gt; CREATE DATABASE foo ;
+</code></pre>
+
+<h2 id="users-and-privileges">Users and Privileges</h2>
+
+<h5 id="creating-mysql-user">Creating MySQL User</h5>
+
+<pre><code class="language-sql">mysql&gt; CREATE USER 'username'@'host' IDENTIFIED BY 'password' ;
+</code></pre>
+
 <ul>
-<li><p>Syntax for account names is &#39;userName&#39;@&#39;hostName&#39;.</p></li>
-<li><p>An account name consisting only of a user name is equivalent to &#39;userName&#39;@&#39;%&#39;. For example, &#39;me&#39; is equivalent to &#39;me&#39;@&#39;%&#39;.</p></li>
+  <li>
+    <p>Syntax for account names is ‘userName’@’hostName’.</p>
+  </li>
+  <li>
+    <p>An account name consisting only of a user name is equivalent to ‘userName’@’%’. For example, ‘me’ is equivalent to ‘me’@’%’.</p>
+  </li>
 </ul>
 
-<h5>Change user password</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="n">PASSWORD</span> <span class="k">FOR</span>
-<span class="s1">'jeffrey'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="o">=</span> <span class="n">PASSWORD</span><span class="p">(</span><span class="s1">'mypass'</span><span class="p">);</span>
-</code></pre></div>
+<h5 id="change-user-password">Change user password</h5>
+
+<pre><code class="language-sql">SET PASSWORD FOR
+'jeffrey'@'localhost' = PASSWORD('mypass');
+</code></pre>
+
 <p>If you are changing your own password and not of another user, you can omit the <code>FOR</code> clause</p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="n">PASSWORD</span> <span class="o">=</span> <span class="n">PASSWORD</span><span class="p">(</span><span class="s1">'mypass'</span><span class="p">);</span>
-</code></pre></div>
-<h5>Allowing User to Connect</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="o">#</span> <span class="k">grant</span> <span class="k">usage</span> <span class="k">on</span> <span class="n">server</span> <span class="n">so</span> <span class="n">the</span> <span class="k">user</span> <span class="n">can</span> <span class="k">connect</span>  
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">USAGE</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
-<h5>Granting Privileges</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">databasename</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
-<h5>CHECK if you can connect to the created database with the user you crteated</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">p</span> <span class="c1">--host=db.mysite.com databasename </span>
-</code></pre></div>
-<h5>Deleting MySQL User</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">DROP</span> <span class="k">USER</span> <span class="s1">'username'</span><span class="o">@</span><span class="s1">'host'</span> <span class="p">;</span>
-</code></pre></div>
-<h5>List all users</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">User</span><span class="p">,</span><span class="k">Host</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
-</code></pre></div>
-<h5>View Users and Permissions</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">user</span><span class="p">,</span> <span class="k">host</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">select_priv</span><span class="p">,</span> <span class="n">insert_priv</span><span class="p">,</span> <span class="n">shutdown_priv</span><span class="p">,</span> <span class="n">grant_priv</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span>
-</code></pre></div>
-<h5>View User Permissions for individual Databases</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">user</span><span class="p">,</span> <span class="k">host</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">select_priv</span><span class="p">,</span> <span class="n">insert_priv</span><span class="p">,</span> <span class="n">grant_priv</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="n">db</span>
-</code></pre></div>
-<h2>Backups</h2>
 
-<h5>backup all databases in one file (eventually add the option --add-locks):</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="err">–</span><span class="k">all</span><span class="o">-</span><span class="n">databases</span> <span class="o">&gt;</span> <span class="n">file</span><span class="p">.</span><span class="k">sql</span>
-</code></pre></div>
-<h5>backup all databases in one gzipped file:</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="err">–</span><span class="k">all</span><span class="o">-</span><span class="n">databases</span> <span class="o">|</span> <span class="n">gzip</span> <span class="o">&gt;</span> <span class="n">file</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span>
-</code></pre></div>
-<h5>backup selected databases</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="err">–</span><span class="n">databases</span> <span class="n">db1</span> <span class="n">db2</span> <span class="n">db3</span> <span class="o">|</span> <span class="n">gzip</span> <span class="o">&gt;</span> <span class="n">dbs</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span>
-</code></pre></div>
-<h2>Restores</h2>
+<pre><code class="language-sql">SET PASSWORD = PASSWORD('mypass');
+</code></pre>
 
-<h5>restore all databases:</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">file</span><span class="p">.</span><span class="k">sql</span> 
-</code></pre></div>
-<h5>restore compressed backup file</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">gunzip</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span><span class="p">]</span> <span class="o">|</span> <span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="p">[</span><span class="n">uname</span><span class="p">]</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="n">pass</span><span class="p">]</span> <span class="p">[</span><span class="n">dbname</span><span class="p">]</span>
-</code></pre></div>
-<h5>Import SQL database</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">username</span> <span class="o">-</span><span class="n">p</span> <span class="n">password</span> <span class="n">databasename</span> <span class="o">&lt;</span> <span class="n">filename</span><span class="p">.</span><span class="k">sql</span>
-</code></pre></div>
-<h5>Sample Command for creating a backup and restoring at remote server in one command:</h5>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="c1">--user=root --password=password --host=mysql.mydomain.com db_1 | mysql --host=db.mysite.com --user=username --password=password db_1</span>
-</code></pre></div>
-<h2>Troubleshooting</h2>
+<h5 id="allowing-user-to-connect">Allowing User to Connect</h5>
+
+<pre><code class="language-sql"># grant usage on server so the user can connect  
+mysql&gt; GRANT USAGE ON *.* TO 'username'@'host' ;
+</code></pre>
+
+<h5 id="granting-privileges">Granting Privileges</h5>
+
+<pre><code class="language-sql">mysql&gt; GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'host' ;
+</code></pre>
+
+<h5 id="check-if-you-can-connect-to-the-created-database-with-the-user-you-crteated">CHECK if you can connect to the created database with the user you crteated</h5>
+
+<pre><code class="language-sql">mysql -uusername -p --host=db.mysite.com databasename 
+</code></pre>
+
+<h5 id="deleting-mysql-user">Deleting MySQL User</h5>
+
+<pre><code class="language-sql">mysql&gt; DROP USER 'username'@'host' ;
+</code></pre>
+
+<h5 id="list-all-users">List all users</h5>
+
+<pre><code class="language-sql">SELECT User,Host FROM mysql.user;
+</code></pre>
+
+<h5 id="view-users-and-permissions">View Users and Permissions</h5>
+
+<pre><code class="language-sql">SELECT user, host, password, select_priv, insert_priv, shutdown_priv, grant_priv FROM mysql.user
+</code></pre>
+
+<h5 id="view-user-permissions-for-individual-databases">View User Permissions for individual Databases</h5>
+
+<pre><code class="language-sql">SELECT user, host, db, select_priv, insert_priv, grant_priv FROM mysql.db
+</code></pre>
+
+<h2 id="backups">Backups</h2>
+
+<h5 id="backup-all-databases-in-one-file-eventually-add-the-option---add-locks">backup all databases in one file (eventually add the option –add-locks):</h5>
+
+<pre><code class="language-sql">mysqldump -u username -p -–all-databases &gt; file.sql
+</code></pre>
+
+<h5 id="backup-all-databases-in-one-gzipped-file">backup all databases in one gzipped file:</h5>
+
+<pre><code class="language-sql">mysqldump -u username -p -–all-databases | gzip &gt; file.sql.gz
+</code></pre>
+
+<h5 id="backup-selected-databases">backup selected databases</h5>
+
+<pre><code class="language-sql">mysqldump -u username -p -–databases db1 db2 db3 | gzip &gt; dbs.sql.gz
+</code></pre>
+
+<h2 id="restores">Restores</h2>
+
+<h5 id="restore-all-databases">restore all databases:</h5>
+
+<pre><code class="language-sql">mysql -u username -p &lt; file.sql 
+</code></pre>
+
+<h5 id="restore-compressed-backup-file">restore compressed backup file</h5>
+
+<pre><code class="language-sql">gunzip &lt; [backupfile.sql.gz] | mysql -u [uname] -p[pass] [dbname]
+</code></pre>
+
+<h5 id="import-sql-database">Import SQL database</h5>
+
+<pre><code class="language-sql">mysql -u username -p password databasename &lt; filename.sql
+</code></pre>
+
+<h5 id="sample-command-for-creating-a-backup-and-restoring-at-remote-server-in-one-command">Sample Command for creating a backup and restoring at remote server in one command:</h5>
+
+<pre><code class="language-sql">mysqldump --user=root --password=password --host=mysql.mydomain.com db_1 | mysql --host=db.mysite.com --user=username --password=password db_1
+</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
 
 <ul>
-<li><p>If not connecting, check if the port is open on the server you are connecting from. Default MySQL port is 3306. On KH server it couldn’t connect because the port was closed. Also, see if the allow remote login option is enabled/disabled.</p></li>
-<li><p>If the connection is not getting through the error would be ‘could not connect’.</p></li>
-<li><p>If login is incorrect the error would be ‘access denied’. <em>mysql_connect(): Access denied for user</em>.</p></li>
-<li><p>The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not.</p></li>
+  <li>
+    <p>If not connecting, check if the port is open on the server you are connecting from. Default MySQL port is 3306. On KH server it couldn’t connect because the port was closed. Also, see if the allow remote login option is enabled/disabled.</p>
+  </li>
+  <li>
+    <p>If the connection is not getting through the error would be ‘could not connect’.</p>
+  </li>
+  <li>
+    <p>If login is incorrect the error would be ‘access denied’. <em>mysql_connect(): Access denied for user</em>.</p>
+  </li>
+  <li>
+    <p>The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not.</p>
+  </li>
 </ul>
 
 <p><strong>Opening Ports</strong>:
 Ports should be opened in the firewall configuration. The default port for MySQL is 3306.</p>
 
-<p>This can be accessed in WHM &gt;&gt; Plugins » ConfigServer Security &amp; Firewall &gt;&gt; Firewall configuration &gt;&gt; Port settings.</p>
+<p>This can be accessed in WHM » Plugins » ConfigServer Security &amp; Firewall » Firewall configuration » Port settings.</p>
 
-<h2>Links</h2>
+<h2 id="links">Links</h2>
 
 <ul>
-<li><a href="https://dev.mysql.com/doc/refman/5.1/en/account-names.html">MySQL Docs: Specifying Account Names</a></li>
-<li><a href="http://webcheatsheet.com/sql/mysql_backup_restore.php">How to Back Up and Restore a MySQL Database</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/5.1/en/account-names.html">MySQL Docs: Specifying Account Names</a></li>
+  <li><a href="http://webcheatsheet.com/sql/mysql_backup_restore.php">How to Back Up and Restore a MySQL Database</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -264,6 +338,7 @@ Ports should be opened in the firewall configuration. The default port for MySQL
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

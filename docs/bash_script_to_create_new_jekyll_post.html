@@ -14,6 +14,7 @@
   <meta name="description" content="Getting Date">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/bash_script_to_create_new_jekyll_post">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Bash script to create a new Jekyll post</h1>
     <p class="Post-meta">
       
       
-      <span class='ctime'>Created
+      <span class="ctime">Created
         <time datetime="2015-02-21T00:00:00+05:00" itemprop="datePublished">
           Feb 21, 2015
         </time>
@@ -91,111 +92,126 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/bash_script_to_create_new_jekyll_posts.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_bash-scripting/bash_script_to_create_new_jekyll_posts.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <h2>Getting Date</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Date</span>
-<span class="nv">DATE</span><span class="o">=</span><span class="sb">`</span>date +%Y-%m-%d<span class="sb">`</span>
-</code></pre></div>
-<p>This will get today&#39;s date in YYYY-MM-DD format.</p>
+    <h2 id="getting-date">Getting Date</h2>
 
-<h2>Stripping spaces and replacing with underscores</h2>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nv">str</span><span class="o">=</span><span class="s2">"This is just a test"</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">str</span><span class="p">// /_</span><span class="k">}</span>
+<pre><code class="language-bash"># Date
+DATE=`date +%Y-%m-%d`
+</code></pre>
+
+<p>This will get today’s date in YYYY-MM-DD format.</p>
+
+<h2 id="stripping-spaces-and-replacing-with-underscores">Stripping spaces and replacing with underscores</h2>
+
+<pre><code class="language-bash">$ str="This is just a test"
+$ echo ${str// /_}
 This_is_just_a_test
-</code></pre></div>
-<h2>Taking it Further</h2>
+</code></pre>
 
-<h3>Make it a function</h3>
+<h2 id="taking-it-further">Taking it Further</h2>
 
-<p>What&#39;s cooler than a bash script? A bash function! With a function, we don&#39;t have to specify script name/location every time. A bash function added to your <code>.bash_profile</code> will work globally anywhere in the Terminal. The command to run would then become like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost <span class="s2">"My new post"</span>
-</code></pre></div>
+<h3 id="make-it-a-function">Make it a function</h3>
+<p>What’s cooler than a bash script? A bash function! With a function, we don’t have to specify script name/location every time. A bash function added to your <code>.bash_profile</code> will work globally anywhere in the Terminal. The command to run would then become like this:</p>
+
+<pre><code class="language-bash">jpost "My new post"
+</code></pre>
+
 <p>To make the script a function, all you have to do is wrap the code in <code>functionname() { }</code> like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost<span class="o">()</span> <span class="o">{</span>
-    <span class="c"># code goes here</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3>Take options</h3>
 
-<p>It&#39;s be nice if you could define options for your script and specify them at runtime. Like <code>-t</code> for <strong>Type</strong> and <code>-l</code> for <strong>Layout</strong>. Maybe a <code>-o</code> for <strong>Opening</strong> file in Sublime Text after it has been created.</p>
+<pre><code class="language-bash">jpost() {
+    # code goes here
+}
+</code></pre>
+
+<h3 id="take-options">Take options</h3>
+<p>It’s be nice if you could define options for your script and specify them at runtime. Like <code>-t</code> for <strong>Type</strong> and <code>-l</code> for <strong>Layout</strong>. Maybe a <code>-o</code> for <strong>Opening</strong> file in Sublime Text after it has been created.</p>
 
 <p>So the command would become something like this:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">jpost -t<span class="o">=</span>markdown -l<span class="o">=</span>post -o <span class="s2">"My new post"</span> 
-</code></pre></div>
-<p>We can do this with the bash builtin <code>getopts</code>. Define our options like so:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">while </span><span class="nb">getopts</span> <span class="s2">"o"</span> opt; <span class="k">do
-    case</span> <span class="nv">$opt</span> <span class="k">in
-        </span>o<span class="p">)</span> <span class="nv">open</span><span class="o">=</span>1 <span class="p">;;</span>
-    <span class="k">esac</span>
-<span class="k">done</span>
-</code></pre></div>
-<p>And then modify our if statements accordingly. For example, if <code>-o</code> is provided, open the file in Sublime Text</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># check for -o (open) argument</span>
-<span class="k">if</span> <span class="o">[</span> ! -z <span class="nv">$open</span> <span class="o">]</span>; <span class="k">then
-    </span>createPost
-    <span class="c"># Open file in Sublime Text</span>
-    open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
-<span class="k">fi</span>
-</code></pre></div>
-<h3>Check if File already exists</h3>
 
+<pre><code class="language-bash">jpost -t=markdown -l=post -o "My new post" 
+</code></pre>
+
+<p>We can do this with the bash builtin <code>getopts</code>. Define our options like so:</p>
+
+<pre><code class="language-bash">while getopts "o" opt; do
+    case $opt in
+        o) open=1 ;;
+    esac
+done
+</code></pre>
+
+<p>And then modify our if statements accordingly. For example, if <code>-o</code> is provided, open the file in Sublime Text</p>
+
+<pre><code class="language-bash"># check for -o (open) argument
+if [ ! -z $open ]; then
+    createPost
+    # Open file in Sublime Text
+    open -a "Sublime Text" $FILEPATH
+fi
+</code></pre>
+
+<h3 id="check-if-file-already-exists">Check if File already exists</h3>
 <p>A simple <code>if</code> statement can make sure that you are not overwriting existing files.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">(</span>-e <span class="nv">$FILENAME</span> <span class="o">)</span>; <span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"File already exists!"</span>
-<span class="k">else</span>
+
+<pre><code class="language-bash">if (-e $FILENAME ); then
+    echo "File already exists!"
+else
     // Run our code
-<span class="k">fi</span>
-</code></pre></div>
+fi
+</code></pre>
+
 <p><code>-e</code> is the operator that checks if a file exists. <code>-s</code> is the operator that checks if file exists and is not empty.</p>
 
-<h3>Color coded responses</h3>
-
+<h3 id="color-coded-responses">Color coded responses</h3>
 <p>A simple success or error message about the results of our command would be nice. What would be even nicer if they were red or green based on their run status.</p>
 
-<p>I want it to say &quot;File has been successfully created&quot; (green text) when a file has been cerated without any errors. If a file already exists, it should say &quot;File already exists!&quot; (red text).</p>
+<p>I want it to say “File has been successfully created” (green text) when a file has been cerated without any errors. If a file already exists, it should say “File already exists!” (red text).</p>
 
-<p>Let&#39;d define some colors and use them in our script.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># COLORS</span>
-<span class="nv">Color_Off</span><span class="o">=</span><span class="s1">'\033[0m'</span>       <span class="c"># Text Reset</span>
-<span class="nv">Red</span><span class="o">=</span><span class="s1">'\033[0;31m'</span>          <span class="c"># Red</span>
-<span class="nv">Green</span><span class="o">=</span><span class="s1">'\033[0;32m'</span>        <span class="c"># Green</span>
-<span class="nv">Yellow</span><span class="o">=</span><span class="s1">'\033[0;33m'</span>       <span class="c"># Yellow</span>
+<p>Let’d define some colors and use them in our script.</p>
 
-<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Green</span><span class="k">}</span><span class="s2">File was succesfully CREATED</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
-<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Red</span><span class="k">}</span><span class="s2">File already EXISTS and is NOT EMPTY</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
-<span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">Yellow</span><span class="k">}</span><span class="s2">File already EXISTS</span><span class="k">${</span><span class="nv">Color_Off</span><span class="k">}</span><span class="s2">"</span>
-</code></pre></div>
-<h3>Open the newly created file in editor</h3>
+<pre><code class="language-bash"># COLORS
+Color_Off='\033[0m'       # Text Reset
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
 
-<p>If you&#39;d like to open all new files in your favorite editor after they are created, you can add that too. The following is what i have to open all post files in Sublime Text:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">open -a <span class="s2">"Sublime Text"</span> <span class="nv">$FILEPATH</span>
-</code></pre></div>
+echo -e "${Green}File was succesfully CREATED${Color_Off}"
+echo -e "${Red}File already EXISTS and is NOT EMPTY${Color_Off}"
+echo -e "${Yellow}File already EXISTS${Color_Off}"
+</code></pre>
+
+<h3 id="open-the-newly-created-file-in-editor">Open the newly created file in editor</h3>
+<p>If you’d like to open all new files in your favorite editor after they are created, you can add that too. The following is what i have to open all post files in Sublime Text:</p>
+
+<pre><code class="language-bash">open -a "Sublime Text" $FILEPATH
+</code></pre>
+
 <p>You should add this right after the file is created in your code.</p>
 
 <script src="https://gist.github.com/aamnah/f89fca7906f66f6f6a12.js"></script>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li>Getting date in Bash: <a href="http://stackoverflow.com/questions/1401482/yyyy-mm-dd-format-date-in-shell-script">YYYY-MM-DD format date in shell script</a></li>
-<li>How to pass options to a Bash script: <a href="http://www.theunixschool.com/2012/08/getopts-how-to-pass-command-line-options-shell-script-Linux.html">getopts - How to pass command line options to shell script?</a></li>
-<li>Replace spaces <code></code> with underscores <code>_</code> : <a href="http://stackoverflow.com/questions/1706431/the-easiest-way-to-replace-white-spaces-with-underscores-in-bash">The easiest way to replace white spaces with (underscores) _ in bash</a></li>
-<li>How to convert text to lower case in Bash <a href="http://stackoverflow.com/questions/2264428/converting-string-to-lower-case-in-bash-shell-scripting">Converting string to lower case in Bash shell scripting</a></li>
-<li><a href="http://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script">Getting the last argument passed to a shell script</a></li>
+  <li>Getting date in Bash: <a href="http://stackoverflow.com/questions/1401482/yyyy-mm-dd-format-date-in-shell-script">YYYY-MM-DD format date in shell script</a></li>
+  <li>How to pass options to a Bash script: <a href="http://www.theunixschool.com/2012/08/getopts-how-to-pass-command-line-options-shell-script-Linux.html">getopts - How to pass command line options to shell script?</a></li>
+  <li>Replace spaces ` ` with underscores <code>_</code> : <a href="http://stackoverflow.com/questions/1706431/the-easiest-way-to-replace-white-spaces-with-underscores-in-bash">The easiest way to replace white spaces with (underscores) _ in bash</a></li>
+  <li>How to convert text to lower case in Bash <a href="http://stackoverflow.com/questions/2264428/converting-string-to-lower-case-in-bash-shell-scripting">Converting string to lower case in Bash shell scripting</a></li>
+  <li><a href="http://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script">Getting the last argument passed to a shell script</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -241,6 +257,7 @@ This_is_just_a_test
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

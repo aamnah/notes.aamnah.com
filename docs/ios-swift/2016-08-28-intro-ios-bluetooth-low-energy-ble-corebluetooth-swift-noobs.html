@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="This talk by Yoav Shwartz on the Realm.io site and this post by Ryan Jones on Medium are the best starting points I have come across. ">
+  <meta name="description" content="This talk by Yoav Shwartz on the Realm.io site and this post by Ryan Jones on Medium are the best starting points I have come across.">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">iOS, Bluetooth Low Energy (BLE), CoreBluetooth and Swift - for noobs</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2016-08-28T15:35:22+05:00" itemprop="datePublished">
           Aug 28, 2016
         </time>
@@ -91,10 +92,10 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
         <li>ios</li>
       
@@ -104,20 +105,21 @@
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
-    <p>This <a href="https://realm.io/news/yoav-schwartz-corebluetooth-peripherals/">talk by Yoav Shwartz</a> on the Realm.io site and this <a href="https://medium.com/@ryanjjones10/how-to-set-up-ble-with-swift-2-2-34bb6f209de2">post by Ryan Jones</a> on Medium are the best starting points I have come across. </p>
+    <p>This <a href="https://realm.io/news/yoav-schwartz-corebluetooth-peripherals/">talk by Yoav Shwartz</a> on the Realm.io site and this <a href="https://medium.com/@ryanjjones10/how-to-set-up-ble-with-swift-2-2-34bb6f209de2">post by Ryan Jones</a> on Medium are the best starting points I have come across.</p>
 
 <p>The official documentation by Apple on CoreBluetooth is in Objective-C, which sucks because Objective-C looks like gibberish to me and i want to write Swift code. You can still read the docs though, they have listed <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/BestPracticesForInteractingWithARemotePeripheralDevice/BestPracticesForInteractingWithARemotePeripheralDevice.html">best practices</a> to work with BLE and CoreBluettoth.</p>
 
-<p>You do need to have an iOS device in order to use CoreBlueooth, it is not supported in the Simulator. It was, originally, but they removed it after a year because BLE got more advanced and it was difficult to remove inconsistencies between Mac and iPhone implementations, or sumthin&#39; like that..</p>
+<p>You do need to have an iOS device in order to use CoreBlueooth, it is not supported in the Simulator. It was, originally, but they removed it after a year because BLE got more advanced and it was difficult to remove inconsistencies between Mac and iPhone implementations, or sumthin’ like that..</p>
 
-<p>Look at other people&#39;s Swift code dealing with CoreBluetooth on Github.</p>
+<p>Look at other people’s Swift code dealing with CoreBluetooth on Github.</p>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -163,6 +165,7 @@
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

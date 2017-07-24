@@ -11,9 +11,10 @@
     
   </title>
   
-  <meta name="description" content="Eliminate render-blocking JavaScript and CSS in above-the-fold contentRemove render-blocking JavaScriptOptimize CSS DeliveryEnable compression (Apache: Use m...">
+  <meta name="description" content="  Eliminate render-blocking JavaScript and CSS in above-the-fold content          Remove render-blocking JavaScript      Optimize CSS Delivery        Enable ...">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/prism.css">
   <link rel="canonical" href="http://tldrdevnotes.com/page-speed-optimzations">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -74,14 +75,14 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="Post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
     <h1 class="Post-title" itemprop="name headline">Page Speed Optimizations</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class="date">
         <time datetime="2015-01-19T00:00:00+05:00" itemprop="datePublished">
           Jan 19, 2015
         </time>
@@ -91,70 +92,69 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2015-01-19-page-speed-optimizations.md" target='_blank'>Edit this page on Github</a>
-    </p>
+      <span style="float:right"><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_webdev/2015-01-19-page-speed-optimizations.md" target="_blank">Edit this page on Github</a>
+    &lt;/p&gt;
     
-      <ul class='tags'>
+      <ul class="tags">
       
       </ul>
     
-  </header>
+  &lt;/header&gt;
 
   <div class="Post-content" itemprop="articleBody">
     <ul>
-<li>Eliminate render-blocking JavaScript and CSS in above-the-fold content
-
-<ul>
-<li><a href="https://developers.google.com/speed/docs/insights/BlockingJS">Remove render-blocking JavaScript</a></li>
-<li>Optimize CSS Delivery</li>
-</ul></li>
-<li><a href="https://developers.google.com/speed/docs/insights/EnableCompression">Enable compression</a> (Apache: Use <a href="http://httpd.apache.org/docs/current/mod/mod_deflate.html">mod_deflate</a>)</li>
-<li><a href="https://developers.google.com/speed/docs/insights/Server">Improve server response time</a></li>
-<li>Leverage browser caching</li>
-<li>Minify JavaScript</li>
-<li>Minify CSS</li>
-<li>Minify HTML</li>
-<li><a href="https://developers.google.com/speed/docs/insights/OptimizeImages">Optimize Images</a></li>
+  <li>Eliminate render-blocking JavaScript and CSS in above-the-fold content
+    <ul>
+      <li><a href="https://developers.google.com/speed/docs/insights/BlockingJS">Remove render-blocking JavaScript</a></li>
+      <li>Optimize CSS Delivery</li>
+    </ul>
+  </li>
+  <li><a href="https://developers.google.com/speed/docs/insights/EnableCompression">Enable compression</a> (Apache: Use <a href="http://httpd.apache.org/docs/current/mod/mod_deflate.html">mod_deflate</a>)</li>
+  <li><a href="https://developers.google.com/speed/docs/insights/Server">Improve server response time</a></li>
+  <li>Leverage browser caching</li>
+  <li>Minify JavaScript</li>
+  <li>Minify CSS</li>
+  <li>Minify HTML</li>
+  <li><a href="https://developers.google.com/speed/docs/insights/OptimizeImages">Optimize Images</a></li>
 </ul>
 
-<h2>Apache Server Configuration and <code>httpd.conf</code> / <code>.htaccess</code></h2>
+<h2 id="apache-server-configuration-and-httpdconf--htaccess">Apache Server Configuration and <code>httpd.conf</code> / <code>.htaccess</code></h2>
 
-<h4>Sample Configurations</h4>
-
-<p>The HTML5 Boilerplate project contains <a href="https://github.com/h5bp/server-configs">sample configuration files</a> for all the most popular servers with detailed comments for each configuration flag and setting: find your favorite server in the list, look for the <strong>gzip</strong> section, and confirm that your server is configured with recommended settings. </p>
+<h4 id="sample-configurations">Sample Configurations</h4>
+<p>The HTML5 Boilerplate project contains <a href="https://github.com/h5bp/server-configs">sample configuration files</a> for all the most popular servers with detailed comments for each configuration flag and setting: find your favorite server in the list, look for the <strong>gzip</strong> section, and confirm that your server is configured with recommended settings.</p>
 
 <p>Copy and use the <a href="https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess">.htacces template</a> template.</p>
 
 <p>You need to enable the Apache mods required for the configurations used in the template. On Linux, open a terminal and:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo a2enmod setenvif headers deflate filter expires rewrite include 
+
+<pre><code>sudo a2enmod setenvif headers deflate filter expires rewrite include 
 sudo /etc/init.d/apache2 restart
-</code></pre></div>
-<h2>Enabling Website Compression in WHM/cPanel</h2>
+</code></pre>
 
-<p>If on a CentOS/cPanel server, use EasyApche to enable the &#39;Deflate&#39; module. Software &gt; EasyApache (Update Apache). Once you have the &#39;Deflate&#39; module enabled, you&#39;ll have to enable compression for each individual website under cPanel &gt; Software/Services &gt; Optimize Website. </p>
+<h2 id="enabling-website-compression-in-whmcpanel">Enabling Website Compression in WHM/cPanel</h2>
+<p>If on a CentOS/cPanel server, use EasyApche to enable the ‘Deflate’ module. Software &gt; EasyApache (Update Apache). Once you have the ‘Deflate’ module enabled, you’ll have to enable compression for each individual website under cPanel &gt; Software/Services &gt; Optimize Website.</p>
 
-<p>See the cPanel documentation about <a href="https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate">enabling mod_deflate and using the &#39;Optimize Website&#39; option</a>.</p>
+<p>See the cPanel documentation about <a href="https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate">enabling mod_deflate and using the ‘Optimize Website’ option</a>.</p>
 
-<h2>Links</h2>
-
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/h5bp/server-configs-apache">Apache Server Configs</a></li>
-<li><a href="https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules">How to enable Apache modules</a></li>
-<li><a href="https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess">server-configs-apache/dist/.htaccess</a></li>
-<li><a href="https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate">cPanel Docs - Apache Module: Deflate</a></li>
-<li><a href="http://checkgzipcompression.com/">Check Gzip Compression</a></li>
+  <li><a href="https://github.com/h5bp/server-configs-apache">Apache Server Configs</a></li>
+  <li><a href="https://github.com/h5bp/server-configs-apache/wiki/How-to-enable-Apache-modules">How to enable Apache modules</a></li>
+  <li><a href="https://github.com/h5bp/server-configs-apache/blob/master/dist/.htaccess">server-configs-apache/dist/.htaccess</a></li>
+  <li><a href="https://documentation.cpanel.net/display/EA/Apache+Module:+Deflate">cPanel Docs - Apache Module: Deflate</a></li>
+  <li><a href="http://checkgzipcompression.com/">Check Gzip Compression</a></li>
 </ul>
 
-<h2>Further Reading</h2>
-
+<h2 id="further-reading">Further Reading</h2>
 <ul>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer#text-compression-with-gzip">Optimizing encoding and transfer size of text-based assets</a></li>
-<li><a href="https://developers.google.com/speed/pagespeed/module">Google PageSpeed Module</a></li>
+  <li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer#text-compression-with-gzip">Optimizing encoding and transfer size of text-based assets</a></li>
+  <li><a href="https://developers.google.com/speed/pagespeed/module">Google PageSpeed Module</a></li>
 </ul>
 
   </div>
 
-</article>
+&lt;/article&gt;
+</span></p></header></article>
 
       </div>
     </div>
@@ -200,6 +200,7 @@ sudo /etc/init.d/apache2 restart
   </div>
 
 </footer>
+<script src="/js/prism.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
