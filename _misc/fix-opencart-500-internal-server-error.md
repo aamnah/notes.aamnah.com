@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fixing OpenCart Internal Server Error
+permalink: fix-opencart-internal-server-error-500
 ctime: 2017-07-04
 
 ---
@@ -21,13 +22,13 @@ Virtualmin adds some Options as part of a security fix that could otherwise caus
 
 You'll need to edit the `.htaccess` file for your opencart store and replace 
 
-```
+```apacheconf
 Options +FollowSymlinks
 ```
 
 with 
 
-```
+```apacheconf
 Options +SymLinksifOwnerMatch
 ```
 
@@ -45,7 +46,7 @@ Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not i
 
 chances are that rewrite module for Apache is disabled. You can enable it with the following command
 
-```
+```bash
 sudo a2enmod rewrite
 sudo service apache2 restart
 ```
@@ -78,12 +79,12 @@ sudo apt-get install php-mysql
 ```
 By Default MySQLi extension is disable in PHP 7. To enable, edit `php.ini` (Apache2, PHP 7, Ubuntu environment)
 
-```
+```bash
 nano /etc/php/7.0/apache2/php.ini
 ```
 and add this line
 
-```
+```apacheconf
 extension=php_mysqli.so
 ```
 
@@ -97,7 +98,7 @@ then this means you're probably using OC 1.5.6x? The developer made some changes
 
 Check your opencart version by viewing the `index.php` file, you'll get something like
 
-```
+```php
 define('VERSION', '1.5.6');
 ```
 
@@ -116,13 +117,13 @@ sudo apt-get install mcrypt php7.0-mcrypt
 ```
 Restart Apache afterwards
 
-```
+```bash
 sudo service apache2 restart
 ```
 
 - Clean vqcache
 
-```
+```bash
 rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
 ```
 
