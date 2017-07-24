@@ -107,42 +107,42 @@
 
 <p>Add the following to <code>~/.bashrc</code></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">	<span class="c">################################</span>
-	<span class="c"># CUSTOM MOTD FOR RASPBERRY PI	</span>
-	<span class="c">################################</span>
+<pre><code class="language-bash">################################
+# CUSTOM MOTD FOR RASPBERRY PI	
+################################
 
-	<span class="nb">let </span><span class="nv">upSeconds</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/cut -d. -f1 /proc/uptime<span class="k">)</span><span class="s2">"</span>
-    <span class="nb">let </span><span class="nv">secs</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
-    <span class="nb">let </span><span class="nv">mins</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">60</span><span class="o">%</span><span class="m">60</span><span class="k">))</span>
-    <span class="nb">let </span><span class="nv">hours</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">3600</span><span class="o">%</span><span class="m">24</span><span class="k">))</span>
-    <span class="nb">let </span><span class="nv">days</span><span class="o">=</span><span class="k">$((${</span><span class="nv">upSeconds</span><span class="k">}</span><span class="o">/</span><span class="m">86400</span><span class="k">))</span>
-    <span class="nv">UPTIME</span><span class="o">=</span><span class="sb">`</span><span class="nb">printf</span> <span class="s2">"%d days, %02dh %02dm %02ds"</span> <span class="s2">"</span><span class="nv">$days</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$hours</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$mins</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$secs</span><span class="s2">"</span><span class="sb">`</span>
+let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+let secs=$((${upSeconds}%60))
+let mins=$((${upSeconds}/60%60))
+let hours=$((${upSeconds}/3600%24))
+let days=$((${upSeconds}/86400))
+UPTIME=`printf "%d days, %02dh %02dm %02ds" "$days" "$hours" "$mins" "$secs"`
 
-    <span class="c"># get the load averages</span>
-    <span class="nb">read </span>one five fifteen rest &lt; /proc/loadavg
+# get the load averages
+read one five fifteen rest &lt; /proc/loadavg
 
-    <span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>tput setaf 2<span class="k">)</span><span class="s2">
-       .~~.   .~~.    </span><span class="sb">`</span>date +<span class="s2">"%A, %e %B %Y, %r"</span><span class="sb">`</span><span class="s2">
-      '. </span><span class="se">\ </span><span class="s2">' ' / .'   </span><span class="sb">`</span>uname -srmo<span class="sb">`</span><span class="k">$(</span>tput setaf 1<span class="k">)</span><span class="s2">
-       .~ .~~~..~.
-      : .~.'~'.~. :   Uptime.............: </span><span class="k">${</span><span class="nv">UPTIME</span><span class="k">}</span><span class="s2">
-     ~ (   ) (   ) ~  Memory.............: </span><span class="sb">`</span>cat /proc/meminfo | grep MemFree | awk <span class="o">{</span><span class="s1">'print $2'</span><span class="o">}</span><span class="sb">`</span><span class="s2">kB (Free) / </span><span class="sb">`</span>cat /proc/meminfo | grep MemTotal | awk <span class="o">{</span><span class="s1">'print $2'</span><span class="o">}</span><span class="sb">`</span><span class="s2">kB (Total)
-    ( : '~'.~.'~' : ) Load Averages......: </span><span class="k">${</span><span class="nv">one</span><span class="k">}</span><span class="s2">, </span><span class="k">${</span><span class="nv">five</span><span class="k">}</span><span class="s2">, </span><span class="k">${</span><span class="nv">fifteen</span><span class="k">}</span><span class="s2"> (1, 5, 15 min)
-     ~ .~ (   ) ~. ~  Running Processes..: </span><span class="sb">`</span>ps ax | wc -l | tr -d <span class="s2">" "</span><span class="sb">`</span><span class="s2">
-      (  : '~' :  )   IP Addresses.......: </span><span class="sb">`</span>/sbin/ifconfig wlan0 | /bin/grep <span class="s2">"inet addr"</span> | /usr/bin/cut -d <span class="s2">":"</span> -f 2 | /usr/bin/cut -d <span class="s2">" "</span> -f 1<span class="sb">`</span><span class="s2"> and </span><span class="sb">`</span>wget -q -O - http://icanhazip.com/ | tail<span class="sb">`</span><span class="s2">
-       '~ .~~~. ~'    Free Disk Space....: </span><span class="sb">`</span>df -Pk | grep -E <span class="s1">'^/dev/root'</span> | awk <span class="s1">'{ print $4 }'</span> | awk -F <span class="s1">'.'</span> <span class="s1">'{ print $1 }'</span><span class="sb">`</span><span class="s2">k on /dev/root
-           '~'        Weather............: </span><span class="sb">`</span>curl -s <span class="s2">"http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&amp;locCode=ASI|PK|PK007|LAHORE|"</span> | sed -n <span class="s1">'/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2$
-      $(tput sgr0)"
-      </span></code></pre></figure>
+echo "$(tput setaf 2)
+.~~.   .~~.    `date +"%A, %e %B %Y, %r"`
+'. \ ' ' / .'   `uname -srmo`$(tput setaf 1)
+.~ .~~~..~.
+: .~.'~'.~. :   Uptime.............: ${UPTIME}
+~ (   ) (   ) ~  Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
+( : '~'.~.'~' : ) Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+~ .~ (   ) ~. ~  Running Processes..: `ps ax | wc -l | tr -d " "`
+(  : '~' :  )   IP Addresses.......: `/sbin/ifconfig wlan0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
+'~ .~~~. ~'    Free Disk Space....: `df -Pk | grep -E '^/dev/root' | awk '{ print $4 }' | awk -F '.' '{ print $1 }'`k on /dev/root
+    '~'        Weather............: `curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&amp;locCode=ASI|PK|PK007|LAHORE|" | sed -n '/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2$
+$(tput sgr0)"
+</code></pre>
 
-<p><img src="http://tldrdevnotes.comassets/img/raspberrypi-motd.png" alt="Raspberry Pi - Custom MOTD" /></p>
+<p><img src="http://tldrdevnotes.com/assets/img/raspberrypi-motd.png" alt="Raspberry Pi - Custom MOTD" /></p>
 
 <h3 id="location">Location:</h3>
 <p>For the location info, we are using <code>curl</code> to get live weather updates from the AccuWeather website. To change the location for the weather edit the <code>locCode=ASI|PK|PK007|LAHORE|</code> bit. Mine was Lahore at the time i set this. Here is an extensive list of <a href="http://pastebin.com/dbtemx5F">region codes for Accuweather</a>.</p>
 
 <h3 id="remove-last-login-text">Remove last login text:</h3>
 
-<p>Change from ‘PrintLastLog yes’ in <code>/etc/ssh/sshd_config</code> to</p>
+<p>Change from <code>PrintLastLog yes</code> in <code>/etc/ssh/sshd_config</code> to <code>PrintLastLog no</code></p>
 
 <pre><code>PrintLastLog no
 </code></pre>
