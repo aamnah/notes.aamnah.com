@@ -15,7 +15,6 @@
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
-  <link rel="stylesheet" href="/prism/plugins/line-numbers/prism-line-numbers.css">
   <link rel="canonical" href="http://tldrdevnotes.com/fix-opencart-internal-server-error-500">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -102,19 +101,19 @@
   <div class="Post-content" itemprop="articleBody">
     <h4 id="error-500-internal-server-error-after-transferring-web-host">Error 500 Internal Server Error after transferring web host</h4>
 <ul>
-  <li>
-    <p>Check Apache error logs (usually $HOME/logs/error_log)</p>
-  </li>
-  <li>
-    <p>If you see</p>
-  </li>
+  <li>Check Apache error logs (usually $HOME/logs/error_log)</li>
 </ul>
+
+<h4 id="option-followsymlinks-not-allowed-here">1. Option FollowSymlinks not allowed here</h4>
 
 <pre><code>Option FollowSymlinks not allowed here
 </code></pre>
 
-<p>Chances are you’re on Virtualmin. 
-&gt; Any Virtualmin site that uses FollowSymLinks can be exploited to allow that user to read all files in /home. That was creating a nightmare</p>
+<p>Chances are you’re on Virtualmin.</p>
+
+<blockquote>
+  <p>Any Virtualmin site that uses FollowSymLinks can be exploited to allow that user to read all files in /home. That was creating a nightmare</p>
+</blockquote>
 
 <p>Virtualmin adds some Options as part of a security fix that could otherwise cause all your websites to be compromised if one of them gets hacked. <code>FollowSymlinks</code> gets replaced with <code>SymLinksifOwnerMatch</code></p>
 
@@ -133,9 +132,7 @@
 <pre><code class="language-bash">find /home -name ".htaccess" -type f -exec sed -i 's/FollowSymLinks/SymLinksIfOwnerMatch/g' {} ";"
 </code></pre>
 
-<ul>
-  <li>If you get</li>
-</ul>
+<h4 id="invalid-command-rewriteengine-perhaps-misspelled-or-defined-by-a-module-not-included-in-the-server-configuration">2. Invalid command ‘RewriteEngine’, perhaps misspelled or defined by a module not included in the server configuration</h4>
 
 <pre><code>Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not included in the server configuration
 </code></pre>
@@ -146,22 +143,20 @@
 sudo service apache2 restart
 </code></pre>
 
-<ul>
-  <li>If you see</li>
-</ul>
+<h4 id="php-fatal-error--uncaught-error-call-to-undefined-function-mysqlconnect">3. PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect()</h4>
 
 <pre><code> PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/blah/public_html/system/database/mysql.php:6
 </code></pre>
 
-<p>You therefore need to update <strong>BOTH config.php</strong> (<code>config.php</code> and <code>admin/config.php</code>) files line to:</p>
+<p><code>mysql_connect()</code> is deprecated now. Older versions of OpenCart used it (1.5.6), but it was updated later on. <code>mysqli_connect()</code> is the replacement. You need to use a driver other than MySQL driver (PDO, MySQLi) to get rid of the error</p>
+
+<p>Update <strong>BOTH config.php</strong> (<code>config.php</code> and <code>admin/config.php</code>) files line to:</p>
 
 <pre><code class="language-php">define('DB_DRIVER', 'mysqli');
 </code></pre>
 <p><a href="https://forum.opencart.com/viewtopic.php?t=155393">link</a></p>
 
-<ul>
-  <li>if you get</li>
-</ul>
+<h4 id="php-fatal-error--uncaught-error-call-to-undefined-method-mysqliescape">4. PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::escape()</h4>
 
 <pre><code>PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::escape()
 </code></pre>
@@ -180,9 +175,7 @@ sudo apt-get install php-mysql
 <pre><code class="language-apacheconf">extension=php_mysqli.so
 </code></pre>
 
-<ul>
-  <li>if you get</li>
-</ul>
+<h4 id="modfcgid-stderr-php-parse-error--syntax-error-unexpected-else-telse-expecting-function-tfunction">5. mod_fcgid: stderr: PHP Parse error:  syntax error, unexpected ‘else’ (T_ELSE), expecting function (T_FUNCTION)</h4>
 
 <pre><code>mod_fcgid: stderr: PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION) in /home/blah/public_html/system/database/mysqli.php on line 54
 </code></pre>
@@ -196,9 +189,7 @@ sudo apt-get install php-mysql
 
 <p>Now download the files for the next release of OpenCart from the official site’s downloads section (in this case got 1.5.6.1)</p>
 
-<ul>
-  <li>If you get</li>
-</ul>
+<h4 id="php-fatal-error--uncaught-error-call-to-undefined-function-mcryptcreateiv">6. PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_create_iv()</h4>
 
 <pre><code>PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_create_iv()
 </code></pre>
@@ -212,26 +203,25 @@ sudo apt-get install php-mysql
 <pre><code class="language-bash">sudo service apache2 restart
 </code></pre>
 
-<ul>
-  <li>Clean vqcache</li>
-</ul>
+<h4 id="php-fatal-error--requireonce-failed-opening-required">7. PHP Fatal error:  require_once(): Failed opening required</h4>
 
-<pre><code class="language-bash">rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
+<pre><code>PHP Fatal error:  require_once(): Failed opening required '/system/startup.php' (include_path='.:/usr/share/php:/usr/share/pear') in index.php on line 23
 </code></pre>
-
-<h4 id="php-fatal-error--requireonce-failed-opening-required-systemstartupphp-includepathusrsharephpusrsharepear-in-indexphp-on-line-23">PHP Fatal error:  require_once(): Failed opening required ‘/system/startup.php’ (include_path=’.:/usr/share/php:/usr/share/pear’) in index.php on line 23</h4>
 
 <p>Check your server paths in <code>config.php</code> and <code>admin/config.php</code>.</p>
 
 <p>This error can happen after you have transferred your opencart site and the paths may have changed (for example, when moving from cpanel <code>/home/user/site</code> to barebones/webmin based server <code>/var/www/site</code>)</p>
 
-<h4 id="php-warning--fopensystemlogserrortxt-failed-to-open-stream-permission-denied-in-systemlibrarylogphp-on-line-12">PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12</h4>
+<h4 id="fopen-fwrite-and-fclose-warning">8. fopen(), fwrite() and fclose() warning</h4>
 
-<h4 id="php-warning--fwrite-expects-parameter-1-to-be-resource-boolean-given-in-systemlibrarylogphp-on-line-14">PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14</h4>
+<pre><code>PHP Warning:  fopen(system/logs/error.txt): failed to open stream: Permission denied in system/library/log.php on line 12
 
-<h4 id="php-warning--fclose-expects-parameter-1-to-be-resource-boolean-given-in-systemlibrarylogphp-on-line-16">PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16</h4>
+PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in system/library/log.php on line 14
 
-<p>Your log and cache -folders are not writable anymore. <a href="https://stackoverflow.com/questions/32275649/opencart-errors">source</a> Double check your permissions</p>
+PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in system/library/log.php on line 16
+</code></pre>
+
+<p>Your log and cache folders are not writable anymore. <a href="https://stackoverflow.com/questions/32275649/opencart-errors">source</a> Double check your permissions</p>
 
 <pre><code class="language-bash"># chown -R www-data:www-data /var/www
 chmod 777 system/logs/ -R
@@ -239,6 +229,11 @@ chmod 777 system/cache/ -R
 </code></pre>
 
 <p>Different opencart versions have different opencart folder structure</p>
+
+<h4 id="clean-vqcache">Clean vqcache</h4>
+
+<pre><code class="language-bash">rm -rf /home/MYSITE/public_html/vqmod/vqcache/*
+</code></pre>
 
 <h2 id="links">Links</h2>
 <p><a href="https://www.virtualmin.com/node/24753#comment-124082">.htaccess: Option FollowSymLinks not allowed here</a></p>
@@ -289,15 +284,7 @@ chmod 777 system/cache/ -R
     </div>
 
   </div>
-
-  <script src="/prism/components/prism-core.min.js"></script>
   <script src="/prism/prism.js"></script>
-
-
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-php.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-sql.min.js"></script> -->
 </footer>
 
     <script>
