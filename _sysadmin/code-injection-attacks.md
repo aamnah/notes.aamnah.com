@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Code Injection Attacks in WordPress
 ctime: 2017-07-05
 ---
