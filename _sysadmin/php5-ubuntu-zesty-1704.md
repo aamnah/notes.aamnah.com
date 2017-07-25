@@ -10,12 +10,12 @@ ctime: 2017-07-06
 (Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.
 
 <div class="Post-note Post-note--warn">
-<strong>WARNING: </strong> <br />
-<ul>
-  <li>This leads to PhpMyAdmin not working if you install it afterwards.. 
-  <li>Both versions working has not been tested in production.
-  <li>If you check PHP version on system, <code>php --version</code>, it still shows <samp>PHP 7.0</samp>
-</ul>
+  <strong>WARNING: </strong> <br />
+  <ul>
+    <li>This leads to PhpMyAdmin not working if you install it afterwards..</li>
+    <li>Both versions working has not been tested in production.</li>
+    <li>If you check PHP version on system, <code>php --version</code>, it still shows <samp>PHP 7.0</samp></li>
+  </ul>
 </div>
 
 #### add repo
@@ -27,18 +27,19 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 ```
 
----
-note: if you get 
+<div class="Post-note Post-note--info">
+NOTE: if you get 
 
-```
-sudo: add-apt-repository: command not found
-```
-then install the `software-properties-common` package. For my Ubuntu version (precise), I also had to install the python-software-properties package:
+<pre>
+  <code class="language-bash">sudo: add-apt-repository: command not found</code>
+</pre>
 
-```bash
- sudo apt-get install software-properties-common -y
-```
----
+then install the <code>software-properties-common</code> package. For my Ubuntu version (Precise Pangolin, 12.04 LTS), I also had to install the <code>python-software-properties</code> package:
+
+<pre>
+  <code class="language-bash">sudo apt-get install software-properties-common -y</code>
+</pre>
+</div>
 
 #### install packages
 
