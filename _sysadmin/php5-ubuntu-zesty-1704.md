@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Install PHP5 on Ubuntu 17.04 Zesty Zapus'
 subtitle: Install both version of PHP on Ubuntu 17.04 and switch between the two
 permalink: install-php5-php7-ubuntu-zesty

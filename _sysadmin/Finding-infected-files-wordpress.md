@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Finding infected files in WordPress
 ctime: 2017-07-05
 

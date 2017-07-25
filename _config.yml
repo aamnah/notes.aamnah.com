@@ -141,6 +141,11 @@ defaults:
       layout: "post"
   -
     scope:
-      type: "linux" # linux collection in _linux
+      type: "linux" # linux collection in './_linux' folder
+    values:
+      layout: "post"
+  -
+    scope:
+      type: "sysadmin"
     values:
       layout: "post"

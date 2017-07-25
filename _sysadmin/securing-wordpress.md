@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Securing Wordpress
 ctime: 2017-07-05
 

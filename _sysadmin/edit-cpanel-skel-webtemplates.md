@@ -1,5 +1,4 @@
 ---
-layout: post
 title: cPanel Web Templates and Skeleton Directory
 subtitle: Edit content for cPanel status pages and  website templates for newly created accounts
 ctime: 2017-07-05

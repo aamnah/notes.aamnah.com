@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Migrating server data and databases
 ctime: 2017-02-02
 ---
