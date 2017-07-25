@@ -101,6 +101,15 @@
   <div class="Post-content" itemprop="articleBody">
     <h3 id="error-cant-connect-to-local-mysql-server-through-socket-varrunmysqldmysqldsock-2">Error: Can’t connect to local MySQL server through socket ‘/var/run/mysqld/mysqld.sock’ (2)</h3>
 
+<p>tl;dr</p>
+
+<pre><code class="language-bash">mkdir -p /var/run/mysqld
+touch /var/run/mysqld/mysqld.sock
+chmod 777 /var/run/mysqld/mysqld.sock
+chown mysql:mysql /var/run/mysqld
+service mysql restart
+</code></pre>
+
 <p>See if a socket file exists. To find all socket files on your system run:</p>
 
 <pre><code class="language-bash">sudo find / -type s
@@ -144,14 +153,45 @@ chmod 777 /var/run/mysqld/mysqld.sock
 </code></pre>
 <p>execute</p>
 
-<pre><code class="language-mysql">FLUSH PRIVILEGES;
+<pre><code class="language-sql">FLUSH PRIVILEGES;
 exit
 </code></pre>
+
+<h3 id="mysqldsafe-directory-varrunmysqld-for-unix-socket-file-dont-exists">mysqld_safe Directory ‘/var/run/mysqld’ for UNIX socket file don’t exists.</h3>
+
+<p>if you get while trying to start MySQL in safe mode</p>
+
+<pre><code>mysqld_safe Directory '/var/run/mysqld' for UNIX socket file don't exists.
+</code></pre>
+<p>then make the directory</p>
+
+<pre><code class="language-bash">mkdir -p /var/run/mysqld
+chown mysql:mysql /var/run/mysqld
+</code></pre>
+
+<p>and re-run the command to start MySQL in safe mode.</p>
+
+<h3 id="error-1146-42s02-table-mysqluser-doesnt-exist">ERROR 1146 (42S02): Table ‘mysql.USER’ doesn’t exist</h3>
+
+<p>Your database may be corrupt. See if <code>mysql.user</code> exits</p>
+
+<pre><code class="language-sql">USE mysql;
+SELECT * FROM user;
+</code></pre>
+
+<p>If these are missing you can try recreating the tables by running</p>
+
+<pre><code class="language-bash">mysql_install_db
+</code></pre>
+
+<p>(I got this error because i had set a 100 character long generated password while installing MySQL, and it wasn’t valid. The installation proceeded without giving an error. But checking the <code>mysql.user</code> table showed <code>*THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE</code>. Since mine was a fresh installation, i just removed and reinstalled MySQL <code>apt-get remove -y mysql-* &amp;&amp; apt-get purge -y mysql-*</code>)</p>
 
 <h2 id="links">Links</h2>
 
 <ul>
-  <li>https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq</li>
+  <li><a href="https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq">https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq</a></li>
+  <li><a href="https://stackoverflow.com/questions/42153059/mysqld-safe-directory-var-run-mysqld-for-unix-socket-file-dont-exists">StackOverflow: mysqld_safe Directory ‘/var/run/mysqld’ for UNIX socket file don’t exists</a></li>
+  <li><a href="https://stackoverflow.com/questions/17780630/table-mysql-user-doesnt-existerror">StackOverflow: Table ‘mysql.user’ doesn’t exist:ERROR</a></li>
 </ul>
 
   </div>
