@@ -110,39 +110,47 @@ collections:
 
 # Site wide defaults
 defaults:
-  - scope:
+  -
+    scope:
       path: "" # an empty string here means all files in the project
       type: "posts" # types that are available are pages, posts, drafts or any collection in your site. 
     values:
       layout: "post"
       author: "Aamnah"
-  - scope:
+  -
+    scope:
       type: "posts"
     values:
       layout: "post"
-  - scope:
+  -
+    scope:
       type: "drafts"
     values:
       layout: "post"
-  - scope:
+  -
+    scope:
       type: "bash-scripting"
     values:
       layout: "post"
-  -  scope:
+  - 
+    scope:
       path: "_cheatseets"
       type: "cheatsheets" # a collection in your site, in plural form
     values:
       layout: "post"
-  - scope:
+  -
+    scope:
       path: "_commands"
       type: "commands"
     values:
       layout: "post"
-  - scope:
+  -
+    scope:
       type: "linux" # linux collection in './_linux' folder
     values:
       layout: "post"
-  - scope:
+  -
+    scope:
       type: "sysadmin"
     values:
       layout: "post"
