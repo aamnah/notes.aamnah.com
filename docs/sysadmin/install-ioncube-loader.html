@@ -107,12 +107,25 @@
   <div class="Post-content" itemprop="articleBody">
     <pre><code class="language-bash">wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz # download
 tar xzvf ioncube_loaders_lin_x86-64.tar.gz # extract
+php -v # find out PHP version e.g. 7.2
 php -i | grep extension_dir # find out PHP extensions directory
 
-# copy ioncube module to your PHP extensions directory
-PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;") 
-sudo cp "ioncube/ioncube_loader_lin_${PHP_VERSION}.so" /usr/lib/php/20160731
+# copy closest matching ioncube module to your PHP extensions directory
+sudo cp "ioncube/ioncube_loader_lin_7.0.so" /usr/lib/php/20160731/
+
+# copy this line to top of php.ini /etc/php/7.2/apache2/php.ini
+# OR copy this to a new configuration file `00-ioncube.ini` and load it (by moving to /etc/php/7.2/apache2/conf.d)
+# zend_etxension = path/to/module/file
+zend_extension = /usr/lib/php/20160731/ioncube_loader_lin_7.0.so
 </code></pre>
+
+<h4 id="tldr">tl;dr</h4>
+
+<ul>
+  <li>find out PHP version and extensions directory (<code>7.2</code> and <code>/usr/lib/php/20160731</code>)</li>
+  <li>copy closest matching ionCube module to PHP extensions directory (<code>ioncube/ioncube_loader_lin_7.0.so</code> and <code>/usr/lib/php/20160731</code>)</li>
+  <li>copy one line of code to an .ini file and move it to additional .ini files directory (<code>00-ioncube.ini</code>, <code>zend_extension = /usr/lib/php5/20121212/ioncube_loader_lin_7.0.so</code> and <code>/etc/php/7.2/apache2/conf.d</code>)</li>
+</ul>
 
 <hr />
 
@@ -122,13 +135,19 @@ sudo cp "ioncube/ioncube_loader_lin_${PHP_VERSION}.so" /usr/lib/php/20160731
   <p>Using ionCube encoded and secured PHP files requires a file called the ionCube Loader to be installed on the web server and made available to PHP. PHP can use the Loader with one line added to a PHP configuration file (php.ini).</p>
 </blockquote>
 
-<p>Environment</p>
+<h4 id="environment">Environment</h4>
 
 <ul>
   <li>Ubuntu 17.04</li>
-  <li>PHP 7.2</li>
+  <li>PHP Version <code>7.2</code></li>
+  <li>PHP Extension directory <code>/usr/lib/php/20160731</code></li>
+  <li>PHP mods-available directory <code>/etc/php/7.2/mods-available/</code></li>
+  <li>PHP additional configuration files directory <code>/etc/php/7.2/apache2/conf.d</code></li>
 </ul>
 
+<p>You can find out all these with <code>&lt;?php phpinfo(); ?&gt;</code>, <code>php -v</code> and <code>php -i</code></p>
+
+<h3 id="download">Download</h3>
 <p>Download ioncube loader (Linux 64 bit, since that’s what i’m using)</p>
 
 <pre><code class="language-bash">wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
@@ -139,28 +158,44 @@ sudo cp "ioncube/ioncube_loader_lin_${PHP_VERSION}.so" /usr/lib/php/20160731
 <pre><code class="language-bash">tar xzvf ioncube_loaders_lin_x86-64.tar.gz
 </code></pre>
 
-<p>Find the php modules folder</p>
+<p>You’ll see two kinds of module files in the extracted folder, <code>.so</code> and <code>_ts.so</code>. <code>_ts.so</code> are the <em>thread-safe</em> versions. We’re going to copy the <code>.so</code> file.</p>
+
+<h3 id="copy-module">Copy module</h3>
+
+<p>Find the PHP modules folder</p>
 
 <pre><code class="language-bash">php -i | grep extension_dir
 # extension_dir =&gt; /usr/lib/php/20160731 =&gt; /usr/lib/php/20160731
 </code></pre>
 
-<p>Copy the ioncube module for the PHP version you have installed to your php modules folder</p>
+<p>Copy the ionCube module for the PHP version (closest match) you have installed, to your PHP extensions directory</p>
 
-<pre><code class="language-bash">PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
-sudo cp "ioncube/ioncube_loader_lin_${PHP_VERSION}.so" /usr/lib/php/20160731
+<pre><code class="language-bash">sudo cp "ioncube/ioncube_loader_lin_7.0.so" /usr/lib/php/20160731
 </code></pre>
 
-<p>NOTE: You may run into issues with ${PHP_VERSION} if ionCube hasn’t provided the module for the PHP version you have installed. For example, module for PHP 7.2 is not available at the moment. In that case, manually copy the module for the closest matching PHP version</p>
+<h2 id="creating-ini-configuration-file">Creating .ini configuration file</h2>
 
-<p>Configure PHP for IonCube by adding this to the start of your server-wide php.ini file (<code>/etc/php5/apache2/php.ini</code> or <code>find / -name php.ini</code>).</p>
+<p>There are two places you can add configuration for PHP modules</p>
 
-<p>It may also be cleaner to add it to a separate file and load that instead of editing you php.ini</p>
+<ul>
+  <li>The system-wide <code>php.ini</code> file at <code>/etc/php/7.2/apache2/php.ini</code> (or <code>find / -name php.ini</code>)</li>
+  <li>Individual files in the <code>conf.d</code> directory <code>/etc/php/7.2/apache2/conf.d</code> (or <code>php -i | grep "Scan this dir for additional .ini files"</code>)</li>
+</ul>
 
-<pre><code class="language-bash">php -i | grep "Scan this dir for additional .ini files"
+<p>In the conf file we’re going to add</p>
+
+<pre><code class="language-bash">zend_extension = /usr/lib/php5/20121212/ioncube_loader_lin_7.0.so
 </code></pre>
 
-<pre><code class="language-bash">zend_extension = /usr/lib/php5/20121212/ioncube_loader_lin_5.5.so
+<p>which tells the path for the module to laod</p>
+
+<p>While the simplest way to load the module is to just add the one line of code to the beginning of the <code>php.ini</code> file, the following way is more systematic and is how existing modules are loaded.</p>
+
+<p>We’re going to create a configuration file in the PHP <code>mods-available</code> directory, and then link to that file from <code>conf.d</code> so that it gets loaded.</p>
+
+<pre><code class="language-bash">touch /etc/php/7.2/mods-available/ioncube.ini
+echo "zend_extension = /usr/lib/php/20160731/ioncube_loader_lin_7.0.so" &gt; /etc/php/7.2/mods-available/ioncube.ini
+ln -s /etc/php/7.2/mods-available/ 00-ioncube.ini
 </code></pre>
 
 <p>Restart Apache</p>
@@ -168,8 +203,9 @@ sudo cp "ioncube/ioncube_loader_lin_${PHP_VERSION}.so" /usr/lib/php/20160731
 <pre><code class="language-bash">service apache2 restart
 </code></pre>
 
-<p>Test
-To ensure that the module was correctly installed, create a file called <code>test.php</code> in <code>/var/www</code> with the following content:</p>
+<h3 id="test">Test</h3>
+
+<p>To ensure that the module was correctly installed, create a file called <code>test.php</code> in <code>/var/www</code> with the following content:</p>
 
 <pre><code class="language-php">&lt;?php
 echo var_export(extension_loaded('ionCube Loader') ,true);
@@ -177,12 +213,19 @@ echo var_export(extension_loaded('ionCube Loader') ,true);
 
 <p>Once you have done that, navigate to http://your-droplets-ip-address/test.php. It should output “true”.</p>
 
+<p>Alternatively, run this from the command line</p>
+
+<pre><code class="language-bash">php -r "echo var_export(extension_loaded('ionCube Loader') ,true);"
+</code></pre>
+
 <pre><code class="language-php">&lt;?php phpinfo(); ?&gt;
 </code></pre>
 
 <p>will also tell you if ioncube is enabled.</p>
 
+<h2 id="links">Links</h2>
 <ul>
+  <li><a href="https://github.com/aamnah/bash-scripts/blob/master/install_ioncube.sh">bash scrit</a></li>
   <li><a href="https://www.howtoforge.com/tutorial/how-to-install-ioncube-loader/">HowtoForge</a></li>
   <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-ioncube-on-ubuntu-16-04">DigitalOcean: How To Install ionCube on Ubuntu 16.04</a></li>
 </ul>
