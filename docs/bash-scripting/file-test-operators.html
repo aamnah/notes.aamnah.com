@@ -1,0 +1,25 @@
+<h3 id="file-test-operators">File Test Operators</h3>
+
+<p>Returns true if</p>
+
+<ul>
+  <li><code>-e</code> and <code>-a</code> file exists</li>
+  <li><code>-s</code> file is not zero size i.e. not empty</li>
+  <li><code>-f</code> file is a <em>regular file</em> i.e. not a directory</li>
+  <li><code>-d</code> file is a directory</li>
+  <li><code>-h</code> and <code>-L</code> file is a sympbolic link</li>
+</ul>
+
+<h1 id="check-if-a-file-exists">Check if a file exists</h1>
+
+<pre><code class="language-bash">if (-e foo.txt ); then
+    echo "foo.txt already exists!"
+else
+    // Do something
+fi
+</code></pre>
+
+<h2 id="links">Links</h2>
+<ul>
+  <li><a href="http://tldp.org/LDP/abs/html/fto.html">Advanced Bash-Scripting Guide:	7.2. File test operators</a></li>
+</ul>
