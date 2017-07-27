@@ -78,7 +78,8 @@ apt update
 at the time of this writing, the latest PHP version is 7.2
 
 ```bash
-apt install php7.2 libapache2-mod-php7.2
+apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xsl php-imagick php-pear php-gettext -y
+
 ```
 
 - Most of the packages are installed as dependencies for other packages. For example: installing `php7.2` will also install `libapache2-mod-php7.2`, `php-common`, `php7.2-cli`, `php7.2-common`, `php7.2-json`, `php7.2-opcache`, `php7.2-readline`. But we're going to manually specify them just in case.
