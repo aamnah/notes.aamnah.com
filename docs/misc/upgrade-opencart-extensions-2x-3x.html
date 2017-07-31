@@ -1,0 +1,48 @@
+<h3 id="language">Language</h3>
+<ul>
+  <li>The default language folder is now called <code>en-gb</code> instead of <code>english</code>. Update your scripts to reflect the change</li>
+  <li>It looks like it is no longer saving language variables in <code>controller</code> files. For example, this whole chunk is gone from <code>admin/controller/extension/shipping/pickup.php</code></li>
+</ul>
+
+<pre><code class="language-php">$data['heading_title'] = $this-&gt;language-&gt;get('heading_title');
+
+$data['text_edit'] = $this-&gt;language-&gt;get('text_edit');
+$data['text_enabled'] = $this-&gt;language-&gt;get('text_enabled');
+$data['text_disabled'] = $this-&gt;language-&gt;get('text_disabled');
+$data['text_all_zones'] = $this-&gt;language-&gt;get('text_all_zones');
+$data['text_none'] = $this-&gt;language-&gt;get('text_none');
+
+$data['entry_geo_zone'] = $this-&gt;language-&gt;get('entry_geo_zone');
+$data['entry_status'] = $this-&gt;language-&gt;get('entry_status');
+$data['entry_sort_order'] = $this-&gt;language-&gt;get('entry_sort_order');
+
+$data['button_save'] = $this-&gt;language-&gt;get('button_save');
+$data['button_cancel'] = $this-&gt;language-&gt;get('button_cancel');
+</code></pre>
+
+<h3 id="folder-structure">Folder Structure</h3>
+<ul>
+  <li>The default folder structure has changed. All the extensions that were previously directly under the <code>model</code> and <code>controller</code> etc. are now under an <code>extensions</code> folder. So, <code>model/extensions/shipping/pickup.php</code> instead of <code>model/shipping/pickup.php</code></li>
+</ul>
+
+<h3 id="ocmod">OCMOD</h3>
+
+<ul>
+  <li>OpenCart 3 no longer uses <code>.ocmod.xml</code> for modification files. If you try to upload an .ocmod.xml file, you’ll get a <em>Invalid file type!</em> error.</li>
+  <li>For a OCMOD file to be uploaded the file extension must be <code>.ocmod.zip</code> <a href="https://github.com/opencart/opencart/wiki/Modification-System#ocmod-files">read more</a></li>
+</ul>
+
+<p>Example file structure for OCMOD compressed files.</p>
+
+<ul>
+  <li>upload</li>
+  <li>install.xml</li>
+</ul>
+
+<h4 id="upload">upload</h4>
+
+<p>All files under this directory will be uploaded to the to directory of your OpenCart installation.</p>
+
+<h4 id="installxml">install.xml</h4>
+
+<p>The XML modification file.</p>
