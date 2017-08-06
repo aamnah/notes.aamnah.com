@@ -45,7 +45,7 @@ If you have an existing `composer.json` file, install dependencies with
 
 Using the libraries composer installed in your project
 ---
-To use teh library you installed via composer in your project, all you need is a require statement, like so:
+To use the library you installed via composer in your project, all you need is a require statement, like so:
 
     require 'vendor/autoload.php';
 
