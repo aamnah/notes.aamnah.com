@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'OpenCart: How to bulk update prices of Products'
+title: 'OpenCart: Bulk update prices of Products'
 permalink: bulk-update-product-prices-opencart-phpmyadmin-mysql
 tags: ['how-to', 'opencart', 'mysql']
 ctime: 2015-02-13
