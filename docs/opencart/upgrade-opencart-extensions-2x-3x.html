@@ -7,15 +7,15 @@
 
   <title>
     
-      Opencart Architecture
+      Upgrade OpenCart Extensions from 2.1x to 2.3x/3x
     
   </title>
   
-  <meta name="description" content="Libraries">
+  <meta name="description" content="Language  The default language folder is now called en-gb instead of english. Update your scripts to reflect the change  It looks like it is no longer saving...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/opencart_architecture">
+  <link rel="canonical" href="http://tldrdevnotes.com/opencart/upgrade-opencart-extensions-2x-3x.html">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -75,13 +75,13 @@
         <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="Post-header">
-    <h1 class="Post-title" itemprop="name headline">Opencart Architecture</h1>
+    <h1 class="Post-title" itemprop="name headline">Upgrade OpenCart Extensions from 2.1x to 2.3x/3x</h1>
     <p class="Post-meta">
       
       
-      <span class='date'>
-        <time datetime="2015-04-04T00:00:00+05:00" itemprop="datePublished">
-          Apr 4, 2015
+      <span class='ctime'>Created
+        <time datetime="2017-07-31T00:00:00+05:00" itemprop="datePublished">
+          Jul 31, 2017
         </time>
       </span>
       
@@ -89,7 +89,7 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_opencart/2015-04-04-Opencart_Architecture.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_opencart/upgrade-opencart-extensions-2x-3x.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
@@ -99,47 +99,54 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <h2 id="libraries">Libraries</h2>
-
-<h2 id="languages">Languages</h2>
-<p>Languages are stored in <code>catalog/language/</code> and loaded in <em>Controllers</em></p>
-
-<h3 id="define-a-language-key">Define a language key</h3>
-<p>The Values that are used across many pages are stored is english.php. If you want to add a new value just follow the syntax below:</p>
-
-<pre><code class="language-php">$_['language_key']='This is test';
-</code></pre>
-
-<h3 id="load-a-language">Load a language</h3>
-<p>The languages based on special pages are located inside the folders. For example, for error page the language file can be found at:</p>
-
-<pre><code>catalog/language/english/error/not_found.php
-</code></pre>
-
-<p>Language file can be loaded into controller by using the syntax as below:</p>
-
-<pre><code class="language-php">$this-&gt;language-&gt;load('error/not_found');
-</code></pre>
-
-<h3 id="fetch-language-value">Fetch Language Value</h3>
-
-<pre><code class="language-php">$this-&gt;language-&gt;get('language_key');
-</code></pre>
-
-<h2 id="loading-and-using-a-language">Loading and Using a language</h2>
-
-<pre><code class="language-php">$this-&gt;language-&gt;load('route path of the language');
-</code></pre>
-
-<p>to get the specific language data use this syntax</p>
-
-<pre><code class="language-php">$this-&gt;language-&gt;get('language file data keyword');
-</code></pre>
-
-<h2 id="references">References</h2>
+    <h3 id="language">Language</h3>
 <ul>
-  <li><a href="http://code.tutsplus.com/articles/from-beginner-to-advanced-in-opencart-the-architecture--cms-21482">TutsPlus: From Beginner To Advanced in OpenCart: The Architecture</a></li>
+  <li>The default language folder is now called <code>en-gb</code> instead of <code>english</code>. Update your scripts to reflect the change</li>
+  <li>It looks like it is no longer saving language variables in <code>controller</code> files. For example, this whole chunk is gone from <code>admin/controller/extension/shipping/pickup.php</code></li>
 </ul>
+
+<pre><code class="language-php">$data['heading_title'] = $this-&gt;language-&gt;get('heading_title');
+
+$data['text_edit'] = $this-&gt;language-&gt;get('text_edit');
+$data['text_enabled'] = $this-&gt;language-&gt;get('text_enabled');
+$data['text_disabled'] = $this-&gt;language-&gt;get('text_disabled');
+$data['text_all_zones'] = $this-&gt;language-&gt;get('text_all_zones');
+$data['text_none'] = $this-&gt;language-&gt;get('text_none');
+
+$data['entry_geo_zone'] = $this-&gt;language-&gt;get('entry_geo_zone');
+$data['entry_status'] = $this-&gt;language-&gt;get('entry_status');
+$data['entry_sort_order'] = $this-&gt;language-&gt;get('entry_sort_order');
+
+$data['button_save'] = $this-&gt;language-&gt;get('button_save');
+$data['button_cancel'] = $this-&gt;language-&gt;get('button_cancel');
+</code></pre>
+
+<h3 id="folder-structure">Folder Structure</h3>
+<ul>
+  <li>The default folder structure has changed. All the extensions that were previously directly under the <code>model</code> and <code>controller</code> etc. are now under an <code>extensions</code> folder. So, <code>model/extensions/shipping/pickup.php</code> instead of <code>model/shipping/pickup.php</code></li>
+</ul>
+
+<h3 id="ocmod">OCMOD</h3>
+
+<ul>
+  <li>OpenCart 3 no longer uses <code>.ocmod.xml</code> for modification files. If you try to upload an .ocmod.xml file, you’ll get a <em>Invalid file type!</em> error.</li>
+  <li>For a OCMOD file to be uploaded the file extension must be <code>.ocmod.zip</code> <a href="https://github.com/opencart/opencart/wiki/Modification-System#ocmod-files">read more</a></li>
+</ul>
+
+<p>Example file structure for OCMOD compressed files.</p>
+
+<ul>
+  <li>upload</li>
+  <li>install.xml</li>
+</ul>
+
+<h4 id="upload">upload</h4>
+
+<p>All files under this directory will be uploaded to the to directory of your OpenCart installation.</p>
+
+<h4 id="installxml">install.xml</h4>
+
+<p>The XML modification file.</p>
 
   </div>
 
