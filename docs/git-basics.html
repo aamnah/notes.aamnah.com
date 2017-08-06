@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="Configurationconfigure usernamegit config --global user.name "Your Name"">
+  <meta name="description" content="Configurationconfigure username">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -100,144 +100,234 @@
 
   <div class="Post-content" itemprop="articleBody">
     <h2 id="configuration">Configuration</h2>
-<p>configure username<br />
-<code>git config --global user.name "Your Name"</code></p>
+<p>configure username</p>
 
-<p>configure email<br />
-<code>git config --global user.name "me@mydomain.com"</code></p>
+<pre><code class="language-bash">git config --global user.name "Your Name"
+</code></pre>
+
+<p>configure email</p>
+
+<pre><code class="language-bash">git config --global user.email "me@mydomain.com"
+</code></pre>
+
+<p>check confgiuration</p>
+
+<pre><code class="language-bash">git config --list
+</code></pre>
 
 <h2 id="repositories">Repositories</h2>
 <p>Start a git repo</p>
 
-<p><code>git init my_new-repo</code></p>
+<pre><code class="language-bash">git init my_new-repo
+</code></pre>
 
 <p>Start a git repo in existing folder, cd to that folder and..</p>
 
-<p><code>git init</code></p>
+<pre><code class="language-bash">git init
+</code></pre>
 
 <p>Removing the repo = just remove the .git folder, it’s the brains</p>
 
-<p><code>rm -r my_project/.git</code> 
-where my_project is the project folder you are removing git from.</p>
+<pre><code class="language-bash">rm -r my_project/.git
+</code></pre>
+
+<p>where <em>my_project</em> is the project folder you are removing git from.</p>
 
 <h2 id="adding-code">Adding Code</h2>
+
 <p>Add files to track</p>
 
-<p><code>git add filename.txt</code></p>
+<pre><code class="language-bash">git add filename.txt
+</code></pre>
 
-<p>Add all files to track (-A)</p>
+<p>Add all files to track <code>-A</code></p>
 
-<p><code>git add -A</code></p>
+<pre><code class="language-bash">git add -A
+</code></pre>
 
 <h2 id="committing-code">Committing Code</h2>
-<p>Adding a file<br />
-<code>git add README.md</code></p>
+
+<p>Adding a file</p>
+
+<pre><code class="language-bash">git add README.md
+</code></pre>
 
 <p>where README.md is the name of your file.</p>
 
-<p>Commit code<br />
-<code>git commit</code></p>
+<p>Commit code</p>
 
-<p>Commit all code (-a)
-<code>git commit -a</code></p>
+<pre><code class="language-bash">git commit
+</code></pre>
 
-<p>Commit all code with a message (-m)
-<code>git commit -a -m 'your commit message</code></p>
+<p>Commit all code <code>-a</code></p>
+
+<pre><code class="language-bash">git commit -a
+</code></pre>
+
+<p>Commit all code with a message <code>-m</code></p>
+
+<pre><code class="language-bash">git commit -a -m 'your commit message
+</code></pre>
 
 <h2 id="check-status">Check Status</h2>
-<p>show git status
-<code>git status</code>`</p>
 
-<p>show git log for a history of commits 
-<code>git log</code></p>
+<p>show git status</p>
+
+<pre><code class="language-bash">git status
+</code></pre>
+
+<p>show git log for a history of commits</p>
+
+<pre><code class="language-bash">git log
+</code></pre>
 
 <p>show details of a specific commit
-<em>Method 1: checkout</em><br />
-<code>git checkout commitIDENTIFIER</code> 
-you dont need the whole identifer, the first 5 letters would usually do.</p>
+<em>Method 1: checkout</em></p>
 
-<p>go back to where you were after checking out a commit 
-<code>git checkout master</code> 
-master is the branch you were previously on before checking out the commit.</p>
+<pre><code class="language-bash">git checkout commitIDENTIFIER
+</code></pre>
+<p>you dont need the whole identifer, the first 5 letters would usually do.</p>
+
+<p>go back to where you were after checking out a commit</p>
+
+<pre><code class="language-bash">git checkout master
+</code></pre>
+
+<p>master is the branch you were previously on before checking out the commit.</p>
 
 <p><em>Method 2: diff</em>
-check difference between two commits
-<code>git diff commit1 commit2</code></p>
+check difference between two commits</p>
+
+<pre><code class="language-bash">git diff commit1 commit2` 
+</code></pre>
 
 <h2 id="removing-code">Removing code</h2>
-<p>To remove files/folders from a git repo
-<code>git rm filename.txt</code> OR <code>git rm -r directory/cache</code></p>
+<p>To remove files/folders from a git repo</p>
+
+<pre><code class="language-bash">git rm filename.txt
+</code></pre>
+
+<p>OR</p>
+
+<pre><code class="language-bash">git rm -r directory/cache
+</code></pre>
 
 <p>Use <code>-f</code> flag if you have to force it. It is recommended to add files you don’t want in the repo to .gitignore so they don’t get added in the first place.</p>
 
 <h2 id="branches">Branches</h2>
 <p>Bracnhes are like alternate realities for your repositry. They let you pursue different courses of action on your project in parallel.</p>
 
-<p>Check what branch you are in<br />
-<code>git status</code></p>
+<p>Check what branch you are in</p>
 
-<p>Create a new branch<br />
-<code>git branch branchName</code></p>
+<pre><code class="language-bash">git status
+</code></pre>
 
-<p>Switch to a branch<br />
-<code>git checkout branchName</code></p>
+<p>Create a new branch</p>
 
-<p>Switch back to master branch<br />
-<code>git checkout master</code></p>
+<pre><code class="language-bash">git branch branchName
+</code></pre>
 
-<p>Switch and create branch in the same command<br />
-<code>git checkout -b newFeature</code> 
--b flag will create the branch if it doesnt already exists.</p>
+<p>Switch to a branch</p>
 
-<p>show bracnhes<br />
-<code>git branch</code> 
-* asterisk indicates what branch you’re currently on.</p>
+<pre><code class="language-bash">git checkout branchName
+</code></pre>
 
-<p>delete branch 
-<code>git branch -D branchName</code> 
--D flag will delete the branch. you can’t delete the branch you are in, so switch before deleting.</p>
+<p>Switch back to master branch</p>
+
+<pre><code class="language-bash">git checkout master
+</code></pre>
+
+<p>Switch and create branch in the same command</p>
+
+<pre><code class="language-bash">git checkout -b newFeature
+</code></pre>
+
+<p><code>-b</code> flag will create the branch if it doesnt already exists.</p>
+
+<p>show bracnhes</p>
+
+<pre><code class="language-bash">git branch
+</code></pre>
+
+<p><code>*</code> asterisk indicates what branch you’re currently on.</p>
+
+<p>delete branch</p>
+
+<pre><code class="language-bash">git branch -D branchName
+</code></pre>
+
+<p><code>-D</code> flag will delete the branch. you can’t delete the branch you are in, so switch before deleting.</p>
 
 <h2 id="merging">Merging</h2>
-<p>Merge a branch<br />
-<code>git merge branchName</code></p>
+<p>Merge a branch</p>
 
-<p>after manually taking care of merge conflicts,
-<code>git add conflictedFile</code> and then<code>git commit</code></p>
+<pre><code class="language-bash">git merge branchName
+</code></pre>
+
+<p>after manually taking care of merge conflicts,</p>
+
+<pre><code class="language-bash">git add conflictedFile
+</code></pre>
+
+<p>and then</p>
+
+<pre><code class="language-bash">git commit
+</code></pre>
 
 <h2 id="cloning">Cloning</h2>
-<p><code>git clone remoteRepo  yourNewRepoName</code></p>
+
+<pre><code class="language-bash">git clone remoteRepo  yourNewRepoName
+</code></pre>
 
 <h2 id="working-with-remotes">Working with Remotes</h2>
-<p>show list of remote repos<br />
-<code>git remote</code></p>
 
-<p>add remote repo
-<code>git remote add NameForRemote Location/url_of_remote</code></p>
+<p>show list of remote repos</p>
 
-<p>add github repo<br />
-<code>git remote add origin github_url</code></p>
+<pre><code class="language-bash">git remote
+</code></pre>
 
-<p>push changes to remote<br />
-<code>git push -u origin  master</code> 
-origin is the name of remote repo and master is the branch.</p>
+<p>add remote repo</p>
+
+<pre><code class="language-bash">git remote add NameForRemote Location/url_of_remote
+</code></pre>
+
+<p>add github repo</p>
+
+<pre><code class="language-bash">git remote add origin github_url
+</code></pre>
+
+<p>the name doesn’t have to be <em>origin</em>, it’s just convention to name it that</p>
+
+<p>push changes to remote</p>
+
+<pre><code class="language-bash">git push -u origin  master
+</code></pre>
+
+<p><code>origin</code> is the name of remote repo and <code>master</code> is the branch.</p>
 
 <h2 id="git-flow">Git Flow</h2>
-<p>installing git-flow on Linux<br />
-<code>sudo apt-get install git-flow</code></p>
+<p>installing git-flow on Linux</p>
+
+<pre><code class="language-bash">sudo apt-get install git-flow
+</code></pre>
 
 <p>start git flow</p>
 
-<p><code>git flow init</code></p>
+<pre><code class="language-bash">git flow init
+</code></pre>
 
 <p>start git flow on a new branch</p>
 
-<p><code>git flow Flow_banch start BranchName</code></p>
+<pre><code class="language-bash">git flow Flow_banch start BranchName
+</code></pre>
 
 <p>close git flow on a new branch</p>
 
-<p><code>git flow Flow_banch finish BranchName</code></p>
+<pre><code class="language-bash">git flow Flow_banch finish BranchName
+</code></pre>
 
 <h2 id="starting-from-scratch-or-uploading-an-existing-project">Starting from Scratch or Uploading an Existing Project</h2>
+
 <p><img src="../assets/img/git-basics.png" alt="BitBucket Project help" /></p>
 
 <p>Screenshot taken from <a href="https://bitbucket.org">BitBucket</a>. Use <code>git add -A</code> to add all existing files if you are pushing up an existing project.</p>
