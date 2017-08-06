@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Opencart How-To Delete Multi-Store and Move Everything to the Default Store
+title: 'OpenCart: How-To Delete Multi-Store and Move Everything to the Default Store'
 permalink: opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store
 tags: ['how-to', 'opencart', 'mysql', 'phpmyadmin']
 status: published
-
+ctime: 2015-02-26
 ---
 
 Make a BACKUP before doing anything to the database. Be safe.
