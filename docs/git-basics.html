@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="Configurationconfigure username">
+  <meta name="description" content="Configuration">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -79,7 +79,7 @@
     <p class="Post-meta">
       
       
-      <span class='date'>
+      <span class='ctime'>Created
         <time datetime="2014-05-21T00:00:00+05:00" itemprop="datePublished">
           May 21, 2014
         </time>
@@ -89,10 +89,16 @@
       
 
       <!---->
-      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/2014-05-21-git-basics.md" target='_blank'>Edit this page on Github</a>
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_git-github/git-basics.md" target='_blank'>Edit this page on Github</a>
     </p>
     
       <ul class='tags'>
+      
+        <li>cheatsheet</li>
+      
+        <li>commands</li>
+      
+        <li>git</li>
       
       </ul>
     
@@ -100,6 +106,7 @@
 
   <div class="Post-content" itemprop="articleBody">
     <h2 id="configuration">Configuration</h2>
+
 <p>configure username</p>
 
 <pre><code class="language-bash">git config --global user.name "Your Name"
@@ -166,7 +173,7 @@
 
 <p>Commit all code with a message <code>-m</code></p>
 
-<pre><code class="language-bash">git commit -a -m 'your commit message
+<pre><code class="language-bash">git commit -a -m 'your commit message'
 </code></pre>
 
 <h2 id="check-status">Check Status</h2>
@@ -198,7 +205,7 @@
 <p><em>Method 2: diff</em>
 check difference between two commits</p>
 
-<pre><code class="language-bash">git diff commit1 commit2` 
+<pre><code class="language-bash">git diff commit1 commit2
 </code></pre>
 
 <h2 id="removing-code">Removing code</h2>
@@ -213,6 +220,13 @@ check difference between two commits</p>
 </code></pre>
 
 <p>Use <code>-f</code> flag if you have to force it. It is recommended to add files you don’t want in the repo to .gitignore so they don’t get added in the first place.</p>
+
+<p>delete branch</p>
+
+<pre><code class="language-bash">git branch -D branchName
+</code></pre>
+
+<p><code>-D</code> flag will delete the branch. you can’t delete the branch you are in, so switch before deleting.</p>
 
 <h2 id="branches">Branches</h2>
 <p>Bracnhes are like alternate realities for your repositry. They let you pursue different courses of action on your project in parallel.</p>
@@ -250,13 +264,6 @@ check difference between two commits</p>
 </code></pre>
 
 <p><code>*</code> asterisk indicates what branch you’re currently on.</p>
-
-<p>delete branch</p>
-
-<pre><code class="language-bash">git branch -D branchName
-</code></pre>
-
-<p><code>-D</code> flag will delete the branch. you can’t delete the branch you are in, so switch before deleting.</p>
 
 <h2 id="merging">Merging</h2>
 <p>Merge a branch</p>
@@ -357,7 +364,6 @@ check difference between two commits</p>
   <li>the commit before the last commit = <strong>HEAD~1</strong></li>
   <li>master is like the trunk of your project. It’s usually the main code of your project that’s deployed.</li>
   <li>when we create a branch, it starts with a copy of the branch we are in. If you are in a branch other than master, <strong>your new branch will copy the branch you are currently in</strong>. Consider actual tree branches, they branch out from where they are already.</li>
-  <li></li>
 </ul>
 
 <p>For a more detailed, easy to understand and video demonstrated intro to Git, take the <a href="http://referrals.trhou.se/aamnah"><em>Git Basics</em> course on Treehouse</a>. This article was written while taking that course.</p>
