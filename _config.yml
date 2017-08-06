@@ -84,6 +84,9 @@ collections:
   misc:
     output: true
     title: "Misc."
+  opencart:
+    output: true
+    title: "OpenCart"
   php:
     output: true
     title: "PHP"
@@ -147,6 +150,11 @@ defaults:
   -
     scope:
       type: "linux" # linux collection in './_linux' folder
+    values:
+      layout: "post"
+  -
+    scope:
+      type: "opencart"
     values:
       layout: "post"
   -
