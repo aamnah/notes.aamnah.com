@@ -1,4 +1,9 @@
-# Git
+---
+layout: post
+title: Rebasing vs. Merging
+permalink: git-rebase-vs-merge
+ctime: 2017-01-12
+---
 
 [Cheatsheet](https://github.com/aamnah/cheatsheets/blob/master/Git.md)
 
