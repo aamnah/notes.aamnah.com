@@ -2,9 +2,21 @@
 layout: post
 title: Git Basics
 permalink: git-basics
+ctime: 2014-05-21
+date: 2014-05-21 16:17:32.000000000 +05:00
+published: true
+status: publish
+categories:
+- cheatsheet
+tags:
+- cheatsheet
+- commands
+- git
 ---
+
 Configuration
 ---
+
 configure username  
 
 ```bash
@@ -90,7 +102,7 @@ git commit -a
 Commit all code with a message `-m`
 
 ```bash
-git commit -a -m 'your commit message
+git commit -a -m 'your commit message'
 ``` 
 
 Check Status
@@ -128,7 +140,7 @@ _Method 2: diff_
 check difference between two commits
 
 ```bash
-git diff commit1 commit2` 
+git diff commit1 commit2
 ```
 
 Removing code
@@ -146,6 +158,15 @@ git rm -r directory/cache
 ```
 
 Use `-f` flag if you have to force it. It is recommended to add files you don't want in the repo to .gitignore so they don't get added in the first place.
+
+delete branch 
+
+```bash
+git branch -D branchName
+``` 
+
+`-D` flag will delete the branch. you can't delete the branch you are in, so switch before deleting.
+
 
 Branches
 ---
@@ -190,14 +211,6 @@ git branch
 ```
 
 `*` asterisk indicates what branch you're currently on.
-
-delete branch 
-
-```bash
-git branch -D branchName
-``` 
-
-`-D` flag will delete the branch. you can't delete the branch you are in, so switch before deleting.
 
 Merging
 ---
@@ -312,6 +325,6 @@ Notes
 - the commit before the last commit = **HEAD~1**
 - master is like the trunk of your project. It's usually the main code of your project that's deployed.
 - when we create a branch, it starts with a copy of the branch we are in. If you are in a branch other than master, **your new branch will copy the branch you are currently in**. Consider actual tree branches, they branch out from where they are already.
-- 
+
 
 For a more detailed, easy to understand and video demonstrated intro to Git, take the [_Git Basics_ course on Treehouse](http://referrals.trhou.se/aamnah). This article was written while taking that course.
