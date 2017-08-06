@@ -101,8 +101,187 @@
   <div class="Post-content" itemprop="articleBody">
     <p><img src="/assets/img/doomsday-commands.jpg" alt="Commands - Doomsday Commands" /></p>
 
-<pre><code class="language-bash"># changing to a directory will delete that directory
-alias cd=rm -rf
+<h3 id="list-of-dangerous-shell-commands">List of dangerous shell commands</h3>
+<p>It is not uncommon to see trolls tricking new Linux/Unix users run commands as a joke. These commands can destroy users data. Here are a few:</p>
+
+<ol>
+  <li>rm -rf /</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>:(){ :</td>
+          <td>: &amp; };:</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>mkfs /dev/sda1</li>
+  <li>cat /dev/zero &gt; /dev/sda1</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>wget url -O -</td>
+          <td>sh –</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>curl url</td>
+          <td>sh</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>dd if=/dev/zero of=/dev/sda2</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>echo 726d202d7266202a</td>
+          <td>xxd -r -p</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>dd if=/dev/random of=/dev/port</li>
+  <li>echo 1 &gt; /proc/sys/kernel/panic</li>
+  <li>cat /dev/port or cat /dev/mem</li>
+  <li>cat /dev/zero &gt; /dev/mem</li>
+  <li>sudo chmod -r 444 / or sudo chown -r nobody:nobody /</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>last</td>
+          <td>reboot</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<h4 id="explanations">Explanations</h4>
+
+<ol>
+  <li>rm -rf /
+Doesn’t work anymore. Don’t bother. Used to remove all files in the directory tree.</li>
+  <li>:(){ :|: &amp; };:
+Fork bomb. Job control has partially mitigated this by now. It won’t fully bork up the system anymore.</li>
+  <li>mkfs /dev/sda1
+Formats first partition on sda disk.</li>
+  <li>cat /dev/zero &gt; /dev/sda1
+Zeroes out the first partition (many systems host either / or /boot there). Using sda might’ve been better.</li>
+  <li>wget url -O - | sh –
+Grab arbitrary shell script from online and execute it.</li>
+  <li>curl url | sh
+Deviation of 5.</li>
+  <li>dd if=/dev/zero of=/dev/sda2
+Zeroes out sda2. Just like 4 it kinda sucks. It assumes the existence of that partition.</li>
+  <li>echo 726d202d7266202a | xxd -r -p
+Doesn’t do jack shit unless put inside $( ). It just echoes rm -rf *.</li>
+  <li>dd if=/dev/random of=/dev/port
+Write random stuff to memory. Better use urandom instead.</li>
+  <li>echo 1 &gt; /proc/sys/kernel/panic
+Induce kernel panic.</li>
+  <li>cat /dev/port or cat /dev/mem
+View system memory.</li>
+  <li>cat /dev/zero &gt; /dev/mem
+Write zero bits into system memory.</li>
+  <li>sudo chmod -r 444 / or sudo chown -r nobody:nobody /
+Make all files on system read-only and pass their ownership to nobody user.</li>
+  <li>last | reboot
+View last logged in users and send its output to reboot? What kinda bullshit is that?</li>
+</ol>
+
+<p>So, newb commands mostly. Learn from any source but not these shitty commands please _/_</p>
+
+<p>A few common ways to mess with people is</p>
+
+<ul>
+  <li>Creating/changing the <code>alias</code> for a command to something else</li>
+  <li>Running a script that is not on the system (remotely) with <code>curl</code> or <code>wget</code></li>
+  <li>Overwriting/Deleting directories/partitions <code>dd</code>, <code>mkfs</code></li>
+  <li>Fork bombs</li>
+  <li>Mess with permissions so you/none can get access</li>
+</ul>
+
+<h4 id="delete-the-root-directory-">Delete the root directory <code>/</code></h4>
+<p>In Linux system, everything is a file. And all files live under the root directory, the path for which is <code>/</code>. <code>rm -rf /</code> force deletes the root directory, basically deleting everything you have on the system.</p>
+
+<p>Built-in failsafe has been implemented since 2006. This one is one of those myths that just does not die.</p>
+
+<p>You can circumvent the <code>--no-preserve-root</code> failsafe by doing <code>rm -rf /*</code> instead. An empty root directory is no more useful than a deleted root directory.</p>
+
+<p>That failsafe is likely only in GNU rm. The list is for Linux and “Unix-like” systems, not all of which will have this failsafe.</p>
+
+<p>is mostly only doable with <code>/*</code> instead of <code>/</code> now, due to the <code>--no-preserve-root</code> failsafe</p>
+
+<pre><code class="language-bash">sudo rm -rf / --no-preserve-root
+sudo rm -rf /*
+</code></pre>
+
+<pre><code class="language-bash">echo 726d202d7266202a | xxd -r -p
+</code></pre>
+
+<p>It just echoes “rm -rf *”.  This won’t do any harm, unless you put it in <code>$()</code> or backticks.</p>
+
+<h4 id="fork-bomb">Fork bomb</h4>
+
+<pre><code class="language-bash">:(){ :|: &amp; };:
+</code></pre>
+<p>It’s called a <em>forkbomb</em>. <code>:()</code> defines a function called <code>:</code> with the body of <code>:|:&amp;</code>, meaning <em>run : and also run : in the background</em>. <code>;</code> ends the function definition, and <code>:</code> calls your new function, which endlessly spawns new versions of itself until you either hit process limits or the system grinds to a halt. It’s a command that effectively freezes any system without good process limits set. Don’t try this at home.</p>
+
+<p>Here’s a modified fork bomb</p>
+
+<pre><code class="language-bash">#!/bin/bash
+fatfork() {
+fatfork|fatfork&amp;
+od -v /dev/random &gt; ~/.$RANDOM.txt
+}; fatfork
+</code></pre>
+
+<p>You’re likely to get</p>
+
+<pre><code> bash: fork: retry: No child process.
+</code></pre>
+
+<p>It’s a fork bomb- So, basically you ran yourself out of available processid</p>
+
+<p>a forkbomb works mainly in memory, it will not affect the data and, if defused it will not affect the system once rebooted, no data loss or system corruption</p>
+
+<h4 id="run-remote-scripts">Run remote scripts</h4>
+<p>it’d have to be this new trend of software projects asking users to do this:</p>
+
+<pre><code class="language-bash">curl http://example.com/install | sudo /bin/bash
+</code></pre>
+
+<p><code>wget url -O - | sh --</code> and <code>curl url | sh</code> are two ways of doing the same thing</p>
+
+<h4 id="kernel-panic">Kernel Panic</h4>
+
+<pre><code class="language-bash">echo 1 &gt; /proc/sys/kernel/panic
+</code></pre>
+
+<p>The value in <code>/proc/sys/kernel/panic</code> file represents the number of seconds the kernel waits before automatically rebooting on a panic. If this is zero, the kernel will loop on a panic; if nonzero it indicates that the kernel should autoreboot after this number of seconds. When you use the software watchdog,
+the recommended setting is 60. <a href="https://www.kernel.org/doc/Documentation/sysctl/kernel.txt">man sysctl</a></p>
+
+<pre><code class="language-bash">last | reboot
+</code></pre>
+<p>It will reboot your system. It’s just a common mistake people make when trying to see when the system was last rebooted, because they omit the intended <code>grep</code> command. “last reboot” is safer than grepping for reboot for that reason.</p>
+
+<p>luckily “reboot” hasn’t blindly rebooted your machine immediately with no warning for about 25 years</p>
+
+<p>is a common mistake: omission of grep before reboot. Easily avoided if you remember that last will take a username. If grepping for reboot in any other case, be very careful not to accidentally omit the grep command.</p>
+
+<hr />
+
+<pre><code class="language-bash">alias cd=rm -rf 	  # changing to a directory will delete that directory
 
 alias alias="poweroff" 
 
@@ -157,8 +336,41 @@ kill -9 -1
 
 <p>write a script we can <code>wget | sudo sh</code></p>
 
-<h3 id="notes">Notes</h3>
-<p>These were inspired from TwitchInstallArchLinux chat.</p>
+<ul>
+  <li>Rm -f /etc/passwd(this kicks out some really neat errors)</li>
+</ul>
+
+<p>Funny prank</p>
+
+<pre><code class="language-bash">for i in ls /usr/bin
+do
+alias $i='echo nope'
+done
+</code></pre>
+
+<p>bash_history</p>
+
+<p><code>. .bash_history</code> or add <code>history - c</code> at the end..</p>
+
+<ul>
+  <li>cat /dev/urandom &gt; /dev/mouse</li>
+  <li>pkill ssh</li>
+  <li>echo “oh shit” &gt; /boot/grub2/grub.cfg ; reboot</li>
+  <li>cat /proc/kcore &gt; /dev/dsp</li>
+  <li>cat /dev/sda1 &gt; /dev/tty0</li>
+  <li>Iptables -F</li>
+  <li>sudo startx &amp;</li>
+  <li>[ $[ $RANDOM % 2 ] == 0 ] &amp;&amp; dd if=/dev/urandom of=/dev/sda || echo ‘Meow’
+### Notes
+These were inspired from TwitchInstallArchLinux chat.</li>
+</ul>
+
+<h3 id="links">Links</h3>
+<ul>
+  <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfTwnopvY7UYcSf-1QOkHTFUkow4mPeuses7ibDRAxPs7BptQ/viewform">List of dangerous shell commands</a></li>
+  <li><a href="https://web.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fnixcraft%2Fposts%2F1776674342345936">comments on this nixCraft facebook msg</a></li>
+  <li><a href="https://www.cyberciti.biz/tips/my-10-unix-command-line-mistakes.html?utm_source=facebook">nixCraft: My 10 UNIX Command Line Mistakes</a></li>
+</ul>
 
   </div>
 
