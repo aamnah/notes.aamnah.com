@@ -162,3 +162,8 @@ defaults:
       type: "sysadmin"
     values:
       layout: "post"
+  -
+    scope:
+      type: "workflow"
+    values:
+      layout: "post"
