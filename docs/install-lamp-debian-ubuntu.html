@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
-  <link rel="canonical" href="http://tldrdevnotes.com/install-lamp">
+  <link rel="canonical" href="http://tldrdevnotes.com/install-lamp-debian-ubuntu">
   <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -114,27 +114,22 @@
 
 <h4 id="getting-ready">Getting ready</h4>
 
-<pre><code class="language-bash">apt update &amp;&amp; apt upgrade -y
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
 </code></pre>
 
 <h2 id="apache">Apache</h2>
 
-<pre><code class="language-bash">apt install apache2 apache2-utils
+<pre><code class="language-bash">sudo apt install apache2 apache2-utils ssl-cert -y
 </code></pre>
 
 <h2 id="mysql">MySQL</h2>
 
-<pre><code class="language-bash">apt install mysql-server mysql-client -y
+<pre><code class="language-bash">sudo apt install mysql-server mysql-client -y
 </code></pre>
 
 <p>Secure the installation</p>
 
 <pre><code class="language-bash">mysql_secure_installation
-</code></pre>
-
-<h2 id="phpmyadmin">PHPMyAdmin</h2>
-
-<pre><code class="language-bash">apt install phpmyadmin -y
 </code></pre>
 
 <h2 id="php">PHP</h2>
@@ -159,19 +154,77 @@ sudo apt update
 
 <p>Now update the sources list so it gets packages from the repo we just added</p>
 
-<pre><code>apt update
+<pre><code>sudo apt update
 </code></pre>
 
 <h4 id="install-php-and-packages">install PHP and packages</h4>
 <p>at the time of this writing, the latest PHP version is 7.2</p>
 
-<pre><code class="language-bash">apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xsl php-imagick php-pear php-gettext -y
+<pre><code class="language-bash">sudo apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xml php-imagick php-pear php-gettext -y
 
 </code></pre>
 
 <ul>
   <li>Most of the packages are installed as dependencies for other packages. For example: installing <code>php7.2</code> will also install <code>libapache2-mod-php7.2</code>, <code>php-common</code>, <code>php7.2-cli</code>, <code>php7.2-common</code>, <code>php7.2-json</code>, <code>php7.2-opcache</code>, <code>php7.2-readline</code>. But we’re going to manually specify them just in case.</li>
 </ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Packages</th>
+      <th>Software that requires them</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>curl</td>
+      <td>OpenCart, Magento</td>
+    </tr>
+    <tr>
+      <td>gd</td>
+      <td>OpenCart, Magento</td>
+    </tr>
+    <tr>
+      <td>gettext</td>
+      <td>phpmyadmin</td>
+    </tr>
+    <tr>
+      <td>intl</td>
+      <td>Magento</td>
+    </tr>
+    <tr>
+      <td>mbstring</td>
+      <td>OpenCart, Magento</td>
+    </tr>
+    <tr>
+      <td>mcrypt</td>
+      <td>OpenCart, Magento</td>
+    </tr>
+    <tr>
+      <td>openssl</td>
+      <td>Magento</td>
+    </tr>
+    <tr>
+      <td>xml</td>
+      <td>OpenCart</td>
+    </tr>
+    <tr>
+      <td>xsl</td>
+      <td>Magento</td>
+    </tr>
+    <tr>
+      <td>zip</td>
+      <td>OpenCart, Magento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="magento-extensions">Magento extensions</h6>
+
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install php7.0-gd php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl php7.0-mbstring php7.0-openssl php7.0-zip
+sudo service apache2 restart
+</code></pre>
 
 <h4 id="enable-stuff">Enable stuff</h4>
 
@@ -183,6 +236,11 @@ sudo apt update
 </code></pre>
 
 <pre><code class="language-bash">phpenmod -v 7.2 mcrypt
+</code></pre>
+
+<h2 id="phpmyadmin">PHPMyAdmin</h2>
+
+<pre><code class="language-bash">sudo apt install phpmyadmin -y
 </code></pre>
 
 <h2 id="links">Links</h2>
