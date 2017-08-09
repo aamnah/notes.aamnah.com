@@ -8,8 +8,22 @@ tags:
 - bash
 ---
 
+```bash
+~ $ echo $PATH
+/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aamnah/Dropbox/todo
+
+~ $ cat /etc/paths
+/usr/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+
+PATH=/usr/local/bin:$PATH # prepend a path to your current $PATH
+```
+
 # Ubuntu
-The following command adds a path to your current path:
+The following command adds (appends) a path to your current path:
 
 ```bash
 export PATH=$PATH:/my/custom/path
@@ -22,7 +36,7 @@ If you want your setup to execute this command every time, there are a number of
 ~/.profile        (which starts by loading ~/.bashrc if you are running bash)
 ```
 
-To **overwrite an existing PATH**, use the same export command without the $PATH included in the value. LIke so:
+To **overwrite an existing PATH**, use the same export command without the $PATH included in the value. Like so:
 
 ```bash
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
@@ -60,7 +74,7 @@ If you get nothing from the which node coomand, node's not in the path.
 Check what current $PATH is:
 
 ```bash
-echo "$PATH"
+echo $PATH
 ```
 
 OR

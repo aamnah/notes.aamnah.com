@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="UbuntuThe following command adds a path to your current path:">
+  <meta name="description" content="```bash~ $ echo $PATH/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -107,8 +107,21 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <h1 id="ubuntu">Ubuntu</h1>
-<p>The following command adds a path to your current path:</p>
+    <pre><code class="language-bash">~ $ echo $PATH
+/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aamnah/Dropbox/todo
+
+~ $ cat /etc/paths
+/usr/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+
+PATH=/usr/local/bin:$PATH # prepend a path to your current $PATH
+</code></pre>
+
+<h1 id="ubuntu">Ubuntu</h1>
+<p>The following command adds (appends) a path to your current path:</p>
 
 <pre><code class="language-bash">export PATH=$PATH:/my/custom/path
 </code></pre>
@@ -119,7 +132,7 @@
 ~/.profile        (which starts by loading ~/.bashrc if you are running bash)
 </code></pre>
 
-<p>To <strong>overwrite an existing PATH</strong>, use the same export command without the $PATH included in the value. LIke so:</p>
+<p>To <strong>overwrite an existing PATH</strong>, use the same export command without the $PATH included in the value. Like so:</p>
 
 <pre><code class="language-bash">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 </code></pre>
@@ -161,7 +174,7 @@
 <h1 id="mac-os-x">Mac OS X</h1>
 <p>Check what current $PATH is:</p>
 
-<pre><code class="language-bash">echo "$PATH"
+<pre><code class="language-bash">echo $PATH
 </code></pre>
 
 <p>OR</p>
