@@ -39,6 +39,7 @@ install Homebrew with this command:
 | `brew update` |	Update brew and cask |
 | `brew list` |	List installed |
 | `brew outdated` |	What’s due for upgrades? |
+| `brew --cellar` | Shows the path for Cellar directory |
 
 Upgrade a package:
 
