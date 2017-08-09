@@ -4,6 +4,10 @@ permalink: ifconfig-get-internal-external-ip-address
 ctime: 2015-12-02
 ---
 
+<div class="Post-note Post-note--info">
+NOTE: Much simpler is <code>hostname -I</code> or <code>hostname --all-ip-addresses</code> which gives you all addresses for the host, IPV4s as well as IPV6s. Check <code>hostname -h</code> for more nifty details
+</div>
+
 `ifconfig` is for configuring a network _interface_. (**I**nter**f**ace **Conf**iguration)
 
 
