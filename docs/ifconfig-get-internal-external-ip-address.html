@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="ifconfig is for configuring a network interface. (Interface Configuration)">
+  <meta name="description" content="NOTE: Much simpler is hostname -I or hostname --all-ip-addresses which gives you all addresses for the host, IPV4s as well as IPV6s. Check hostname -h for mo...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -99,7 +99,11 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p><code>ifconfig</code> is for configuring a network <em>interface</em>. (<strong>I</strong>nter<strong>f</strong>ace <strong>Conf</strong>iguration)</p>
+    <div class="Post-note Post-note--info">
+NOTE: Much simpler is <code>hostname -I</code> or <code>hostname --all-ip-addresses</code> which gives you all addresses for the host, IPV4s as well as IPV6s. Check <code>hostname -h</code> for more nifty details
+</div>
+
+<p><code>ifconfig</code> is for configuring a network <em>interface</em>. (<strong>I</strong>nter<strong>f</strong>ace <strong>Conf</strong>iguration)</p>
 
 <h2 id="get-ip-by-interface-eth-wlan-lo-etc">Get IP by interface (eth, wlan, lo etc)</h2>
 
