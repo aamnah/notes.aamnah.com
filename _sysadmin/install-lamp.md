@@ -1,7 +1,7 @@
 ---
 title: Install a LAMP stack
-subtitle: Install Apache, PHP, MySQL and PHPMyAdmin on a Linux machine
-permalink: install-lamp
+subtitle: Install Apache, PHP, MySQL and PHPMyAdmin on Debian machine
+permalink: install-lamp-debian-ubuntu
 ctime: 2017-07-25
 
 ---
@@ -18,31 +18,25 @@ ctime: 2017-07-25
 #### Getting ready
 
 ```bash
-apt update && apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 
 ## Apache
 
 ```bash
-apt install apache2 apache2-utils
+sudo apt install apache2 apache2-utils ssl-cert -y
 ```
 
 ## MySQL
 
 ```bash
-apt install mysql-server mysql-client -y
+sudo apt install mysql-server mysql-client -y
 ```
 
 Secure the installation 
 
 ```bash
 mysql_secure_installation
-```
-
-## PHPMyAdmin
-
-```bash
-apt install phpmyadmin -y
 ```
 
 ## PHP
@@ -71,18 +65,40 @@ sudo apt-get install software-properties-common -y
 Now update the sources list so it gets packages from the repo we just added
 
 ```
-apt update
+sudo apt update
 ```
 
 #### install PHP and packages
 at the time of this writing, the latest PHP version is 7.2
 
 ```bash
-apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xsl php-imagick php-pear php-gettext -y
+sudo apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xml php-imagick php-pear php-gettext -y
 
 ```
 
 - Most of the packages are installed as dependencies for other packages. For example: installing `php7.2` will also install `libapache2-mod-php7.2`, `php-common`, `php7.2-cli`, `php7.2-common`, `php7.2-json`, `php7.2-opcache`, `php7.2-readline`. But we're going to manually specify them just in case.
+
+| Packages    | Software that requires them |
+|-------------|-----------------------------|
+| curl | OpenCart, Magento |
+| gd | OpenCart, Magento |
+| gettext | phpmyadmin |
+| intl | Magento |
+| mbstring | OpenCart, Magento |
+| mcrypt | OpenCart, Magento |
+| openssl | Magento |
+| xml | OpenCart |
+| xsl | Magento |
+| zip | OpenCart, Magento |
+
+
+###### Magento extensions
+
+```bash
+sudo apt-get update
+sudo apt-get install php7.0-gd php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl php7.0-mbstring php7.0-openssl php7.0-zip
+sudo service apache2 restart
+```
 
 #### Enable stuff
 
@@ -94,6 +110,12 @@ a2enmod rewrite
 
 ```bash
 phpenmod -v 7.2 mcrypt
+```
+
+## PHPMyAdmin
+
+```bash
+sudo apt install phpmyadmin -y
 ```
 
 Links
