@@ -242,6 +242,8 @@ h6 {
     color: #e8e8e8;
     line-height: 1.6;
     padding-left: 20px; }
+    .Site-nav .page-link:first-child {
+      padding-left: 0px; }
   @media screen and (max-width: 768px) {
     .Site-nav {
       position: absolute;

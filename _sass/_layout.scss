@@ -66,6 +66,10 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
         color: $color-grey-light;
         line-height: $base-line-height;
 				padding-left: 20px;
+			
+			&:first-child {
+				padding-left: 0px;
+			}
 
     }
 
