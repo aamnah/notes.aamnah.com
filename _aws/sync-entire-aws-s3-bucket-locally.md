@@ -12,24 +12,21 @@ ctime: 2017-02-23
 
 ```bash
 brew install awscli # MacOS
-# apt-get update && apt install awscli -y # Ubuntu
+# apt update && apt install awscli -y # Ubuntu
 # pip install --upgrade --user awscli # Unix
 aws configure
 aws s3 ls 
 aws s3 sync s3://my-bucket . 
 ```
 
-
-### install
-
-```bash
-pip install --upgrade --user awscli
-```
-
-to upgrade, run the same command above. To uninstall, `pip uninstall awscli`
-
 ### Ubuntu install
 this is on a fresh Ubuntu system.
+
+try first:
+
+```bash
+apt install awscli -y
+```
 
 ```bash
 echo `python --version` `pip --version`
@@ -47,6 +44,17 @@ install AWS CLI
 ```bash
 pip install awscli --upgrade --user
 ```
+
+
+### install (Unix)
+
+```bash
+apt install python-pip -y
+pip install --upgrade pip
+pip install --upgrade --user awscli
+```
+
+to upgrade, run the same command above. To uninstall, `pip uninstall awscli`
 
 
 ### configuration

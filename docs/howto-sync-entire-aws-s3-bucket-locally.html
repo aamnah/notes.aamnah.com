@@ -108,22 +108,20 @@
     <h3 id="tldr">tl;dr</h3>
 
 <pre><code class="language-bash">brew install awscli # MacOS
-# apt-get update &amp;&amp; apt install awscli -y # Ubuntu
+# apt update &amp;&amp; apt install awscli -y # Ubuntu
 # pip install --upgrade --user awscli # Unix
 aws configure
 aws s3 ls 
 aws s3 sync s3://my-bucket . 
 </code></pre>
 
-<h3 id="install">install</h3>
-
-<pre><code class="language-bash">pip install --upgrade --user awscli
-</code></pre>
-
-<p>to upgrade, run the same command above. To uninstall, <code>pip uninstall awscli</code></p>
-
 <h3 id="ubuntu-install">Ubuntu install</h3>
 <p>this is on a fresh Ubuntu system.</p>
+
+<p>try first:</p>
+
+<pre><code class="language-bash">apt install awscli -y
+</code></pre>
 
 <pre><code class="language-bash">echo `python --version` `pip --version`
 </code></pre>
@@ -138,6 +136,15 @@ pip --version
 
 <pre><code class="language-bash">pip install awscli --upgrade --user
 </code></pre>
+
+<h3 id="install-unix">install (Unix)</h3>
+
+<pre><code class="language-bash">apt install python-pip -y
+pip install --upgrade pip
+pip install --upgrade --user awscli
+</code></pre>
+
+<p>to upgrade, run the same command above. To uninstall, <code>pip uninstall awscli</code></p>
 
 <h3 id="configuration">configuration</h3>
 
