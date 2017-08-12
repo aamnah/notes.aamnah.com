@@ -253,3 +253,7 @@ h6 { font-size: 1.6rem; @include media-query($medium) {font-size: 1.8rem;} }
         border-bottom: 1px solid #ffff95;
     }
 }
+
+hr {
+    margin: 1em -1em;
+}

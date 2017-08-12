@@ -379,6 +379,9 @@ h6 {
     border-top: 1px solid #ffff95;
     border-bottom: 1px solid #ffff95; }
 
+hr {
+  margin: 1em -1em; }
+
 /**
  * Syntax highlighting styles
  */
