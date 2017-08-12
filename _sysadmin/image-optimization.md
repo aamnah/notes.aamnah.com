@@ -26,12 +26,8 @@ sudo apt update
 sudo apt install jpegoptim optipng
 
 # OPTIMIZATION
-# PNGs
 find ${IMGDIR}/ *.png -exec optipng -silent -preserve {} \;
-
-# JPEGs
 find ${IMGDIR}/ *.{jpeg,jpg} -exec jpegoptim {} \;
-
 
 # CRON
 
