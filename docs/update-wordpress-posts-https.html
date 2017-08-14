@@ -2,7 +2,24 @@
 <p>### tl;dr</p>
 
 <pre><code class="language-sql"># UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, '', '')
-UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, ''http://url.com, 'https://url.com')
+
+# Update self-hosted embeds (images, iframes, scripts, etc.)
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://yoursite.com', 'https://yoursite.com');
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://www.yoursite.com', 'https://www.yoursite.com');
+
+# Update internal pingbacks
+UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, 'http://yoursite.com', 'https://yoursite.com');
+UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, 'http://www.yoursite.com', 'https://www.yoursite.com');
+
+# Update YouTube embeds
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://www.youtube.com', 'https://www.youtube.com');
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://img.youtube.com', 'https://img.youtube.com');
+
+# Update Vimeo embeds
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://player.vimeo.com/', 'https://player.vimeo.com/');
+
+# Update Slideshare embeds
+UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://www.slideshare.net', 'https://www.slideshare.net');
 </code></pre>
 <hr />
 
@@ -16,7 +33,7 @@ UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, ''http://url.com, '
 <ul>
   <li>The post content for your posts is in the <code>post_content</code> column of the <code>wp_posts</code> table</li>
   <li>The simplest way to upload the links is to run a <code>REPLACE</code> function and change <code>http</code> with <code>https</code></li>
-  <li>You can find out which links are insecure/blocked in your browser’s Developer Console</li>
+  <li>You can find out which links are insecure/blocked in your browser’s Developer Console (the <code>Mixed Content: </code> warnings..)</li>
 </ul>
 
 <h3 id="find-all-posts-linking-to-insecure-urls">Find all posts linking to insecure URLs</h3>
@@ -26,7 +43,7 @@ UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, ''http://url.com, '
 
 <p>While you might be tempted to just update ALL links in posts to <code>https</code> in one go with the above command, this can cause issues. Not all sites (unfortunately) have shifted to <code>https</code> yet and if you update all posts links, you’ll get plenty of broken ones. Best approach is to update the links for known sites that you know for a fact use <code>https</code> (Sites like YouTube, Vimeo, Twitter as well your own site)</p>
 
-<h4 id="update-links-to-media-files">Update links to media files</h4>
+<h3 id="update-links-to-media-files">Update links to media files</h3>
 <p>This means anything in the <code>wp-content/uploads</code> directory</p>
 
 <pre><code class="language-sql"># Update Media links
@@ -40,3 +57,10 @@ UPDATE `wp_posts` SET `post_content`=REPLACE(post_content, 'http://youtube.com/'
 # Update Vimeo links
 UPDATE `wp_posts` SET `post_content`=REPLACE(post_content, 'http://player.vimeo.com/', 'https://player.vimeo.com/')
 </code></pre>
+
+<h2 id="links">LINKS</h2>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/32687040/force-wordpress-to-use-https-for-embeds">StackOverflow: Force Wordpress to use https for embeds</a></li>
+  <li><a href="https://www.bram.us/2014/12/06/migrating-your-wordpress-website-from-http-to-https/">Migrating your WordPress website from HTTP to HTTPS</a></li>
+</ul>
