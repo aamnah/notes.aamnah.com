@@ -1,0 +1,31 @@
+<h3 id="why">Why?</h3>
+
+<ul>
+  <li>Jekyll is SLOW. Takes about 25 secs to build this site right now, and this site is pretty small right now, less than 500 posts. There are no tags or categories or pagination yet and it’s at 20 seconds already. I have to <em>wait</em> for it to finish in order to see any changes, and i make changes often, so i end up waiting often.</li>
+  <li>Slow is pretty much my only complaint. While i haven’t been able to put up pages with clickable tags, and dislike that in order to set a default post for a collection i have to create a new config block (i have about 20+ collections, which means 20+ code blocks in <code>config.yml</code> that just say <code>layout: post</code>), Jekyll has been working for this very simple site of mine.</li>
+</ul>
+
+<h3 id="hugo">Hugo</h3>
+<ul>
+  <li>Everything goes in the <code>content</code> folder where you can have subfolders. (No <code>_drafts</code>, <code>_posts</code> and no creating a lot of <code>_collection</code> folders in the root dir like in Jekyll)</li>
+  <li>Pagination and redirects (<code>aliases</code>) works out of the box</li>
+  <li>instead of having to place unfinished posts inside the <code>_draft</code> folder, you can put <code>draft: true</code> in the front matter of the post</li>
+  <li>Built-in <code>livereload</code>, automatically refreshes your browsers when changes are made</li>
+  <li>Templates use <a href="https://gohugo.io/templates/introduction/">Go</a> instead of Liquid</li>
+  <li>Hugo will accept TOML, YAML, or JSON (default is TOML) while Jekyll accepts only YAML. The front matter metadata at the top of each content file uses the same syntax as the config.</li>
+  <li>You can set up templates called <strong>archetypes</strong> that hold customized front matter for pages of different types (like if you have both a blog and a podcast on your website)</li>
+</ul>
+
+<pre><code class="language-bash">brew install hugo # install hugo
+hugo version # verify your new install
+hugo new site quickstart # create a new quickstart site
+hugo new content/&lt;page.md&gt; # create new content page
+hugo serve # serve and watch the site
+hugo # build Hugo site
+</code></pre>
+
+<h2 id="links">Links</h2>
+<ul>
+  <li><a href="https://opensource.com/article/17/5/hugo-vs-jekyll">Hugo vs. Jekyll: Comparing the leading static website generators</a></li>
+  <li><a href="https://novelist.xyz/tech/hugo-vs-jekyll-static-site-generator/">Hugo vs. Jekyll: a showdown of static site generator</a></li>
+</ul>
