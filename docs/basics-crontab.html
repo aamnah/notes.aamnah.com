@@ -11,7 +11,7 @@
     
   </title>
   
-  <meta name="description" content="List crontab entriesbashcrontab -l">
+  <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/prism/prism.css">
@@ -105,25 +105,117 @@
   </header>
 
   <div class="Post-content" itemprop="articleBody">
-    <p><strong>List crontab entries</strong><br />
-<code>bash
-crontab -l
-</code></p>
+    <hr />
 
-<p><strong>Edit a crontab</strong><br />
-<code>bash
-crontab -e
-</code></p>
+<h2 id="tldr">tl;dr</h2>
 
-<p><strong>Edit root user’s crontab</strong><br />
-<code>bash
-sudo crontab -e
-</code></p>
+<pre><code class="language-bash">crontab -l # List crontab entries
+crontab -e # Edit a crontab using the EDITOR specified (export EDITOR=nano)
+crontab -r # Remove a crontab
+sudo crontab -e # Edit root user’s crontab
+crontab my-crontab # add cron jobs by giving a file to crontab
+</code></pre>
+
+<ul>
+  <li>If you are adding a script in any of the cron directories, it has to be <strong>executable</strong></li>
+  <li>Use <strong>absolute paths</strong> for files, directories and executable commands</li>
+  <li>it should link to the absolute path of the executables (commands). e.g. <code>/bin/echo</code> instead of <code>echo</code>. Find out absolute paths with the <code>which</code> command, e.g. <code>which echo</code> (or consider adding PATH at the top of the crontab file)</li>
+  <li>Commands that need to be run with <code>sudo</code> should be added to the <code>root</code> user’s crontab</li>
+  <li>Have your script create a file that <strong>log success or failure</strong>, makes it easier to troubleshoot cron <code>echo "Nightly Backup Successful: $(date)" &gt;&gt; /tmp/mybackup.log</code></li>
+  <li>Recommended is to add cron jobs to any of the cron directories (e.g. <code>/etc/cron.d</code>) instead of editing a user’s crontab (<code>crontab -e</code>)</li>
+  <li>The user adding the crons needs to be in <code>cron.allow</code> (if it exists)</li>
+  <li>User access is determined by <code>/etc/cron.allow</code> and <code>/etc/cron.deny</code>, if they exist. Blank <code>/etc/cron.deny</code> means only root is allowed access, plus everyone who’s in <code>/etc/cron.allow</code>. No <code>cron.allow</code> and <code>cron.deny</code> means everyone has access</li>
+</ul>
+
+<hr />
+
+<h3 id="where-to-add-your-cron-jobs">Where to add your cron jobs?</h3>
+
+<p>There are plenty of places where you can place your cron jobs. You can</p>
+
+<ul>
+  <li>edit the user’s crontab <code>/var/spool/cron/crontabs/$USER</code> – not recommended, <code>/var/spool</code> is considered temp/working directory, could wipe out with updates</li>
+  <li>edit <code>/etc/crontab</code> – This file could be used for other cron commands, but probably shouldn’t be. It is not usual to add commands to this file. While an experienced user should know about it, it is not recommended that you add anything to /etc/crontab. Apart from anything else, this could cause a problem if the /etc/crontab file is affected by updates!</li>
+  <li>place a file in <code>/etc/cron.d</code> – This directory can contain crontab files. The directory is often used by packages, and the crontab files allow a user to be associated with the commands in them. This would not be affected by updates but is a well known location</li>
+  <li>place a file in <code>/etc/cron.hourly</code>, <code>/etc/cron.daily</code>, <code>/etc/cron.weekly</code>, or <code>/etc/cron.monthly</code></li>
+</ul>
+
+<p>It is recommended to add individual scripts in the cron directories instead of editing the user’s crontab, as it can get wiped when you update the <code>cron</code> package (<a href="https://askubuntu.com/questions/216692/where-is-the-user-crontab-stored">link</a>). A user’s crontab is stored under the <code>/var/spool</code> dircetory, which is considered a temporary/working directory and is likely to get deleted during an update</p>
+
+<h3 id="see-if-a-cron-has-run">See if a cron has run</h3>
+
+<p>Edits to a user’s crontab and the cron jobs run are all logged by default to <code>/var/log/syslog</code> and that’s the first place to check if things are not running as you expect.</p>
+
+<pre><code class="language-bash">cat /var/log/syslog | grep cron
+</code></pre>
+
+<pre><code>Aug 15 06:17:01 amiranzur CRON[14961]: (root) CMD (   cd / &amp;&amp; run-parts --report /etc/cron.hourly)
+</code></pre>
+
+<p>By default cron will email you the output of any program it runs. Popular destinations for cron logs include <code>/var/log/cron</code>, <code>/var/log/messages</code> and <code>/var/log/syslog</code></p>
+
+<h3 id="see-if-a-user-has-access">See if a user has access</h3>
+
+<ul>
+  <li>If <code>/etc/cron.allow</code> file exists, user must be in it in order to run crontab</li>
+  <li>If <code>/etc/cron.deny</code> file exists, user must NOT be in it in order to run crontab</li>
+  <li>No <code>cron.allow</code> or <code>cron.deny</code> files exist in a standard Ubuntu install, so all users should have cron available by default, until one of those files is created.</li>
+  <li>If a blank <code>cron.deny</code> file has been created, that will change to the standard behavior users of other operating systems might expect: cron only available to root or users in <code>cron.allow</code>.</li>
+</ul>
+
+<h3 id="absolute-paths">Absolute paths</h3>
+
+<blockquote>
+  <p>One major pitfall to cron is cron runs in an extremely limited shell environment, as a result a lot of variables aren’t exported in to the environment, mainly <code>$PATH</code>. Make sure you use all absolute paths to executable, including common functions like <code>echo</code>, <code>uptime</code>, <code>date</code>, etc all need to use full paths (<code>/bin/echo</code>, <code>/bin/date</code>, <code>/usr/bin/uptime</code>). To determine the path to an executable, you can use the which command like so: <code>which echo</code> - this will show you the full path to that tool.</p>
+</blockquote>
+
+<p>Or, you can expand root users PATH variable by putting the following line <em>at the top of the root crontab</em> file:</p>
+
+<pre><code class="language-bash">PATH=/usr/sbin:/usr/bin:/sbin:/bin
+</code></pre>
+
+<h3 id="emails-and-logging">Emails and logging</h3>
+<ul>
+  <li>By default cron will email you the output of any program it runs. Default email address is <code>root@yourhost</code></li>
+  <li>You can use a <code>MAILTO=...</code> line in the crontab file to have cron send email to a specific address, which should make it easier to grep the mailer daemon logs</li>
+</ul>
+
+<pre><code class="language-bash">MAILTO=my.offsite.email@example.org
+00 15 * * *  echo "Just testing if crond sends email"
+</code></pre>
+
+<ul>
+  <li>You can set the cron to explicitly log output to a file by redirecting it (<code>&gt; /var/log/myjob.log 2&gt;&amp;1</code> will append <strong>all output</strong> to /var/log/myjob.log, 2&gt;&amp;1 indicates that the standard error (2&gt;) is redirected to the same file descriptor that is pointed by standard output (&amp;1).)</li>
+  <li>If you’re not getting emails than check the system logs. Popular locations are <code>/var/log/cron</code>, <code>/var/log/messages</code> and <code>/var/log/syslog</code>. Use <code>grep</code> to get cron related stuff (<code>cat /var/log/syslog | grep cron</code>)</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<pre><code class="language-bash">touch /etc/cron.daily/certbot
+
+echo "
+# Check and Renew Let's Encrypt SSLs 
+# run twice a day (12:15am, 12:15pm) as per recommendation
+15 0,12 * * * root /usr/bin/certbot renew" &gt; /etc/cron.daily/certbot
+
+chmod +x /etc/cron.daily/certbot
+
+</code></pre>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+  <li>If you have recently changed the server’s timezone then you might need to restart the cron server so it would evaluate the cron times in the proper timezone</li>
+</ul>
 
 <h2 id="links">Links</h2>
 
 <ul>
   <li><a href="http://www.cyberciti.biz/faq/linux-show-what-cron-jobs-are-setup/">List / Display all cron jobs</a></li>
+  <li><a href="https://help.ubuntu.com/community/CronHowto#Troubleshooting_and_Common_Problems">Ubuntu Docs: CronHowto</a></li>
+  <li><a href="https://askubuntu.com/questions/149504/how-can-i-tell-if-my-hourly-cron-job-has-run">How can I tell if my hourly cron job has run?</a></li>
+  <li><a href="https://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it">ServerFault: Why is my crontab not working, and how can I troubleshoot it?</a></li>
+  <li><a href="https://unix.stackexchange.com/questions/207/where-are-cron-errors-logged">StackExchange: Where are cron errors logged?</a></li>
+  <li><a href="https://stackoverflow.com/questions/4811738/cron-job-log-how-to-log">StackOverflow: Cron Job Log - How to Log?</a></li>
 </ul>
 
   </div>
