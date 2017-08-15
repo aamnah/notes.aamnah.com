@@ -185,7 +185,7 @@ crontab my-crontab # add cron jobs by giving a file to crontab
 </code></pre>
 
 <ul>
-  <li>You can set the cron to explicitly log output to a file by redirecting it (<code>&gt; /var/log/myjob.log 2&gt;&amp;1</code> will append <strong>all output</strong> to /var/log/myjob.log, 2&gt;&amp;1 indicates that the standard error (2&gt;) is redirected to the same file descriptor that is pointed by standard output (&amp;1).)</li>
+  <li>You can set the cron to explicitly log output to a file by redirecting it (<code>&gt; /var/log/myjob.log 2&gt;&amp;1</code> will append <strong>all output</strong> to /var/log/myjob.log, <code>2&gt;&amp;1</code> indicates that the standard error (2&gt;) is redirected to the same file descriptor that is pointed by standard output (&amp;1).)</li>
   <li>If you’re not getting emails than check the system logs. Popular locations are <code>/var/log/cron</code>, <code>/var/log/messages</code> and <code>/var/log/syslog</code>. Use <code>grep</code> to get cron related stuff (<code>cat /var/log/syslog | grep cron</code>)</li>
 </ul>
 
