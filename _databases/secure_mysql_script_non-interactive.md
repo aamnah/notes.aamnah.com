@@ -72,3 +72,4 @@ But since heredocs usually can't provide passwords for progarms, you'll end up l
 Links
 ---
 - [Advanced Bash-Scripting Guide: Chapter 19. Here Documents](http://tldp.org/LDP/abs/html/here-docs.html)
+- [StackOverflow: Can I use a heredoc to enter a password in bash?](https://stackoverflow.com/questions/3796345/can-i-use-a-heredoc-to-enter-a-password-in-bash)
