@@ -43,7 +43,7 @@ USE mysql;
 Update the password for the root user:
 
 ```sql
-UPDATE USER SET PASSWORD=PASSWORD("the new password you want to use") WHERE USER='root';
+UPDATE user SET PASSWORD=PASSWORD("the new password you want to use") WHERE USER='root';
 ```
 
 Refresh the MySQL user privileges:
@@ -61,6 +61,33 @@ exit
 If this doesn't work, you can try force the application to quit by pressing `CTRL-C` on your keyboard.
 
 Troubleshooting
+---
+
+```
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+root@localhost:~# 2017-08-16T06:46:15.453699Z mysqld_safe Logging to syslog.
+2017-08-16T06:46:15.458042Z mysqld_safe Logging to '/var/log/mysql/error.log'.
+2017-08-16T06:46:15.461782Z mysqld_safe Directory '/var/run/mysqld' for UNIX socket file don't exists.
+```
+To find all socket files on your system run:
+
+```bash
+sudo find / -type s
+```
+
+Check if the socket file exists
+
+```bash
+ls -al /var/run/mysqld/
+```
+
+if not, make one and set permissions
+
+```bash
+touch /var/run/mysqld/mysqld.sock
+chmod 777 /var/run/mysqld/mysqld.sock
+```
+
 ---
 if you get while trying to start MySQL in safe mode
 
@@ -84,7 +111,9 @@ If you get the following error while setting the password
 ERROR 1146 (42S02): Table 'mysql.USER' doesn't exist
 ```
 
-Your database may be corrupt. See if `mysql.user` exits
+See if you're not mixing title cases. It is `mysql.user`, not `mysql.USER`. The table names are case sensitive, don't mess with them. (You can find out with the `describe mysql.user;` command)
+
+If alphabet case is not the issue, your database may be corrupt. See if `mysql.user` exits
 
 ```sql
 USE mysql;
