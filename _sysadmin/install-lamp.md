@@ -81,7 +81,7 @@ sudo apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl 
 | Packages    | Software that requires them |
 |-------------|-----------------------------|
 | curl | OpenCart, Magento |
-| gd | OpenCart, Magento |
+| gd | OpenCart, Magento, WordPress |
 | gettext | phpmyadmin |
 | intl | Magento |
 | mbstring | OpenCart, Magento |
