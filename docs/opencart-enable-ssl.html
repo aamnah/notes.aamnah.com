@@ -151,6 +151,17 @@ define('HTTPS_CATALOG', 'https://yourdomain.com/');
 <pre><code class="language-sql">UPDATE `oc_setting` SET `value` = '1' WHERE `key`='config_secure'
 </code></pre>
 
+<hr />
+
+<ul>
+  <li>Site looks broken, getting the following error in console</li>
+</ul>
+
+<pre><code>Failed to load resource: net::ERR_INSECURE_RESPONSE
+</code></pre>
+
+<p>This can happen when you have transferred the site to a new server/domain and SSL is not installed on the new server/domain. Installing an SSL will fix the issue.</p>
+
   </div>
 
 </article>
