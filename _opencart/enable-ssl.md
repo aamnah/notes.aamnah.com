@@ -59,3 +59,13 @@ Open your OpenCart database (find out from config.php if you're not sure which o
 ```sql
 UPDATE `oc_setting` SET `value` = '1' WHERE `key`='config_secure'
 ```
+
+---
+
+- Site looks broken, getting the following error in console
+
+```
+Failed to load resource: net::ERR_INSECURE_RESPONSE
+```
+
+This can happen when you have transferred the site to a new server/domain and SSL is not installed on the new server/domain. Installing an SSL will fix the issue.
