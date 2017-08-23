@@ -12,13 +12,21 @@ Display errors could be turned off in the `php.ini` or your Apache config file.
 
 #### User level
 
-In your index.php (or whatever script you're running) file, add this:
+In your `index.php` (or whatever script you're running) file, add this:
 
 ```php
 ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 // error_reporting(E_ALL);
+```
+
+OR add the following to your `php.ini` file
+
+```
+display_errors = 1;
+error_reporting = E_ALL;
+log_errors = 1;
 ```
 
 ### Check error logs

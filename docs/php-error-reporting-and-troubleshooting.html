@@ -106,12 +106,19 @@
 
 <h4 id="user-level">User level</h4>
 
-<p>In your index.php (or whatever script you’re running) file, add this:</p>
+<p>In your <code>index.php</code> (or whatever script you’re running) file, add this:</p>
 
 <pre><code class="language-php">ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
 // error_reporting(E_ALL);
+</code></pre>
+
+<p>OR add the following to your <code>php.ini</code> file</p>
+
+<pre><code>display_errors = 1;
+error_reporting = E_ALL;
+log_errors = 1;
 </code></pre>
 
 <h3 id="check-error-logs">Check error logs</h3>
