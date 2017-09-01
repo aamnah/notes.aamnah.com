@@ -56,16 +56,20 @@ You need a `package.json` in order to use `--save`. Just a simple file with curl
 ```
 
 #### versioning
-
-https://docs.npmjs.com/files/package.json#dependencies
-
-In the simplest terms, the `~` matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
-
-The `^`, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
-
-- The tilde `~` matches the most recent minor version (middle number). It means _approximately close_ version
-- The caret `^` matches the most recent major version (first number). It means _compatible_ with version [read more](http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/)
+- follows Semantic Versioning (semver) for specifying version ranges
+- The tilde `~` matches the most recent minor version (middle number). It means _approximately equivalent to version_ version
+- The caret `^` matches the most recent major version (first number). It means _compatible with version_ [read more](http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/)
 - `install –-save` prepends a caret `^` instead of a tilde `~`
+
+There are about a dozen more ways of specifying versions, including but not limited to `version`, `*`,  `1.2.x`,  `>`, `<`, `>=`, `>=`,  `http://..`, `path/path/path`, `range || range` etc.
+
+[read more ](https://docs.npmjs.com/files/package.json#dependencies)
+
+In the simplest terms, the `~` matches the most recent minor version (the middle number). `~1.2.3` will match all 1.2.x versions but will miss 1.3.0.
+
+The `^`, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). `^1.2.3 `will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
+
+
 
 
 ### install dependencies
