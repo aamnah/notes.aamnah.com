@@ -152,18 +152,20 @@ var _ = require("lodash");
 </code></pre>
 
 <h4 id="versioning">versioning</h4>
-
-<p>https://docs.npmjs.com/files/package.json#dependencies</p>
-
-<p>In the simplest terms, the <code>~</code> matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.</p>
-
-<p>The <code>^</code>, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.</p>
-
 <ul>
-  <li>The tilde <code>~</code> matches the most recent minor version (middle number). It means <em>approximately close</em> version</li>
-  <li>The caret <code>^</code> matches the most recent major version (first number). It means <em>compatible</em> with version <a href="http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/">read more</a></li>
+  <li>follows Semantic Versioning (semver) for specifying version ranges</li>
+  <li>The tilde <code>~</code> matches the most recent minor version (middle number). It means <em>approximately equivalent to version</em> version</li>
+  <li>The caret <code>^</code> matches the most recent major version (first number). It means <em>compatible with version</em> <a href="http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/">read more</a></li>
   <li><code>install –-save</code> prepends a caret <code>^</code> instead of a tilde <code>~</code></li>
 </ul>
+
+<p>There are about a dozen more ways of specifying versions, including but not limited to <code>version</code>, <code>*</code>,  <code>1.2.x</code>,  <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&gt;=</code>,  <code>http://..</code>, <code>path/path/path</code>, <code>range || range</code> etc.</p>
+
+<p><a href="https://docs.npmjs.com/files/package.json#dependencies">read more </a></p>
+
+<p>In the simplest terms, the <code>~</code> matches the most recent minor version (the middle number). <code>~1.2.3</code> will match all 1.2.x versions but will miss 1.3.0.</p>
+
+<p>The <code>^</code>, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). <code>^1.2.3 </code>will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.</p>
 
 <h3 id="install-dependencies">install dependencies</h3>
 <p>If you have an existing package.json file, you can run:</p>
