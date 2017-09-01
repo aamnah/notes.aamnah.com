@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    
+      Hide Menu Item/Link If User does not have Permission - OpenCart 2.1.0.2
+    
+  </title>
+  
+  <meta name="description" content="Right now, if you edit a User Group and take away permissions for some areas, it still shows the areas in the menu. Meaning, the person can see all the areas...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/prism/prism.css">
+  <link rel="canonical" href="http://tldrdevnotes.com/opencart/show-menu-item-only-if-permitted.html">
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="http://tldrdevnotes.com/feed.xml">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+
+  <body>
+    <header class="Site-header">
+  <div class="wrapper">
+    <div>
+      <a class="Site-title" href="/">TLDR Dev Notes</a>
+      <small>Aamnah's developer notes</small>
+    </div>
+
+    <nav class="Site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+          <a class='page-link' href='/'>Home</a>
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/progress/">What i did</a>
+          
+        
+          
+          <a class="page-link" href="/quotes/">Quotes</a>
+          
+        
+          
+          <a class="page-link" href="/resource-list">Resources</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="Post-header">
+    <h1 class="Post-title" itemprop="name headline">Hide Menu Item/Link If User does not have Permission - OpenCart 2.1.0.2</h1>
+    <p class="Post-meta">
+      
+      
+      <span class='ctime'>Created
+        <time datetime="2017-08-24T00:00:00+05:00" itemprop="datePublished">
+          Aug 24, 2017
+        </time>
+      </span>
+      
+
+      
+
+      <!---->
+      <span style='float:right'><a href="https://github.com/aamnah/tldrdevnotes.com/blob/master/_opencart/show-menu-item-only-if-permitted.md" target='_blank'>Edit this page on Github</a>
+    </p>
+    
+      <ul class='tags'>
+      
+      </ul>
+    
+  </header>
+
+  <div class="Post-content" itemprop="articleBody">
+    <p>Right now, if you edit a User Group and take away permissions for some areas, it still shows the areas in the menu. Meaning, the person can see all the areas, knows he wasn’t allowed access and get’s a not allowed message when he clicks on the menu link.</p>
+
+<p>Ideally, if a user has no access to a menu, he should not see it to begin with. OpenCart should hide the menu item automatically if user doesn’t have permission to <em>View</em> it.</p>
+
+<p>The solution for OpenCart 2.1.0.2 is editing the <code>admin/view/template/common/menu.tpl</code> file via OCMOD and adding checks to every single menu item to see if the user has access to view it. If yes, show the item. If not, hide it.</p>
+
+<p>There are plenty of OCMOD files are available for this in the OpenCart marketplace. I tried one but it still left out some areas (Extensions &gt; Captcha, Extensions &gt; Analytics etc.)</p>
+
+<p>Another issue is hiding 3rd-party modules from menu (e.g. Abandoned Carts, POS etc.). You’ll have to edit their accompanying OCMOD files to edit the part where they add a menu link and add a user access check to it as well. (Maybe you can have one OCMOD file deditcated to menu links?)</p>
+
+<p>The code to check for access is</p>
+
+<pre><code class="language-php">&lt;?php
+global $registry; $userac = $registry-&gt;get('user');
+
+// if ($userac -&gt; hasPermission('access', 'link')) { ?&gt;
+if($userac-&gt;hasPermission('access','catalog/category')) {  ?&gt; // e.g. look for access to Catalog &gt; Category
+	// do something
+&lt;?php } ?&gt;
+</code></pre>
+
+<p>To hide/show a menu item, you’ll do:</p>
+
+<pre><code class="language-php">global $registry; $userac = $registry-&gt;get('user');
+if($userac-&gt;hasPermission('access','catalog/category')) {  ?&gt;
+  &lt;li&gt;&lt;a href="&lt;?php echo $category; ?&gt;"&gt;&lt;?php echo $text_category; ?&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;?php } ?&gt;
+</code></pre>
+
+<p>And as far as OpenCart 2.1.0.2 goes, you gotta do this for ALL THE MENU ITEMS. Things in 2.3.0.2 seems to have changed a bit. The file containing the code for menu is <code>admin/view/template/common/column_left.tpl</code> and it uses a loop for displaying menu, so you should not have to repeat your code much.</p>
+
+<p>Here’s the complete ocmod file</p>
+
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;modification&gt;
+	&lt;name&gt;Hide Menu if Not Permitted&lt;/name&gt;
+	&lt;code&gt;not_permitted_menu_hide_in_admin&lt;/code&gt;
+	&lt;version&gt;1.2&lt;/version&gt;
+	&lt;author&gt;&lt;![CDATA[Sparx &amp; Aamnah]]&gt;&lt;/author&gt;
+	&lt;link&gt;&lt;![CDATA[https://www.opencart.com/index.php?route=marketplace/extension/info&amp;extension_id=23615]]&gt;&lt;/link&gt;
+	&lt;file path="admin/view/template/common/menu.tpl"&gt;
+		&lt;operation&gt;
+			&lt;search &gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $category; ?&gt;"&gt;&lt;?php echo $text_category; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php 
+						global $registry; $userac = $registry-&gt;get('user');
+						if($userac-&gt;hasPermission('access','catalog/category')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $category; ?&gt;"&gt;&lt;?php echo $text_category; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $attribute; ?&gt;"&gt;&lt;?php echo $text_attribute; ?&gt;&lt;/a&gt;&lt;/li&gt;                        
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/attribute')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $attribute; ?&gt;"&gt;&lt;?php echo $text_attribute; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search &gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $product; ?&gt;"&gt;&lt;?php echo $text_product; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/product')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $product; ?&gt;"&gt;&lt;?php echo $text_product; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+                &lt;operation&gt;
+			&lt;search &gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $recurring; ?&gt;"&gt;&lt;?php echo $text_recurring; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/recurring')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $recurring; ?&gt;"&gt;&lt;?php echo $text_recurring; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $attribute_group; ?&gt;"&gt;&lt;?php echo $text_attribute_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/attribute_group')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $attribute_group; ?&gt;"&gt;&lt;?php echo $text_attribute_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $option; ?&gt;"&gt;&lt;?php echo $text_option; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/option')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $option; ?&gt;"&gt;&lt;?php echo $text_option; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $manufacturer; ?&gt;"&gt;&lt;?php echo $text_manufacturer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/manufacturer')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $manufacturer; ?&gt;"&gt;&lt;?php echo $text_manufacturer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $download; ?&gt;"&gt;&lt;?php echo $text_download; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/download')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $download; ?&gt;"&gt;&lt;?php echo $text_download; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $review; ?&gt;"&gt;&lt;?php echo $text_review; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/review')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $review; ?&gt;"&gt;&lt;?php echo $text_review; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $information; ?&gt;"&gt;&lt;?php echo $text_information; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/information')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $information; ?&gt;"&gt;&lt;?php echo $text_information; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $filter; ?&gt;"&gt;&lt;?php echo $text_filter; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','catalog/filter')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $filter; ?&gt;"&gt;&lt;?php echo $text_filter; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                         &lt;li&gt;&lt;a href="&lt;?php echo $installer; ?&gt;"&gt;&lt;?php echo $text_installer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/installer')) {  ?&gt;
+                         &lt;li&gt;&lt;a href="&lt;?php echo $installer; ?&gt;"&gt;&lt;?php echo $text_installer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                         &lt;li&gt;&lt;a href="&lt;?php echo $modification; ?&gt;"&gt;&lt;?php echo $text_modification; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/modification')) {  ?&gt;
+                         &lt;li&gt;&lt;a href="&lt;?php echo $modification; ?&gt;"&gt;&lt;?php echo $text_modification; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                         &lt;li&gt;&lt;a href="&lt;?php echo $analytics; ?&gt;"&gt;&lt;?php echo $text_analytics; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/analytics')) {  ?&gt;
+                         &lt;li&gt;&lt;a href="&lt;?php echo $analytics; ?&gt;"&gt;&lt;?php echo $text_analytics; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                         &lt;li&gt;&lt;a href="&lt;?php echo $captcha; ?&gt;"&gt;&lt;?php echo $text_captcha; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/captcha')) {  ?&gt;
+                         &lt;li&gt;&lt;a href="&lt;?php echo $captcha; ?&gt;"&gt;&lt;?php echo $text_captcha; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $module; ?&gt;"&gt;&lt;?php echo $text_module; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/module')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $module; ?&gt;"&gt;&lt;?php echo $text_module; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $shipping; ?&gt;"&gt;&lt;?php echo $text_shipping; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/shipping')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $shipping; ?&gt;"&gt;&lt;?php echo $text_shipping; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $payment; ?&gt;"&gt;&lt;?php echo $text_payment; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/payment')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $payment; ?&gt;"&gt;&lt;?php echo $text_payment; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $total; ?&gt;"&gt;&lt;?php echo $text_total; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/total')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $total; ?&gt;"&gt;&lt;?php echo $text_total; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $feed; ?&gt;"&gt;&lt;?php echo $text_feed; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/feed')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $feed; ?&gt;"&gt;&lt;?php echo $text_feed; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $fraud; ?&gt;"&gt;&lt;?php echo $text_fraud; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','extension/fraud')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $fraud; ?&gt;"&gt;&lt;?php echo $text_fraud; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order; ?&gt;"&gt;&lt;?php echo $text_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/order')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order; ?&gt;"&gt;&lt;?php echo $text_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order_recurring; ?&gt;"&gt;&lt;?php echo $text_order_recurring; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/recurring')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order_recurring; ?&gt;"&gt;&lt;?php echo $text_order_recurring; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return; ?&gt;"&gt;&lt;?php echo $text_return; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/return')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return; ?&gt;"&gt;&lt;?php echo $text_return; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer; ?&gt;"&gt;&lt;?php echo $text_customer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/customer')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer; ?&gt;"&gt;&lt;?php echo $text_customer; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer_group; ?&gt;"&gt;&lt;?php echo $text_customer_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/customer_group')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer_group; ?&gt;"&gt;&lt;?php echo $text_customer_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+			&lt;li&gt;&lt;a href="&lt;?php echo $customer_ban_ip; ?&gt;"&gt;&lt;?php echo $text_customer_ban_ip; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/customer_ban_ip')) { ?&gt;
+			&lt;li&gt;&lt;a href="&lt;?php echo $customer_ban_ip; ?&gt;"&gt;&lt;?php echo $text_customer_ban_ip; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+			&lt;li&gt;&lt;a href="&lt;?php echo $custom_field; ?&gt;"&gt;&lt;?php echo $text_custom_field; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/custom_field')) { ?&gt;
+			&lt;li&gt;&lt;a href="&lt;?php echo $custom_field; ?&gt;"&gt;&lt;?php echo $text_custom_field; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $affiliate; ?&gt;"&gt;&lt;?php echo $text_affiliate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','marketing/affiliate')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $affiliate; ?&gt;"&gt;&lt;?php echo $text_affiliate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $coupon; ?&gt;"&gt;&lt;?php echo $text_coupon; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','marketing/coupon')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $coupon; ?&gt;"&gt;&lt;?php echo $text_coupon; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $voucher; ?&gt;"&gt;&lt;?php echo $text_voucher; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/voucher')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $voucher; ?&gt;"&gt;&lt;?php echo $text_voucher; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $voucher_theme; ?&gt;"&gt;&lt;?php echo $text_voucher_theme; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/voucher_theme')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $voucher_theme; ?&gt;"&gt;&lt;?php echo $text_voucher_theme; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a class="parent"&gt;&lt;?php echo $text_paypal ?&gt;&lt;/a&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace" offset="4"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','payment/pp_express')) { ?&gt;
+                         &lt;li&gt;&lt;a class="parent"&gt;&lt;?php echo $text_paypal ?&gt;&lt;/a&gt;
+                            &lt;ul&gt;
+                              &lt;li&gt;&lt;a href="&lt;?php echo $paypal_search ?&gt;"&gt;&lt;?php echo $text_paypal_search ?&gt;&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                          &lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $marketing; ?&gt;"&gt;&lt;?php echo $text_marketing; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','marketing/marketing')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $marketing; ?&gt;"&gt;&lt;?php echo $text_marketing; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $contact; ?&gt;"&gt;&lt;?php echo $text_contact; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','marketing/contact')) {  ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $contact; ?&gt;"&gt;&lt;?php echo $text_contact; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $setting; ?&gt;"&gt;&lt;?php echo $text_setting; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','setting/setting')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $setting; ?&gt;"&gt;&lt;?php echo $text_setting; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $layout; ?&gt;"&gt;&lt;?php echo $text_layout; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','design/layout')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $layout; ?&gt;"&gt;&lt;?php echo $text_layout; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $banner; ?&gt;"&gt;&lt;?php echo $text_banner; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','design/banner')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $banner; ?&gt;"&gt;&lt;?php echo $text_banner; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $user; ?&gt;"&gt;&lt;?php echo $text_user; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','user/user')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $user; ?&gt;"&gt;&lt;?php echo $text_user; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $api; ?&gt;"&gt;&lt;?php echo $text_api; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','user/api')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $api; ?&gt;"&gt;&lt;?php echo $text_api; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $user_group; ?&gt;"&gt;&lt;?php echo $text_user_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','user/user_permission')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $user_group; ?&gt;"&gt;&lt;?php echo $text_user_group; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $location; ?&gt;"&gt;&lt;?php echo $text_location; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/location')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $location; ?&gt;"&gt;&lt;?php echo $text_location; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $language; ?&gt;"&gt;&lt;?php echo $text_language; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/language')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $language; ?&gt;"&gt;&lt;?php echo $text_language; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $currency; ?&gt;"&gt;&lt;?php echo $text_currency; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/currency')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $currency; ?&gt;"&gt;&lt;?php echo $text_currency; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $stock_status; ?&gt;"&gt;&lt;?php echo $text_stock_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/stock_status')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $stock_status; ?&gt;"&gt;&lt;?php echo $text_stock_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order_status; ?&gt;"&gt;&lt;?php echo $text_order_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/order_status')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $order_status; ?&gt;"&gt;&lt;?php echo $text_order_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_status; ?&gt;"&gt;&lt;?php echo $text_return_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/return_status')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_status; ?&gt;"&gt;&lt;?php echo $text_return_status; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_action; ?&gt;"&gt;&lt;?php echo $text_return_action; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/return_action')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_action; ?&gt;"&gt;&lt;?php echo $text_return_action; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_reason; ?&gt;"&gt;&lt;?php echo $text_return_reason; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/return_reason')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $return_reason; ?&gt;"&gt;&lt;?php echo $text_return_reason; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $country; ?&gt;"&gt;&lt;?php echo $text_country; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/country')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $country; ?&gt;"&gt;&lt;?php echo $text_country; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $zone; ?&gt;"&gt;&lt;?php echo $text_zone; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/zone')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $zone; ?&gt;"&gt;&lt;?php echo $text_zone; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $geo_zone; ?&gt;"&gt;&lt;?php echo $text_geo_zone; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/geo_zone')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $geo_zone; ?&gt;"&gt;&lt;?php echo $text_geo_zone; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $tax_class; ?&gt;"&gt;&lt;?php echo $text_tax_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/tax_class')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $tax_class; ?&gt;"&gt;&lt;?php echo $text_tax_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $tax_rate; ?&gt;"&gt;&lt;?php echo $text_tax_rate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/tax_rate')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $tax_rate; ?&gt;"&gt;&lt;?php echo $text_tax_rate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $length_class; ?&gt;"&gt;&lt;?php echo $text_length_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/length_class')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $length_class; ?&gt;"&gt;&lt;?php echo $text_length_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $weight_class; ?&gt;"&gt;&lt;?php echo $text_weight_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','localisation/weight_class')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $weight_class; ?&gt;"&gt;&lt;?php echo $text_weight_class; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $upload; ?&gt;"&gt;&lt;?php echo $text_upload; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','tool/upload')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $upload; ?&gt;"&gt;&lt;?php echo $text_upload; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $error_log; ?&gt;"&gt;&lt;?php echo $text_error_log; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','tool/error_log')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $error_log; ?&gt;"&gt;&lt;?php echo $text_error_log; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $backup; ?&gt;"&gt;&lt;?php echo $text_backup; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','tool/backup')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $backup; ?&gt;"&gt;&lt;?php echo $text_backup; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_order; ?&gt;"&gt;&lt;?php echo $text_report_sale_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/sale_order')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_order; ?&gt;"&gt;&lt;?php echo $text_report_sale_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_tax; ?&gt;"&gt;&lt;?php echo $text_report_sale_tax; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/sale_tax')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_tax; ?&gt;"&gt;&lt;?php echo $text_report_sale_tax; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_shipping; ?&gt;"&gt;&lt;?php echo $text_report_sale_shipping; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/sale_shipping')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_shipping; ?&gt;"&gt;&lt;?php echo $text_report_sale_shipping; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_return; ?&gt;"&gt;&lt;?php echo $text_report_sale_return; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/sale_return')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_return; ?&gt;"&gt;&lt;?php echo $text_report_sale_return; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_coupon; ?&gt;"&gt;&lt;?php echo $text_report_sale_coupon; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/sale_coupon')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_sale_coupon; ?&gt;"&gt;&lt;?php echo $text_report_sale_coupon; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_product_viewed; ?&gt;"&gt;&lt;?php echo $text_report_product_viewed; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/product_viewed')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_product_viewed; ?&gt;"&gt;&lt;?php echo $text_report_product_viewed; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_product_purchased; ?&gt;"&gt;&lt;?php echo $text_report_product_purchased; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/product_purchased')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_product_purchased; ?&gt;"&gt;&lt;?php echo $text_report_product_purchased; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_order; ?&gt;"&gt;&lt;?php echo $text_report_customer_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/customer_order')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_order; ?&gt;"&gt;&lt;?php echo $text_report_customer_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_online; ?&gt;"&gt;&lt;?php echo $text_report_customer_online; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/customer_online')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_online; ?&gt;"&gt;&lt;?php echo $text_report_customer_online; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_activity; ?&gt;"&gt;&lt;?php echo $text_report_customer_activity; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/customer_activity')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_activity; ?&gt;"&gt;&lt;?php echo $text_report_customer_activity; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_reward; ?&gt;"&gt;&lt;?php echo $text_report_customer_reward; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/customer_reward')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_reward; ?&gt;"&gt;&lt;?php echo $text_report_customer_reward; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_credit; ?&gt;"&gt;&lt;?php echo $text_report_customer_credit; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/customer_credit')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_customer_credit; ?&gt;"&gt;&lt;?php echo $text_report_customer_credit; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_marketing; ?&gt;"&gt;&lt;?php echo $text_marketing; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/marketing')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_marketing; ?&gt;"&gt;&lt;?php echo $text_marketing; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_affiliate; ?&gt;"&gt;&lt;?php echo $text_report_affiliate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/affiliate')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_affiliate; ?&gt;"&gt;&lt;?php echo $text_report_affiliate; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $vqmod_manager; ?&gt;"&gt;&lt;?php echo $text_vqmod_manager; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','module/vqmod_manager')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $vqmod_manager; ?&gt;"&gt;&lt;?php echo $text_vqmod_manager; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer_blacklist; ?&gt;"&gt;&lt;?php echo $text_customer_blacklist; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','sale/customer_blacklist')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $customer_blacklist; ?&gt;"&gt;&lt;?php echo $text_customer_blacklist; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $pavo_link; ?&gt;"&gt;Theme Control&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','module/themecontrol')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $pavo_link; ?&gt;"&gt;Theme Control&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $megamenu_link; ?&gt;"&gt;MegaMenu&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','module/pavmegamenu')) { ?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $megamenu_link; ?&gt;"&gt;MegaMenu&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_affiliate_activity; ?&gt;"&gt;&lt;?php echo $text_report_affiliate_activity; ?&gt;&lt;/a&gt;&lt;/li&gt;
+			]]&gt;&lt;/search&gt;
+			&lt;add position="replace"&gt;&lt;![CDATA[
+                        &lt;?php if($userac-&gt;hasPermission('access','report/affiliate_activity')) {?&gt;
+                        &lt;li&gt;&lt;a href="&lt;?php echo $report_affiliate_activity; ?&gt;"&gt;&lt;?php echo $text_report_affiliate_activity; ?&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;?php } ?&gt;
+						
+						&lt;script type="text/javascript"&gt;&lt;!--
+						$('li a.parent').each(function(index) { 
+                           if($(this).next('ul').children('li').size() == 0) {
+                              $(this).parent('li').css('display', 'none');
+                           }
+                        })
+
+                        if($('#catalog ul li:not(:has(a.parent))').size() == 0) $('#catalog').css('display', 'none');
+                        if($('#extension ul li:not(:has(a.parent))').size() == 0) $('#extension').css('display', 'none');
+                        if($('#sale ul li:not(:has(a.parent))').size() == 0) $('#sale').css('display', 'none');
+                        if($('#system ul li:not(:has(a.parent))').size() == 0) $('#system').css('display', 'none');
+                        if($('#reports ul li:not(:has(a.parent))').size() == 0) $('#reports').css('display', 'none');
+                            
+                            //--&gt;&lt;/script&gt; 
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+	&lt;/file&gt;
+&lt;/modification&gt;
+</code></pre>
+
+<p>For Abandoned Carts link</p>
+
+<pre><code class="language-xml">   &lt;file path="admin/view/template/common/menu.tpl"&gt;  
+  		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[&lt;li id="reports"&gt;&lt;a class="parent"&gt;&lt;i class="fa fa-bar-chart-o fa-fw"&gt;&lt;/i&gt; &lt;span&gt;&lt;?php echo $text_reports; ?&gt;&lt;/span&gt;&lt;/a&gt;]]&gt;&lt;/search&gt;
+			&lt;add position="before"&gt;&lt;![CDATA[			
+            &lt;?php if (isset($text_abandonedCarts)) { ?&gt;
+				&lt;li id="abandoned_carts"&gt;&lt;a href="&lt;?php echo $link_abandonedCarts; ?&gt;"&gt;&lt;i class="fa fa-shopping-cart"&gt;&lt;/i&gt; &lt;span&gt;&lt;?php echo $text_abandonedCarts; ?&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+	&lt;/file&gt;
+</code></pre>
+
+<pre><code class="language-xml">   &lt;file path="admin/view/template/common/menu.tpl"&gt;  
+  		&lt;operation&gt;
+			&lt;search&gt;&lt;![CDATA[&lt;li id="reports"&gt;&lt;a class="parent"&gt;&lt;i class="fa fa-bar-chart-o fa-fw"&gt;&lt;/i&gt; &lt;span&gt;&lt;?php echo $text_reports; ?&gt;&lt;/span&gt;&lt;/a&gt;]]&gt;&lt;/search&gt;
+			&lt;add position="before"&gt;&lt;![CDATA[			
+            &lt;?php if (isset($text_abandonedCarts)) { 
+                if($userac-&gt;hasPermission('access','module/abandonedcarts')) {  ?&gt;
+				    &lt;li id="abandoned_carts"&gt;&lt;a href="&lt;?php echo $link_abandonedCarts; ?&gt;"&gt;&lt;i class="fa fa-shopping-cart"&gt;&lt;/i&gt; &lt;span&gt;&lt;?php echo $text_abandonedCarts; ?&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+			    &lt;?php } ?&gt;
+			&lt;?php } ?&gt;
+			]]&gt;&lt;/add&gt;
+		&lt;/operation&gt;
+	&lt;/file&gt;
+</code></pre>
+
+<p>ADV Sales &amp; Profit Report</p>
+
+<pre><code class="language-xml">	&lt;file path="admin/view/template/common/menu.tpl"&gt;
+        &lt;operation&gt;
+            &lt;search&gt;&lt;![CDATA[
+&lt;li&gt;&lt;a class="parent"&gt;&lt;?php echo $text_sale; ?&gt;&lt;/a&gt;
+            ]]&gt;&lt;/search&gt;
+            &lt;add position="after" offset="1"&gt;&lt;![CDATA[
+&lt;li&gt;&lt;a href="&lt;?php echo $report_adv_sales_profit; ?&gt;"&gt;&lt;?php echo $text_report_adv_sales_profit; ?&gt;&lt;/a&gt;&lt;/li&gt;
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;
+        &lt;operation error="skip"&gt;
+            &lt;search&gt;&lt;![CDATA[
+&lt;li&gt;&lt;a href="&lt;?php echo $report_sale_order; ?&gt;"&gt;&lt;?php echo $text_report_sale_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+            ]]&gt;&lt;/search&gt;
+            &lt;add position="replace"&gt;&lt;![CDATA[
+&lt;li style="border-top:1px dashed #888;"&gt;&lt;a href="&lt;?php echo $report_sale_order; ?&gt;"&gt;&lt;?php echo $text_report_sale_order; ?&gt;&lt;/a&gt;&lt;/li&gt;
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;		
+	&lt;/file&gt;
+</code></pre>
+
+<pre><code class="language-xml">	&lt;file path="admin/view/template/common/menu.tpl"&gt;
+        &lt;operation&gt;
+            &lt;search&gt;&lt;![CDATA[
+&lt;li&gt;&lt;a class="parent"&gt;&lt;?php echo $text_sale; ?&gt;&lt;/a&gt;
+            ]]&gt;&lt;/search&gt;
+            &lt;add position="after" offset="1"&gt;&lt;![CDATA[
+&lt;?php if($userac-&gt;hasPermission('access','module/abandonedcarts')) {  ?&gt;
+	&lt;li&gt;&lt;a href="&lt;?php echo $report_adv_sales_profit; ?&gt;"&gt;&lt;?php echo $text_report_adv_sales_profit; ?&gt;&lt;/a&gt;&lt;/li&gt;
+ &lt;?php } ?&gt;
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;	
+	&lt;/file&gt;
+</code></pre>
+
+<p>Courier Shipment Tracker / Courier Partners</p>
+
+<pre><code class="language-xml">&lt;file path="admin/view/template/common/menu.tpl"&gt;
+    &lt;operation error="log"&gt;
+      &lt;search&gt;&lt;![CDATA[&lt;li&gt;&lt;a href="&lt;?php echo $feed; ?&gt;"&gt;&lt;?php echo $text_feed; ?&gt;&lt;/a&gt;&lt;/li&gt;]]&gt;
+      &lt;/search&gt;
+      &lt;add position="after"&gt;&lt;![CDATA[&lt;li&gt;&lt;a href="&lt;?php echo $courier_link; ?&gt;"&gt;&lt;?php echo $text_courier; ?&gt;&lt;/a&gt;&lt;/li&gt;]]&gt;
+      &lt;/add&gt;
+    &lt;/operation&gt;
+  &lt;/file&gt;
+</code></pre>
+
+<pre><code class="language-xml">  &lt;file path="admin/view/template/common/menu.tpl"&gt;
+    &lt;operation error="log"&gt;
+      &lt;search&gt;&lt;![CDATA[&lt;li&gt;&lt;a href="&lt;?php echo $feed; ?&gt;"&gt;&lt;?php echo $text_feed; ?&gt;&lt;/a&gt;&lt;/li&gt;]]&gt;
+      &lt;/search&gt;
+      &lt;add position="after"&gt;&lt;![CDATA[
+      &lt;?php if($userac-&gt;hasPermission('access','module/abandonedcarts')) {  ?&gt;
+        &lt;li&gt;&lt;a href="&lt;?php echo $courier_link; ?&gt;"&gt;&lt;?php echo $text_courier; ?&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;?php } ?&gt;
+      ]]&gt;&lt;/add&gt;
+    &lt;/operation&gt;
+  &lt;/file&gt;
+</code></pre>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+    <footer class="Site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><h2 class="footer-heading">TLDR Dev Notes</h2></li>
+          <li><a href="mailto:hello@aamnah.com">hello@aamnah.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/Aamnah"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">Aamnah</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/AamnahAkram"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">AamnahAkram</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+</p>
+      </div>
+    </div>
+
+  </div>
+  <script src="/prism/prism.js"></script>
+</footer>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51214502-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
