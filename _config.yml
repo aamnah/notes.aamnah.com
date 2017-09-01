@@ -84,6 +84,9 @@ collections:
   misc:
     output: true
     title: "Misc."
+  nodejs:
+    output: true
+    title: "Node.js"
   opencart:
     output: true
     title: "OpenCart"
@@ -150,6 +153,12 @@ defaults:
   -
     scope:
       type: "linux" # linux collection in './_linux' folder
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_nodejs"
+      type: "nodejs"
     values:
       layout: "post"
   -
