@@ -214,4 +214,5 @@ block content
 Links
 ---
 
+- [Github: Pug](https://github.com/pugjs/pug)
 - [Pug Docs: Getting Started](https://pugjs.org/api/getting-started.html)
