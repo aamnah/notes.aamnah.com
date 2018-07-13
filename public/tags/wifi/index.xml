@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wifi on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/wifi/</link>
+    <description>Recent content in Wifi on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 24 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Configuring WIFI via Command Line</title>
+      <link>localhost/hugo-tldr/linux/configuring-wifi-via-command-line/</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/configuring-wifi-via-command-line/</guid>
+      <description>The RaspberryPi Wireless WiFi Dongle Configuration guide by Farnell is THE BEST i’ve found so far.
+To check if your wifi dongle is recognized ifconfig  if you see wlan0, it confirms that raspberry pi has detected your wifi adaptor.
+To scan for wifi networks sudo iwlist wlan0 scan  Edit the wpa_supplicant.conf file sudo nano /etc/wpa_supplicant/wpa_supplicant.conf  Add the following with your network details at the end of the file, below update_config=1.</description>
+    </item>
+    
+  </channel>
+</rss>

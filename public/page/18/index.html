@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-20-database-foundations/">Database Foundations</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/basics">basics</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/database">database</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/how-to">how-to</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Creating Database {% highlight mysql %} CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci; {% endhighlight %}  You can also use the keyword SCHEMA to create a database.
+{% highlight mysql %} CREATE SCHEMA `shop`; {% endhighlight %}  Once a database is cerated you can start using it with the following command
+{% highlight mysql %} USE `shop`; {% endhighlight %}  Get info about the database {% highlight mysql %} SHOW ENGINES {% endhighlight %}  The default engine is InnoDB.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/2015-02-20-database-foundations/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/html-map-img/">Define a clickable interactive map over an image with &amp;lt;map&amp;gt;</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr &lt;map name=&quot;primary&quot;&gt; &lt;area shape=&quot;circle&quot; coords=&quot;75,75,75&quot; href=&quot;left.html&quot;&gt; &lt;area shape=&quot;circle&quot; coords=&quot;275,75,75&quot; href=&quot;right.html&quot;&gt; &lt;/map&gt; &lt;img usemap=&quot;#primary&quot; src=&quot;http://placehold.it/350x150&quot; alt=&quot;350 x 150 pic&quot;&gt;   in an &lt;img&gt; tag, specify the usemap attribute and provide the name of whatever map you want to use, for example #world-continents define a map with the &lt;map&gt; tag. Each map takes an &lt;area&gt; tag with shape, coords and href attributes shape could be a rect, circle or poly.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/html-map-img/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-04-delete-unapproved-comments-wordpress/">Delete ALL Unapproved comments in WordPress</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/wordpress">wordpress</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Make a backup first before changing anything.
+Go to PhpMyAdmin and select the comments table (usually wp_comments). Go to the SQL tab and run the following command.
+DELETE FROM wp_comments WHERE comment_approved = 0  That&rsquo;s all.
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/devils-commands/">Devil&#39;s Commands</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  List of dangerous shell commands It is not uncommon to see trolls tricking new Linux/Unix users run commands as a joke. These commands can destroy users data. Here are a few:
+ rm -rf / :(){ :|: &amp; };: mkfs /dev/sda1 cat /dev/zero &gt; /dev/sda1 wget url -O - | sh &ndash; curl url | sh dd if=/dev/zero of=/dev/sda2 echo 726d202d7266202a | xxd -r -p dd if=/dev/random of=/dev/port echo 1 &gt; /proc/sys/kernel/panic cat /dev/port or cat /dev/mem cat /dev/zero &gt; /dev/mem sudo chmod -r 444 / or sudo chown -r nobody:nobody / last | reboot  Explanations  rm -rf / Doesn&rsquo;t work anymore.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/devils-commands/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/doomsday-commands/">Doomsday Commands</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Delete everything Use these to annihilate your computer.
+sudo rm -rf / --no-preserve-root sudo rm -rf /*  Deletes everything, rm rf&rsquo;s the root directory.
+sudo shred dev/sda # fill disk with zeroes dd if=/dev/zero of=/dev/sda  completely wipes all data on a drive by overwriting the whole thing, i.e. write zeros (or pseudorandom numbers) over the entire drive
+dd has a nickname as Disk Destroyer as it&rsquo;s very easy to blank the wrong device :)
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/doomsday-commands/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/2017-03-07-es2015-es6-babel-node-js/">ES6 (ES2015) and Beyond with Node.js</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/es2015">ES2015</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/node">Node</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/babel">Babel</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr # initialize npm init -y # install dependencies npm i -D babel-cli babel-preset-es2015 babel-preset-stage-0 nodemon # Babel config touch .babelrc echo '{ presets: [ &quot;es2015&quot;, &quot;stage-0&quot; ] }' &gt;&gt; .babelrc # directory structure # mkdir src &amp;&amp; touch src/index.js # add some es6 code to index.js for testing # run Babel babel-node src/index.js # add npm run scripts  Note: For the sake of simplicity, i use ES6 and ES2015 interchangeably.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/2017-03-07-es2015-es6-babel-node-js/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/es2015-classes-vs-constructor-functions/">ES6 Classes vs. Constructor Functions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr  A constructor function is just a normal function that creates (constructs) an object JavaScript does not has classes and hence it does not has methods. What you have are properties in an object, some of which may be functions Javascript is not your classic class-based language but rather a prototype-based language. Classes in JavasScript are syntactic sugar, meaning they&rsquo;re a feature that only changes how you type something, but nothing changes under the hood.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/es2015-classes-vs-constructor-functions/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2015-01-19-edit-apache-config-centos-cpanel-command-line/">Editing Apache Configuration on a cPanel/CentOS Server</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  According to cPanel docs, it&rsquo;s easier to use EasyApache for configuring and regenerating Apache. If you want the recommended way, skip this article. I&rsquo;m more of a command line gal, so i&rsquo;ll go ahead and detail the process of editing httpd.conf from the command line, enabling some modules, adding configurations, retaining the configuration and checking if your configuration has been preserved.
+On Debian/Ubuntu it&rsquo;s easier to enable a module. You run the command a2enmod followed by the name of the module and it gets enabled.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2015-01-19-edit-apache-config-centos-cpanel-command-line/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_opencart/enable-ssl/">Enable SSL in OpenCart</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Install SSL Enable SSL in Admin Edit config.php files  Install SSL On an Apache (Ubuntu) system where you have SSH access, you can run the following commands to install an SSL (Let&rsquo;s Encrypt)
+sudo apt-get update sudo apt-get install software-properties-common sudo add-apt-repository ppa:certbot/certbot # add certbot repo sudo apt-get update sudo apt-get install python-certbot-apache # install certbot sudo certbot --apache # run certbot  Don&rsquo;t forget to add certbot renew to cron
+  </p>
+
+  
+  <footer>
+    <a href="/post/_opencart/enable-ssl/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/17/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;18 / 35&nbsp;</span>
+  
+  <a href="/page/19/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

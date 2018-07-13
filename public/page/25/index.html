@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_nodejs/npm/">NPM intro</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  NPM  npm = Node Package Manager Let&rsquo;s you install and manage your modules. A module is just a bunch of code grouped together. It makes it easy to update your modules (versions) without having to edit code.  why NPM?  makes it easy to download different modules makes it easy to upgrade different modules (e.g. jquery, bootstrap) makes it easy to remove modules it&rsquo;s a package manager. it makes your life easy by making managing your modules and packages easier it let&rsquo;s you install modules with single commands instead of having to download code locally and including it, or including links to CDNs.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_nodejs/npm/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_nodejs/npm-modules-dependencies/">NPM, Modules and Dependencies</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr  npm install &lt;module&gt; --save - install a module and save it as a dependency in package.json npm install &lt;module&gt; --dev - install a module and save it as a devDependency in package.json npm install &lt;module&gt; -g install a module globally npm update &lt;module&gt; updates a module to latest version npm init - create a package.json npm install - install all dependencies listed in package.json  Node Package Manager, installing and managing dependencies.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_nodejs/npm-modules-dependencies/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/netwroking-intro/">Networking Intro</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  https://www.youtube.com/watch?v=hfUtHodJdWs
+ cat /etc/services  TCP and UDP  TCP is reliable, resends the message if it fails UDP is unreliable  Ports and Permissions  Systems can only listen to ports below 1024 as root (i.e. they require sudo)  Servers  Often time servers are described as systems that listen to incoming connections Any computer can be a server  netcat  netcat nc allows you to setup tcp and udp connections and servers with netcat you can speak tcp directly the communication is bi-directional (the messages flow both ways)  # sudo apt install netcat nc -l 5000 # listen on port 5000 nc -lp 5000 # listen on port 5000  from another session, you can now send messages to port 5000
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/netwroking-intro/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_nodejs/nodejs-intro/">Node.js and it&#39;s C&#43;&#43; core</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Nodejs Intro  Node.js is a C++ program that has embedded Chrome&rsquo;s V8 Engine, another C++ program, and has added features to it, which can be used by writing JavaScript code. Because of it&rsquo;s C++ core, Node.js is suitable to be a server (backend) technology. JavaScript V8 Engine is written in C++. V8 engine can be run standalone, or be embedded in another C++ application, which is what Node.js did, it embedded V8 inside.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_nodejs/nodejs-intro/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/chrome-create-an-extension/">Notes on creating a Chrome extension</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Needed
+ manifest.json is required. It&rsquo;s kinda like package.json in Node. manifest.json has info about your extension The icon needs to be 19x19 pixels  Getting started  Create a new folder, create a manifest.json file inside Load your extension in browser by going to Chrome &gt; Extension &gt; Enable Developer Mode &gt; Load unpacked extension.. and point to the folder you created Once you have the folder loaded, you can make edits in your code, refresh Chrome (Cmd+R) and the changes will reflect  { &quot;manifest_version&quot;: 2, &quot;name&quot;: &quot;My Awesome Extension&quot;, &quot;description&quot;: &quot;This extension is an awesome extension&quot;, &quot;version&quot;: &quot;0.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/chrome-create-an-extension/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_php/2015-03-20-object_oriented_php/">Object Oriented PHP</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  The basic pillars of Object Oriented Programming (OOP) are:
+ Encapsulation Inheritance Polymorphism  Encapsulation Encapsulation is a way for us to bundle or organize our data into a format that is easily readable and extensible. It is also largely about controlling access to code by using visibility keywords define if something is public, private and so on..
+Inheritance Inheritance is a method of establishing relationships, such as a parent is to a child, or between classes or objects.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_php/2015-03-20-object_oriented_php/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/js-object-copying/">Object copying in JavaScript</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Object.assign, concat, filter, map, reduce are always going to return a brand new object.
+ shallow copy deep copy (clone) freeze deepFreeze side effects  Object copying Shallow copy, deep copy (and others, e.g. lazy copy) are methods of copying an object. &gt; Copying is done mostly so the copy can be modified or moved, or the current value preserved. If either of these is unneeded, a reference to the original data is sufficient and more efficient, as no copying occurs.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/js-object-copying/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/opencart_bulk-update-customer-groups/">OpenCart: Bulk Update Customer Group via phpmyadmin</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Why? Because you can not delete a group if it has customers in it. And there is no easy way to move all customers to another group via the admin.
+Warning: This customer group cannot be deleted as it is currently assigned to 2170 customers!  Find the customer_group_id number of a Customer Group You can find the customer_group_id from the Admin URL, or by checking the oc_customer_group_description table
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/opencart_bulk-update-customer-groups/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/opencart_bulk-update-product-prices-phpmyadmin-mysql/">OpenCart: Bulk update prices of Products</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/how-to">how-to</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/opencart">opencart</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Changing the currency of an OpenCart store
+ update product price update discount and special prices update order totals  MySQL Commands Multiply all prices in a column by 3.67000008
+UPDATE `oc_product` SET `price` = `price` * 3.670008  Round the numbers of an entire column
+UPDATE `oc_product` SET `price` = ROUND(`price`)  Select price column and create a new column ROUND(price) by rounding the value of price
+SELECT `price`, ROUND(`price`) from `oc_product`  Why?
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/opencart_bulk-update-product-prices-phpmyadmin-mysql/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/opencart_delete_multi-store_and_move_everything_to_the_default_store/">OpenCart: Delete Multi-Store and Move Everything to the Default Store</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/how-to">how-to</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/opencart">opencart</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/phpmyadmin">phpmyadmin</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Make a BACKUP before doing anything to the database. Be safe.
+Assumptions This post assumes that
+ the store_id for Default store is 0 you have only 1 multi-store you are moving things from Multi-store to Default store you want to delete Multi-Store you have products that were added to both Default and Multi-store everything means products, categories, manufacturers and information  We can&rsquo;t delete a multi-store if there are orders associated with it.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/opencart_delete_multi-store_and_move_everything_to_the_default_store/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/24/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;25 / 35&nbsp;</span>
+  
+  <a href="/page/26/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

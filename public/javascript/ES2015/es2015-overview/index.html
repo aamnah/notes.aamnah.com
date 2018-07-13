@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='localhost/hugo-tldr/css/main.css'> 
+  <link rel="stylesheet" href="localhost/hugo-tldr/prism/prism.css">
+</head>
+<body>
+
+  
+<header id="header">
+  <div id="logo">
+    <h1>TLDR Dev Notes</h1>
+  </div>
+
+  <nav id="main-nav">
+    
+      
+        <a href="localhost/hugo-tldr/">Home</a>
+      
+        <a href="localhost/hugo-tldr/about/">About</a>
+      
+        <a href="localhost/hugo-tldr/contact/">Contact</a>
+      
+        <a href="localhost/hugo-tldr/quotes/">Quotes</a>
+      
+        <a href="localhost/hugo-tldr/resources/">Resources</a>
+      
+        <a href="localhost/hugo-tldr/progress/">What i did</a>
+      
+    
+  </nav>
+
+</header>
+
+
+  
+  <div id="sidebar">
+  <h6>Sections</h6>
+  
+  <ul id="list-sections">
+    
+      <li><a href="localhost/hugo-tldr/api/">
+        
+        APIs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/aws/">
+        
+        Amazon Web Services (AWS)
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/bash-scripting/">
+        
+        Bash Scripting
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/css-sass/">
+        
+        CSS &amp; Sass
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/cheatsheets/">
+        
+        Cheatsheets
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/commands/">
+        
+        Commands
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/databases/">
+        
+        Databases
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/drafts/">
+        
+        Drafts
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/git-github/">
+        
+        Git &amp; Github
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/javascript/">
+        
+        JavaScript
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/jekyll/">
+        
+        Jekyll
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/linux/">
+        
+        Linux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/misc/">
+        
+        Misc
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/node-api/">
+        
+        Node-api
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/nodejs/">
+        
+        Node.js
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/opencart/">
+        
+        OpenCart
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/php/">
+        
+        PHP
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/programming/">
+        
+        Programming
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/python/">
+        
+        Python
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/quotes/">
+        
+        Quotes
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/raspberrypi/">
+        
+        Raspberry Pi
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/reactjs/">
+        
+        Reactjs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/redux/">
+        
+        Redux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/resources/">
+        
+        Resources
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/sysadmin/">
+        
+        System Administration
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/webdev/">
+        
+        Web Development
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/workflow/">
+        
+        Workflow
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/ios-swift/">
+        
+        iOS &amp; Swift
+        </a></li>
+    
+        </ul>
+
+  
+  <section>
+    <h6>Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/amazon-rds">amazon-rds</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/amazon-s3">amazon-s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/api">api</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/aws">aws</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/babel">babel</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bluetooth">bluetooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cli">cli</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/coreblueooth">coreblueooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/crontab">crontab</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/css">css</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/databases">databases</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/date">date</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/debian">debian</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/education">education</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/firebase">firebase</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/format">format</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/fundamentals">fundamentals</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/getting-started">getting-started</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/git">git</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/github-pages">github-pages</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/guides">guides</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hacking">hacking</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hosting">hosting</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ios">ios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/javascript">javascript</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/jekyll">jekyll</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/js">js</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/keychain">keychain</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lamp">lamp</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lfs">lfs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/macos">macos</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/markdown">markdown</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/media-queries">media-queries</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mongodb">mongodb</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nagios">nagios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/node">node</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nodejs">nodejs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/npm">npm</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/phpmyadmin">phpmyadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/programming">programming</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react">react</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react-router">react-router</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/reactjs">reactjs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/redux">redux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/s3">s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/script">script</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/scripts">scripts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/snippets">snippets</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sql">sql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ssh">ssh</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/steganography">steganography</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sublime-text">sublime-text</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sync">sync</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sysadmin">sysadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/system-management">system-management</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/table">table</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/terminal">terminal</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ubuntu">ubuntu</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wifi">wifi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wordpress">wordpress</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/workflow">workflow</a>, 
+    
+  </section>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>,
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>,
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>,
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>,
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>,
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>,
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>,
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>,
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>,
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>,
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>,
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>,
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>,
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>,
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>,
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>,
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>,
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>,
+    
+  </section>
+
+
+</div>
+
+
+  
+  <div id="main">
+
+
+<h2 class="post_title">[ES2015] ES6 Features Overview </h2>
+
+
+<div class="post_meta">
+  
+    
+    
+  
+    
+    
+    
+      <div class="meta_date"><strong>Last updated on:</strong> Dec 22, 2016</div>
+    
+  
+    
+    
+    <div class="meta_section"><strong>Section:</strong> 
+      
+        <a href="localhost/hugo-tldr/javascript">JavaScript</a>
+          
+    </div>
+
+
+    
+     
+      <div class="meta_tags">
+        <strong>Tags:</strong>
+        
+         
+        
+          
+            <a href="localhost/hugo-tldr/tags/es2015">#ES2015</a>
+          
+        
+      </div>
+    
+  
+  </div>
+
+
+
+<div class="content">
+    
+
+<h1 id="es6-features-es2015">ES6 Features (ES2015)</h1>
+
+<h2 id="arrow-function-syntax">Arrow Function Syntax</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Syntax" target="_blank">MDN: Arrow Function Syntax</a></li>
+<li><a href="http://babeljs.io/docs/learn-es2015/" target="_blank">Babel Docs</a></li>
+<li><a href="https://teamtreehouse.com/library/introducing-arrow-function-syntax" target="_blank">Treehouse: Arrow Function Syntax</a></li>
+<li><a href="https://www.youtube.com/watch?v=6sQDTgOqh-I" target="_blank">YouTube: Arrow Function Syntax</a></li>
+</ul>
+
+<p>Arrow function syntax is supported in all major browsers.</p>
+
+<pre><code class="language-javascript">// Function Declaration
+function divide1(a,b) {
+	return a/b;
+}
+
+// Function Expression
+const divide2 = function(a,b) {
+	return a/b;
+}
+
+// Arrow Function Expression
+const divide3 = (a,b) =&gt; {
+	return a/b; 
+}
+
+// Arrow Function Concise
+const divide4 = (a,b) =&gt; a/b;
+</code></pre>
+
+<p>Arrow (aka lambda) functions define the function to the instance of wherever it was created (or something like that, requires citation). The benefit of this is that in React when defining event handler functions, you no longer have to specifically bind them in the render() method.</p>
+
+<pre><code class="language-javascript">handleClick = (e) =&gt; {
+  e.preventDefault()
+}
+
+render() {
+  &lt;button onClick={this.handleClick} /&gt;
+}
+</code></pre>
+
+<p>instead of</p>
+
+<pre><code class="language-javascript">function handleClick(e)  {
+  e.preventDefault()
+}
+
+render() {
+  &lt;button onClick={this.handleClick.bind(this)} /&gt;
+}
+</code></pre>
+
+<p>They also make writing code for Promises a lot easier.</p>
+
+<h2 id="let-and-const"><code>let</code> and <code>const</code></h2>
+
+<p><code>let</code> is the new <code>var</code>. <code>const</code> is a single-assignment, meaning you only define it once, it won&rsquo;t change.</p>
+
+<p>For example</p>
+
+<pre><code class="language-javascript">let x = 15
+
+const React = require('react')
+const ReactDOM = require('react-dom')
+</code></pre>
+
+<h2 id="rest-parameters-and-spread-operator">Rest parameters <code>...</code> and Spread operator <code>...</code></h2>
+
+<p>Rest parameters and spread operator look the same but achieve different things. A rest parameter <em>collects the arguments passed to a function</em> while the spread operator <em>expands an array or any  type of an expression</em>.</p>
+
+<h2 id="rest-parameters">Rest parameters <code>...</code></h2>
+
+<p><code>...params</code></p>
+
+<p>The three dots <code>...</code> before define a rest parameter, you can call it anything you want. It has to be the last parameter in the arguments</p>
+
+<p>Returns an array of arguments</p>
+
+<pre><code class="language-javascript">const myFunc = (name, ...params) =&gt; console.log(name, params)
+myFunc('Andrew', 1, 2, 3, 4, 'Elephant') // Andrew [1,  2, 3, 4, 'Elephant']
+</code></pre>
+
+<pre><code class="language-javascript">const myFunc = (...params) =&gt; console.log(params)
+myFunc('Andrew', 1, 2, 3, 4, 'Elephant') //  [ 'Andrew', 1,  2, 3, 4, 'Elephant']
+</code></pre>
+
+<pre><code class="language-javascript">let flavorFunc = (name, iceCreamFlavor) =&gt; console.info(`${name} really likes ${iceCreamFlavor} ice cream`)
+
+let args = ['Aamnah', 'Pistachio']
+
+flavorFunc(...args) // Aamnah really likes Pistachio ice cream
+</code></pre>
+
+<h2 id="spread-operator">Spread operator <code>...</code></h2>
+
+<p><code>...array</code> or <code>...object</code></p>
+
+<ul>
+<li><a href="https://egghead.io/lessons/ecmascript-6-using-the-es6-spread-operator" target="_blank">https://egghead.io/lessons/ecmascript-6-using-the-es6-spread-operator</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator</a></li>
+</ul>
+
+<p>Bable ES2015 preset suports the Array spread but not the Object spread, since object spread is not part of ES2015 standard, it&rsquo;s a stage-2 proposal. To get object spread you need to install separate plugins</p>
+
+<pre><code class="language-bash">npm i -D babel-plugin-transform-object-rest-spread babel-plugin-syntax-object-rest-spread
+</code></pre>
+
+<p>and then include the plugins in your <code>.babelrc</code> file</p>
+
+<pre><code class="language-json">{
+  &quot;plugins&quot;: [
+		&quot;transform-object-rest-spread&quot;,
+		&quot;babel-plugin-syntax-object-rest-spread&quot;
+	]
+}
+</code></pre>
+
+<h2 id="destructing-assignment">Destructing Assignment</h2>
+
+<p>Destructuring let&rsquo;s you extract values from arrays and objects and then assign those values to distinct variables.</p>
+
+<h3 id="objects">Objects</h3>
+
+<p>Here&rsquo;s an object:</p>
+
+<pre><code class="language-javascript">let person = {
+  name: 'Aamnah',
+  age: 27,
+  status: 'Single',
+  location: 'Lahore'
+}
+</code></pre>
+
+<p>Now instead of doing this to reference the property values in the object</p>
+
+<pre><code class="language-javascript">console.info(`${person.name} is ${person.age} years old, ${person.status} and lives in ${person.location}`)
+</code></pre>
+
+<p>where i have to add <code>person.</code> with every property value to reference it out of the object (which we called <code>person</code>), i can destructure the object and assign the values as new variables, making it neat and easier to understand</p>
+
+<pre><code class="language-javascript">let { name, age, status, location } = person
+console.info(`${name} is ${age} years old, ${status} and lives in ${location}`)
+</code></pre>
+
+<p>We destructured the object into individual pieces and assigned those pieces to variables.</p>
+
+<p>When destructuring, you don&rsquo;t have to keep the variable names same as the original property names in the object, you can assign new variable names, like so:</p>
+
+<pre><code class="language-javascript">let { location: city } = person
+console.info(city) // Lahore
+</code></pre>
+
+<h3 id="arrays">Arrays</h3>
+
+<pre><code class="language-javascript">let widgets = ['widget1', 'widget2', 'widget3', 'widget4', 'widget5']
+let [a, b, c, ...d] = widgets
+console.log(a) // widget1
+console.log(d) // ['widget4', 'wdiget5']
+</code></pre>
+
+<h3 id="declaring-default-values">Declaring default values</h3>
+
+<p>Destructuring is a convenient way of extracting multiple values from data stored in (possibly nested) objects and Arrays.</p>
+
+<h2 id="template-strings-literals">Template Strings/Literals ``</h2>
+
+<p>Template literals let us mix string literals, variables and expressions. If you have done some Python coding, template strings be very familiar.</p>
+
+<p>You can now do this:</p>
+
+<pre><code class="language-javascript">var greeting = `Hello ${name}, how are you this fine ${partOfDay()}?`
+</code></pre>
+
+<ul>
+<li>To construct a template string, use the <strong>grave accent</strong> (also called a <strong>back-tick</strong>) (`) to enclose the string instead of single or double quotes.</li>
+<li>Template strings provide <strong>built-in support for multi-line strings</strong>.</li>
+<li>The <code>$</code> character is used to specify placeholders within a template string. The syntax is <code>${expression}</code></li>
+</ul>
+
+<h2 id="string-search-methods">String search methods</h2>
+
+<p><code>startsWith</code>, <code>endsWith</code> and <code>includes</code></p>
+
+<pre><code class="language-javascript">let stringToSearch = 'really-long-string-that-i-want-to-search'
+
+// see if the sentence starts with 'really'
+console.log(/^really/.test(StringToSearch)) // regex
+console.log(stringToSearch.indexOf('really') === 0) // indexOf
+console.log(stringToSearch.startsWith('really')) // startsWith
+
+// see if the sentence ends with 'to-search'
+console.log(/to-search$/.test(stringToSearch)) // regex
+console.log(stringToSearch.indexOf('to-search') === stringToSearch.length - 'to-search'.length') // indexOf
+console.log(stringToSearch.endsWith('to-search')) // endsWith
+
+// see if the sentence includes the word 'long'
+console.log(/long/i.test(stringToSearch)) // regex
+console.log(stringToSearch.indexOf('long') &gt; -1) // indexOf
+console.log(stringToSearch.includes('long')) // includes
+</code></pre>
+
+<h2 id="object-property-shorthand">Object property shorthand</h2>
+
+<p>In an object, if a property is defined but no value is provided, the property itself is used as value.</p>
+
+<p>when the interpreter encounters a variable assignment without a property key, the variable name itself is used as property key.</p>
+
+<pre><code class="language-javascript">let data = { name, comments, rating }
+</code></pre>
+
+<h2 id="set">Set</h2>
+
+<p><a href="https://teamtreehouse.com/library/set" target="_blank">https://teamtreehouse.com/library/set</a>
+<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Set</a>
+A Set is not an Array but it can behave like one. It’s a collection of unique values.</p>
+
+<blockquote>
+<p>The Set object lets you store <em>unique</em> values of any type, whether primitive values or object references.</p>
+</blockquote>
+
+<pre><code class="language-javascript">let mySet = new Set()
+</code></pre>
+
+<p>Use cases:</p>
+
+<h2 id="map">Map</h2>
+
+<h2 id="record">Record</h2>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="https://teamtreehouse.com/library/template-strings" target="_blank">Treehouse: Template Strings</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals" target="_blank">MDN: Template Literals</a></li>
+<li><a href="https://msdn.microsoft.com/en-us/library/dn858580(v=vs.94).aspx" target="_blank">MSDN: Template Strings (JavaScript)</a></li>
+<li><a href="https://teamtreehouse.com/library/rest-parameters-and-spread-operator" target="_blank">Treehouse: Rest parameters and Spread operator</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank">MDN: Destructuring assignment</a></li>
+<li><a href="http://exploringjs.com/es6/ch_destructuring.html" target="_blank">ExploringJS: Destructuring</a></li>
+<li><a href="https://teamtreehouse.com/library/destructuring" target="_blank">Treehouse: Destructuring</a></li>
+</ul>
+
+</div>
+
+
+
+
+
+
+  <div class="related">
+    <h6>Related</h6>
+      <ul>
+        
+          <li><a href="localhost/hugo-tldr/javascript/es2015/es2015-var-let-const/">[ES2015] var, let and const</a></li>
+        
+          <li><a href="localhost/hugo-tldr/javascript/es2015/es2015-map/">[ES2015] Map object</a></li>
+        
+          <li><a href="localhost/hugo-tldr/javascript/es2015/es2015-classes/">[ES2015] Classes in JavaScript</a></li>
+        
+          <li><a href="localhost/hugo-tldr/javascript/es2015/es2015-set/">[ES2015] Set object</a></li>
+        
+          <li><a href="localhost/hugo-tldr/javascript/es2015/es2015-promises/">[ES2015] Promises</a></li>
+        
+      </ul>
+  </div>
+
+
+
+<footer id="footer">
+<hr>
+  <section>
+    Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+  </section>
+  <span class="copyright"> Copyright &copy; 2014 - 2016 Aamnah. All rights reserved.</span>
+</footer>
+
+</div>
+
+<script src='localhost/hugo-tldr/prism/prism.js'></script>
+</body>
+</html>

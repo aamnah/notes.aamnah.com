@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title> &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1></h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h1 id="intro-to-react-ecosystem">Intro to React Ecosystem</h1>
+
+<h2 id="imperative-how-vs-declarative-what">Imperative (How) vs. Declarative (What)</h2>
+
+<p>Imperative = how to do something, specific instructions
+Declarative = what to do, doing something that is somewhat already defined</p>
+
+<h2 id="composition-components">Composition (Components)</h2>
+
+<p>think in terms of components. components inside of components. breaking everything down to components.  nesting components. you can create larger components composed of smaller components.</p>
+
+<p>Components = aka widgets, modules</p>
+
+<p>Functional composition is where you write smaller <em>helper</em> functions that you can use in bigger functions.</p>
+
+<h2 id="explicit-mutations">Explicit Mutations</h2>
+
+<p>The only way a state will change or be kept is if you explicitly specify it using it <code>.setState()</code></p>
+
+<p>(In Angular 1, it magically keeps all your models in sync)</p>
+
+<h2 id="it-s-just-javascript">It&rsquo;s just JavaScript</h2>
+
+<p>React is just JavaScript. If you&rsquo;re getting frustrated with React, it&rsquo;s probably because your JS knowledge is lacking. For example <code>.map()</code> is very good for generating HTML lists in React. But if you don&rsquo;t know the JS <code>.map()</code> method, you&rsquo;ll wonder what happened.</p>
+
+<h2 id="piecing-the-puzzle">Piecing the Puzzle</h2>
+
+<ul>
+<li>React</li>
+<li><strong>React Router</strong> (let&rsquo;s you map React components to certain URLs. As you move around in the app, different components become active based on what URL you are at)</li>
+<li><strong>Webpack</strong> (like Grunt/Gulp. bundler, task runner, whatever you wanna call it)</li>
+<li><strong>Babel</strong> (transpiler, let&rsquo;s you transform your code to standard JS. It could be JSX to JS, ES6 to ES7 etc.)</li>
+<li><strong>Axios</strong> (making HTTP request, promises)</li>
+</ul>
+
+<h2 id="jsx">JSX</h2>
+
+<p>JSX is just an XML-like syntax for writing React components. You can use plain JavaScript as well, but JSX makes it easy.</p>
+
+<p>The “HTML” that you’re writing in the render method isn’t actually HTML but it’s what React is calling “JSX”. JSX simply allows us to write HTML like syntax which gets transformed to lightweight JavaScript objects. React is then able to take these JavaScript objects and from them form a “virtual DOM” or a JavaScript representation of the actual DOM. This creates a win/win situation where you get the accessibility of templates with the power of JavaScript.</p>
+
+<h2 id="setting-up">Setting up</h2>
+
+<ul>
+<li>react:</li>
+</ul>
+
+<pre><code class="language-bash">npm i -S react react-dom
+</code></pre>
+
+<ul>
+<li>tools:</li>
+</ul>
+
+<pre><code class="language-bash">npm i -D webpack html-webpack-plugin webpack-dev-server babel-{core,loader} babel-preset-react
+</code></pre>
+
+<h3 id="babelrc">.babelrc</h3>
+
+<pre><code class="language-json">{
+&quot;presets&quot;: [
+    &quot;react&quot;
+]
+</code></pre>
+
+<h3 id="webpack-config-js">webpack.config.js</h3>
+
+<pre><code class="language-javascript">// webpack.config.js
+// html-webpack-plugin
+var htmlWebpackPlugin = require('html-webpack-plugin');
+var htmlWebpackPluginConfig = new htmlWebpackPlugin({
+    template: __dirname + '/app/index.html', 
+    filename: 'index.html',
+    inject: 'body'
+});
+
+module.exports = {
+
+    // Entry point(s)
+    entry: [
+        './app/index.js'    
+    ],
+
+    // Output dir and file
+    output: {
+        path: __dirname + '/dist',
+        filename: &quot;index_bundle.js&quot;     
+    },
+
+    // Trasnformations (loaders!)
+    module: {
+        loaders: [
+            { test: /\.js$/, exclude: /node_modules/, include: __dirname + '/app', loader: &quot;babel-loader&quot;}
+        ]
+    },
+
+    // Plugins to load
+    plugins: [
+        htmlWebpackPluginConfig 
+    ]
+};
+
+
+</code></pre>
+
+<h3 id="index-js">index.js</h3>
+
+<pre><code class="language-javascript">var React = require('react');
+var ReactDOM = require('react-dom');
+
+// use the .createClass method on the React object to create a React component
+class HelloMessage extends React.Component({
+
+    // every React component must have a render method
+    render() {
+        return (
+      &lt;div&gt; // every component needs to be wrapped in a containing element 
+        Bonjour {this.props.name}!
+      &lt;/div&gt;
+    )
+    }
+});
+
+// Render the component we just created
+ReactDOM.render(
+    // takes two args
+    &lt;HelloMessage name=&quot;Aamnah&quot;/&gt;, // component to render
+    document.getElementById('app')  // where to render to
+);
+</code></pre>
+
+<p>Virtual DOM components start with a capital letter. While <code>&lt;link&gt;</code> is plain HTML, <code>&lt;Link&gt;</code> is a JSX React component</p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="https://online.reacttraining.com/courses/reactjsfundamentals/lectures/760073">React Training</a></li>
+<li><a href="http://www.developer.com/services/what-is-react.js.html">http://www.developer.com/services/what-is-react.js.html</a></li>
+<li><a href="http://blog.andrewray.me/reactjs-for-stupid-people/">http://blog.andrewray.me/reactjs-for-stupid-people/</a></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_reactjs/reactrouter/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_reactjs/reactrouter/"></a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_reactjs/react-router/"></a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_reactjs/react-router/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

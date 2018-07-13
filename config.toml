@@ -1,0 +1,187 @@
+# SITE SETTINGS
+baseURL = "/" # Make sure to end baseurl with a '/'
+languageCode = "en-us"
+title = "TLDR Dev Notes"
+author = "Aamnah"
+theme = "tldr"
+copyright = "TOML &copy; 2017. All rights reserved."
+canonifyurls = true
+paginate = 10
+
+# Don't pluralize titles in lists
+pluralizeListTitles = false
+
+
+[params] # The values nested under params: will populate the .Site.Params variable for use in templates:
+  subtitle = "Too Long Didn’t Read (tl;dr) version of a Developer’s Notes"
+  brand = "TLDR Dev Notes"
+  googleAnalytics = "Your Google Analytics tracking ID"
+  disqus = "Your Disqus shortname"
+
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  highlightjs_extra_languages = ["yaml"]
+  dateFormat = "Jan 02, 2006"
+  # Include any custom CSS and/or JS files
+  # (relative to /static folder)
+  custom_css = ["css/custom.css"]
+  # custom_js = ["js/my.js"]
+
+[params.social]
+  # Link your social networking accounts
+  # by entering your username or ID.
+  email = "hello@aamnah.com"
+  twitter = "AamnahAkram"
+  instagram = "AamnahAkram"
+  pinterest = "#"
+  linkedin = "#"
+  github = "aamnah"
+  codepen = "aamnah"
+  facebook = "aamnah.akram"
+
+
+
+# NAVIGATIONAL MENUS
+# These are the Navigational Menus
+[menu]
+  # You can have multiple menus. This one is called `main`
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Quotes"
+    pre = "<i class='fa fa-quote-left fa-fw'></i>"
+    weight = 4
+    url = "/quotes/"
+  [[menu.main]]
+    name = "What i did"
+    pre = "<i class='fa fa-history fa-fw'></i>"
+    weight = 4
+    url = "/progress/"
+  [[menu.main]]
+    name = "Resources"
+    pre = "<i class='fa fa-star fa-fw'></i>"
+    weight = 4
+    url = "/resources/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
+
+# BLACKBURN THEME SETTINGS
+[params.copyright]
+prefix = ""
+holder = "Aamnah"
+startYear = "2014"
+suffix = "All rights reserved."
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+
+#### MINIMO ####
+disqusShortname = ""
+googleAnalytics = ""
+
+Paginate = 5
+preserveTaxonomyNames = true
+enableRobotsTXT = true # generate robots.txt
+
+# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
+pygmentsCodefences = true
+enableEmoji = true
+
+# Missing translations will default to this content language
+defaultContentLanguage = "en"
+
+[params.info]
+  description = "Aamnah's dev notes"
+  title404 = "Nothing's here!"
+
+[params.assets]
+  favicon = "favicon.ico"
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+  gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+
+[params.settings]
+  # date & time format: https://golang.org/pkg/time/
+  dateFormat = "2006, Jan 02"
+  listDateFormat = "2006, Jan 02"
+  archiveDateFormat = "Jan 02"
+  hideEntryNavigation = ["page"] # boolean / array of sections
+  showReadingTime = true
+  taxonomyCloudShuffle = true
+  accentColor = "#ffcd00"
+  hideMainMenu = false
+
+[params.sidebar]
+  enable = true
+
+[params.widgets]
+  homepage = ["recent_posts"]
+  sidebar = ["about","taxonomy_cloud"]
+  footer = ["social_menu"]
+
+[params.opengraph.facebook]
+  admins = [] # array of Facebook IDs
+  appID = ""
+  pageID = ""
+
+[params.opengraph.twitter]
+  page = "" # Twitter page username
+
+[params.seo]
+  # Title Separator: - – — · • * ⋆ | ~ « » < >
+  titleSeparator = "•"
+
+
+
+[params.comments]
+  enable = false
+
+[params.comments.staticman]
+  enable = true
+  apiEndpoint = "https://api.staticman.net/v2/entry"
+  maxDepth = 2
+
+[params.comments.staticman.github]
+  username = "MunifTanjim"
+  repository = "minimo"
+  branch = "master"
+
+[taxonomies]
+  author = "authors"
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[permalinks]
+  page = "/:slug/"
+
+# [[menu.main]]
+# name = "Repo"
+# weight = -10
+# identifier = "repository"
+# url = "https://github.com/MunifTanjim/minimo"
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[languages]
+# edit this block for your own language
+[languages.en]
+  lang = "en"
+  languageName = "English"
+  weight = 1

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='localhost/hugo-tldr/css/main.css'> 
+  <link rel="stylesheet" href="localhost/hugo-tldr/prism/prism.css">
+</head>
+<body>
+
+  
+<header id="header">
+  <div id="logo">
+    <h1>TLDR Dev Notes</h1>
+  </div>
+
+  <nav id="main-nav">
+    
+      
+        <a href="localhost/hugo-tldr/">Home</a>
+      
+        <a href="localhost/hugo-tldr/about/">About</a>
+      
+        <a href="localhost/hugo-tldr/contact/">Contact</a>
+      
+        <a href="localhost/hugo-tldr/quotes/">Quotes</a>
+      
+        <a href="localhost/hugo-tldr/resources/">Resources</a>
+      
+        <a href="localhost/hugo-tldr/progress/">What i did</a>
+      
+    
+  </nav>
+
+</header>
+
+
+  
+  <div id="sidebar">
+  <h6>Sections</h6>
+  
+  <ul id="list-sections">
+    
+      <li><a href="localhost/hugo-tldr/api/">
+        
+        APIs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/aws/">
+        
+        Amazon Web Services (AWS)
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/bash-scripting/">
+        
+        Bash Scripting
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/css-sass/">
+        
+        CSS &amp; Sass
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/cheatsheets/">
+        
+        Cheatsheets
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/commands/">
+        
+        Commands
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/databases/">
+        
+        Databases
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/drafts/">
+        
+        Drafts
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/git-github/">
+        
+        Git &amp; Github
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/javascript/">
+        
+        JavaScript
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/jekyll/">
+        
+        Jekyll
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/linux/">
+        
+        Linux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/misc/">
+        
+        Misc
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/node-api/">
+        
+        Node-api
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/nodejs/">
+        
+        Node.js
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/opencart/">
+        
+        OpenCart
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/php/">
+        
+        PHP
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/programming/">
+        
+        Programming
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/python/">
+        
+        Python
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/quotes/">
+        
+        Quotes
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/raspberrypi/">
+        
+        Raspberry Pi
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/reactjs/">
+        
+        Reactjs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/redux/">
+        
+        Redux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/resources/">
+        
+        Resources
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/sysadmin/">
+        
+        System Administration
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/webdev/">
+        
+        Web Development
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/workflow/">
+        
+        Workflow
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/ios-swift/">
+        
+        iOS &amp; Swift
+        </a></li>
+    
+        </ul>
+
+  
+  <section>
+    <h6>Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/amazon-rds">amazon-rds</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/amazon-s3">amazon-s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/api">api</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/aws">aws</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/babel">babel</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bluetooth">bluetooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cli">cli</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/coreblueooth">coreblueooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/crontab">crontab</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/css">css</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/databases">databases</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/date">date</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/debian">debian</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/education">education</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/firebase">firebase</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/format">format</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/fundamentals">fundamentals</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/getting-started">getting-started</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/git">git</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/github-pages">github-pages</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/guides">guides</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hacking">hacking</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hosting">hosting</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ios">ios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/javascript">javascript</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/jekyll">jekyll</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/js">js</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/keychain">keychain</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lamp">lamp</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lfs">lfs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/macos">macos</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/markdown">markdown</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/media-queries">media-queries</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mongodb">mongodb</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nagios">nagios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/node">node</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nodejs">nodejs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/npm">npm</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/phpmyadmin">phpmyadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/programming">programming</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react">react</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react-router">react-router</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/reactjs">reactjs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/redux">redux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/s3">s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/script">script</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/scripts">scripts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/snippets">snippets</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sql">sql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ssh">ssh</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/steganography">steganography</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sublime-text">sublime-text</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sync">sync</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sysadmin">sysadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/system-management">system-management</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/table">table</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/terminal">terminal</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ubuntu">ubuntu</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wifi">wifi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wordpress">wordpress</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/workflow">workflow</a>, 
+    
+  </section>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>,
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>,
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>,
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>,
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>,
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>,
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>,
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>,
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>,
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>,
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>,
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>,
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>,
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>,
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>,
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>,
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>,
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>,
+    
+  </section>
+
+
+</div>
+
+
+  
+  <div id="main">
+
+
+<h2 class="post_title">Database Foundations</h2>
+
+
+<div class="post_meta">
+  
+    
+    
+  
+    
+    
+    
+      <div class="meta_date"><strong>Last updated on:</strong> Feb 20, 2015</div>
+    
+  
+    
+    
+    <div class="meta_section"><strong>Section:</strong> 
+      
+        <a href="localhost/hugo-tldr/databases">Databases</a>
+          
+    </div>
+
+
+    
+     
+      <div class="meta_tags">
+        <strong>Tags:</strong>
+        
+         
+        
+          
+            <a href="localhost/hugo-tldr/tags/basics">#basics</a>
+          
+            <a href="localhost/hugo-tldr/tags/database">#database</a>
+          
+            <a href="localhost/hugo-tldr/tags/mysql">#mysql</a>
+          
+            <a href="localhost/hugo-tldr/tags/how-to">#how-to</a>
+          
+        
+      </div>
+    
+  
+  </div>
+
+
+
+<div class="content">
+    
+
+<h2 id="creating-database">Creating Database</h2>
+
+<pre><code class="language-sql">CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+</code></pre>
+
+<p>You can also use the keyword <code>SCHEMA</code> to create a database.</p>
+
+<pre><code class="language-sql">CREATE SCHEMA `shop`;
+</code></pre>
+
+<p>Once a database is cerated you can start using it with the following command</p>
+
+<pre><code class="language-sql">USE `shop`;
+</code></pre>
+
+<h3 id="get-info-about-the-database">Get info about the database</h3>
+
+<pre><code class="language-sql">SHOW ENGINES
+</code></pre>
+
+<p>The default engine is InnoDB.</p>
+
+<h2 id="creating-tables">Creating Tables</h2>
+
+<pre><code class="language-sql">CREATE TABLE actors (name VARCHAR(50));
+</code></pre>
+
+<p><code>CREATE</code> is the command telling the database what to do. <code>TABLE</code> is telling the database what to create. <strong>actors</strong> is the name of that table. <strong>name</strong> is the column the table will have. The type of data it&rsquo;ll have is <code>VARCHAR</code>. <code>(50)</code> means we can store up to 50 characters.</p>
+
+<pre><code class="language-sql">CREATE TABLE movies (title VARCHAR(200), year INTEGER);
+</code></pre>
+
+<p>Same as above, but this time create two columns, one is called <strong>title</strong> and contains <code>VARCHAR</code> data up to <strong>200</strong> characters long and the other is <strong>year</strong> which contains <code>INTEGER</code>s (aka numbers).</p>
+
+<p>Here is another example:</p>
+
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `products` (
+`sku` int(11) DEFAULT NULL,
+`name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+`img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+`price` decimal(10,2) DEFAULT NULL,
+`paypal` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+</code></pre>
+
+<p><code>NULL</code> and <code>NOT NULL</code> determine the default for values. By default it is NULL. But if you want to force the user to always enter a value, you can set it to <code>NOT NULL</code> so it must always be entered by the user. If you want a <strong>required</strong> field, set it&rsquo;s value to <strong>NOT NULL</strong> in the database.</p>
+
+<h3 id="temporary-tables">Temporary Tables</h3>
+
+<p>A temporary table is visible only to the current connection, and is dropped automatically when the connection is closed.</p>
+
+<h2 id="crud-create-read-update-delete">CRUD (Create, Read, Update, Delete)</h2>
+
+<p>Each of these operations has a set of keywords associated with them.</p>
+
+<table>
+<thead>
+<tr>
+<th>CRUD</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Create</td>
+<td><code>INSERT</code></td>
+</tr>
+
+<tr>
+<td>Read</td>
+<td><code>SELECT</code></td>
+</tr>
+
+<tr>
+<td>Update</td>
+<td><code>UPDATE</code></td>
+</tr>
+
+<tr>
+<td>Delete</td>
+<td><code>DELETE</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="inserting-data">Inserting Data</h2>
+
+<pre><code class="language-sql">INSERT INTO movies VALUES(&quot;Avatar&quot;, 2009);
+</code></pre>
+
+<p><code>INSERT INTO</code> tells what table to insert into, <strong>movies</strong> is the table&rsquo;s name and <code>VALUES</code> tells the list of values that we want to add to the table.</p>
+
+<p>Avatar has <code>&quot; &quot;</code> around it because it is a string, 2009 has no quotes because it&rsquo;s an integer.</p>
+
+<p>The order of the values is important. It should be the same order as you have defined your columns. If you don&rsquo;t know/remember the ordering of the columns in the table, you can specify them in the command, like so:</p>
+
+<pre><code class="language-sql">INSERT INTO movies (title, year) VALUES(&quot;Avatar&quot;, 2009);
+</code></pre>
+
+<p>Even in this case, the order of the columns specified should match the order of the values. If, in the command, you have mentioned the title column first, then the values should have the title value first.</p>
+
+<p>You can add values to multiple rows separated by a comma in the same command. Like this:</p>
+
+<pre><code class="language-sql">INSERT INTO movies (title, year) VALUES(&quot;Avatar&quot;, 2009), (&quot;The Godfather&quot;, NULL);
+</code></pre>
+
+<p>If you don&rsquo;t know or don&rsquo;t want to enter a value, use <strong>NULL</strong>.</p>
+
+<p>You can also insert data using the <code>SET</code> keyword</p>
+
+<pre><code class="language-sql">INSERT INTO movies SET title=&quot;Back to the Future&quot;, year = 1985;
+</code></pre>
+
+<p>Here is another example:</p>
+
+<pre><code class="language-sql">INSERT INTO `products` (`sku`, `name`, `img`, `price`, `paypal`) VALUES(109, 'Get Coding Shirt', 'Gray', 'img/shirt-coding.png', 25.00, '7BNDYJX65WD364')
+</code></pre>
+
+<p>The basic format of the command is</p>
+
+<pre><code class="language-sql">INSERT INTO `products` (column1, column2) VALUES(value1, value2)
+</code></pre>
+
+<h2 id="reading-and-retrieving-data">Reading and Retrieving data</h2>
+
+<p><code>SELECT</code> is the keyword for reading data</p>
+
+<pre><code class="language-sql">SELECT * FROM movies;
+</code></pre>
+
+<p><code>SELECT</code> is for reading data, <code>*</code> means all columns, <code>FROM</code> means from, and the table is <strong>movies</strong>. The above statement says &lsquo;read data from all columns in the movies table&rsquo;.</p>
+
+<p>You can also select which columns to show like this:</p>
+
+<pre><code class="language-sql">SELECT movies.title, movies.year FROM movies;
+</code></pre>
+
+<p>The order of the columns will be determined by the order in your query. Meaning, you can switch columns around.</p>
+
+<pre><code class="language-sql">SELECT movies.year, movies.title FROM movies;
+</code></pre>
+
+<p>You can drop the table names from columns and it&rsquo;ll still work, like so:</p>
+
+<pre><code class="language-sql">SELECT title, year FROM movies;
+</code></pre>
+
+<h3 id="querying-tables-and-getting-selective-results">Querying Tables and Getting selective results</h3>
+
+<p><code>WHERE</code> is the clause that limits the result set because you are constraining it to rows that meet a specified criteria. Using the WHERE clause you and add text or a condition to filter the results to only bring back rows fulfilling that condition.</p>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>Equal</td>
+</tr>
+
+<tr>
+<td><code>!=</code></td>
+<td>Not Equal</td>
+</tr>
+
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater Than</td>
+</tr>
+
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater Than AND Equal to</td>
+</tr>
+
+<tr>
+<td><code>&lt;</code></td>
+<td>Less Than</td>
+</tr>
+
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less Than AND Equal to</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year = 1999;
+</code></pre>
+
+<p><code>SELECT</code> all (<code>*</code>) rows <code>FROM</code> the <strong>movies</strong> table <code>WHERE</code> (the data in) the <strong>year</strong> (column) was <code>1999</code>.</p>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year != 1999;
+</code></pre>
+
+<p>will select all movies where the years was not equal to 1999.</p>
+
+<h3 id="combining-multiple-conditions">Combining Multiple Conditions</h3>
+
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>AND</code></td>
+<td>And</td>
+</tr>
+
+<tr>
+<td><code>OR</code></td>
+<td>Or</td>
+</tr>
+
+<tr>
+<td><code>BETWEEN</code></td>
+<td>Between</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year &lt; 1999 AND title = &quot;The Matrix&quot;;
+</code></pre>
+
+<p><code>SELECT</code> all (<code>*</code>) rows <code>FROM</code> the <strong>movies</strong> table <code>WHERE</code> the <strong>year</strong> column value is greater than (<code>&lt;</code>) <code>1999</code> <code>AND</code> the <strong>title</strong> column value is <strong>The Matrix</strong>. Since the title data type is string, we&rsquo;ve wrapped what we are looking for in <code>&quot; &quot;</code>.</p>
+
+<p>In other words, select all movies released after 1999 <strong>AND</strong> with the title The Matrix.</p>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year = 1998 OR year = 2000;
+</code></pre>
+
+<p>Show all movies released in 1998 <strong>OR</strong> 2000.</p>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year BETWEEN 1988 AND 2000;
+</code></pre>
+
+<p>Show all movies released <strong>BETWEEN</strong> 1988 and 2000.</p>
+
+<h3 id="search-on-a-string-based-on-part-of-a-string">Search on a string based on part of a string</h3>
+
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>LIKE</code></td>
+<td>Contains</td>
+</tr>
+
+<tr>
+<td><code>NOT LIKE</code></td>
+<td>Does not contain</td>
+</tr>
+
+<tr>
+<td><code>%</code></td>
+<td>Wildcard</td>
+</tr>
+</tbody>
+</table>
+
+<p>For example, look for all movies that have the word <em>Godfather</em> in the title.</p>
+
+<pre><code class="language-sql">SHOW * FROM movies WHERE title LIKE &quot;godfather&quot;
+</code></pre>
+
+<p><code>LIKE</code> is <strong>case-insensitive</strong>.</p>
+
+<p>Wildcards are used to determine if something starts, contains or ends with a particular string. If a search string doesn&rsquo;t yield anything, wrap the string in wildcards and try again.</p>
+
+<pre><code class="language-sql">SHOW * FROM movies WHERE title LIKE &quot;%godfather%&quot;
+</code></pre>
+
+<p>You can also look for something that does not contain a particular string</p>
+
+<pre><code class="language-sql">select * FROM runs WHERE info is null or info NOT LIKE '%wrong%';
+</code></pre>
+
+<h3 id="ordering-results-order-by">Ordering results <code>ORDER BY</code></h3>
+
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>ORDER BY</code></td>
+<td>Order</td>
+</tr>
+
+<tr>
+<td><code>ASC</code></td>
+<td>Ascending Order</td>
+</tr>
+
+<tr>
+<td><code>DESC</code></td>
+<td>Descending (reverse) Order</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SHOW * FROM movies ORDER BY year;
+</code></pre>
+
+<p>will show all movies in ascending order of the year column. If you want you can explicitly specify <code>ASC</code> for the order. But it is ascending by default (Low to High).</p>
+
+<pre><code class="language-sql">SHOW * FROM movies ORDER BY year DESC;
+</code></pre>
+
+<p>will show all movies in descending order of the year.</p>
+
+<p>You can <em>chain</em> ordering together by adding a comma <code>,</code> after each column and their ordering keyword.</p>
+
+<pre><code class="language-sql">SHOW * FROM movies ORDER BY year ASC, title DESC;
+</code></pre>
+
+<p>will show the movies by ascending order of the year and in every year the title would be in descending (reverse) order.</p>
+
+<p>The ordering of the chain matters. Whatever you want sorted first needs to be included first.</p>
+
+<h3 id="limiting-the-result-set">Limiting the Result Set</h3>
+
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>LIMIT</code></td>
+<td>No. of result rows</td>
+</tr>
+
+<tr>
+<td><code>OFFSET</code></td>
+<td>Offset of result rows</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT * FROM movies LIMIT 10 OFFSET 20;
+</code></pre>
+
+<p>is the same as</p>
+
+<pre><code class="language-sql">SELECT * FROM movies LIMIT 20,10;
+</code></pre>
+
+<p>Keep in mind that the OFFSET of the initial row is 0, not 1.</p>
+
+<p>There is a <strong>default LIMIT</strong> of 1000 in some software (like MySQL Bench). Be aware of it when you are working with results in excess of 1000+. If you are working with a programming language (like PHP) this default limit won&rsquo;t be there.</p>
+
+<h3 id="dealing-with-null">Dealing with NULL</h3>
+
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>IS NULL</code></td>
+<td>Has no value</td>
+</tr>
+
+<tr>
+<td><code>IS NOT NULL</code></td>
+<td>Is not empty (Has a value)</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year IS NULL;
+</code></pre>
+
+<p>Select all movies with the &ldquo;year&rdquo; column that hasn&rsquo;t been populated yet. In other words, show all movies with no year given.</p>
+
+<p>Null affects your sort order as it&rsquo;ll always come at top.</p>
+
+<pre><code class="language-sql">SELECT * FROM movies WHERE year IS NOT NULL ORDER BY year;
+</code></pre>
+
+<p>will exclude the empty results. Select all movies that have data in the &ldquo;year&rdquo; column.</p>
+
+<h2 id="updating-data">Updating Data</h2>
+
+<pre><code class="language-sql">UPDATE movies SET year=2015;
+</code></pre>
+
+<p>The command above will change the year to 2015 for all rows in the <strong>year</strong> column. To specify which row to update the year for, specify title as well. Make the command target more specific:</p>
+
+<pre><code class="language-sql">UPDATE movies SET year=2015 WHERE title=&quot;Avatar 2&quot;;
+</code></pre>
+
+<h3 id="update-existing-values">Update existing values</h3>
+
+<pre><code class="language-sql">UPDATE movies SET year=2016, title=&quot;Avatar Reloaded&quot; WHERE title=&quot;Avatar 2&quot;;
+</code></pre>
+
+<p>will update the existing Avatar 2 row to Avatar Reloaded and change the year to 2016.</p>
+
+<h2 id="delete-data">Delete Data</h2>
+
+<pre><code class="language-sql">DELETE FROM movies;
+</code></pre>
+
+<p>will delete everything in the movies table. Not a good idea to do unless that&rsquo;s what you really want. You can use <code>WHERE</code> to narrow down your target.</p>
+
+<pre><code class="language-sql">DELTE FROM moviews WHERE title = &quot;Avatar Reloaded&quot;;
+</code></pre>
+
+<p>to be extra safe, mention as many values for the row as you know.</p>
+
+<pre><code class="language-sql">DELTE FROM moviews WHERE title = &quot;Avatar Reloaded&quot; AND year=2016;
+</code></pre>
+
+<hr />
+
+<h2 id="notes">NOTES</h2>
+
+<h3 id="follow-convention">Follow convention</h3>
+
+<pre><code class="language-sql">update movies set year=2015;
+</code></pre>
+
+<p>is the same as</p>
+
+<pre><code class="language-sql">UPDATE movies SET year=2015;
+</code></pre>
+
+<p>both will get the job done.</p>
+
+<p>You don&rsquo;t <em>have to</em> uppercase all SQL keywords, but <em>you should</em> because it is convention to do so. Also, it make your code more readable.</p>
+
+<h3 id="turn-safe-updates-off">Turn safe updates off</h3>
+
+<pre><code class="language-sql">SET SQL_SAFE_UPDATES = 0;
+</code></pre>
+
+<p>To turn them back on, change the <strong>0</strong> to <strong>1</strong>. Safe mode lets you UPDATE and DELETE a little more safely.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://teamtreehouse.com/library/database-foundations" target="_blank">Treehouse - Database Foundations</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" target="_blank">MySQL Docs: SELECT Syntax</a></li>
+</ul>
+
+</div>
+
+
+
+
+
+
+  <div class="related">
+    <h6>Related</h6>
+      <ul>
+        
+          <li><a href="localhost/hugo-tldr/databases/querying-selecting-showing-data-from-mysql-database-tips/">Tips for Querying a MySQL Database</a></li>
+        
+          <li><a href="localhost/hugo-tldr/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/">OpenCart: Bulk update prices of Products</a></li>
+        
+          <li><a href="localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/">Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</a></li>
+        
+          <li><a href="localhost/hugo-tldr/git-github/getting-started-github-pages/">Getting started with Github Pages</a></li>
+        
+          <li><a href="localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/">Bash script to create OCMOD and vQmod templates with a single command</a></li>
+        
+      </ul>
+  </div>
+
+
+
+<footer id="footer">
+<hr>
+  <section>
+    Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+  </section>
+  <span class="copyright"> Copyright &copy; 2014 - 2015 Aamnah. All rights reserved.</span>
+</footer>
+
+</div>
+
+<script src='localhost/hugo-tldr/prism/prism.js'></script>
+</body>
+</html>

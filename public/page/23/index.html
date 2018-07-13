@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2017-03-05-install-mongodb-macos/">Install MongoDB on MacOS</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/how-to">how-to</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/databases">databases</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr # install Homebrew if not installed already # /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; # install brew install mongodb # add MongoDB to startup processes brew services start mongodb # create the `/data/db` directory, where mongo data will live mkdir -p /data/db # Make sure the `/data/db` directory has the right permissions sudo chown -R `id -un` /data/db # Run the mongo daemon mongod # sudo mongod # `quit()` to quit, `ctrl+c` to exit  Using MongoDB Client CLI # start mongo client mongo mongo &gt; help # see a list of commands available mongo &gt; show dbs # show all databases mongo &gt; use foo # use/switch to a database mongo &gt; show collections # show collections (like Tables in SQL dbs) in the database mongo &gt; db.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/2017-03-05-install-mongodb-macos/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/php5-ubuntu-zesty-1704/">Install PHP5 on Ubuntu 17.04 Zesty Zapus</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  (Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.
+WARNING:   This leads to PhpMyAdmin not working if you install it afterwards.. Both versions working has not been tested in production. If you check PHP version on system, php --version, it still shows PHP 7.0   add repo There are no PHP 5.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/php5-ubuntu-zesty-1704/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2014-08-26-installing-ruby-on-ubuntu/">Install Ruby on Ubuntu</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  # update packages sudo apt-get update # install curl if not already there sudo apt-get install curl -y # install RVM \curl -L https://get.rvm.io | bash -s stable # load RVM source ~/.rvm/scripts/rvm # install RVM dependencies rvm requirements # install ruby rvm install ruby # use default ruby version (latest) rvm use ruby --default # install rubygems rvm rubygems current # install Rails gem install rails  notes  the setup seems to be user specific  issues  rvm requirements needs to be run as root.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2014-08-26-installing-ruby-on-ubuntu/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/install-lamp/">Install a LAMP stack</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This is for a debian/ubuntu environment We&rsquo;re going to install PHP at the end since it&rsquo;s the longest step and has more explanations  Setup details  PHP version 7 or greater MySQL version 5.6 or greater HTTPS support  Getting ready sudo apt update &amp;&amp; sudo apt upgrade -y  Apache sudo apt install apache2 apache2-utils ssl-cert -y  MySQL sudo apt install mysql-server mysql-client -y  Secure the installation
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/install-lamp/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/install-ioncube-loader/">Install ionCube Loader on Ubuntu 16.04</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz # download tar xzvf ioncube_loaders_lin_x86-64.tar.gz # extract php -v # find out PHP version e.g. 7.2 php -i | grep extension_dir # find out PHP extensions directory # copy closest matching ioncube module to your PHP extensions directory sudo cp &quot;ioncube/ioncube_loader_lin_7.0.so&quot; /usr/lib/php/20160731/ # copy this line to top of php.ini /etc/php/7.2/apache2/php.ini # OR copy this to a new configuration file `00-ioncube.ini` and load it (by moving to /etc/php/7.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/install-ioncube-loader/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/homebrew/">Intro to Homebrew</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Intro Home brew is a package manager for macOS, just like apt is for Debian systems and yum is for CentOS systems. The main reason people love Homebrew is because it helps in bringing some Linux utilities to macOS, wget and tree for example. It also makes managing installed packages easier.
+Where you&rsquo;d normally do apt install wget, Homebrew let&rsquo;s you do brew install wget.
+Cellar The Cellar is a place that all your kegs go.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/homebrew/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_python/2014-09-21-python-basics/">Intro to Python for newbie programmers</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  video notes these notes accompany this video: A hands-on introduction to Python for beginning programmers
+ You know it&rsquo;s a string because of the quotes &quot; &quot;. You know it&rsquo;s a function because of the parenthesis ( ). You know it&rsquo;s a list because of the square brackets [ ].  Data Types:  Integers (1, 2, 9, 10) Floats (1.89, 2.75, 8.99) Boolean (True, False)  Comparisons:  == !
+  </p>
+
+  
+  <footer>
+    <a href="/post/_python/2014-09-21-python-basics/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/intro-to-rootkit-hunter/">Intro to Rootkit Hunter</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  RKHunter downloads a list of known exploits and then checks your system against the database. It also alerts you if it detects unsafe settings in some common applications.
+#!/bin/bash apt update &amp;&amp; apt upgrade -y # Rootkit Hunter - Scan for Rootkits, backdoors and exploits EMAIL='' # email for sending logs SERVER='' # server name rkhunter() { wget https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz tar xf rkhunter-1.4.4.tar.gz sudo rkhunter-1.4.4/installer.sh --install # by default it installs in /usr/local/bin (which is in $PATH) # confirm install by checking version sudo rkhunter --versioncheck # Pre-run Updates sudo rkhunter --update # update database sudo rkhunter --propupd # Before running RKH, fill the file properties database (set baseline file properties so that rkhunter can alert us if any of the essential configuration files it tracks are altered) # Scan sudo rkhunter --check # scan the entire file system # Cron touch /etc/cron.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/intro-to-rootkit-hunter/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_nodejs/templating-with-pug/">Intro to Templating with Pug (previously known as Jade)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Pug is a templating engine for Node.js Hierarchy is defined with indentation Pug let&rsquo;s you use JS inside the templates. You can loop and use logic. You can also do mixins and advanced templating Pug is white-space sensitive. The pipe | character is used for whitespace control For example, if you want to start your content on a new line, it&rsquo;ll treat the first word as a tag. So you use | at the beginning to avoid that.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_nodejs/templating-with-pug/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/debconf-intro/">Intro to debconf</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr  debcnof is a configuration management tool all the questions you get during installing .deb packages are stored in debconf You can preload answers to those questions to get non-interactive/slient installations needs sudo  sudo apt install debconf-utils # get configurable values for a package sudo debconf-get-selections | grep mysql # set values echo &quot;set mysql-server/root_password YOURPASSWORD&quot; | debconf-communicate # sudo debconf-set-selections &lt;&lt;&lt; &quot;mysql-server mysql-server/root_password password YOURPASSWORD&quot; # echo 'mysql-server mysql-server/root_password password YOURPASSWORD' | debconf-set-selections # show the list of debconf values configured for a package debconf-show phpmyadmin  debconf is a configuration management tool for Debain.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/debconf-intro/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/22/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;23 / 35&nbsp;</span>
+  
+  <a href="/page/24/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

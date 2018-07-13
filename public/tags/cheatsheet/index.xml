@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheatsheet on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/cheatsheet/</link>
+    <description>Recent content in Cheatsheet on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homebrew Commands</title>
+      <link>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</guid>
+      <description>Homebrew is a package manager for MacOS, very much like apt is a package manager for Ubuntu/Debian Linux.
+It lets you install, update, upgrade and uninstall programs via the command line. It also let&amp;rsquo;s you install some Linux programs for your Mac, like wget for example.
+Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatically start and restart with login. For example brew services start mongodb</description>
+    </item>
+    
+    <item>
+      <title>MySQL Commands</title>
+      <link>localhost/hugo-tldr/cheatsheets/cheatsheet_mysql_commands/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/cheatsheet_mysql_commands/</guid>
+      <description>Connect to MySQL mysql -u aamnah -p —h db.mysite.com -P 3306 db_name  OR
+mysql --user=username --password=password --host=host --port=3306 db_name     options values     -u or --user username   -p or --password password   -h or --host host (default: localhost)   -P or --port Port (default: 3306)    Replace _dbname with the name of the database you want to connect to.</description>
+    </item>
+    
+    <item>
+      <title>SQLite Basics</title>
+      <link>localhost/hugo-tldr/databases/sqlite_basics/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sqlite_basics/</guid>
+      <description> sqlite3 - Start SQLite sqlite3 NAME.db - Create database .database - Show Database names and files .tables - List tables .open NAME.db - Open a database file / link it to database  </description>
+    </item>
+    
+    <item>
+      <title>Vim Basics</title>
+      <link>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</link>
+      <pubDate>Wed, 21 May 2014 16:27:11 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</guid>
+      <description>Save file and exit in Vim  To go to insert mode: i
+ To save: [Esc] and zz
+ To quit: [Esc] and :wq
+  Common Vi / Vim File Savings Related Commands (ex mode) You need to press [Esc] key followed by the colon : before typing the following commands:
+ q Quit
+ q! Quit without saving changes i.e. discard changes
+ r fileName Read data from file called fileName</description>
+    </item>
+    
+    <item>
+      <title>MongoDB Basics</title>
+      <link>localhost/hugo-tldr/databases/basics-mongodb/</link>
+      <pubDate>Wed, 21 May 2014 16:24:07 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/basics-mongodb/</guid>
+      <description>Basic Commands  show dbs Show databases
+ use dbName Connect/Select database
+ use dbName Create database (MongoDB doesn&amp;rsquo;t actually create a db until we start storing documents, so although you now have the db bookmarks, it&amp;rsquo;s not actually saved anywhere until we put some data in it. Same goes for collectons )
+ db show the db you are using
+ doc show the document content  NoSQL Database Terms    MongoDB MySQL     Collections Tables   Documents Rows   Fields (key:value pairs) Columns    Adding Data There are two methods.</description>
+    </item>
+    
+    <item>
+      <title>Git Basics</title>
+      <link>localhost/hugo-tldr/git-github/git-basics/</link>
+      <pubDate>Wed, 21 May 2014 16:17:32 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/git-github/git-basics/</guid>
+      <description>Configuration configure username
+git config --global user.name &amp;quot;Your Name&amp;quot;  configure email
+git config --global user.email &amp;quot;me@mydomain.com&amp;quot;  check confgiuration
+git config --list  Repositories Start a git repo
+git init my_new-repo  Start a git repo in existing folder, cd to that folder and..
+git init  Removing the repo = just remove the .git folder, it&amp;rsquo;s the brains
+rm -r my_project/.git  where my_project is the project folder you are removing git from.</description>
+    </item>
+    
+    <item>
+      <title>Amazon RDS &#43; MySQL</title>
+      <link>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</link>
+      <pubDate>Wed, 21 May 2014 16:16:36 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</guid>
+      <description>Connect to Amazon RDS
+mysql -uaamnah --password --host=mysql.hostmarkaz.com  Creating MySQL database
+mysql&amp;gt; CREATE DATABASE databasename ;  Creating MySQL User
+mysql&amp;gt; CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39; ;  Allowing User to Connect
+// grant usage on server so the user can connect
+mysql&amp;gt; GRANT USAGE ON *.* TO &#39;username&#39;@&#39;host&#39; ;  Granting Privileges
+mysql&amp;gt; GRANT ALL PRIVILEGES ON databasename.* TO &#39;username&#39;@&#39;host&#39; ;  CHECK if you can connect to the created database with the user you crteated</description>
+    </item>
+    
+    <item>
+      <title>Vim Basics</title>
+      <link>localhost/hugo-tldr/linux/vim-basics/</link>
+      <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/vim-basics/</guid>
+      <description>Save file and exit in Vim To go to insert mode: a
+To save: [Esc] and zz
+To quit: [Esc] and :wq
+Common Vi / Vim File Savings Related Commands (ex mode) You need to press [Esc] key followed by the colon (:) before typing the following commands:
+q Quit
+q! Quit without saving changes i.e. discard changes
+r fileName Read data from file called fileName
+wq Write and quit (save and exit)</description>
+    </item>
+    
+  </channel>
+</rss>

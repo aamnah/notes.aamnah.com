@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/bash/</link>
+    <description>Recent content in Bash on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Bash] Customizing the Bash Prompt</title>
+      <link>localhost/hugo-tldr/linux/bash-customize-prompt-ps1/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/bash-customize-prompt-ps1/</guid>
+      <description>Customizing your terminal PS1=&amp;quot;[\u @ \h] \w &amp;gt; &amp;quot;  in the bash profile will output this:
+[aamnah @ Serenity] ~/Sandbox/aamnah.com &amp;gt;   \u is your username which in my case is aamnah; \h is the hostname (the name of your machine) which is Serenity \w is the working directory which in my case is ~/Sandbox/aamnah.com  You can add or remove variables to customize what it shows in the terminal.</description>
+    </item>
+    
+    <item>
+      <title>[Bash] Bash PATH Environment Variable</title>
+      <link>localhost/hugo-tldr/linux/bash-path-envirnoment-variable/</link>
+      <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/bash-path-envirnoment-variable/</guid>
+      <description>~ $ echo $PATH /Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aamnah/Dropbox/todo ~ $ cat /etc/paths /usr/local/bin /usr/bin /bin /usr/sbin /sbin PATH=/usr/local/bin:$PATH # prepend a path to your current $PATH  Ubuntu The following command adds (appends) a path to your current path:
+export PATH=$PATH:/my/custom/path  If you want your setup to execute this command every time, there are a number of places where you can put it. When you login, the following scripts will be executed in this order:</description>
+    </item>
+    
+    <item>
+      <title>[Bash] Reload Bash Shell without quitting</title>
+      <link>localhost/hugo-tldr/linux/bash-reload-shell-without-quitting/</link>
+      <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/bash-reload-shell-without-quitting/</guid>
+      <description>You just have to enter the command:
+source ~/.bashrc  or you can use the shorter version of the command:
+. ~/.bashrc  or you could use;
+exec bash  does the same thing. (and easier to remember, at least for me)
+exec command replaces the shell with given program, in our example, it replaces our shell with bash (with the updated configuration files)
+Links  StackOverflow: How do I reload .</description>
+    </item>
+    
+    <item>
+      <title>Bash script to create OCMOD and vQmod templates with a single command</title>
+      <link>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</link>
+      <pubDate>Mon, 16 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</guid>
+      <description>OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older than 2.x, vQmod was the king. With version 2.x Opencart launched it&amp;rsquo;s own modification system to replace the need for installing a separate extension.
+The state Opencart is in right now, you&amp;rsquo;ll find yourself dealing with both vqmod and ocmod scripts. I know i do. So i have written this neat bash script which allows me to type ocmod foo to create a file called foo.</description>
+    </item>
+    
+    <item>
+      <title>Bash script to create Media Queries with Sass</title>
+      <link>localhost/hugo-tldr/bash-scripting/bash_script_create_media_queries_sass/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/bash-scripting/bash_script_create_media_queries_sass/</guid>
+      <description>The following bash script will create a main sass stylesheet style.scss and then create additional sass stylesheets for all devices (mobile.scss, ipad.scss, desktop.scss, wide.scss, iphone.scss) in a folder called media-queries.
+In the end, we will combine stylesheets for all devices into one by importing them into our main style.scss.
+I have divided the code for different devices in their own stylesheets becuase it keeps it is neat and organized and i prefer it that way.</description>
+    </item>
+    
+    <item>
+      <title>Coloring the Mac Terminal</title>
+      <link>localhost/hugo-tldr/linux/mac-terminal-colors-prompt/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/mac-terminal-colors-prompt/</guid>
+      <description>Adding colors to ls and tree Enabling Colors Edit ~/.bash_profile or ~/.profile and add the following two lines:
+export CLICOLOR=1 export LSCOLORS=ExFxCxDxBxegedabagacad  you can use this if you are using a black background:
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx  LSCOLORS=&amp;quot;ExGxBxDxCxEgEdxbxgxcxd&amp;quot; will emulate the default colouring on the linux ls command.
+Making it permanent You can add
+alias ls=&#39;ls -Gp&#39; alias tree=&amp;quot;tree -C&amp;quot;  to your ~/.bash_profile to ALWAYS get colored ls and tree output.</description>
+    </item>
+    
+    <item>
+      <title>Redirection in Linux</title>
+      <link>localhost/hugo-tldr/linux/howto-redirection-in-linux/</link>
+      <pubDate>Thu, 17 Jul 2014 22:34:46 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/howto-redirection-in-linux/</guid>
+      <description>In Linux, everything is a file. Redirection comes in very handy because you can move data from a file to another file, from the resulting output of a command to a file. You can also redirect the output of one command and feed it as an input to another command.
+Output &amp;gt; The &amp;gt; symbol is used for redirecting output of one command to a new file or another command.</description>
+    </item>
+    
+    <item>
+      <title>Tool - Bash Prompt ($PS1) Generator</title>
+      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</link>
+      <pubDate>Fri, 20 Jun 2014 13:15:38 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</guid>
+      <description>This tool will help you generate a custom colorful bash prompt for Unix-like operating systems, including Linux and MacOS. Generate your .bashrc file easily with a drag and drop interface and color options.</description>
+    </item>
+    
+    <item>
+      <title>How to check if a user is root</title>
+      <link>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</link>
+      <pubDate>Thu, 05 Jun 2014 04:02:25 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</guid>
+      <description>The following script will use the whoami command to see what user you are. If you are root, it&amp;rsquo;ll continue running the script. If not, it&amp;rsquo;ll exist the script telling you that you are not root and need to use sudo.
+#!/bin/bash owner=$(who am i | awk &#39;{print $1}&#39;) if [ &amp;quot;$(whoami)&amp;quot; != &#39;root&#39; ]; then echo &amp;quot;You don&#39;t have permission to run $0 as non-root user. Use sudo&amp;quot; exit 1; fi  </description>
+    </item>
+    
+  </channel>
+</rss>

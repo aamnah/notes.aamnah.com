@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/chmod-permission/">[chmod] Permissions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  change permissions on all dirs find . -type d -exec chmod 700 {} \;  change permissions on all files find . -type f -exec chmod 600 {} \;  change permissions recursively use the -R flag
+chmod 755 -R var/  make executable chmod +x file  copy permissions from another file On GNU/Linux chown and chmod have a --reference option
+chown --reference=otherfile thisfile chmod --reference=otherfile thisfile  Example from Magento Enter the following commands to set permissions:
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/chmod-permission/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/crontab-list--edit-crontab-entries/">[crontab] List &amp; Edit crontab entries</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   List crontab entries crontab -l  Edit a crontab crontab -e  Edit root user’s crontab sudo crontab -e  Links  List / Display all cron jobs  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/curl-get-ip-address-external-using-url-endpoints/">[curl] Get IP address (external) using URL endpoints</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  external IP using dig dig +short myip.opendns.com @resolver1.opendns.com  This asks the IP address of myip.opendns.com from the name server resolver1.opendns.com (something you trust), which will return your external IP address.
+curl works over HTTP, and therefore less efficient than the direct DNS query with dig.
+external IP using curl You can curl an endpoint for your external public IP, like so:
+curl http://ipecho.net/plain; echo  There are plenty of services that give you your public IP address by going to a URL.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/curl-get-ip-address-external-using-url-endpoints/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/df-disk-free/">[df] Disk Free</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  df -h  The -h flag is for human readable output, show 30G instead of 30830588.
+Summing numbers in the output of df We can do that by pip the output of the df command to something like awk and have awk sum up the numbers, like so:
+df -lP | awk '{}' df -lP | awk '{do math} END {print result}'  If the device names are long, df splits the output on multiple line to fit it in the normal 80 character long terminal.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/df-disk-free/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/dig-whois-domain-records/">[dig, whois] Domain records</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Registration details whois domain.com will return domain registration details for domain.com, including when it was registered, who registered it, when it was created and who is the contact.
+dig is another useful command. You can use the dig +short to only list values.
+Name Servers whois aamnah.com | grep -i --color &quot;Name Server:&quot;  OR
+dig NS aamnah.com  NS, TXT, MX, SOA, SPF records You can either pass the record as an argument
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/dig-whois-domain-records/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/find-find-and-delete-files/">[find] Find and Delete files</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Delete files found:
+find . -type f -name FILENAME -exec rm -rf {} \;  For example
+find . -type f -name .DS_Store -exec rm -rf {} \;  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/gcp---parentscopy-selected-file-and-recreate-folders/">[gcp --parents] Copy selected files and recreate folder structure</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Why? Makes it easier to copy a default OpenCart extension. Find the files by name and copy them while also creating the required folder structure.
+How Use the cp command with --parents flag.
+cp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/  Won&rsquo;t work on macOS by default, so brew install coreutils first and then use gcp instead of cp
+gcp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/  easypaisa └── admin └── controller └── extension └── payment └── bank_transfer.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/gcp---parentscopy-selected-file-and-recreate-folders/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/grep-egrep-fgrep-search-files-based-on-patterns/">[grep, egrep, fgrep] Search files based on patterns</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  grep grep matches patterns. it uses regex to match patterns
+grep expression file  Example
+grep hello helloworld.txt  will searhc for hello in the file helloworld.txt
+^ ^ matches all the lines that begin with hello. ^ goes at the beginning of the search expression.
+grep ^hello helloworld.txt  $ $ will give you all the lines that end with your search expression. $ goes at the end of the search expression.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/grep-egrep-fgrep-search-files-based-on-patterns/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/grep-sed-find-and-replace-string-in-multiple-files/">[grep, sed] Find and Replace string in multiple files</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  grep -rl --null mangoes/ . | xargs -0 sed -i '' 's/mangoes/oranges/g'  why? Here&rsquo;s the scenario, i exported some files for this blog from a software that used a different image folder structure. Lots of new files with different links. So i needed a way to
+ find all the files spanning multiple directories containing a specific string edit (in place) all them files found in multiple directories and replace it with new string  Basically, what i needed to do was change the path for images directory from resources/file.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/grep-sed-find-and-replace-string-in-multiple-files/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/grep-find-and-delete-files-based-on-string/">[grep] Find and Delete files based on string</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  grep -lZrw xxx-hacker /home/theitali/ | xargs -0 rm -f --  where xxx-hacker is your string and /home/theitali/ is your location.
+ l lists the file name Z is required for the xargs -0 part r is for recursive, try -R if small r doesnt work. w is for searching the whole word  
+  </p>
+
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/32/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;33 / 35&nbsp;</span>
+  
+  <a href="/page/34/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

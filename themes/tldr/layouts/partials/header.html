@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='/css/main.css'> <!-- the / at the beginning is important -->
+  <link rel="stylesheet" href="/prism/prism.css">
+</head>
+<body>
+
+  <!-- Header -->
+<header id="header">
+  <div id="logo">
+    <h1>{{ .Site.Title }}</h1>
+  </div>
+
+  <nav id="main-nav">
+    {{ if .Site.Menus.main }}
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    {{ end }}
+  </nav>
+
+</header>
+
+
+  <!-- Sidebar -->
+  {{ partial "sidebar" . }}
+
+  <!-- Main -->
+  <div id="main">

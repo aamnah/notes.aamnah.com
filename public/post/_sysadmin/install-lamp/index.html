@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Install a LAMP stack &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Install a LAMP stack</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<ul>
+<li>This is for a debian/ubuntu environment</li>
+<li>We&rsquo;re going to install PHP at the end since it&rsquo;s the longest step and has more explanations</li>
+</ul>
+
+<h4 id="setup-details">Setup details</h4>
+
+<ul>
+<li>PHP version 7 or greater</li>
+<li>MySQL version 5.6 or greater</li>
+<li>HTTPS support</li>
+</ul>
+
+<h4 id="getting-ready">Getting ready</h4>
+
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
+</code></pre>
+
+<h2 id="apache">Apache</h2>
+
+<pre><code class="language-bash">sudo apt install apache2 apache2-utils ssl-cert -y
+</code></pre>
+
+<h2 id="mysql">MySQL</h2>
+
+<pre><code class="language-bash">sudo apt install mysql-server mysql-client -y
+</code></pre>
+
+<p>Secure the installation</p>
+
+<pre><code class="language-bash">mysql_secure_installation
+</code></pre>
+
+<h2 id="php">PHP</h2>
+
+<h4 id="add-repo">add repo</h4>
+
+<p>add repo to get the latest version of PHP</p>
+
+<pre><code class="language-bash">sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+</code></pre>
+
+<p>if you get</p>
+
+<pre><code class="language-bash">sudo: add-apt-repository: command not found
+</code></pre>
+
+<p>then install the <code>software-properties-common</code> package. Depending on your Ubuntu version (Precise Pangolin, 12.04 LTS), you may also have to install the <code>python-software-properties</code> package:</p>
+
+<pre><code class="language-bash">sudo apt-get install software-properties-common -y
+</code></pre>
+
+<p>Now update the sources list so it gets packages from the repo we just added</p>
+
+<pre><code>sudo apt update
+</code></pre>
+
+<h4 id="install-php-and-packages">install PHP and packages</h4>
+
+<p>at the time of this writing, the latest PHP version is 7.2</p>
+
+<pre><code class="language-bash">sudo apt install php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php-curl php7.2-curl php7.2-dev php7.2-gd php7.2-intl php7.2-mcrypt php7.2-mbstring php7.2-mysql php7.2-pspell php7.2-recode php7.2-xml php-imagick php-pear php-gettext php7.2-zip -y
+
+</code></pre>
+
+<ul>
+<li>Most of the packages are installed as dependencies for other packages. For example: installing <code>php7.2</code> will also install <code>libapache2-mod-php7.2</code>, <code>php-common</code>, <code>php7.2-cli</code>, <code>php7.2-common</code>, <code>php7.2-json</code>, <code>php7.2-opcache</code>, <code>php7.2-readline</code>. But we&rsquo;re going to manually specify them just in case.</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Packages</th>
+<th>Software that requires them</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>curl</td>
+<td>OpenCart, Magento</td>
+</tr>
+
+<tr>
+<td>gd</td>
+<td>OpenCart, Magento, WordPress</td>
+</tr>
+
+<tr>
+<td>gettext</td>
+<td>phpmyadmin</td>
+</tr>
+
+<tr>
+<td>intl</td>
+<td>Magento</td>
+</tr>
+
+<tr>
+<td>mbstring</td>
+<td>OpenCart, Magento</td>
+</tr>
+
+<tr>
+<td>mcrypt</td>
+<td>OpenCart, Magento</td>
+</tr>
+
+<tr>
+<td>openssl</td>
+<td>Magento</td>
+</tr>
+
+<tr>
+<td>xml</td>
+<td>OpenCart</td>
+</tr>
+
+<tr>
+<td>xsl</td>
+<td>Magento</td>
+</tr>
+
+<tr>
+<td>zip</td>
+<td>OpenCart, Magento</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="magento-extensions">Magento extensions</h6>
+
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install php7.0-gd php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl php7.0-mbstring php7.0-openssl php7.0-zip
+sudo service apache2 restart
+</code></pre>
+
+<h4 id="enable-stuff">Enable stuff</h4>
+
+<ul>
+<li>The <code>mod_rewrite</code> Apache module is required by WordPress and OpenCart. It is usually required by any software that uses pretty/SEO/custom URLs.</li>
+</ul>
+
+<pre><code class="language-bash">a2enmod rewrite
+</code></pre>
+
+<pre><code class="language-bash">phpenmod -v 7.2 mcrypt
+</code></pre>
+
+<h2 id="phpmyadmin">PHPMyAdmin</h2>
+
+<pre><code class="language-bash">sudo apt install phpmyadmin -y
+</code></pre>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><p><a href="https://github.com/aamnah/bash-scripts/blob/master/install_lamp_debian.sh">bash script</a></p></li>
+
+<li><p><a href="https://wordpress.org/about/requirements/">System Requirements: WordPress</a></p></li>
+
+<li><p><a href="http://docs.opencart.com/requirements/">System Requirements: OpenCart</a></p></li>
+
+<li><p><a href="http://docs.magento.com/m1/ce/user_guide/magento/system-requirements.html">System Requirements: Magento</a></p></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_sysadmin/install-ioncube-loader/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_sysadmin/install-ioncube-loader/">Install ionCube Loader on Ubuntu 16.04</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_linux/2014-08-26-installing-ruby-on-ubuntu/">Install Ruby on Ubuntu</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_linux/2014-08-26-installing-ruby-on-ubuntu/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheatsheets on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/cheatsheets/</link>
+    <description>Recent content in Cheatsheets on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/cheatsheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homebrew Commands</title>
+      <link>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</guid>
+      <description>Homebrew is a package manager for MacOS, very much like apt is a package manager for Ubuntu/Debian Linux.
+It lets you install, update, upgrade and uninstall programs via the command line. It also let&amp;rsquo;s you install some Linux programs for your Mac, like wget for example.
+Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatically start and restart with login. For example brew services start mongodb</description>
+    </item>
+    
+    <item>
+      <title>MySQL Commands</title>
+      <link>localhost/hugo-tldr/cheatsheets/cheatsheet_mysql_commands/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/cheatsheet_mysql_commands/</guid>
+      <description>Connect to MySQL mysql -u aamnah -p —h db.mysite.com -P 3306 db_name  OR
+mysql --user=username --password=password --host=host --port=3306 db_name     options values     -u or --user username   -p or --password password   -h or --host host (default: localhost)   -P or --port Port (default: 3306)    Replace _dbname with the name of the database you want to connect to.</description>
+    </item>
+    
+    <item>
+      <title>Amazon RDS &#43; MySQL</title>
+      <link>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</link>
+      <pubDate>Wed, 21 May 2014 16:16:36 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</guid>
+      <description>Connect to Amazon RDS
+mysql -uaamnah --password --host=mysql.hostmarkaz.com  Creating MySQL database
+mysql&amp;gt; CREATE DATABASE databasename ;  Creating MySQL User
+mysql&amp;gt; CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39; ;  Allowing User to Connect
+// grant usage on server so the user can connect
+mysql&amp;gt; GRANT USAGE ON *.* TO &#39;username&#39;@&#39;host&#39; ;  Granting Privileges
+mysql&amp;gt; GRANT ALL PRIVILEGES ON databasename.* TO &#39;username&#39;@&#39;host&#39; ;  CHECK if you can connect to the created database with the user you crteated</description>
+    </item>
+    
+  </channel>
+</rss>

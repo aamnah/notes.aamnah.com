@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Free on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/free/</link>
+    <description>Recent content in Free on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 21 Jun 2014 05:45:48 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/free/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tool - Explain Shell</title>
+      <link>localhost/hugo-tldr/resources/2014-06-21-rsc-tool-explain-shell/</link>
+      <pubDate>Sat, 21 Jun 2014 05:45:48 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-21-rsc-tool-explain-shell/</guid>
+      <description>Use ExplainShell to understand Linux commands. It’s an easy way to see what a unix command does from a web interface. The coolest and most useful tool for understanding commands and their usage.</description>
+    </item>
+    
+    <item>
+      <title>Book - Beyond Linux From Scratch (BLFS)</title>
+      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</link>
+      <pubDate>Fri, 20 Jun 2014 13:08:27 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</guid>
+      <description>Read Online  This book follows on from the Linux From Scratch book. It introduces and guides the reader through additions to the system including networking, graphical interfaces, sound support, and printer and scanner support.</description>
+    </item>
+    
+    <item>
+      <title>Book - Linux From Scratch (LFS)</title>
+      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-linux-from-scratch/</link>
+      <pubDate>Fri, 20 Jun 2014 13:06:09 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-linux-from-scratch/</guid>
+      <description>Read Online Download PDF  Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own customized Linux system entirely from source.</description>
+    </item>
+    
+    <item>
+      <title>Book - Hardened Linux From Scratch (HLFS)</title>
+      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</guid>
+      <description>Hardened Linux From Scratch (HLFS) is a project that provides you with step-by-step instructions for building your own customized and hardened Linux system entirely from source. Based on LFS, this project will incorporate parts of BLFS as well. The main differences from these other projects will be the amount of text dealing with security configuration issues as well as patching or substituting many of the packages used for improved security.</description>
+    </item>
+    
+    <item>
+      <title>Book - Python for You and Me</title>
+      <link>localhost/hugo-tldr/resources/2014-06-24-rsc-book-python-for-you-and-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-24-rsc-book-python-for-you-and-me/</guid>
+      <description>pym is a book to learn Python. It targets people who are completely new to the language. Want to switch from Bash? Want to learn serious scripting language? Try a simple &amp;amp; free book to learn Python programming language for new.</description>
+    </item>
+    
+    <item>
+      <title>Book - The Linux Command Line</title>
+      <link>localhost/hugo-tldr/resources/the-linux-command-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/the-linux-command-line/</guid>
+      <description>Fantastic book for new users/devops/sysadmins</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Commands on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/commands/</link>
+    <description>Recent content in Commands on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 12 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/commands/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Select files with multiple different file extensions</title>
+      <link>localhost/hugo-tldr/commands/select-multiple-file-extensions/</link>
+      <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/select-multiple-file-extensions/</guid>
+      <description>tl;dr # *.{a,b,c,d} ls -alh *.{md,json,html,xml} # list all files ending in given extensions find . -type f *.{html,xml,php} # find all files ending in given extensions find . -type f *.{html,xml,php} -exec rm -rf {} \; # find and delete all files ending in given extensions  Find/List files find . -type f *.{html,xml,php}  will find all (*) files (-type f) in the current directory (.) ending in .</description>
+    </item>
+    
+    <item>
+      <title>[gcp --parents] Copy selected files and recreate folder structure</title>
+      <link>localhost/hugo-tldr/commands/copy-files-recreate-folder-structure/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/copy-files-recreate-folder-structure/</guid>
+      <description>Why? Makes it easier to copy a default OpenCart extension. Find the files by name and copy them while also creating the required folder structure.
+How Use the cp command with --parents flag.
+cp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/  Won&amp;rsquo;t work on macOS by default, so brew install coreutils first and then use gcp instead of cp
+gcp --parents admin/controller/extension/payment/bank_transfer.php easypaisa/  easypaisa └── admin └── controller └── extension └── payment └── bank_transfer.</description>
+    </item>
+    
+    <item>
+      <title>Change Default Terminal Editor</title>
+      <link>localhost/hugo-tldr/commands/change-terminal-editor/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/change-terminal-editor/</guid>
+      <description>export EDITOR=nano  OR
+echo export EDITOR=nano &amp;gt;&amp;gt; /etc/profile  OR
+EDITOR=nano  Don&amp;rsquo;t foreget to source ~/.bash_profile or exec bash for the change to take effect.
+Source</description>
+    </item>
+    
+    <item>
+      <title>[curl] run a script remotely from web</title>
+      <link>localhost/hugo-tldr/commands/curl-run-a-script-remotely-from-the-web/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/curl-run-a-script-remotely-from-the-web/</guid>
+      <description>curl -s http://scriptLocation.com | bash -s  bash -s flag takes stdin
+You can also do:
+curl -s http://scriptLocation.com | sh -s  </description>
+    </item>
+    
+    <item>
+      <title>[cut] cut, print selected parts of a file</title>
+      <link>localhost/hugo-tldr/commands/cut/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/cut/</guid>
+      <description> Example grab all the usernames in /etc/passwd
+cut -f1 -d: /etc/passwd  where field f1 is the first occurrence before delimiter :. Since the first occurrence is the username, the command above will grab all the usernames.
+cut -f7 -d: /etc/passwd  Field 7 is the last part in /etc/passwd, i.e, the shell associated with each account.
+-d, delimiter -f, field  </description>
+    </item>
+    
+    <item>
+      <title>[dig, whois] Domain records</title>
+      <link>localhost/hugo-tldr/commands/dig-whois-domain-records/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/dig-whois-domain-records/</guid>
+      <description>Registration details whois domain.com will return domain registration details for domain.com, including when it was registered, who registered it, when it was created and who is the contact.
+dig is another useful command. You can use the dig +short to only list values.
+Name Servers whois aamnah.com | grep -i --color &amp;quot;Name Server:&amp;quot;  OR
+dig NS aamnah.com  NS, TXT, MX, SOA, SPF records You can either pass the record as an argument</description>
+    </item>
+    
+    <item>
+      <title>[dig] Domain Information Groper</title>
+      <link>localhost/hugo-tldr/commands/dig-domain-information-groper/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/dig-domain-information-groper/</guid>
+      <description>Getting domain record details (NS, MX, TXT, SOA, SPF, A, AAAA, any) By default, dig only provides you wih an A record, i.e. an IP. To get details about a specific record, you need to pass it as an option with dig, like so:
+dig NS aamnah.com dig aamnah.com NS dig MX aamnah.com  dig NS aamnah.com is the same as dig aamnah.com NS. It doesn&amp;rsquo;t matter if you pass the option in the beginnnig or at the end.</description>
+    </item>
+    
+    <item>
+      <title>[last] Find out login details</title>
+      <link>localhost/hugo-tldr/commands/last-login-details/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/last-login-details/</guid>
+      <description>We can use the last command to find out who logged in to our computer, when, and in some cases over the network, where (IP addresses). You can also see if the are still logged in.
+last on an Ubuntu system (vortex) last on an Linux Academy lab server last on Mac OS X El Capitan </description>
+    </item>
+    
+    <item>
+      <title>[lsusb] List USB devices</title>
+      <link>localhost/hugo-tldr/commands/lsusb-list-usb-devices-on-linux/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/lsusb-list-usb-devices-on-linux/</guid>
+      <description>lsusb  The Mac equivalent 1 is
+system_profiler SPUSBDataType  For a visual alternative, the steps are:
+ click the apple in the top left corner choose About This Mac click on the More Info… button to access the System Information application click on the System Report… button under Hardware group, there’s the USB option that we were searching for  </description>
+    </item>
+    
+    <item>
+      <title>[grep, egrep, fgrep] Search files based on patterns</title>
+      <link>localhost/hugo-tldr/commands/grep-egrep-fgrep-search-files-based-on-patterns/</link>
+      <pubDate>Sun, 19 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/grep-egrep-fgrep-search-files-based-on-patterns/</guid>
+      <description>grep grep matches patterns. it uses regex to match patterns
+grep expression file  Example
+grep hello helloworld.txt  will searhc for hello in the file helloworld.txt
+^ ^ matches all the lines that begin with hello. ^ goes at the beginning of the search expression.
+grep ^hello helloworld.txt  $ $ will give you all the lines that end with your search expression. $ goes at the end of the search expression.</description>
+    </item>
+    
+    <item>
+      <title>Doomsday Commands</title>
+      <link>localhost/hugo-tldr/commands/doomsday-commands/</link>
+      <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/doomsday-commands/</guid>
+      <description>Delete everything Use these to annihilate your computer.
+sudo rm -rf / --no-preserve-root sudo rm -rf /*  Deletes everything, rm rf&amp;rsquo;s the root directory.
+sudo shred dev/sda # fill disk with zeroes dd if=/dev/zero of=/dev/sda  completely wipes all data on a drive by overwriting the whole thing, i.e. write zeros (or pseudorandom numbers) over the entire drive
+dd has a nickname as Disk Destroyer as it&amp;rsquo;s very easy to blank the wrong device :)</description>
+    </item>
+    
+    <item>
+      <title>[SimpleHTTPServer] Python HTTP server</title>
+      <link>localhost/hugo-tldr/commands/simple-http-server-python/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/simple-http-server-python/</guid>
+      <description> Run an HTTP server from any directory
+python -m SimpleHTTPServer 8000  FYI, PHP also comes with a built-in server
+php -S localhost:8080 -t ./public/  Links  StackExchange http://www.slimframework.com/docs/start/web-servers.html  </description>
+    </item>
+    
+    <item>
+      <title>[find] Find and Delete files</title>
+      <link>localhost/hugo-tldr/commands/find-find-and-delete-files/</link>
+      <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/find-find-and-delete-files/</guid>
+      <description>Delete files found:
+find . -type f -name FILENAME -exec rm -rf {} \;  For example
+find . -type f -name .DS_Store -exec rm -rf {} \;  </description>
+    </item>
+    
+    <item>
+      <title>[grep, sed] Find and Replace string in multiple files</title>
+      <link>localhost/hugo-tldr/commands/grep-sed-find-and-replace-string-in-multiple-files/</link>
+      <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/grep-sed-find-and-replace-string-in-multiple-files/</guid>
+      <description>grep -rl --null mangoes/ . | xargs -0 sed -i &#39;&#39; &#39;s/mangoes/oranges/g&#39;  why? Here&amp;rsquo;s the scenario, i exported some files for this blog from a software that used a different image folder structure. Lots of new files with different links. So i needed a way to
+ find all the files spanning multiple directories containing a specific string edit (in place) all them files found in multiple directories and replace it with new string  Basically, what i needed to do was change the path for images directory from resources/file.</description>
+    </item>
+    
+    <item>
+      <title>Pipes |</title>
+      <link>localhost/hugo-tldr/commands/pipes/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/pipes/</guid>
+      <description>Pipe | Pipes the output of one command as the input of another.
+Let&amp;rsquo;s you put commands together
+grep commands are very commonly used with piped input.
+For example:
+ls /etc/ | grep cron  You can use multiple pipes
+ls /ect/ | grep cron | grep daily  Another example is:
+curl -s http://link.com | bash  will pass in the output of the curl command as the input of the bash command, which basically means you can now run commands off of internet scripts/files.</description>
+    </item>
+    
+    <item>
+      <title>Redirects (&gt;, &gt;&gt;, 2&gt;, 2&gt;&amp;1)</title>
+      <link>localhost/hugo-tldr/commands/redirects/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/redirects/</guid>
+      <description>&amp;gt; write/overwrite Write (will overwrite existing file if any, otherwise will create a new one)
+echo &amp;quot;Bonjour la monde!&amp;quot; &amp;gt; helloworld.txt # write the output of ls in /etc/ to file.txt ls /etc/ &amp;gt; file.txt  &amp;gt; will write the stdout.
+&amp;gt;&amp;gt; append Append (will append at the end of existing file content, will create file if file doesn&amp;rsquo;t exist)
+echo &amp;quot;Bonjour la monde!&amp;quot; &amp;gt;&amp;gt; helloworld.txt echo &amp;quot;alias dl=&#39;cd /Users/aamnah/Downloads&#39;&amp;quot; &amp;gt;&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Streams (stderr, stdin, stdout)</title>
+      <link>localhost/hugo-tldr/commands/streams-stderr-stdin-stdout/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/streams-stderr-stdin-stdout/</guid>
+      <description>stdin Standard In. Whatever is entered into the bash terminal
+stdout Standard Out. Whatever output was given back by the terminal.
+stderr Standard Error. Whatever error was given back by the terminal
+Redirect stderr to /dev/null You can redirect the stderr to /dev/null to get rid of it. You don&amp;rsquo;t care if there are errors, you don&amp;rsquo;t want to see those errors, you don&amp;rsquo;t want to log those errors, you just want them gone.</description>
+    </item>
+    
+    <item>
+      <title>[grep] Find and Delete files based on string</title>
+      <link>localhost/hugo-tldr/commands/grep-find-and-delete-files-based-on-string/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/grep-find-and-delete-files-based-on-string/</guid>
+      <description>grep -lZrw xxx-hacker /home/theitali/ | xargs -0 rm -f --  where xxx-hacker is your string and /home/theitali/ is your location.
+ l lists the file name Z is required for the xargs -0 part r is for recursive, try -R if small r doesnt work. w is for searching the whole word  </description>
+    </item>
+    
+    <item>
+      <title>[curl] Get IP address (external) using URL endpoints</title>
+      <link>localhost/hugo-tldr/commands/curl/</link>
+      <pubDate>Wed, 02 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/curl/</guid>
+      <description>external IP using dig dig +short myip.opendns.com @resolver1.opendns.com  This asks the IP address of myip.opendns.com from the name server resolver1.opendns.com (something you trust), which will return your external IP address.
+curl works over HTTP, and therefore less efficient than the direct DNS query with dig.
+external IP using curl You can curl an endpoint for your external public IP, like so:
+curl http://ipecho.net/plain; echo  There are plenty of services that give you your public IP address by going to a URL.</description>
+    </item>
+    
+    <item>
+      <title>[ifconfig] Get IP address of your machine (internal &amp; external)</title>
+      <link>localhost/hugo-tldr/commands/ifconfig-get-internal-external-ip-address/</link>
+      <pubDate>Wed, 02 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/ifconfig-get-internal-external-ip-address/</guid>
+      <description>NOTE: Much simpler is hostname -I or hostname --all-ip-addresses which gives you all addresses for the host, IPV4s as well as IPV6s. Check hostname -h for more nifty details  ifconfig is for configuring a network interface. (Interface Configuration)
+Get IP by interface (eth, wlan, lo etc) ifconfig $1 | grep &amp;quot;inet addr&amp;quot; | awk -F: &#39;{print $2}&#39; | awk &#39;{print $1}&#39;  grep prints lines mathcing a pattern awk is a pattern scanning and processing language.</description>
+    </item>
+    
+    <item>
+      <title>[apt] Packages</title>
+      <link>localhost/hugo-tldr/commands/apt/</link>
+      <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/apt/</guid>
+      <description>To get a list of packages installed locally do this in your terminal:
+dpkg --get-selections | grep -v deinstall  (The -v tag &amp;ldquo;inverts&amp;rdquo; grep to return non-matching lines)
+To get a list of a specific package installed:
+dpkg --get-selections | grep postgres  To save that list to a text file called packages on your desktop do this in your terminal:
+dpkg --get-selections | grep -v deinstall &amp;gt; ~/Desktop/packages  Alternatively, simply use</description>
+    </item>
+    
+    <item>
+      <title>[scp, sftp] Transfer files between systems</title>
+      <link>localhost/hugo-tldr/commands/scp-sftp-transferring-files-between-systems/</link>
+      <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/scp-sftp-transferring-files-between-systems/</guid>
+      <description>scp: Secure Copy scp fileName user@remoteServer:Location  [scp] Secure Copy for more on scp
+SFTP: Secure FTP By default, if we have openssh installed, we can use sftp.
+Connect to a remote machine:
+sftp user@remoteServer  Once you have connected to a remote systems, you can copy files using put
+For example:
+sftp&amp;gt; put myFile  will put myFile on your local machine to the machine you are connected to.</description>
+    </item>
+    
+    <item>
+      <title>[scp] Secure Copy</title>
+      <link>localhost/hugo-tldr/commands/scp-secure-copy/</link>
+      <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/scp-secure-copy/</guid>
+      <description>Basic syntax is this:
+scp fileToCopy user@remoteServer:Location  SCP using port number: use the -P (capital P) flag for port. -p (small p) is reserved for rsync time.
+ scp -P 2200 /file-to-copy user@server.com:/location-to-copy-to  Passing an authentication key: scp -P 2200 -i ~/.ssh/rsa_key /file-to-copy user@server.com:/location-to-copy-to  If you have saved ssh keys already and there is only one key for the server you are copying to, scp much like ssh will automatically pick up the key and you will not have to pass the -i argument.</description>
+    </item>
+    
+    <item>
+      <title>[crontab] List &amp; Edit crontab entries</title>
+      <link>localhost/hugo-tldr/commands/crontab/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/crontab/</guid>
+      <description> List crontab entries crontab -l  Edit a crontab crontab -e  Edit root user’s crontab sudo crontab -e  Links  List / Display all cron jobs  </description>
+    </item>
+    
+    <item>
+      <title>[tar] Compressed Archives</title>
+      <link>localhost/hugo-tldr/commands/tar-compressed-archives/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/tar-compressed-archives/</guid>
+      <description>tar creates a compressed archive. the file extension of the resulting archive is .tar and the tar archives are called tarballs..
+ GNU ‘tar’ saves many files together into a single tape or disk archive, and can restore individual files from the archive.
+ A .tar file is an archive, but it&amp;rsquo;s not compressed. .tar.gz is a an archive that is compressed.
+Flags  c is for create, &amp;ndash;create a new archive v is for &amp;ndash;verbose, verbosely list files processed, list out files as they are added to the archive f is for &amp;ndash;file=ARCHIVE, use archive file or device ARCHIVE, basically, specify the tar file that you wanna create.</description>
+    </item>
+    
+    <item>
+      <title>[df] Disk Free</title>
+      <link>localhost/hugo-tldr/commands/df-disk-free/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/df-disk-free/</guid>
+      <description>df -h  The -h flag is for human readable output, show 30G instead of 30830588.
+Summing numbers in the output of df We can do that by pip the output of the df command to something like awk and have awk sum up the numbers, like so:
+df -lP | awk &#39;{}&#39; df -lP | awk &#39;{do math} END {print result}&#39;  If the device names are long, df splits the output on multiple line to fit it in the normal 80 character long terminal.</description>
+    </item>
+    
+    <item>
+      <title>[du] Disk Space Usage</title>
+      <link>localhost/hugo-tldr/commands/du-disk-space-usage/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/du-disk-space-usage/</guid>
+      <description>Examples check how much space is taken by files of a certain type Say you want to find out how much space in total the .tar.gz backup files are taking, you can do so with the following command. (note that it will not check subdirectories)
+ -h, --human-readable prints sizes in human readable format (e.g. 261M instead of 266692) The -c or --total size produces a grand total  # find out space taken by tarballs in current dir du -h *.</description>
+    </item>
+    
+    <item>
+      <title>[wget, grep, nano, ps, ssh] Top 5 Commands</title>
+      <link>localhost/hugo-tldr/commands/wget-grep-nano-ps-ssh-top-5-commands/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/wget-grep-nano-ps-ssh-top-5-commands/</guid>
+      <description>Source: [Youtube] Nixie Pixel: Top 5 Command Line Essentials - BASH Basics
+5. wget download files wget -O filename http://url.com  -O is for --output-document. This flag let&amp;rsquo;s you specify the file to which save in/as. an output document
+-O file --output-document=file   Use of -O is not intended to mean simply &amp;ldquo;use the name file instead of the one in the URL;&amp;rdquo; rather, it is analogous to shell redirection: wget -O file http://foo is intended to work like wget -O - http://foo &amp;gt; file; file will be truncated immediately, and all downloaded content will be written there.</description>
+    </item>
+    
+    <item>
+      <title>[chmod] Permissions</title>
+      <link>localhost/hugo-tldr/commands/chmod/</link>
+      <pubDate>Thu, 19 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/chmod/</guid>
+      <description>change permissions on all dirs find . -type d -exec chmod 700 {} \;  change permissions on all files find . -type f -exec chmod 600 {} \;  change permissions recursively use the -R flag
+chmod 755 -R var/  make executable chmod +x file  copy permissions from another file On GNU/Linux chown and chmod have a --reference option
+chown --reference=otherfile thisfile chmod --reference=otherfile thisfile  Example from Magento Enter the following commands to set permissions:</description>
+    </item>
+    
+    <item>
+      <title>Devil&#39;s Commands</title>
+      <link>localhost/hugo-tldr/commands/devils-commands/</link>
+      <pubDate>Sat, 31 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/devils-commands/</guid>
+      <description>List of dangerous shell commands It is not uncommon to see trolls tricking new Linux/Unix users run commands as a joke. These commands can destroy users data. Here are a few:
+ rm -rf / :(){ :|: &amp;amp; };: mkfs /dev/sda1 cat /dev/zero &amp;gt; /dev/sda1 wget url -O - | sh &amp;ndash; curl url | sh dd if=/dev/zero of=/dev/sda2 echo 726d202d7266202a | xxd -r -p dd if=/dev/random of=/dev/port echo 1 &amp;gt; /proc/sys/kernel/panic cat /dev/port or cat /dev/mem cat /dev/zero &amp;gt; /dev/mem sudo chmod -r 444 / or sudo chown -r nobody:nobody / last | reboot  Explanations  rm -rf / Doesn&amp;rsquo;t work anymore.</description>
+    </item>
+    
+    <item>
+      <title>[wget] How to store an entire website offline</title>
+      <link>localhost/hugo-tldr/commands/wget-getwebsite---download-an-entire-website-offline/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/wget-getwebsite---download-an-entire-website-offline/</guid>
+      <description>wget --random-wait -r -p -e robots=off -U mozilla http://yoursite.com  OR, as a bash function added to ~/.bash_profile (MacOS) or ~/.bashrc (Linux)
+# Download an entire website # -p --page-requisites: get all the elements that compose the page (images, CSS and so on) # -e robots=off you don&#39;t want wget to obey by the robots.txt file # -U mozilla as your browsers identity. # --random-wait to let wget chose a random number of seconds to wait, avoid get into black list.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/commands/twitchinstallarchlinux---chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/twitchinstallarchlinux---chat/</guid>
+      <description>I used nmap to track packets and log them into a db. then i made a little program to visualize it with colors
+vitimiti: I want to run loadkeys de 7:26hitlurcat: somebody should switch the region to Russia and install myBB 7:26vitimiti: Just to piss people off 7:26HMage: Vitimiti now that&amp;rsquo;s evil 7:26vitimiti: Yes XDjackieXD: @Vitimiti this would screw up the chat input system 7:26HMage: I applaud you :D 7:27vitimiti: I was thinking about loadkeys es but Spanish keyboard is around many countries 7:27HMage: loadkeys ru</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/commands/vim-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/vim-basics/</guid>
+      <description>Vim Basics Save file and exit in Vim To go to insert mode: i To save: [Esc] and zz To quit: [Esc] and :wq
+Common Vi / Vim File Savings Related Commands (ex mode) You need to press [Esc] key followed by the colon (:) before typing the following commands:
+q Quit
+q! Quit without saving changes i.e. discard changes
+r fileName Read data from file called fileName
+wq Write and quit (save and exit)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/commands/enable-cross-site-scripting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/commands/enable-cross-site-scripting/</guid>
+      <description>Quit Chrome and all of it&amp;rsquo;s processes. Open the browser via the Terminal using the following command.
+Mac open -a Google\ Chrome --args --disable-web-security  #Linux
+google-chrome --disable-web-security  Also if you&amp;rsquo;re trying to access local files for dev purposes like AJAX or JSON, you can use this flag too.
+-–allow-file-access-from-files  Windows For Windows go into the command prompt and go into the folder where Chrome.exe is and type</description>
+    </item>
+    
+  </channel>
+</rss>

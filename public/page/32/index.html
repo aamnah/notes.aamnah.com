@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/ajax-working-with-apis-using-ajax-and-json/">Working with APIs using AJAX and JSON</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Code: $(document).ready(function() { }); // end ready  Explanation: $(document).ready(function() { });  tells the function to wait until the HTML for the page has completely loaded before running the JavaScript code placed inside it.
+making an ajax request when a button is pushed $.getJSON(flickerAPI, flickrOptions, displayPhotos); .getJSON(url, data, callback);  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_workflow/2014-09-14-grunt/">Working with Grunt</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Installation Node.js and NPM Install Node by downloading the package from their website and running the install. You can also install it on a Mac via homebrew (Mac) by running the command
+brew install node  NPM (Node Package Manager) comes with Node by default.
+Grunt CLI Install Grunt CLI:
+npm install -g grunt-cli  (the -g means to install it globally on your OS so that you can use the grunt command where ever you are on your system).
+  </p>
+
+  
+  <footer>
+    <a href="/post/_workflow/2014-09-14-grunt/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    
+  
+    <article>
+  <header>
+    <h2><a href="/post/_workflow/2015-01-19-grunt-task-page-website-speed-optimization-minify-concat/">Writing a Grunt Task for Website Speed Optimization</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This Grunt task will be able to take care of the following:
+ Minifying CSS Minifying JS Minifying HTML Concatentaing multiple JS files Concatenating multiple CSS files Optimizing Images  NOTE: ImageOptim is wayyyy better than imagemin. Imageoptim &lsquo;Saved 3MB out of 24.9MB. 15.4% per file on average (up to 84.7%)&rsquo; where imagemin did &lsquo;Minified 368 images (saved 0 B)&rsquo; for the same files. The only issue is, Image optim works on your mac and opens imageoptim installed on it to compress images.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_workflow/2015-01-19-grunt-task-page-website-speed-optimization-minify-concat/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2015-01-19-yum-transaction-check-error-package-conflict/">Yum Transaction Check Errors &amp;amp; Dependencies/Package Conflicts</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Transaction Check Error: file /etc/pki/tls/certs/ca-bundle.crt from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686 file /usr/share/man/man1/ca.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686 file /usr/share/man/man1/req.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686 file /usr/share/man/man1/x509.1ssl.gz from install of openssl-0.9.8e-32.el5_11.x86_64 conflicts with file from package openssl-0.9.8e-26.el5_9.1.i686  This can happen if:
+ package architecture is different (32-bit vs 64-bit) package source/repo is different you have a newer package installed while the repo you are trying to &lsquo;update&rsquo; from has an older version package already installed is 32-bit but 32-bit packages are excluded in /etc/yum.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2015-01-19-yum-transaction-check-error-package-conflict/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/bash-path-environment-variable/">[Bash] Bash PATH Environment Variable</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/bash">bash</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  ~ $ echo $PATH /Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aamnah/Dropbox/todo ~ $ cat /etc/paths /usr/local/bin /usr/bin /bin /usr/sbin /sbin PATH=/usr/local/bin:$PATH # prepend a path to your current $PATH  Ubuntu The following command adds (appends) a path to your current path:
+export PATH=$PATH:/my/custom/path  If you want your setup to execute this command every time, there are a number of places where you can put it. When you login, the following scripts will be executed in this order:
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/bash-path-environment-variable/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/customizing-the-bash-prompt/">[Bash] Customizing the Bash Prompt</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/bash">bash</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Customizing your terminal PS1=&quot;[\u @ \h] \w &gt; &quot;  in the bash profile will output this:
+[aamnah @ Serenity] ~/Sandbox/aamnah.com &gt;   \u is your username which in my case is aamnah; \h is the hostname (the name of your machine) which is Serenity \w is the working directory which in my case is ~/Sandbox/aamnah.com  You can add or remove variables to customize what it shows in the terminal.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/customizing-the-bash-prompt/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/reload-bash-shell-without-quitting/">[Bash] Reload Bash Shell without quitting</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/bash">bash</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  You just have to enter the command:
+source ~/.bashrc  or you can use the shorter version of the command:
+. ~/.bashrc  or you could use;
+exec bash  does the same thing. (and easier to remember, at least for me)
+exec command replaces the shell with given program, in our example, it replaces our shell with bash (with the updated configuration files)
+Links  StackOverflow: How do I reload .
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/reload-bash-shell-without-quitting/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/simplehttpserver-python-http-server/">[SimpleHTTPServer] Python HTTP server</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Run an HTTP server from any directory
+python -m SimpleHTTPServer 8000  FYI, PHP also comes with a built-in server
+php -S localhost:8080 -t ./public/  Links  StackExchange http://www.slimframework.com/docs/start/web-servers.html  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/apt-packages/">[apt] Packages</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  To get a list of packages installed locally do this in your terminal:
+dpkg --get-selections | grep -v deinstall  (The -v tag &ldquo;inverts&rdquo; grep to return non-matching lines)
+To get a list of a specific package installed:
+dpkg --get-selections | grep postgres  To save that list to a text file called packages on your desktop do this in your terminal:
+dpkg --get-selections | grep -v deinstall &gt; ~/Desktop/packages  Alternatively, simply use
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/apt-packages/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/31/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;32 / 35&nbsp;</span>
+  
+  <a href="/page/33/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

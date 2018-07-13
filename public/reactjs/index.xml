@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reactjs on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/reactjs/</link>
+    <description>Recent content in Reactjs on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 30 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/reactjs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React Router push link</title>
+      <link>localhost/hugo-tldr/reactjs/react-router-push-link/</link>
+      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/react-router-push-link/</guid>
+      <description>how to programmatically change the link, when enter is pressed, and pass a quaery param
+using this.context.router.push</description>
+    </item>
+    
+    <item>
+      <title>Input Fields</title>
+      <link>localhost/hugo-tldr/reactjs/input-fields/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/input-fields/</guid>
+      <description>Here&amp;rsquo;s the template of our React component
+import React from &#39;react&#39; import ReactDOM from &#39;react-dom&#39; class MyComponet extends React.Component { constructor (props) { super(props) this.state = {} } // stuff goes here } ReactDOM.render( &amp;lt;MyComponent /&amp;gt;, document.querySelector(&#39;#root&#39;) )  You can get the value of any input field with e.target.value
+handleChange (e) { console.info(e.target.value) } render () { return ( &amp;lt;input type=&#39;text&#39; onChange(this.handleChange)/&amp;gt; ) }  Once you have the value, you can update React state with this.</description>
+    </item>
+    
+    <item>
+      <title>React-Router</title>
+      <link>localhost/hugo-tldr/reactjs/react-router/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/react-router/</guid>
+      <description>Programmatic Navigation  go to a link  // if using react-router (v2+) import { browserHistory } from &#39;react-router&#39; browserHistory.push(&#39;/some/path&#39;) // if using newer react-router API inside components (v3+) this.props.history.push(&#39;/some/path&#39;) // if using react-router-redux import { push } from &#39;react-router-redux&#39; this.props.dispatch(push(&#39;/some/path&#39;))   go to a link on button click  &amp;lt;button onClick={() =&amp;gt; browserHistory.push(&#39;my/link/&#39;)} &amp;gt; Let&#39;s go! &amp;lt;/button&amp;gt;   got to a link and send URL params, query, state whatever along  &amp;lt;button onClick={() =&amp;gt; browserHistory.</description>
+    </item>
+    
+    <item>
+      <title>Component Styles</title>
+      <link>localhost/hugo-tldr/reactjs/component-styles/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/component-styles/</guid>
+      <description>Components  ES5 createClass Component ES6 Class Components ES5 Stateless Component ES6 Stateless Component  ES5 createClass Component var HelloWorld = React.createClass({ render: function () { return &amp;lt;h1&amp;gt;Hello World!M/h1&amp;gt;; } });  ES6 Class Components import React, { Component } from &amp;quot;react&amp;quot;; export default class Login extends Component { render() { return ( &amp;lt;div&amp;gt; Login Form will go here &amp;lt;/div&amp;gt; ) } }   No autobind, requires explicit bind with ES6 class  // Works fine with ES5 createClass &amp;lt;div onClick={ this.</description>
+    </item>
+    
+    <item>
+      <title>JSX file extension</title>
+      <link>localhost/hugo-tldr/reactjs/jsx-file-extension/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/jsx-file-extension/</guid>
+      <description> Using .jsx file extensions When using .jsx file extension, you need to specify the extension in file imports as well. For example:
+import App from &#39;./components/App.jsx&#39;  When using .js file extension, it just knows it&amp;rsquo;s javascript and imports look a bit neater, like so:
+import App from &#39;./components/App&#39;  </description>
+    </item>
+    
+    <item>
+      <title>ReactRouter</title>
+      <link>localhost/hugo-tldr/reactjs/reactrouter/</link>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/reactrouter/</guid>
+      <description>React Router ReactDOM.render(( &amp;lt;Router history={browserHistory}&amp;gt; &amp;lt;Route path=&#39;/&#39; component={Users} /&amp;gt; &amp;lt;Route path=&#39;/other&#39; component={Other} /&amp;gt; &amp;lt;/Router&amp;gt; ), document.getElementById(&#39;root&#39;))  history is required.
+What we did above is we mounted a Router to the DOM, it is now going to take Routes. A route takes a path (URL) and shows a component on that path.
+Link If you want to navigate anywhere within the site, you use Link. You&amp;rsquo;ll only use actual href when you want to move away from the site.</description>
+    </item>
+    
+    <item>
+      <title>Data States</title>
+      <link>localhost/hugo-tldr/reactjs/data-states/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/data-states/</guid>
+      <description>States To update the state, you can call this.setState passing in a new object which overwrites one or both of the email and password properties.</description>
+    </item>
+    
+    <item>
+      <title>Data and Props</title>
+      <link>localhost/hugo-tldr/reactjs/data-props/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/data-props/</guid>
+      <description>Props this.props.whatever Props is how you get data in.
+this.props is an object, which can have any sort of data properties. In order to use the properties, you wrap them in { }. (In Angular it&amp;rsquo;s a duble curly brace, in React it&amp;rsquo;s just one)
+&amp;lt;div&amp;gt;Hello {this.props.name}&amp;lt;/div&amp;gt;  this.props.children gets everything rendered inside a component
+Setting default props You can set default prop values. So even if the user doesn&amp;rsquo;t provide a prop value, it&amp;rsquo;ll have something to use.</description>
+    </item>
+    
+    <item>
+      <title>Getting data IN</title>
+      <link>localhost/hugo-tldr/reactjs/getting-data-in/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/getting-data-in/</guid>
+      <description> React simply renders components, using data from only two places: props and state.
+One of the first things you learn in working with React is state. It’s pretty fundamental to React. It’s essentially data, and it could be anything!
+Links  AJAX Requests in React: How and Where to Fetch Data Loading and Using External Data in React  </description>
+    </item>
+    
+    <item>
+      <title>this &amp; bind</title>
+      <link>localhost/hugo-tldr/reactjs/this-and-bind/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/this-and-bind/</guid>
+      <description>this, .bind() Binding  Implicit Binding Explicit Binding (call, apply, bind) new Binding window Binding  Explicit Binding .apply() is the same as .call(), the only difference being you can pass an array of args instead of passing args one by one.
+.bind() is like .call(), but it let&amp;rsquo;s you create a new function and invoke it later. .call() and .apply() are called/invoked immediately.
+new Binding What&amp;rsquo;s used in constructor functions.</description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>localhost/hugo-tldr/reactjs/webpack/</link>
+      <pubDate>Tue, 22 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/webpack/</guid>
+      <description>Webpack Webpack is hard. Partially because it&amp;rsquo;s an extremely powerful tool and partially because the documentation is terrible. But if you have experience with tools like Grunt or Gulp, and have converted SASS files, it makes sense.
+Webpack at it&amp;rsquo;s core is a code bundler. It takes your code, transforms and bundles it, then returns a brand new version of your code.
+Where Webpack really shines is you&amp;rsquo;re able to tell it every transformation your code needs to make, and it will do them and output a bundle file for you full of those changes (and some other helpful things as well like minification if you desire).</description>
+    </item>
+    
+    <item>
+      <title>JS for React</title>
+      <link>localhost/hugo-tldr/reactjs/js-for-react/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/js-for-react/</guid>
+      <description>React is just JavaScript. If you&amp;rsquo;re getting frustrated with React, it&amp;rsquo;s probably because your JS knowledge is lacking. For example .map() is very good for generating HTML lists in React. But if you don&amp;rsquo;t know the JS .map() method, you&amp;rsquo;ll wonder what happened.
+ .map() .bind(this)  </description>
+    </item>
+    
+    <item>
+      <title>Intro to React Ecosystem</title>
+      <link>localhost/hugo-tldr/reactjs/react-intro/</link>
+      <pubDate>Sun, 13 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/reactjs/react-intro/</guid>
+      <description>Imperative (How) vs. Declarative (What) Imperative = how to do something, specific instructions Declarative = what to do, doing something that is somewhat already defined
+Composition (Components) think in terms of components. components inside of components. breaking everything down to components. nesting components. you can create larger components composed of smaller components.
+Components = aka widgets, modules
+Functional composition is where you write smaller helper functions that you can use in bigger functions.</description>
+    </item>
+    
+  </channel>
+</rss>

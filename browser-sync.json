@@ -1,0 +1,4 @@
+{
+  "proxy": "localhost:1313",
+  "port": 3000
+}

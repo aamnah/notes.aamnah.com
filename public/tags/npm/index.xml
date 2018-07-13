@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Npm on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/npm/</link>
+    <description>Recent content in Npm on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Set `npm init` defaults globally</title>
+      <link>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</guid>
+      <description>You can either edit the global configuration file for npm:
+npm config edit --global  (it&amp;rsquo;ll open the file in Vim)
+Or, you can set the defaults one by one:
+# npm config set &amp;lt;key&amp;gt; &amp;lt;value&amp;gt; [-g|--global] npm config set -g init-author-name &#39;Aamnah&#39; npm config set -g init-author-email &#39;hello@aamnah.com&#39; npm config set -g init-author-url &#39;http://aamnah.com&#39; npm config set -g init-license &#39;CC-BY-SA-4.0&#39; npm config set -g init-version &#39;0.1.0&#39;  You can also use the npm init command with the y flag to initiate a project with the default values without prompting you for details.</description>
+    </item>
+    
+  </channel>
+</rss>

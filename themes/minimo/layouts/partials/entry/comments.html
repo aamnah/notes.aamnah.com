@@ -1,0 +1,31 @@
+{{- $config := .Site.Params.comments -}}
+
+{{- $enabledGlobally := $config.enable -}}
+{{- $disabledGlobally := ( not $enabledGlobally ) -}}
+
+{{ $optOut := ( eq .Params.comments false ) }}
+{{ $optIn := .Params.comments }}
+
+{{- $enableConditionOne := ( and $disabledGlobally $optIn ) -}}
+{{- $enableConditionTwo := ( and $enabledGlobally ( not $optOut ) ) -}}
+
+{{- if ( or $enableConditionOne $enableConditionTwo ) -}}
+
+{{- $disqusEnabled := .Site.DisqusShortname -}}
+{{- $staticmanEnabled := $config.staticman.enable -}}
+
+{{- if ( or $disqusEnabled $staticmanEnabled ) -}}
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'>
+    {{- if $disqusEnabled -}}
+      {{ partial "comments/disqus" . }}
+    {{- else if $staticmanEnabled -}}
+      {{ partial "comments/staticman" . }}
+    {{- end -}}
+    </div>
+  </div>
+</section>
+{{- end -}}
+
+{{- end -}}

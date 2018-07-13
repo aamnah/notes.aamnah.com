@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/git/</link>
+    <description>Recent content in Git on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 May 2014 16:17:32 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Basics</title>
+      <link>localhost/hugo-tldr/git-github/git-basics/</link>
+      <pubDate>Wed, 21 May 2014 16:17:32 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/git-github/git-basics/</guid>
+      <description>Configuration configure username
+git config --global user.name &amp;quot;Your Name&amp;quot;  configure email
+git config --global user.email &amp;quot;me@mydomain.com&amp;quot;  check confgiuration
+git config --list  Repositories Start a git repo
+git init my_new-repo  Start a git repo in existing folder, cd to that folder and..
+git init  Removing the repo = just remove the .git folder, it&amp;rsquo;s the brains
+rm -r my_project/.git  where my_project is the project folder you are removing git from.</description>
+    </item>
+    
+  </channel>
+</rss>

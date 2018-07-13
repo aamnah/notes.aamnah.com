@@ -1,0 +1,153 @@
+@import "variables";
+@import "fonts";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: $font-body;
+  font-family: $font-family-sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  text-shadow: $text-shadow;
+  color: $color-primary;
+  line-height: 1.8;
+
+  @media (min-width: $breakpoint-tablet) {
+    line-height: 1.4;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 2;
+  margin-top: 1.8em;
+}
+
+h6 {
+  text-transform: uppercase;
+}
+
+p,
+ul {
+  margin-bottom: 1em;
+}
+
+.content li {
+  margin-left: 2em;
+}
+
+code, pre {
+  overflow: auto;
+}
+
+code {
+  font-family: $font-family-code;
+  font-weight: bold;
+  font-size: .9em;
+  padding: 0 .25em;
+}
+
+#header {
+  display: grid;
+  // grid-template-columns: 1fr;
+
+  background-color: $color-brand-1;
+  box-shadow: $box-shadow;
+  // line-height: 1;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: $width-sidebar $width-main-tablet;
+  }
+
+  #logo,
+  #main-nav {
+    padding: .5em 1em;
+  }
+
+  #logo h1 {
+    margin-top: 0;
+    color: white;
+    text-shadow: $text-shadow;
+  }
+
+  #main-nav {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    align-self: center;
+    a {
+      padding-right: .5em;
+      color: white;
+    }
+  }
+}
+
+#sidebar,
+#main {
+  // position: absolute;
+  padding: 1em;
+}
+
+#sidebar {
+  float: left;
+  visibility: hidden; // hidden by default on mobile, mobile first approach
+  display: none;
+  width: $width-sidebar;
+  padding: 1em;
+
+  font-size: $font-small;
+  line-height: 1.8; 
+
+  background: rgba(210, 210, 210, 0.1);
+
+  @media (min-width: $breakpoint-tablet) {
+    display: block;
+    visibility: visible;  
+  }
+
+  #list-sections {
+    li {
+      list-style: none;
+    }
+  }
+}
+
+#main {
+  float: left;
+  width: $width-main;
+  min-height: 100vh;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: $width-main-tablet;
+    padding: 1em 3em;
+  }
+
+  .post_title {
+    margin-top: 0;
+  }
+}
+
+#footer {
+  .copyright {
+    color: $color-fade;
+    font-size: calc(11px + .1vw);
+  }
+}
+
+.post_meta {
+  color: $color-fade;
+  font-size: calc(12px + .1vw);
+  margin: 1em 0 2em 0;
+}

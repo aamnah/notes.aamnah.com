@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='localhost/hugo-tldr/css/main.css'> 
+  <link rel="stylesheet" href="localhost/hugo-tldr/prism/prism.css">
+</head>
+<body>
+
+  
+<header id="header">
+  <div id="logo">
+    <h1>TLDR Dev Notes</h1>
+  </div>
+
+  <nav id="main-nav">
+    
+      
+        <a href="localhost/hugo-tldr/">Home</a>
+      
+        <a href="localhost/hugo-tldr/about/">About</a>
+      
+        <a href="localhost/hugo-tldr/contact/">Contact</a>
+      
+        <a href="localhost/hugo-tldr/quotes/">Quotes</a>
+      
+        <a href="localhost/hugo-tldr/resources/">Resources</a>
+      
+        <a href="localhost/hugo-tldr/progress/">What i did</a>
+      
+    
+  </nav>
+
+</header>
+
+
+  
+  <div id="sidebar">
+  <h6>Sections</h6>
+  
+  <ul id="list-sections">
+    
+      <li><a href="localhost/hugo-tldr/api/">
+        
+        APIs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/aws/">
+        
+        Amazon Web Services (AWS)
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/bash-scripting/">
+        
+        Bash Scripting
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/css-sass/">
+        
+        CSS &amp; Sass
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/cheatsheets/">
+        
+        Cheatsheets
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/commands/">
+        
+        Commands
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/databases/">
+        
+        Databases
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/drafts/">
+        
+        Drafts
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/git-github/">
+        
+        Git &amp; Github
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/javascript/">
+        
+        JavaScript
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/jekyll/">
+        
+        Jekyll
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/linux/">
+        
+        Linux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/misc/">
+        
+        Misc
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/node-api/">
+        
+        Node-api
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/nodejs/">
+        
+        Node.js
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/opencart/">
+        
+        OpenCart
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/php/">
+        
+        PHP
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/programming/">
+        
+        Programming
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/python/">
+        
+        Python
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/quotes/">
+        
+        Quotes
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/raspberrypi/">
+        
+        Raspberry Pi
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/reactjs/">
+        
+        Reactjs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/redux/">
+        
+        Redux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/resources/">
+        
+        Resources
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/sysadmin/">
+        
+        System Administration
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/webdev/">
+        
+        Web Development
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/workflow/">
+        
+        Workflow
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/ios-swift/">
+        
+        iOS &amp; Swift
+        </a></li>
+    
+        </ul>
+
+  
+  <section>
+    <h6>Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/amazon-rds">amazon-rds</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/amazon-s3">amazon-s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/api">api</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/aws">aws</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/babel">babel</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bluetooth">bluetooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cli">cli</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/coreblueooth">coreblueooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/crontab">crontab</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/css">css</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/databases">databases</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/date">date</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/debian">debian</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/education">education</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/firebase">firebase</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/format">format</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/fundamentals">fundamentals</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/getting-started">getting-started</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/git">git</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/github-pages">github-pages</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/guides">guides</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hacking">hacking</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hosting">hosting</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ios">ios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/javascript">javascript</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/jekyll">jekyll</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/js">js</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/keychain">keychain</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lamp">lamp</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lfs">lfs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/macos">macos</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/markdown">markdown</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/media-queries">media-queries</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mongodb">mongodb</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nagios">nagios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/node">node</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nodejs">nodejs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/npm">npm</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/phpmyadmin">phpmyadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/programming">programming</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react">react</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react-router">react-router</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/reactjs">reactjs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/redux">redux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/s3">s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/script">script</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/scripts">scripts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/snippets">snippets</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sql">sql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ssh">ssh</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/steganography">steganography</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sublime-text">sublime-text</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sync">sync</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sysadmin">sysadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/system-management">system-management</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/table">table</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/terminal">terminal</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ubuntu">ubuntu</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wifi">wifi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wordpress">wordpress</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/workflow">workflow</a>, 
+    
+  </section>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>,
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>,
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>,
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>,
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>,
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>,
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>,
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>,
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>,
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>,
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>,
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>,
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>,
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>,
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>,
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>,
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>,
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>,
+    
+  </section>
+
+
+</div>
+
+
+  
+  <div id="main">
+
+
+<h2 class="post_title">Python Basics</h2>
+
+
+<div class="post_meta">
+  
+    
+    
+  
+    
+    
+    
+      <div class="meta_date"><strong>Last updated on:</strong> Feb 22, 2015</div>
+    
+  
+    
+    
+    <div class="meta_section"><strong>Section:</strong> 
+      
+        <a href="localhost/hugo-tldr/python">Python</a>
+          
+    </div>
+
+
+    
+    
+  
+  </div>
+
+
+
+<div class="content">
+    
+
+<h2 id="print-print">Print <code>print()</code></h2>
+
+<p>Print is pretty much the same as <code>echo</code> in Bash and PHP and <code>puts</code> in Ruby</p>
+
+<pre><code class="language-python">name = &quot;Aamnah Akram&quot;
+print(name)    
+</code></pre>
+
+<h2 id="input-input">Input <code>input()</code></h2>
+
+<p>Function to get information from a user. Always gets a string, even if the content is a number.</p>
+
+<pre><code class="language-python">input(&quot;How are you today?&quot;)
+</code></pre>
+
+<h2 id="variables">Variables</h2>
+
+<p>Variables in Python can not start with a number</p>
+
+<pre><code class="language-python">name = &quot;Aamnah&quot;
+</code></pre>
+
+<p>Save input as variable</p>
+
+<pre><code class="language-python">name = input(&quot;What is your name? &quot;)
+print(name)
+</code></pre>
+
+<h2 id="conditionals-if-else">Conditionals (if, else)</h2>
+
+<pre><code class="language-python">if name == &quot;Aamnah&quot;:
+    print(name + &quot; is awesome!&quot;)
+else:
+    print(name + &quot; is OK i guess. &quot; + name &quot; is fine!&quot;)
+</code></pre>
+
+<p>Your if statement will work with or without the parentheses <code>( )</code> but since 2010, the <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">style guide</a> recommends using them. So <code>if (name == &quot;Aamnah&quot;):</code> is preferred over <code>if name == &quot;Aamnah&quot;:</code></p>
+
+<h3 id="combining-multiple-conditions-with-or-and-and">Combining multiple conditions with <code>or</code> and <code>and</code></h3>
+
+<p>Here is an example</p>
+
+<pre><code class="language-python">#!/bin/python
+
+answer = raw_input(&quot;Are you a dumbo? YES or NO &quot;)
+
+if (answer == 'yes') or (answer == 'y'):
+    print(&quot;Of course you are! You're very honest. &quot;)
+
+else:
+    print(&quot;Lier Lier! &quot;)
+
+</code></pre>
+
+<p>will output &lsquo;<strong>Of course you are! You&rsquo;re very honest.</strong>&rsquo; if you answer with <em>y</em> <strong>or</strong> <em>yes</em>. If you answer with anything else, it&rsquo;ll say <strong>Lier Lier!</strong></p>
+
+<h2 id="string-concatenation">String Concatenation</h2>
+
+<pre><code class="language-python">name = input(&quot;What's your name? &quot;)
+age = input(&quot;What's your age? &quot;)
+print(name + &quot; is &quot; + age &quot; years old.&quot;)
+</code></pre>
+
+<h2 id="string-formatting-replacement">String Formatting / Replacement</h2>
+
+<pre><code class="language-python">name = input(&quot;What's your name? &quot;)
+if name == &quot;Aamnah&quot;:
+    print(&quot;{} is awesome&quot;.format(name))
+else:
+    print(&quot;{} is OK i guess. {} is fine!&quot;.format(name, name))
+</code></pre>
+
+<p>Another example</p>
+
+<pre><code class="language-python">name = &quot;Aamnah&quot;
+age = 25
+city = &quot;Dubai&quot;
+print(&quot;{} is {} years old. She lives in {}&quot;.format(name, age, city))
+</code></pre>
+
+<h2 id="basic-numbers">Basic Numbers</h2>
+
+<p>When you divide two numeric values, you always get a float as result. Floats work <em>mostly</em> how they are supposed to but occasionally you&rsquo;ll find some odd problems. For example</p>
+
+<pre><code class="language-python">0.1 + 0.1 + 0.1 - 0.3
+</code></pre>
+
+<p>should result 0 but gives 5.551115123125783e-17 instead.</p>
+
+<h3 id="make-numbers-from-strings">Make numbers from strings</h3>
+
+<pre><code class="language-python">int('55')
+float('2.897')
+</code></pre>
+
+<p>When you take input in, it always takes it as a string. So you&rsquo;d have to convert it to an int or float first in order to do any kind of calculation on it.</p>
+
+<h3 id="convert-floats-to-integers-and-vice-versa">Convert floats to integers and vice versa</h3>
+
+<pre><code class="language-python">int('2.2')
+float('2')
+</code></pre>
+
+<h3 id="round-floats-to-whole-numbers-round">Round floats to whole numbers <code>round()</code></h3>
+
+<p><code>round()</code> rounds a float to the nearest whole number. <code>round(2.4)</code> will become 2 and <code>round(3.9)</code> will become 4.</p>
+
+<h2 id="exceptions">Exceptions</h2>
+
+<pre><code class="language-python">user_string = &quot;What's your word? &quot;
+user_num = &quot;What's your number? &quot;
+
+try:
+    our_num = int(user_num)
+except:
+    our_num = float(user_num)
+
+if not '.' in user_num:
+    print(user_string[our_num]
+else:
+    ratio = round(len(user_string)*our_num)
+    print(user_string[ratio])
+
+</code></pre>
+
+<h2 id="containment-in-not-in">Containment <code>in</code>, <code>not in</code></h2>
+
+<p>Check if something is in or not in something else. For example, <code>'a' in 'Aamnah'</code> would return <code>True</code>. <code>'b' not in 'Aamnah'</code> would return <code>True</code>. <code>'x' in 'Aamnah'</code> would return <code>False</code></p>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="check-list-s-length-len">Check List&rsquo;s length <code>len()</code></h3>
+
+<pre><code class="language-python">&gt;&gt;&gt; fruits = ['Apple', 'Bannana', 'Mango', 'Cherries', 'Guava']
+&gt;&gt;&gt; len(fruits)
+5
+</code></pre>
+
+<h3 id="make-lists-from-string-list">Make Lists from String <code>list()</code></h3>
+
+<pre><code class="language-python">&gt;&gt;&gt; list('a')
+['a']
+</code></pre>
+
+<pre><code class="language-python">&gt;&gt;&gt; list('hello')
+['h', 'e', 'l', 'l', 'o']
+</code></pre>
+
+<h3 id="check-if-value-in-list">Check if value in List</h3>
+
+<pre><code class="language-python">&gt;&gt;&gt; fruits = ['Apple', 'Bannana', 'Mango', 'Cherries', 'Guava']
+&gt;&gt;&gt; 'Apple' in fruits
+True
+</code></pre>
+
+<pre><code class="language-python">&gt;&gt;&gt; fruits = ['Apple', 'Bannana', 'Mango', 'Cherries', 'Guava']
+&gt;&gt;&gt; 'Orange' in fruits
+False
+</code></pre>
+
+<h3 id="append-to-list-append">Append to list <code>.append()</code></h3>
+
+<p>We can only add lists to other lists. <code>.append()</code> add to the end of a list.</p>
+
+<h2 id="splitting-strings-split">Splitting Strings <code>.split()</code></h2>
+
+<p>Calling <code>.split()</code> on a string breaks the string up on whitespaces. If we had Returns or Tabs, they&rsquo;d also break.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; sentence = &quot;My name is Aamnah. I am curious!&quot;
+&gt;&gt;&gt; sentence.split()
+['My', 'name', 'is', 'Aamnah.', 'I', 'am', 'curious!']
+</code></pre>
+
+<h2 id="join-strings-join">Join Strings <code>.join()</code></h2>
+
+<pre><code class="language-python">&gt;&gt;&gt; sentence = &quot;My name is Aamnah. I am curious!&quot;
+&gt;&gt;&gt; sentence.split()
+['My', 'name', 'is', 'Aamnah.', 'I', 'am', 'curious!']
+&gt;&gt;&gt; sentence_list = sentence.split()
+&gt;&gt;&gt; ' '.join(sentence_list)
+'My name is Aamnah. I am curious!'
+</code></pre>
+
+<p>You can determine what is used to join the list. In the example above, we used spaces. We can also use <code>_</code> or <code>-</code> or something else.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; '_'.join(sentence_list)
+'My_name_is_Aamnah._I_am_curious!'
+</code></pre>
+
+<p>Everything we are joining <strong>has to be a string</strong>. We can&rsquo;t join numbers.</p>
+
+<h2 id="loops">Loops</h2>
+
+<p><code>while</code> loops</p>
+
+<pre><code class="language-python">count = 0
+while (count &lt; 9):
+    print 'The count is:', count
+    count = count + 1
+
+print &quot;Good bye!&quot;
+</code></pre>
+
+<p><code>for</code> loops</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; my_list = [1, 2, 3, 4]
+&gt;&gt;&gt;  num  my_list:
+...     print(num)
+1
+2
+3
+4    
+</code></pre>
+
+<p>See <a href="https://wiki.python.org/moin/ForLoop" target="_blank"><i class="fa fa-link"> More examples</i></a></p>
+
+<h3 id="while-vs-for">While vs. For</h3>
+
+<p>A <code>for</code> loop can only iterate (loop) &ldquo;over&rdquo; collections of things. A <code>while</code> loop can do any kind of iteration (looping) you want. However, <code>while</code> loops are harder to get right and you normally can get many things done with <code>for</code> loops. <a href="http://learnpythonthehardway.org/book/ex33.html" target="_blank"><i class="fa fa-link"></i></a></p>
+
+<h3 id="else-in-loops"><code>else</code> in Loops</h3>
+
+<ul>
+<li><p>If the <code>else</code> statement is used with a <code>for</code> loop, the else statement is executed when the loop has exhausted iterating the list.</p></li>
+
+<li><p>If the <code>else</code> statement is used with a <code>while</code> loop, the else statement is executed when the condition becomes false. <a href="http://www.tutorialspoint.com/python/python_while_loop.htm" target="_blank"><i class="fa fa-link"></i></a></p></li>
+</ul>
+
+<pre><code class="language-python">#!/usr/bin/python
+
+count = 0
+while count &lt; 5:
+    print count, &quot; is  less than 5&quot;
+    count = count + 1
+else:
+    print count, &quot; is not less than 5&quot;
+</code></pre>
+
+<p>When the above code is executed, it produces the following result:</p>
+
+<pre><code>0 is less than 5
+1 is less than 5
+2 is less than 5
+3 is less than 5
+4 is less than 5
+5 is not less than 5
+</code></pre>
+
+<h3 id="break-and-continue"><code>break</code> and <code>continue</code></h3>
+
+<p><code>break</code> makes Python stop whatever loop it is in, which works really well with infinite loops. <code>continue</code> let&rsquo;s us move on to the next step in the loop.</p>
+
+<pre><code class="language-python">while True
+    if new_item == 'END':
+        break
+    shopping_list.append(new_item)
+    print(&quot;Item added&quot;)
+    continue
+</code></pre>
+
+<h2 id="opening-files-open">Opening files <code>open()</code></h2>
+
+<p><code>open()</code> - Opens a file in Python. This won&rsquo;t contain the content of the file, it just points to it in memory.</p>
+
+<pre><code class="language-python">open(&quot;name.txt&quot;)
+</code></pre>
+
+<p>You can also specify encoding</p>
+
+<pre><code class="language-python">open(&quot;name.txt&quot; encoding=&quot;utf-8&quot;)
+</code></pre>
+
+<p>For ease of use, save the file in a varibale</p>
+
+<pre><code class="language-python">names_file = open(&quot;name.txt&quot; encoding=&quot;utf-8&quot;)
+</code></pre>
+
+<p>By <code>open()</code> you don&rsquo;t get the actual contents of the file, you just get a pointer to the file. To get the contents, you would use <code>read()</code></p>
+
+<h2 id="reading-files-read">Reading files <code>read()</code></h2>
+
+<p><code>read()</code> gets the contents of a file for you. For ease of use, you can save the content in a variable.</p>
+
+<pre><code class="language-python">data = names_file.read()
+</code></pre>
+
+<h2 id="closing-files-close">Closing files <code>close()</code></h2>
+
+<p>Once you have opened the file and read it, you should close it.</p>
+
+<pre><code class="language-python">names_file.close()
+</code></pre>
+
+<p>Closing the file prevents it from taking up memory.</p>
+
+<h2 id="modules-aka-libraries-and-packages">Modules (aka Libraries) and Packages</h2>
+
+<p>There are loads of built-in modules available for Python. You can find a list <a href="https://docs.python.org/2/library/" target="_blank">here</a>. You use the keyword <code>import</code> to bring outside libraries into your code.</p>
+
+<p>You load a library/module using <code>import</code></p>
+
+<pre><code class="language-python">import urllib2
+import json
+import re
+</code></pre>
+
+<p>You can specify multiple modules in one import statement</p>
+
+<pre><code class="language-python">import urllib2, json, re
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<p>Functions follow the same naming rules as variables. You can&rsquo;t start a function name with a number and you can&rsquo;t put any hyphens or special characters in the name. We use the keyword <code>def</code> for defining every function, like so</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; def say_hello():
+...    print(&quot;Hello!&quot;)
+...
+&gt;&gt;&gt; say_hello()
+Hello!
+</code></pre>
+
+<p>Taking arguments is also easy</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; def say_hello(name):
+...     print(&quot;Hello &quot; + name + &quot;!&quot;)
+... 
+&gt;&gt;&gt; say_hello(&quot;Amna&quot;)
+Hello Amna!
+</code></pre>
+
+<p>Getting back data using <code>return</code> for when you want to get data back from a function and not just print it.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; def square(num):
+...     return num*num
+... 
+&gt;&gt;&gt; square(99)
+9801    
+</code></pre>
+
+<p>Here is an example of a shopping list with a function to add list items, another function to show help, and a function to show list.</p>
+
+<pre><code class="language-python">shopping_list = []
+
+def show_help():
+    print(&quot;What should we pick up at the store? &quot;)
+    print(&quot;Enter DONE to stop. Enter HELP for this help. Enter SHOW to see your current list&quot;)
+
+def add_to_list(item):
+    shopping_list.append(item)
+    print(&quot;Added! List has {} items&quot;.format(len(shopping_list)))
+
+def show_list():
+    print(&quot;Here is your list:&quot;)
+    for item in shopping_list:
+    print(item)
+
+show_help()
+
+while True:
+    new_item = raw.input(&quot;&gt; &quot;)
+    if new_item == 'DONE':
+    break
+
+    elif new_item == 'HELP':
+    show_help()
+    continue
+
+    elif new_item == 'SHOW':
+    show_list()
+    continue
+
+    add_to_list(new_item)
+    continue
+
+show_list()
+</code></pre>
+
+<h2 id="collections">Collections</h2>
+
+<p>Collections are variable types that collect different types of data together. They are also called <code>iterables</code> because you iterate or loop through them.</p>
+
+<h2 id="references">References</h2>
+
+<p><a href="http://referrals.trhou.se/aamnah" target="_blank">Treehouse</a></p>
+
+</div>
+
+
+
+
+
+
+
+
+<footer id="footer">
+<hr>
+  <section>
+    Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+  </section>
+  <span class="copyright"> Copyright &copy; 2014 - 2015 Aamnah. All rights reserved.</span>
+</footer>
+
+</div>
+
+<script src='localhost/hugo-tldr/prism/prism.js'></script>
+</body>
+</html>

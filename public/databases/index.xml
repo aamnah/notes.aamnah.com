@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Databases on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/databases/</link>
+    <description>Recent content in Databases on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/databases/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Allowing remote access to MySQL</title>
+      <link>localhost/hugo-tldr/databases/mysql_remote_access/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/mysql_remote_access/</guid>
+      <description>Allow remote access
+GRANT PRIVILEGES ON *.* TO &#39;user&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39; WITH GRANT OPTION;   *.* means you&amp;rsquo;re granting access to all tables of all databases. This could be databaseName.* meaning you&amp;rsquo;re granting access to all tables of databaseName. Or you could further fine grain which specific tables of what database you want to give access to, like databaseName.tableName host could be a wildcard % allowing access from all hosts with that user/pass combination, or it could be an IP or an FQDN  Links  MySQL Docs: 13.</description>
+    </item>
+    
+    <item>
+      <title>Search for characters in SQL with LIKE and CONTAIN</title>
+      <link>localhost/hugo-tldr/databases/sql_search_conatining_characters_substrings_contains_like/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sql_search_conatining_characters_substrings_contains_like/</guid>
+      <description>You have two options: LIKE and CONTAINS(). CONTAINS() is supposed to be more performant LIKE, if it starts with a wildcard, will require a full table scan % and _ are wildcards for the LIKE operator. % represents zero, one or multiple characters. _ represents a single character (e.g. %ish will represent everything that ends in ish like Lavish, McTavish and so on) * is a wildcard in CASE statements.</description>
+    </item>
+    
+    <item>
+      <title>Conditional Statements in SQL with CASE</title>
+      <link>localhost/hugo-tldr/databases/sql_conditionals_with_case/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sql_conditionals_with_case/</guid>
+      <description>If you have ever wondered how to IF like conditional statements in SQL, CASE is your answer. It&amp;rsquo;s supported in all versions of SQL Server CASE can be added to both the SELECT portion of a SELECT statement as well as the ORDER BY portion CASE statements can be used inside other CASE statements   With CASE you can easily group data into various ranges, you can beautify the results of a SQL query, and can allow for dynamic sorting of the query&amp;rsquo;s results.</description>
+    </item>
+    
+    <item>
+      <title>Referencing data from multiple tables using JOINs</title>
+      <link>localhost/hugo-tldr/databases/sql_joins_referencing_data_multiple_tables/</link>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sql_joins_referencing_data_multiple_tables/</guid>
+      <description> There are 3 types of JOINs
+ Inner Join Outer Join  Left Outer Join Right Outer Join  Cross Join  Links  JOINS  </description>
+    </item>
+    
+    <item>
+      <title>Intermediate SQL</title>
+      <link>localhost/hugo-tldr/databases/sql_intermediate/</link>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sql_intermediate/</guid>
+      <description>In database management an aggregate function is a function where the values of multiple rows are grouped together to form a single value of more significant meaning or measurement such as a set, a bag or a list. Wikipedia
+ Common Aggregate Functions  count() returns total number of rows that match our search sum() returns added sum of values for a group of rows avg() returns calculated average value for a group of rows max() returns largest value in a group of rows min() returns smallest value in a group of rows sum(), average(), max(), min() only work if the values are numbers (numeric values) count() doesn&amp;rsquo;t count null values count( * ) will count all the rows, regardless of the null values  SELECT count( * ) FROM movies; # count all rows in movies database SELECT count( title ) FROM movies; # count all rows in title column, which are not `null` SELECT sum( cost ) FROM movies; # product cost for all movies SELECT avg( tickets ) FROM movies; # average ticket cost SELECT max( tickets ) FROM movies; # most popular movie, by determining the max amount of tickets sold SELECT min( tickets ) FROM movies; # least popular movie, by determining the max amount of tickets sold SELECT max( tickets ), min( tickets ) FROM movies; # multiple functions = multiple values  Grouping results  GROUP BY groups results by column values  # SELECT ___, aggregateFunction( ___ ) FROM ___ GROUP BY ___ # SELECT columnName, aggregateFunction( columnName ) FROM tableName GROUP BY columnName SELECT genre, sum(cost) FROM movies GROUP BY genre # returns lists of all genres &amp;amp; sum total of costs for each of them  Grouping with conditions  HAVING is the keyword for inclusion, show results only if they have met the condition HAVNIG works in conjunction with an aggregate function  # SELECT ___, aggregateFunction( ___ ) # FROM ___ # GROUP BY ___ # HAVING aggregate_functino(___) operator value; # SELECT columnName, aggregateFunction( columnName ) FROM tableName GROUP BY columnName HAVING aggregate_functino(columnName) operator value; SELECT genre, sum(cost) FROM movies GROUP BY genre HAVING count(*) &amp;gt; 1 # returns lists of all genres (grouped) &amp;amp; sum total of costs for each of them, only if there are more than one row   You can add a WHERE clause before GROUP BY to further refine your query  Constraints Constraints are meant to avoid addition of bad or unwanted data.</description>
+    </item>
+    
+    <item>
+      <title>SQL basics</title>
+      <link>localhost/hugo-tldr/databases/sql_basics/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sql_basics/</guid>
+      <description>SQL is a programming language that talks with the database Every sql statement myst end with a semi-colon ; Uppercase for sql keywords like SELECT, FROM is a convention, recommended but not required. We search columns first and tables next * means all WHERE let&amp;rsquo;s you specify conditions to filter data. You use conditional operators to build your conditions AND and OR let you specify multiple conditions. AND means all conditions must be met, OR means any condition can be met ORDER BY is for sorting data in ASC (default) or DESC order When adding and deleting data, make sure to provide a WHERE clause, or it&amp;rsquo;ll mess with the entire table or columns.</description>
+    </item>
+    
+    <item>
+      <title>Connect to MySQL installed by MAMP via Command Line (Terminal)</title>
+      <link>localhost/hugo-tldr/databases/mysql_connect_mamp_cli/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/mysql_connect_mamp_cli/</guid>
+      <description>tl;dr: You have to mention the socket file. The socket file is usually at
+/Applications/MAMP/tmp/mysql/mysql.sock  Provide that socket file location in the command
+# Connect to MySQL mysql -uroot -proot --socket=/Applications/MAMP/tmp/mysql/mysql.sock  # Backup all databases mysqldump -uroot -proot --socket=/Applications/MAMP/tmp/mysql/mysql.sock --all-databases &amp;gt; all_databases.sql  You can confirm the connection details on MAMP&amp;rsquo;s WebStart page: http://localhost:8080/MAMP/?language=English</description>
+    </item>
+    
+    <item>
+      <title>Secure MySQL installation non-interactively with a bash script</title>
+      <link>localhost/hugo-tldr/databases/secure-mysql-install-non-interactive-bash-script/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/secure-mysql-install-non-interactive-bash-script/</guid>
+      <description>There are two ways you can write the script. One is running the script with a here-document.
+ A here document (aka heredoc) is a special-purpose code block. It uses a form of I/O redirection to feed a command list to an interactive program or a command
+ Basically, you provide only the answers to the question the script is going to ask you, and then redirect them as input to the interactive program.</description>
+    </item>
+    
+    <item>
+      <title>Update WordPress posts for SSL https</title>
+      <link>localhost/hugo-tldr/databases/update-wordpress-posts-https/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/update-wordpress-posts-https/</guid>
+      <description>tl;dr # UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, &#39;&#39;, &#39;&#39;) # Update self-hosted embeds (images, iframes, scripts, etc.) UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, &#39;http://yoursite.com&#39;, &#39;https://yoursite.com&#39;); UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, &#39;http://www.yoursite.com&#39;, &#39;https://www.yoursite.com&#39;); # Update internal pingbacks UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, &#39;http://yoursite.com&#39;, &#39;https://yoursite.com&#39;); UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, &#39;http://www.yoursite.com&#39;, &#39;https://www.yoursite.com&#39;); # Update YouTube embeds UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, &#39;http://www.youtube.com&#39;, &#39;https://www.youtube.com&#39;); UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, &#39;http://img.</description>
+    </item>
+    
+    <item>
+      <title>Common MySQL Errors</title>
+      <link>localhost/hugo-tldr/databases/fix-resolve-common-mysql-errors-linux-ubuntu/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/fix-resolve-common-mysql-errors-linux-ubuntu/</guid>
+      <description>Error: Can&amp;rsquo;t connect to local MySQL server through socket &amp;lsquo;/var/run/mysqld/mysqld.sock&amp;rsquo; (2) tl;dr
+mkdir -p /var/run/mysqld touch /var/run/mysqld/mysqld.sock chmod 777 /var/run/mysqld/mysqld.sock chown mysql:mysql /var/run/mysqld service mysql restart  See if a socket file exists. To find all socket files on your system run:
+sudo find / -type s  Mysql server is usually open at /var/lib/mysql/mysql.sock
+The MySQl configuration file is usually at /etc/mysql/my.cnf (Ubuntu 17.04)
+stop MySQL
+sudo service mysqld stop  Look for a .</description>
+    </item>
+    
+    <item>
+      <title>Reset MySQL root password on Linux</title>
+      <link>localhost/hugo-tldr/databases/mysql_reset-root-password/</link>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/mysql_reset-root-password/</guid>
+      <description>tl;dr sudo service mysql stop sudo mysqld_safe --skip-grant-tables &amp;amp; mysql -u root  -- MySQL commands UPDATE mysql.user SET authentication_string=PASSWORD(&#39;XXXX&#39;) WHERE user = &#39;root&#39;; FLUSH PRIVILEGES; exit;  stop mysql
+sudo service mysql stop  Start MySQL in safe mode
+sudo mysqld_safe --skip-grant-tables  You may need to type Enter twice.
+# mysqld_safe --skip-grant-tables 2017-07-25T07:39:45.596828Z mysqld_safe Logging to syslog. 2017-07-25T07:39:45.600267Z mysqld_safe Logging to &#39;/var/log/mysql/error.log&#39;. 2017-07-25T07:39:45.621303Z mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql  If you see the above (and don&amp;rsquo;t get the prompt back) it worked, just open a new termianl and log in.</description>
+    </item>
+    
+    <item>
+      <title>OpenCart: Bulk Update Customer Group via phpmyadmin</title>
+      <link>localhost/hugo-tldr/databases/opencart-bulk-update-customer-group-opencart-mysql-phpmyadmin/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/opencart-bulk-update-customer-group-opencart-mysql-phpmyadmin/</guid>
+      <description>Why? Because you can not delete a group if it has customers in it. And there is no easy way to move all customers to another group via the admin.
+Warning: This customer group cannot be deleted as it is currently assigned to 2170 customers!  Find the customer_group_id number of a Customer Group You can find the customer_group_id from the Admin URL, or by checking the oc_customer_group_description table</description>
+    </item>
+    
+    <item>
+      <title>Install MongoDB on MacOS</title>
+      <link>localhost/hugo-tldr/databases/install-mongodb-macos/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/install-mongodb-macos/</guid>
+      <description>tl;dr # install Homebrew if not installed already # /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; # install brew install mongodb # add MongoDB to startup processes brew services start mongodb # create the `/data/db` directory, where mongo data will live mkdir -p /data/db # Make sure the `/data/db` directory has the right permissions sudo chown -R `id -un` /data/db # Run the mongo daemon mongod # sudo mongod # `quit()` to quit, `ctrl+c` to exit  Using MongoDB Client CLI # start mongo client mongo mongo &amp;gt; help # see a list of commands available mongo &amp;gt; show dbs # show all databases mongo &amp;gt; use foo # use/switch to a database mongo &amp;gt; show collections # show collections (like Tables in SQL dbs) in the database mongo &amp;gt; db.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Firebase Hosting</title>
+      <link>localhost/hugo-tldr/databases/firebase_hosting_getting-started/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/firebase_hosting_getting-started/</guid>
+      <description>tl;dr npm i -g firebase-tools firebase login # will be redirected to Google Auth page cd /your-project-directory firebase init # initialize a project # go through the initialization options firebase deploy # deploy a site # a public URL will be provided where you can see your websites firebase open # Hosting: Deployed Site firebase use --add # setup a staging environment (add a project alias) firebase use foo # use foo environment firebase deploy # deploy changes to foo (whatever env you are in)  You can only create a project through the Firebase console.</description>
+    </item>
+    
+    <item>
+      <title>SQLite Basics</title>
+      <link>localhost/hugo-tldr/databases/sqlite_basics/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/sqlite_basics/</guid>
+      <description> sqlite3 - Start SQLite sqlite3 NAME.db - Create database .database - Show Database names and files .tables - List tables .open NAME.db - Open a database file / link it to database  </description>
+    </item>
+    
+    <item>
+      <title>OpenCart: Delete Multi-Store and Move Everything to the Default Store</title>
+      <link>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</guid>
+      <description>Make a BACKUP before doing anything to the database. Be safe.
+Assumptions This post assumes that
+ the store_id for Default store is 0 you have only 1 multi-store you are moving things from Multi-store to Default store you want to delete Multi-Store you have products that were added to both Default and Multi-store everything means products, categories, manufacturers and information  We can&amp;rsquo;t delete a multi-store if there are orders associated with it.</description>
+    </item>
+    
+    <item>
+      <title>Joining Relational Data between Tables in SQL</title>
+      <link>localhost/hugo-tldr/databases/joining_relational_data_between_tables_in_sql/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/joining_relational_data_between_tables_in_sql/</guid>
+      <description>Keys and Auto-Incrementing Values PRIMARY keys (id) Used to uniquely define each row in a table. It can&amp;rsquo;t be duplicated, can&amp;rsquo;t be null.
+UNIQUE keys (email_address, ssn) Is similar to Primary keys but enforces uniqueness, can&amp;rsquo;t be duplicated but can be null.
+FOREIGN keys (genre_id) Special keys that describe the relationship between data in two in two tables. Also known as reference keys because they reference data from another table.</description>
+    </item>
+    
+    <item>
+      <title>Manipulating Schema with SQL</title>
+      <link>localhost/hugo-tldr/databases/manipulating_schema_with_sql/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/manipulating_schema_with_sql/</guid>
+      <description>If your database is connected to an app, you&amp;rsquo;d probably want to take that app offline or put into some maintenance mode so that any database changes you make don&amp;rsquo;t effect the application.
+Also, BACKUP before making any changes.
+Altering Tables    Keyword Meaning     RENAME Rename   DROP Delete   TRUNCATE Empty    Rename RENAME TABLE movies TO movie_table;  You can also rename multiple tables in one go</description>
+    </item>
+    
+    <item>
+      <title>Using PHP with MySQL</title>
+      <link>localhost/hugo-tldr/databases/using_php_with_mysql/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/using_php_with_mysql/</guid>
+      <description>Connecting to Database using PDO The format is like this
+&amp;lt;?php $db = new PDO(&amp;quot;db_engine:db_details&amp;quot;, &amp;quot;db_username&amp;quot;, &amp;quot;db_user_passowrd&amp;quot;); ?&amp;gt;  Here is an example with values
+&amp;lt;?php $db = new PDO(&amp;quot;mysql:host=189.876.567.123;dbname=shop;port=5678&amp;quot;, &amp;quot;developer&amp;quot;, &amp;quot;8972g9gh^^%&amp;amp;&amp;quot;); ?&amp;gt;  In database details mysql: tells what database engine to use.
+Handling Exceptions Exceptions happen when something goes wrong. Any code connecting to an external system needs to handle exceptions.
+To handle exceptions in PHP we use try and catch</description>
+    </item>
+    
+    <item>
+      <title>Backing up and Restoring Databases</title>
+      <link>localhost/hugo-tldr/databases/backup-restore-databases/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/backup-restore-databases/</guid>
+      <description>Export # export a single database --host=&amp;quot;host&amp;quot; --user=&amp;quot;username&amp;quot; --password --port=3306 &amp;quot;db_name&amp;quot;  # export all databases mysqldump -u root -p --all-databases &amp;gt; database_backups.sql  Rename You can use the exported backup file to rename that database. What is the database called and what database to use is defined in the first two lines.
+CREATE DATABASE IF NOT EXISTS `database_wp`; USE `database_wp`;  Import --host=&amp;quot;host&amp;quot; --user=&amp;quot;username&amp;quot; --password --port=3306 --database=db_name &amp;lt; &amp;quot;path/to/backup/file.</description>
+    </item>
+    
+    <item>
+      <title>Database Foundations</title>
+      <link>localhost/hugo-tldr/databases/database-foundations/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/database-foundations/</guid>
+      <description>Creating Database CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;  You can also use the keyword SCHEMA to create a database.
+CREATE SCHEMA `shop`;  Once a database is cerated you can start using it with the following command
+USE `shop`;  Get info about the database SHOW ENGINES  The default engine is InnoDB.
+Creating Tables CREATE TABLE actors (name VARCHAR(50));  CREATE is the command telling the database what to do.</description>
+    </item>
+    
+    <item>
+      <title>Tips for Querying a MySQL Database</title>
+      <link>localhost/hugo-tldr/databases/querying-selecting-showing-data-from-mysql-database-tips/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/querying-selecting-showing-data-from-mysql-database-tips/</guid>
+      <description>Sort result ORDER based on frequency Here is a nifty way of influencing the ORDER of rows returned by a query that helps in displaying a list with frequently accessed items at the top.
+An example is a name/address form where the country is a selectable list. If most of your users are from the UK and US you may want to do something like:
+SELECT * FROM countries ORDER by iso_code IN (&#39;UK&#39;, &#39;US&#39;) desc  Which returns something like:</description>
+    </item>
+    
+    <item>
+      <title>OpenCart: Bulk update prices of Products</title>
+      <link>localhost/hugo-tldr/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</link>
+      <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</guid>
+      <description>Changing the currency of an OpenCart store
+ update product price update discount and special prices update order totals  MySQL Commands Multiply all prices in a column by 3.67000008
+UPDATE `oc_product` SET `price` = `price` * 3.670008  Round the numbers of an entire column
+UPDATE `oc_product` SET `price` = ROUND(`price`)  Select price column and create a new column ROUND(price) by rounding the value of price
+SELECT `price`, ROUND(`price`) from `oc_product`  Why?</description>
+    </item>
+    
+    <item>
+      <title>How to add a WordPress Admin user via PhpMyAdmin</title>
+      <link>localhost/hugo-tldr/databases/add-create-wordpress-admin-user-phpmyadmin/</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/add-create-wordpress-admin-user-phpmyadmin/</guid>
+      <description>Why? Add support user for all hosting accounts that have wordpress installed, with one command via phpmyadmin and whm access.
+INSERT INTO `databasename`.`wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES (&#39;9191919&#39;, &#39;username&#39;, MD5(&#39;password&#39;), &#39;Name&#39;, &#39;test@yourdomain.com&#39;, &#39;http://hostmarkaz.com/&#39;, &#39;2015-02-11 00:00:00&#39;, &#39;&#39;, &#39;0&#39;, &#39;Your Name&#39;); INSERT INTO `databasename`.`wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES (NULL, &#39;9191919&#39;, &#39;wp_capabilities&#39;, &#39;a:1:{s:13:&amp;quot;administrator&amp;quot;;s:1:&amp;quot;1&amp;quot;;}&#39;); INSERT INTO `databasename`.`wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES (NULL, &#39;9191919&#39;, &#39;wp_user_level&#39;, &#39;10&#39;);  Fields to change  Database = databasename ID = 9191919 user_login = username user_pass = password user_nicename = Name user_email = test@yourdomain.</description>
+    </item>
+    
+    <item>
+      <title>Delete ALL Unapproved comments in WordPress</title>
+      <link>localhost/hugo-tldr/databases/wordpress-mysql-delete-unapproved-comments/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/wordpress-mysql-delete-unapproved-comments/</guid>
+      <description>Make a backup first before changing anything.
+Go to PhpMyAdmin and select the comments table (usually wp_comments). Go to the SQL tab and run the following command.
+DELETE FROM wp_comments WHERE comment_approved = 0  That&amp;rsquo;s all.</description>
+    </item>
+    
+    <item>
+      <title>Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</title>
+      <link>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</link>
+      <pubDate>Tue, 19 Aug 2014 12:59:41 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</guid>
+      <description>This how-to will teach you how to take automated backups of all your MySQL databases and send them to Amazon S3.
+Access (Logins) required  root login for the server (sudo is required to run automysqlbackup, root is req. to add to root user’s cron)
+ admin login for the mysql server (to provide for backup config file)
+ IAM access keys to use with s3cmd (to configure s3cmd)</description>
+    </item>
+    
+    <item>
+      <title>Making a MySQL database connection with PHP</title>
+      <link>localhost/hugo-tldr/databases/mysql_make_database-connection-php/</link>
+      <pubDate>Sat, 07 Jun 2014 04:54:08 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/mysql_make_database-connection-php/</guid>
+      <description>&amp;lt;?php mysql_connect(&amp;quot;db_host&amp;quot;,&amp;quot;db_user&amp;quot;,&amp;quot;db_pass&amp;quot;); mysql_select_db(&amp;quot;db_name&amp;quot;); ?&amp;gt;  Where db_host, db_user, db_pass and db_name is the host, username, password and name for your database respectively.
+General practice is to save the code in a separate file in the &amp;lsquo;includes&amp;rsquo; folder and including it on the page where you need it.
+&amp;lt;?php include(&amp;quot;database.php&amp;quot;) ?&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>MongoDB Basics</title>
+      <link>localhost/hugo-tldr/databases/basics-mongodb/</link>
+      <pubDate>Wed, 21 May 2014 16:24:07 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/basics-mongodb/</guid>
+      <description>Basic Commands  show dbs Show databases
+ use dbName Connect/Select database
+ use dbName Create database (MongoDB doesn&amp;rsquo;t actually create a db until we start storing documents, so although you now have the db bookmarks, it&amp;rsquo;s not actually saved anywhere until we put some data in it. Same goes for collectons )
+ db show the db you are using
+ doc show the document content  NoSQL Database Terms    MongoDB MySQL     Collections Tables   Documents Rows   Fields (key:value pairs) Columns    Adding Data There are two methods.</description>
+    </item>
+    
+  </channel>
+</rss>

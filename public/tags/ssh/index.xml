@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/ssh/</link>
+    <description>Recent content in Ssh on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Add SSH Key to MacOS Keychain permanently</title>
+      <link>localhost/hugo-tldr/linux/howto-add-ssh-key-macos-keychain-permanently/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/howto-add-ssh-key-macos-keychain-permanently/</guid>
+      <description>Run ssh-agent if it&amp;rsquo;s not already running
+eval &amp;quot;$(ssh-agent -s)&amp;quot;  Add SSH key to ssh-agent
+ssh-add -K ~/.ssh/id_rsa  where id_rsa is the actual filename of the key you&amp;rsquo;re adding. This should do it for OSX before Sierra.
+MacOS Sierra Create an SSH config file
+nano ~/.ssh/config  Add the following to it
+Host * UseKeychain yes AddKeysToAgent yes IdentityFile ~/.ssh/id_rsa   UseKeychain yes tells SSH to look in your OSX keychain for the key passphrase.</description>
+    </item>
+    
+  </channel>
+</rss>

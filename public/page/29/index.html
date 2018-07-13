@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/secure-linux-ubuntu-server/">Secure a Linux Ubuntu Server</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  STATUS: Draft
+#!/bin/bash # SECURE / HARDEN A LINUX (UBUNTU) SERVER apt update &amp;&amp; apt upgrade -y # Enable automatically installing security updates # Rootkit Hunter - Scan for Rootkits, backdoors and exploits rkhunter() { wget https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz tar xf rkhunter-1.4.4.tar.gz sudo rkhunter-1.4.4/installer.sh --layout default --install sudo rkhunter --versioncheck sudo rkhunter --update # update database sudo rkhunter --propupd # set baseline file properties (so that rkhunter can alert us if any of the essential configuration files it tracks are altered) rkhunter --check # scan the entire file system }  RKHunter downloads a list of known exploits and then checks your system against the database.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/secure-linux-ubuntu-server/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/securing-wordpress/">Securing Wordpress</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  File Permissions The default permission scheme should be:
+ Folders 755 Files 644  Avoid having any file or directory set to 777. 777 means global access. Usually only cache files have this permission.
+Via command line you can run the following commands to change permissions recursively:
+# For Directories: find /path/to/your/wordpress/install/ -type d -exec chmod 755 {} \; # For Files: find /path/to/your/wordpress/install/ -type f -exec chmod 644 {} \;  Secured File Permissions for specific files You should set these permissions
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/securing-wordpress/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/select-multiple-file-extensions/">Select files with multiple different file extensions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr # *.{a,b,c,d} ls -alh *.{md,json,html,xml} # list all files ending in given extensions find . -type f *.{html,xml,php} # find all files ending in given extensions find . -type f *.{html,xml,php} -exec rm -rf {} \; # find and delete all files ending in given extensions  Find/List files find . -type f *.{html,xml,php}  will find all (*) files (-type f) in the current directory (.) ending in .
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/select-multiple-file-extensions/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/ajax-self-invoking-anonymous-function-ajax/">Self-invoking Anonymous Function - IIFE</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.
+We can do this by wrapping the code we write or execute within a selfinvoking anonymous function. We create a self incoking anonymous function like this:
+(function() { })();  Now, whatever we put inside of here will only be unique to this anonymous function.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/ajax-self-invoking-anonymous-function-ajax/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/2017-02-20-howto-set-npm-defaults-globally/">Set `npm init` defaults globally</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/javascript">javascript</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/node">node</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/npm">npm</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  You can either edit the global configuration file for npm:
+npm config edit --global  (it&rsquo;ll open the file in Vim)
+Or, you can set the defaults one by one:
+# npm config set &lt;key&gt; &lt;value&gt; [-g|--global] npm config set -g init-author-name 'Aamnah' npm config set -g init-author-email 'hello@aamnah.com' npm config set -g init-author-url 'http://aamnah.com' npm config set -g init-license 'CC-BY-SA-4.0' npm config set -g init-version '0.1.0'  You can also use the npm init command with the y flag to initiate a project with the default values without prompting you for details.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/2017-02-20-howto-set-npm-defaults-globally/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_workflow/mac-local-dev-env/">Set up Apache, PHP, MySQL, PHPMyAdmin on macOS Sierra</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Why not just MAMP? Becaus i was running low on space. MAMP takes about 1.8GB+ on my current MacBook Air with 128GB of base storage.. I am assuming this local setup takes much less space. XAMPP also takes about 2GB+, which is too much when i just want a simple local server with PHP.
+You will need to run some commands as the root (super) user. You can switch to root with sudo -s or sudo su -  Apache Apache is already installed on macOS Sierra
+  </p>
+
+  
+  <footer>
+    <a href="/post/_workflow/mac-local-dev-env/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_workflow/setup-new-macos-machine-homebrew-cask/">Set up a new macOS machine with Homebrew-Cask</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Cask let&rsquo;s you install commonly used software, stuff that you would drag and drop to install, via the Terminal or a script. For example,
+brew cask install google-chrome  will install Google Chrome. While Homebrew let&rsquo;s you install command line utilities, Cask let&rsquo;s you install macOS desktop (GUI) software.
+If you&rsquo;re a developer, you can use cask to install your preferred browsers, code editors, tools and such with a simple script.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_workflow/setup-new-macos-machine-homebrew-cask/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2015-01-18-ssh-bitbucket-mac-linux/">Setup SSH Keys for Bitbucket on Mac/Linux</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Generate an SSH Key Pair cd ~/.ssh &amp;&amp; ssh-keygen -t rsa  Copy the Public key cat ~/.ssh/keyname.pub  Copy the output given as a result of the command above. It is the content of your keyname.pub file.
+If you are on a Mac, you can directly copy the contents of keyname.pub by running
+cat ~/.ssh/keyname.pub | pbcopy  Start the SSH Agent and Load your keys See if ssh-agent is running
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2015-01-18-ssh-bitbucket-mac-linux/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/showing-help-usage/">Showing Help and Usage</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  A basic way is saving usage as a function
+showUsage() { echo -e &quot;Usage: please provide an argument&quot; }  and later in your script, you can run a conditional statement that checks for something, say no arguments are provided, you can show the usage and exit
+if [ condition ] then showUsage exit 1 else # run the code fi  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_commands/streams-stderr-stdin-stdout/">Streams (stderr, stdin, stdout)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  stdin Standard In. Whatever is entered into the bash terminal
+stdout Standard Out. Whatever output was given back by the terminal.
+stderr Standard Error. Whatever error was given back by the terminal
+Redirect stderr to /dev/null You can redirect the stderr to /dev/null to get rid of it. You don&rsquo;t care if there are errors, you don&rsquo;t want to see those errors, you don&rsquo;t want to log those errors, you just want them gone.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_commands/streams-stderr-stdin-stdout/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/28/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;29 / 35&nbsp;</span>
+  
+  <a href="/page/30/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

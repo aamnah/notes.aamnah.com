@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sync on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/sync/</link>
+    <description>Recent content in Sync on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 23 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/sync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to sync an entire Amazon S3 bucket locally</title>
+      <link>localhost/hugo-tldr/aws/howto-sync-entire-aws-s3-bucket-locally/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/aws/howto-sync-entire-aws-s3-bucket-locally/</guid>
+      <description>tl;dr brew install awscli # MacOS # apt update &amp;amp;&amp;amp; apt install awscli -y # Ubuntu # pip install --upgrade --user awscli # Unix aws configure aws s3 ls aws s3 sync s3://my-bucket .  Ubuntu install this is on a fresh Ubuntu system.
+try first:
+apt install awscli -y  echo `python --version` `pip --version`  install pip
+curl -O https://bootstrap.pypa.io/get-pip.py &amp;amp;&amp;amp; python get-pip.py pip --version  install AWS CLI</description>
+    </item>
+    
+    <item>
+      <title>fileconveyer</title>
+      <link>localhost/hugo-tldr/misc/fileconveyer/</link>
+      <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/misc/fileconveyer/</guid>
+      <description>Install FileConveyer: Change to the directory you want to hold the fileconveyor files, then run:
+sudo apt install git python-setuptools &amp;amp;&amp;amp; sudo easy_install pip &amp;amp;&amp;amp; sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor  sudo nano src/fileconveyor/fileconveyor/config.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;config&amp;gt; &amp;lt;!-- Sources --&amp;gt; &amp;lt;sources ignoredDirs=&amp;quot;&amp;quot;&amp;gt; &amp;lt;source name=&amp;quot;test&amp;quot; scanPath=&amp;quot;/var/www/html/test&amp;quot; /&amp;gt; &amp;lt;/sources&amp;gt; &amp;lt;!-- Servers --&amp;gt; &amp;lt;servers&amp;gt; &amp;lt;server name=&amp;quot;Rackspace Cloud Files&amp;quot; transporter=&amp;quot;cloudfiles&amp;quot;&amp;gt; &amp;lt;username&amp;gt;USERNAME&amp;lt;/username&amp;gt; &amp;lt;api_key&amp;gt;APIKEY&amp;lt;/api_key&amp;gt; &amp;lt;container&amp;gt;CONTAINER&amp;lt;/container&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;/servers&amp;gt; &amp;lt;!-- Rules --&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;rule for=&amp;quot;test&amp;quot; label=&amp;quot;Test&amp;quot;&amp;gt; &amp;lt;destinations&amp;gt; &amp;lt;destination server=&amp;quot;Rackspace Cloud Files&amp;quot; path=&amp;quot;test&amp;quot; /&amp;gt; &amp;lt;/destinations&amp;gt; &amp;lt;/rule&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/config&amp;gt;  Add this to /etc/rc.</description>
+    </item>
+    
+  </channel>
+</rss>

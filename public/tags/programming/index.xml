@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/programming/</link>
+    <description>Recent content in Programming on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Higher Order Functions</title>
+      <link>localhost/hugo-tldr/programming/higher-order-functions/</link>
+      <pubDate>Sat, 03 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/programming/higher-order-functions/</guid>
+      <description>Higher-order Functions - Any complicated function that was composed by combining simple functions is a higher order function. - Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. - Eloquent JavaScript - A higher-order function is a function that takes other functions as arguments and/or returns a function as it&#39;s result. - Wikipedia  Notes  Functions are values.</description>
+    </item>
+    
+    <item>
+      <title>Book - Start Programming Now - No CS degree required</title>
+      <link>localhost/hugo-tldr/resources/2014-06-17-rsc-book-start-programming-now/</link>
+      <pubDate>Tue, 17 Jun 2014 06:56:13 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-17-rsc-book-start-programming-now/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

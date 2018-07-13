@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/js-objects/">JavaScript Objects</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  JavaScript Objects { key: value property: value method: function () {} }  Object is a value type that contains key value pairs inside curly barces. Keys are also known as properties and everything in JavaScript that isn&rsquo;t a primitive type is an object. Primitive types are Strings, Numbers, Booleans, Undefined, Null and Symbols (ES6). Yes, arrays are objects. Functions are objects too. The difference between functions and objects is that functions can be called.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/js-objects/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-24-joining_relational_data_between_tables_in_sql/">Joining Relational Data between Tables in SQL</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Keys and Auto-Incrementing Values PRIMARY keys (id) Used to uniquely define each row in a table. It can&rsquo;t be duplicated, can&rsquo;t be null.
+UNIQUE keys (email_address, ssn) Is similar to Primary keys but enforces uniqueness, can&rsquo;t be duplicated but can be null.
+FOREIGN keys (genre_id) Special keys that describe the relationship between data in two in two tables. Also known as reference keys because they reference data from another table.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/2015-02-24-joining_relational_data_between_tables_in_sql/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/linux-disk-file-systems-ext2-ext3-reiser-ext4/">Linux Disk File Systems (ext2, ext3, Reiser, ext4)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  ext2 2nd Extended File System. It was originally introduced back in 1993 and ext2 stores data in the standard hierarchial fashion used by most other file systems.
+Data is stored in files, files are stored in directories, and a directory can simply contain either files or other directories.
+Max file size is 2TB. An ext2 volume can be upto 4TB. File names can be upto 255 characters long and ext2 supports Linux filesystem users, groups and permissions.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/linux-disk-file-systems-ext2-ext3-reiser-ext4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_css-sass/css-minimum-styles-for-presentable-website/">Making a site presentable in 7 lines of code</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   With just 7 CSS declarations you can make a site very presentable with easy to read typography.
+body { margin: 40px auto; max-width: 650px; line-height: 1.6; font-size: 18px; color: #444; padding: 0 10px } h1, h2, h3 { line-height:1.2 }  To go one step further, you can add media queries
+@media print { body { max-width: none } }  Links  http://bettermotherfuckingwebsite.com/  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-24-manipulating_schema_with_sql/">Manipulating Schema with SQL</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  If your database is connected to an app, you&rsquo;d probably want to take that app offline or put into some maintenance mode so that any database changes you make don&rsquo;t effect the application.
+Also, BACKUP before making any changes.
+Altering Tables    Keyword Meaning     RENAME Rename   DROP Delete   TRUNCATE Empty    Rename {% highlight mysql %} RENAME TABLE movies TO movie_table; {% endhighlight %}  You can also rename multiple tables in one go
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/2015-02-24-manipulating_schema_with_sql/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/migrating-server-data/">Migrating server data and databases</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Migrating data from a barebones server to another barebones server Compress files Let&rsquo;s say you have websites in /var/www folder that you want to transfer. Compressing them first will save bandwidth as well as transfer time.
+# tar czf &lt;filename&gt; &lt;source&gt; tar czf aamnah.tar.gz /var/www/aamnah.com  c - create z - compress (gzip) f - take a filename v - verbose (optional, if you wanna see lines fly by on the termianl)
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/migrating-server-data/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/move-jekyll-hugo/">Moving from Jekyll to Hugo</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Why?  Jekyll is SLOW. Takes about 25 secs to build this site right now, and this site is pretty small right now, less than 500 posts. There are no tags or categories or pagination yet and it&rsquo;s at 20 seconds already. I have to wait for it to finish in order to see any changes, and i make changes often, so i end up waiting often. Slow is pretty much my only complaint.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/move-jekyll-hugo/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_workflow/2015-01-22-aamnah-gruntfile.js/">My Gruntfile.js</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  It includes the following - Minify JS - Minify CSS - Minify HTML - Optimizie Images - Create responsive screenshots
+We&rsquo;ll use pageres to generate screenshots of the website in multiple resolutions. This comes in handy when you need to show that your website is responsive, need to check it looks good in all resolutions or just need a screenshot of the website to include as a preview.
+For example, WordPress themes automatically pick up &lsquo;screenshot.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_workflow/2015-01-22-aamnah-gruntfile.js/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_cheatsheets/cheatsheet_mysql/">MySQL Commands</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/cheatsheet">cheatsheet</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Connect to MySQL mysql -u aamnah -p —h db.mysite.com -P 3306 db_name  OR
+mysql --user=username --password=password --host=host --port=3306 db_name     options values     -u or --user username   -p or --password password   -h or --host host (default: localhost)   -P or --port Port (default: 3306)    Replace _dbname with the name of the database you want to connect to.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_cheatsheets/cheatsheet_mysql/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/23/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;24 / 35&nbsp;</span>
+  
+  <a href="/page/25/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='localhost/hugo-tldr/css/main.css'> 
+  <link rel="stylesheet" href="localhost/hugo-tldr/prism/prism.css">
+</head>
+<body>
+
+  
+<header id="header">
+  <div id="logo">
+    <h1>TLDR Dev Notes</h1>
+  </div>
+
+  <nav id="main-nav">
+    
+      
+        <a href="localhost/hugo-tldr/">Home</a>
+      
+        <a href="localhost/hugo-tldr/about/">About</a>
+      
+        <a href="localhost/hugo-tldr/contact/">Contact</a>
+      
+        <a href="localhost/hugo-tldr/quotes/">Quotes</a>
+      
+        <a href="localhost/hugo-tldr/resources/">Resources</a>
+      
+        <a href="localhost/hugo-tldr/progress/">What i did</a>
+      
+    
+  </nav>
+
+</header>
+
+
+  
+  <div id="sidebar">
+  <h6>Sections</h6>
+  
+  <ul id="list-sections">
+    
+      <li><a href="localhost/hugo-tldr/api/">
+        
+        APIs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/aws/">
+        
+        Amazon Web Services (AWS)
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/bash-scripting/">
+        
+        Bash Scripting
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/css-sass/">
+        
+        CSS &amp; Sass
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/cheatsheets/">
+        
+        Cheatsheets
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/commands/">
+        
+        Commands
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/databases/">
+        
+        Databases
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/drafts/">
+        
+        Drafts
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/git-github/">
+        
+        Git &amp; Github
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/javascript/">
+        
+        JavaScript
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/jekyll/">
+        
+        Jekyll
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/linux/">
+        
+        Linux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/misc/">
+        
+        Misc
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/node-api/">
+        
+        Node-api
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/nodejs/">
+        
+        Node.js
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/opencart/">
+        
+        OpenCart
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/php/">
+        
+        PHP
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/programming/">
+        
+        Programming
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/python/">
+        
+        Python
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/quotes/">
+        
+        Quotes
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/raspberrypi/">
+        
+        Raspberry Pi
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/reactjs/">
+        
+        Reactjs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/redux/">
+        
+        Redux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/resources/">
+        
+        Resources
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/sysadmin/">
+        
+        System Administration
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/webdev/">
+        
+        Web Development
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/workflow/">
+        
+        Workflow
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/ios-swift/">
+        
+        iOS &amp; Swift
+        </a></li>
+    
+        </ul>
+
+  
+  <section>
+    <h6>Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/amazon-rds">amazon-rds</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/amazon-s3">amazon-s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/api">api</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/aws">aws</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/babel">babel</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bluetooth">bluetooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cli">cli</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/coreblueooth">coreblueooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/crontab">crontab</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/css">css</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/databases">databases</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/date">date</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/debian">debian</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/education">education</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/firebase">firebase</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/format">format</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/fundamentals">fundamentals</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/getting-started">getting-started</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/git">git</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/github-pages">github-pages</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/guides">guides</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hacking">hacking</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hosting">hosting</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ios">ios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/javascript">javascript</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/jekyll">jekyll</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/js">js</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/keychain">keychain</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lamp">lamp</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lfs">lfs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/macos">macos</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/markdown">markdown</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/media-queries">media-queries</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mongodb">mongodb</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nagios">nagios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/node">node</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nodejs">nodejs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/npm">npm</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/phpmyadmin">phpmyadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/programming">programming</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react">react</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react-router">react-router</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/reactjs">reactjs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/redux">redux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/s3">s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/script">script</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/scripts">scripts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/snippets">snippets</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sql">sql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ssh">ssh</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/steganography">steganography</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sublime-text">sublime-text</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sync">sync</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sysadmin">sysadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/system-management">system-management</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/table">table</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/terminal">terminal</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ubuntu">ubuntu</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wifi">wifi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wordpress">wordpress</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/workflow">workflow</a>, 
+    
+  </section>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>,
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>,
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>,
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>,
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>,
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>,
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>,
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>,
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>,
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>,
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>,
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>,
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>,
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>,
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>,
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>,
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>,
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>,
+    
+  </section>
+
+
+</div>
+
+
+  
+  <div id="main">
+
+
+<h2 class="post_title">Introduction to CSS Grid Layout</h2>
+
+
+<div class="post_meta">
+  
+    
+    
+  
+    
+    
+    
+      <div class="meta_date"><strong>Last updated on:</strong> Sep 27, 2017</div>
+    
+  
+    
+    
+    <div class="meta_section"><strong>Section:</strong> 
+      
+        <a href="localhost/hugo-tldr/css-sass">CSS &amp; Sass</a>
+          
+    </div>
+
+
+    
+    
+  
+  </div>
+
+
+
+<div class="content">
+    
+
+<blockquote>
+<p>A true grid is two-dimensional. The two dimensions are rows and columns, and with grid layout you can control both at once.
+With flexbox, you choose whether to lay the items out as a row or a column, one or the other and not both.</p>
+</blockquote>
+
+<h3 id="why-css-grid">Why CSS Grid?</h3>
+
+<ul>
+<li><p>With CSS Grids you can not only hide/show things or adjust sizes or move items along one direction, you can actually <strong>change the order of HTML elements</strong>. You can move elements in both directions, PLUS do whatever you are able to do before with <code>@media</code> and <code>flex</code> in terms of responsive design.</p></li>
+
+<li><p>You can define and change <code>grid-template-areas</code> based on screen sizes (with media queries)</p></li>
+
+<li><p>You can also <strong>change the number of columns and rows based on the screen size</strong> two (the cleaner and simpler equivalent of Bootstrap&rsquo;s <code>col-xs-8 col-sm-6 col-md-4 col-lg-3</code> .. )</p></li>
+</ul>
+
+<hr />
+
+<p>tl;dr</p>
+
+<ul>
+<li>You can change the order of HTML elements using only CSS. Move something on the top to the right, move location info that was in footer to the sidebar etc. Instead of  moving the div from <code>&lt;footer&gt;</code> to <code>&lt;aside&gt;</code>, you can just change it&rsquo;s placement with <code>grid-area</code></li>
+<li>You can easily have a 12-column grid with one line of CSS. <code>grid-template-columns: repeat(12, 1fr)</code></li>
+</ul>
+
+<hr />
+
+<p>Layouts today are
+&gt; Floating and clearing and nesting and nesting and nesting</p>
+
+<ul>
+<li>CSS Grids takes the extra cruft away, leaving you with just semantic markup, letting you solve the layout problems in CSS, in a clean and simple way.</li>
+</ul>
+
+<p><a href="https://youtu.be/7kVeCqQCxlk?t=6m16s" target="_blank">6:14</a></p>
+
+<ul>
+<li><p>To put things next to each other we used floats. One item to the left, one to the right, and the box that surrounds them collapses - because floating pulls stuff out of the structure of the document.</p></li>
+
+<li><p>Flexbox works in only one direction, either horizontal or vertical. It can not do things like place two items next to one another and then one piece not. flexbox will treat all three as the same item (flex-item).</p></li>
+
+<li><p>So what you do is put them inside another flex box and deal with them separately</p></li>
+</ul>
+
+<blockquote>
+<p>Float and Flex force us to put extra content inside our HTML for the sole purpose of layout</p>
+</blockquote>
+
+<ul>
+<li>Nested elements inside elements inside elements. Take Bootstrap for example:</li>
+</ul>
+
+<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-sm-9&quot;&gt;
+		Level 1: .col-sm-9
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-xs-8 col-sm-6&quot;&gt;
+				Level 2: .col-xs-8 .col-sm-6
+			&lt;/div&gt;
+			&lt;div class=&quot;col-xs-4 col-sm-6&quot;&gt;
+				Level 2: .col-xs-8 .col-sm-6		
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>CSS Grids are two dimensional, you can move things both horizontally and vertically.</p>
+
+<h3 id="grid-vs-flexbox">Grid vs. Flexbox</h3>
+
+<p>Flex is one-dimensional - either horizontal or vertical, while Grid is two-dimensional, you can move elements in both horizontal and vertical planes</p>
+
+<p><img src="localhost/hugo-tldr/img/grid-vs-flexbox.svg" alt="grid vs. flexbox" /></p>
+
+<blockquote>
+<p>with grid layout we don’t need to add anything to the grid item to make the layout. Everything is being set on the container. In a flex layout you have to target the flex item to set the properties of <code>flex-grow</code>, <code>flex-shrink</code> and <code>flex-basis</code></p>
+</blockquote>
+
+<h3 id="css-grid-terminology">CSS Grid Terminology</h3>
+
+<ul>
+<li><strong>container</strong> (any container that let&rsquo;s you contain a grid inside <code>display: grid</code>. you can do this to as many items on the page as your want)</li>
+<li><strong>item</strong> (any direct descendant of a grid container)</li>
+<li>line</li>
+<li>cell</li>
+<li>track</li>
+<li>area</li>
+<li>gap</li>
+</ul>
+
+<h4 id="container">container</h4>
+
+<p>any container that let&rsquo;s you contain a grid inside <code>display: grid</code>. you can do this to as many items on the page as your want</p>
+
+<pre><code class="language-html">&lt;div class=&quot;site&quot;&gt; &lt;!--Grid container--&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-scss">.site {
+  display: grid; // Element containing a grid
+}
+</code></pre>
+
+<h4 id="item">item</h4>
+
+<ul>
+<li>any direct descendant of a grid automatically becomes a grid item</li>
+</ul>
+
+<pre><code class="language-html">&lt;div class=&quot;site&quot;&gt; &lt;!--Grid container--&gt;
+	&lt;header class=&quot;masthead&quot;&gt;&lt;/header&gt; &lt;!--Grid item--&gt;
+	&lt;h1 class=&quot;page-title&quot;&gt;&lt;/h1&gt; &lt;!--Grid item--&gt;
+	&lt;main class=&quot;main-content&quot;&gt;&lt;/main&gt; &lt;!--Grid item--&gt;
+	&lt;aside class=&quot;sidebar&quot;&gt;&lt;/aside&gt; &lt;!--Grid item--&gt;
+	&lt;footer class=&quot;footer&quot;&gt;&lt;/footer&gt; &lt;!--Grid item--&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-scss">.site {
+  display: grid; // Element containing a grid
+}
+</code></pre>
+
+<h4 id="line">line</h4>
+
+<ul>
+<li>Horizontal (row) or vertical (column) line separating the grid into sections</li>
+
+<li><p>Grid lines are referenced by numbers, starting and ending with the outer borders of the grid. First edge of the grid (on the left) either vertical or horizontal is number one</p></li>
+
+<li><p><code>grid-template-columns</code> and <code>grid-template-rows</code></p></li>
+
+<li><p>For example:<code>grid-template-columns: 2fr 1fr 1fr</code> (takes list of length values: em, px, %, fr etc. denoting the distance between each line)</p></li>
+
+<li><p><code>fr</code> (fraction) is a newly introduced unit for grids</p></li>
+</ul>
+
+<p><img src="localhost/hugo-tldr/img/grid-lines.png" alt="grid lines" /></p>
+
+<h4 id="cell">cell</h4>
+
+<ul>
+<li>A space in the grid between four intersecting grid lines</li>
+<li>smallest unit in a CSS grid</li>
+</ul>
+
+<p><img src="localhost/hugo-tldr/img/grid-cell.png" alt="grid cell" /></p>
+
+<h4 id="area">area</h4>
+
+<ul>
+<li>rectangular area made up of one or more grid cells</li>
+<li>rectangular area between any four specified grid lines</li>
+<li>Grid areas <em>must be rectangular</em> in nature; it is not possible to create, for example, a T- or L-shaped grid area.</li>
+</ul>
+
+<p><img src="localhost/hugo-tldr/img/grid-area.png" alt="grid area" /></p>
+
+<ul>
+<li>You define the start and end grid lines for grid items with: <code>grid-column</code> and <code>grid-row</code> (shorthand properties for <code>grid-column-start</code>, <code>grid-column-end</code> and <code>grid-row-start</code>, <code>grid-row-end</code>)</li>
+</ul>
+
+<pre><code class="language-scss">// grid-column: start/end
+grid-column: 2/4
+grid-row: 2/3
+</code></pre>
+
+<ul>
+<li><p>The thing with <code>grid-column</code> and <code>grid-row</code> though is the maths! You have to remember and/or calculate line numbers?! Err..</p></li>
+
+<li><p><code>grid-template-areas</code> to the rescue! These basically let you define areas, give them a name, and let you reference areas by name. Here&rsquo;s an example:</p></li>
+</ul>
+
+<pre><code class="language-css">grid-area: [area-name]
+</code></pre>
+
+<pre><code class="language-scss">.site {
+  display: grid;
+  grid-template-areas: // applied to grid container
+	&quot;head head&quot; // you're assigning cells to areas by giving the cells an area name
+	&quot;nav  main&quot; // how many values kinda depends on how many cells you have in the grid
+	&quot;nav  foot&quot;;
+}
+
+.site &gt; header {
+  grid-area: head;
+}
+
+.site &gt; nav {
+  grid-area: nav;
+}
+
+.site &gt; main {
+	grid-area: main;
+}
+
+.site &gt; footer {
+	grid-area: foot;
+}
+</code></pre>
+
+<p><img src="localhost/hugo-tldr/img/grid-template-areas.png" alt="grid template areas" />
+<img src="localhost/hugo-tldr/img/grid-template-areas2.png" alt="grid template areas 2" /></p>
+
+<h4 id="track">track</h4>
+
+<ul>
+<li>a grid track is a row or a column</li>
+<li>the space between two or more adjacent grid lines</li>
+<li>Row track is horizontal</li>
+<li>Column track is vertical</li>
+</ul>
+
+<p><img src="localhost/hugo-tldr/img/grid-track.png" alt="grid track" /></p>
+
+<h4 id="gap">gap</h4>
+
+<ul>
+<li>empty space between grid tracks, (aka gutters)</li>
+<li><code>grid-gap</code> is shorthand for <code>grid-column-gap</code> and <code>grid-row-gap</code>. e.g. <code>grid-gap: 1em</code> will set a gap of 1em after every cell</li>
+</ul>
+
+<p><img src="localhost/hugo-tldr/img/grid-gap-gutter.png" alt="grid gap" /></p>
+
+<h3 id="working-with-a-grid">Working with a grid</h3>
+
+<ul>
+<li>Define a grid (<code>display: grid</code>)</li>
+<li>Draw grid lines (<code>grid-template-columns</code> and <code>grid-template-rows</code>)</li>
+<li>Grid items automatically populate grid from top-left to bottom-right, based on HTML source order</li>
+</ul>
+
+<pre><code class="language-css">grid-template-columns: 2fr 1fr 1fr;
+</code></pre>
+
+<p><img src="localhost/hugo-tldr/img/grid-template-columns.png" alt="grid-template-columns" /></p>
+
+<pre><code class="language-css">grid-template-rows: auto 1fr 3fr;
+</code></pre>
+
+<p><img src="localhost/hugo-tldr/img/grid-template-rows.png" alt="grid-template-rows" /></p>
+
+<p><img src="localhost/hugo-tldr/img/grid-items-population.png" alt="automatic grid items population" /></p>
+
+<h3 id="changing-the-order-of-elements-based-on-screen-size">Changing the order of elements based on screen size</h3>
+
+<p>Let&rsquo;s say you want to move the footer to the bottom on small screens and to the right on bigger screens and there&rsquo;s a bunch of other HTML elements in between (i.e. the elements are not adjacent).</p>
+
+<p>The simple solution is to change the <code>grid-template-areas</code> based on the screen size. You can also <strong>change the number of columns and rows based on the screen size</strong> too (the cleaner and simpler equivalent of Bootstrap&rsquo;s <code>col-xs-8 col-sm-6 col-md-4 col-lg-3</code> .. )</p>
+
+<pre><code class="language-css">.site {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    &quot;title title&quot;
+    &quot;main header&quot;
+    &quot;main sidebar&quot;
+}
+
+@media screen and (min-width: 34em) {
+  .site {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:
+      &quot;title title title&quot;
+      &quot;main header header&quot;
+      &quot;main sidebar footer&quot;
+  }
+}
+</code></pre>
+
+<p><img src="localhost/hugo-tldr/img/grid-template-areas-media-queries.png" alt="different grid layouts for different screen sizes" /></p>
+
+<h3 id="but-support-backwards-compatibility">BUT Support Backwards compatibility?</h3>
+
+<ul>
+<li>CSS Grids are <a href="http://caniuse.com/#feat=css-grid" target="_blank">supported</a> by all major browsers</li>
+<li>There is now a thing called a <em>feature query</em> <code>@support</code>. Use feature queries to test for grid support in the current browser</li>
+</ul>
+
+<pre><code class="language-css">@supports (display: grid) { ... }
+</code></pre>
+
+<ul>
+<li>If CSS Grid not supported, recommended is to serve the <em>mobile</em> site to all browsers</li>
+</ul>
+
+<h3 id="css-grid-a-practical-approach-for-today">CSS Grid: A practical approach for today</h3>
+
+<ol>
+<li>Build accessible, mobile-first layout without grid (this is your baseline). Make sure it works in all browsers in all sizes</li>
+<li>Use the mobile first layout as fallback for all browsers</li>
+<li>Use <code>@support</code> to detect grid support</li>
+<li>At the appropriate breakpoint, create layout with grid and grid-areas</li>
+<li>Explore new layouts as viewport widens</li>
+</ol>
+
+<ul>
+<li>Use Firefox, Firefox has a Grid inspector</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<p><p data-height="868" data-theme-id="31402" data-slug-hash="xXdqLE" data-default-tab="result" data-user="aamnah" data-embed-version="2" data-pen-title="CSS Grid by example - 1 (super basic, 2 lines of code)" class="codepen">See the Pen <a href="https://codepen.io/aamnah/pen/xXdqLE/">CSS Grid by example - 1</a> by Aamnah Akram (<a href="https://codepen.io/aamnah">@aamnah</a>).</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<p><p data-height="374" data-theme-id="31402" data-slug-hash="RLVVoE" data-default-tab="css,result" data-user="aamnah" data-embed-version="2" data-pen-title="CSS Grid by example - 2 (grid areas + grid gap)" class="codepen">See the Pen <a href="https://codepen.io/aamnah/pen/RLVVoE/">CSS Grid by example - 2 (grid areas + grid gap)</a> by Aamnah Akram (<a href="https://codepen.io/aamnah">@aamnah</a>).</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="http://cssgridgarden.com/" target="_blank">Game: Grid Garden</a> from the creator of Flexbox Froggy</li>
+<li><a href="https://www.youtube.com/watch?v=7kVeCqQCxlk" target="_blank">Youtube: CSS Grid Changes EVERYTHING - Amazing Presentation by Mor10</a></li>
+<li><a href="https://www.slideshare.net/mor10/css-grid-changes-everything-about-web-layouts-wordcamp-europe-2017" target="_blank">SLIDES for CSS Grid Changes EVERYTHING</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank">Firefox: Grid inspector</a></li>
+<li><a href="https://gridbyexample.com/" target="_blank">Grid by example, by Rachel Andrews</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">MDN: CSS Grid Layout</a></li>
+<li><a href="https://github.com/mor10/kuhn" target="_blank">Github: Kuhn theme by Mor10</a></li>
+<li><a href="https://www.smashingmagazine.com/2017/06/building-production-ready-css-grid-layout/" target="_blank">Building Production-Ready CSS Grid Layouts Today</a></li>
+<li><a href="https://www.youtube.com/watch?v=jV8B24rSN5o" target="_blank">Youtube: CSS Grid Layout Crash Course</a></li>
+<li><a href="https://www.smashingmagazine.com/2017/09/css-grid-gotchas-stumbling-blocks/" target="_blank">Smashing Magazine: CSS Grid Gotchas And Stumbling Blocks, by Rachel Andrews</a></li>
+</ul>
+
+</div>
+
+
+
+
+
+
+
+
+<footer id="footer">
+<hr>
+  <section>
+    Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+  </section>
+  <span class="copyright"> Copyright &copy; 2014 - 2017 Aamnah. All rights reserved.</span>
+</footer>
+
+</div>
+
+<script src='localhost/hugo-tldr/prism/prism.js'></script>
+</body>
+</html>
