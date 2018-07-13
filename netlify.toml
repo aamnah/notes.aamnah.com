@@ -19,8 +19,7 @@ ID = "d8023249-34f0-4899-946c-82ebfa593754"
 
 
 [build.environment]
-  HUGO_VERISON = 0.38 # incompatible versions mean build fails
-  REPOSITORY_URL = "https://bitbucket.org/aamnah/tldrdevnotes.com"
-  BRANCH = "master"
-  CONTEXT = "production"
-  URL = "tldrdevnotes.netlify.com"
+  HUGO_VERISON = "0.44" # incompatible versions mean build fails
+
+[context.production.environment]
+  HUGO_VERSION = "0.44"
