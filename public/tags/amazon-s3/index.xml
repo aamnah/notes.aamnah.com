@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amazon S3 on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/amazon-s3/</link>
+    <description>Recent content in Amazon S3 on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 19 Aug 2014 12:59:41 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/amazon-s3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</title>
+      <link>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</link>
+      <pubDate>Tue, 19 Aug 2014 12:59:41 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</guid>
+      <description>This how-to will teach you how to take automated backups of all your MySQL databases and send them to Amazon S3.
+Access (Logins) required  root login for the server (sudo is required to run automysqlbackup, root is req. to add to root user’s cron)
+ admin login for the mysql server (to provide for backup config file)
+ IAM access keys to use with s3cmd (to configure s3cmd)</description>
+    </item>
+    
+  </channel>
+</rss>

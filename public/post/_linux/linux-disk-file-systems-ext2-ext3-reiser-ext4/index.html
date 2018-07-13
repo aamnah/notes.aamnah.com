@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Linux Disk File Systems (ext2, ext3, Reiser, ext4) &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Linux Disk File Systems (ext2, ext3, Reiser, ext4)</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h2 id="ext2">ext2</h2>
+
+<p>2nd Extended File System. It was originally introduced back in 1993 and ext2 stores data in the standard hierarchial fashion used by most other file systems.</p>
+
+<p>Data is stored in files, files are stored in directories, and a directory can simply contain either files or other directories.</p>
+
+<p><strong>Max file size is 2TB. An ext2 volume can be upto 4TB</strong>. File names can be upto 255 characters long and ext2 supports Linux filesystem users, groups and permissions. It also supports compression.</p>
+
+<p>It&rsquo;s been around a long time is very stable since most of the bugs have been worked out.</p>
+
+<h2 id="ext3">ext3</h2>
+
+<p>3rd Extended File System.</p>
+
+<p>You can upgrade/downgrade from/to ext2. Difference with ext2 is journaliing.</p>
+
+<p>The main disadvantage of the ext2 file system is that the fact taht it must check the entire file system if your file system goes down uncleanly.</p>
+
+<p>Journaling eliminates that problem. ext3 file systems record <em>transactions</em> to what&rsquo;s called a <em>journal</em> and marks it as incomplete. After the disk transaction is complete, teh ext3 file system finally marks that transaction as complete within our journal. By doing this, ext3 file systems can keep a long journal for most of the recent file transactions and whether or not those transactions were completed. When a system goes down unexpectedly (without properly dismounting the disk, power outage), ext3 replays the journal when the system comes back on. This allows the file system to verify the data on the disk and bring it back to a consistent date, when possible, using the data in our journal.</p>
+
+<p>Unlike ext2, ext3 doesn&rsquo;t ned to check our entire file system when it comes back on. This is because it keeps a log (journal) of our most recent changes. ext3 file system simply checks the transactions that are listed as incomplete only.</p>
+
+<p>Using journaling, disk discovery time after an improper shutdown takes dramatically less time than an ext2 file system. In fact, ext2 can take hours, ext3 can replay in only minutes even if the filesystem is exteremly large.</p>
+
+<h2 id="reiser">Reiser</h2>
+
+<p>Alternative to ext3. Utilizes journaling to make crash recovery very fast. However, completely different from ext2 and ext3 as utilizes a dramatically different internal structure.</p>
+
+<p><strong>Max file size of 8TB, max volume size of 16TB</strong>.</p>
+
+<p>The structure of Reiser allows it to support larger max file sizes. In addition, the structure of Reiser allows it to perform faster than ext2 and ext3.</p>
+
+<h2 id="ext4">ext4</h2>
+
+<p>Released late 2008. 4th Extended File System.</p>
+
+<p>Backwards compatible with ext2.</p>
+
+<p><strong>Max file size 16TB, max volume size 1EB</strong> (1 Exabyte = 1000 petabytes = 1millionterabytes = 1billiongigabytes.)</p>
+
+<p>You can have a maximum of 4 billion files on an ext4 file system. File name can be a max of 256 bytes.</p>
+
+<p>ext4 also uses checksums to verify the journal file itself. This helps improve the pverall reliability of our system since the journal file is one of the most heavily used files on our disk system.</p>
+
+<p>Since we can now support volumes of upto 1EB, this is a dramatic leap forward in technology in that of both ext3 adn Reiser.</p>
+
+<hr />
+
+<p>Notes:</p>
+
+<ul>
+<li>FAT32 max file size is 4GB, max volume size is 8TB</li>
+<li>You can mount EXT file systems on OS X using <a href="http://osxfuse.github.io/">FUSE for OS X</a></li>
+<li><a href="http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac/">How to Mount EXT4 Linux File Systems on a Mac with OS X Fuse</a></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_css-sass/css-minimum-styles-for-presentable-website/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_css-sass/css-minimum-styles-for-presentable-website/">Making a site presentable in 7 lines of code</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_linux/2014-08-31-linux-basic-user-management/">Linux - Basic User Management</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_linux/2014-08-31-linux-basic-user-management/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

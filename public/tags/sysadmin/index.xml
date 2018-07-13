@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sysadmin on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/sysadmin/</link>
+    <description>Recent content in Sysadmin on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Find, install and upgrade Linux software</title>
+      <link>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</guid>
+      <description>Update packages list: sudo apt update See packages that can be upgraded: apt list --upgradable See all packages that can be upgraded: apt list --upgradable -a Upgrade packages: apt upgrade Upgrade packages without asking me yes/no: apt upgrade -y Search for packages: apt-cache search foo OR apt search foo Get details about a specific package: apt-cache show foo OR apt show foo  apt-cache The apt-cache command can display much of the information stored in APT&amp;rsquo;s internal database.</description>
+    </item>
+    
+    <item>
+      <title>Tool - Display live Linux system stats (memory, CPU, IO)</title>
+      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</link>
+      <pubDate>Fri, 20 Jun 2014 16:38:05 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</guid>
+      <description>This is a tiny application that streams these stats over a WebSocket using websocketd and charts them using SmoothieCharts.</description>
+    </item>
+    
+    <item>
+      <title>Restart services in Linux</title>
+      <link>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</link>
+      <pubDate>Wed, 21 May 2014 15:33:52 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</guid>
+      <description> Restart SSH  sudo service sshd restart  or
+sudo service ssh restart   Restart Apache  sudo service apache2 restart  </description>
+    </item>
+    
+  </channel>
+</rss>

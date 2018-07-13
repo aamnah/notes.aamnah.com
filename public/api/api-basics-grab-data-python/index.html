@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no minimum-scale=1'>
+  <title>TLDR Dev Notes</title>
+  <link rel='stylesheet' href='localhost/hugo-tldr/css/main.css'> 
+  <link rel="stylesheet" href="localhost/hugo-tldr/prism/prism.css">
+</head>
+<body>
+
+  
+<header id="header">
+  <div id="logo">
+    <h1>TLDR Dev Notes</h1>
+  </div>
+
+  <nav id="main-nav">
+    
+      
+        <a href="localhost/hugo-tldr/">Home</a>
+      
+        <a href="localhost/hugo-tldr/about/">About</a>
+      
+        <a href="localhost/hugo-tldr/contact/">Contact</a>
+      
+        <a href="localhost/hugo-tldr/quotes/">Quotes</a>
+      
+        <a href="localhost/hugo-tldr/resources/">Resources</a>
+      
+        <a href="localhost/hugo-tldr/progress/">What i did</a>
+      
+    
+  </nav>
+
+</header>
+
+
+  
+  <div id="sidebar">
+  <h6>Sections</h6>
+  
+  <ul id="list-sections">
+    
+      <li><a href="localhost/hugo-tldr/api/">
+        
+        APIs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/aws/">
+        
+        Amazon Web Services (AWS)
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/bash-scripting/">
+        
+        Bash Scripting
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/css-sass/">
+        
+        CSS &amp; Sass
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/cheatsheets/">
+        
+        Cheatsheets
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/commands/">
+        
+        Commands
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/databases/">
+        
+        Databases
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/drafts/">
+        
+        Drafts
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/git-github/">
+        
+        Git &amp; Github
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/javascript/">
+        
+        JavaScript
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/jekyll/">
+        
+        Jekyll
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/linux/">
+        
+        Linux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/misc/">
+        
+        Misc
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/node-api/">
+        
+        Node-api
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/nodejs/">
+        
+        Node.js
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/opencart/">
+        
+        OpenCart
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/php/">
+        
+        PHP
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/programming/">
+        
+        Programming
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/python/">
+        
+        Python
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/quotes/">
+        
+        Quotes
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/raspberrypi/">
+        
+        Raspberry Pi
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/reactjs/">
+        
+        Reactjs
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/redux/">
+        
+        Redux
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/resources/">
+        
+        Resources
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/sysadmin/">
+        
+        System Administration
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/webdev/">
+        
+        Web Development
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/workflow/">
+        
+        Workflow
+        </a></li>
+    
+      <li><a href="localhost/hugo-tldr/ios-swift/">
+        
+        iOS &amp; Swift
+        </a></li>
+    
+        </ul>
+
+  
+  <section>
+    <h6>Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/amazon-rds">amazon-rds</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/amazon-s3">amazon-s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/api">api</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/aws">aws</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/babel">babel</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/bluetooth">bluetooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/cli">cli</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/coreblueooth">coreblueooth</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/crontab">crontab</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/css">css</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/databases">databases</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/date">date</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/debian">debian</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/education">education</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/firebase">firebase</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/format">format</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/fundamentals">fundamentals</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/getting-started">getting-started</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/git">git</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/github-pages">github-pages</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/guides">guides</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hacking">hacking</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hosting">hosting</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ios">ios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/javascript">javascript</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/jekyll">jekyll</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/js">js</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/keychain">keychain</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lamp">lamp</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/lfs">lfs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/macos">macos</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/markdown">markdown</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/media-queries">media-queries</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mongodb">mongodb</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nagios">nagios</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/node">node</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/nodejs">nodejs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/npm">npm</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/phpmyadmin">phpmyadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/programming">programming</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react">react</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/react-router">react-router</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/reactjs">reactjs</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/redux">redux</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/s3">s3</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/script">script</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/scripts">scripts</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/snippets">snippets</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sql">sql</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ssh">ssh</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/steganography">steganography</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sublime-text">sublime-text</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sync">sync</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/sysadmin">sysadmin</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/system-management">system-management</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/table">table</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/terminal">terminal</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/ubuntu">ubuntu</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wifi">wifi</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/wordpress">wordpress</a>, 
+    
+      <a href="localhost/hugo-tldr/tags/workflow">workflow</a>, 
+    
+  </section>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    
+      <a href="localhost/hugo-tldr/tags/linux">linux</a>,
+    
+      <a href="localhost/hugo-tldr/tags/es2015">es2015</a>,
+    
+      <a href="localhost/hugo-tldr/tags/how-to">how-to</a>,
+    
+      <a href="localhost/hugo-tldr/tags/array-methods">array-methods</a>,
+    
+      <a href="localhost/hugo-tldr/tags/bash">bash</a>,
+    
+      <a href="localhost/hugo-tldr/tags/commands">commands</a>,
+    
+      <a href="localhost/hugo-tldr/tags/cheatsheet">cheatsheet</a>,
+    
+      <a href="localhost/hugo-tldr/tags/concepts">concepts</a>,
+    
+      <a href="localhost/hugo-tldr/tags/mysql">mysql</a>,
+    
+      <a href="localhost/hugo-tldr/tags/free">free</a>,
+    
+      <a href="localhost/hugo-tldr/tags/sass">sass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/compass">compass</a>,
+    
+      <a href="localhost/hugo-tldr/tags/python">python</a>,
+    
+      <a href="localhost/hugo-tldr/tags/backups">backups</a>,
+    
+      <a href="localhost/hugo-tldr/tags/editor">editor</a>,
+    
+      <a href="localhost/hugo-tldr/tags/opencart">opencart</a>,
+    
+      <a href="localhost/hugo-tldr/tags/raspberry-pi">raspberry-pi</a>,
+    
+      <a href="localhost/hugo-tldr/tags/basics">basics</a>,
+    
+      <a href="localhost/hugo-tldr/tags/database">database</a>,
+    
+      <a href="localhost/hugo-tldr/tags/hugo">hugo</a>,
+    
+  </section>
+
+
+</div>
+
+
+  
+  <div id="main">
+
+
+<h2 class="post_title">API Basics - Grabbing Data with Python</h2>
+
+
+<div class="post_meta">
+  
+    
+    
+  
+    
+    
+    
+      <div class="meta_date"><strong>Last updated on:</strong> Aug 29, 2014</div>
+    
+  
+    
+    
+    <div class="meta_section"><strong>Section:</strong> 
+      
+        <a href="localhost/hugo-tldr/api">APIs</a>
+          
+    </div>
+
+
+    
+     
+      <div class="meta_tags">
+        <strong>Tags:</strong>
+        
+         
+        
+          
+            <a href="localhost/hugo-tldr/tags/python">#python</a>
+          
+        
+      </div>
+    
+  
+  </div>
+
+
+
+<div class="content">
+    
+
+<ul>
+<li><p>This is the accompanying code file for the video <a href="https://www.youtube.com/watch?v=pxofwuWTs7c" target="_blank">Coding With Python :: Learn API Basics to Grab Data with Python</a>.</p></li>
+
+<li><p>Check <a href="https://developers.google.com/books/examples/linkIndivBooks" target="_blank">this Google Books Developer link</a> for some code samples.</p></li>
+
+<li><p>This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.</p></li>
+</ul>
+
+<h3 id="apis">APIs:</h3>
+
+<ul>
+<li><a href="http://isbndb.com/api/v2/docs/books" target="_blank">ISBNdb</a></li>
+<li><a href="https://openlibrary.org/dev/docs/api/books" target="_blank">Open Library</a></li>
+<li><a href="https://developers.google.com/books/docs/v1/using" target="_blank">Google Books API</a></li>
+</ul>
+
+<h2 id="getting-data-in-terminal">Getting data in Terminal</h2>
+
+<p>ISBNdb:</p>
+
+<pre><code class="language-bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
+</code></pre>
+
+<p>Open Library:</p>
+
+<pre><code class="language-bash">curl 'http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&amp;jscmd=data&amp;format=json'
+</code></pre>
+
+<h3 id="output">Output</h3>
+
+<p>For</p>
+
+<pre><code class="language-bash">curl http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386
+</code></pre>
+
+<pre><code class="language-json">{
+   &quot;data&quot; : [
+      {
+         &quot;isbn10&quot; : &quot;0765350386&quot;,
+         &quot;title_long&quot; : &quot;&quot;,
+         &quot;notes&quot; : &quot;&quot;,
+         &quot;awards_text&quot; : &quot;&quot;,
+         &quot;subject_ids&quot; : [],
+         &quot;isbn13&quot; : &quot;9780765350381&quot;,
+         &quot;urls_text&quot; : &quot;&quot;,
+         &quot;book_id&quot; : &quot;mistborn&quot;,
+         &quot;physical_description_text&quot; : &quot;672 pages&quot;,
+         &quot;summary&quot; : &quot;Brandon Sanderson, fantasy�s newest master tale spinner, author of the acclaimed debut Elantris, dares to turn a genre on its head by asking a simple question: What if the hero of prophecy fails? What kind of world results when the Dark Lord is in charge? The answer will be found in the Mistborn Trilogy, a saga of surprises and magical martial-arts action that begins in Mistborn.For a thousand years the ash fell and no flowers bloomed. For a thousand years the Skaa slaved in misery and lived in fear. For a thousand years the Lord Ruler, the �Sliver of Infinity,� reigned with absolute power and ultimate terror, divinely invincible. Then, when hope was so long lost that not even its memory remained, a terribly scarred, heart-broken half-Skaa rediscovered it in the depths of the Lord Ruler�s most hellish prison. Kelsier �snapped� and found in himself the powers of a Mistborn. A brilliant thief and natural leader, he turned his talents to the ultimate caper, with the Lord Ruler himself as the mark. Kelsier recruited the underworld�s elite, the smartest and most trustworthy allomancers, each of whom shares one of his many powers, and all of whom relish a high-stakes challenge. Only then does he reveal his ultimate dream, not just the greatest heist in history, but the downfall of the divine despot.But even with the best criminal crew ever assembled, Kel�s plan looks more like the ultimate long shot, until luck brings a ragged girl named Vin into his life. Like him, she�s a half-Skaa orphan, but she�s lived a much harsher life. Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed.Readers of Elantris thought they'd discovered someone special in Brandon Sanderson. Mistborn proves they were right.&quot;,
+         &quot;dewey_normal&quot; : &quot;813&quot;,
+         &quot;publisher_name&quot; : &quot;Tor Fantasy&quot;,
+         &quot;edition_info&quot; : &quot;Mass Market Paperback; 2007-07-31&quot;,
+         &quot;language&quot; : &quot;&quot;,
+         &quot;lcc_number&quot; : &quot;&quot;,
+         &quot;publisher_text&quot; : &quot;Tor Fantasy&quot;,
+         &quot;publisher_id&quot; : &quot;tor_fantasy&quot;,
+         &quot;title&quot; : &quot;Mistborn&quot;,
+         &quot;title_latin&quot; : &quot;Mistborn&quot;,
+         &quot;marc_enc_level&quot; : &quot;~&quot;,
+         &quot;dewey_decimal&quot; : &quot;813&quot;,
+         &quot;author_data&quot; : [
+            {
+               &quot;name&quot; : &quot;Brandon Sanderson&quot;,
+               &quot;id&quot; : &quot;brandon_sanderson&quot;
+            }
+         ]
+      }
+   ],
+   &quot;index_searched&quot; : &quot;isbn&quot;
+}
+</code></pre>
+
+<h2 id="a-very-basic-example-code-in-python">A very basic example code in Python</h2>
+
+<pre><code class="language-python">#!/usr/bin/env python
+
+import urllib2
+import json
+
+url = 'http://isbndb.com/api/v2/json/RK8FPFZU/book/0765350386'
+obj = urllib2.urlopen(url)
+response = json.load(obj)
+
+for book in response['data']:
+    print book['title']
+    for author in response['data'][0]['author_data']: 
+        print author['name']
+    print book['physical_description_text']
+
+</code></pre>
+
+<h4 id="output-1">Output</h4>
+
+<pre><code>Mistborn
+Brandon Sanderson
+672 pages
+</code></pre>
+
+<h2 id="getting-data-in-python">Getting Data in Python</h2>
+
+<p>We will use <code>urllib2</code> to open the URL and <code>json</code> to parse the json data the URL provides.</p>
+
+<pre><code class="language-python">#!/usr/bin/env python
+
+import urllib2
+import json
+
+# URL Structure for ISBNDB JSON API
+# http://isbndb.com/api/v2/json/api_key/book/isbn
+
+# ISBNDB_key = 'RK8FPFZU'
+# isbn = '0743277465'
+
+url = 'http://isbndb.com/api/v2/json/RK8FPFZU/book/0743277465'
+
+obj = urllib2.urlopen(url)
+
+response = json.load(obj)
+
+print response
+</code></pre>
+
+<h3 id="output-2">Output</h3>
+
+<pre><code class="language-json">{
+   &quot;index_searched&quot; : &quot;isbn&quot;,
+   &quot;data&quot; : [
+      {
+         &quot;lcc_number&quot; : &quot;GV1439&quot;,
+         &quot;marc_enc_level&quot; : &quot;7&quot;,
+         &quot;publisher_text&quot; : &quot;New York : Free Press, 2008.&quot;,
+         &quot;urls_text&quot; : &quot;&quot;,
+         &quot;book_id&quot; : &quot;the_art_of_learning_a04&quot;,
+         &quot;publisher_name&quot; : &quot;Free Press&quot;,
+         &quot;language&quot; : &quot;eng&quot;,
+         &quot;title_latin&quot; : &quot;art of learning&quot;,
+         &quot;awards_text&quot; : &quot;&quot;,
+         &quot;subject_ids&quot; : [
+            &quot;entertainment_puzzles_games_board_games_chess&quot;,
+            &quot;health_mind_body_self_help_motivational&quot;,
+            &quot;health_mind_body_personal_health&quot;,
+            &quot;health_mind_body_psychology_counseling_by_topic_learning&quot;,
+            &quot;biographies_memoirs_memoirs&quot;,
+            &quot;waitzkin_josh&quot;,
+            &quot;chess_players_united_states_biography&quot;,
+            &quot;tai_chi&quot;,
+            &quot;learning&quot;,
+            &quot;meditation&quot;
+         ],
+         &quot;dewey_normal&quot; : &quot;613.7148&quot;,
+         &quot;author_data&quot; : [
+            {
+               &quot;id&quot; : &quot;josh_waitzkin&quot;,
+               &quot;name&quot; : &quot;Josh Waitzkin&quot;
+            }
+         ],
+         &quot;title_long&quot; : &quot;The art of learning: an inner journey to optimal performance&quot;,
+         &quot;dewey_decimal&quot; : &quot;613.7/148&quot;,
+         &quot;summary&quot; : &quot;&quot;,
+         &quot;isbn10&quot; : &quot;0743277465&quot;,
+         &quot;isbn13&quot; : &quot;9780743277464&quot;,
+         &quot;physical_description_text&quot; : &quot;xxi, 265 p. : ill. ; 22 cm.&quot;,
+         &quot;notes&quot; : &quot;The foundation -- My second art -- Bringing it all together.&quot;,
+         &quot;edition_info&quot; : &quot;&quot;,
+         &quot;publisher_id&quot; : &quot;free_press&quot;,
+         &quot;title&quot; : &quot;The art of learning&quot;
+      }
+   ]
+}
+</code></pre>
+
+<h2 id="getting-specific-details">Getting specific details</h2>
+
+<p>printing items from lists (iterating through lists)</p>
+
+<pre><code class="language-python">for book in response['data']:
+    print book['title']
+    for author in response['data'][0]['author_data']: 
+        print author['name']
+    print book['physical_description_text']
+</code></pre>
+
+<p>Be sure to read <a href="http://stackoverflow.com/questions/10855827/how-to-loop-through-json-in-python" target="_blank">this</a> and <a href="http://stackoverflow.com/questions/14089238/iterating-and-printing-json-objects-in-python" target="_blank">this</a> for iterating over &lsquo;lists in an object&rsquo; like we have the &lsquo;author_data&rsquo; list in the &lsquo;data&rsquo; object.</p>
+
+<p>For the purpose of this article i&rsquo;m only getting the <strong>title</strong>, <strong>author</strong> and <strong>number of pages</strong>. You can edit the code to output as many details as you want from the data object.</p>
+
+<h2 id="turning-the-whole-thing-into-a-function-search-by-isbn">Turning the whole thing into a function (search by ISBN)</h2>
+
+<pre><code class="language-python">#!/usr/bin/env python
+
+import urllib2
+import json
+
+isbndb_key = 'RK8FPFZU'
+
+def isbn_search(query):
+    api_key = isbndb_key
+    url = 'http://isbndb.com/api/v2/json/' + api_key + '/book/'
+    isbn = query
+    # isbn = query.replace(' ', '%20') will replace any spaces with %20.
+    # not needed in this url design/structure though so commented out
+    final_url = url + query
+
+    obj = urllib2.urlopen(final_url)
+    response = json.load(obj)
+
+    for book in response['data']:
+        print book['title']
+        for author in response['data'][0]['author_data']:
+            print author['name']
+        print book['physical_description_text']
+
+</code></pre>
+
+<h3 id="output-3">Output</h3>
+
+<p>For <code>isbn_search('0765350386')</code></p>
+
+<pre><code>Mistborn
+Brandon Sanderson
+672 pages
+</code></pre>
+
+<p>For <code>isbn_search('0743277465')</code></p>
+
+<pre><code>The art of learning
+Josh Waitzkin
+xxi, 265 p. : ill. ; 22 cm.
+</code></pre>
+
+<p>The pages are actually taken from the <strong>physical_description_text</strong> item, so it is okay for it to sometimes show other physical attributes in addition to the pages. If this bothers you, use the Open Library API that gives out <strong>number_of_pages</strong> insated of physical_description_text. The code is just an example.</p>
+
+<h2 id="turning-the-whole-thing-into-a-function-search-by-name">Turning the whole thing into a function (search by Name)</h2>
+
+<pre><code class="language-python">import urllib2
+import json
+
+ISBNDB_key = 'RK8FPFZU'
+
+def name_search(query):
+    api_key = ISBNDB_key
+    url = 'http://isbndb.com/api/v2/json/' + api_key + '/book/'
+    name = query.replace(' ', '_') #replace any spaces with _
+    final_url = url + name
+    obj = urllib2.urlopen(final_url)
+    response = json.load(obj)
+
+    for book in response['data']:
+        print book['title']
+        for author in response['data'][0]['author_data']:
+            print author['name']
+        print book['physical_description_text']
+
+</code></pre>
+
+<h3 id="output-4">Output</h3>
+
+<p>For <code>name_search('mistborn')</code></p>
+
+<pre><code>Mistborn
+Brandon Sanderson
+672 pages
+</code></pre>
+
+<p>For <code>name_search('the girl who kicked the hornets nest')</code></p>
+
+<pre><code>The Girl Who Kicked the Hornets' Nest
+Stieg Larsson
+576 pages
+</code></pre>
+
+</div>
+
+
+
+
+
+
+  <div class="related">
+    <h6>Related</h6>
+      <ul>
+        
+          <li><a href="localhost/hugo-tldr/python/create-view-html-files-with-in-python/">Creating and Viewing HTML Files with Python</a></li>
+        
+          <li><a href="localhost/hugo-tldr/python/zen-of-python/">The Zen of Python</a></li>
+        
+          <li><a href="localhost/hugo-tldr/resources/2014-06-24-rsc-book-python-for-you-and-me/">Book - Python for You and Me</a></li>
+        
+      </ul>
+  </div>
+
+
+
+<footer id="footer">
+<hr>
+  <section>
+    Please note that this site and the posts on it are, and will always be, a work in progress. If i waited for perfection, i’d never get anything done.
+  </section>
+  <span class="copyright"> Copyright &copy; 2014 - 2014 Aamnah. All rights reserved.</span>
+</footer>
+
+</div>
+
+<script src='localhost/hugo-tldr/prism/prism.js'></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+$color-brand-primary: #E51843;
+$color-brand-secondary: #111;
+
+body {
+	a {
+		color: $color-brand-primary;
+		
+		&:visited {
+			color: darken($color-brand-primary, 20%);
+		}
+	}
+}
+
+#menu {
+	background: $color-brand-secondary;
+	
+	a {
+		color: #CFD8DC;
+		
+		&:hover {
+			color: #fff;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	}
+}

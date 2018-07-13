@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Secure MySQL installation non-interactively with a bash script &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Secure MySQL installation non-interactively with a bash script</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<p>There are two ways you can write the script. One is running the script with a <a href="http://tldp.org/LDP/abs/html/here-docs.html">here-document</a>.</p>
+
+<blockquote>
+<p>A <em>here document</em> (aka heredoc) is a special-purpose code block. It uses a form of I/O redirection to feed a command list to an interactive program or a command</p>
+</blockquote>
+
+<p>Basically, you provide only the answers to the question the script is going to ask you, and then redirect them as input to the interactive program.</p>
+
+<p>Like so:</p>
+
+<pre><code class="language-bash">PASS_MYSQL_ROOT='whateverPassword'
+1Rc3DG2PV6KBLF1h
+
+# Enter password for user root (${PASS_MYSQL_ROOT})
+# Would you like to setup VALIDATE PASSWORD plugin? (y)
+## Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1 (1) -- will only see this if answered y to the previous one
+# Change the password for root ? (n)
+# Remove anonymous users? (y)
+# Disallow root login remotely? (y)
+# Remove test database and access to it? (y)
+# Reload privilege tables now? (y)
+
+# mysql_secure_installation
+mysql_secure_installation &lt;&lt; EOF
+${PASS_MYSQL_ROOT} 
+y
+1
+n
+y
+y
+y
+y
+EOF
+</code></pre>
+
+<ul>
+<li>The <code>EOF</code> is a <strong>limit string</strong>. It doesn&rsquo;t have to be called <code>EOF</code>, it can be <code>abracadabra</code> for all that matters, just make sure that it doesn&rsquo;t occur anywhere in the command list that you&rsquo;re providing (meaning it should only come twice in your here document, at the beginning of command list and at the end).</li>
+<li>Note that heredoc <strong>commands can not be indented</strong> with the rest of the code. The code has to be at the beginning of the line.</li>
+<li>You <strong>can not enter passwords</strong> with heredocs. Programs that read passwords often specifically open /dev/tty to defeat redirection. In which case, the tool you need is &lsquo;expect&rsquo;, which will run one behind a pseudo-tty.</li>
+<li>Also, you <strong>can&rsquo;t add comments</strong> with the command list. It has to be the exact answer to whatever the program asked. (Makes sense when you realize that you have never answered with #comments when a program asks you something, you answer only what the program asked. Since I have a habit of commenting my code heavily, this was a point to note for me). So i have added comments about the questions the <code>mysql_secure_installation</code> script asks before the code block starts.</li>
+</ul>
+
+<p>The other way of securing the installation is running individual MySQL commands that achieve the same thing. Like following:</p>
+
+<pre><code class="language-bash"># mysql_secure_installation
+mysqladmin -u root -p ${PASS_MYSQL_ROOT}
+# mysql -u root -p ${PASS_MYSQL_ROOT} -e &quot;UPDATE mysql.user SET Password=PASSWORD('${PASS_MYSQL_ROOT}') WHERE User='root'&quot; # update root password
+mysql -u root -p ${PASS_MYSQL_ROOT} -e &quot;DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')&quot; # Disable remote login
+mysql -u root -p ${PASS_MYSQL_ROOT} -e &quot;DELETE FROM mysql.user WHERE User=''&quot; # Remove anonymous users
+mysql -u root -p ${PASS_MYSQL_ROOT} -e &quot;DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'&quot; # Remove test database
+mysql -u root -p ${PASS_MYSQL_ROOT} -e &quot;FLUSH PRIVILEGES&quot; # Reload privileges
+</code></pre>
+
+<p>The disadvantage of the code above is that it&rsquo;ll store the MySQL password in bash history. You can alter the code above and combine it with a here document code block, like so:</p>
+
+<pre><code class="language-bash">mysql --user=root --password=${PASS_MYSQL_ROOT} &lt;&lt; EOF
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';
+FLUSH PRIVILEGES;
+EOF
+</code></pre>
+
+<p>But since heredocs usually can&rsquo;t provide passwords for progarms, you&rsquo;ll end up leaving your MySQL password in bash history anyway.</p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="http://tldp.org/LDP/abs/html/here-docs.html">Advanced Bash-Scripting Guide: Chapter 19. Here Documents</a></li>
+<li><a href="https://stackoverflow.com/questions/3796345/can-i-use-a-heredoc-to-enter-a-password-in-bash">StackOverflow: Can I use a heredoc to enter a password in bash?</a></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_sysadmin/secure-linux-ubuntu-server/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_sysadmin/secure-linux-ubuntu-server/">Secure a Linux Ubuntu Server</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_programming/scope/">Scope</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_programming/scope/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

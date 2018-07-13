@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/2014-08-26-dev-environment-mac/"></a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  #Dev Environment (Mac) How to Check the Version of a Script/Tool toolName --version
+homebrew Install
+ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;  Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your ~/.bashrc file
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH  update: brew update check outdated: brew outdated upgrade: brew upgrade upgrade specific package: brew upgrade package troubleshoot: brew doctor
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/2014-08-26-dev-environment-mac/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/redirect-a-site-via-.htaccess/"></a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Redirect a site via .htaccess Redirect 301 / http://newsite.com  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/api/ajax/"></a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  AJAX XMLHttpRequest() const xhr = new XMLHttpRequest(); xhr.open('GET', url); xhr.onload = function() { if(xhr.status === 200) { console.log(xhr.response) } }; xhr.onerror = function() {}; xhr.send();  onReadyStateChange has been around since original spec. In v2, onload, onprogress and onerror were introduced, which are basically different states. Instead of defining a function that looks for onReadyStateChange === 4, you can use the onload function, which is more to the point and less typing.
+  </p>
+
+  
+  <footer>
+    <a href="/post/api/ajax/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/javascript-web-apis-and-their-interfaces/">(JavaScript) Web APIs and their Interfaces</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Web APIs JavaScript is a scripting language. In the context of a web browser, scripting usually refers to program code written in JavaScript that is executed by the browser when a page is downloaded, or in response to an event triggered by the user. 1
+A Web API is an API for either a web server or web browser. There&rsquo;s a lot we can do inside a browser: animate graphics, send messages, edit photos, edit files etc.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/javascript-web-apis-and-their-interfaces/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/api/ajax-basics/">AJAX Basics</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  AJAX Concepts Programming AJAX jQuery and AJAX AJAX and APIs  AJAX Concepts Intro AJAX = Asynchronous JavaScript And XML
+It lets you request info from web server, post data to a web server and update content on a web page with loading a new web page. It works with pretty much all major server side languages (PHP, JavaScript, Ruby, Python etc.).
+The whole process of sending data back and forth involves the client (browser) sending a request and the server sending back a response.
+  </p>
+
+  
+  <footer>
+    <a href="/post/api/ajax-basics/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/api/api-basics-grab-data-python/">API Basics - Grabbing Data with Python</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/python">python</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This is the accompanying code file for the video Coding With Python :: Learn API Basics to Grab Data with Python.
+ Check this Google Books Developer link for some code samples.
+ This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.
+  APIs:  ISBNdb Open Library Google Books API  Getting data in Terminal ISBNdb:
+  </p>
+
+  
+  <footer>
+    <a href="/post/api/api-basics-grab-data-python/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_linux/2017-02-20-howto-add-ssh-key-macos-keychain-permanently/">Add SSH Key to MacOS Keychain permanently</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/ssh">ssh</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/macos">macos</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/keychain">keychain</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Run ssh-agent if it&rsquo;s not already running
+eval &quot;$(ssh-agent -s)&quot;  Add SSH key to ssh-agent
+ssh-add -K ~/.ssh/id_rsa  where id_rsa is the actual filename of the key you&rsquo;re adding. This should do it for OSX before Sierra.
+MacOS Sierra Create an SSH config file
+nano ~/.ssh/config  Add the following to it
+Host * UseKeychain yes AddKeysToAgent yes IdentityFile ~/.ssh/id_rsa   UseKeychain yes tells SSH to look in your OSX keychain for the key passphrase.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_linux/2017-02-20-howto-add-ssh-key-macos-keychain-permanently/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/adding-and-removing-nodes-html-elements/">Adding and Removing Nodes (HTML Elements)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Creating new nodes
+ createElement() creates an HTML element createTextNode() creates a text node appendChild() appends (adds to the end) a node insertBefore() prepends a node, opposite of .appendChild() removeChild() removes a child node replaceChild() replaces a child node cloneNode() creates a copy of the node (You can clone a node before adding it for example)  Creating and adding let paragraph = document.createElement(&quot;p&quot;); // create a paragraph (&lt;p&gt; element) // to add text to the &lt;p&gt; element, create a text node first let node1 = document.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_webdev/adding-and-removing-nodes-html-elements/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_cheatsheets/cheatsheet_amazon-rds/">Amazon RDS &#43; MySQL</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/amazon-rds">amazon rds</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/cheatsheet">cheatsheet</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/commands">commands</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Connect to Amazon RDS
+mysql -uaamnah --password --host=mysql.hostmarkaz.com  Creating MySQL database
+mysql&gt; CREATE DATABASE databasename ;  Creating MySQL User
+mysql&gt; CREATE USER 'username'@'host' IDENTIFIED BY 'password' ;  Allowing User to Connect
+// grant usage on server so the user can connect
+mysql&gt; GRANT USAGE ON *.* TO 'username'@'host' ;  Granting Privileges
+mysql&gt; GRANT ALL PRIVILEGES ON databasename.* TO 'username'@'host' ;  CHECK if you can connect to the created database with the user you crteated
+  </p>
+
+  
+  <footer>
+    <a href="/post/_cheatsheets/cheatsheet_amazon-rds/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/2015-04-14-basics_angularjs/">AngularJS Basics</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Directives HTML annotations that trigger JS behaviors   Modules Where our application components live   Controllers Where we add application behavior   Expressions How values get displayed within the page    ng-app Specifies where our app exists on the page ng-model Binds the value of the input to the variable, in both directions
+{{ name }} Add dynamic content (in this case, the variable name) to our static HTML by wrapping it in double curly braces {{ }}
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/2015-04-14-basics_angularjs/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/12/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;13 / 35&nbsp;</span>
+  
+  <a href="/page/14/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

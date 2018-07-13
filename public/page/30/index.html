@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/_javascript/2016-12-12-intro-use-strict-javascript/">Strict mode in JavaScript with `use strict`</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/javascript">javascript</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr  Runs the JS interpreter in a strict mode, meaning it fails loudly for bad practices in JS Strict mode also eliminates silent errors. When something pretty major is going wrong, you won&rsquo;t have to hunt for it. If you&rsquo;re writing good code, 'use strict' shouldn&rsquo;t cause you any problems Part of ES5/ES2015, official JS standard Goes on top your code, must be the first line in your file.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_javascript/2016-12-12-intro-use-strict-javascript/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/debconf-set-selections-prompt-installs/">Taking care of prompt imputs from a script with Debconf</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   sudo apt install debconf-utils -y  see what possible selections a package may have
+sudo debconf-get-selections | grep mysql  mysql-server-5.7	mysql-server/root_password	password mysql-server-5.7	mysql-server/root_password_again	password mysql-server-5.7	mysql-server/no_upgrade_when_using_ndb	error mysql-server-5.7	mysql-server/password_mismatch	error mysql-server-5.7	mysql-server-5.7/start_on_boot	boolean	true mysql-server-5.7	mysql-server-5.7/postrm_remove_databases	boolean	false mysql-server-5.7	mysql-server-5.7/nis_warning	note mysql-server-5.7	mysql-server-5.7/really_downgrade	boolean	false  set those selections
+MYSQL_PASS='your_password' sudo debconf-set-selections &lt;&lt;&lt; &quot;mysql-server mysql-server/root_password password ${MYSQL_PASS}&quot; sudo debconf-set-selections &lt;&lt;&lt; &quot;mysql-server mysql-server/root_password_again password ${MYSQL_PASS}&quot;  Links  Installing MySQL (with Debconf) Pre-loading debconf values for easy installation  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/taking-user-input/">Taking user input</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  You can read user input as a variable.
+For example:
+read name  will save what the user entered and save it as a variable called name.
+You can ask a question first, like so:
+echo &quot;What's your name?&quot; read input echo &quot;Your name is: $input&quot;  By default, it&rsquo;ll ask for input on a new line. You can supress the new line with -n
+You can use read instead of $1.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/taking-user-input/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/api/simplest-ajax-script/">The Simplest AJAX Script</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  index.html
+&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;title&gt;Learning AJAX&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;The Simplest AJAX script&lt;/h1&gt; &lt;a href=&quot;ajax.txt&quot;&gt;Load Ajax text file&lt;/a&gt; &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt;  main.js
+(function(){ var link = getElementByTagName('a')[0]; link.onclick = function() { return false }; })();  In our page, we will add a link, which when clicked will load the text from a file (which we called &lsquo;ajax.txt&rsquo; here) the ajax way i.e. without refreshing the whole page.
+  </p>
+
+  
+  <footer>
+    <a href="/post/api/simplest-ajax-script/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_misc/2015-03-13-things_that_i_love_about_my_mac/">Things that i love about my Mac</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  I converted to a Mac __ years ago. And i can&rsquo;t see myself going back to Windows or a non-Apple laptop.
+The software i use is already available for Mac. I&rsquo;m a web developer, i have everything i need already on my Mac. The only software i ever. For everything else, there is either a Mac version available or an alternative available. In some cases i found that the Mac version of the same software looks better than it&rsquo;s Windows counterpart.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_misc/2015-03-13-things_that_i_love_about_my_mac/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-20-querying-selecting-showing-data-from-mysql-database/">Tips for Querying a MySQL Database</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/basics">basics</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/database">database</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/mysql">mysql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/how-to">how-to</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Sort result ORDER based on frequency Here is a nifty way of influencing the ORDER of rows returned by a query that helps in displaying a list with frequently accessed items at the top.
+An example is a name/address form where the country is a selectable list. If most of your users are from the UK and US you may want to do something like:
+{% highlight mysql %} SELECT * FROM countries ORDER by iso_code IN ('UK', 'US') desc {% endhighlight %}  Which returns something like:
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/2015-02-20-querying-selecting-showing-data-from-mysql-database/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/update-wordpress-posts-https/">Update WordPress posts for SSL https</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tl;dr # UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, '', '') # Update self-hosted embeds (images, iframes, scripts, etc.) UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://yoursite.com', 'https://yoursite.com'); UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://www.yoursite.com', 'https://www.yoursite.com'); # Update internal pingbacks UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, 'http://yoursite.com', 'https://yoursite.com'); UPDATE `wp_comments` SET `comment_author_url` = REPLACE(comment_author_url, 'http://www.yoursite.com', 'https://www.yoursite.com'); # Update YouTube embeds UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://www.youtube.com', 'https://www.youtube.com'); UPDATE `wp_posts` SET `post_content` = REPLACE(post_content, 'http://img.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_databases/update-wordpress-posts-https/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_opencart/upgrade-opencart-extensions-2x-3x/">Upgrade OpenCart Extensions from 2.1x to 2.3x/3x</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Language  The default language folder is now called en-gb instead of english. Update your scripts to reflect the change It looks like it is no longer saving language variables in controller files. For example, this whole chunk is gone from admin/controller/extension/shipping/pickup.php  $data['heading_title'] = $this-&gt;language-&gt;get('heading_title'); $data['text_edit'] = $this-&gt;language-&gt;get('text_edit'); $data['text_enabled'] = $this-&gt;language-&gt;get('text_enabled'); $data['text_disabled'] = $this-&gt;language-&gt;get('text_disabled'); $data['text_all_zones'] = $this-&gt;language-&gt;get('text_all_zones'); $data['text_none'] = $this-&gt;language-&gt;get('text_none'); $data['entry_geo_zone'] = $this-&gt;language-&gt;get('entry_geo_zone'); $data['entry_status'] = $this-&gt;language-&gt;get('entry_status'); $data['entry_sort_order'] = $this-&gt;language-&gt;get('entry_sort_order'); $data['button_save'] = $this-&gt;language-&gt;get('button_save'); $data['button_cancel'] = $this-&gt;language-&gt;get('button_cancel');  Folder Structure  The default folder structure has changed.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_opencart/upgrade-opencart-extensions-2x-3x/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/bash-upgrade-macos/">Upgrade to Bash 4 on macOS</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  # install Bash via Homebrew brew update &amp;&amp; brew install bash # Add the new shell to the list of allowed (white-listed) shells # sudo bash -c 'echo /usr/local/bin/bash &gt;&gt; /etc/shells' echo &quot;$(brew --prefix)/bin/bash&quot; &gt;&gt; /etc/shells # Change to the new shell chsh -s $(brew --prefix)/bin/bash   sudo -i let&rsquo;s you switch to root user brew --prefix gives you the location of Homebrew install directory (/usr/local by default) cat /etc/shells gives you the list of allowed shells  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_opencart/upgrade-opencart-extensions/">Upgrading OpenCart Extensions</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Coding standards  Removed the PHP ending tag ?&gt; from php files  Load the Language File In 1.5.x, you would use the following snippet to load the corresponding module language file.
+$this-&gt;language-&gt;load('account/account');  On the other hand, you need to use a slightly different version in the case of OpenCart 2.x.x, as shown in the following snippet.
+$this-&gt;load-&gt;language('account/account');  Controller 1. Assigning template variables most of the time you&rsquo;ll end up assigning your variables so that you can access them in the view template files
+  </p>
+
+  
+  <footer>
+    <a href="/post/_opencart/upgrade-opencart-extensions/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/29/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;30 / 35&nbsp;</span>
+  
+  <a href="/page/31/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Configure SFTP &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Configure SFTP</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<ul>
+<li>The <code>ChrootDirectory</code> must be owned by root. You can enable access to dirs inside the <code>ChrootDirectory</code> owned by differet users</li>
+<li>The <code>ChrootDirectory</code> needs <code>755</code> permissions</li>
+<li>Add everything to the END OF THE FILE. Or else it won&rsquo;t work</li>
+<li>Web directories <code>/var/www</code> need to be owned by <code>www-data</code></li>
+</ul>
+
+<h2 id="setup-link-2">Setup <a href="http://askubuntu.com/questions/420652/how-to-setup-a-restricted-sftp-server-on-ubuntu" title="How to setup a restricted SFTP server on Ubuntu?">link</a></h2>
+
+<p>Step 1 : Install OpenSSH package if not installed</p>
+
+<pre><code class="language-bash">sudo apt-get install openssh-server
+</code></pre>
+
+<p>Step 2 : Create separate group for SFTP users.</p>
+
+<pre><code class="language-bash">sudo addgroup ftpaccess
+</code></pre>
+
+<p>Step 3 : Edit <code>/etc/ssh/sshd_config</code> file and make changes as below. Find and comment below line.</p>
+
+<pre><code class="language-bash">#Subsystem sftp /usr/lib/openssh/sftp-server
+</code></pre>
+
+<p>and add these lines to the end of the file.</p>
+
+<pre><code class="language-bash">Subsystem sftp internal-sftp
+
+Match Group ftpaccess
+    ChrootDirectory /var/www
+    AllowTCPForwarding no
+    X11Forwarding no
+    ForceCommand internal-sftp
+</code></pre>
+
+<p>Step 4 : Restart sshd service.</p>
+
+<pre><code class="language-bash">sudo service ssh restart
+</code></pre>
+
+<p>Step 5 : Add user with ftpaccess group and create password.</p>
+
+<pre><code class="language-bash">sudo adduser paul --ingroup ftpaccess --shell /usr/sbin/nologin
+</code></pre>
+
+<p>OR</p>
+
+<pre><code class="language-bash">sudo useradd -m paul -g ftpaccess -s /usr/sbin/nologin
+</code></pre>
+
+<p>Step 6 : Modify home directory permission.</p>
+
+<pre><code class="language-bash">sudo chown root:root /home/paul
+</code></pre>
+
+<p>Step 7 : Create a directory inside home for upload and modify permission with group.</p>
+
+<pre><code class="language-bash">sudo mkdir /home/paul/www
+sudo chown paul:ftpaccess /home/paul/www
+</code></pre>
+
+<h2 id="chroot-directory">Chroot Directory</h2>
+
+<p><code>ChrootDirectory</code> is an <code>sshd_config</code> option. This can be used to &ldquo;jail&rdquo; users into a limited view of the filesystem, such as their home directory, rather than letting them see the full filesystem.</p>
+
+<h2 id="restricted-access-link-3">Restricted Access <a href="http://undeadly.org/cgi?action=article&amp;sid=20080220110039" title="Chroot in OpenSSH">link</a></h2>
+
+<p>To set up a restricted sftp server one should use the <code>ForceCommand</code> and <code>ChrootDirectory</code> directives in <code>sshd_config</code>. Presumably most people will not want to restrict every user, so they should also use the <code>Match</code> directive to select a user or group to apply the restrictions to. For example:</p>
+
+<h3 id="user">User</h3>
+
+<pre><code class="language-bash">Match user jimbo
+    ForceCommand internal-sftp
+    ChrootDirectory /chroot
+</code></pre>
+
+<p>This will cause the user &lsquo;jimbo&rsquo; to be chrooted to the &ldquo;/chroot&rdquo; directory at login. The user will not be able to login interactively, or run arbitrary commands - the login will only be useful for sftp transfers. Note that the user&rsquo;s home directory may exist under the &ldquo;/chroot&rdquo; directory above (e.g. &ldquo;/chroot/home/djm&rdquo;) and sshd will try to chdir to it before starting to serve files, but it doesn&rsquo;t matter if it does not exist.</p>
+
+<pre><code class="language-bash">Subsystem sftp internal-sftp
+
+Match User paul
+    ChrootDirectory /home/paul
+    ForceCommand internal-sftp
+    AllowTCPForwarding no
+    X11Forwarding no
+</code></pre>
+
+<p>You can also match a certain group, like <code>Match group webmaster</code>.</p>
+
+<p>If you do login via SSH to paul&rsquo;s sftp account though, it&rsquo;ll give an error that no such file or dir exists and</p>
+
+<h3 id="group">Group</h3>
+
+<pre><code class="language-bash">Subsystem sftp internal-sftp
+
+Match Group sftp-only
+        AllowTCPForwarding no
+        X11Forwarding no
+        ForceCommand internal-sftp
+</code></pre>
+
+<h2 id="ownership-link-4">Ownership <a href="http://askubuntu.com/questions/134425/how-can-i-chroot-sftp-only-ssh-users-into-their-homes" title="How can I chroot sftp-only SSH users into their homes?">link</a></h2>
+
+<pre><code class="language-bash">sudo chown root /home/paul
+sudo chmod go-w /home/paul
+sudo mkdir /home/paul/writeable
+sudo chown paul:sftponly /home/paul/writeable
+sudo chmod ug+rwX /home/paul/writeable
+</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="permission-denied">Permission denied</h3>
+
+<p>add user &ldquo;demo&rdquo; to group &ldquo;www-data&rdquo; (below replace demo with your username)</p>
+
+<pre><code class="language-bash">sudo usermod -a -G www-data demo
+</code></pre>
+
+<p>set permissions for user group www-data</p>
+
+<pre><code class="language-bash">sudo chgrp -R www-data /var/www/html
+</code></pre>
+
+<p>followed by</p>
+
+<pre><code class="language-bash">sudo chmod -R g+w /var/www/html
+</code></pre>
+
+<p>Now you can modify files as &ldquo;demo&rdquo; via SFTP and your wordpress installation can modify files without requesting credentials</p>
+
+<h3 id="server-unexpectedly-closed-network-connection">Server unexpectedly closed network connection</h3>
+
+<ul>
+<li><code>chmod 755</code> the Chroot directory.</li>
+</ul>
+
+<blockquote>
+<p>OpenSSH server may fail to start shell when chroot is configured, but not possible (e.g. due to group writeable permissions to chroot directory)
+Some environments require specific permissions (e.g. <code>755</code>) to files like <code>.profile</code> or <code>.bashrc</code></p>
+</blockquote>
+
+<h3 id="connection-refused">Connection refused</h3>
+
+<ul>
+<li>If you are getting connection refused error at end then make sure that <code>Subsystem sftp internal-sftp</code> is placed <em>after</em> <code>UsePAM yes</code>. If not then update and restart SSH</li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="http://askubuntu.com/questions/280894/changing-write-permissions-for-jailed-sftp-denies-login">http://askubuntu.com/questions/280894/changing-write-permissions-for-jailed-sftp-denies-login</a></li>
+
+<li><p><a href="https://www.digitalocean.com/community/questions/why-doesn-t-chown-r-root-www-data-work-on-my-wordpress-installation">https://www.digitalocean.com/community/questions/why-doesn-t-chown-r-root-www-data-work-on-my-wordpress-installation</a></p></li>
+
+<li><p><a href="https://winscp.net/eng/docs/message_unexpected_close">Server unexpectedly closed network connection</a></p></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_nodejs/core-modules/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_nodejs/core-modules/">Core Modules</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/bash-scripting/if_elif_else_statements/">Conditional Statements IF/ELIF/ELSE</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/bash-scripting/if_elif_else_statements/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekyll on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/jekyll/</link>
+    <description>Recent content in Jekyll on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    
+	<atom:link href="localhost/hugo-tldr/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting started with Jekyll</title>
+      <link>localhost/hugo-tldr/jekyll/getting-started-jekyll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/jekyll/getting-started-jekyll/</guid>
+      <description> installation sudo gem install jekyll jekyll new my-awesome-site cd my-awesome-site jekyll serve # watches for changes by default # =&amp;gt; Now browse to http://localhost:4000  jekyll serve watches for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.
+jekyll build --watch  configuration Links  https://jekyllrb.com/ https://jekyllrb.com/docs/configuration/  </description>
+    </item>
+    
+    <item>
+      <title>How to use Redcarpet for syntax highlighting in Jekyll</title>
+      <link>localhost/hugo-tldr/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</guid>
+      <description>why? - because i don&amp;rsquo;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the posts elsewhere - because Github uses Redcarpet for rendering .md content - because it supports fenced code blocks. - because it makes working with imported/exported sites easy
+install sudo gem install redcarpet  configuration In your _config.yml file, add the entry for redcarpet and update the value for markdown.</description>
+    </item>
+    
+  </channel>
+</rss>

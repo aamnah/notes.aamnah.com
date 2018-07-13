@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/javascript/</link>
+    <description>Recent content in JavaScript on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 12 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes on handling clicks and taps on iOS devices and touch enabled mobile browsers</title>
+      <link>localhost/hugo-tldr/javascript/events-clicks-taps-mobile-browsers-ios/</link>
+      <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/events-clicks-taps-mobile-browsers-ios/</guid>
+      <description>Click handlers don&amp;rsquo;t work as supposed to on touch enabled browsers. iOS Safari will not fire a click event if it doesn&amp;rsquo;t consider the element clickable (more on that below), but will work as expected for all elements if you add an event handler for touch events If you only added an event handler for the click event, it&amp;rsquo;ll work on desktop screens but likely won&amp;rsquo;t do anything or behave wonky on a mobile screen.</description>
+    </item>
+    
+    <item>
+      <title>Event Capturing, Event Bubbling and Event Delegation</title>
+      <link>localhost/hugo-tldr/javascript/browser-events-bubbling-capture-delegation/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/browser-events-bubbling-capture-delegation/</guid>
+      <description>Bubbling and Capturing are behaviours, a way of propagating events to multiple handlers Event propagation is the blanket term used for both event bubbling and event capturing. It is the process of calling all the listeners for the given event type. Bubbling, capturing and delegation are not browser features, they&amp;rsquo;re all models of dealing with events  Event propagation Event propagation is the process of calling all the listeners for the given event type.</description>
+    </item>
+    
+    <item>
+      <title>Plain JavaScript vs. jQuery</title>
+      <link>localhost/hugo-tldr/javascript/plain-js-vs-jquery/</link>
+      <pubDate>Fri, 13 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/plain-js-vs-jquery/</guid>
+      <description>Accessing elements // JavaScript // .querySelector() works for classes, ids and tags document.querySelector(&#39;.link&#39;) // by class document.querySelector(&#39;#menu&#39;) // by ID document.querySelector(&#39;body&#39;) // by tag // other methods document.getElementById(&#39;#el&#39;) document.getElementByClassname(&#39;.el&#39;)  // jQuery $(&#39;.link&#39;) // by class $(&#39;#menu&#39;) // by ID $(&#39;body&#39;) // tag  Event handlers // JavaScript $el.addEvenetListener(&#39;click&#39;, function() { })  // jQuery // .on() is the event handler for all kinds of events $el.on(&#39;click&#39;, function() { }) // you also have functions to directly target specific events $el.</description>
+    </item>
+    
+    <item>
+      <title>Notes on creating a Chrome extension</title>
+      <link>localhost/hugo-tldr/javascript/create-chrome-extension/</link>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/create-chrome-extension/</guid>
+      <description>Needed
+ manifest.json is required. It&amp;rsquo;s kinda like package.json in Node. manifest.json has info about your extension The icon needs to be 19x19 pixels  Getting started  Create a new folder, create a manifest.json file inside Load your extension in browser by going to Chrome &amp;gt; Extension &amp;gt; Enable Developer Mode &amp;gt; Load unpacked extension.. and point to the folder you created Once you have the folder loaded, you can make edits in your code, refresh Chrome (Cmd+R) and the changes will reflect  { &amp;quot;manifest_version&amp;quot;: 2, &amp;quot;name&amp;quot;: &amp;quot;My Awesome Extension&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;This extension is an awesome extension&amp;quot;, &amp;quot;version&amp;quot;: &amp;quot;0.</description>
+    </item>
+    
+    <item>
+      <title>Formatting dates in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/howto-format-dates-in-javascript/</link>
+      <pubDate>Tue, 28 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/howto-format-dates-in-javascript/</guid>
+      <description>dateObj.toLocaleTimeString([locales[, options]])   Locales (string/array of strings, optional) en-US, en-GB, ar-EG etc. Options (object, optional) where you can specify properties and their values, e.g. timeZone: &#39;Asia/Karachi&#39;  Formatting locale strings // Locale Strings let date = new Date() console.info(&#39;en-us&#39;, date.toLocaleString(&#39;en-us&#39;)) // &amp;quot;1/10/2017, 3:29:15 PM&amp;quot; console.info(&#39;en-GB&#39;, date.toLocaleString(&#39;en-GB&#39;)) // &amp;quot;10/01/2017, 15:29:15&amp;quot; console.info(&#39;ar-EG&#39;, date.toLocaleString(&#39;ar-EG&#39;)) // &amp;quot;١٠‏/١‏/٢٠١٧ ٣:٣٢:٣٣ م&amp;quot; console.info(&#39;de-DE&#39;, date.toLocaleString(&#39;de-DE&#39;)) // &amp;quot;10.1.2017, 15:32:33&amp;quot; const locale = navigator.language || navigator.userLangauge // find out the browser&#39;s locale let localeStringFormat = { weekday: &#39;long&#39;, month: &#39;long&#39;, day: &#39;numeric&#39;, year: &#39;numeric&#39; } console.</description>
+    </item>
+    
+    <item>
+      <title>ES6 Classes vs. Constructor Functions</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es6-classes-vs-constructor-functions/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es6-classes-vs-constructor-functions/</guid>
+      <description>tl;dr  A constructor function is just a normal function that creates (constructs) an object JavaScript does not has classes and hence it does not has methods. What you have are properties in an object, some of which may be functions Javascript is not your classic class-based language but rather a prototype-based language. Classes in JavasScript are syntactic sugar, meaning they&amp;rsquo;re a feature that only changes how you type something, but nothing changes under the hood.</description>
+    </item>
+    
+    <item>
+      <title>Prototypal Inheritance and Constructor Functions</title>
+      <link>localhost/hugo-tldr/javascript/prototypal-inheritance-constructor-functions/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/prototypal-inheritance-constructor-functions/</guid>
+      <description>tl;dr  A constructor function is just a normal function that creates (constructs) an object Every object has a Prototype object __proto__ Every object inherits from it&amp;rsquo;s Prototype object. If the prototype has a method or a property, the object using or pointing to that prototype will have those too Changes made to a protype instantly updates all existing objects using that prototype, unlike object constructors which pass changes when new instances are created You would ideally use them both, methods in object constructor and methods in object prototype, in order to maximize on the performance and situation  You can edit the prototype in order to pass data to every instance of the object.</description>
+    </item>
+    
+    <item>
+      <title>ES6 (ES2015) and Beyond with Node.js</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es6-es2015-beyond-with-node-js-javascript/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es6-es2015-beyond-with-node-js-javascript/</guid>
+      <description>tl;dr # initialize npm init -y # install dependencies npm i -D babel-cli babel-preset-es2015 babel-preset-stage-0 nodemon # Babel config touch .babelrc echo &#39;{ presets: [ &amp;quot;es2015&amp;quot;, &amp;quot;stage-0&amp;quot; ] }&#39; &amp;gt;&amp;gt; .babelrc # directory structure # mkdir src &amp;amp;&amp;amp; touch src/index.js # add some es6 code to index.js for testing # run Babel babel-node src/index.js # add npm run scripts  Note: For the sake of simplicity, i use ES6 and ES2015 interchangeably.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Express</title>
+      <link>localhost/hugo-tldr/javascript/getting-started-express-node-js/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/getting-started-express-node-js/</guid>
+      <description>Initialize the project and install and save express to package.json
+npm init -y npm i -S express  Here&amp;rsquo;s the code for a very basic server up and running
+const express = require(&#39;express&#39;) const app = express() app.get(&#39;/&#39;, function (req, res) { res.send(&#39;Bonjour la monde!&#39;) }) const server = app.listen(3001, function () { console.info(`Server running at http://localhost:${server.address().port}`) })  install nodemon and add npm scripts to package.json
+npm i -D nodemon  &amp;quot;scripts&amp;quot;: { &amp;quot;start&amp;quot;: &amp;quot;node index.</description>
+    </item>
+    
+    <item>
+      <title>Set `npm init` defaults globally</title>
+      <link>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</guid>
+      <description>You can either edit the global configuration file for npm:
+npm config edit --global  (it&amp;rsquo;ll open the file in Vim)
+Or, you can set the defaults one by one:
+# npm config set &amp;lt;key&amp;gt; &amp;lt;value&amp;gt; [-g|--global] npm config set -g init-author-name &#39;Aamnah&#39; npm config set -g init-author-email &#39;hello@aamnah.com&#39; npm config set -g init-author-url &#39;http://aamnah.com&#39; npm config set -g init-license &#39;CC-BY-SA-4.0&#39; npm config set -g init-version &#39;0.1.0&#39;  You can also use the npm init command with the y flag to initiate a project with the default values without prompting you for details.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Default values</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-default-vlaues/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-default-vlaues/</guid>
+      <description>Default Values Here&amp;rsquo;s how we used to do default parameter values before.. Say we have a function that returns 42 is no parameter value is provided and if a value is passed, it returns the value.
+function foo (x) { x = x || 42 // Using the OR operand `||` to give 42 if x is false return x } foo(3) // 3 foo(99) // 99 foo(0) // 42 eh?</description>
+    </item>
+    
+    <item>
+      <title>Array.sort() - Sorting Arrays in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/array-sort/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-sort/</guid>
+      <description>The method for sorting arrays is called.. sort!.
+Examples Default sort
+var fruit = [&#39;cherries&#39;, &#39;apples&#39;, &#39;bananas&#39;]; fruit.sort(); // [&#39;apples&#39;, &#39;bananas&#39;, &#39;cherries&#39;] var scores = [1, 10, 21, 2]; scores.sort(); // [1, 10, 2, 21] // Watch out that 10 comes before 2, // because &#39;10&#39; comes before &#39;2&#39; in Unicode code point order. var things = [&#39;word&#39;, &#39;Word&#39;, &#39;1 Word&#39;, &#39;2 Words&#39;]; things.sort(); // [&#39;1 Word&#39;, &#39;2 Words&#39;, &#39;Word&#39;, &#39;word&#39;] // In Unicode, numbers come before upper case letters, // which come before lower case letters.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Arrow Functions</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-arrow-functions/</link>
+      <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-arrow-functions/</guid>
+      <description>Arrow Functions Arrow functions are anonymous function expressions. They don&amp;rsquo;t show up in stack traces.
+Pros  Shorter syntax. You get to remove function, return and some {..} Shines with this keyword. The arrow function doesn&amp;rsquo;t have it&amp;rsquo;s own this so we automatically get a lexical this (bind to the outer context). Skipping .bind(this)  Cons  Show up as anonymous in stack trace, makes debugging/troubleshooting hard. Imagine minified code, error at line 1, character 32712.</description>
+    </item>
+    
+    <item>
+      <title>Intro to Immutable.js</title>
+      <link>localhost/hugo-tldr/javascript/immutale/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/immutale/</guid>
+      <description>Intro to Immutable.js TIP: When using console.log while debugging Immutable.js objects, you&amp;rsquo;ll see weird Map structures and it doesn&amp;rsquo;t help very much in terms of figurring out object structure. For easier debugging, you can perform .toJS() on an Immutable object and console.log that to see the object structure in plain JS.
+console.log(myMap) // console shows weird Immutable.js object console.log(myMap.toJS()) // console shows plain JS object  const Immutable = require(&#39;immutable&#39;) // Maps are like JS Objects var map1 = Immutable.</description>
+    </item>
+    
+    <item>
+      <title>Formatting and validating dates in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/format-and-validate-dates-in-javascript/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/format-and-validate-dates-in-javascript/</guid>
+      <description>Date Formats Dates come in multiple formats:
+ a Unix timestamp (1481884441) an ISO 8601 string (2016-11-04T17:39:59.910Z) a locale string (Thursday, December 20, 2012, GMT)  Let&amp;rsquo;s get started by defining some variables to use in our examples
+const UNIX = 1481884441 const ISO8601 = &#39;2016-11-04T17:39:59.910Z&#39; const invalidISO = &#39;2016-31-31T17:39:59.910Z&#39; const invalidDate = &#39;2016/31/31&#39; let date = Date.now() // Date.now() is faster than new Date()  Date.now() vs. new Date() Note that while Date.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Generators</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-generators/</link>
+      <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-generators/</guid>
+      <description>Generators Generators are functions that can be paused and resumed later. A generator can contain multiple yield statements. At each yield, the generator will pause.</description>
+    </item>
+    
+    <item>
+      <title>Array.concat</title>
+      <link>localhost/hugo-tldr/javascript/array-concat/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-concat/</guid>
+      <description>.concat() .concat() takes an existing array, adds a value to it and returns a new array
+it takes a copy of the original array, adds to it any parameters passed and returns a new array.
+.concat() is the equivalent of .push(), but superior, because it does not edit the data in place, it gives a new array as a result.
+ you can pass in multiple values you can pass in different types you can pass in other arrays as params.</description>
+    </item>
+    
+    <item>
+      <title>Array.every()</title>
+      <link>localhost/hugo-tldr/javascript/array-every/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-every/</guid>
+      <description>.every() The every() method return true/false based on whether or not every element in the source array passes a certain condition or not
+You&amp;rsquo;ll exit on the first failure. If the condition returns false for something, it stop processing the array there and returns.
+Examples // EXAMPLE 1 const items = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] const result = items.every(x =&amp;gt; x &amp;lt; 10) // check every item is &amp;lt;10?</description>
+    </item>
+    
+    <item>
+      <title>Array.filter()</title>
+      <link>localhost/hugo-tldr/javascript/array-filter/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-filter/</guid>
+      <description>.filter() gives a new array after filtering an array based on the truth/false of a condition
+Examples 1. get expensive stocks Here&amp;rsquo;s an array of stocks.
+let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;quot;HUBC&amp;quot;, price: 103 }, { symbol: &amp;quot;POL&amp;quot;, price: 413 } ]  We&amp;rsquo;ll get the expensive stocks (let&amp;rsquo;s say the ones which cost more than 150) out of it with filter()</description>
+    </item>
+    
+    <item>
+      <title>Array.forEach()</title>
+      <link>localhost/hugo-tldr/javascript/array-foreach/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-foreach/</guid>
+      <description>.forEach() The forEach() array method accomplishes the same thing as regular for loops, but it does it asynchronously and in a simpler/easier way.
+We have a stocks array, from which we just want the stock symbols.
+let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;quot;HUBC&amp;quot;, price: 103 }, { symbol: &amp;quot;POL&amp;quot;, price: 413 } ]  Here&amp;rsquo;s how you&amp;rsquo;d do it using a regular for loop.</description>
+    </item>
+    
+    <item>
+      <title>Array.map()</title>
+      <link>localhost/hugo-tldr/javascript/array-map/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-map/</guid>
+      <description>.map() transforms an array by performing a function on every item in the array, and returns a new array.
+ async: can work on data that arrives async over time returns: A new array with each element being the result of the callback function.  We like working with map() because it works on data arriving asynchronously, unlike for loops where you can only work on synchronous data stored locally.</description>
+    </item>
+    
+    <item>
+      <title>Array.reduce()</title>
+      <link>localhost/hugo-tldr/javascript/array-reduce/</link>
+      <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/array-reduce/</guid>
+      <description>.reduce()  The reduce() method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value. MDN
+  The reduce() method reduces the array to a single value. The reduce() method executes a provided function for each value of the array (from left-to-right). The return value of the function is stored in an accumulator (result/total). Note: reduce() does not execute the function for array elements without values.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Async/Await Functions</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-async-await/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-async-await/</guid>
+      <description>Async/Await Functions declare an async function that will allow us to wait for other functions. we can only await inside an async function, and we can only await a promise.
+Async/await is an ES2016 (ES7) feature, so you&amp;rsquo;ll need a transpiler. See http://babeljs.io/docs/plugins/preset-latest/
+npm i -g babel-cli  add a minimal .babelrc inside your project dir
+{ &amp;quot;presets&amp;quot;: [ &amp;quot;latest&amp;quot; ] }  and install packages (locally, inside your project folder)</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Classes in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-classes/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-classes/</guid>
+      <description>ES2015 / ES6 Classes in JavaScript Classes in JS don&amp;rsquo;t give JS an OO nature, JS remains Prototypal. Classes introduced in ES6 are mainly syntax sugar.
+&amp;quot;use strict&amp;quot;; // CLASS class User{ // Constructor // takes any values/attr you want to set constructor(username, email, password) { this.username = username // Whatever username we passed in is now this Class&#39;s (instance) username this.email = email this.password = password } static countUsers () { console.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] ES6 Features Overview </title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-overview/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-overview/</guid>
+      <description>ES6 Features (ES2015) Arrow Function Syntax  MDN: Arrow Function Syntax Babel Docs Treehouse: Arrow Function Syntax YouTube: Arrow Function Syntax  Arrow function syntax is supported in all major browsers.
+// Function Declaration function divide1(a,b) { return a/b; } // Function Expression const divide2 = function(a,b) { return a/b; } // Arrow Function Expression const divide3 = (a,b) =&amp;gt; { return a/b; } // Arrow Function Concise const divide4 = (a,b) =&amp;gt; a/b;  Arrow (aka lambda) functions define the function to the instance of wherever it was created (or something like that, requires citation).</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Map object</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-map/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-map/</guid>
+      <description>Map  The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value.
+ You set and get values to/from a Map.
+&#39;use strict&#39;; let classroom = new Map(); let stevenJ = { name: &#39;Steven&#39;, age: 22 }, sarah = { name: &#39;Sarah&#39;, age: 23 }, stevenS = { name: &#39;Steven&#39;, age: 22 }; classroom.set(&#39;stevenJ&#39;, stevenJ) classroom.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Promises</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-promises/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-promises/</guid>
+      <description>Promises Promises are like callback functions, but so much better. Promises are meant to save you from callback hell.
+ES6 feature, started out as libraries. Natively supported in all modern browsers.
+A promise is a pattern for handling asynchronous operations. The promise allows you to call a method called &amp;ldquo;then&amp;rdquo; that lets you specify the function(s) to use as the callbacks.
+A promise is an eventual value.
+three states</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] Set object</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-set/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-set/</guid>
+      <description>Set  https://teamtreehouse.com/library/set https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Set  A Set is not an Array but it can behave like one. It’s a collection of unique values.
+ The Set object lets you store unique values of any type, whether primitive values or object references.
+ let showroom = new Set() let Prius = {make: &#39;Toyota&#39;, model: &#39;Prius 2017&#39;}, Civic = {make: &#39;Honda&#39;, model: &#39;Civic 2016&#39;}, A6 = { make: &#39;Audi&#39;, model: &#39;A6 Sedan 2017&#39;} showroom.</description>
+    </item>
+    
+    <item>
+      <title>[ES2015] var, let and const</title>
+      <link>localhost/hugo-tldr/javascript/es2015/es2015-var-let-const/</link>
+      <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/es2015/es2015-var-let-const/</guid>
+      <description>var, let and const  using var is an issue because var is hoisted. var is function scope, let is block scope. let is the new var. const is a constant. it is for something that is only going to be defined once. You can not redefine const. const is not exactly immutable, the values in const can sometimes be changed, for example if it&amp;rsquo;s an object and you want to chaneg property values inside, you can.</description>
+    </item>
+    
+    <item>
+      <title>Object copying in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/object-copying-javascript/</link>
+      <pubDate>Sun, 18 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/object-copying-javascript/</guid>
+      <description>Object.assign, concat, filter, map, reduce are always going to return a brand new object.
+ shallow copy deep copy (clone) freeze deepFreeze side effects  Object copying Shallow copy, deep copy (and others, e.g. lazy copy) are methods of copying an object. &amp;gt; Copying is done mostly so the copy can be modified or moved, or the current value preserved. If either of these is unneeded, a reference to the original data is sufficient and more efficient, as no copying occurs.</description>
+    </item>
+    
+    <item>
+      <title>Strict mode in JavaScript with `use strict`</title>
+      <link>localhost/hugo-tldr/javascript/intro-use-strict-javascript/</link>
+      <pubDate>Mon, 12 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/intro-use-strict-javascript/</guid>
+      <description>tl;dr  Runs the JS interpreter in a strict mode, meaning it fails loudly for bad practices in JS Strict mode also eliminates silent errors. When something pretty major is going wrong, you won&amp;rsquo;t have to hunt for it. If you&amp;rsquo;re writing good code, &#39;use strict&#39; shouldn&amp;rsquo;t cause you any problems Part of ES5/ES2015, official JS standard Goes on top your code, must be the first line in your file.</description>
+    </item>
+    
+    <item>
+      <title>React Router Basics</title>
+      <link>localhost/hugo-tldr/javascript/basics-react-router/</link>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/basics-react-router/</guid>
+      <description>ReactDOM.render(( &amp;lt;Router history={browserHistory}&amp;gt; &amp;lt;Route path=&#39;/&#39; component={Users} /&amp;gt; &amp;lt;Route path=&#39;/other&#39; component={Other} /&amp;gt; &amp;lt;/Router&amp;gt; ), document.getElementById(&#39;root&#39;))  history is required.
+What we did above is we mounted a Router to the DOM, it is now going to take Routes. A route takes a path (URL) and shows a component on that path.
+Link If you want to navigate anywhere within the site, you use Link. You&amp;rsquo;ll only use actual href when you want to move away from the site.</description>
+    </item>
+    
+    <item>
+      <title>LocalStorage API</title>
+      <link>localhost/hugo-tldr/javascript/api-localstorage/</link>
+      <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/api-localstorage/</guid>
+      <description>Local and Session Storage There are two types of storage
+ Local storage Session storage  Local storage let&amp;rsquo;s you save up to 5mb of data. That data can be accessed by any other page on the same site. That data lasts between visits and even after the browser is closed
+Local vs. Session storage Local storage items persist even when you restart the browser whereas session storage items are cleared when you quit the browser.</description>
+    </item>
+    
+    <item>
+      <title>Modules</title>
+      <link>localhost/hugo-tldr/javascript/modules/</link>
+      <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/modules/</guid>
+      <description> Why?  to avoid cluttering the global namespace  self-executing anonymous function !function() { function foo() { // blah }; foo(); }();  </description>
+    </item>
+    
+    <item>
+      <title>bind</title>
+      <link>localhost/hugo-tldr/javascript/bind/</link>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/bind/</guid>
+      <description>bind  bind creates a new function and sets it&amp;rsquo;s scope.
+ We use .bind() to create a new function and then set it&amp;rsquo;s scope to be bound to whatever was passed to bind.
+this code
+var myObj = { specialFunction: function () { }, anotherSpecialFunction: function () { }, getAsyncData: function (cb) { cb(); }, render: function () { var that = this; this.getAsyncData(function () { that.specialFunction(); that.anotherSpecialFunction(); }); } }; myObj.</description>
+    </item>
+    
+    <item>
+      <title>this</title>
+      <link>localhost/hugo-tldr/javascript/this/</link>
+      <pubDate>Fri, 25 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/this/</guid>
+      <description>this Depending on where and how a function is called, this can mean different things. this is all about the context.
+this is the owner of the function, i.e. the object where the method is called.
+this is used a lot in clousres where functions have independant variables defined in an enclosing scope.
+this is the strangest thing you&amp;rsquo;ll come across in JS, but just remember that it is the object that owns the method being called.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Objects</title>
+      <link>localhost/hugo-tldr/javascript/js-objects/</link>
+      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-objects/</guid>
+      <description>JavaScript Objects { key: value property: value method: function () {} }  Object is a value type that contains key value pairs inside curly barces. Keys are also known as properties and everything in JavaScript that isn&amp;rsquo;t a primitive type is an object. Primitive types are Strings, Numbers, Booleans, Undefined, Null and Symbols (ES6). Yes, arrays are objects. Functions are objects too. The difference between functions and objects is that functions can be called.</description>
+    </item>
+    
+    <item>
+      <title>Manipulating Arrays in JavaScript with built-in methods</title>
+      <link>localhost/hugo-tldr/javascript/js-array-methods/</link>
+      <pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-array-methods/</guid>
+      <description>.map = iterate over arrays .reduce = Condense arrays .filter .sort .reverse .concat .split &amp;gt;&amp;gt; STRING method .join .slice() = slices array by taking indices .splice() = slice(), but modifies the original array .substr() .substring()  .forEach() forEach() is an async method (while normal for loops aren&amp;rsquo;t).
+.map() iterates over every element of the array, creating a new array with values that have been modified by the callback function , and returns.</description>
+    </item>
+    
+    <item>
+      <title>Quick Intro to Arrays in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/js-arrays/</link>
+      <pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-arrays/</guid>
+      <description>Arrays  get first item in an array: array[0]
+ get last item in an array: array[array.length-1] add item to end: array.push(val) can push multiple values add item to beginning: array.unshift(val) remove item from end: array.pop() returns the last item from an array and removes it remove item from start: array.shift() returns the first item from an array and removes it Join elements in an array: .join()
+ Join two Arrays: .</description>
+    </item>
+    
+    <item>
+      <title>Self-invoking Anonymous Function - IIFE</title>
+      <link>localhost/hugo-tldr/javascript/ajax-self-invoking-anonymous-function-ajax/</link>
+      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/ajax-self-invoking-anonymous-function-ajax/</guid>
+      <description>A slef-invoking anonymous function is to make sure we stay out of the gloabl scope so that our script can play nicely with others. This is useful/needed when all you javascript code is in one main file.
+We can do this by wrapping the code we write or execute within a selfinvoking anonymous function. We create a self incoking anonymous function like this:
+(function() { })();  Now, whatever we put inside of here will only be unique to this anonymous function.</description>
+    </item>
+    
+    <item>
+      <title>Working with APIs using AJAX and JSON</title>
+      <link>localhost/hugo-tldr/javascript/working-with-ajax-json-api/</link>
+      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/working-with-ajax-json-api/</guid>
+      <description> Code $(document).ready(function() { }); // end ready  Explanation: $(document).ready(function() { });  tells the function to wait until the HTML for the page has completely loaded before running the JavaScript code placed inside it.
+making an ajax request when a button is pushed $.getJSON(flickerAPI, flickrOptions, displayPhotos); .getJSON(url, data, callback);  </description>
+    </item>
+    
+    <item>
+      <title>jQuery and AJAX</title>
+      <link>localhost/hugo-tldr/javascript/jquery-ajax-shorthand-examples/</link>
+      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/jquery-ajax-shorthand-examples/</guid>
+      <description> the difference between jQuery&amp;rsquo;s .load() AJAX method and jQuery&amp;rsquo;s other shorthand AJAX methods? The .load() method must be chained onto a jQuery selection. For example,
+$(&#39;#element&#39;).load(&#39;page.html&#39;);  .get() $.get(url, data, callback);  </description>
+    </item>
+    
+    <item>
+      <title>Play sound/video when image/link is clicked</title>
+      <link>localhost/hugo-tldr/javascript/play-sound-video-image-click/</link>
+      <pubDate>Thu, 29 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/play-sound-video-image-click/</guid>
+      <description>Demo
+We need:
+ a js function for playing sound/video a reference to that js function in the href tag of the image/link/video an audio/video file with a unique id  JS Basically, get the media file by id and use .play() to play it.
+function play(media) { document.getElementById(media).play(); }  HTML The magic in using direct reference to js functions in the href tag. Like so: href=&amp;quot;javascript:play(&#39;media&#39;)&amp;quot;
+&amp;lt;!-- image --&amp;gt; &amp;lt;a href=&amp;quot;javascript:play(&#39;dog&#39;)&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;img/dog.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS Basics</title>
+      <link>localhost/hugo-tldr/javascript/angularjs_basics/</link>
+      <pubDate>Tue, 14 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/angularjs_basics/</guid>
+      <description>Directives HTML annotations that trigger JS behaviors   Modules Where our application components live   Controllers Where we add application behavior   Expressions How values get displayed within the page    ng-app Specifies where our app exists on the page ng-model Binds the value of the input to the variable, in both directions
+{{ name }} Add dynamic content (in this case, the variable name) to our static HTML by wrapping it in double curly braces {{ }}</description>
+    </item>
+    
+    <item>
+      <title>jQuery vs. JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/jquery-vs-javascript/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/jquery-vs-javascript/</guid>
+      <description>jquery = $
+jquery.load(&#39;text.html&#39;) is the same as $.load(&#39;text.html&#39;)
+Selecting an element by id Javascript:
+document.getElementById(&#39;#jumbo&#39;)  jQuery:
+$(&#39;#jumbo&#39;)  Hiding an element Javascript:
+document.getElementById(&#39;#load&#39;).style.display = &#39;none&#39;;  jQuery:
+$(&#39;#load&#39;).hide();  Inserting HTML Javascript:
+var text = &amp;quot;hello there!&amp;quot; document.getElementById(&#39;#page&#39;).innerHTML = text;  jQuery:
+var text = &amp;quot;hello there!&amp;quot; $(&#39;#page&#39;).html(text);  Loops Javascript:
+for (i = 0, i &amp;lt; items.length, i++) {};  jQuery:
+$.each(array, function(i, item)){};  Making an AJAX request Javascript:</description>
+    </item>
+    
+    <item>
+      <title>how to redirect a URL in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/howto-redirect-url-javascript/</link>
+      <pubDate>Mon, 07 Jul 2014 09:02:44 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/howto-redirect-url-javascript/</guid>
+      <description> Here&amp;rsquo;s how you redirect a URL in JavaScript. Just set the value of window.location.replace to the URL you want.
+&amp;lt;script type=&amp;ldquo;text/javascript&amp;rdquo;&amp;gt; window.location.href = &amp;ldquo;http://www.url.com&amp;quot; &amp;lt;/script&amp;gt; When redirecting, window.location.replace is preferred over window.location.href.
+// similar behavior as an HTTP redirect window.location.replace(&amp;ldquo;http://stackoverflow.com&amp;quot;);
+// similar behavior as clicking on a link window.location.href = &amp;ldquo;http://stackoverflow.com&amp;quot;;
+Links  StackOverflow: How do I redirect to another page in JavaScript/jQuery? how to do a time delay redirect in JavaScript  </description>
+    </item>
+    
+    <item>
+      <title>Get Current Year in JavaScript</title>
+      <link>localhost/hugo-tldr/javascript/howto-get-current-year-in-javascript/</link>
+      <pubDate>Tue, 03 Jun 2014 13:48:57 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/howto-get-current-year-in-javascript/</guid>
+      <description>Local Time (machine) var d = new Date(); var yr = d.getYear //Returns the two digit year e.g. 14 var year = d.getFullYear //Returns the four digit year e.g. 2014  Universal Time (UTC) var d = new Date(); var yrUTC = d.getUTCYear //Returns the two digit year var yearUTC = d.getUTCFullYear //Returns the full year  Note: Knowing the difference between local machine time and time according to UTC matters.</description>
+    </item>
+    
+    <item>
+      <title>Converting 24 hour time to 12 hour time using Javascript</title>
+      <link>localhost/hugo-tldr/javascript/howto-convert-24-hour-time-to-12-hour-time-using-javascript/</link>
+      <pubDate>Tue, 03 Jun 2014 13:21:52 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/howto-convert-24-hour-time-to-12-hour-time-using-javascript/</guid>
+      <description> // convert hours to 12-hour format hours = ((hours + 11) % 12 + 1);  Links  StackOverflow: Convert date to another timezone in JavaScript  </description>
+    </item>
+    
+    <item>
+      <title>JavaScript Basics</title>
+      <link>localhost/hugo-tldr/javascript/basics-javascript/</link>
+      <pubDate>Wed, 21 May 2014 16:22:38 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/basics-javascript/</guid>
+      <description>Comparison Operators &amp;gt; Greater than
+&amp;lt; Less than
+&amp;gt;= Greater than equal to
+&amp;lt;= Less than equal to
+=== Equal to
+!== Not equal to
+logical operators JavaScript has three: and &amp;amp;&amp;amp;, or ||, and not !.
+Modulo
+Modulo is the same as remainder. When % is placed between two numbers, the computer will divide the first number by the second, and then return the remainder of that division.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-babel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-babel/</guid>
+      <description>Babel Babel is a transpiler that let&amp;rsquo;s you use the JS features of tomorrow, in your applications today. WHY you&amp;rsquo;d compile? Well, compatabilty for one. You can write code is ES6 and convert it to ES5 (which is fully supported by all browsers).
+Transpiling is taking one language and converting it to another. If you have used SASS, you have transpiled SASS code to CSS. Similar with CoffeeScript to generate JS.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-basics-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-basics-notes/</guid>
+      <description>JS Notes 7 JS Data Types:
+ undefined null boolean string symbol number = numeric data object  If you do a mathematical operation on an undefined variable your result will be NaN which means Not a Number. If you concatenate a string with an undefined variable, you will get a literal string of undefined.
+Compound Assignment With Augmented Multiplication is just *=
+   Code Output     \&#39; single quote   \&amp;quot; double quote   \\ backslash   \n newline   \r carriage return   \t tab   \b backspace   \f form feed    Arrays [] [&#39; &#39;] is an empty array, { } is not.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-closures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-closures/</guid>
+      <description>Closures FunFunFunction In JavaScript, functions are not just functions, they are also closures. ALL functions are closures. What that means is that the function body has access to variables that are defined outside the function.
+let me = &#39;Bruce Wayne&#39; function greetMe() { console.log(`Hello, ${me}!`) } greetMe()  We can do this in JS, call the function without passing it an argument. But apparently, we can&amp;rsquo;t do this in other languages (which don&amp;rsquo;t have support for closures).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-composition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-composition/</guid>
+      <description> Functional Composition Functional composition - the art of taking one function and applying it to the result of another.
+Function composition is the process of combining two or more functions to produce a new function. Composing functions together is like snapping together a series of pipes for our data to flow through.
+ Master the JavaScript Interview: What is Function Composition? By Eric Elliot  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-conditionals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-conditionals/</guid>
+      <description>JS Conditionals Switch ONLY use the following ternary operator and short circuit evaluation in simple use cases where it is obvious what your code is doing
+Ternary Operator This operator is frequently used as a shortcut for the if statement.
+&amp;lt;boolean&amp;gt; ? &amp;lt;expression if true&amp;gt; : &amp;lt;expression if false&amp;gt;  condition ? expr1 : expr2  Note that you can not use return statements in ternary operators. The conditional operator requires expressions, not statements.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-filter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-filter/</guid>
+      <description>.filter() The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+Here is an animals array:
+const animals = [ { name: &amp;quot;Fluffykins&amp;quot;, species: &amp;quot;rabbit&amp;quot;}, { name: &amp;quot;Caro&amp;quot;, species: &amp;quot;dog&amp;quot;}, { name: &amp;quot;Hamilton&amp;quot;, species: &amp;quot;dog&amp;quot;}, { name: &amp;quot;Harold&amp;quot;, species: &amp;quot;fish&amp;quot;}, { name: &amp;quot;Ursula&amp;quot;, species: &amp;quot;cat&amp;quot;}, { name: &amp;quot;Jimmy&amp;quot;, species: &amp;quot;fish&amp;quot;} ]  Here&amp;rsquo;s how you&amp;rsquo;d traditionally get all the dogs from the array:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-loops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-loops/</guid>
+      <description>Loops while loop runs while a condition is true (infinitely), for loop runs a certain number of times. To stop while loops you can use a break statement. (Or you need a statement that at some time evaluates to false so the loop could end). To keep track of how many times a loop has run, you start with a counter variable at 0 and increment it every time the loop runs.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-oop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-oop/</guid>
+      <description>Contructor functions A constructor function is given a Capitalized name to make it clear that it is a constructor
+var Car = function() { this.wheels = 4; this.engines = 1; this.seats = 5; };  To use a constructor function we call it with the new keyword in front of it like:
+var myCar = new Car()  To modify the properties of the new Car instance that you just created:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-pure-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-pure-functions/</guid>
+      <description>Pure Functions  Video: Pure Functions, Props, and Nesting React Components in React Master the JavaScript Interview: What is a Pure Function?
+ Pure functions always return the same result given the same arguments.
+ Pure function&amp;rsquo;s execution doesn&amp;rsquo;t depend on the state of the application.
+ Pure functions don&amp;rsquo;t modify the variables outside of their scope.
+  Examples .slice() vs. .splice()
+slice is a pure function. it doesn&amp;rsquo;t modify the array, it returns a shallow copy of the modified array.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/js-recursion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/js-recursion/</guid>
+      <description> Recursion When a fnuction calls itself until it doesn&amp;rsquo;t. Duh!
+let countDownFrom = num =&amp;gt; { if (num === 0) return countDownFrom(num -1) } countDownFrom(10)  Links  YouTube: FunFunFunction: Recursion - Part 7 of Functional Programming in JavaScript  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>localhost/hugo-tldr/javascript/use-strict/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/javascript/use-strict/</guid>
+      <description>Use strict  Runs the JS interpreter in a strict mode, meaning it fails loudly for bad practices in JS Strict mode also eliminates silent errors. When something pretty major is going wrong, you won&amp;rsquo;t have to hunt for it. If you&amp;rsquo;re writing good code, &#39;use strict&#39; shouldn&amp;rsquo;t cause you any problems Part of ES5, official JS standard Goes on top your code, must be the first line in your file.</description>
+    </item>
+    
+  </channel>
+</rss>

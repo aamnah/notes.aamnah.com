@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Intro to Templating with Pug (previously known as Jade) &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Intro to Templating with Pug (previously known as Jade)</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<ul>
+<li>Pug is a templating engine for Node.js</li>
+<li>Hierarchy is defined with indentation</li>
+<li>Pug let&rsquo;s you use JS inside the templates. You can loop and use logic. You can also do mixins and advanced templating</li>
+<li>Pug is white-space sensitive. The pipe <code>|</code> character is used for <a href="https://pugjs.org/language/plain-text.html#whitespace-control">whitespace control</a> For example, if you want to start your content on a new line, it&rsquo;ll treat the first word as a tag. So you use <code>|</code> at the beginning to avoid that.  A dot <code>.</code> is also used</li>
+</ul>
+
+<pre><code class="language-jade">doctype html
+html(lang=&quot;en&quot;)
+	head
+		title= pageTitle
+		script(type='text/javascript').
+			if (foo) bar(1 + 5)
+	
+	//- This comment will only show inside the template, will NOt be rendered with HTML
+	// This comment will be rendered in HTML
+
+	body
+		h1.title you just rendered a Pug template!
+		#container.col
+			- const youAreUsingPug = true //- Locally defined varaible
+
+			if youAreUsingPug
+				p You are amazing!
+			else
+				p Looks like you don't used Pug. Get on it!
+			p.
+				Pug is a terse and simple templating language with a 
+				strong focus on performance and powerful features. Here is some #[strong bold text] and here's some #[em italic text].
+
+			- const name = &quot;Jake&quot;. toUpperCase(); //- Locally defined variable with some more JS
+
+			p
+			| You can have local variables as well as have data passed down via the render function. For example, my name is: #{name}
+
+			p #{name} has a cat named #[strong #{cat}]
+</code></pre>
+
+<h4 id="getting-started">Getting started</h4>
+
+<pre><code class="language-bash">npm i -S pug pug-cli
+</code></pre>
+
+<p>Usage in Express</p>
+
+<pre><code class="language-javascript">/*
+Set Pug as your view engine
+*/
+const app = require('express')
+// app.set('views', location_for_your_views_dir)
+app.set('views', path.join(__dirname, 'views')) // define views dir
+app.set('view engine', 'pug') // define view engine for .render()
+</code></pre>
+
+<pre><code class="language-javascript">/*
+Rendering a Pug template
+*/
+const router = express.Router()
+router.get('/', (request, response) =&gt; {
+  response.render('hello') // a template file in views dir, no need for file extension
+})
+</code></pre>
+
+<pre><code class="language-javascript">/*
+Sample Pug template
+*/ 
+div.container
+  h1.title You just rendered a Pug template!
+</code></pre>
+
+<ul>
+<li>For divs, you don&rsquo;t need to explicitly say it&rsquo;s a div, just mentioning the divs and classes will do since it&rsquo;ll assume by default that the block is a div (i.e. <code>div.container</code> and <code>.container</code> are the same)</li>
+</ul>
+
+<h4 id="classes-and-ids">classes and IDs</h4>
+
+<pre><code class="language-jade">.container
+  h1.title This is an H1 heading with a class of `.title` inside a `div.container`
+  span#attention This is a span with the ID `#attention`
+    p.copy.class.anotherclass This is a p tag inside the span tag with multiple classes
+</code></pre>
+
+<h4 id="attributes-and-values">attributes and values</h4>
+
+<ul>
+<li>attributes go in parantheses <code>()</code></li>
+</ul>
+
+<p>Here&rsquo;s a div.container containing an image</p>
+
+<pre><code class="language-jade">.container
+  img(src=&quot;dog.jpeg&quot; alt=&quot;Dog&quot;)
+</code></pre>
+
+<p>You can of course assign both classes and attributes like so</p>
+
+<pre><code class="language-jade">img.dog(src=&quot;dog.jpeg&quot; alt=&quot;Dog&quot;)
+</code></pre>
+
+<p>Here is an input field with attributes specified on multiple lines, works just fine</p>
+
+<pre><code class="language-jade">input(
+  type='checkbox'
+  name='agreement'
+  checked
+)
+</code></pre>
+
+<h4 id="comments">comments</h4>
+
+<ul>
+<li><code>//</code> will output in markup</li>
+<li><code>//-</code> will be hidden in HTML markup, is for use within Pug templates only</li>
+</ul>
+
+<h4 id="strong-and-em-text">strong and em text</h4>
+
+<ul>
+<li>You&rsquo;ll use what&rsquo;s called <em>Tag Interpolation</em></li>
+<li><code>#[strong word]</code> and <code>#[em word]</code> is the syntax</li>
+</ul>
+
+<pre><code class="language-jade">p #{name} has a cat named #[strong #{cat}]
+</code></pre>
+
+<pre><code class="language-jade">p.
+  This is a very long and boring paragraph that spans multiple lines.
+  Suddenly there is a #[strong strongly worded phrase] that cannot be
+  #[em ignored].
+p.
+  And here's an example of an interpolated tag with an attribute:
+  #[q(lang=&quot;es&quot;) ¡Hola Mundo!]
+</code></pre>
+
+<h3 id="passing-data-to-your-templates">Passing data to your templates</h3>
+
+<ul>
+<li>Data is passed as the second argument when you&rsquo;re rendering your template with the <code>render()</code> function (the first argument is the template file name).</li>
+<li><code>#{}</code> is used to <em>interpolate</em> variables inside templates</li>
+</ul>
+
+<pre><code class="language-javascript">router.get('/', (request, response) =&gt; {
+  response.render('hello', {
+    name: 'Aamnah',
+    cat: 'whiskers'
+  })
+})
+</code></pre>
+
+<pre><code class="language-javascript">router.get('/', (request, response) =&gt; {
+  response.render('hello', {
+    name: 'Aamnah',
+    cat: request.query.cat // make it dynamic, pass the cat's name as a URL query
+  })
+})
+</code></pre>
+
+<pre><code class="language-jade">p #{name} has a cat named #{cat}
+</code></pre>
+
+<h3 id="declaring-variables-inside-templates">Declaring variables inside templates</h3>
+
+<ul>
+<li>start the line with a <code>-</code></li>
+</ul>
+
+<pre><code class="language-jade">- const city = &quot;Lahore&quot;.toUpperCase();
+
+p I live in #{city} //- I live in LAHORE
+</code></pre>
+
+<h3 id="putting-variables-inside-attributes">Putting variables inside attributes</h3>
+
+<ul>
+<li>You use a JS template literal, ES6 style</li>
+</ul>
+
+<pre><code class="language-jade">img.dog(src=&quot;dog.jpg&quot; alt=&quot;Dog `${dog}`&quot;)
+</code></pre>
+
+<h3 id="blocks">Blocks</h3>
+
+<ul>
+<li>Blocks are sections that can be filled in by other templates</li>
+<li>You both define and overwrite a block with the <code>block</code> keyword</li>
+</ul>
+
+<pre><code class="language-jade">body
+	block header
+	  header.top
+	    nav.main
+
+	.content
+	  block content
+</code></pre>
+
+<h3 id="extending-layout">extending layout</h3>
+
+<pre><code class="language-jade">extends layout
+
+block content
+  p This is some content
+</code></pre>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="https://github.com/pugjs/pug">Github: Pug</a></li>
+<li><a href="https://pugjs.org/api/getting-started.html">Pug Docs: Getting Started</a></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_sysadmin/debconf-intro/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_sysadmin/debconf-intro/">Intro to debconf</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_sysadmin/intro-to-rootkit-hunter/">Intro to Rootkit Hunter</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_sysadmin/intro-to-rootkit-hunter/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

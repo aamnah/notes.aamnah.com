@@ -1,0 +1,13 @@
+body a {
+  color: #E51843; }
+  body a:visited {
+    color: #890e28; }
+
+#menu {
+  background: #111; }
+  #menu a {
+    color: #CFD8DC; }
+    #menu a:hover {
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none; }

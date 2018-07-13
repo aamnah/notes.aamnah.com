@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/workflow/</link>
+    <description>Recent content in Workflow on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/workflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Text/Code Editor Showdown</title>
+      <link>localhost/hugo-tldr/workflow/text-code-editor-showdown/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/text-code-editor-showdown/</guid>
+      <description>Right now i use 4 different editors.
+ Visual Studio Code Sublime Text 3 Brackets LightPaper  Visual Studio Code  Visual Studio Code is THE BEST editor if you want an IDE. Git, Terminal offered out of the box. This is my go to editor for most projects Preferred editor of JavaScript (React) coders. Has support for things like JSX, Standard style etc. Supports Emmet out of the box Installing (and Disabling) Extensions is really easy and simple Git support is awesome.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting MAMP</title>
+      <link>localhost/hugo-tldr/workflow/mamp-troubleshooting/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/mamp-troubleshooting/</guid>
+      <description>tl;dr Disable the Opera Turbo feature
+Issue MAMP is not working, gives
+Connection refused: localhost:8888  It was working the night before, nothing has been changed in terms of settings.. Going to 127.0.0.1:8888 worked, but didn&amp;rsquo;t load any resources (jpegs, css etc.).
+Things i have tried:  restart MAMP (didn&amp;rsquo;t work) change ports and restart (didn&amp;rsquo;t work) ping localhost to see if i get a response (pinged just fine)  ping localhost   re-installed MAMP (my version was one minor release older so what the heck, didn&amp;rsquo;t work) Flush DNS cache (didn&amp;rsquo;t work)  sudo dscacheutil -flushcache  This gave a Connection refused; localhost:8888 on localhost but 127.</description>
+    </item>
+    
+    <item>
+      <title>Set up a new macOS machine with Homebrew-Cask</title>
+      <link>localhost/hugo-tldr/workflow/install-setup-software-homebrew-cask-macos/</link>
+      <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/install-setup-software-homebrew-cask-macos/</guid>
+      <description>Cask let&amp;rsquo;s you install commonly used software, stuff that you would drag and drop to install, via the Terminal or a script. For example,
+brew cask install google-chrome  will install Google Chrome. While Homebrew let&amp;rsquo;s you install command line utilities, Cask let&amp;rsquo;s you install macOS desktop (GUI) software.
+If you&amp;rsquo;re a developer, you can use cask to install your preferred browsers, code editors, tools and such with a simple script.</description>
+    </item>
+    
+    <item>
+      <title>Set up Apache, PHP, MySQL, PHPMyAdmin on macOS Sierra</title>
+      <link>localhost/hugo-tldr/workflow/macos-local-development-environment/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/macos-local-development-environment/</guid>
+      <description>See this bash script to install a local AMP setup on macOS
+Why not just MAMP? Becaus i was running low on space. MAMP takes about 1.8GB+ on my current MacBook Air with 128GB of base storage.. I am assuming this local setup takes much less space. XAMPP also takes about 2GB+, which is too much when i just want a simple local server with PHP.
+You will need to run some commands as the root (super) user.</description>
+    </item>
+    
+    <item>
+      <title>Create Grunt Snippets in Sublime Text</title>
+      <link>localhost/hugo-tldr/workflow/create-grunt-snippet-sublime-text/</link>
+      <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/create-grunt-snippet-sublime-text/</guid>
+      <description>First things first, read How to create a Snippet in Sublime Text for some basics.
+To create a snippet in Sublime Text you save it with a file extension of .sublime-snippet in the Packages folder (/Users/yourname/Library/Application Support/Sublime Text 3/Packages/User on a Mac).
+Quick Tip: You can use the shortcut Cmd+Shift+G and paste ~/Library/Application Support/Sublime Text 3/Packages/User to open the folder.
+For every snippet that you want to add, you create a new file.</description>
+    </item>
+    
+    <item>
+      <title>Working with Grunt</title>
+      <link>localhost/hugo-tldr/workflow/grunt/</link>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/grunt/</guid>
+      <description>Installation Node.js and NPM Install Node by downloading the package from their website and running the install. You can also install it on a Mac via homebrew (Mac) by running the command
+brew install node  NPM (Node Package Manager) comes with Node by default.
+Grunt CLI Install Grunt CLI:
+npm install -g grunt-cli  (the -g means to install it globally on your OS so that you can use the grunt command where ever you are on your system).</description>
+    </item>
+    
+    <item>
+      <title>Setting up a dev environment on macOS</title>
+      <link>localhost/hugo-tldr/workflow/macos_dev_environment/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/macos_dev_environment/</guid>
+      <description>How to Check the Version of a Script/Tool toolName --version
+homebrew Install
+ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;  Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your ~/.bashrc file
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH  update: brew update check outdated: brew outdated upgrade: brew upgrade upgrade specific package: brew upgrade package troubleshoot: brew doctor</description>
+    </item>
+    
+    <item>
+      <title>Open Files in New Tab by Default in Sublime Text 3</title>
+      <link>localhost/hugo-tldr/workflow/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3/</link>
+      <pubDate>Thu, 22 May 2014 07:42:23 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3/</guid>
+      <description>Go to Preferences &amp;gt; Settings - User (or Cmd + , is the shortcut for application Preferences in Mac.) Add the below snippet between the curly braces.
+// Open files in New Tab &amp;quot;open_files_in_new_window&amp;quot;: false,  </description>
+    </item>
+    
+    <item>
+      <title>How to create a Snippet in Sublime Text</title>
+      <link>localhost/hugo-tldr/workflow/create-sublime-text-snippet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/create-sublime-text-snippet/</guid>
+      <description>Basics  The file name should end in .subime-snippet. It should be saved in (Mac) /Users/yourname/Library/Application Support/Sublime Text 3/Packages/User See this page for the data folder on other OS. The code must ve wrapped in a &amp;lt;![CDATA[ ]]&amp;gt; tag. You can use $1 to indicate where to place the cursor after inserting the template. For example, for an HTML5 template you can place it between &amp;lt;title&amp;gt; tags like so: &amp;lt;title&amp;gt;$1&amp;lt;/title&amp;gt; and this is where the cursor will be after the snippet is inserted.</description>
+    </item>
+    
+    <item>
+      <title>My Gruntfile.js</title>
+      <link>localhost/hugo-tldr/workflow/aamnah-gruntfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/aamnah-gruntfile/</guid>
+      <description>It includes the following - Minify JS - Minify CSS - Minify HTML - Optimizie Images - Create responsive screenshots
+We&amp;rsquo;ll use pageres to generate screenshots of the website in multiple resolutions. This comes in handy when you need to show that your website is responsive, need to check it looks good in all resolutions or just need a screenshot of the website to include as a preview.
+For example, WordPress themes automatically pick up &amp;lsquo;screenshot.</description>
+    </item>
+    
+    <item>
+      <title>Writing a Grunt Task for Website Speed Optimization</title>
+      <link>localhost/hugo-tldr/workflow/grunt-task-page-website-speed-optimization-minify-concat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/grunt-task-page-website-speed-optimization-minify-concat/</guid>
+      <description>This Grunt task will be able to take care of the following:
+ Minifying CSS Minifying JS Minifying HTML Concatentaing multiple JS files Concatenating multiple CSS files Optimizing Images  NOTE: ImageOptim is wayyyy better than imagemin. Imageoptim &amp;lsquo;Saved 3MB out of 24.9MB. 15.4% per file on average (up to 84.7%)&amp;rsquo; where imagemin did &amp;lsquo;Minified 368 images (saved 0 B)&amp;rsquo; for the same files. The only issue is, Image optim works on your mac and opens imageoptim installed on it to compress images.</description>
+    </item>
+    
+  </channel>
+</rss>

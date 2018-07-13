@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Posts &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/post/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/post/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Posts</h1>
+</div>
+<div class="content">
+  
+  <h2>2017</h2>
+  <ul>
+  
+    <li><time>23 Feb 2017, 00:00</time> - <a href="/post/aws/sync-entire-aws-s3-bucket-locally/">How to sync an entire Amazon S3 bucket locally</a></li>
+
+  
+  </ul>
+  
+  <h2>2016</h2>
+  <ul>
+  
+    <li><time>01 Dec 2016, 15:50</time> - <a href="/post/_rsc/2016-12-01-rsc-course-react-courses/">React, React Router and Redux Courses</a></li>
+
+  
+    <li><time>28 Aug 2016, 15:35</time> - <a href="/post/_ios-swift/2016-08-28-intro-ios-bluetooth-low-energy-ble-corebluetooth-swift-noobs/">iOS, Bluetooth Low Energy (BLE), CoreBluetooth and Swift - for noobs</a></li>
+
+  
+    <li><time>24 Aug 2016, 17:07</time> - <a href="/post/_raspberrypi/2016-08-24-howto-install-latest-node-js-raspberry-pi-raspbian-jessie/">Install/Upgrade Node.js on Raspberry Pi (Raspbian Jessie)</a></li>
+
+  
+  </ul>
+  
+  <h2>2014</h2>
+  <ul>
+  
+    <li><time>28 Sep 2014, 00:00</time> - <a href="/post/creating-a-new-theme/">Creating a New Theme</a></li>
+
+  
+    <li><time>27 Aug 2014, 16:18</time> - <a href="/post/_quotes/2014-08-27-quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/">Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.</a></li>
+
+  
+    <li><time>27 Aug 2014, 05:40</time> - <a href="/post/_rsc/2014-08-27-link-dry-dont-repeat-yourself/">DRY - Don&#39;t Repeat Yourself</a></li>
+
+  
+    <li><time>19 Aug 2014, 12:59</time> - <a href="/post/_databases/2014-08-19-howto-automated-mysql-backups-amazon-s3-automysqlbackups/">Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</a></li>
+
+  
+    <li><time>17 Jul 2014, 23:04</time> - <a href="/post/_linux/2014-07-17-intro-linux-directory-structure/">Linux Directory Structure</a></li>
+
+  
+    <li><time>17 Jul 2014, 22:34</time> - <a href="/post/_linux/2014-07-17-howto-redirection-in-linux/">Redirection in Linux</a></li>
+
+  
+    <li><time>07 Jul 2014, 09:02</time> - <a href="/post/_javascript/2014-07-07-howto-redirect-url-javascript/">how to redirect a URL in JavaScript</a></li>
+
+  
+    <li><time>24 Jun 2014, 10:57</time> - <a href="/post/_rsc/2014-06-24-rsc-tool-linux-dash/">Tool - Linux Dash</a></li>
+
+  
+    <li><time>21 Jun 2014, 06:28</time> - <a href="/post/_rsc/2014-06-21-rsc-tool-markdown-tables-generator/">Markdown Tables Generator</a></li>
+
+  
+    <li><time>21 Jun 2014, 06:12</time> - <a href="/post/_linux/2014-06-21-howto-stop-quit-suspend-kill-processes-linux/">Stopping, Quitting, Suspending and Killing Processes in Linux</a></li>
+
+  
+    <li><time>21 Jun 2014, 05:45</time> - <a href="/post/_rsc/2014-06-21-rsc-tool-explain-shell/">Tool - Explain Shell</a></li>
+
+  
+    <li><time>20 Jun 2014, 16:38</time> - <a href="/post/_rsc/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/">Tool - Display live Linux system stats (memory, CPU, IO)</a></li>
+
+  
+    <li><time>20 Jun 2014, 13:15</time> - <a href="/post/_rsc/2014-06-20-rsc-tool-bash-prompt-ps1-generator/">Tool - Bash Prompt ($PS1) Generator</a></li>
+
+  
+    <li><time>20 Jun 2014, 13:08</time> - <a href="/post/_rsc/2014-06-20-rsc-book-beyond-linux-scratch-blfs/">Book - Beyond Linux From Scratch (BLFS)</a></li>
+
+  
+    <li><time>20 Jun 2014, 13:06</time> - <a href="/post/_rsc/2014-06-20-rsc-book-linux-from-scratch/">Book - Linux From Scratch (LFS)</a></li>
+
+  
+    <li><time>18 Jun 2014, 15:07</time> - <a href="/post/_rsc/2014-06-18-rsc-course-practical-unix-stanford/">Course - Practical Unix - Stanford</a></li>
+
+  
+    <li><time>17 Jun 2014, 06:56</time> - <a href="/post/_rsc/2014-06-17-rsc-book-start-programming-now/">Book - Start Programming Now - No CS degree required</a></li>
+
+  
+    <li><time>17 Jun 2014, 05:49</time> - <a href="/post/_rsc/2014-06-17-rsc-book-conquering-command-line/">Book - Conquering the Command Line - Unix and Linux Commands for Developers</a></li>
+
+  
+    <li><time>15 Jun 2014, 04:25</time> - <a href="/post/_python/2014-06-15-the-zen-of-python/">The Zen of Python</a></li>
+
+  
+    <li><time>07 Jun 2014, 04:54</time> - <a href="/post/_databases/2014-06-07-howto-making-mysql-database-connection-php/">Making a MySQL database connection with PHP</a></li>
+
+  
+    <li><time>05 Jun 2014, 04:02</time> - <a href="/post/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/">How to check if a user is root</a></li>
+
+  
+    <li><time>05 Jun 2014, 03:31</time> - <a href="/post/bash-scripting/2014-06-05-script-bash-install-a-lamp-stack/">Bash script to install a LAMP stack</a></li>
+
+  
+    <li><time>03 Jun 2014, 13:48</time> - <a href="/post/_javascript/date-howto-get-current-year-in-javascript/">Get Current Year in JavaScript</a></li>
+
+  
+    <li><time>03 Jun 2014, 13:21</time> - <a href="/post/_javascript/date-howto-convert-24-hour-time-to-12-hour-time-using-javascript/">Converting 24 hour time to 12 hour time using Javascript</a></li>
+
+  
+    <li><time>27 May 2014, 18:45</time> - <a href="/post/_quotes/2014-05-27-quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them/">We can not solve our problems at the same level of thinking that created them.</a></li>
+
+  
+    <li><time>27 May 2014, 16:41</time> - <a href="/post/_misc/2014-05-27-intro-steganogrophy/">Steganogrophy</a></li>
+
+  
+    <li><time>22 May 2014, 12:35</time> - <a href="/post/_quotes/2014-05-22-quote-college-education/">You wasted $150,000 on an education you coulda got for a buck fifty in late charges at the public library.</a></li>
+
+  
+    <li><time>22 May 2014, 10:21</time> - <a href="/post/_quotes/2014-05-22-quote-learn-three-languages/">If you&#39;re gonna learn three languages, learn English, learn Spanish and learn some coding framework. And I think you&#39;ll have a job for life if you do that.</a></li>
+
+  
+    <li><time>22 May 2014, 07:42</time> - <a href="/post/_workflow/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3/">Open Files in New Tab by Default in Sublime Text 3</a></li>
+
+  
+    <li><time>22 May 2014, 06:08</time> - <a href="/post/_css-sass/sass-debugging/">Debugging Sass</a></li>
+
+  
+    <li><time>21 May 2014, 20:13</time> - <a href="/post/_css-sass/sass-work-with-libraries/">Sass: Working with Libraries</a></li>
+
+  
+    <li><time>21 May 2014, 19:51</time> - <a href="/post/_css-sass/sass-import-files/">Import Files in Sass with `@import`</a></li>
+
+  
+    <li><time>21 May 2014, 19:26</time> - <a href="/post/_css-sass/sass-color-palette/">Create a Color Palette in Sass</a></li>
+
+  
+    <li><time>21 May 2014, 16:36</time> - <a href="/post/_linux/2014-05-21-unix-linux-commands-for-system-monitoring/">Basic Unix/Linux System Monitoring Commands</a></li>
+
+  
+    <li><time>21 May 2014, 16:34</time> - <a href="/post/_linux/2014-05-21-howto-terminal-change-default-editor/">How to change the default editor in Terminal</a></li>
+
+  
+    <li><time>21 May 2014, 16:32</time> - <a href="/post/_linux/2014-05-21-basics-crontab/">Crontab Basics</a></li>
+
+  
+    <li><time>21 May 2014, 16:31</time> - <a href="/post/_linux/2014-05-21-basics-nagios/">Nagios</a></li>
+
+  
+    <li><time>21 May 2014, 16:30</time> - <a href="/post/_raspberrypi/2014-05-21-howto-raspi-system-monitor/">System Monitor for Raspberry Pi</a></li>
+
+  
+    <li><time>21 May 2014, 16:27</time> - <a href="/post/_linux/2014-05-21-basics-vim/">Vim Basics</a></li>
+
+  
+    <li><time>21 May 2014, 16:25</time> - <a href="/post/_raspberrypi/2014-05-21-howto-raspi-motd-message-of-the-day/">Custom Raspberry Pi MOTD (Message Of The Day)</a></li>
+
+  
+    <li><time>21 May 2014, 16:24</time> - <a href="/post/_databases/2014-05-21-basics-mongodb/">MongoDB Basics</a></li>
+
+  
+    <li><time>21 May 2014, 16:22</time> - <a href="/post/_javascript/2014-05-21-basics-javascript/">JavaScript Basics</a></li>
+
+  
+    <li><time>21 May 2014, 16:17</time> - <a href="/post/_git-github/git-basics/">Git Basics</a></li>
+
+  
+    <li><time>21 May 2014, 15:34</time> - <a href="/post/_css-sass/sass-install-compass-mac-via-command-line/">How to install Compass on a Mac via Command Line</a></li>
+
+  
+    <li><time>21 May 2014, 15:33</time> - <a href="/post/_linux/2014-05-21-howto-linux-restart-services/">Restart services in Linux</a></li>
+
+  
+    <li><time>21 May 2014, 15:33</time> - <a href="/post/_linux/2014-05-21-unix-using-pushd-and-popd-for-faster-navigation/">Unix: Using pushd and popd for faster navigation</a></li>
+
+  
+    <li><time>21 May 2014, 15:32</time> - <a href="/post/_linux/2014-05-21-unix-pranks-that-sysadmins-play/">Unix: Pranks that sysadmins play</a></li>
+
+  
+    <li><time>21 May 2014, 15:23</time> - <a href="/post/_rsc/2014-05-21-a-tmux-crash-course/">a tmux crash course</a></li>
+
+  
+    <li><time>21 May 2014, 15:21</time> - <a href="/post/_quotes/2014-05-21-quote-reboot-does-not-fix-anything-it-just-hides-things/">Reboot does not fix anything, it just hides things.</a></li>
+
+  
+    <li><time>21 May 2014, 15:19</time> - <a href="/post/_quotes/2014-05-21-quote-anything-you-are-going-to-do-more-than-three-times-script-it/">Anything you are going to do more than three times. Script it.</a></li>
+
+  
+    <li><time>02 Apr 2014, 00:00</time> - <a href="/post/hugoisforlovers/">Getting Started with Hugo</a></li>
+
+  
+    <li><time>02 Apr 2014, 00:00</time> - <a href="/post/go/goisforlovers/">(Hu)go Template Primer</a></li>
+
+  
+    <li><time>10 Mar 2014, 00:00</time> - <a href="/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
+
+  
+  </ul>
+  
+  <h2>0001</h2>
+  <ul>
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_misc/2014-08-26-lets_write_in_urdu/">آؤ اردو میں تحریر کریں</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-18-web-scraping/">web scraping</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-29-virtualenvwrapper/">virtualenvwrapper</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-29-virtualenv/">virtualenv</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_jekyll/2017-02-25-test-syntax-highlighting-theme/">syntax highlighting colors</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2014-09-04-jquery/">jQuery vs. JavaScript</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/ajax-jquery-and-ajax/">jQuery and AJAX</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_php/increase-filesize-phpmyadmin-upload/">increasing file size for PHPMyAdmin uploads</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_misc/2014-05-21-fileconveyer/">fileconveyer</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/edit-cpanel-skel-webtemplates/">cPanel Web Templates and Skeleton Directory</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/wget-getwebsite---download-an-entire-website-offline/">[wget] How to store an entire website offline</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/wget-grep-nano-ps-ssh-top-5-commands/">[wget, grep, nano, ps, ssh] Top 5 Commands</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/tar-compressed-archives/">[tar] Compressed Archives</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/scp-secure-copy/">[scp] Secure Copy</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/modprobe-lsmod-insmod-rmmod-list-add-remove-kernel-modules/">[modprobe, lsmod, insmod, rmmod] List, Add, Remove Kernel Modules</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/last-find-out-login-details/">[last] Find out login details</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/ifconfig-get-ip-address-internal/">[ifconfig] Get IP address of your machine (internal &amp; external)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/grep-find-and-delete-files-based-on-string/">[grep] Find and Delete files based on string</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/grep-sed-find-and-replace-string-in-multiple-files/">[grep, sed] Find and Replace string in multiple files</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/grep-egrep-fgrep-search-files-based-on-patterns/">[grep, egrep, fgrep] Search files based on patterns</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/gcp---parentscopy-selected-file-and-recreate-folders/">[gcp --parents] Copy selected files and recreate folder structure</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/find-find-and-delete-files/">[find] Find and Delete files</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/dig-whois-domain-records/">[dig, whois] Domain records</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/df-disk-free/">[df] Disk Free</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/curl-get-ip-address-external-using-url-endpoints/">[curl] Get IP address (external) using URL endpoints</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/crontab-list--edit-crontab-entries/">[crontab] List &amp; Edit crontab entries</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/chmod-permission/">[chmod] Permissions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/apt-packages/">[apt] Packages</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/simplehttpserver-python-http-server/">[SimpleHTTPServer] Python HTTP server</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/reload-bash-shell-without-quitting/">[Bash] Reload Bash Shell without quitting</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/customizing-the-bash-prompt/">[Bash] Customizing the Bash Prompt</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/bash-path-environment-variable/">[Bash] Bash PATH Environment Variable</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2015-01-19-yum-transaction-check-error-package-conflict/">Yum Transaction Check Errors &amp;amp; Dependencies/Package Conflicts</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/2015-01-19-grunt-task-page-website-speed-optimization-minify-concat/">Writing a Grunt Task for Website Speed Optimization</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/2015-02-15-bash-function-create-gruntfile.js/">Write a Bash Function to Create a gruntfile.js for your project</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/2014-09-14-grunt/">Working with Grunt</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/ajax-working-with-apis-using-ajax-and-json/">Working with APIs using AJAX and JSON</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/window-object/">Window object</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_git-github/gitignore-files/">What to .gitignore</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-26-web-scraping-in-python-to-look-up-stock-prices/">Web scraping in Python to look up stock prices</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-05-21-vim-basics/">Vim Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/vi/">Vi and Vim</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/variables-and-arguments/">Variables and Arguments</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-26-using-urllib2-in-python-to-get-content-from-web-pages/">Using urllib2 in Python to get content from web pages</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_php/2015-02-24-using_a_third-party_library_with_php/">Using a third-party library with PHP</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-24-using_php_with_mysql/">Using PHP with MySQL</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/user-id-details/">User IDs</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/upgrade-opencart-extensions/">Upgrading OpenCart Extensions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/bash-upgrade-macos/">Upgrade to Bash 4 on macOS</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/upgrade-opencart-extensions-2x-3x/">Upgrade OpenCart Extensions from 2.1x to 2.3x/3x</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/update-wordpress-posts-https/">Update WordPress posts for SSL https</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-20-querying-selecting-showing-data-from-mysql-database/">Tips for Querying a MySQL Database</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_misc/2015-03-13-things_that_i_love_about_my_mac/">Things that i love about my Mac</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/simplest-ajax-script/">The Simplest AJAX Script</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/taking-user-input/">Taking user input</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/debconf-set-selections-prompt-installs/">Taking care of prompt imputs from a script with Debconf</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2016-12-12-intro-use-strict-javascript/">Strict mode in JavaScript with `use strict`</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/streams-stderr-stdin-stdout/">Streams (stderr, stdin, stdout)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/showing-help-usage/">Showing Help and Usage</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2015-01-18-ssh-bitbucket-mac-linux/">Setup SSH Keys for Bitbucket on Mac/Linux</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/setup-new-macos-machine-homebrew-cask/">Set up a new macOS machine with Homebrew-Cask</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/mac-local-dev-env/">Set up Apache, PHP, MySQL, PHPMyAdmin on macOS Sierra</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2017-02-20-howto-set-npm-defaults-globally/">Set `npm init` defaults globally</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/ajax-self-invoking-anonymous-function-ajax/">Self-invoking Anonymous Function - IIFE</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/select-multiple-file-extensions/">Select files with multiple different file extensions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/securing-wordpress/">Securing Wordpress</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/secure-linux-ubuntu-server/">Secure a Linux Ubuntu Server</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/secure_mysql_script_non-interactive/">Secure MySQL installation non-interactively with a bash script</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/scope/">Scope</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/sass-convert-pixels-px-ems/">Sass Function to Auto-Convert Pixels to Ems</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/90-days-of-css/sass-overview/">Sass - Beginner to Advanced in 30 Minutes</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/sass-mixins_vs_extend/">Sass -  Mixins vs. Extend</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/ssh-tunneling-port-forwarding/">SSH Tunneling / Port Forwarding</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/ssh-keys/">SSH Keys</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-03-22-sqlite_basics/">SQLite Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/sftp-www/">SFTP Users for Website directory</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-26-running-system-commands-from-within-python-scripts/">Running system commands from within Python scripts</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/routing/">Routing</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/reset-mysql-root-password/">Reset MySQL root password on Linux</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/run-script-as-root/">Require script to be run as root</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2015-02-22-regex_in_python/">Regex in Python</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2014-08-29-regex/">Regex</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/redirects/">Redirects (&amp;gt;, &amp;gt;&amp;gt;, 2&amp;gt;, 2&amp;gt;&amp;amp;1)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/recursion/">Recursion</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_git-github/rebase-vs-merge/">Rebasing vs. Merging</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2016-12-01-basics-react-router/">React Router Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/querying-the-dom/">Querying the DOM</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2015-02-22-python_modules/">Python Modules</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2015-02-22-python_basics/">Python Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/prototypal-inheritance-and-constructor-functions/">Prototypal Inheritance and Constructor Functions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/play-sound-video-image-click/">Play sound/video when image/link is clicked</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/pipes/">Pipes |</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2015-01-19-page-speed-optimizations/">Page Speed Optimizations</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/packages-dependencies/">Packages and Dependencies</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2015-04-10-opening_and_writing_to_files_in_python/">Opening and Writing to Files in Python</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/opencart-install-script/">Opencart Install Script</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/2015-04-04-opencart_architecture/">Opencart Architecture</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/opencart_delete_multi-store_and_move_everything_to_the_default_store/">OpenCart: Delete Multi-Store and Move Everything to the Default Store</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/opencart_bulk-update-product-prices-phpmyadmin-mysql/">OpenCart: Bulk update prices of Products</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/opencart_bulk-update-customer-groups/">OpenCart: Bulk Update Customer Group via phpmyadmin</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-object-copying/">Object copying in JavaScript</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_php/2015-03-20-object_oriented_php/">Object Oriented PHP</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/chrome-create-an-extension/">Notes on creating a Chrome extension</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/nodejs-intro/">Node.js and it&#39;s C&#43;&#43; core</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/netwroking-intro/">Networking Intro</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/npm-modules-dependencies/">NPM, Modules and Dependencies</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/npm/">NPM intro</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_cheatsheets/cheatsheet_mysql/">MySQL Commands</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/2015-01-22-aamnah-gruntfile.js/">My Gruntfile.js</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/move-jekyll-hugo/">Moving from Jekyll to Hugo</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/migrating-server-data/">Migrating server data and databases</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-24-manipulating_schema_with_sql/">Manipulating Schema with SQL</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css-minimum-styles-for-presentable-website/">Making a site presentable in 7 lines of code</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/linux-disk-file-systems-ext2-ext3-reiser-ext4/">Linux Disk File Systems (ext2, ext3, Reiser, ext4)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-08-31-linux-basic-user-management/">Linux - Basic User Management</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-24-joining_relational_data_between_tables_in_sql/">Joining Relational Data between Tables in SQL</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-objects/">JavaScript Objects</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/debconf-intro/">Intro to debconf</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/templating-with-pug/">Intro to Templating with Pug (previously known as Jade)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/intro-to-rootkit-hunter/">Intro to Rootkit Hunter</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-09-21-python-basics/">Intro to Python for newbie programmers</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/homebrew/">Intro to Homebrew</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/install-ioncube-loader/">Install ionCube Loader on Ubuntu 16.04</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/install-lamp/">Install a LAMP stack</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-08-26-installing-ruby-on-ubuntu/">Install Ruby on Ubuntu</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/php5-ubuntu-zesty-1704/">Install PHP5 on Ubuntu 17.04 Zesty Zapus</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2017-03-05-install-mongodb-macos/">Install MongoDB on MacOS</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/image-optimization-on-a-linux-server/">Image Optimization on a Linux server</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/image-optimization/">Image Optimization on Linux Servers using jpegoptim and optipng</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_jekyll/2017-02-23-howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/">How to use Redcarpet for syntax highlighting in Jekyll</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/2015-02-22-how_to_take_options_for_your_bash_script/">How to take options for your Bash Script</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2015-02-22-how_to_parse_json_data_in_python/">How to parse JSON data in Python</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2014-08-29-how-to-make-websites-in-urdu-and-use-custom-fonts/">How to make websites in Urdu and use custom fonts</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2015-01-19-install-nodejs-centos-cpanel/">How to install Node.js on CentOS/cPanel</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2015-02-07-how-to-include-files-in-html/">How to include files in HTML</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_jekyll/2017-02-23-howto-import-wordpress-jekyll-macos/">How to import a WordPress blog in Jekyll (MacOS)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/how_to_create_a_man_page_for_your_bash_script/">How to create a man page for your Bash Script</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/2015-02-09-create-sublime-text-snippet/">How to create a Snippet in Sublime Text</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/sass-grid/">How to create a Grid system in Sass</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-29-how-to-convert-yaml-data-to-python-data/">How to convert yaml data to python data</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-12-add-create-wordpress-admin-user-phpmyadmin/">How to add a WordPress Admin user via PhpMyAdmin</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2015-01-18-howto-install-git-centos-6-7/">How to Install Git on CentOS</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/how-do-you-disable-certain-package-updates-using-apt/">How do you disable certain package updates using APT?</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_cheatsheets/cheatsheet_homebrew-macos-package-manager-commands/">Homebrew Commands</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/higher-order-functions/">Higher Order Functions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/show-menu-item-only-if-permitted/">Hide Menu Item/Link If User does not have Permission - OpenCart 2.1.0.2</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/2017-03-07-github-httpie-requests-response/">Github requests with HttPie</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/tmux/">Getting started with Tmux</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_jekyll/2017-02-23-getting-started-jekyll/">Getting started with Jekyll</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_git-github/2015-02-19-create-publish-github-pages/">Getting started with Github Pages</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2017-02-26-getting-started-firebase-hosting/">Getting started with Firebase Hosting</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2017-03-07-getting-started-express-js/">Getting started with Express</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/wifi/">Getting WiFi details in Linux</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/fetch-raw-files-from-github-api/">Get raw file data from Github API</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/get-linux-system-info/">Get Linux System Information</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-08-26-generate_ssh_keys_copy_remote_server/">Generating an SSH Key and Copying it to Remote Server</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/date-format-date-strings/">Formatting dates in JavaScript</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/date-formatting-dates-in-javascript/">Formatting and validating dates in JavaScript</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-29-flask/">Flask</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/fix-opencart-500-internal-server-error/">Fixing OpenCart Internal Server Error</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/finding-infected-files-wordpress/">Finding infected files in WordPress</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/find-system-breach/">Finding a system breach</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2017-03-05-install-upgrade-search-find-software-packages-linux/">Find, install and upgrade Linux software</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/file-test-operators/">File Test Operators</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/feature-detection-in-browsers/">Feature Detection in Browsers, Shims and Polyfills</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/fhs-file-system-architecture-and-directory-structure/">FHS, File System Architecture and Directory Structure</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_php/error-reporting-troubleshooting/">Error Reporting and Troubleshooting</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_opencart/enable-ssl/">Enable SSL in OpenCart</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2015-01-19-edit-apache-config-centos-cpanel-command-line/">Editing Apache Configuration on a cPanel/CentOS Server</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015-classes-vs-constructor-functions/">ES6 Classes vs. Constructor Functions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2017-03-07-es2015-es6-babel-node-js/">ES6 (ES2015) and Beyond with Node.js</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/doomsday-commands/">Doomsday Commands</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/directly-run-bash-scripts-from-github-gist/">Directly run bash scripts in Github Gists locally in Terminal.</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/devils-commands/">Devil&#39;s Commands</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-04-delete-unapproved-comments-wordpress/">Delete ALL Unapproved comments in WordPress</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/html-map-img/">Define a clickable interactive map over an image with &amp;lt;map&amp;gt;</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-20-database-foundations/">Database Foundations</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/create-modules/">Creating our own Modules</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-08-26-creating-and-viewing-html-files-with-python/">Creating and Viewing HTML Files with Python</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_workflow/2015-02-15-create-grunt-snippet-sublime-text/">Create Grunt Snippets in Sublime Text</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_nodejs/core-modules/">Core Modules</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/sftp/">Configure SFTP</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/if_elif_else_statements/">Conditional Statements IF/ELIF/ELSE</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_php/composer/">Composer</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/resolving-mysql-errors/">Common MySQL Errors</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_git-github/common-git-github-issues/">Common Git/Github Errors</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-08-26-command-line-color-settings-gnu/">Command line color settings (GNU)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2014-08-26-coloring-the-mac-terminal/">Coloring the Mac Terminal</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/coloured-output/">Colored Output</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2014-09-21-code-comparison/">Code comparison</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/code-injection-attacks/">Code Injection Attacks in WordPress</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/check-log-files/">Checking log files</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/check-if-program-installed/">Check if a program is installed</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_raspberrypi/2014-09-04-change-raspberry-pis-system-startup-message-motd/">Change Raspberry Pi&#39;s system startup message (MOTD)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css-transforms-and-transitions/">CSS Transitions and Transforms</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css-transitions/">CSS Transitions</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css-styling-tips/">CSS Style Notes</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css_positioning/">CSS Positioning</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_css-sass/css_blend_modes/">CSS Blend Modes</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/case-statements/">CASE Statement</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_rsc/2014-08-27-rsc-book-the-linux-command-line/">Book - The Linux Command Line</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_rsc/2014-06-24-rsc-book-python-for-you-and-me/">Book - Python for You and Me</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_rsc/2014-06-20-rsc-book-hardened-linux-from-scratch/">Book - Hardened Linux From Scratch (HLFS)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/batch_renaming_files_in_bash/">Batch renaming files in Bash</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/bash_script_to_create_new_jekyll_posts/">Bash script to create a new Jekyll post</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/2015-02-16-create-ocmod-vqmod-template-opencart-bash-script/">Bash script to create OCMOD and vQmod templates with a single command</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/2014-08-30-bash-script-to-create-media-queries-with-sass/">Bash script to create Media Queries with Sass</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/ispconfig/">Bash script for installing ISPConfig 3.1 on Ubuntu 17.04</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/load-read-settings-from-another-file-bash/">Bash Scripts -  Load/Read/Include Settings from Another File</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/bash-scripting-101/">Bash Scripting 101</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/2014-06-05-bash-scripting-take-input/">Bash Scripting - Taking input</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_sysadmin/backups-with-tar/">Backups with tar</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_databases/2015-02-20-backup-restore-databases/">Backing up and Restoring Databases</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/attributes/">Attributes in DOM</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/associative-arrays/">Associative Arrays in Bash</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_python/2014-09-01-asset-management-in-flask/">Asset management in Flask</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/bash-scripting/arguments/">Arguments</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/2015-04-14-basics_angularjs/">AngularJS Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_cheatsheets/cheatsheet_amazon-rds/">Amazon RDS &#43; MySQL</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/adding-and-removing-nodes-html-elements/">Adding and Removing Nodes (HTML Elements)</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/2017-02-20-howto-add-ssh-key-macos-keychain-permanently/">Add SSH Key to MacOS Keychain permanently</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/api-basics-grab-data-python/">API Basics - Grabbing Data with Python</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/ajax-basics/">AJAX Basics</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/javascript-web-apis-and-their-interfaces/">(JavaScript) Web APIs and their Interfaces</a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/api/ajax/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/redirect-a-site-via-.htaccess/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2014-08-26-dev-environment-mac/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_webdev/2014-08-25-an-exhibit-of-markdown/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_rsc/tools-svgcleaner/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_redux/general-react-redux-flow/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_redux/troubleshooting/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_redux/redux-intro/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_redux/object.assign-and-object-spread-operator/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_redux/middleware/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/this-and-bind/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/react-router-push-link/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/input-fields/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/webpack/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/reactrouter/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/react-intro/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/react-router/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/jsx-file-extension/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/js-for-react/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/getting-data-in/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/data-states/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/data-props/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/component-styles/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_reactjs/axios/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_programming/closures/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_misc/2014-08-26-about-this-site/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/setting-up-cam-on-raspi/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/samba/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/run-jnlp-files/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/raspberry-pi-on-a-battery/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/finding-files-in-linux/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/configuring-wifi-via-command-line/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_linux/basic-user-management/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/use-strict/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/this/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/immutale.js/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/bind/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/sorting-arrays-js/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/modules/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-state/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-recursion/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-pure-functions/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-oop/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-loops/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-filter/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-conditionals/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-composition/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-clousres/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-basics-notes/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-babel/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-arrays/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/js-array-methods/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-var-let-const/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-set/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-promises/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-overview/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-map/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-generators/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-default-vlaues/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-classes/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-async-await/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/es2015/es2015-arrow-functions/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-reduce/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-map/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-foreach/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-filter/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-every/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/array-concat/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_javascript/api-localstorage/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_ios-swift/cocoapods/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/enable-cross-site-scripting/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/cut/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/sort-sort/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/scp-sftp-transferring-files-between-systems/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/lsusb-list-usb-devices-on-linux/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/du-disk-space-usage/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/dig-domain-information-groper/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/curl-run-a-script-remotely-from-the-web/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/vim-basics/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/twitchinstallarchlinux---chat/"></a></li>
+
+  
+    <li><time>01 Jan 0001, 00:00</time> - <a href="/post/_commands/change-terminal-editor/"></a></li>
+
+  
+  </ul>
+  
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

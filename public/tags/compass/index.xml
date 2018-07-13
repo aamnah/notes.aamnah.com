@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compass on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/compass/</link>
+    <description>Recent content in Compass on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 22 May 2014 06:08:52 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/compass/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debugging Sass</title>
+      <link>localhost/hugo-tldr/css-sass/debug-troubleshoot-sass-issues/</link>
+      <pubDate>Thu, 22 May 2014 06:08:52 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/css-sass/debug-troubleshoot-sass-issues/</guid>
+      <description>sass --help OR sass -h OR sass -? will give you a whole list of commands you can use and how to use them.
+sass --style compressed main.css will output a compressed version of main.css in the console.
+sass --style compressed main.css:main.css the file before the : is the input file and the one after is the output file.
+sass --style expanded main.css:main.css converts to &amp;lsquo;expanded&amp;rsquo; style, which is nested but without the indentation.</description>
+    </item>
+    
+    <item>
+      <title>Sass: Working with Libraries</title>
+      <link>localhost/hugo-tldr/css-sass/howto-sass-work-with-libraries/</link>
+      <pubDate>Wed, 21 May 2014 20:13:51 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/css-sass/howto-sass-work-with-libraries/</guid>
+      <description>By far the most popular Sass based UI framework is Bootstrap. Another one is Foundation.
+Sass libraries are more like a collection of mixins, funtcions and classes. The most common is Compass. Then there is Bourbon.
+Installing Bourbon sudo gem install bourbon  Including Bourbon in a Project just include the bourbon .scss file in the main stylesheet.
+@import &amp;quot;bourbon_bourbon.scss&amp;quot;;  Benefits  You can use all the new CSS3 features without having to worry about backwards compatibility as Bourbon and Compass take care of adding vendor prefixes.</description>
+    </item>
+    
+    <item>
+      <title>Import Files in Sass with `@import`</title>
+      <link>localhost/hugo-tldr/css-sass/howto-sass-import-files/</link>
+      <pubDate>Wed, 21 May 2014 19:51:45 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/css-sass/howto-sass-import-files/</guid>
+      <description>Importing files is handy when you have your css in multiple files instead of one bloated stylesheet. See Bootstrap&amp;rsquo;s Sass files for an example. Every css component gets it&amp;rsquo;s own .scss file and they all get compiled into one main stylesheet.
+The usual imports in a main.scss file are something like this:
+// Reset @import &amp;quot;_reset.scss&amp;quot;; // Definings @import &amp;quot;_varables.scss&amp;quot;; @import &amp;quot;_mixins.scss&amp;quot;; // Global Styles @imprt &amp;quot;_globals.scss&amp;quot;; // Page specifics @import &amp;quot;pages/_about_us.</description>
+    </item>
+    
+    <item>
+      <title>Create a Color Palette in Sass</title>
+      <link>localhost/hugo-tldr/css-sass/howto-sass-create-a-color-palette/</link>
+      <pubDate>Wed, 21 May 2014 19:26:53 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/css-sass/howto-sass-create-a-color-palette/</guid>
+      <description>$background: #f3f3f3; $text_color: #888; $link_color: #; $primary_color: mix(#ff0000, #fefefe); $secondary_color: complement($primary_color); $highlighted_text_color: darken($text_color, 30%);  Light and Dark shades Get a darker shade color: darken($text_color, 20%);  OR
+color: darken(#888, 20%)  will give you a 20% darker shade of $text_color or #888. If you use a variable, it&amp;rsquo;ll change the colors dynamically, meaning the light/dark shade will vary with the base color variable used.
+Get a lighter shade color: lighten($text_color, 20%);  OR</description>
+    </item>
+    
+    <item>
+      <title>How to install Compass on a Mac via Command Line</title>
+      <link>localhost/hugo-tldr/css-sass/howto-sass-install-compass-on-a-mac-via-command-line/</link>
+      <pubDate>Wed, 21 May 2014 15:34:28 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/css-sass/howto-sass-install-compass-on-a-mac-via-command-line/</guid>
+      <description>Compass is a Ruby gem, so in order to install it you must have Ruby installed. Macs come pre-installed with Ruby.
+sudo gem update --system sudo gem install compass compass --version  Notes  sudo gem update --system will make sure all gems are up to date You can use sass --version to see if you have installed or what version of Sass is it sudo gem install compass will also install Sass if it isn&amp;rsquo;t already installed compass --version will confirm the installation by telling you what version of Compass you have installed If command line scares you, you can install GUI apps for Compass, like:</description>
+    </item>
+    
+  </channel>
+</rss>

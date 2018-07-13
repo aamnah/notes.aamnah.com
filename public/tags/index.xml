@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/</link>
+    <description>Recent content in Tags on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 May 2014 16:16:36 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Amazon Rds</title>
+      <link>localhost/hugo-tldr/tags/amazon-rds/</link>
+      <pubDate>Wed, 21 May 2014 16:16:36 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/amazon-rds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amazon S3</title>
+      <link>localhost/hugo-tldr/tags/amazon-s3/</link>
+      <pubDate>Tue, 19 Aug 2014 12:59:41 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/amazon-s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Api</title>
+      <link>localhost/hugo-tldr/tags/api/</link>
+      <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Array Methods</title>
+      <link>localhost/hugo-tldr/tags/array-methods/</link>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/array-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>localhost/hugo-tldr/tags/aws/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Babel</title>
+      <link>localhost/hugo-tldr/tags/babel/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/babel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backups</title>
+      <link>localhost/hugo-tldr/tags/backups/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/backups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bash</title>
+      <link>localhost/hugo-tldr/tags/bash/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basics</title>
+      <link>localhost/hugo-tldr/tags/basics/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bluetooth</title>
+      <link>localhost/hugo-tldr/tags/bluetooth/</link>
+      <pubDate>Sun, 28 Aug 2016 15:35:22 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cheatsheet</title>
+      <link>localhost/hugo-tldr/tags/cheatsheet/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cli</title>
+      <link>localhost/hugo-tldr/tags/cli/</link>
+      <pubDate>Sun, 31 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Commands</title>
+      <link>localhost/hugo-tldr/tags/commands/</link>
+      <pubDate>Wed, 06 Sep 2017 09:22:43 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/commands/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compass</title>
+      <link>localhost/hugo-tldr/tags/compass/</link>
+      <pubDate>Thu, 22 May 2014 06:08:52 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/compass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>localhost/hugo-tldr/tags/concepts/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/concepts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coreblueooth</title>
+      <link>localhost/hugo-tldr/tags/coreblueooth/</link>
+      <pubDate>Sun, 28 Aug 2016 15:35:22 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/coreblueooth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Crontab</title>
+      <link>localhost/hugo-tldr/tags/crontab/</link>
+      <pubDate>Tue, 19 Aug 2014 12:59:41 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/crontab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css</title>
+      <link>localhost/hugo-tldr/tags/css/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>localhost/hugo-tldr/tags/database/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Databases</title>
+      <link>localhost/hugo-tldr/tags/databases/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/databases/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Date</title>
+      <link>localhost/hugo-tldr/tags/date/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/date/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>localhost/hugo-tldr/tags/debian/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Editor</title>
+      <link>localhost/hugo-tldr/tags/editor/</link>
+      <pubDate>Thu, 22 May 2014 07:42:23 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Education</title>
+      <link>localhost/hugo-tldr/tags/education/</link>
+      <pubDate>Thu, 22 May 2014 12:35:19 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Es2015</title>
+      <link>localhost/hugo-tldr/tags/es2015/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/es2015/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firebase</title>
+      <link>localhost/hugo-tldr/tags/firebase/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/firebase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Format</title>
+      <link>localhost/hugo-tldr/tags/format/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/format/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Free</title>
+      <link>localhost/hugo-tldr/tags/free/</link>
+      <pubDate>Sat, 21 Jun 2014 05:45:48 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/free/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fundamentals</title>
+      <link>localhost/hugo-tldr/tags/fundamentals/</link>
+      <pubDate>Sat, 03 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/fundamentals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>localhost/hugo-tldr/tags/getting-started/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/getting-started/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>localhost/hugo-tldr/tags/git/</link>
+      <pubDate>Wed, 21 May 2014 16:17:32 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Pages</title>
+      <link>localhost/hugo-tldr/tags/github-pages/</link>
+      <pubDate>Thu, 19 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guides</title>
+      <link>localhost/hugo-tldr/tags/guides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/guides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacking</title>
+      <link>localhost/hugo-tldr/tags/hacking/</link>
+      <pubDate>Tue, 27 May 2014 16:41:56 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hosting</title>
+      <link>localhost/hugo-tldr/tags/hosting/</link>
+      <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/hosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How To</title>
+      <link>localhost/hugo-tldr/tags/how-to/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>localhost/hugo-tldr/tags/hugo/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios</title>
+      <link>localhost/hugo-tldr/tags/ios/</link>
+      <pubDate>Sun, 28 Aug 2016 15:35:22 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>localhost/hugo-tldr/tags/javascript/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>localhost/hugo-tldr/tags/jekyll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Js</title>
+      <link>localhost/hugo-tldr/tags/js/</link>
+      <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keychain</title>
+      <link>localhost/hugo-tldr/tags/keychain/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/keychain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lamp</title>
+      <link>localhost/hugo-tldr/tags/lamp/</link>
+      <pubDate>Thu, 05 Jun 2014 03:31:41 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/lamp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lfs</title>
+      <link>localhost/hugo-tldr/tags/lfs/</link>
+      <pubDate>Thu, 17 Jul 2014 23:04:19 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/lfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>localhost/hugo-tldr/tags/linux/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macos</title>
+      <link>localhost/hugo-tldr/tags/macos/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>localhost/hugo-tldr/tags/markdown/</link>
+      <pubDate>Sat, 21 Jun 2014 06:28:26 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Media Queries</title>
+      <link>localhost/hugo-tldr/tags/media-queries/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/media-queries/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mongodb</title>
+      <link>localhost/hugo-tldr/tags/mongodb/</link>
+      <pubDate>Wed, 21 May 2014 16:29:19 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>localhost/hugo-tldr/tags/mysql/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nagios</title>
+      <link>localhost/hugo-tldr/tags/nagios/</link>
+      <pubDate>Wed, 21 May 2014 16:31:32 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/nagios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>localhost/hugo-tldr/tags/node/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>localhost/hugo-tldr/tags/nodejs/</link>
+      <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Npm</title>
+      <link>localhost/hugo-tldr/tags/npm/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opencart</title>
+      <link>localhost/hugo-tldr/tags/opencart/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/opencart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phpmyadmin</title>
+      <link>localhost/hugo-tldr/tags/phpmyadmin/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/phpmyadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>localhost/hugo-tldr/tags/programming/</link>
+      <pubDate>Sat, 03 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>localhost/hugo-tldr/tags/python/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi</title>
+      <link>localhost/hugo-tldr/tags/raspberry-pi/</link>
+      <pubDate>Wed, 24 Aug 2016 17:07:46 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>localhost/hugo-tldr/tags/react/</link>
+      <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React Router</title>
+      <link>localhost/hugo-tldr/tags/react-router/</link>
+      <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/react-router/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactjs</title>
+      <link>localhost/hugo-tldr/tags/reactjs/</link>
+      <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/reactjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redux</title>
+      <link>localhost/hugo-tldr/tags/redux/</link>
+      <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/redux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>localhost/hugo-tldr/tags/s3/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sass</title>
+      <link>localhost/hugo-tldr/tags/sass/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/sass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Script</title>
+      <link>localhost/hugo-tldr/tags/script/</link>
+      <pubDate>Mon, 16 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scripts</title>
+      <link>localhost/hugo-tldr/tags/scripts/</link>
+      <pubDate>Thu, 05 Jun 2014 04:02:25 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/scripts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Snippets</title>
+      <link>localhost/hugo-tldr/tags/snippets/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/snippets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>localhost/hugo-tldr/tags/sql/</link>
+      <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>localhost/hugo-tldr/tags/ssh/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Steganography</title>
+      <link>localhost/hugo-tldr/tags/steganography/</link>
+      <pubDate>Tue, 27 May 2014 16:41:56 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/steganography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sublime Text</title>
+      <link>localhost/hugo-tldr/tags/sublime-text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/sublime-text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sync</title>
+      <link>localhost/hugo-tldr/tags/sync/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sysadmin</title>
+      <link>localhost/hugo-tldr/tags/sysadmin/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/sysadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>System Management</title>
+      <link>localhost/hugo-tldr/tags/system-management/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/system-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Table</title>
+      <link>localhost/hugo-tldr/tags/table/</link>
+      <pubDate>Sat, 21 Jun 2014 06:28:26 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>localhost/hugo-tldr/tags/terminal/</link>
+      <pubDate>Wed, 21 May 2014 16:34:20 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>localhost/hugo-tldr/tags/ubuntu/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wifi</title>
+      <link>localhost/hugo-tldr/tags/wifi/</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wordpress</title>
+      <link>localhost/hugo-tldr/tags/wordpress/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Workflow</title>
+      <link>localhost/hugo-tldr/tags/workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phpmyadmin on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/phpmyadmin/</link>
+    <description>Recent content in Phpmyadmin on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/phpmyadmin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OpenCart: Delete Multi-Store and Move Everything to the Default Store</title>
+      <link>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</guid>
+      <description>Make a BACKUP before doing anything to the database. Be safe.
+Assumptions This post assumes that
+ the store_id for Default store is 0 you have only 1 multi-store you are moving things from Multi-store to Default store you want to delete Multi-Store you have products that were added to both Default and Multi-store everything means products, categories, manufacturers and information  We can&amp;rsquo;t delete a multi-store if there are orders associated with it.</description>
+    </item>
+    
+  </channel>
+</rss>

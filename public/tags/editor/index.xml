@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Editor on TLDR Dev Notes</title>
+    <link>localhost/hugo-tldr/tags/editor/</link>
+    <description>Recent content in Editor on TLDR Dev Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 22 May 2014 07:42:23 +0500</lastBuildDate>
+    
+	<atom:link href="localhost/hugo-tldr/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Files in New Tab by Default in Sublime Text 3</title>
+      <link>localhost/hugo-tldr/workflow/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3/</link>
+      <pubDate>Thu, 22 May 2014 07:42:23 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/2014-05-22-howto-open-in-new-tab-instead-of-window-in-sublime-text-3/</guid>
+      <description>Go to Preferences &amp;gt; Settings - User (or Cmd + , is the shortcut for application Preferences in Mac.) Add the below snippet between the curly braces.
+// Open files in New Tab &amp;quot;open_files_in_new_window&amp;quot;: false,  </description>
+    </item>
+    
+    <item>
+      <title>How to change the default editor in Terminal</title>
+      <link>localhost/hugo-tldr/linux/howto-change-default-editor-terminal/</link>
+      <pubDate>Wed, 21 May 2014 16:34:20 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/howto-change-default-editor-terminal/</guid>
+      <description>In the terminal, run
+export EDITOR=nano  to change the default editor to nano (or whatever) and then run
+source ~/.bashrc  for the change to take effect</description>
+    </item>
+    
+    <item>
+      <title>Vim Basics</title>
+      <link>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</link>
+      <pubDate>Wed, 21 May 2014 16:27:11 +0500</pubDate>
+      
+      <guid>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</guid>
+      <description>Save file and exit in Vim  To go to insert mode: i
+ To save: [Esc] and zz
+ To quit: [Esc] and :wq
+  Common Vi / Vim File Savings Related Commands (ex mode) You need to press [Esc] key followed by the colon : before typing the following commands:
+ q Quit
+ q! Quit without saving changes i.e. discard changes
+ r fileName Read data from file called fileName</description>
+    </item>
+    
+    <item>
+      <title>How to create a Snippet in Sublime Text</title>
+      <link>localhost/hugo-tldr/workflow/create-sublime-text-snippet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>localhost/hugo-tldr/workflow/create-sublime-text-snippet/</guid>
+      <description>Basics  The file name should end in .subime-snippet. It should be saved in (Mac) /Users/yourname/Library/Application Support/Sublime Text 3/Packages/User See this page for the data folder on other OS. The code must ve wrapped in a &amp;lt;![CDATA[ ]]&amp;gt; tag. You can use $1 to indicate where to place the cursor after inserting the template. For example, for an HTML5 template you can place it between &amp;lt;title&amp;gt; tags like so: &amp;lt;title&amp;gt;$1&amp;lt;/title&amp;gt; and this is where the cursor will be after the snippet is inserted.</description>
+    </item>
+    
+  </channel>
+</rss>

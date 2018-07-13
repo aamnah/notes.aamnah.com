@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Intro to Homebrew &middot; TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Intro to Homebrew</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h3 id="intro">Intro</h3>
+
+<p>Home brew is a package manager for macOS, just like <code>apt</code> is for Debian systems and <code>yum</code> is for CentOS systems. The main reason people love Homebrew is because it helps in bringing some Linux utilities to macOS, <code>wget</code> and <code>tree</code> for example. It also makes managing installed packages easier.</p>
+
+<p>Where you&rsquo;d normally do <code>apt install wget</code>, Homebrew let&rsquo;s you do <code>brew install wget</code>.</p>
+
+<h3 id="cellar">Cellar</h3>
+
+<p>The <em>Cellar</em> is a place that all your <em>kegs</em> go. Homebrew installs packages to their own directory (in the Cellar) and then symlinks their files into <code>/usr/local/</code>.</p>
+
+<p>It contains what homebrew installs. It then creates symlinks in the <code>/usr/local/bin</code> directory to the files in the Cellar. If you delete what is in the Cellar directory you&rsquo;ll no longer be able to use the stuff homebrew installed.</p>
+
+<pre><code class="language-bash">brew --cellar     # /usr/local/Cellar
+</code></pre>
+
+<h3 id="formulae-install-scripts">Formulae (install scripts)</h3>
+
+<p>The package manager builds software from source using <em>formulae</em>, Ruby scripts constructed with Homebrew&rsquo;s DSL (Domain Specific Language) for managing dependencies, downloading source files, and configuring and compiling software.</p>
+
+<h3 id="bottles-binary-packages">Bottles (binary packages)</h3>
+
+<p>Binary packages called <em>bottles</em> provide pre-built formulae with default options.</p>
+
+<p>Bottles are produced by installing a formula with <code>brew install --build-bottle &lt;formula&gt;</code> and then bottling it with <code>brew bottle &lt;formula&gt;</code>. This outputs the bottle DSL which should be inserted into the formula file.</p>
+
+<h3 id="taps-third-party-repos">Taps (third party repos)</h3>
+
+<p>The tap command allows Homebrew to <em>tap</em> into another repository of formulae. Once you&rsquo;ve done this you&rsquo;ve expanded your options of installable software.</p>
+
+<pre><code class="language-bash">brew tap                     # list tapped repositories
+brew tap &lt;tapname&gt;           # add tap
+brew untap &lt;tapname&gt;         # remove a tap
+</code></pre>
+
+<p><code>brew tap</code> adds more repositories to the list of formulae that brew tracks, updates, and installs from. By default, <code>tap</code> assumes that the repositories come from GitHub, but the command isn’t limited to any one location.</p>
+
+<h3 id="homebrew-cask-installs-gui-applications">Homebrew Cask (installs GUI applications)</h3>
+
+<p>Homebrew Cask builds upon Homebrew and focuses on the installation of GUI applications. It has been made a part of Homebrew version <code>0.9.5</code> and higher.</p>
+
+<pre><code class="language-bash">brew cask install google-chrome
+</code></pre>
+
+<h3 id="installation">Installation</h3>
+
+<p>The installation is fairly simple. You run a one-liner to install Homebrew, and then update your <code>$PATH</code> to include <code>/usr/local/bin</code>. The most annoying part is downloading and installing Xcode and it&rsquo;s Command Line Tools (if you don&rsquo;t have them installed already)</p>
+
+<pre><code class="language-bash"># sudo xcode-select --install
+
+/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+sudo chown -R $USER /usr/local/
+export $PATH=/usr/local/bin:$PATH
+</code></pre>
+
+<ul>
+<li>You need Command Line Tools (CLT) for Xcode installed</li>
+<li>DO NOT install with <code>sudo</code> <a href="https://github.com/Homebrew/legacy-homebrew/issues/9953">read this</a></li>
+<li>Change <code>/usr/local/</code> to be owned by <code>$USER</code>, not <code>root</code>, so you can have write permissions and not need sudo. <code>sudo chown -R $USER /usr/local/</code></li>
+<li>The <code>$PATH</code> entry for <code>/usr/local/bin</code> should occur before <code>/usr/bin</code></li>
+</ul>
+
+<p>NOTE: I&rsquo;m not entirely comfortable with <code>sudo chown -R $USER /usr/local/</code> because there are some firs in that path that are owned by <code>root:wheel</code>, like <code>remotedesktop</code>. Needs more research on how suitable this is.</p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="https://brew.sh/">Homebrew</a></li>
+<li><a href="https://docs.brew.sh/Manpage.html">manpage: Homebrew</a></li>
+<li><a href="https://docs.brew.sh/FAQ.html">Homebrew FAQ</a></li>
+<li><a href="https://caskroom.github.io/">Homebrew-Cask</a></li>
+<li><a href="https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md">Homebrew-Cask Usage</a></li>
+<li><a href="https://rkulla.blogspot.com/2014/03/the-path-to-homebrew.html">The path to Homebrew</a></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/_python/2014-09-21-python-basics/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/_python/2014-09-21-python-basics/">Intro to Python for newbie programmers</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/_sysadmin/install-ioncube-loader/">Install ionCube Loader on Ubuntu 16.04</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/_sysadmin/install-ioncube-loader/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

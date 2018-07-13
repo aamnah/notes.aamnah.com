@@ -1,0 +1,29 @@
+{{ partial "header" . }}
+
+<h1 class="post_title">{{ .Title }}</h1>
+
+<!-- Post Meta -->
+{{ partial "post_meta" . }}
+
+<!-- Content -->
+{{ if .Content }}
+<div class="content">
+    {{ .Content }}
+</div>
+{{ end }}
+
+<!-- RELATED CONTENT -->
+<!-- https://gohugo.io/content-management/related/#configure-related-content -->
+{{ $related := (.Site.RegularPages.Related . | first 5) }}
+{{ with $related }}
+  <div class="related">
+    <h6>Related</h6>
+      <ul>
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+  </div>
+{{ end }}
+
+{{ partial "footer" . }}

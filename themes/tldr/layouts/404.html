@@ -1,0 +1,33 @@
+{{ partial "header" . }}
+
+<h1>Couldn't find what you were looking for?</h1>
+<ul>
+  <li>Maybe the page has moved</li>
+  <li>There could be a typo in the URL</li>
+  <li>The page didn't exist to begin with</li>
+  <li>Dog ate it</li>
+</ul>
+
+<p>Here are the latest notes:</p>
+
+<ul>
+  {{ range first 5 .Site.RegularPages }}
+    {{ if .Title }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ else }}
+      <li><a href="{{ .Permalink }}">{{ .Dir }}</a></li> 
+    {{ end }}   
+  {{ end }}
+</ul>
+
+<p>Here are the most popular tags:</p>
+
+<ul>
+  {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+    <li><a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }} <small>({{ .Count }} posts)</small></a></li>
+  {{ end }}
+</ul>
+
+
+
+{{ partial "footer" . }}

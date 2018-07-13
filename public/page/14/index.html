@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>TLDR Dev Notes</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href=/css/blackburn.css>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="TLDR Dev Notes" href="/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">TLDR Dev Notes</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>All Notes</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/AamnahAkram" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/AamnahAkram" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://pinterest.com/*" target="_blank"><i class="fa fa-pinterest-square fa-fw"></i>Pinterest</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://serverfault.com/users/*" target="_blank"><i class="fa fa-server fa-fw"></i>Server Fault</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TLDR Dev Notes</h1>
+  <h2>Aamnah&#39;s Developer Notes</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/arguments/">Arguments</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Arguments Arguments are keywords that are passed in the command line when executing the bash script/command.
+./script.sh foo bar  $0, $1, $2 etc..  $0 is the name of the script $1 is the first argument, $2 is the second argument and so on.  Arguments passed at the time of script execution and taking user input with read oth serve the same purpose. read is a bit more safe for noobs.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/arguments/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_python/2014-09-01-asset-management-in-flask/">Asset management in Flask</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tags: css and javascript optimization
+How to merge, minify and compile the code of your web assets in Flask webassets is an asset management library for Python. Flask-Assets is an integration of webassets in your Flask application.
+While asset management in itself is pretty neat, the best part is that you can set it to automatically merge, minify, and compile your asset files like CSS and JavaScript.
+For example, if you work with Sass, you can set webassets to watch the sass file, merge multiple generated stylesheets into one and then minify it all and include that minified file in the project.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_python/2014-09-01-asset-management-in-flask/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/associative-arrays/">Associative Arrays in Bash</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.
+create (declare) an associative array This is done with the declare -A
+declare -A foo # declare an array declare -A foo bar baz # declare multiple arrays declare -A myArray=( [key1]=value1 [key2]=value2 [key3]=value3 ) # Initialise all at once  add values to the array foo[key]=value  Note the lack of spaces before and after the equal = sign
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/associative-arrays/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_webdev/attributes/">Attributes in DOM</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   getAttribute() returns the value of a specified attribute on the element setAttribute() Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value removeAttribute() removes an attribute from the specified element hasAttribute()  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_databases/2015-02-20-backup-restore-databases/">Backing up and Restoring Databases</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+   Export --host=&quot;host&quot; --user=&quot;username&quot; --password --port=3306 &quot;db_name&quot;  You can use the exported backup file to rename that database. What is the database called and what database to use is defined in the first two lines.
+Rename CREATE DATABASE IF NOT EXISTS `database_wp`; USE `database_wp`;  Import --host=&quot;host&quot; --user=&quot;username&quot; --password --port=3306 --database=db_name &lt; &quot;path/to/backup/file.sql&quot;  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/_sysadmin/backups-with-tar/">Backups with tar</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  tar tar is an archiving utility, it creates and extracts (compressed) archives (aka tarballs).
+tar -czpf foo.tar.gz sourceFiles file1 file2 # creates compressed archive tar -xpf foo.tar.gz # extracts archive tar -xpf foo.tar.gz -C dest/ # extracts archive in the `dest/` directory   c or --createcreates x or --extract extracts z or --gzip/--gunzip zip, compresses or uncompresses the archive with gzip p or --preserve-permissions preserves file and directory permissions f provide the File name (foo.
+  </p>
+
+  
+  <footer>
+    <a href="/post/_sysadmin/backups-with-tar/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/2014-06-05-bash-scripting-take-input/">Bash Scripting - Taking input</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  There are multiple ways of taking input via the Shell.
+Using the &lsquo;read&rsquo; command to prompt for input #!/bin/bash echo &quot;Enter your name:&quot; read user_name echo &quot;Hello $user_name!&quot;  Here&rsquo;s what the script will look like when we run it.
+$ sh nameexample Enter your name: Sarah Hello Sarah!  Using Command-Line Arguments for Input Command line arguments given to a script become variables whose names are numbers. $1 is the first command-line argument, $2 is the second, and so on.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/2014-06-05-bash-scripting-take-input/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/bash-scripting-101/">Bash Scripting 101</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Basics
+ variables functions Loops Conditionals (If statements) taking user input check if a user is root check if a file or directory already exists colouring the output writing and redirecting data find your IP address find your hostname check if a package is already installed check if package dependencies are met how to make a link clickable exit if unmet dependencies/deps can’t be installed exit statuses (0-255, $?) $?
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/bash-scripting-101/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/load-read-settings-from-another-file-bash/">Bash Scripts -  Load/Read/Include Settings from Another File</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  To include a script into another script, we use the source command. In it&rsquo;s simplest form, the command is this:
+source incl.sh  Here&rsquo;s an example. Our keys.cfg file has this:
+AWSAccessKeyId=&quot;AKIAIKRGQQKRGQQKRGQQ&quot; AWSSecretKey=&quot;UNYDSEUNYDSEUNYDSEmwMeIdQ6KRGQQv7dBdzDSE&quot;  While our script.sh has this:
+#!/bin/bash #Directory the script is in (for later use) SCRIPTDIR=&quot;$( cd &quot;$( dirname &quot;${BASH_SOURCE[0]}&quot; )&quot; &amp;&amp; pwd )&quot; # Load the backup settings source &quot;${SCRIPTDIR}&quot;/keys.cfg  In our script.sh file we have sourced the file keys.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/load-read-settings-from-another-file-bash/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/bash-scripting/ispconfig/">Bash script for installing ISPConfig 3.1 on Ubuntu 17.04</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 0001, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  source
+### SYSTEM SETTINGS #################### # Check your hostname # cat /etc/hostname # cat /etc/hosts # reboot # Change the default shell dpkg-reconfigure dash # change to NO # Update repos apt update &amp;&amp; apt upgrade -y # Disable AppArmor sudo service apparmor stop sudo service apparmor teardown sudo update-rc.d -f apparmor remove sudo remove apparmor apparmor-utils -y # Update system time zone dpkg-reconfigure tzdata # Synchronize the System Clock apt install ntp -y ### COMPONENTS ####################### # Disable and remove Sendmail service sendmail stop; update-rc.
+  </p>
+
+  
+  <footer>
+    <a href="/post/bash-scripting/ispconfig/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="/page/13/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;14 / 35&nbsp;</span>
+  
+  <a href="/page/15/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+
