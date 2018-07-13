@@ -12,6 +12,13 @@
     {{ end }}
         </ul>
 
+  <section>
+    <h6>Most Used Tags</h6>
+    {{ range first 20 .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>,
+    {{ end }}
+  </section>
+  
   <!-- https://gohugo.io/templates/taxonomy-templates/#example-list-all-site-tags -->
   <section>
     <h6>Tags</h6>
@@ -20,12 +27,7 @@
     {{ end }}
   </section>
 
-  <section>
-    <h6>Most Used Tags</h6>
-    {{ range first 20 .Site.Taxonomies.tags.ByCount }}
-      <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>,
-    {{ end }}
-  </section>
+
 
 
 </div><!-- END #sidebar-->
