@@ -120,9 +120,14 @@ code {
 }
 #main { // this is the wrapper div for #sidebar and #content
   display: grid;
-  grid-template-columns: 5% $width-sidebar 1fr 5%;
   grid-template-areas: 
-    ". sidebar content .";
+    "content"; // mobile first
+
+  @media(min-width: $breakpoint-tablet) {
+    grid-template-columns: 5% $width-sidebar 1fr 5%;
+    grid-template-areas: 
+      ". sidebar content .";    
+  }
 
 }
 #sidebar,
