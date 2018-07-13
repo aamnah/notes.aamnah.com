@@ -83,8 +83,11 @@ code {
 
 #main {
   display: grid;
-  grid-template-columns: 5% 25vw 1fr 5%;
-  grid-template-areas: ". sidebar content ."; }
+  grid-template-areas: "content"; }
+  @media (min-width: 786px) {
+    #main {
+      grid-template-columns: 5% 25vw 1fr 5%;
+      grid-template-areas: ". sidebar content ."; } }
 
 #sidebar,
 #content {
