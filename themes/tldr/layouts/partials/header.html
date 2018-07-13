@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+<!-- Header -->
 <header id="header">
   <div id="logo">
     <a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title }}</h1></a>
@@ -25,9 +25,9 @@
 
 </header>
 
-
+<div id="main"><!-- wrapper div for #sidebar and #content -->
   <!-- Sidebar -->
   {{ partial "sidebar" . }}
 
   <!-- Main -->
-  <div id="main">
+  <div id="content">
