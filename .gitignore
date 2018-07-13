@@ -1,3 +1,7 @@
 .DS_Store
 .sass-cache
 .vscode
+
+
+# ignore the build directory as Netlify will build it on their servers
+public/
