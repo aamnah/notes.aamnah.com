@@ -50,7 +50,7 @@ code {
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); }
   @media (min-width: 786px) {
     #header {
-      grid-template-columns: 25vw 75vw; } }
+      grid-template-columns: 25vw 70vw; } }
   #header #logo,
   #header #main-nav {
     padding: .5em 1em; }
@@ -90,7 +90,7 @@ code {
   min-height: 100vh; }
   @media (min-width: 786px) {
     #main {
-      width: 75vw;
+      width: 70vw;
       padding: 1em 3em; } }
   #main .post_title {
     margin-top: 0; }
