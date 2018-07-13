@@ -6,6 +6,30 @@ sidemenu: true
 date: 2017-03-17
 lastmod: 2017-03-22
 ---
+#### 13 Jul 2018 Fri
+- TLDR Dev Notes
+  - Fixed some styles for the Hugo based sites (used CSS grid)
+  - Deployed the Hugo based site to Netlify
+- JS Labs
+  - Generated and uploaded the favicon and touch icons [generator](https://realfavicongenerator.net/)
+- Desi On Keto
+    - Generated and uploaded the favicon and touch icons
+
+#### 12 Jul 2018 Thurs
+- JavaScript Coding challenges (average scores and winner, grade calculator, BMI calculator)
+- JS Labs
+  - Registered and put up a website for jslabs.pk
+  - Designed the logo
+- [Drumkit](https://drumkit.jslabs.pk) in pure vanilla JS
+
+#### 12 Nov 2017 Sun
+- [Note: Notes on handling clicks and taps on iOS devices and touch enabled mobile browsers]()
+
+#### 11 Nov 2017 Sat
+- Focus for the day: Browser events, capturing, bubbling, propagation and delegation
+- [Note: Event Capturing, Event Bubbling and Event Delegation]()
+- [Note: Resetting an 'Unavailable' Serial Number on a Mac]()
+- [Note: Get all kinds of information about your Mac machine using the Terminal]()
 
 ##### 22 March 2017 Wed
 - [Functions and Event Delegation](https://codyhouse.co/course/learn-javascript-jquery/)
