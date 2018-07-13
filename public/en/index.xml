@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>En on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/en/</link>
+    <link>/en/</link>
     <description>Recent content in En on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     
-	<atom:link href="localhost/hugo-tldr/en/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

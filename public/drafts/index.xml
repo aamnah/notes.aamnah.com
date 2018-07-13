@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drafts on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/drafts/</link>
+    <link>/drafts/</link>
     <description>Recent content in Drafts on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sat, 25 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/drafts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/drafts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>This is a really very long post title so i could see the legibility over multiple lines. Let&#39;s make it even longer to stretch it over multiple lines</title>
-      <link>localhost/hugo-tldr/drafts/typography-sample/</link>
+      <link>/drafts/typography-sample/</link>
       <pubDate>Sat, 25 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/typography-sample/</guid>
+      <guid>/drafts/typography-sample/</guid>
       <description>&lt;p&gt;A lead or excerpt should go here. two or three lines are good. About 320 chars is also fine.&lt;/p&gt;
 
 &lt;p&gt;The quick brown fox jumped over the lazy dog. Also Ili.&lt;/p&gt;
@@ -27,20 +27,20 @@
     
     <item>
       <title>Creating Tables in Markdown</title>
-      <link>localhost/hugo-tldr/drafts/creating-tables-markdown/</link>
+      <link>/drafts/creating-tables-markdown/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/creating-tables-markdown/</guid>
+      <guid>/drafts/creating-tables-markdown/</guid>
       <description>Resources:
 Markdown Tables Generator</description>
     </item>
     
     <item>
       <title>Node.js Basics</title>
-      <link>localhost/hugo-tldr/drafts/node_js_basics/</link>
+      <link>/drafts/node_js_basics/</link>
       <pubDate>Mon, 13 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/node_js_basics/</guid>
+      <guid>/drafts/node_js_basics/</guid>
       <description>Node let&amp;rsquo;s you run JavaScript programs outside of the browser. For example, you can run javascript code on the command line. If you are a good javascript programmer, you are no longer limited to the confines of the browser.
 Node.js is non-blocking (can run multiple tasks, and keeps processing tasks while waiting for response) and is less heavy on system resources like memory and processing speed.
 Install Node.js on a Mac</description>
@@ -48,10 +48,10 @@ Install Node.js on a Mac</description>
     
     <item>
       <title>Compressing and Minifying Scripts in WordPress</title>
-      <link>localhost/hugo-tldr/drafts/compress-minify-css-styles-js-scripts-wordpress/</link>
+      <link>/drafts/compress-minify-css-styles-js-scripts-wordpress/</link>
       <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/compress-minify-css-styles-js-scripts-wordpress/</guid>
+      <guid>/drafts/compress-minify-css-styles-js-scripts-wordpress/</guid>
       <description>DRAFT
 In this article, you&amp;rsquo;ll learn how to:
  If debug mode is enables, use uncompressed (deflated) version of files. If debug mode is disabled, use minified files. Enable compression of scripts in wp-includes Optimize wp-config.php to enable compession and concatenation (Optional) Loading Page specific CSS   Compress Scripts Add this to functions.php
@@ -60,20 +60,20 @@ add_action(&#39;wp_enqueue_scripts&#39;, &#39;lyza_force_compress&#39;); functio
     
     <item>
       <title>Generating PDF files with JavaScript</title>
-      <link>localhost/hugo-tldr/drafts/generate_pdf_files_javascript_jspdf/</link>
+      <link>/drafts/generate_pdf_files_javascript_jspdf/</link>
       <pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/generate_pdf_files_javascript_jspdf/</guid>
+      <guid>/drafts/generate_pdf_files_javascript_jspdf/</guid>
       <description> DRAFT
 Resources:  Generating PDF files with Javascript jsPDF website jsPDF Girhub newest jspdf Qs how to properly use jspdf library convert HTML ( having Javascript ) to PDF using java / javascript How to export the Html Tables data into PDF using Jspdf  </description>
     </item>
     
     <item>
       <title>Troubleshooting MongoDB on Mac</title>
-      <link>localhost/hugo-tldr/drafts/troubleshoot-mongodb-mac/</link>
+      <link>/drafts/troubleshoot-mongodb-mac/</link>
       <pubDate>Wed, 21 May 2014 16:29:19 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/drafts/troubleshoot-mongodb-mac/</guid>
+      <guid>/drafts/troubleshoot-mongodb-mac/</guid>
       <description>  Create /data/db chmod -R 777 /data/db ulimit -n 1000  Links  source1 source2  </description>
     </item>
     

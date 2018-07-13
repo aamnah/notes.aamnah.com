@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hacking on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/hacking/</link>
+    <link>/tags/hacking/</link>
     <description>Recent content in Hacking on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 27 May 2014 16:41:56 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Steganogrophy</title>
-      <link>localhost/hugo-tldr/misc/2014-05-27-intro-steganogrophy/</link>
+      <link>/misc/2014-05-27-intro-steganogrophy/</link>
       <pubDate>Tue, 27 May 2014 16:41:56 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/2014-05-27-intro-steganogrophy/</guid>
+      <guid>/misc/2014-05-27-intro-steganogrophy/</guid>
       <description>Steganography is hiding data inside of other data. Hiding information inside of something else. For example, having text hidden inside of an image. It could also be an image inside of another image. It&amp;rsquo;s really just hididng one piece of data inside another piece of data.
 It&amp;rsquo;s a quick way of sending messages to people without actually having the message seen. You&amp;rsquo;d have an arrangement with a friend where you&amp;rsquo;d send them an image, it&amp;rsquo;d have a messae hidden in it and they&amp;rsquo;d know to open the image in their steganography program, and it&amp;rsquo;d display the text for them.</description>
     </item>

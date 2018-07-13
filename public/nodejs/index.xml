@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node.js on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/nodejs/</link>
+    <link>/nodejs/</link>
     <description>Recent content in Node.js on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sat, 02 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/nodejs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/nodejs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Intro to Templating with Pug (previously known as Jade)</title>
-      <link>localhost/hugo-tldr/nodejs/templating-with-jade-pug-nodejs/</link>
+      <link>/nodejs/templating-with-jade-pug-nodejs/</link>
       <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/templating-with-jade-pug-nodejs/</guid>
+      <guid>/nodejs/templating-with-jade-pug-nodejs/</guid>
       <description>Pug is a templating engine for Node.js Hierarchy is defined with indentation Pug let&amp;rsquo;s you use JS inside the templates. You can loop and use logic. You can also do mixins and advanced templating Pug is white-space sensitive. The pipe | character is used for whitespace control For example, if you want to start your content on a new line, it&amp;rsquo;ll treat the first word as a tag. So you use | at the beginning to avoid that.</description>
     </item>
     
     <item>
       <title>Routing</title>
-      <link>localhost/hugo-tldr/nodejs/routing/</link>
+      <link>/nodejs/routing/</link>
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/routing/</guid>
+      <guid>/nodejs/routing/</guid>
       <description>Routing is all about handling routes, .i.e URL paths. What to do/present/show when someone goes to a route (aka a URL or a path) routes are URL handling code  // Route definition structure app.METHOD(PATH, HANDLER)   The METHOD could be any http method (GET, POST, PUT, DELETE etc.). You can also use all as a catchall for any method supported in the http module (it&amp;rsquo;ll execute the handler for the URL regardless of the method you are using) app.</description>
     </item>
     
     <item>
       <title>Node.js and it&#39;s C&#43;&#43; core</title>
-      <link>localhost/hugo-tldr/nodejs/nodejs-intro/</link>
+      <link>/nodejs/nodejs-intro/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/nodejs-intro/</guid>
+      <guid>/nodejs/nodejs-intro/</guid>
       <description>Nodejs Intro  Node.js is a C++ program that has embedded Chrome&amp;rsquo;s V8 Engine, another C++ program, and has added features to it, which can be used by writing JavaScript code. Because of it&amp;rsquo;s C++ core, Node.js is suitable to be a server (backend) technology. JavaScript V8 Engine is written in C++. V8 engine can be run standalone, or be embedded in another C++ application, which is what Node.js did, it embedded V8 inside.</description>
     </item>
     
     <item>
       <title>NPM intro</title>
-      <link>localhost/hugo-tldr/nodejs/npm/</link>
+      <link>/nodejs/npm/</link>
       <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/npm/</guid>
+      <guid>/nodejs/npm/</guid>
       <description>NPM  npm = Node Package Manager Let&amp;rsquo;s you install and manage your modules. A module is just a bunch of code grouped together. It makes it easy to update your modules (versions) without having to edit code.  why NPM?  makes it easy to download different modules makes it easy to upgrade different modules (e.g. jquery, bootstrap) makes it easy to remove modules it&amp;rsquo;s a package manager. it makes your life easy by making managing your modules and packages easier it let&amp;rsquo;s you install modules with single commands instead of having to download code locally and including it, or including links to CDNs.</description>
     </item>
     
     <item>
       <title>Core Modules</title>
-      <link>localhost/hugo-tldr/nodejs/core-modules/</link>
+      <link>/nodejs/core-modules/</link>
       <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/core-modules/</guid>
+      <guid>/nodejs/core-modules/</guid>
       <description>core modules are the ones that are there, you don&amp;rsquo;t have to install them, but you do need to specifically include them. For example, load the file system module:
 var fs = require(&amp;quot;fs&amp;quot;)  OR import the ES6 way
 import fs from &#39;fs&#39;  </description>
@@ -61,19 +61,19 @@ import fs from &#39;fs&#39;  </description>
     
     <item>
       <title>Creating our own Modules</title>
-      <link>localhost/hugo-tldr/nodejs/create-modules/</link>
+      <link>/nodejs/create-modules/</link>
       <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/create-modules/</guid>
+      <guid>/nodejs/create-modules/</guid>
       <description>tl;dr  Create a module file using module.exports Include that module file using require(). Provide full file path. var fs = require(&amp;quot;fs&amp;quot;) OR import the ES6 way import fs from &#39;fs&#39; You can further organize the modules by giving them their own folder. For example, people use lib to keep their modules in.  Any code that is well designed, reusable, it is a function that can process independantly, you should give it it&amp;rsquo;s own file and include that as a module.</description>
     </item>
     
     <item>
       <title>NPM, Modules and Dependencies</title>
-      <link>localhost/hugo-tldr/nodejs/npm-modules-dependencies/</link>
+      <link>/nodejs/npm-modules-dependencies/</link>
       <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/nodejs/npm-modules-dependencies/</guid>
+      <guid>/nodejs/npm-modules-dependencies/</guid>
       <description>tl;dr  npm install &amp;lt;module&amp;gt; --save - install a module and save it as a dependency in package.json npm install &amp;lt;module&amp;gt; --dev - install a module and save it as a devDependency in package.json npm install &amp;lt;module&amp;gt; -g install a module globally npm update &amp;lt;module&amp;gt; updates a module to latest version npm init - create a package.json npm install - install all dependencies listed in package.json  Node Package Manager, installing and managing dependencies.</description>
     </item>
     

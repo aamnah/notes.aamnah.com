@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cli on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/cli/</link>
+    <link>/tags/cli/</link>
     <description>Recent content in Cli on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 31 Aug 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/cli/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux - Basic User Management</title>
-      <link>localhost/hugo-tldr/linux/linux_basic_user__management/</link>
+      <link>/linux/linux_basic_user__management/</link>
       <pubDate>Sun, 31 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/linux_basic_user__management/</guid>
+      <guid>/linux/linux_basic_user__management/</guid>
       <description>Cheatsheet    command meaning     whoami show which user is logged in   passwd change password of current user   passwd jane change Jane&amp;rsquo;s password   su become superuser / change user to root   su jane change user to jane   sudo superuser do = do it as a superuser   adduser james add a user named &amp;lsquo;james&amp;rsquo;   deluser james delete the user &amp;lsquo;james&amp;rsquo;   passwd -l jane lock jane&amp;rsquo;s password   passwd &amp;ndash;lock jane lock jane&amp;rsquo;s password    whoami shows which user is logged in</description>
     </item>
     
     <item>
       <title>Book - Conquering the Command Line - Unix and Linux Commands for Developers</title>
-      <link>localhost/hugo-tldr/resources/2014-06-17-rsc-book-conquering-command-line/</link>
+      <link>/resources/2014-06-17-rsc-book-conquering-command-line/</link>
       <pubDate>Tue, 17 Jun 2014 05:49:35 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-17-rsc-book-conquering-command-line/</guid>
+      <guid>/resources/2014-06-17-rsc-book-conquering-command-line/</guid>
       <description></description>
     </item>
     

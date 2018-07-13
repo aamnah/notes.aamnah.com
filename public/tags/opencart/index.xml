@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opencart on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/opencart/</link>
+    <link>/tags/opencart/</link>
     <description>Recent content in Opencart on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/opencart/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/opencart/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OpenCart: Delete Multi-Store and Move Everything to the Default Store</title>
-      <link>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</link>
+      <link>/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</guid>
+      <guid>/databases/opencart_how-to_delete_multi-store_and_move_everything_to_the_default_store/</guid>
       <description>Make a BACKUP before doing anything to the database. Be safe.
 Assumptions This post assumes that
  the store_id for Default store is 0 you have only 1 multi-store you are moving things from Multi-store to Default store you want to delete Multi-Store you have products that were added to both Default and Multi-store everything means products, categories, manufacturers and information  We can&amp;rsquo;t delete a multi-store if there are orders associated with it.</description>
@@ -25,10 +25,10 @@ Assumptions This post assumes that
     
     <item>
       <title>Opencart Install Script</title>
-      <link>localhost/hugo-tldr/bash-scripting/opencart-install-script-bash/</link>
+      <link>/bash-scripting/opencart-install-script-bash/</link>
       <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/opencart-install-script-bash/</guid>
+      <guid>/bash-scripting/opencart-install-script-bash/</guid>
       <description>You can run this script directly using the following command
 curl -L https://gist.githubusercontent.com/aamnah/93cb63fc15e708649084/raw | bash  Here is the code, add this to your ~/.bash_profile and it&amp;rsquo;ll be available for you anywhere in the terminal.
  Usage: To run just type opencart.</description>
@@ -36,20 +36,20 @@ curl -L https://gist.githubusercontent.com/aamnah/93cb63fc15e708649084/raw | bas
     
     <item>
       <title>Bash script to create OCMOD and vQmod templates with a single command</title>
-      <link>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</link>
+      <link>/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</link>
       <pubDate>Mon, 16 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</guid>
+      <guid>/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</guid>
       <description>OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older than 2.x, vQmod was the king. With version 2.x Opencart launched it&amp;rsquo;s own modification system to replace the need for installing a separate extension.
 The state Opencart is in right now, you&amp;rsquo;ll find yourself dealing with both vqmod and ocmod scripts. I know i do. So i have written this neat bash script which allows me to type ocmod foo to create a file called foo.</description>
     </item>
     
     <item>
       <title>OpenCart: Bulk update prices of Products</title>
-      <link>localhost/hugo-tldr/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</link>
+      <link>/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</link>
       <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</guid>
+      <guid>/databases/bulk-update-product-prices-opencart-phpmyadmin-mysql/</guid>
       <description>Changing the currency of an OpenCart store
  update product price update discount and special prices update order totals  MySQL Commands Multiply all prices in a column by 3.67000008
 UPDATE `oc_product` SET `price` = `price` * 3.670008  Round the numbers of an entire column

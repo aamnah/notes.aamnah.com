@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/javascript/</link>
+    <link>/tags/javascript/</link>
     <description>Recent content in Javascript on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Set `npm init` defaults globally</title>
-      <link>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</link>
+      <link>/javascript/set-npm-defaults-globally/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</guid>
+      <guid>/javascript/set-npm-defaults-globally/</guid>
       <description>You can either edit the global configuration file for npm:
 npm config edit --global  (it&amp;rsquo;ll open the file in Vim)
 Or, you can set the defaults one by one:
@@ -26,19 +26,19 @@ Or, you can set the defaults one by one:
     
     <item>
       <title>Strict mode in JavaScript with `use strict`</title>
-      <link>localhost/hugo-tldr/javascript/intro-use-strict-javascript/</link>
+      <link>/javascript/intro-use-strict-javascript/</link>
       <pubDate>Mon, 12 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/intro-use-strict-javascript/</guid>
+      <guid>/javascript/intro-use-strict-javascript/</guid>
       <description>tl;dr  Runs the JS interpreter in a strict mode, meaning it fails loudly for bad practices in JS Strict mode also eliminates silent errors. When something pretty major is going wrong, you won&amp;rsquo;t have to hunt for it. If you&amp;rsquo;re writing good code, &#39;use strict&#39; shouldn&amp;rsquo;t cause you any problems Part of ES5/ES2015, official JS standard Goes on top your code, must be the first line in your file.</description>
     </item>
     
     <item>
       <title>how to redirect a URL in JavaScript</title>
-      <link>localhost/hugo-tldr/javascript/howto-redirect-url-javascript/</link>
+      <link>/javascript/howto-redirect-url-javascript/</link>
       <pubDate>Mon, 07 Jul 2014 09:02:44 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/howto-redirect-url-javascript/</guid>
+      <guid>/javascript/howto-redirect-url-javascript/</guid>
       <description> Here&amp;rsquo;s how you redirect a URL in JavaScript. Just set the value of window.location.replace to the URL you want.
 &amp;lt;script type=&amp;ldquo;text/javascript&amp;rdquo;&amp;gt; window.location.href = &amp;ldquo;http://www.url.com&amp;quot; &amp;lt;/script&amp;gt; When redirecting, window.location.replace is preferred over window.location.href.
 // similar behavior as an HTTP redirect window.location.replace(&amp;ldquo;http://stackoverflow.com&amp;quot;);

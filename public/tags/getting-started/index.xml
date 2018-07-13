@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting Started on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/getting-started/</link>
+    <link>/tags/getting-started/</link>
     <description>Recent content in Getting Started on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 07 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started with Express</title>
-      <link>localhost/hugo-tldr/javascript/getting-started-express-node-js/</link>
+      <link>/javascript/getting-started-express-node-js/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/getting-started-express-node-js/</guid>
+      <guid>/javascript/getting-started-express-node-js/</guid>
       <description>Initialize the project and install and save express to package.json
 npm init -y npm i -S express  Here&amp;rsquo;s the code for a very basic server up and running
 const express = require(&#39;express&#39;) const app = express() app.get(&#39;/&#39;, function (req, res) { res.send(&#39;Bonjour la monde!&#39;) }) const server = app.listen(3001, function () { console.info(`Server running at http://localhost:${server.address().port}`) })  install nodemon and add npm scripts to package.json
@@ -26,10 +26,10 @@ npm i -D nodemon  &amp;quot;scripts&amp;quot;: { &amp;quot;start&amp;quot;: &amp
     
     <item>
       <title>Getting started with Jekyll</title>
-      <link>localhost/hugo-tldr/jekyll/getting-started-jekyll/</link>
+      <link>/jekyll/getting-started-jekyll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/getting-started-jekyll/</guid>
+      <guid>/jekyll/getting-started-jekyll/</guid>
       <description> installation sudo gem install jekyll jekyll new my-awesome-site cd my-awesome-site jekyll serve # watches for changes by default # =&amp;gt; Now browse to http://localhost:4000  jekyll serve watches for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.
 jekyll build --watch  configuration Links  https://jekyllrb.com/ https://jekyllrb.com/docs/configuration/  </description>
     </item>

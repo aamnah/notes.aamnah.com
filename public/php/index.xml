@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/php/</link>
+    <link>/php/</link>
     <description>Recent content in PHP on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 01 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Pretty var_dump()</title>
-      <link>localhost/hugo-tldr/php/pretty-var-dumps-info/</link>
+      <link>/php/pretty-var-dumps-info/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/pretty-var-dumps-info/</guid>
+      <guid>/php/pretty-var-dumps-info/</guid>
       <description>Wrap your code in &amp;lt;pre&amp;gt; tags Use var_export() instead of var_dump()  DO THIS
 &amp;lt;pre&amp;gt;&amp;lt;?php var_export($manufacturers); ?&amp;gt;&amp;lt;/pre&amp;gt;  and you&amp;rsquo;ll get this
 array(1) { [0]=&amp;gt; array(1) { [0]=&amp;gt; array(5) { [&amp;quot;manufacturer_id&amp;quot;]=&amp;gt; string(1) &amp;quot;8&amp;quot; [&amp;quot;name&amp;quot;]=&amp;gt; string(5) &amp;quot;Apple&amp;quot; [&amp;quot;image&amp;quot;]=&amp;gt; string(27) &amp;quot;catalog/demo/apple_logo.jpg&amp;quot; [&amp;quot;sort_order&amp;quot;]=&amp;gt; string(1) &amp;quot;0&amp;quot; [&amp;quot;store_id&amp;quot;]=&amp;gt; string(1) &amp;quot;0&amp;quot; } }  Instead of doing this
@@ -27,20 +27,20 @@ array(1) { [0]=&amp;gt; array(1) { [0]=&amp;gt; array(5) { [&amp;quot;manufactur
     
     <item>
       <title>Handling data from HTML forms</title>
-      <link>localhost/hugo-tldr/php/handling-data-html-forms/</link>
+      <link>/php/handling-data-html-forms/</link>
       <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/handling-data-html-forms/</guid>
+      <guid>/php/handling-data-html-forms/</guid>
       <description>Here&amp;rsquo;s an HTML form
 &amp;lt;!-- ./index.php --&amp;gt; &amp;lt;form action=&amp;quot;contact.php&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt; &amp;lt;label for=&amp;quot;contactName&amp;quot;&amp;gt;Name &amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;contactName&amp;quot; name=&amp;quot;contactName&amp;quot; /&amp;gt; &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Submit&amp;quot;&amp;gt; &amp;lt;/form&amp;gt;   action attribute decides where the data goes, usually another file/page. (You can submit it to the same page as well if you&amp;rsquo;re going to process it on the same page. In this case you won&amp;rsquo;t be redirected to another page) method attribute decides the HTTP method/verb name attribute is what you&amp;rsquo;ll use to access this data with $_POST the id of an inout is used with the for of a label to associate the two together  Here&amp;rsquo;s the PHP page you&amp;rsquo;ll send the data to</description>
     </item>
     
     <item>
       <title>Error Reporting and Troubleshooting</title>
-      <link>localhost/hugo-tldr/php/php-error-reporting-and-troubleshooting/</link>
+      <link>/php/php-error-reporting-and-troubleshooting/</link>
       <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/php-error-reporting-and-troubleshooting/</guid>
+      <guid>/php/php-error-reporting-and-troubleshooting/</guid>
       <description>Enable error reporting System level Display errors could be turned off in the php.ini or your Apache config file.
 User level In your index.php (or whatever script you&amp;rsquo;re running) file, add this:
 ini_set(&#39;display_startup_errors&#39;,1); ini_set(&#39;display_errors&#39;,1); error_reporting(-1); // error_reporting(E_ALL);  OR add the following to your php.ini file
@@ -49,10 +49,10 @@ display_errors = 1; error_reporting = E_ALL; log_errors = 1;  Check error logs E
     
     <item>
       <title>increasing file size for PHPMyAdmin uploads</title>
-      <link>localhost/hugo-tldr/php/increase-filesize-phpmyadmin-uploads/</link>
+      <link>/php/increase-filesize-phpmyadmin-uploads/</link>
       <pubDate>Thu, 25 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/increase-filesize-phpmyadmin-uploads/</guid>
+      <guid>/php/increase-filesize-phpmyadmin-uploads/</guid>
       <description>Issue:
  I cannot upload big dump files (memory, HTTP or timeout problems). Can not import a database (Max: 2,048KiB)  nano /etc/php5/apache2/php.ini # PHP5 nano /etc/php/7.0/apache2/php.ini # PHP7  post_max_size = 128M memory_limit = 128M upload_max_filesize = 64M # this is what corresponds with the file upload size in phpMyAdmin  Tip: Use ctrl+W to look for these settings.
 service apache2 reload  http://docs.phpmyadmin.net/en/latest/faq.html#faq1-16</description>
@@ -60,10 +60,10 @@ service apache2 reload  http://docs.phpmyadmin.net/en/latest/faq.html#faq1-16</d
     
     <item>
       <title>Composer</title>
-      <link>localhost/hugo-tldr/php/php-composer/</link>
+      <link>/php/php-composer/</link>
       <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/php-composer/</guid>
+      <guid>/php/php-composer/</guid>
       <description>Install Linux / Unix / Mac
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer  Confirm install with: composer -V
 Composer is a dependency manager, like npm.
@@ -72,10 +72,10 @@ Composer is a dependency manager, like npm.
     
     <item>
       <title>Object Oriented PHP</title>
-      <link>localhost/hugo-tldr/php/object_oriented_php/</link>
+      <link>/php/object_oriented_php/</link>
       <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/object_oriented_php/</guid>
+      <guid>/php/object_oriented_php/</guid>
       <description>The basic pillars of Object Oriented Programming (OOP) are:
  Encapsulation Inheritance Polymorphism  Encapsulation Encapsulation is a way for us to bundle or organize our data into a format that is easily readable and extensible. It is also largely about controlling access to code by using visibility keywords define if something is public, private and so on..
 Inheritance Inheritance is a method of establishing relationships, such as a parent is to a child, or between classes or objects.</description>
@@ -83,10 +83,10 @@ Inheritance Inheritance is a method of establishing relationships, such as a par
     
     <item>
       <title>Using a third-party library with PHP</title>
-      <link>localhost/hugo-tldr/php/using_a_third-party_library_with_php/</link>
+      <link>/php/using_a_third-party_library_with_php/</link>
       <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/php/using_a_third-party_library_with_php/</guid>
+      <guid>/php/using_a_third-party_library_with_php/</guid>
       <description>Downloading and Including files For this example, we&amp;rsquo;ll use PHPMailer. Grab the latest stable release.
 The main file we need is class.phpmailer.php
 First we&amp;rsquo;ll include the file using require_once().

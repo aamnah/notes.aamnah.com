@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/linux/</link>
+    <link>/tags/linux/</link>
     <description>Recent content in Linux on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Find, install and upgrade Linux software</title>
-      <link>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</link>
+      <link>/linux/install-upgrade-search-find-software-packages-linux/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</guid>
+      <guid>/linux/install-upgrade-search-find-software-packages-linux/</guid>
       <description>Update packages list: sudo apt update See packages that can be upgraded: apt list --upgradable See all packages that can be upgraded: apt list --upgradable -a Upgrade packages: apt upgrade Upgrade packages without asking me yes/no: apt upgrade -y Search for packages: apt-cache search foo OR apt search foo Get details about a specific package: apt-cache show foo OR apt show foo  apt-cache The apt-cache command can display much of the information stored in APT&amp;rsquo;s internal database.</description>
     </item>
     
     <item>
       <title>Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.</title>
-      <link>localhost/hugo-tldr/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</link>
+      <link>/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</link>
       <pubDate>Wed, 27 Aug 2014 16:18:35 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</guid>
+      <guid>/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</guid>
       <description> Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.
 Eben Moglen
  </description>
@@ -34,130 +34,130 @@ Eben Moglen
     
     <item>
       <title>Linux Directory Structure</title>
-      <link>localhost/hugo-tldr/linux/intro-linux-directory-structure/</link>
+      <link>/linux/intro-linux-directory-structure/</link>
       <pubDate>Thu, 17 Jul 2014 23:04:19 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/intro-linux-directory-structure/</guid>
+      <guid>/linux/intro-linux-directory-structure/</guid>
       <description>Home ~ ~ represents the home directory of the user. ~ is the same as /username. All user specific files are saved here and the user has permission to write files by default in the home folder. Files in a user&amp;rsquo;s home directory can not be listed or viewed by other users.
 Root / / is the root directory. Do not confuse it with /root. While / represents the root directory of the system, /root is the home directory for the root user.</description>
     </item>
     
     <item>
       <title>Redirection in Linux</title>
-      <link>localhost/hugo-tldr/linux/howto-redirection-in-linux/</link>
+      <link>/linux/howto-redirection-in-linux/</link>
       <pubDate>Thu, 17 Jul 2014 22:34:46 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/howto-redirection-in-linux/</guid>
+      <guid>/linux/howto-redirection-in-linux/</guid>
       <description>In Linux, everything is a file. Redirection comes in very handy because you can move data from a file to another file, from the resulting output of a command to a file. You can also redirect the output of one command and feed it as an input to another command.
 Output &amp;gt; The &amp;gt; symbol is used for redirecting output of one command to a new file or another command.</description>
     </item>
     
     <item>
       <title>Tool - Linux Dash</title>
-      <link>localhost/hugo-tldr/resources/2014-06-24-rsc-tool-linux-dash/</link>
+      <link>/resources/2014-06-24-rsc-tool-linux-dash/</link>
       <pubDate>Tue, 24 Jun 2014 10:57:16 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-24-rsc-tool-linux-dash/</guid>
+      <guid>/resources/2014-06-24-rsc-tool-linux-dash/</guid>
       <description>A simple web dashboard to monitor your linux server.</description>
     </item>
     
     <item>
       <title>Stopping, Quitting, Suspending and Killing Processes in Linux</title>
-      <link>localhost/hugo-tldr/linux/howto-stop-quit-suspend-kill-processes-linux/</link>
+      <link>/linux/howto-stop-quit-suspend-kill-processes-linux/</link>
       <pubDate>Sat, 21 Jun 2014 06:12:50 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/howto-stop-quit-suspend-kill-processes-linux/</guid>
+      <guid>/linux/howto-stop-quit-suspend-kill-processes-linux/</guid>
       <description>ctrl + c (Interrupt) ctrl + c aka Keyboard Interrupt will interrupt your program which most programs will exit. This is useful when you start a program that just has been running for a really long time and you want to close it because you don&amp;rsquo;t want it to take up all your shell and you don&amp;rsquo;t really need to run it or maybe you used a command with the wrong arguments</description>
     </item>
     
     <item>
       <title>Tool - Explain Shell</title>
-      <link>localhost/hugo-tldr/resources/2014-06-21-rsc-tool-explain-shell/</link>
+      <link>/resources/2014-06-21-rsc-tool-explain-shell/</link>
       <pubDate>Sat, 21 Jun 2014 05:45:48 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-21-rsc-tool-explain-shell/</guid>
+      <guid>/resources/2014-06-21-rsc-tool-explain-shell/</guid>
       <description>Use ExplainShell to understand Linux commands. It’s an easy way to see what a unix command does from a web interface. The coolest and most useful tool for understanding commands and their usage.</description>
     </item>
     
     <item>
       <title>Tool - Display live Linux system stats (memory, CPU, IO)</title>
-      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</link>
+      <link>/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</link>
       <pubDate>Fri, 20 Jun 2014 16:38:05 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</guid>
+      <guid>/resources/2014-06-20-rsc-tool-display-live-linux-system-stats-memory-cpu-io/</guid>
       <description>This is a tiny application that streams these stats over a WebSocket using websocketd and charts them using SmoothieCharts.</description>
     </item>
     
     <item>
       <title>Tool - Bash Prompt ($PS1) Generator</title>
-      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</link>
+      <link>/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</link>
       <pubDate>Fri, 20 Jun 2014 13:15:38 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</guid>
+      <guid>/resources/2014-06-20-rsc-tool-bash-prompt-ps1-generator/</guid>
       <description>This tool will help you generate a custom colorful bash prompt for Unix-like operating systems, including Linux and MacOS. Generate your .bashrc file easily with a drag and drop interface and color options.</description>
     </item>
     
     <item>
       <title>Book - Beyond Linux From Scratch (BLFS)</title>
-      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</link>
+      <link>/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</link>
       <pubDate>Fri, 20 Jun 2014 13:08:27 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</guid>
+      <guid>/resources/2014-06-20-rsc-book-beyond-linux-scratch-blfs/</guid>
       <description>Read Online  This book follows on from the Linux From Scratch book. It introduces and guides the reader through additions to the system including networking, graphical interfaces, sound support, and printer and scanner support.</description>
     </item>
     
     <item>
       <title>Book - Linux From Scratch (LFS)</title>
-      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-linux-from-scratch/</link>
+      <link>/resources/2014-06-20-rsc-book-linux-from-scratch/</link>
       <pubDate>Fri, 20 Jun 2014 13:06:09 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-linux-from-scratch/</guid>
+      <guid>/resources/2014-06-20-rsc-book-linux-from-scratch/</guid>
       <description>Read Online Download PDF  Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own customized Linux system entirely from source.</description>
     </item>
     
     <item>
       <title>Course - Practical Unix - Stanford</title>
-      <link>localhost/hugo-tldr/resources/practical-unix-stanford-course/</link>
+      <link>/resources/practical-unix-stanford-course/</link>
       <pubDate>Wed, 18 Jun 2014 15:07:34 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/practical-unix-stanford-course/</guid>
+      <guid>/resources/practical-unix-stanford-course/</guid>
       <description>Excellent video tutorials course from Stanford University - Practical Unix. A practical introduction to using the Unix operating system with a focus on Linux command line skills. Topics include: grep and regular expressions, ZSH, Vim and Emacs, basic and advanced GDB features, permissions, working with the file system, revision control, Unix utilities, environment customization, and using Python for shell scripts. Topics may be added, given sufficient interest.</description>
     </item>
     
     <item>
       <title>Book - Conquering the Command Line - Unix and Linux Commands for Developers</title>
-      <link>localhost/hugo-tldr/resources/2014-06-17-rsc-book-conquering-command-line/</link>
+      <link>/resources/2014-06-17-rsc-book-conquering-command-line/</link>
       <pubDate>Tue, 17 Jun 2014 05:49:35 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-17-rsc-book-conquering-command-line/</guid>
+      <guid>/resources/2014-06-17-rsc-book-conquering-command-line/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Basic Unix/Linux System Monitoring Commands</title>
-      <link>localhost/hugo-tldr/linux/unix-linux-commands-for-system-monitoring/</link>
+      <link>/linux/unix-linux-commands-for-system-monitoring/</link>
       <pubDate>Wed, 21 May 2014 16:36:02 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/unix-linux-commands-for-system-monitoring/</guid>
+      <guid>/linux/unix-linux-commands-for-system-monitoring/</guid>
       <description>  Disk: df -h RAM: free -m CPU: ps -ef / top Load Averages: uptime  Memory Usage  top Show top processes free Display amount of free and used memory in the system. cat /proc/meminfo Show memory size and usage. vmstat Monitor virtual memory  </description>
     </item>
     
     <item>
       <title>System Monitor for Raspberry Pi</title>
-      <link>localhost/hugo-tldr/raspberrypi/howto-system-monitor-for-raspberry-pi/</link>
+      <link>/raspberrypi/howto-system-monitor-for-raspberry-pi/</link>
       <pubDate>Wed, 21 May 2014 16:30:36 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/howto-system-monitor-for-raspberry-pi/</guid>
+      <guid>/raspberrypi/howto-system-monitor-for-raspberry-pi/</guid>
       <description>RPi-Monitor is a nifty utility that monitors and displays system information about your Raspberry Pi in a nice-looking graphical interface in the browser.
 It can show you how much CPU Load you have, what is the temperature of your Raspberry Pi (good to know in cases where you have overclocked the raspberry pi), Used, Free and Total Memroy (RAM), Used, Free and Total Space you have on both partitions of your SD Card, Used, Free and Total SWAP space (Virtual RAM), how long the Raspberry Pi has been running (Uptime), and general information about your Versions (Kernel, Firmware, Processor etc.</description>
     </item>
     
     <item>
       <title>Vim Basics</title>
-      <link>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</link>
+      <link>/linux/2014-05-21-basics-vim/</link>
       <pubDate>Wed, 21 May 2014 16:27:11 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</guid>
+      <guid>/linux/2014-05-21-basics-vim/</guid>
       <description>Save file and exit in Vim  To go to insert mode: i
  To save: [Esc] and zz
  To quit: [Esc] and :wq
@@ -169,38 +169,38 @@ It can show you how much CPU Load you have, what is the temperature of your Rasp
     
     <item>
       <title>Custom Raspberry Pi MOTD (Message Of The Day)</title>
-      <link>localhost/hugo-tldr/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</link>
+      <link>/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</link>
       <pubDate>Wed, 21 May 2014 16:25:33 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</guid>
+      <guid>/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</guid>
       <description>let upSeconds=&amp;quot;$(/usr/bin/cut -d. -f1 /proc/uptime)&amp;quot; let secs=$((${upSeconds}%60)) let mins=$((${upSeconds}/60%60)) let hours=$((${upSeconds}/3600%24)) let days=$((${upSeconds}/86400)) UPTIME=`printf &amp;quot;%d days, %02dh%02dm%02ds&amp;quot; &amp;quot;$days&amp;quot; &amp;quot;$hours&amp;quot; &amp;quot;$mins&amp;quot; &amp;quot;$secs&amp;quot;` # get the load averages read one five fifteen rest &amp;lt; /proc/loadavg echo &amp;quot;$(tput setaf 2) .~~. .~~. `date +&amp;quot;%A, %e %B %Y, %r&amp;quot;` &#39;. \ &#39; &#39; / .&#39; `uname -srmo`$(tput setaf 1) .~ .~~~..~. : .~.&#39;~&#39;.~. : Uptime.............: ${UPTIME} ~ ( ) ( ) ~ Memory.............: `cat /proc/meminfo | grep MemFree | awk {&#39;print $2&#39;}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {&#39;print $2&#39;}`kB (Total) ( : &#39;~&#39;.</description>
     </item>
     
     <item>
       <title>Restart services in Linux</title>
-      <link>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</link>
+      <link>/linux/howto-restart-services-in-linux/</link>
       <pubDate>Wed, 21 May 2014 15:33:52 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</guid>
+      <guid>/linux/howto-restart-services-in-linux/</guid>
       <description> Restart SSH  sudo service sshd restart  or
 sudo service ssh restart   Restart Apache  sudo service apache2 restart  </description>
     </item>
     
     <item>
       <title>Book - Hardened Linux From Scratch (HLFS)</title>
-      <link>localhost/hugo-tldr/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</link>
+      <link>/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</guid>
+      <guid>/resources/2014-06-20-rsc-book-hardened-linux-from-scratch/</guid>
       <description>Hardened Linux From Scratch (HLFS) is a project that provides you with step-by-step instructions for building your own customized and hardened Linux system entirely from source. Based on LFS, this project will incorporate parts of BLFS as well. The main differences from these other projects will be the amount of text dealing with security configuration issues as well as patching or substituting many of the packages used for improved security.</description>
     </item>
     
     <item>
       <title>Book - The Linux Command Line</title>
-      <link>localhost/hugo-tldr/resources/the-linux-command-line/</link>
+      <link>/resources/the-linux-command-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/the-linux-command-line/</guid>
+      <guid>/resources/the-linux-command-line/</guid>
       <description>Fantastic book for new users/devops/sysadmins</description>
     </item>
     

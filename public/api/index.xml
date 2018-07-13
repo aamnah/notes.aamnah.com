@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>APIs on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/api/</link>
+    <link>/api/</link>
     <description>Recent content in APIs on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 07 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/api/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/api/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Get raw file data from Github API</title>
-      <link>localhost/hugo-tldr/api/github-raw-data-api/</link>
+      <link>/api/github-raw-data-api/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/github-raw-data-api/</guid>
+      <guid>/api/github-raw-data-api/</guid>
       <description>You can use the send an Accept hedaer with the conent-type you want with your http requests. Many APIs allow you to request the same resource in different content-types.
 // Content-Type: application/vnd.github.v3.raw http -v get https://api.github.com/gitignore/Node Accept:application/vnd.github.v3.raw  Notes  If you ask for an unsupported media/content type, you&amp;rsquo;ll get a 415: Unsupported Media Type error Response code 200s: success Response code 300s: location is elsewhere (or already in cache i.</description>
     </item>
     
     <item>
       <title>Github requests with HttPie</title>
-      <link>localhost/hugo-tldr/api/github-httpie-requests-response-fundamentals/</link>
+      <link>/api/github-httpie-requests-response-fundamentals/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/github-httpie-requests-response-fundamentals/</guid>
+      <guid>/api/github-httpie-requests-response-fundamentals/</guid>
       <description> Links  Egghdea.io: Understand the Basics of HTTP  </description>
     </item>
     
     <item>
       <title>AJAX</title>
-      <link>localhost/hugo-tldr/api/ajax/</link>
+      <link>/api/ajax/</link>
       <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/ajax/</guid>
+      <guid>/api/ajax/</guid>
       <description>AJAX XMLHttpRequest() const xhr = new XMLHttpRequest(); xhr.open(&#39;GET&#39;, url); xhr.onload = function() { if(xhr.status === 200) { console.log(xhr.response) } }; xhr.onerror = function() {}; xhr.send();  onReadyStateChange has been around since original spec. In v2, onload, onprogress and onerror were introduced, which are basically different states. Instead of defining a function that looks for onReadyStateChange === 4, you can use the onload function, which is more to the point and less typing.</description>
     </item>
     
     <item>
       <title>The Simplest AJAX Script</title>
-      <link>localhost/hugo-tldr/api/simplest-ajax-script/</link>
+      <link>/api/simplest-ajax-script/</link>
       <pubDate>Fri, 02 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/simplest-ajax-script/</guid>
+      <guid>/api/simplest-ajax-script/</guid>
       <description>index.html
 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Learning AJAX&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;The Simplest AJAX script&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;quot;ajax.txt&amp;quot;&amp;gt;Load Ajax text file&amp;lt;/a&amp;gt; &amp;lt;script src=&amp;quot;main.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  main.js
 (function(){ var link = getElementByTagName(&#39;a&#39;)[0]; link.onclick = function() { return false }; })();  In our page, we will add a link, which when clicked will load the text from a file (which we called &amp;lsquo;ajax.txt&amp;rsquo; here) the ajax way i.e. without refreshing the whole page.</description>
@@ -53,10 +53,10 @@
     
     <item>
       <title>AJAX Basics</title>
-      <link>localhost/hugo-tldr/api/ajax-basics/</link>
+      <link>/api/ajax-basics/</link>
       <pubDate>Wed, 03 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/ajax-basics/</guid>
+      <guid>/api/ajax-basics/</guid>
       <description>AJAX Concepts Programming AJAX jQuery and AJAX AJAX and APIs  AJAX Concepts Intro AJAX = Asynchronous JavaScript And XML
 It lets you request info from web server, post data to a web server and update content on a web page with loading a new web page. It works with pretty much all major server side languages (PHP, JavaScript, Ruby, Python etc.).
 The whole process of sending data back and forth involves the client (browser) sending a request and the server sending back a response.</description>
@@ -64,10 +64,10 @@ The whole process of sending data back and forth involves the client (browser) s
     
     <item>
       <title>API Basics - Grabbing Data with Python</title>
-      <link>localhost/hugo-tldr/api/api-basics-grab-data-python/</link>
+      <link>/api/api-basics-grab-data-python/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/api-basics-grab-data-python/</guid>
+      <guid>/api/api-basics-grab-data-python/</guid>
       <description>This is the accompanying code file for the video Coding With Python :: Learn API Basics to Grab Data with Python.
  Check this Google Books Developer link for some code samples.
  This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.

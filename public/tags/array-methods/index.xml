@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Array Methods on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/array-methods/</link>
+    <link>/tags/array-methods/</link>
     <description>Recent content in Array Methods on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/array-methods/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/array-methods/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Array.sort() - Sorting Arrays in JavaScript</title>
-      <link>localhost/hugo-tldr/javascript/array-sort/</link>
+      <link>/javascript/array-sort/</link>
       <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-sort/</guid>
+      <guid>/javascript/array-sort/</guid>
       <description>The method for sorting arrays is called.. sort!.
 Examples Default sort
 var fruit = [&#39;cherries&#39;, &#39;apples&#39;, &#39;bananas&#39;]; fruit.sort(); // [&#39;apples&#39;, &#39;bananas&#39;, &#39;cherries&#39;] var scores = [1, 10, 21, 2]; scores.sort(); // [1, 10, 2, 21] // Watch out that 10 comes before 2, // because &#39;10&#39; comes before &#39;2&#39; in Unicode code point order. var things = [&#39;word&#39;, &#39;Word&#39;, &#39;1 Word&#39;, &#39;2 Words&#39;]; things.sort(); // [&#39;1 Word&#39;, &#39;2 Words&#39;, &#39;Word&#39;, &#39;word&#39;] // In Unicode, numbers come before upper case letters, // which come before lower case letters.</description>
@@ -25,10 +25,10 @@ var fruit = [&#39;cherries&#39;, &#39;apples&#39;, &#39;bananas&#39;]; fruit.sor
     
     <item>
       <title>Array.concat</title>
-      <link>localhost/hugo-tldr/javascript/array-concat/</link>
+      <link>/javascript/array-concat/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-concat/</guid>
+      <guid>/javascript/array-concat/</guid>
       <description>.concat() .concat() takes an existing array, adds a value to it and returns a new array
 it takes a copy of the original array, adds to it any parameters passed and returns a new array.
 .concat() is the equivalent of .push(), but superior, because it does not edit the data in place, it gives a new array as a result.
@@ -37,10 +37,10 @@ it takes a copy of the original array, adds to it any parameters passed and retu
     
     <item>
       <title>Array.every()</title>
-      <link>localhost/hugo-tldr/javascript/array-every/</link>
+      <link>/javascript/array-every/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-every/</guid>
+      <guid>/javascript/array-every/</guid>
       <description>.every() The every() method return true/false based on whether or not every element in the source array passes a certain condition or not
 You&amp;rsquo;ll exit on the first failure. If the condition returns false for something, it stop processing the array there and returns.
 Examples // EXAMPLE 1 const items = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] const result = items.every(x =&amp;gt; x &amp;lt; 10) // check every item is &amp;lt;10?</description>
@@ -48,10 +48,10 @@ Examples // EXAMPLE 1 const items = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] const result =
     
     <item>
       <title>Array.filter()</title>
-      <link>localhost/hugo-tldr/javascript/array-filter/</link>
+      <link>/javascript/array-filter/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-filter/</guid>
+      <guid>/javascript/array-filter/</guid>
       <description>.filter() gives a new array after filtering an array based on the truth/false of a condition
 Examples 1. get expensive stocks Here&amp;rsquo;s an array of stocks.
 let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;quot;HUBC&amp;quot;, price: 103 }, { symbol: &amp;quot;POL&amp;quot;, price: 413 } ]  We&amp;rsquo;ll get the expensive stocks (let&amp;rsquo;s say the ones which cost more than 150) out of it with filter()</description>
@@ -59,10 +59,10 @@ let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;q
     
     <item>
       <title>Array.forEach()</title>
-      <link>localhost/hugo-tldr/javascript/array-foreach/</link>
+      <link>/javascript/array-foreach/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-foreach/</guid>
+      <guid>/javascript/array-foreach/</guid>
       <description>.forEach() The forEach() array method accomplishes the same thing as regular for loops, but it does it asynchronously and in a simpler/easier way.
 We have a stocks array, from which we just want the stock symbols.
 let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;quot;HUBC&amp;quot;, price: 103 }, { symbol: &amp;quot;POL&amp;quot;, price: 413 } ]  Here&amp;rsquo;s how you&amp;rsquo;d do it using a regular for loop.</description>
@@ -70,40 +70,40 @@ let stocks = [ { symbol: &amp;quot;APL&amp;quot;, price: 693 }, { symbol: &amp;q
     
     <item>
       <title>Array.map()</title>
-      <link>localhost/hugo-tldr/javascript/array-map/</link>
+      <link>/javascript/array-map/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-map/</guid>
+      <guid>/javascript/array-map/</guid>
       <description>.map() transforms an array by performing a function on every item in the array, and returns a new array.
  async: can work on data that arrives async over time returns: A new array with each element being the result of the callback function.  We like working with map() because it works on data arriving asynchronously, unlike for loops where you can only work on synchronous data stored locally.</description>
     </item>
     
     <item>
       <title>Array.reduce()</title>
-      <link>localhost/hugo-tldr/javascript/array-reduce/</link>
+      <link>/javascript/array-reduce/</link>
       <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/array-reduce/</guid>
+      <guid>/javascript/array-reduce/</guid>
       <description>.reduce()  The reduce() method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value. MDN
   The reduce() method reduces the array to a single value. The reduce() method executes a provided function for each value of the array (from left-to-right). The return value of the function is stored in an accumulator (result/total). Note: reduce() does not execute the function for array elements without values.</description>
     </item>
     
     <item>
       <title>Manipulating Arrays in JavaScript with built-in methods</title>
-      <link>localhost/hugo-tldr/javascript/js-array-methods/</link>
+      <link>/javascript/js-array-methods/</link>
       <pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/js-array-methods/</guid>
+      <guid>/javascript/js-array-methods/</guid>
       <description>.map = iterate over arrays .reduce = Condense arrays .filter .sort .reverse .concat .split &amp;gt;&amp;gt; STRING method .join .slice() = slices array by taking indices .splice() = slice(), but modifies the original array .substr() .substring()  .forEach() forEach() is an async method (while normal for loops aren&amp;rsquo;t).
 .map() iterates over every element of the array, creating a new array with values that have been modified by the callback function , and returns.</description>
     </item>
     
     <item>
       <title>Quick Intro to Arrays in JavaScript</title>
-      <link>localhost/hugo-tldr/javascript/js-arrays/</link>
+      <link>/javascript/js-arrays/</link>
       <pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/js-arrays/</guid>
+      <guid>/javascript/js-arrays/</guid>
       <description>Arrays  get first item in an array: array[0]
  get last item in an array: array[array.length-1] add item to end: array.push(val) can push multiple values add item to beginning: array.unshift(val) remove item from end: array.pop() returns the last item from an array and removes it remove item from start: array.shift() returns the first item from an array and removes it Join elements in an array: .join()
  Join two Arrays: .</description>

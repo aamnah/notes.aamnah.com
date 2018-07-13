@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sql on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/sql/</link>
+    <link>/tags/sql/</link>
     <description>Recent content in Sql on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 22 Mar 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SQLite Basics</title>
-      <link>localhost/hugo-tldr/databases/sqlite_basics/</link>
+      <link>/databases/sqlite_basics/</link>
       <pubDate>Sun, 22 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/sqlite_basics/</guid>
+      <guid>/databases/sqlite_basics/</guid>
       <description> sqlite3 - Start SQLite sqlite3 NAME.db - Create database .database - Show Database names and files .tables - List tables .open NAME.db - Open a database file / link it to database  </description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Databases on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/databases/</link>
+    <link>/tags/databases/</link>
     <description>Recent content in Databases on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/databases/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/databases/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Install MongoDB on MacOS</title>
-      <link>localhost/hugo-tldr/databases/install-mongodb-macos/</link>
+      <link>/databases/install-mongodb-macos/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/install-mongodb-macos/</guid>
+      <guid>/databases/install-mongodb-macos/</guid>
       <description>tl;dr # install Homebrew if not installed already # /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; # install brew install mongodb # add MongoDB to startup processes brew services start mongodb # create the `/data/db` directory, where mongo data will live mkdir -p /data/db # Make sure the `/data/db` directory has the right permissions sudo chown -R `id -un` /data/db # Run the mongo daemon mongod # sudo mongod # `quit()` to quit, `ctrl+c` to exit  Using MongoDB Client CLI # start mongo client mongo mongo &amp;gt; help # see a list of commands available mongo &amp;gt; show dbs # show all databases mongo &amp;gt; use foo # use/switch to a database mongo &amp;gt; show collections # show collections (like Tables in SQL dbs) in the database mongo &amp;gt; db.</description>
     </item>
     

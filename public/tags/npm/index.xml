@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Npm on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/npm/</link>
+    <link>/tags/npm/</link>
     <description>Recent content in Npm on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/npm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Set `npm init` defaults globally</title>
-      <link>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</link>
+      <link>/javascript/set-npm-defaults-globally/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/set-npm-defaults-globally/</guid>
+      <guid>/javascript/set-npm-defaults-globally/</guid>
       <description>You can either edit the global configuration file for npm:
 npm config edit --global  (it&amp;rsquo;ll open the file in Vim)
 Or, you can set the defaults one by one:

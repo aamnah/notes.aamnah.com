@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash Scripting on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/bash-scripting/</link>
+    <link>/bash-scripting/</link>
     <description>Recent content in Bash Scripting on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/bash-scripting/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/bash-scripting/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Here Documents in Bash</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash_here_docs/</link>
+      <link>/bash-scripting/bash_here_docs/</link>
       <pubDate>Thu, 19 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash_here_docs/</guid>
+      <guid>/bash-scripting/bash_here_docs/</guid>
       <description>tl;dr a here document is special-purpose code block that you can use to feed commands
 ssh otherhost &amp;lt;&amp;lt; EOF ls some_folder; ./someaction.sh &#39;some params&#39; pwd ./some_other_action &#39;other params&#39; EOF   a limit string (usually EOF) indicates the start and finish of a here document. It doesn&amp;rsquo;t have to called EOF, you can call it whatever, e.g. JumanjiXYZ is a valid limit string Variables inside a Here document need to be quoted or else they won&amp;rsquo;t be substituted, like so: &amp;quot;${VAR}&amp;quot; The ending limit string needs to be at the beginning of the line  Here is an example where a here doc has been used to run multiple commands to the remote server.</description>
     </item>
     
     <item>
       <title>File Test Operators</title>
-      <link>localhost/hugo-tldr/bash-scripting/file-test-operators/</link>
+      <link>/bash-scripting/file-test-operators/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/file-test-operators/</guid>
+      <guid>/bash-scripting/file-test-operators/</guid>
       <description>File Test Operators Returns true if
  -e and -a file exists -s file is not zero size i.e. not empty -f file is a regular file i.e. not a directory -d file is a directory -h and -L file is a sympbolic link  Check if a file exists if (-e foo.txt ); then echo &amp;quot;foo.txt already exists!&amp;quot; else // Do something fi  Links  Advanced Bash-Scripting Guide: 7.</description>
     </item>
     
     <item>
       <title>Associative Arrays in Bash</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash-associative-arrays-iterate-loop/</link>
+      <link>/bash-scripting/bash-associative-arrays-iterate-loop/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash-associative-arrays-iterate-loop/</guid>
+      <guid>/bash-scripting/bash-associative-arrays-iterate-loop/</guid>
       <description>Associative arrays are key/value pairs, like Objects in JavaScript. You can iterate/loop over them.
 create (declare) an associative array This is done with the declare -A
 declare -A foo # declare an array declare -A foo bar baz # declare multiple arrays declare -A myArray=( [key1]=value1 [key2]=value2 [key3]=value3 ) # Initialise all at once  add values to the array foo[key]=value  Note the lack of spaces before and after the equal = sign</description>
@@ -45,29 +45,29 @@ declare -A foo # declare an array declare -A foo bar baz # declare multiple arra
     
     <item>
       <title>Bash script for installing ISPConfig 3.1 on Ubuntu 17.04</title>
-      <link>localhost/hugo-tldr/bash-scripting/ispconfig/</link>
+      <link>/bash-scripting/ispconfig/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/ispconfig/</guid>
+      <guid>/bash-scripting/ispconfig/</guid>
       <description>source
 ### SYSTEM SETTINGS #################### # Check your hostname # cat /etc/hostname # cat /etc/hosts # reboot # Change the default shell dpkg-reconfigure dash # change to NO # Update repos apt update &amp;amp;&amp;amp; apt upgrade -y # Disable AppArmor sudo service apparmor stop sudo service apparmor teardown sudo update-rc.d -f apparmor remove sudo remove apparmor apparmor-utils -y # Update system time zone dpkg-reconfigure tzdata # Synchronize the System Clock apt install ntp -y ### COMPONENTS ####################### # Disable and remove Sendmail service sendmail stop; update-rc.</description>
     </item>
     
     <item>
       <title>Upgrade to Bash 4 on macOS</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash-upgrade-3-4-macos/</link>
+      <link>/bash-scripting/bash-upgrade-3-4-macos/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash-upgrade-3-4-macos/</guid>
+      <guid>/bash-scripting/bash-upgrade-3-4-macos/</guid>
       <description># install Bash via Homebrew brew update &amp;amp;&amp;amp; brew install bash # Add the new shell to the list of allowed (white-listed) shells # sudo bash -c &#39;echo /usr/local/bin/bash &amp;gt;&amp;gt; /etc/shells&#39; echo &amp;quot;$(brew --prefix)/bin/bash&amp;quot; &amp;gt;&amp;gt; /etc/shells # Change to the new shell chsh -s $(brew --prefix)/bin/bash   sudo -i let&amp;rsquo;s you switch to root user brew --prefix gives you the location of Homebrew install directory (/usr/local by default) cat /etc/shells gives you the list of allowed shells  </description>
     </item>
     
     <item>
       <title>Directly run bash scripts in Github Gists locally in Terminal.</title>
-      <link>localhost/hugo-tldr/bash-scripting/run-bash-scripts-gists-github-locally/</link>
+      <link>/bash-scripting/run-bash-scripts-gists-github-locally/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/run-bash-scripts-gists-github-locally/</guid>
+      <guid>/bash-scripting/run-bash-scripts-gists-github-locally/</guid>
       <description>This post is about running install scripts saved in Gists on Github locally from a Mac Terminal using curl. However, this should work for just about any script saved online and is not in any way limited to gists.
 You need to have Command Line Tools for Xcode installed.
 Run a script off a Github Gist First things first, find a script that you want to install. Here is a bash script that i wrote for installing WordPress.</description>
@@ -75,30 +75,30 @@ Run a script off a Github Gist First things first, find a script that you want t
     
     <item>
       <title>Arguments</title>
-      <link>localhost/hugo-tldr/bash-scripting/arguments/</link>
+      <link>/bash-scripting/arguments/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/arguments/</guid>
+      <guid>/bash-scripting/arguments/</guid>
       <description>Arguments Arguments are keywords that are passed in the command line when executing the bash script/command.
 ./script.sh foo bar  $0, $1, $2 etc..  $0 is the name of the script $1 is the first argument, $2 is the second argument and so on.  Arguments passed at the time of script execution and taking user input with read oth serve the same purpose. read is a bit more safe for noobs.</description>
     </item>
     
     <item>
       <title>Bash Scripting 101</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash-scripting-getting-started/</link>
+      <link>/bash-scripting/bash-scripting-getting-started/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash-scripting-getting-started/</guid>
+      <guid>/bash-scripting/bash-scripting-getting-started/</guid>
       <description>Basics
  variables functions Loops Conditionals (If statements) taking user input check if a user is root check if a file or directory already exists colouring the output writing and redirecting data find your IP address find your hostname check if a package is already installed check if package dependencies are met how to make a link clickable exit if unmet dependencies/deps can’t be installed exit statuses (0-255, $?) $?</description>
     </item>
     
     <item>
       <title>CASE Statement</title>
-      <link>localhost/hugo-tldr/bash-scripting/case-statements/</link>
+      <link>/bash-scripting/case-statements/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/case-statements/</guid>
+      <guid>/bash-scripting/case-statements/</guid>
       <description>CASE statements are similir to ELIF statements, use case if elif statements are more than 3.
 case expression in pattern1 ) statements ;; pattern2 ) statements ;; esac  Exactly how you use fi to end if statements, you close a case statement with esac (which is the alphabetic opposite of case, case spelled backwards).
 ;; marks the end of a statement.
@@ -108,10 +108,10 @@ echo -n &amp;quot;give me a domain: &amp;quot; read domain case $domain in &amp;
     
     <item>
       <title>Colored Output</title>
-      <link>localhost/hugo-tldr/bash-scripting/colored-output/</link>
+      <link>/bash-scripting/colored-output/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/colored-output/</guid>
+      <guid>/bash-scripting/colored-output/</guid>
       <description>Start=`\033[` Color=`0;32m` Close=`0m`  \033[0;32 marks the beginning of color and \0333[0m marks the end.
 What you do is:
 echo -e &amp;quot;\033[0;32m This text is green \033[0m&amp;quot;  echo -e &amp;quot;${StartColor} This text is green ${StartClose}&amp;quot;  NOTE: When referencing variables inside an echo, the -e flag is important. So are the double quotation marks &amp;quot;
@@ -121,10 +121,10 @@ In Bash, the &amp;lt;Esc&amp;gt; character can be obtained with the following sy
     
     <item>
       <title>Conditional Statements IF/ELIF/ELSE</title>
-      <link>localhost/hugo-tldr/bash-scripting/conditional-statements-if-elif-else/</link>
+      <link>/bash-scripting/conditional-statements-if-elif-else/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/conditional-statements-if-elif-else/</guid>
+      <guid>/bash-scripting/conditional-statements-if-elif-else/</guid>
       <description>IF / ELSE if [ condition ] then # do something else # do something else fi  Be very particular of the whitespace around [ and ]. It is [ condition ] and not [condition]
 OR
 if [ condition ]; then # do something else # do something else fi  where you can place then at the end of the same line as your if condition, separated by a semi-colon ;.</description>
@@ -132,10 +132,10 @@ if [ condition ]; then # do something else # do something else fi  where you can
     
     <item>
       <title>Showing Help and Usage</title>
-      <link>localhost/hugo-tldr/bash-scripting/show-help-usage/</link>
+      <link>/bash-scripting/show-help-usage/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/show-help-usage/</guid>
+      <guid>/bash-scripting/show-help-usage/</guid>
       <description>A basic way is saving usage as a function
 showUsage() { echo -e &amp;quot;Usage: please provide an argument&amp;quot; }  and later in your script, you can run a conditional statement that checks for something, say no arguments are provided, you can show the usage and exit
 if [ condition ] then showUsage exit 1 else # run the code fi  </description>
@@ -143,10 +143,10 @@ if [ condition ] then showUsage exit 1 else # run the code fi  </description>
     
     <item>
       <title>Taking user input</title>
-      <link>localhost/hugo-tldr/bash-scripting/take-read-user-input/</link>
+      <link>/bash-scripting/take-read-user-input/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/take-read-user-input/</guid>
+      <guid>/bash-scripting/take-read-user-input/</guid>
       <description>You can read user input as a variable.
 For example:
 read name  will save what the user entered and save it as a variable called name.
@@ -157,10 +157,10 @@ You can use read instead of $1.</description>
     
     <item>
       <title>Variables and Arguments</title>
-      <link>localhost/hugo-tldr/bash-scripting/variables-arguments/</link>
+      <link>/bash-scripting/variables-arguments/</link>
       <pubDate>Mon, 07 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/variables-arguments/</guid>
+      <guid>/bash-scripting/variables-arguments/</guid>
       <description>Variables name=&amp;quot;Aamnah&amp;quot; $name=&amp;quot;Aamnah&amp;quot;  There is NO whitespace before or after =. $name=&amp;quot;Aamnah&amp;quot; will work but the preferred syntax is not including $ sign when you are defining a variable. You should use the $ sign when you are calling the variable and NOT when you&amp;rsquo;re defining it.
 Referencing variables: echo $name echo ${name}  ${name} is preferred syntax.
 Arguments Arguments are keywords that are passed in the command line when executing the bash script/command.</description>
@@ -168,10 +168,10 @@ Arguments Arguments are keywords that are passed in the command line when execut
     
     <item>
       <title>Check if a program is installed</title>
-      <link>localhost/hugo-tldr/bash-scripting/check-if-program-installed/</link>
+      <link>/bash-scripting/check-if-program-installed/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/check-if-program-installed/</guid>
+      <guid>/bash-scripting/check-if-program-installed/</guid>
       <description>They key is in using hash or type to see if a command is available. For example, the output of
 hash nano  will change based on whether nano is installed or not. If nano is installed, you&amp;rsquo;ll get nothing. If nano is not installed, you&amp;rsquo;ll get an error.
 So, we check for an error to see if something is not installed.
@@ -180,19 +180,19 @@ command -v foo &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 || { echo &amp;gt;&amp;amp;
     
     <item>
       <title>Require script to be run as root</title>
-      <link>localhost/hugo-tldr/bash-scripting/run-script-as-root/</link>
+      <link>/bash-scripting/run-script-as-root/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/run-script-as-root/</guid>
+      <guid>/bash-scripting/run-script-as-root/</guid>
       <description> Run as root [ &amp;quot;$EUID&amp;quot; -eq 0 ] || { echo &#39;Please run with sudo or as root.&#39; exit 1 }  </description>
     </item>
     
     <item>
       <title>Batch renaming files in Bash</title>
-      <link>localhost/hugo-tldr/bash-scripting/batch-rename-files-bash/</link>
+      <link>/bash-scripting/batch-rename-files-bash/</link>
       <pubDate>Fri, 17 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/batch-rename-files-bash/</guid>
+      <guid>/bash-scripting/batch-rename-files-bash/</guid>
       <description>Use rename, which is a Perl script and maybe on your system already. You can use the rename command to quickly rename files using a regular expression pattern. For instance, if you wanted to rename all files containing foo to contain bar instead, you could use a command like this one:
 rename –v &#39;s/foo/bar/g&#39; *  How to rename multiple files based on a pattern 
 for f in * ; do cp &amp;quot;$f&amp;quot; 2014-08-26-&amp;quot;$f&amp;quot; ; done  mv $f ${f#[0-9]*-}  Test</description>
@@ -200,29 +200,29 @@ for f in * ; do cp &amp;quot;$f&amp;quot; 2014-08-26-&amp;quot;$f&amp;quot; ; do
     
     <item>
       <title>How to create a man page for your Bash Script</title>
-      <link>localhost/hugo-tldr/bash-scripting/how_to_create_man_page_for_your_bash_script/</link>
+      <link>/bash-scripting/how_to_create_man_page_for_your_bash_script/</link>
       <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/how_to_create_man_page_for_your_bash_script/</guid>
+      <guid>/bash-scripting/how_to_create_man_page_for_your_bash_script/</guid>
       <description>  The man pages are written as nroff files. The /usr/local/man directory is the location typically used for any locally installed packages/files. You can look at examples by looking at the existing manpages, (which will likely need to be uncompressed first), also read man. Presently many users prefer groff to nroff, man groff to get started  Resources  Linux/UNIX Create a Manpage  </description>
     </item>
     
     <item>
       <title>Bash script to create a new Jekyll post</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash_script_to_create_new_jekyll_post/</link>
+      <link>/bash-scripting/bash_script_to_create_new_jekyll_post/</link>
       <pubDate>Sat, 21 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash_script_to_create_new_jekyll_post/</guid>
+      <guid>/bash-scripting/bash_script_to_create_new_jekyll_post/</guid>
       <description>Getting Date # Date DATE=`date +%Y-%m-%d`  This will get today&amp;rsquo;s date in YYYY-MM-DD format.
 Stripping spaces and replacing with underscores $ str=&amp;quot;This is just a test&amp;quot; $ echo ${str// /_} This_is_just_a_test  Taking it Further Make it a function What&amp;rsquo;s cooler than a bash script? A bash function! With a function, we don&amp;rsquo;t have to specify script name/location every time. A bash function added to your .bash_profile will work globally anywhere in the Terminal.</description>
     </item>
     
     <item>
       <title>Bash Scripts -  Load/Read/Include Settings from Another File</title>
-      <link>localhost/hugo-tldr/bash-scripting/load-read-settings-from-another-file-bash-script/</link>
+      <link>/bash-scripting/load-read-settings-from-another-file-bash-script/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/load-read-settings-from-another-file-bash-script/</guid>
+      <guid>/bash-scripting/load-read-settings-from-another-file-bash-script/</guid>
       <description>To include a script into another script, we use the source command. In it&amp;rsquo;s simplest form, the command is this:
 source incl.sh  Here&amp;rsquo;s an example. Our keys.cfg file has this:
 AWSAccessKeyId=&amp;quot;AKIAIKRGQQKRGQQKRGQQ&amp;quot; AWSSecretKey=&amp;quot;UNYDSEUNYDSEUNYDSEmwMeIdQ6KRGQQv7dBdzDSE&amp;quot;  While our script.sh has this:
@@ -231,10 +231,10 @@ AWSAccessKeyId=&amp;quot;AKIAIKRGQQKRGQQKRGQQ&amp;quot; AWSSecretKey=&amp;quot;U
     
     <item>
       <title>Opencart Install Script</title>
-      <link>localhost/hugo-tldr/bash-scripting/opencart-install-script-bash/</link>
+      <link>/bash-scripting/opencart-install-script-bash/</link>
       <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/opencart-install-script-bash/</guid>
+      <guid>/bash-scripting/opencart-install-script-bash/</guid>
       <description>You can run this script directly using the following command
 curl -L https://gist.githubusercontent.com/aamnah/93cb63fc15e708649084/raw | bash  Here is the code, add this to your ~/.bash_profile and it&amp;rsquo;ll be available for you anywhere in the terminal.
  Usage: To run just type opencart.</description>
@@ -242,20 +242,20 @@ curl -L https://gist.githubusercontent.com/aamnah/93cb63fc15e708649084/raw | bas
     
     <item>
       <title>Bash script to create OCMOD and vQmod templates with a single command</title>
-      <link>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</link>
+      <link>/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</link>
       <pubDate>Mon, 16 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</guid>
+      <guid>/bash-scripting/create-ocmod-vqmod-template-opencart-bash-script/</guid>
       <description>OCMOD and vQmod are both modification systems for Opencart which allow you to change things without overwriting any core files. For Opencart version older than 2.x, vQmod was the king. With version 2.x Opencart launched it&amp;rsquo;s own modification system to replace the need for installing a separate extension.
 The state Opencart is in right now, you&amp;rsquo;ll find yourself dealing with both vqmod and ocmod scripts. I know i do. So i have written this neat bash script which allows me to type ocmod foo to create a file called foo.</description>
     </item>
     
     <item>
       <title>Bash script to create Media Queries with Sass</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash_script_create_media_queries_sass/</link>
+      <link>/bash-scripting/bash_script_create_media_queries_sass/</link>
       <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash_script_create_media_queries_sass/</guid>
+      <guid>/bash-scripting/bash_script_create_media_queries_sass/</guid>
       <description>The following bash script will create a main sass stylesheet style.scss and then create additional sass stylesheets for all devices (mobile.scss, ipad.scss, desktop.scss, wide.scss, iphone.scss) in a folder called media-queries.
 In the end, we will combine stylesheets for all devices into one by importing them into our main style.scss.
 I have divided the code for different devices in their own stylesheets becuase it keeps it is neat and organized and i prefer it that way.</description>
@@ -263,10 +263,10 @@ I have divided the code for different devices in their own stylesheets becuase i
     
     <item>
       <title>Bash Scripting - Taking input</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash-scripting-take-input/</link>
+      <link>/bash-scripting/bash-scripting-take-input/</link>
       <pubDate>Thu, 05 Jun 2014 12:08:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash-scripting-take-input/</guid>
+      <guid>/bash-scripting/bash-scripting-take-input/</guid>
       <description>There are multiple ways of taking input via the Shell.
 Using the &amp;lsquo;read&amp;rsquo; command to prompt for input #!/bin/bash echo &amp;quot;Enter your name:&amp;quot; read user_name echo &amp;quot;Hello $user_name!&amp;quot;  Here&amp;rsquo;s what the script will look like when we run it.
 $ sh nameexample Enter your name: Sarah Hello Sarah!  Using Command-Line Arguments for Input Command line arguments given to a script become variables whose names are numbers. $1 is the first command-line argument, $2 is the second, and so on.</description>
@@ -274,20 +274,20 @@ $ sh nameexample Enter your name: Sarah Hello Sarah!  Using Command-Line Argumen
     
     <item>
       <title>How to check if a user is root</title>
-      <link>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</link>
+      <link>/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</link>
       <pubDate>Thu, 05 Jun 2014 04:02:25 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</guid>
+      <guid>/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</guid>
       <description>The following script will use the whoami command to see what user you are. If you are root, it&amp;rsquo;ll continue running the script. If not, it&amp;rsquo;ll exist the script telling you that you are not root and need to use sudo.
 #!/bin/bash owner=$(who am i | awk &#39;{print $1}&#39;) if [ &amp;quot;$(whoami)&amp;quot; != &#39;root&#39; ]; then echo &amp;quot;You don&#39;t have permission to run $0 as non-root user. Use sudo&amp;quot; exit 1; fi  </description>
     </item>
     
     <item>
       <title>Bash script to install a LAMP stack</title>
-      <link>localhost/hugo-tldr/bash-scripting/script-bash-install-a-lamp-stack/</link>
+      <link>/bash-scripting/script-bash-install-a-lamp-stack/</link>
       <pubDate>Thu, 05 Jun 2014 03:31:41 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/script-bash-install-a-lamp-stack/</guid>
+      <guid>/bash-scripting/script-bash-install-a-lamp-stack/</guid>
       <description>The following script installs Apache, MySQL and PHP as well as PHPMyAdmin and some tweaks. For Debian based systems including Ubuntu. To install, copy the script to the server and run in the same folder you copied the file to by running the command:
 bash lamp.sh  Here is the script code:
  View the Gist on Github</description>
@@ -295,19 +295,19 @@ bash lamp.sh  Here is the script code:
     
     <item>
       <title>How to take options for your Bash Script</title>
-      <link>localhost/hugo-tldr/bash-scripting/how_to_take_options_arguments_for_your_bash_script/</link>
+      <link>/bash-scripting/how_to_take_options_arguments_for_your_bash_script/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/how_to_take_options_arguments_for_your_bash_script/</guid>
+      <guid>/bash-scripting/how_to_take_options_arguments_for_your_bash_script/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Write a Bash Function to Create a gruntfile.js for your project</title>
-      <link>localhost/hugo-tldr/bash-scripting/bash-function-create-gruntfile-js/</link>
+      <link>/bash-scripting/bash-function-create-gruntfile-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/bash-function-create-gruntfile-js/</guid>
+      <guid>/bash-scripting/bash-function-create-gruntfile-js/</guid>
       <description>Here is how it works Everyt time i type gruntfile in the Terminal, it creates a gruntfile.js for me in the folder i am in. The resulting gruntfile.js has the following template code:
 module.exports = function(grunt) { grunt.initConfig({ pkg: grunt.file.readJSON(&#39;package.json&#39;), // CONFIG }); // PLUGINS grunt.loadNpmTasks(&#39;&#39;); // TASKS grunt.registerTask(&#39;default&#39;, [&#39;&#39;, &#39;&#39;]); };  I can now add my Grunt config to it.
 What i have done is create a function gruntfile for me and saved in my .</description>

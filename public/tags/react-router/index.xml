@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React Router on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/react-router/</link>
+    <link>/tags/react-router/</link>
     <description>Recent content in React Router on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Dec 2016 15:50:29 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/react-router/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/react-router/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>React, React Router and Redux Courses</title>
-      <link>localhost/hugo-tldr/resources/2016-12-01-rsc-course-react-courses/</link>
+      <link>/resources/2016-12-01-rsc-course-react-courses/</link>
       <pubDate>Thu, 01 Dec 2016 15:50:29 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2016-12-01-rsc-course-react-courses/</guid>
+      <guid>/resources/2016-12-01-rsc-course-react-courses/</guid>
       <description> React  Youtube: Brad Westfall - Learn React with Webpack, Babel, ES6, React Router, and XHR (AJAX) Requests Egghead.io: Start Using React to Build Web Applications Tutsplus: Modern Web Apps With React and Redux SitePoint Premium: React The ES6 Way Treehouse: React Basics  React Router Redux </description>
     </item>
     
     <item>
       <title>React Router Basics</title>
-      <link>localhost/hugo-tldr/javascript/basics-react-router/</link>
+      <link>/javascript/basics-react-router/</link>
       <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/basics-react-router/</guid>
+      <guid>/javascript/basics-react-router/</guid>
       <description>ReactDOM.render(( &amp;lt;Router history={browserHistory}&amp;gt; &amp;lt;Route path=&#39;/&#39; component={Users} /&amp;gt; &amp;lt;Route path=&#39;/other&#39; component={Other} /&amp;gt; &amp;lt;/Router&amp;gt; ), document.getElementById(&#39;root&#39;))  history is required.
 What we did above is we mounted a Router to the DOM, it is now going to take Routes. A route takes a path (URL) and shows a component on that path.
 Link If you want to navigate anywhere within the site, you use Link. You&amp;rsquo;ll only use actual href when you want to move away from the site.</description>

