@@ -163,19 +163,16 @@ mysqldump --user=root --password=password --host=mysql.mydomain.com db_1 | mysql
 Troubleshooting
 ---
 
-* If not connecting, check if the port is open on the server you are connecting from. Default MySQL port is 3306. On KH server it couldn’t connect because the port was closed. Also, see if the allow remote login option is enabled/disabled.
-
-* If the connection is not getting through the error would be ‘could not connect’.
-
-* If login is incorrect the error would be ‘access denied’. *mysql_connect(): Access denied for user*.
-
-* The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not.
+- If not connecting, check if the port is open on the server you are connecting from. Default MySQL port is 3306. On KH server it couldn’t connect because the port was closed. Also, see if the allow remote login option is enabled/disabled.
+- If the connection is not getting through the error would be ‘could not connect’.
+- If login is incorrect the error would be ‘access denied’. *mysql_connect(): Access denied for user*.
+- The user you are connecting with needs to be created at RDS. It doesn’t matter if the server you are connecting from has it or not.
 
 
-**Opening Ports**:
-Ports should be opened in the firewall configuration. The default port for MySQL is 3306.
+##### **Opening Ports**
+Ports should be opened in the firewall configuration. The default port for MySQL is **3306**.
 
-This can be accessed in WHM >> Plugins » ConfigServer Security & Firewall >> Firewall configuration >> Port settings.
+This can be accessed in `WHM >> Plugins » ConfigServer Security & Firewall >> Firewall configuration >> Port settings`
 
 Links
 ---
