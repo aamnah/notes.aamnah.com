@@ -1,7 +1,14 @@
+# macOS
 .DS_Store
+
+# Sass
 .sass-cache
+*/.sass-cache
+*/*/.sass-cache
+
+# Visual Studio Code
 .vscode
 
-
+# Hugo
 # ignore the build directory as Netlify will build it on their servers
 public/
