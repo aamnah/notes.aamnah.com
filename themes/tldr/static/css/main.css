@@ -58,6 +58,8 @@ code {
   #header #logo,
   #header #main-nav {
     padding: .5em 1em; }
+  #header #logo {
+    background: rgba(0, 0, 0, 0.05); }
   #header #logo h1 {
     margin-top: 0;
     color: white;
