@@ -27,6 +27,7 @@ TODO
 - [x] Convert the site to use Hugo
 - [ ] Make the site look good
 - [ ] add 'Edit on Github' link
+- [ ] add Page/Post Titles
 
 #### Features
 - [ ] Search
