@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Format on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/format/</link>
+    <link>/tags/format/</link>
     <description>Recent content in Format on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 10 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/format/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/format/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Formatting and validating dates in JavaScript</title>
-      <link>localhost/hugo-tldr/javascript/format-and-validate-dates-in-javascript/</link>
+      <link>/javascript/format-and-validate-dates-in-javascript/</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/javascript/format-and-validate-dates-in-javascript/</guid>
+      <guid>/javascript/format-and-validate-dates-in-javascript/</guid>
       <description>Date Formats Dates come in multiple formats:
  a Unix timestamp (1481884441) an ISO 8601 string (2016-11-04T17:39:59.910Z) a locale string (Thursday, December 20, 2012, GMT)  Let&amp;rsquo;s get started by defining some variables to use in our examples
 const UNIX = 1481884441 const ISO8601 = &#39;2016-11-04T17:39:59.910Z&#39; const invalidISO = &#39;2016-31-31T17:39:59.910Z&#39; const invalidDate = &#39;2016/31/31&#39; let date = Date.now() // Date.now() is faster than new Date()  Date.now() vs. new Date() Note that while Date.</description>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/git/</link>
+    <link>/tags/git/</link>
     <description>Recent content in Git on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 21 May 2014 16:17:32 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git Basics</title>
-      <link>localhost/hugo-tldr/git-github/git-basics/</link>
+      <link>/git-github/git-basics/</link>
       <pubDate>Wed, 21 May 2014 16:17:32 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/git-github/git-basics/</guid>
+      <guid>/git-github/git-basics/</guid>
       <description>Configuration configure username
 git config --global user.name &amp;quot;Your Name&amp;quot;  configure email
 git config --global user.email &amp;quot;me@mydomain.com&amp;quot;  check confgiuration

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 10 Apr 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Opening and Writing to Files in Python</title>
-      <link>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</link>
+      <link>/python/opening_and_writing_to_files_in_python/</link>
       <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</guid>
+      <guid>/python/opening_and_writing_to_files_in_python/</guid>
       <description>Our bio.txt contains
 Name: Aamnah Age: 26 Location: Dubai Gender: Female  To open it in Python:
 file = open(&#39;bio.txt&#39;)  The function open() can take two parameters, one is the path of the file
@@ -27,10 +27,10 @@ The w flag opens a file for writing only.</description>
     
     <item>
       <title>API Basics - Grabbing Data with Python</title>
-      <link>localhost/hugo-tldr/api/api-basics-grab-data-python/</link>
+      <link>/api/api-basics-grab-data-python/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/api/api-basics-grab-data-python/</guid>
+      <guid>/api/api-basics-grab-data-python/</guid>
       <description>This is the accompanying code file for the video Coding With Python :: Learn API Basics to Grab Data with Python.
  Check this Google Books Developer link for some code samples.
  This whole article uses ISBNdb for URL searches. Open Library is also mentioned as an API source but not used in any of the code.
@@ -39,19 +39,19 @@ The w flag opens a file for writing only.</description>
     
     <item>
       <title>Creating and Viewing HTML Files with Python</title>
-      <link>localhost/hugo-tldr/python/create-view-html-files-with-in-python/</link>
+      <link>/python/create-view-html-files-with-in-python/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/create-view-html-files-with-in-python/</guid>
+      <guid>/python/create-view-html-files-with-in-python/</guid>
       <description> Resources  Creating and Viewing HTML Files with Python - Part 1 Output Data as an HTML File - Part 2  </description>
     </item>
     
     <item>
       <title>The Zen of Python</title>
-      <link>localhost/hugo-tldr/python/zen-of-python/</link>
+      <link>/python/zen-of-python/</link>
       <pubDate>Sun, 15 Jun 2014 04:25:40 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/python/zen-of-python/</guid>
+      <guid>/python/zen-of-python/</guid>
       <description>Long time Pythoneer Tim Peters wrote this &amp;lsquo;Zen of Python&amp;rsquo;. It is considered like a summary manual of python&amp;rsquo;s philosophy.
  Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -67,10 +67,10 @@ Errors should never pass silently.</description>
     
     <item>
       <title>Book - Python for You and Me</title>
-      <link>localhost/hugo-tldr/resources/2014-06-24-rsc-book-python-for-you-and-me/</link>
+      <link>/resources/2014-06-24-rsc-book-python-for-you-and-me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/resources/2014-06-24-rsc-book-python-for-you-and-me/</guid>
+      <guid>/resources/2014-06-24-rsc-book-python-for-you-and-me/</guid>
       <description>pym is a book to learn Python. It targets people who are completely new to the language. Want to switch from Bash? Want to learn serious scripting language? Try a simple &amp;amp; free book to learn Python programming language for new.</description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basics on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/basics/</link>
+    <link>/tags/basics/</link>
     <description>Recent content in Basics on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 10 Apr 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/basics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/basics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Opening and Writing to Files in Python</title>
-      <link>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</link>
+      <link>/python/opening_and_writing_to_files_in_python/</link>
       <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</guid>
+      <guid>/python/opening_and_writing_to_files_in_python/</guid>
       <description>Our bio.txt contains
 Name: Aamnah Age: 26 Location: Dubai Gender: Female  To open it in Python:
 file = open(&#39;bio.txt&#39;)  The function open() can take two parameters, one is the path of the file
@@ -27,10 +27,10 @@ The w flag opens a file for writing only.</description>
     
     <item>
       <title>Database Foundations</title>
-      <link>localhost/hugo-tldr/databases/database-foundations/</link>
+      <link>/databases/database-foundations/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/database-foundations/</guid>
+      <guid>/databases/database-foundations/</guid>
       <description>Creating Database CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;  You can also use the keyword SCHEMA to create a database.
 CREATE SCHEMA `shop`;  Once a database is cerated you can start using it with the following command
 USE `shop`;  Get info about the database SHOW ENGINES  The default engine is InnoDB.
@@ -39,10 +39,10 @@ Creating Tables CREATE TABLE actors (name VARCHAR(50));  CREATE is the command t
     
     <item>
       <title>Tips for Querying a MySQL Database</title>
-      <link>localhost/hugo-tldr/databases/querying-selecting-showing-data-from-mysql-database-tips/</link>
+      <link>/databases/querying-selecting-showing-data-from-mysql-database-tips/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/querying-selecting-showing-data-from-mysql-database-tips/</guid>
+      <guid>/databases/querying-selecting-showing-data-from-mysql-database-tips/</guid>
       <description>Sort result ORDER based on frequency Here is a nifty way of influencing the ORDER of rows returned by a query that helps in displaying a list with frequently accessed items at the top.
 An example is a name/address form where the country is a selectable list. If most of your users are from the UK and US you may want to do something like:
 SELECT * FROM countries ORDER by iso_code IN (&#39;UK&#39;, &#39;US&#39;) desc  Which returns something like:</description>

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Commands on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/commands/</link>
+    <link>/tags/commands/</link>
     <description>Recent content in Commands on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 06 Sep 2017 09:22:43 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/commands/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/commands/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Use rsync to mirror websites</title>
-      <link>localhost/hugo-tldr/sysadmin/rsync-mirror-website-server/</link>
+      <link>/sysadmin/rsync-mirror-website-server/</link>
       <pubDate>Wed, 06 Sep 2017 09:22:43 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/sysadmin/rsync-mirror-website-server/</guid>
+      <guid>/sysadmin/rsync-mirror-website-server/</guid>
       <description>tl;dr apt update &amp;amp;&amp;amp; apt install rsync #Access via remote shell: # Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST] # Push: rsync [OPTION...] SRC... [USER@]HOST:DEST # Pull: sync remote with local rsync -vhaze ssh user@server.example.com:/var/www/ /var/www rsync -vhaze &amp;quot;ssh -p 1234 -i /root/.ssh/id_rsa&amp;quot; root@server.example.com:/var/www/cakebox.me/public_html/ /var/www/cakebox.me/public_html rsync -qaze &amp;quot;ssh -p 1234 -i /root/.ssh/id_rsa&amp;quot; root@server.example.com:/etc/letsencrypt/archive :/etc/letsencrypt/live :/etc/letsencrypt/renewal /etc/letsencrypt/  -v, --verbose increase verbosity -h, --human-readable output numbers in a human-readable format -q, --quiet suppress non-error messages -a, --archive archive mode; equals -rlptgoD (no -H,-A,-X) -z, --compress compress file data during the transfer -e, --rsh=COMMAND specify the remote shell to use   explainshell for the rsync command.</description>
     </item>
     
     <item>
       <title>Homebrew Commands</title>
-      <link>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</link>
+      <link>/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</guid>
+      <guid>/cheatsheets/homebrew-macos-package-manager-commands-cheatsheet/</guid>
       <description>Homebrew is a package manager for MacOS, very much like apt is a package manager for Ubuntu/Debian Linux.
 It lets you install, update, upgrade and uninstall programs via the command line. It also let&amp;rsquo;s you install some Linux programs for your Mac, like wget for example.
 Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatically start and restart with login. For example brew services start mongodb</description>
@@ -34,28 +34,28 @@ Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatic
     
     <item>
       <title>Basic Unix/Linux System Monitoring Commands</title>
-      <link>localhost/hugo-tldr/linux/unix-linux-commands-for-system-monitoring/</link>
+      <link>/linux/unix-linux-commands-for-system-monitoring/</link>
       <pubDate>Wed, 21 May 2014 16:36:02 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/unix-linux-commands-for-system-monitoring/</guid>
+      <guid>/linux/unix-linux-commands-for-system-monitoring/</guid>
       <description>  Disk: df -h RAM: free -m CPU: ps -ef / top Load Averages: uptime  Memory Usage  top Show top processes free Display amount of free and used memory in the system. cat /proc/meminfo Show memory size and usage. vmstat Monitor virtual memory  </description>
     </item>
     
     <item>
       <title>Crontab Basics</title>
-      <link>localhost/hugo-tldr/linux/basics-crontab/</link>
+      <link>/linux/basics-crontab/</link>
       <pubDate>Wed, 21 May 2014 16:32:55 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/basics-crontab/</guid>
+      <guid>/linux/basics-crontab/</guid>
       <description>tl;dr crontab -l # List crontab entries crontab -e # Edit a crontab using the EDITOR specified (export EDITOR=nano) crontab -r # Remove a crontab sudo crontab -e # Edit root user’s crontab crontab my-crontab # add cron jobs by giving a file to crontab   If you are adding a script in any of the cron directories, it has to be executable Use absolute paths for files, directories and executable commands it should link to the absolute path of the executables (commands).</description>
     </item>
     
     <item>
       <title>Vim Basics</title>
-      <link>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</link>
+      <link>/linux/2014-05-21-basics-vim/</link>
       <pubDate>Wed, 21 May 2014 16:27:11 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/2014-05-21-basics-vim/</guid>
+      <guid>/linux/2014-05-21-basics-vim/</guid>
       <description>Save file and exit in Vim  To go to insert mode: i
  To save: [Esc] and zz
  To quit: [Esc] and :wq
@@ -67,10 +67,10 @@ Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatic
     
     <item>
       <title>MongoDB Basics</title>
-      <link>localhost/hugo-tldr/databases/basics-mongodb/</link>
+      <link>/databases/basics-mongodb/</link>
       <pubDate>Wed, 21 May 2014 16:24:07 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/basics-mongodb/</guid>
+      <guid>/databases/basics-mongodb/</guid>
       <description>Basic Commands  show dbs Show databases
  use dbName Connect/Select database
  use dbName Create database (MongoDB doesn&amp;rsquo;t actually create a db until we start storing documents, so although you now have the db bookmarks, it&amp;rsquo;s not actually saved anywhere until we put some data in it. Same goes for collectons )
@@ -80,10 +80,10 @@ Homebrew also let&amp;rsquo;s you add programs to launchd so that they automatic
     
     <item>
       <title>Git Basics</title>
-      <link>localhost/hugo-tldr/git-github/git-basics/</link>
+      <link>/git-github/git-basics/</link>
       <pubDate>Wed, 21 May 2014 16:17:32 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/git-github/git-basics/</guid>
+      <guid>/git-github/git-basics/</guid>
       <description>Configuration configure username
 git config --global user.name &amp;quot;Your Name&amp;quot;  configure email
 git config --global user.email &amp;quot;me@mydomain.com&amp;quot;  check confgiuration
@@ -95,10 +95,10 @@ rm -r my_project/.git  where my_project is the project folder you are removing g
     
     <item>
       <title>Amazon RDS &#43; MySQL</title>
-      <link>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</link>
+      <link>/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</link>
       <pubDate>Wed, 21 May 2014 16:16:36 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</guid>
+      <guid>/cheatsheets/cheatsheet-amazon-rds-commands-mysql/</guid>
       <description>Connect to Amazon RDS
 mysql -uaamnah --password --host=mysql.hostmarkaz.com  Creating MySQL database
 mysql&amp;gt; CREATE DATABASE databasename ;  Creating MySQL User
@@ -110,10 +110,10 @@ mysql&amp;gt; GRANT ALL PRIVILEGES ON databasename.* TO &#39;username&#39;@&#39;
     
     <item>
       <title>Restart services in Linux</title>
-      <link>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</link>
+      <link>/linux/howto-restart-services-in-linux/</link>
       <pubDate>Wed, 21 May 2014 15:33:52 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/howto-restart-services-in-linux/</guid>
+      <guid>/linux/howto-restart-services-in-linux/</guid>
       <description> Restart SSH  sudo service sshd restart  or
 sudo service ssh restart   Restart Apache  sudo service apache2 restart  </description>
     </item>

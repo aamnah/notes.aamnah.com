@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quotes on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/quotes/</link>
+    <link>/quotes/</link>
     <description>Recent content in Quotes on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 27 Aug 2014 16:18:35 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/quotes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/quotes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.</title>
-      <link>localhost/hugo-tldr/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</link>
+      <link>/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</link>
       <pubDate>Wed, 27 Aug 2014 16:18:35 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</guid>
+      <guid>/quotes/quote-linux-20-years-old-web-less-7000-days-old-together-changed-human-civilization-rapidly-pair-invention-history-world/</guid>
       <description> Linux is 20 years old. The web is less than 7000 days old. Together they have changed human civilization more rapidly than any pair of invention in the history of the world.
 Eben Moglen
  </description>
@@ -25,10 +25,10 @@ Eben Moglen
     
     <item>
       <title>We can not solve our problems at the same level of thinking that created them.</title>
-      <link>localhost/hugo-tldr/quotes/quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them/</link>
+      <link>/quotes/quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them/</link>
       <pubDate>Tue, 27 May 2014 18:45:18 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them/</guid>
+      <guid>/quotes/quote-we-can-not-solve-our-problems-at-the-same-level-of-thinking-that-created-them/</guid>
       <description> We can not solve our problems at the same level of thinking that created them
 Einstein
  </description>
@@ -36,10 +36,10 @@ Einstein
     
     <item>
       <title>You wasted $150,000 on an education you coulda got for a buck fifty in late charges at the public library.</title>
-      <link>localhost/hugo-tldr/quotes/quote-college-education/</link>
+      <link>/quotes/quote-college-education/</link>
       <pubDate>Thu, 22 May 2014 12:35:19 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-college-education/</guid>
+      <guid>/quotes/quote-college-education/</guid>
       <description> You wasted $150,000 on an education you coulda got for a buck fifty in late charges at the public library
 Will Hunting
  </description>
@@ -47,38 +47,38 @@ Will Hunting
     
     <item>
       <title>I think everybody in this country should learn how to program a computer because it teaches you how to think.</title>
-      <link>localhost/hugo-tldr/quotes/quote-learn-how-to-program-steve/</link>
+      <link>/quotes/quote-learn-how-to-program-steve/</link>
       <pubDate>Thu, 22 May 2014 10:21:48 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-learn-how-to-program-steve/</guid>
+      <guid>/quotes/quote-learn-how-to-program-steve/</guid>
       <description>“I think everybody in this country should learn how to program a computer because it teaches you how to think.”</description>
     </item>
     
     <item>
       <title>If you&#39;re gonna learn three languages, learn English, learn Spanish and learn some coding framework. And I think you&#39;ll have a job for life if you do that.</title>
-      <link>localhost/hugo-tldr/quotes/quote-learn-three-languages/</link>
+      <link>/quotes/quote-learn-three-languages/</link>
       <pubDate>Thu, 22 May 2014 10:21:48 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-learn-three-languages/</guid>
+      <guid>/quotes/quote-learn-three-languages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reboot does not fix anything, it just hides things.</title>
-      <link>localhost/hugo-tldr/quotes/quote-reboot-does-not-fix-anything-it-just-hides-things/</link>
+      <link>/quotes/quote-reboot-does-not-fix-anything-it-just-hides-things/</link>
       <pubDate>Wed, 21 May 2014 15:21:24 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-reboot-does-not-fix-anything-it-just-hides-things/</guid>
+      <guid>/quotes/quote-reboot-does-not-fix-anything-it-just-hides-things/</guid>
       <description> Reboot does not fix anything, it just hides things.
  </description>
     </item>
     
     <item>
       <title>Anything you are going to do more than three times. Script it.</title>
-      <link>localhost/hugo-tldr/quotes/quote-anything-you-are-going-to-do-more-than-three-times-script-it/</link>
+      <link>/quotes/quote-anything-you-are-going-to-do-more-than-three-times-script-it/</link>
       <pubDate>Wed, 21 May 2014 15:19:02 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/quotes/quote-anything-you-are-going-to-do-more-than-three-times-script-it/</guid>
+      <guid>/quotes/quote-anything-you-are-going-to-do-more-than-three-times-script-it/</guid>
       <description> Anything you are going to do more than three times. Script it.
  </description>
     </item>

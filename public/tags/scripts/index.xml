@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scripts on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/scripts/</link>
+    <link>/tags/scripts/</link>
     <description>Recent content in Scripts on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 05 Jun 2014 04:02:25 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/scripts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/scripts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to check if a user is root</title>
-      <link>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</link>
+      <link>/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</link>
       <pubDate>Thu, 05 Jun 2014 04:02:25 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</guid>
+      <guid>/bash-scripting/2014-06-05-howto-bash-scripting-check-user-root/</guid>
       <description>The following script will use the whoami command to see what user you are. If you are root, it&amp;rsquo;ll continue running the script. If not, it&amp;rsquo;ll exist the script telling you that you are not root and need to use sudo.
 #!/bin/bash owner=$(who am i | awk &#39;{print $1}&#39;) if [ &amp;quot;$(whoami)&amp;quot; != &#39;root&#39; ]; then echo &amp;quot;You don&#39;t have permission to run $0 as non-root user. Use sudo&amp;quot; exit 1; fi  </description>
     </item>

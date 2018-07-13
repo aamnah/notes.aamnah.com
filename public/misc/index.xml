@@ -2,61 +2,63 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Misc on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/misc/</link>
+    <link>/misc/</link>
     <description>Recent content in Misc on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 20 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/misc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hugo Snippets</title>
-      <link>localhost/hugo-tldr/misc/hugo_snippets/</link>
-      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      <title>Orange Pi&#43; 2 - Getting started and headaches</title>
+      <link>/misc/orangepi/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/hugo_snippets/</guid>
-      <description>Include a partial template partial {{ &amp;quot;foo.html&amp;quot; . }} partial {{ &amp;quot;foo&amp;quot; . }}   you use the partial function the partial directory is layouts &amp;gt; partials, this is where your partial templates will go templates are always .html files you don&amp;rsquo;t have to specify the file extension when including a partial template, Hugo knows it&amp;rsquo;s an html file {{ . }} represents the current context. {{ . }} always refers to the current context, meaning the data changes based on where it was used.</description>
+      <guid>/misc/orangepi/</guid>
+      <description>While the Orange Pi+ 2 has better hardware, the software support for it sucks.
+What came pre-installed An Android looking OS that has 5 icons, but none of the icons open anything or go anywhre
+Armbian So far i have tried 2 different images (Ubuntu Xenial and Debian , both mainline kernels), none of them gave me a display. I go as far as loading kernel, and then the screen goes black with the monitor displaying an out of range message.</description>
     </item>
     
     <item>
       <title>Things that i love about my Mac</title>
-      <link>localhost/hugo-tldr/misc/things_that_i_love_about_my_mac/</link>
+      <link>/misc/things_that_i_love_about_my_mac/</link>
       <pubDate>Fri, 13 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/things_that_i_love_about_my_mac/</guid>
+      <guid>/misc/things_that_i_love_about_my_mac/</guid>
       <description>I converted to a Mac __ years ago. And i can&amp;rsquo;t see myself going back to Windows or a non-Apple laptop.
 The software i use is already available for Mac. I&amp;rsquo;m a web developer, i have everything i need already on my Mac. The only software i ever. For everything else, there is either a Mac version available or an alternative available. In some cases i found that the Mac version of the same software looks better than it&amp;rsquo;s Windows counterpart.</description>
     </item>
     
     <item>
       <title>آؤ اردو میں تحریر کریں</title>
-      <link>localhost/hugo-tldr/misc/lets_write_in_urdu/</link>
+      <link>/misc/lets_write_in_urdu/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/lets_write_in_urdu/</guid>
+      <guid>/misc/lets_write_in_urdu/</guid>
       <description>مجھے ہمیشہ سے مختلف زبانیں سیکھنے اور بولنے کا شوق رہا ہے۔ اس وقت میں روانی کے ساتھ تین زبانیں بول سکتی ہوں۔۔ اردو ،انگریزی اور پنجابی۔ اس کے علاوہ میں ان دنوں عربی اور فرانسیسی سیکھ رہی ہوں۔
 عربی اور فرانسیسی آن لائن سیکھنے کے لئے عربی اور فرانسیسی ٹائپ کرنا بھی ضروری ہے۔ اور اسکے لئے آپ کو الگ سے کیبورڈ لےآؤٹ* انسٹال کرنا پڑتا ہے۔ جیسے ہی میں نے یہ کام کرنا سیکھا میرا اگلا قدم اردو لے آؤٹ انسٹال کرنا تھا۔ اور اس دن سے ہی میں روز کچھ نا کچھ اردو میں ٹائپ کرتی ہوں تاکہ میری اردو میں ٹائپ کرنے کی رفتار اور حروف کی پہچان بہتر ہو سکے۔</description>
     </item>
     
     <item>
       <title>Steganogrophy</title>
-      <link>localhost/hugo-tldr/misc/2014-05-27-intro-steganogrophy/</link>
+      <link>/misc/2014-05-27-intro-steganogrophy/</link>
       <pubDate>Tue, 27 May 2014 16:41:56 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/2014-05-27-intro-steganogrophy/</guid>
+      <guid>/misc/2014-05-27-intro-steganogrophy/</guid>
       <description>Steganography is hiding data inside of other data. Hiding information inside of something else. For example, having text hidden inside of an image. It could also be an image inside of another image. It&amp;rsquo;s really just hididng one piece of data inside another piece of data.
 It&amp;rsquo;s a quick way of sending messages to people without actually having the message seen. You&amp;rsquo;d have an arrangement with a friend where you&amp;rsquo;d send them an image, it&amp;rsquo;d have a messae hidden in it and they&amp;rsquo;d know to open the image in their steganography program, and it&amp;rsquo;d display the text for them.</description>
     </item>
     
     <item>
       <title>fileconveyer</title>
-      <link>localhost/hugo-tldr/misc/fileconveyer/</link>
+      <link>/misc/fileconveyer/</link>
       <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/misc/fileconveyer/</guid>
+      <guid>/misc/fileconveyer/</guid>
       <description>Install FileConveyer: Change to the directory you want to hold the fileconveyor files, then run:
 sudo apt install git python-setuptools &amp;amp;&amp;amp; sudo easy_install pip &amp;amp;&amp;amp; sudo pip install -e git+https://github.com/wimleers/fileconveyor@master#egg=fileconveyor  sudo nano src/fileconveyor/fileconveyor/config.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;config&amp;gt; &amp;lt;!-- Sources --&amp;gt; &amp;lt;sources ignoredDirs=&amp;quot;&amp;quot;&amp;gt; &amp;lt;source name=&amp;quot;test&amp;quot; scanPath=&amp;quot;/var/www/html/test&amp;quot; /&amp;gt; &amp;lt;/sources&amp;gt; &amp;lt;!-- Servers --&amp;gt; &amp;lt;servers&amp;gt; &amp;lt;server name=&amp;quot;Rackspace Cloud Files&amp;quot; transporter=&amp;quot;cloudfiles&amp;quot;&amp;gt; &amp;lt;username&amp;gt;USERNAME&amp;lt;/username&amp;gt; &amp;lt;api_key&amp;gt;APIKEY&amp;lt;/api_key&amp;gt; &amp;lt;container&amp;gt;CONTAINER&amp;lt;/container&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;/servers&amp;gt; &amp;lt;!-- Rules --&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;rule for=&amp;quot;test&amp;quot; label=&amp;quot;Test&amp;quot;&amp;gt; &amp;lt;destinations&amp;gt; &amp;lt;destination server=&amp;quot;Rackspace Cloud Files&amp;quot; path=&amp;quot;test&amp;quot; /&amp;gt; &amp;lt;/destinations&amp;gt; &amp;lt;/rule&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/config&amp;gt;  Add this to /etc/rc.</description>
     </item>

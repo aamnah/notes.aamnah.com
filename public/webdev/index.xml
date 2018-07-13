@@ -2,135 +2,197 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Development on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/webdev/</link>
+    <link>/webdev/</link>
     <description>Recent content in Web Development on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 14 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/webdev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/webdev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>React Notes</title>
+      <link>/webdev/react_notes/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/react_notes/</guid>
+      <description>Functional Components
+import React from &amp;quot;react&amp;quot; export default () =&amp;gt; ( &amp;lt;div&amp;gt; &amp;lt;p&amp;gt;Hello Functional Component&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; )  Class Components
+import React from &amp;quot;react&amp;quot; class Counter extends React.Component { render() { return &amp;lt;div&amp;gt;Hello Class Component&amp;lt;/div&amp;gt; } } export default Counter;  Class components allow us to have component state
+Component State constructor() { super() this.state = { count: 0 } }  Example: Basic Counter import React, { Component } from &#39;react&#39; class Counter extends Component { constructor () { super() this.</description>
+    </item>
+    
+    <item>
+      <title>Surge deployments in 2 minutes</title>
+      <link>/webdev/surge-basics/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/surge-basics/</guid>
+      <description>tl;dr # install with npm npm install --global surge # OR install with yarn yarn global add surge # run surge   Enter an email and password to signup or login Select a directory to publish Enter a domain name Done!  deployments If you&amp;rsquo;re already authenticated, you can directly pass in the directory with the surge command
+# deploy a directory surge /public  # deploy folder while passing the domain name as parameter surge public/ --domain myfooo.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Gatsby</title>
+      <link>/webdev/gatsby_gettingstarted/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/gatsby_gettingstarted/</guid>
+      <description>install Gatsby
+npm install --global gatsby-cli # OR yarn global add gatsby-cli  create a site
+gatsby new gatsby-site  start a live server
+gatsby develop  Directory Structure  pages  Linking between pages There&amp;rsquo;s a builtin Link component
+import Link from &#39;gatsby-link&#39;  &amp;lt;Link to=&amp;quot;/page-3/&amp;quot;&amp;gt;Go to page 3&amp;lt;/Link&amp;gt;  The link is going to the page located at src/pages/page-3.js. The slashes in /page-3/ are not necessary, the link will still work without them</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Gatsby</title>
+      <link>/webdev/gatsby_intro/</link>
+      <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/gatsby_intro/</guid>
+      <description>npm install --global gatsby-cli # or yarn global add gatsby-cli  gatsby new gatsby-site # create a new site in a folder called `gatsby-site` gatsby develop # run a hot-reloading server on http://localhost:8000 gatsby serve # serve the site on a local HTML server gatsby build # build the site  # get help gatsby --help gatsby COMMAND_NAME --help  </description>
+    </item>
+    
+    <item>
+      <title>Hugo Templates in 15 Minutes</title>
+      <link>/webdev/hugo_templates/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/hugo_templates/</guid>
+      <description>Index page List and Single Pages Menus  Menus are defined in config.toml and used in template files You can define multiple different menus .Site.Menus let&amp;rsquo;s you access any menu by name  # config.toml # Site Menus [menu] # Main Menu [[menu.main]] name = &amp;quot;Home&amp;quot; url = &amp;quot;/&amp;quot; [[menu.main]] name = &amp;quot;About&amp;quot; identifier = &amp;quot;about&amp;quot; url = &amp;quot;/about&amp;quot; [[menu.main]] name = &amp;quot;Getting Started&amp;quot; identifier = &amp;quot;getting_started&amp;quot; url = &amp;quot;/getting_started&amp;quot; [[menu.</description>
+    </item>
+    
+    <item>
+      <title>Hugo Snippets</title>
+      <link>/webdev/hugo_snippets/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/webdev/hugo_snippets/</guid>
+      <description>Include a partial template partial {{ &amp;quot;foo.html&amp;quot; . }} partial {{ &amp;quot;foo&amp;quot; . }}   you use the partial function the partial directory is layouts &amp;gt; partials, this is where your partial templates will go templates are always .html files you don&amp;rsquo;t have to specify the file extension when including a partial template, Hugo knows it&amp;rsquo;s an html file {{ . }} represents the current context. {{ . }} always refers to the current context, meaning the data changes based on where it was used.</description>
+    </item>
+    
+    <item>
       <title>Cracking responsive web typography</title>
-      <link>localhost/hugo-tldr/webdev/typography-responsive/</link>
+      <link>/webdev/typography-responsive/</link>
       <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/typography-responsive/</guid>
+      <guid>/webdev/typography-responsive/</guid>
       <description>I have been meaning to create a responsive typography template that i could just plug in as a sass partial for my projects.
 NOTES  Increase font-size and line-height for body copy as screen size increases Vertical rhythm is the practice of using line-height of body copy as the base for a consistent vertical rhythm. You use multiples of line-hight for margins and paddings and multiples of base line-height for all text elements Keeping line-height unit-less (e.</description>
     </item>
     
     <item>
       <title>Developing a CSS style</title>
-      <link>localhost/hugo-tldr/webdev/developing-css-style/</link>
+      <link>/webdev/developing-css-style/</link>
       <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/developing-css-style/</guid>
+      <guid>/webdev/developing-css-style/</guid>
       <description>  Use a naming convention (i use SUIT-CSS) No IDs in CSS. (Because they are specificity heavyweights) Class-based architecture. (Binding onto classes instead of bare HTML elements provides a more robust and scalable architecture) The UI architecture is based on components. Discrete, self-contained pieces of UI as reusable components. Instead of building pages, build modules/widgets/components  Links  [](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)  </description>
     </item>
     
     <item>
       <title>Designing and Coding Web Forms</title>
-      <link>localhost/hugo-tldr/webdev/forms/</link>
+      <link>/webdev/forms/</link>
       <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/forms/</guid>
+      <guid>/webdev/forms/</guid>
       <description> label&amp;rsquo;s for links to the id of the input You can put the input inside the label and that&amp;rsquo;ll achieve the same thing in a cleaner way name is so that it exists in the DOM In PHP, you can access posted data with $_POST, where you use the name you used in the input field to reference the data Showing errors is simple, you can add a css class to the element if there is an error   </description>
     </item>
     
     <item>
       <title>Moving from Jekyll to Hugo</title>
-      <link>localhost/hugo-tldr/webdev/move-jekyll-hugo/</link>
+      <link>/webdev/move-jekyll-hugo/</link>
       <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/move-jekyll-hugo/</guid>
+      <guid>/webdev/move-jekyll-hugo/</guid>
       <description>Why?  Jekyll is SLOW. Takes about 25 secs to build this site right now, and this site is pretty small right now, less than 500 posts. There are no tags or categories or pagination yet and it&amp;rsquo;s at 20 seconds already. I have to wait for it to finish in order to see any changes, and i make changes often, so i end up waiting often. Slow is pretty much my only complaint.</description>
     </item>
     
     <item>
       <title>Attributes in DOM</title>
-      <link>localhost/hugo-tldr/webdev/attributes/</link>
+      <link>/webdev/attributes/</link>
       <pubDate>Wed, 22 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/attributes/</guid>
+      <guid>/webdev/attributes/</guid>
       <description> getAttribute() returns the value of a specified attribute on the element setAttribute() Sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value removeAttribute() removes an attribute from the specified element hasAttribute()  </description>
     </item>
     
     <item>
       <title>(JavaScript) Web APIs and their Interfaces</title>
-      <link>localhost/hugo-tldr/webdev/javascript-web-api-interfaces/</link>
+      <link>/webdev/javascript-web-api-interfaces/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/javascript-web-api-interfaces/</guid>
+      <guid>/webdev/javascript-web-api-interfaces/</guid>
       <description>Web APIs JavaScript is a scripting language. In the context of a web browser, scripting usually refers to program code written in JavaScript that is executed by the browser when a page is downloaded, or in response to an event triggered by the user. 1
 A Web API is an API for either a web server or web browser. There&amp;rsquo;s a lot we can do inside a browser: animate graphics, send messages, edit photos, edit files etc.</description>
     </item>
     
     <item>
       <title>Adding and Removing Nodes (HTML Elements)</title>
-      <link>localhost/hugo-tldr/webdev/add-remove-nodes-html-elements/</link>
+      <link>/webdev/add-remove-nodes-html-elements/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/add-remove-nodes-html-elements/</guid>
+      <guid>/webdev/add-remove-nodes-html-elements/</guid>
       <description>Creating new nodes
  createElement() creates an HTML element createTextNode() creates a text node appendChild() appends (adds to the end) a node insertBefore() prepends a node, opposite of .appendChild() removeChild() removes a child node replaceChild() replaces a child node cloneNode() creates a copy of the node (You can clone a node before adding it for example)  Creating and adding let paragraph = document.createElement(&amp;quot;p&amp;quot;); // create a paragraph (&amp;lt;p&amp;gt; element) // to add text to the &amp;lt;p&amp;gt; element, create a text node first let node1 = document.</description>
     </item>
     
     <item>
       <title>Feature Detection in Browsers, Shims and Polyfills</title>
-      <link>localhost/hugo-tldr/webdev/browser-feature-detection-polyfills-shims/</link>
+      <link>/webdev/browser-feature-detection-polyfills-shims/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/browser-feature-detection-polyfills-shims/</guid>
+      <guid>/webdev/browser-feature-detection-polyfills-shims/</guid>
       <description>Shims vs. Polyfills
 Call it shims if you want to keep the directory generic. A polyfill is a type of shim that retrofits legacy browsers with modern HTML5/CSS3 features usually using Javascript or Flash. A shim, on the other hand, refers to any piece of code that performs interception of an API call and provides a layer of abstraction. It isn&amp;rsquo;t necessarily restricted to a web application or HTML5/CSS3.</description>
     </item>
     
     <item>
       <title>Querying the DOM</title>
-      <link>localhost/hugo-tldr/webdev/querying-the-dom/</link>
+      <link>/webdev/querying-the-dom/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/querying-the-dom/</guid>
+      <guid>/webdev/querying-the-dom/</guid>
       <description>Querying is fancy word for searching/locating DOM elements using API methods, like getElementById() for example. The DOM (Document Object Model) represents a document as a tree. The tree is made up of parent-child relationships, a parent can have one or many children nodes.
 Note that generally a DOM is a model for a structured document, it is not restricted to or even invented for HTML or XML. A DOM is a general concept applicable to any document, especially those (the vast majority of them do) showing a hierarchical structure in which you need to navigate.</description>
     </item>
     
     <item>
       <title>Window object</title>
-      <link>localhost/hugo-tldr/webdev/window-object-browser-api/</link>
+      <link>/webdev/window-object-browser-api/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/window-object-browser-api/</guid>
+      <guid>/webdev/window-object-browser-api/</guid>
       <description>Window is the browser window alert(&#39;hello&#39;) is the same as window.alert(&#39;hello&#39;) When we refer to variable or function, it looks in the local scope first. If it is not found there, it moves up the chain until it reaches the Window object, at which point it is global All global variables are part of the Window object. They can be referenced as window.foo You can overwrite global (Window object) functions by redeclaring them with the same name Window object is in the global namespace  let greeting = &#39;Bonjour!</description>
     </item>
     
     <item>
       <title>Define a clickable interactive map over an image with &lt;map&gt;</title>
-      <link>localhost/hugo-tldr/webdev/html-img-map-clickable-areas-coords-shape/</link>
+      <link>/webdev/html-img-map-clickable-areas-coords-shape/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/html-img-map-clickable-areas-coords-shape/</guid>
+      <guid>/webdev/html-img-map-clickable-areas-coords-shape/</guid>
       <description>tl;dr &amp;lt;map name=&amp;quot;primary&amp;quot;&amp;gt; &amp;lt;area shape=&amp;quot;circle&amp;quot; coords=&amp;quot;75,75,75&amp;quot; href=&amp;quot;left.html&amp;quot;&amp;gt; &amp;lt;area shape=&amp;quot;circle&amp;quot; coords=&amp;quot;275,75,75&amp;quot; href=&amp;quot;right.html&amp;quot;&amp;gt; &amp;lt;/map&amp;gt; &amp;lt;img usemap=&amp;quot;#primary&amp;quot; src=&amp;quot;http://placehold.it/350x150&amp;quot; alt=&amp;quot;350 x 150 pic&amp;quot;&amp;gt;   in an &amp;lt;img&amp;gt; tag, specify the usemap attribute and provide the name of whatever map you want to use, for example #world-continents define a map with the &amp;lt;map&amp;gt; tag. Each map takes an &amp;lt;area&amp;gt; tag with shape, coords and href attributes shape could be a rect, circle or poly.</description>
     </item>
     
     <item>
       <title>Redirect a site with .htaccess</title>
-      <link>localhost/hugo-tldr/webdev/redirect-a-site-via-/</link>
+      <link>/webdev/redirect-a-site-via-/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/redirect-a-site-via-/</guid>
+      <guid>/webdev/redirect-a-site-via-/</guid>
       <description>Redirect 301 / http://newsite.com  </description>
     </item>
     
     <item>
       <title>How to include files in HTML</title>
-      <link>localhost/hugo-tldr/webdev/include-files-in-html/</link>
+      <link>/webdev/include-files-in-html/</link>
       <pubDate>Sat, 07 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/include-files-in-html/</guid>
+      <guid>/webdev/include-files-in-html/</guid>
       <description>via JavaScript a.html
 &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Put here your HTML content before insertion of b.js.&amp;lt;/h1&amp;gt; ... &amp;lt;script src=&amp;quot;b.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; ... &amp;lt;p&amp;gt;And here whatever content you want afterwards.&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  b.js:
 document.write(&#39;\ \ &amp;lt;h1&amp;gt;Add your HTML code here&amp;lt;/h1&amp;gt;\ \ &amp;lt;p&amp;gt;Notice however, that you have to escape LF&#39;s with a &#39;\&#39;, just like\ demonstrated in this code listing.\ &amp;lt;/p&amp;gt;\ \ &#39;);  JavaScript is preferred since jQuery is that jQuery.js is ~90kb in size.</description>
@@ -138,19 +200,19 @@ document.write(&#39;\ \ &amp;lt;h1&amp;gt;Add your HTML code here&amp;lt;/h1&amp
     
     <item>
       <title>Page Speed Optimizations</title>
-      <link>localhost/hugo-tldr/webdev/page-speed-optimzations/</link>
+      <link>/webdev/page-speed-optimzations/</link>
       <pubDate>Mon, 19 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/page-speed-optimzations/</guid>
+      <guid>/webdev/page-speed-optimzations/</guid>
       <description>Eliminate render-blocking JavaScript and CSS in above-the-fold content  Remove render-blocking JavaScript Optimize CSS Delivery  Enable compression (Apache: Use mod_deflate) Improve server response time Leverage browser caching Minify JavaScript Minify CSS Minify HTML Optimize Images  Apache Server Configuration and httpd.conf / .htaccess Sample Configurations The HTML5 Boilerplate project contains sample configuration files for all the most popular servers with detailed comments for each configuration flag and setting: find your favorite server in the list, look for the gzip section, and confirm that your server is configured with recommended settings.</description>
     </item>
     
     <item>
       <title>Regex</title>
-      <link>localhost/hugo-tldr/webdev/regex/</link>
+      <link>/webdev/regex/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/regex/</guid>
+      <guid>/webdev/regex/</guid>
       <description> Regular Expressions 101 - Online regex tester and debugger: JavaScript, Python, PHP, and PCRE
  RegExr: Learn, Build, &amp;amp; Test RegEx
   </description>
@@ -158,10 +220,10 @@ document.write(&#39;\ \ &amp;lt;h1&amp;gt;Add your HTML code here&amp;lt;/h1&amp
     
     <item>
       <title>An exhibit of Markdown</title>
-      <link>localhost/hugo-tldr/webdev/2014-08-25-an-exhibit-of-markdown/</link>
+      <link>/webdev/2014-08-25-an-exhibit-of-markdown/</link>
       <pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/2014-08-25-an-exhibit-of-markdown/</guid>
+      <guid>/webdev/2014-08-25-an-exhibit-of-markdown/</guid>
       <description>&lt;p&gt;&lt;p&gt;A lead or excerpt should go here. two or three lines are good. About 320 chars is also fine.&lt;/p&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, in dolores maxime eveniet saepe libero eum consequatur, commodi enim eos ab doloremque ratione illum quaerat voluptas ipsa explicabo corrupti laborum excepturi. Adipisci, dolores, recusandae! Sit tempora dolorum, ipsum cupiditate libero.&lt;/p&gt;
 &lt;/p&gt;</description>
@@ -169,10 +231,10 @@ document.write(&#39;\ \ &amp;lt;h1&amp;gt;Add your HTML code here&amp;lt;/h1&amp
     
     <item>
       <title>How to make websites in Urdu and use custom fonts</title>
-      <link>localhost/hugo-tldr/webdev/how-to-make-websites-in-urdu-use-custom-fonts/</link>
+      <link>/webdev/how-to-make-websites-in-urdu-use-custom-fonts/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/webdev/how-to-make-websites-in-urdu-use-custom-fonts/</guid>
+      <guid>/webdev/how-to-make-websites-in-urdu-use-custom-fonts/</guid>
       <description>In this post you&amp;rsquo;ll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style a website in Urdu.
 Finding a font First things first, find an Urdu font that you like. I decided to use [Nafees Nastaleeq](). Other good fonts are: [Nazanin]() [Nazanin Bold]() [Farhood]()
 If you are having difficulty finding good Urdu fonts (type faces), try Persian.</description>

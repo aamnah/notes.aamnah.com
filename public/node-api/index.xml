@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node-api on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/node-api/</link>
+    <link>/node-api/</link>
     <description>Recent content in Node-api on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Mon, 18 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/node-api/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/node-api/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Middleware</title>
-      <link>localhost/hugo-tldr/node-api/4-middleware/</link>
+      <link>/node-api/4-middleware/</link>
       <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/node-api/4-middleware/</guid>
+      <guid>/node-api/4-middleware/</guid>
       <description>Middleware is the most powerful feature other than the routing. That&amp;rsquo;s what Expressjs mostly is, the middleware and the routing.
 Express uses middleware to modify and inspect the incoming requests. From parsing URLs to handling auth, middleware makes this easy. You can think of middleware as thirdy party plugins.
 Express can also be a static web server. Makes it super simple.
@@ -27,28 +27,28 @@ Middleware is the backbone of Express.
     
     <item>
       <title>Expressjs</title>
-      <link>localhost/hugo-tldr/node-api/2-express/</link>
+      <link>/node-api/2-express/</link>
       <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/node-api/2-express/</guid>
+      <guid>/node-api/2-express/</guid>
       <description>Node has a builtin http module, which allows us to create an HTTP server on a TCP connection The issue with the builtin module is that it requires a lot of code and configuration to setup something basic, and can be difficult and overwhelming You&amp;rsquo;re forced to learn about stuff (like Networking), but it is also error-prone Express is literally just a routing library with middleware It allows you to set up verbs with routes and then run the functions you tell it to run when those routes and verbs are hit by a request  FUN FACT: One of the HTTP status codes is 418: I&#39;m a teapot.</description>
     </item>
     
     <item>
       <title>Node Refresher</title>
-      <link>localhost/hugo-tldr/node-api/1-nodejs/</link>
+      <link>/node-api/1-nodejs/</link>
       <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/node-api/1-nodejs/</guid>
+      <guid>/node-api/1-nodejs/</guid>
       <description>Nodejs  Nodejs is simply a way to run JavaScript outside the context of the browser. Powered by V8. Most of the browser APIs do not exist in Node (no document object etc.) Some are still there, like console (tip: type console in Node REPL to see available methods)  Executing Nodejs  You can use the REPL  node &amp;gt;   You can execute files  node file.</description>
     </item>
     
     <item>
       <title>Restful APIs</title>
-      <link>localhost/hugo-tldr/node-api/3-restful-apis/</link>
+      <link>/node-api/3-restful-apis/</link>
       <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/node-api/3-restful-apis/</guid>
+      <guid>/node-api/3-restful-apis/</guid>
       <description>REST is not a framework, it&amp;rsquo;s not a standard (like HTTP), it&amp;rsquo;s just a way that we came up with (a paradigm).
  start off with modelling your data. everything is built around how your data is modelled resources means the actual data
  GET means i&amp;rsquo;m asking for something

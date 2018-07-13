@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenCart on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/opencart/</link>
+    <link>/opencart/</link>
     <description>Recent content in OpenCart on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 23 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/opencart/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/opencart/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lessons in transferring from OpenCart to Shopify</title>
-      <link>localhost/hugo-tldr/opencart/transfer-opencart-to-shopify/</link>
+      <link>/opencart/transfer-opencart-to-shopify/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/transfer-opencart-to-shopify/</guid>
+      <guid>/opencart/transfer-opencart-to-shopify/</guid>
       <description>What Shopify can&amp;rsquo;t do and OpenCart can
  Custom (SEO) URLs Custom Order Statuses Mail and Newsletters Bulk quantity discounts you gotta use an app and pay for it  Order Statuses URLs  Shopify can not do custom URLs read more, and more The URL structure Shopify offers is  /pages for Pages /products for Products /collections/some_product for Collections of products.   You can not do for example  www.</description>
     </item>
     
     <item>
       <title>How to create a very basic OpenCart Module in less than 5 minutes</title>
-      <link>localhost/hugo-tldr/opencart/very-basic-controller/</link>
+      <link>/opencart/very-basic-controller/</link>
       <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/very-basic-controller/</guid>
+      <guid>/opencart/very-basic-controller/</guid>
       <description>Let&amp;rsquo;s create a module called DEMO. For any module, you need three files
  Language catalog/language/en-gb/extension/module/demo.php Controller catalog/controller/extension/module/demo.php Template catalog/view/theme/default/template/extension/module/demo.tpl  Optionally, you could also have a Model file, if your module needs to pass some new queries to the database that aren&amp;rsquo;t defined anywhere else.
 Language The language file gets the all the static text. The idea behind keeping it in a separate file is so that it could be easily translated.</description>
@@ -35,10 +35,10 @@ Language The language file gets the all the static text. The idea behind keeping
     
     <item>
       <title>Getting started with OpenCart API</title>
-      <link>localhost/hugo-tldr/opencart/opencart-api/</link>
+      <link>/opencart/opencart-api/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/opencart-api/</guid>
+      <guid>/opencart/opencart-api/</guid>
       <description>OpenCart has a REST API that you (or third parties) can use to communicate with the system. You make calls to routes, it sends you back JSON.
 Some use cases There are many things you can do with an API
  Build an iOS/Android app for your store Use a frontend framework like React  Basics  The location for files is: catalog/controller/api The URL route is: api/controller/method. For example, to add a product to cart, you&amp;rsquo;d call api/cart/add.</description>
@@ -46,10 +46,10 @@ Some use cases There are many things you can do with an API
     
     <item>
       <title>How to get and show Information pages in OpenCart</title>
-      <link>localhost/hugo-tldr/opencart/get-informations-pages-opencart/</link>
+      <link>/opencart/get-informations-pages-opencart/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/get-informations-pages-opencart/</guid>
+      <guid>/opencart/get-informations-pages-opencart/</guid>
       <description>Add the following code to catalog/controller/common/header.php
 // INFORMATION LINKS $this-&amp;gt;load-&amp;gt;model(&#39;catalog/information&#39;); $informations = $this-&amp;gt;model_catalog_information-&amp;gt;getInformations(); foreach ($informations as $information) { $data[&#39;informations&#39;][] = array( &#39;title&#39; =&amp;gt; $information[&#39;title&#39;], &#39;link&#39; =&amp;gt; $this-&amp;gt;url-&amp;gt;link(&#39;information/information&#39;) . &#39;&amp;amp;information_id=&#39; . $information[&#39;information_id&#39;] ); }  Now in your catalog/view/common/header.tpl, you can use a foreach loop to get all the information pages out of the array
 &amp;lt;?php if ($informations) { foreach($informations as $information) { ?&amp;gt; &amp;lt;a href=&amp;quot;&amp;lt;?php echo $information[&#39;link&#39;]; ?&amp;gt;&amp;quot;&amp;gt;&amp;lt;?php echo $information[&#39;title&#39;]; ?</description>
@@ -57,10 +57,10 @@ Some use cases There are many things you can do with an API
     
     <item>
       <title>How to get and show Manufacturers in OpenCart</title>
-      <link>localhost/hugo-tldr/opencart/get-manufacturers-opencart/</link>
+      <link>/opencart/get-manufacturers-opencart/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/get-manufacturers-opencart/</guid>
+      <guid>/opencart/get-manufacturers-opencart/</guid>
       <description>Add the following code to catalog/controller/common/header.php
 // MANUFACTURERS $this-&amp;gt;load-&amp;gt;model(&#39;catalog/manufacturer&#39;); $data[&#39;manufacturers&#39;] = $this-&amp;gt;model_catalog_manufacturer-&amp;gt;getManufacturers(0);  Now in your catalog/view/common/header.tpl, you can use a foreach loop to get all the manufacturers out of the array
 &amp;lt;?php if ($manufacturers) { foreach($manufacturers as $manufacturer) { ?&amp;gt; &amp;lt;a href=&amp;quot;index.php?route=product/manufacturer/info&amp;amp;manufacturer_id=&amp;lt;?php echo $manufacturer[&#39;manufacturer_id&#39;]; ?&amp;gt;&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;&amp;lt;?php echo $manufacturer[&#39;image&#39;]; ?&amp;gt;&amp;quot; alt=&amp;quot;&amp;lt;?php echo $manufacturer[&#39;name&#39;]; ?&amp;gt;&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;?php } ?&amp;gt; &amp;lt;?php } ?&amp;gt;  The getManufacturers() method provides an array of arrays, with the following details</description>
@@ -68,10 +68,10 @@ Some use cases There are many things you can do with an API
     
     <item>
       <title>Dynamically adding Scripts, Stylesheets, and Links to a Template</title>
-      <link>localhost/hugo-tldr/opencart/loading-scripts-stylesheets/</link>
+      <link>/opencart/loading-scripts-stylesheets/</link>
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/loading-scripts-stylesheets/</guid>
+      <guid>/opencart/loading-scripts-stylesheets/</guid>
       <description>Compatibility: OpenCart 2.x
  the benefit of dynamically loading it in templates is that it&amp;rsquo;ll only load when that template is being viewed. For example, the datetime picker only gets loaded when needed  In your controller (e.g. controller/account/register.php), inside the index() function
 // $this-&amp;gt;document-&amp;gt;setTitle($this-&amp;gt;language-&amp;gt;get(&#39;heading_title&#39;)); // Scripts // addScript($href, $postion = &#39;header&#39;) $this-&amp;gt;document-&amp;gt;addScript(&#39;catalog/view/javascript/jquery/datetimepicker/moment.js&#39;); $this-&amp;gt;document-&amp;gt;addScript(&#39;catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js&#39;); // Styles // addStyle($href, $rel = &#39;stylesheet&#39;, $media = &#39;screen&#39;) $this-&amp;gt;document-&amp;gt;addStyle(&#39;catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css&#39;); // Links // addLink($href, $rel) addLink($href, $rel)  In your template template/common/header.</description>
@@ -79,20 +79,20 @@ Some use cases There are many things you can do with an API
     
     <item>
       <title>Getting started with Controllers</title>
-      <link>localhost/hugo-tldr/opencart/getting-started-with-controllers/</link>
+      <link>/opencart/getting-started-with-controllers/</link>
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/getting-started-with-controllers/</guid>
+      <guid>/opencart/getting-started-with-controllers/</guid>
       <description>Compatibility: OpenCart 2.x
  Controllers are loaded based on the route Every new controller must extend the Controller class Controller names are based on the routes, and are written in PascalCase (aka UpperCamelCase), e.g. ControllerAccountRegister (ControllerFolderSubfolderFile) Classnames don&amp;rsquo;t take any values from the subfolder and file name other than letters and numbers. Underscores are removed.   Within the class are the methods. Methods in the class declared public are accessible to be run via the route - private are not.</description>
     </item>
     
     <item>
       <title>Misc. OpenCart Snippets</title>
-      <link>localhost/hugo-tldr/opencart/snippets/</link>
+      <link>/opencart/snippets/</link>
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/snippets/</guid>
+      <guid>/opencart/snippets/</guid>
       <description>Controller See if a user is logged in
 $this-&amp;gt;customer-&amp;gt;isLogged() // returns true/false  Load a language in a controller.php file
 $this-&amp;gt;load-&amp;gt;language(&#39;account/register&#39;);  Set language variables (in controller.php) to be used to template.tpl files
@@ -102,10 +102,10 @@ $this-&amp;gt;url-&amp;gt;link(&#39;account/logout&#39;) // URL for logout // UR
     
     <item>
       <title>The Ultimate Guide to Creating OpenCart Modules</title>
-      <link>localhost/hugo-tldr/opencart/ultimate-guide-to-creating-opencart-modules/</link>
+      <link>/opencart/ultimate-guide-to-creating-opencart-modules/</link>
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/ultimate-guide-to-creating-opencart-modules/</guid>
+      <guid>/opencart/ultimate-guide-to-creating-opencart-modules/</guid>
       <description>Compatibility: OpenCart 2.3x
 This guide will make more sense to people who are familiar with PHP, OOP and MVC. To beginners, it should serve as a good starting point
 File structure and organization - MVC(L) You have the MVC(L) structure. According to someone on StackOverflow though &amp;gt; Well .. actually, OpenCart does not use MVC pattern. They have a bastardized version of Rails-like architecture. It doesn&amp;rsquo;t have views (only dumb templates), it doesn&amp;rsquo;t have model layer (only table gateways) and all of the logic is dumped in something they call &amp;ldquo;controllers&amp;rdquo;.</description>
@@ -113,10 +113,10 @@ File structure and organization - MVC(L) You have the MVC(L) structure. Accordin
     
     <item>
       <title>Upgrade from OpenCart 2.1.0.2 to 2.3.0.2</title>
-      <link>localhost/hugo-tldr/opencart/upgrade-2102-2303/</link>
+      <link>/opencart/upgrade-2102-2303/</link>
       <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/upgrade-2102-2303/</guid>
+      <guid>/opencart/upgrade-2102-2303/</guid>
       <description>Pre-Upgrade  Backup everything
  PhpMyAdmin &amp;gt; Export database Compress and copy the public_html/ folder  Set file and folder permissions for install
   chmod 777 config.php	chmod 777 admin/config.php chmod 777 image/ chmod 777 image/cache/ chmod 777 image/catalog/ chmod 777 system/storage/cache/ chmod 777 system/storage/logs/ chmod 777 system/storage/download/ chmod 777 system/storage/upload/ chmod 777 system/storage/modification/   Delete any modification files (this may delete your OCMODs. proceed with caution!)  rm -rf system/storage/modification/*  I did delete all the files inside the modification folder and it didn&amp;rsquo;t seem to have affected all the OCMOD files that i had installed on the site.</description>
@@ -124,39 +124,39 @@ File structure and organization - MVC(L) You have the MVC(L) structure. Accordin
     
     <item>
       <title>Hide Menu Item/Link If User does not have Permission - OpenCart 2.1.0.2</title>
-      <link>localhost/hugo-tldr/opencart/show-menu-item-only-if-permitted/</link>
+      <link>/opencart/show-menu-item-only-if-permitted/</link>
       <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/show-menu-item-only-if-permitted/</guid>
+      <guid>/opencart/show-menu-item-only-if-permitted/</guid>
       <description>Right now, if you edit a User Group and take away permissions for some areas, it still shows the areas in the menu. Meaning, the person can see all the areas, knows he wasn&amp;rsquo;t allowed access and get&amp;rsquo;s a not allowed message when he clicks on the menu link.
 Ideally, if a user has no access to a menu, he should not see it to begin with. OpenCart should hide the menu item automatically if user doesn&amp;rsquo;t have permission to View it.</description>
     </item>
     
     <item>
       <title>Enable SSL in OpenCart</title>
-      <link>localhost/hugo-tldr/opencart/opencart-enable-ssl/</link>
+      <link>/opencart/opencart-enable-ssl/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/opencart-enable-ssl/</guid>
+      <guid>/opencart/opencart-enable-ssl/</guid>
       <description>Install SSL Enable SSL in Admin Edit config.php files  Install SSL On an Apache (Ubuntu) system where you have SSH access, you can run the following commands to install an SSL (Let&amp;rsquo;s Encrypt)
 sudo apt-get update sudo apt-get install software-properties-common sudo add-apt-repository ppa:certbot/certbot # add certbot repo sudo apt-get update sudo apt-get install python-certbot-apache # install certbot sudo certbot --apache # run certbot  Don&amp;rsquo;t forget to add certbot renew to cron</description>
     </item>
     
     <item>
       <title>Upgrade OpenCart Extensions from 2.1x to 2.3x/3x</title>
-      <link>localhost/hugo-tldr/opencart/upgrade-opencart-extensions-2x-3x/</link>
+      <link>/opencart/upgrade-opencart-extensions-2x-3x/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/upgrade-opencart-extensions-2x-3x/</guid>
+      <guid>/opencart/upgrade-opencart-extensions-2x-3x/</guid>
       <description>Language  The default language folder is now called en-gb instead of english. Update your scripts to reflect the change It looks like it is no longer saving language variables in controller files. For example, this whole chunk is gone from admin/controller/extension/shipping/pickup.php  $data[&#39;heading_title&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;heading_title&#39;); $data[&#39;text_edit&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;text_edit&#39;); $data[&#39;text_enabled&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;text_enabled&#39;); $data[&#39;text_disabled&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;text_disabled&#39;); $data[&#39;text_all_zones&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;text_all_zones&#39;); $data[&#39;text_none&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;text_none&#39;); $data[&#39;entry_geo_zone&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;entry_geo_zone&#39;); $data[&#39;entry_status&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;entry_status&#39;); $data[&#39;entry_sort_order&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;entry_sort_order&#39;); $data[&#39;button_save&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;button_save&#39;); $data[&#39;button_cancel&#39;] = $this-&amp;gt;language-&amp;gt;get(&#39;button_cancel&#39;);  Folder Structure  The default folder structure has changed.</description>
     </item>
     
     <item>
       <title>Fixing OpenCart Internal Server Error</title>
-      <link>localhost/hugo-tldr/opencart/fix-opencart-internal-server-error-500/</link>
+      <link>/opencart/fix-opencart-internal-server-error-500/</link>
       <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/fix-opencart-internal-server-error-500/</guid>
+      <guid>/opencart/fix-opencart-internal-server-error-500/</guid>
       <description>Error 500 Internal Server Error after transferring web host  Check Apache error logs (usually $HOME/logs/error_log)  1. Option FollowSymlinks not allowed here Option FollowSymlinks not allowed here  Chances are you&amp;rsquo;re on Virtualmin.
  Any Virtualmin site that uses FollowSymLinks can be exploited to allow that user to read all files in /home. That was creating a nightmare
  Virtualmin adds some Options as part of a security fix that could otherwise cause all your websites to be compromised if one of them gets hacked.</description>
@@ -164,10 +164,10 @@ sudo apt-get update sudo apt-get install software-properties-common sudo add-apt
     
     <item>
       <title>Upgrading OpenCart Extensions</title>
-      <link>localhost/hugo-tldr/opencart/upgrade-opencart-extensions/</link>
+      <link>/opencart/upgrade-opencart-extensions/</link>
       <pubDate>Fri, 30 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/upgrade-opencart-extensions/</guid>
+      <guid>/opencart/upgrade-opencart-extensions/</guid>
       <description>Coding standards  Removed the PHP ending tag ?&amp;gt; from php files  Load the Language File In 1.5.x, you would use the following snippet to load the corresponding module language file.
 $this-&amp;gt;language-&amp;gt;load(&#39;account/account&#39;);  On the other hand, you need to use a slightly different version in the case of OpenCart 2.x.x, as shown in the following snippet.
 $this-&amp;gt;load-&amp;gt;language(&#39;account/account&#39;);  Controller 1. Assigning template variables most of the time you&amp;rsquo;ll end up assigning your variables so that you can access them in the view template files</description>
@@ -175,10 +175,10 @@ $this-&amp;gt;load-&amp;gt;language(&#39;account/account&#39;);  Controller 1. A
     
     <item>
       <title>Opencart Architecture</title>
-      <link>localhost/hugo-tldr/opencart/opencart_architecture/</link>
+      <link>/opencart/opencart_architecture/</link>
       <pubDate>Sat, 04 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/opencart/opencart_architecture/</guid>
+      <guid>/opencart/opencart_architecture/</guid>
       <description>Libraries Languages Languages are stored in catalog/language/ and loaded in Controllers
 Define a language key The Values that are used across many pages are stored is english.php. If you want to add a new value just follow the syntax below:
 $_[&#39;language_key&#39;]=&#39;This is test&#39;;  Load a language The languages based on special pages are located inside the folders. For example, for error page the language file can be found at:</description>

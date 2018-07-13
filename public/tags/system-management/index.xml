@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>System Management on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/system-management/</link>
+    <link>/tags/system-management/</link>
     <description>Recent content in System Management on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/system-management/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/system-management/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Find, install and upgrade Linux software</title>
-      <link>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</link>
+      <link>/linux/install-upgrade-search-find-software-packages-linux/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/install-upgrade-search-find-software-packages-linux/</guid>
+      <guid>/linux/install-upgrade-search-find-software-packages-linux/</guid>
       <description>Update packages list: sudo apt update See packages that can be upgraded: apt list --upgradable See all packages that can be upgraded: apt list --upgradable -a Upgrade packages: apt upgrade Upgrade packages without asking me yes/no: apt upgrade -y Search for packages: apt-cache search foo OR apt search foo Get details about a specific package: apt-cache show foo OR apt show foo  apt-cache The apt-cache command can display much of the information stored in APT&amp;rsquo;s internal database.</description>
     </item>
     

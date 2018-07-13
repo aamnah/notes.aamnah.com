@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspberry Pi on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/raspberrypi/</link>
+    <link>/raspberrypi/</link>
     <description>Recent content in Raspberry Pi on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 19 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing Raspbian on SD Card (macOS)</title>
-      <link>localhost/hugo-tldr/raspberrypi/install_raspbian_macos/</link>
+      <link>/raspberrypi/install_raspbian_macos/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/install_raspbian_macos/</guid>
+      <guid>/raspberrypi/install_raspbian_macos/</guid>
       <description>IMAGE=&amp;quot;&amp;quot; SDCARD=&amp;quot;disk3&amp;quot; # identify SD partition card with `diskutil list` # unmount card diskutil unmountDisk ${SDCARD} # write to card sudo dd bs=1m if=${IMAGE} of=/dev/r${SDCARD}  Short:
  mount card, diskutil list and identify your card partition, something along the lines of disk2s1. make note. unmount card, sudo diskutil unmount disk2s1 change naming convention, disk2s1 to rdisk2. Getting the name right is important, so is adding the R at the start.</description>
     </item>
     
     <item>
       <title>Troubleshooting Audio</title>
-      <link>localhost/hugo-tldr/raspberrypi/troubleshooting_audio/</link>
+      <link>/raspberrypi/troubleshooting_audio/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/troubleshooting_audio/</guid>
+      <guid>/raspberrypi/troubleshooting_audio/</guid>
       <description>Situation: Audio is not working over HDMI
 Possibility 1: The TV/Monitor is not being detected in CEA mode DMT is only well defined in DVI and DVI can not do audio. Audio only works in CEA modes..
 # run to detect if tv/monitor mode tvservice -s # tvservice -m CEA # tvservice -m DMT  Uncomment the following in /boot/config.txt to force an HDMI mode. It can make audio work in DMT (computer monitor) modes.</description>
@@ -35,10 +35,10 @@ Possibility 1: The TV/Monitor is not being detected in CEA mode DMT is only well
     
     <item>
       <title>Install/Upgrade Node.js on Raspberry Pi (Raspbian Jessie)</title>
-      <link>localhost/hugo-tldr/raspberrypi/howto-install-latest-node-js-raspberry-pi-raspbian-jessie/</link>
+      <link>/raspberrypi/howto-install-latest-node-js-raspberry-pi-raspbian-jessie/</link>
       <pubDate>Wed, 24 Aug 2016 17:07:46 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/howto-install-latest-node-js-raspberry-pi-raspbian-jessie/</guid>
+      <guid>/raspberrypi/howto-install-latest-node-js-raspberry-pi-raspbian-jessie/</guid>
       <description>tl;dr Run this one command in Terminal:
 curl raw.githubusercontent.com/aamnah/bash-scripts/master/install_nodejs.sh | bash  This will automatically run a script i wrote that takes care of removing existing Node.js stuff, downloading and installing the latest version, and cleaning up afterwards. It also confirms the Node.js version once the installation is done.
 The Node.js version that comes pre-installed with Raspbian Jessie is old. If you check the version using node -v, it&amp;rsquo;ll give you v0.</description>
@@ -46,20 +46,20 @@ The Node.js version that comes pre-installed with Raspbian Jessie is old. If you
     
     <item>
       <title>Raspberry Pi on a battery</title>
-      <link>localhost/hugo-tldr/raspberrypi/raspberry-pi-on-a-battery/</link>
+      <link>/raspberrypi/raspberry-pi-on-a-battery/</link>
       <pubDate>Wed, 26 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/raspberry-pi-on-a-battery/</guid>
+      <guid>/raspberrypi/raspberry-pi-on-a-battery/</guid>
       <description>https://www.youtube.com/watch?v=5Lw2bFTro58 8x GP2700 rechargeable AA batteries. It&amp;rsquo;s powering a Raspberry Pi model A+. In this test it lasted approximately 44 hrs 45 minutes.
 https://www.youtube.com/watch?v=6Wj7bu3MkI8 14hr30min</description>
     </item>
     
     <item>
       <title>Setting up cam on Raspberry Pi</title>
-      <link>localhost/hugo-tldr/raspberrypi/setting-up-cam-on-raspi/</link>
+      <link>/raspberrypi/setting-up-cam-on-raspi/</link>
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/setting-up-cam-on-raspi/</guid>
+      <guid>/raspberrypi/setting-up-cam-on-raspi/</guid>
       <description>You have two options:
 - [motion](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome) - [kerberos](https://kerberos.io/)  Motion install is pretty much all commmand line based.
 Kerberos is more user friendly, easier to install and has a modern interface
@@ -68,10 +68,10 @@ Install motion sudo apt-get install motion -y  Config sudo nano /etc/motion/moti
     
     <item>
       <title>Change Raspberry Pi&#39;s system startup message (MOTD)</title>
-      <link>localhost/hugo-tldr/raspberrypi/change-raspberry-pi-motd-system-startup-message/</link>
+      <link>/raspberrypi/change-raspberry-pi-motd-system-startup-message/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/change-raspberry-pi-motd-system-startup-message/</guid>
+      <guid>/raspberrypi/change-raspberry-pi-motd-system-startup-message/</guid>
       <description>MOTD = Message Of The Day
 Add the following to ~/.bashrc
 ################################ # CUSTOM MOTD FOR RASPBERRY PI	################################ let upSeconds=&amp;quot;$(/usr/bin/cut -d. -f1 /proc/uptime)&amp;quot; let secs=$((${upSeconds}%60)) let mins=$((${upSeconds}/60%60)) let hours=$((${upSeconds}/3600%24)) let days=$((${upSeconds}/86400)) UPTIME=`printf &amp;quot;%d days, %02dh %02dm %02ds&amp;quot; &amp;quot;$days&amp;quot; &amp;quot;$hours&amp;quot; &amp;quot;$mins&amp;quot; &amp;quot;$secs&amp;quot;` # get the load averages read one five fifteen rest &amp;lt; /proc/loadavg echo &amp;quot;$(tput setaf 2) .~~. .~~. `date +&amp;quot;%A, %e %B %Y, %r&amp;quot;` &#39;. \ &#39; &#39; / .</description>
@@ -79,20 +79,20 @@ Add the following to ~/.bashrc
     
     <item>
       <title>System Monitor for Raspberry Pi</title>
-      <link>localhost/hugo-tldr/raspberrypi/howto-system-monitor-for-raspberry-pi/</link>
+      <link>/raspberrypi/howto-system-monitor-for-raspberry-pi/</link>
       <pubDate>Wed, 21 May 2014 16:30:36 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/howto-system-monitor-for-raspberry-pi/</guid>
+      <guid>/raspberrypi/howto-system-monitor-for-raspberry-pi/</guid>
       <description>RPi-Monitor is a nifty utility that monitors and displays system information about your Raspberry Pi in a nice-looking graphical interface in the browser.
 It can show you how much CPU Load you have, what is the temperature of your Raspberry Pi (good to know in cases where you have overclocked the raspberry pi), Used, Free and Total Memroy (RAM), Used, Free and Total Space you have on both partitions of your SD Card, Used, Free and Total SWAP space (Virtual RAM), how long the Raspberry Pi has been running (Uptime), and general information about your Versions (Kernel, Firmware, Processor etc.</description>
     </item>
     
     <item>
       <title>Custom Raspberry Pi MOTD (Message Of The Day)</title>
-      <link>localhost/hugo-tldr/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</link>
+      <link>/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</link>
       <pubDate>Wed, 21 May 2014 16:25:33 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</guid>
+      <guid>/raspberrypi/howto-raspberry-pi-motd-message-of-the-day/</guid>
       <description>let upSeconds=&amp;quot;$(/usr/bin/cut -d. -f1 /proc/uptime)&amp;quot; let secs=$((${upSeconds}%60)) let mins=$((${upSeconds}/60%60)) let hours=$((${upSeconds}/3600%24)) let days=$((${upSeconds}/86400)) UPTIME=`printf &amp;quot;%d days, %02dh%02dm%02ds&amp;quot; &amp;quot;$days&amp;quot; &amp;quot;$hours&amp;quot; &amp;quot;$mins&amp;quot; &amp;quot;$secs&amp;quot;` # get the load averages read one five fifteen rest &amp;lt; /proc/loadavg echo &amp;quot;$(tput setaf 2) .~~. .~~. `date +&amp;quot;%A, %e %B %Y, %r&amp;quot;` &#39;. \ &#39; &#39; / .&#39; `uname -srmo`$(tput setaf 1) .~ .~~~..~. : .~.&#39;~&#39;.~. : Uptime.............: ${UPTIME} ~ ( ) ( ) ~ Memory.............: `cat /proc/meminfo | grep MemFree | awk {&#39;print $2&#39;}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {&#39;print $2&#39;}`kB (Total) ( : &#39;~&#39;.</description>
     </item>
     

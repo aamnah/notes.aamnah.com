@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Crontab on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/tags/crontab/</link>
+    <link>/tags/crontab/</link>
     <description>Recent content in Crontab on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Tue, 19 Aug 2014 12:59:41 +0500</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/tags/crontab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/crontab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automated MySQL Backups to Amazon S3 with AutoMySQLBackups</title>
-      <link>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</link>
+      <link>/databases/automated-mysql-backups-with-automysqlbackups/</link>
       <pubDate>Tue, 19 Aug 2014 12:59:41 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/databases/automated-mysql-backups-with-automysqlbackups/</guid>
+      <guid>/databases/automated-mysql-backups-with-automysqlbackups/</guid>
       <description>This how-to will teach you how to take automated backups of all your MySQL databases and send them to Amazon S3.
 Access (Logins) required  root login for the server (sudo is required to run automysqlbackup, root is req. to add to root user’s cron)
  admin login for the mysql server (to provide for backup config file)
@@ -26,10 +26,10 @@ Access (Logins) required  root login for the server (sudo is required to run aut
     
     <item>
       <title>Crontab Basics</title>
-      <link>localhost/hugo-tldr/linux/basics-crontab/</link>
+      <link>/linux/basics-crontab/</link>
       <pubDate>Wed, 21 May 2014 16:32:55 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/linux/basics-crontab/</guid>
+      <guid>/linux/basics-crontab/</guid>
       <description>tl;dr crontab -l # List crontab entries crontab -e # Edit a crontab using the EDITOR specified (export EDITOR=nano) crontab -r # Remove a crontab sudo crontab -e # Edit root user’s crontab crontab my-crontab # add cron jobs by giving a file to crontab   If you are adding a script in any of the cron directories, it has to be executable Use absolute paths for files, directories and executable commands it should link to the absolute path of the executables (commands).</description>
     </item>
     

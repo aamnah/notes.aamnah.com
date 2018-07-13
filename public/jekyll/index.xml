@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jekyll on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/jekyll/</link>
+    <link>/jekyll/</link>
     <description>Recent content in Jekyll on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 09 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/jekyll/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jekyll/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bash Script to Convert Jekyll Front matter to Hugo</title>
-      <link>localhost/hugo-tldr/jekyll/bash-script-to-convert-jekyll-front-matter-hugo/</link>
+      <link>/jekyll/bash-script-to-convert-jekyll-front-matter-hugo/</link>
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/bash-script-to-convert-jekyll-front-matter-hugo/</guid>
+      <guid>/jekyll/bash-script-to-convert-jekyll-front-matter-hugo/</guid>
       <description>Changes  slug is now slug date (creation time) is now date lastmod (modification time) is now lastmod rename all collection folders to remove the underscore (_commands should now be commands) update filenames to remove date + add that date to post metadata remove layout:post from front matter (post metadata)  Find and update existing meta tags # Find and replace metadata tags grep -rl --null mtime . | xargs -0 sed -i &#39;&#39; &#39;s/mtime/lastmod/g&#39; grep -rl --null ctime .</description>
     </item>
     
     <item>
       <title>Getting started with Jekyll</title>
-      <link>localhost/hugo-tldr/jekyll/getting-started-jekyll/</link>
+      <link>/jekyll/getting-started-jekyll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/getting-started-jekyll/</guid>
+      <guid>/jekyll/getting-started-jekyll/</guid>
       <description> installation sudo gem install jekyll jekyll new my-awesome-site cd my-awesome-site jekyll serve # watches for changes by default # =&amp;gt; Now browse to http://localhost:4000  jekyll serve watches for changes by default. It serves the site locally on port 4000. To build the site for production, you can use the build command.
 jekyll build --watch  configuration Links  https://jekyllrb.com/ https://jekyllrb.com/docs/configuration/  </description>
     </item>
     
     <item>
       <title>How to import a WordPress blog in Jekyll (MacOS)</title>
-      <link>localhost/hugo-tldr/jekyll/howto-import-wordpress-jekyll-macos/</link>
+      <link>/jekyll/howto-import-wordpress-jekyll-macos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/howto-import-wordpress-jekyll-macos/</guid>
+      <guid>/jekyll/howto-import-wordpress-jekyll-macos/</guid>
       <description>install jekyll-import and it&amp;rsquo;s dependencies
 # install homebrew if not already installed # /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; brew install mysql sudo gem install unidecode sequel mysql2 htmlentities hpricot open_uri_redirections sudo gem install jekyll-import  Export your WordPress site content (Dashboard &amp;gt; Tools &amp;gt; Export). Now import the downloaded file using the following command:
 ruby -rubygems -e &#39;require &amp;quot;jekyll-import&amp;quot;; JekyllImport::Importers::WordpressDotCom.run({ &amp;quot;source&amp;quot; =&amp;gt; &amp;quot;/Users/aamnah/tldrdevnotes.wordpress.2017-02-23.xml&amp;quot;, })&#39;  Make sure to update the source, it should have the location of your downloaded wordpress export file.</description>
@@ -44,20 +44,20 @@ ruby -rubygems -e &#39;require &amp;quot;jekyll-import&amp;quot;; JekyllImport::
     
     <item>
       <title>How to use Redcarpet for syntax highlighting in Jekyll</title>
-      <link>localhost/hugo-tldr/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</link>
+      <link>/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</guid>
+      <guid>/jekyll/howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code/</guid>
       <description>why? - because i don&amp;rsquo;t wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the posts elsewhere - because Github uses Redcarpet for rendering .md content - because it supports fenced code blocks. - because it makes working with imported/exported sites easy
 install sudo gem install redcarpet  configuration In your _config.yml file, add the entry for redcarpet and update the value for markdown.</description>
     </item>
     
     <item>
       <title>syntax highlighting colors</title>
-      <link>localhost/hugo-tldr/jekyll/2017-02-25-test-syntax-highlighting-theme/</link>
+      <link>/jekyll/2017-02-25-test-syntax-highlighting-theme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/jekyll/2017-02-25-test-syntax-highlighting-theme/</guid>
+      <guid>/jekyll/2017-02-25-test-syntax-highlighting-theme/</guid>
       <description>/* ********************************************** Begin prism-core.js ********************************************** */ var _self = (typeof window !== &#39;undefined&#39;) ? window // if in browser : ( (typeof WorkerGlobalScope !== &#39;undefined&#39; &amp;amp;&amp;amp; self instanceof WorkerGlobalScope) ? self // if in worker : {} // if in node js ); /** * Prism: Lightweight, robust, elegant syntax highlighting * MIT license http://www.opensource.org/licenses/mit-license.php/ * @author Lea Verou http://lea.verou.me */ var Prism = (function(){ // Private helper vars var lang = /\blang(?</description>
     </item>
     

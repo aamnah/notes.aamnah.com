@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on TLDR Dev Notes</title>
-    <link>localhost/hugo-tldr/python/</link>
+    <link>/python/</link>
     <description>Recent content in Python on TLDR Dev Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>TOML &amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="localhost/hugo-tldr/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python Syntax Overview</title>
-      <link>localhost/hugo-tldr/python/python-syntax-overview/</link>
+      <link>/python/python-syntax-overview/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/python-syntax-overview/</guid>
+      <guid>/python/python-syntax-overview/</guid>
       <description># Hello World print(&amp;quot;Hello world&amp;quot;) # Functions def main(): # define a function, call it main (by convention) print(&amp;quot;Hello World&amp;quot;) if __name__ == &amp;quot;__main__&amp;quot;: main() # Conditionals if x &amp;lt; y: print(&amp;quot;x is less than y&amp;quot;) elif x &amp;gt; y: print(&amp;quot;x is greater than y&amp;quot;) else: print(&amp;quot;x is equal to y&amp;quot;)   def define a function  Links -CS50 2017 - Lecture 8 - Python</description>
     </item>
     
     <item>
       <title>Opening and Writing to Files in Python</title>
-      <link>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</link>
+      <link>/python/opening_and_writing_to_files_in_python/</link>
       <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/opening_and_writing_to_files_in_python/</guid>
+      <guid>/python/opening_and_writing_to_files_in_python/</guid>
       <description>Our bio.txt contains
 Name: Aamnah Age: 26 Location: Dubai Gender: Female  To open it in Python:
 file = open(&#39;bio.txt&#39;)  The function open() can take two parameters, one is the path of the file
@@ -36,10 +36,10 @@ The w flag opens a file for writing only.</description>
     
     <item>
       <title>How to parse JSON data in Python</title>
-      <link>localhost/hugo-tldr/python/how_to_parse_json_data_in_python/</link>
+      <link>/python/how_to_parse_json_data_in_python/</link>
       <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/how_to_parse_json_data_in_python/</guid>
+      <guid>/python/how_to_parse_json_data_in_python/</guid>
       <description>import urllib2 import json url = urllib2.urlopen(&amp;quot;http://portfolio.us.reuters.com/us/api/PortfolioSpy.asp?symbol=APL.KA&amp;amp;format=json&amp;quot;) data = json.load(url) print data  We need to do two steps:
  Open the URL Parse the JSON data  Open the URL To open URLs in Python we need the urllib2 module. Import the module in your script by adding import urllib2
 With the .urlopen function we open the URL, which can be either a string or a Request object.</description>
@@ -47,10 +47,10 @@ With the .urlopen function we open the URL, which can be either a string or a Re
     
     <item>
       <title>Python Basics</title>
-      <link>localhost/hugo-tldr/python/python_basics/</link>
+      <link>/python/python_basics/</link>
       <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/python_basics/</guid>
+      <guid>/python/python_basics/</guid>
       <description>Print print() Print is pretty much the same as echo in Bash and PHP and puts in Ruby
 name = &amp;quot;Aamnah Akram&amp;quot; print(name)  Input input() Function to get information from a user. Always gets a string, even if the content is a number.
 input(&amp;quot;How are you today?&amp;quot;)  Variables Variables in Python can not start with a number
@@ -60,10 +60,10 @@ name = input(&amp;quot;What is your name?</description>
     
     <item>
       <title>Python Modules</title>
-      <link>localhost/hugo-tldr/python/python_modules/</link>
+      <link>/python/python_modules/</link>
       <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/python_modules/</guid>
+      <guid>/python/python_modules/</guid>
       <description> Modules in Python are simply Python files with the .py extension, which implement a set of functions. Modules are imported from other modules using the import command.
 To import a module, we use the import command. There are plenty of built-in modules in the Python standard library. Check out the full list here.
 Resources  LearnPython.org - Modules and Packages  </description>
@@ -71,30 +71,30 @@ Resources  LearnPython.org - Modules and Packages  </description>
     
     <item>
       <title>Regex in Python</title>
-      <link>localhost/hugo-tldr/python/regex_in_python/</link>
+      <link>/python/regex_in_python/</link>
       <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/regex_in_python/</guid>
+      <guid>/python/regex_in_python/</guid>
       <description>Here is a sample file names.txt that we&amp;rsquo;ll be using regex on.
 Love, Kenneth kenneth@teamtreehouse.com (555) 555-5555 Teacher, Treehouse @kennethlove McFarland, Dave dave@teamtreehouse.com (555) 555-5554 Teacher, Treehouse Arthur, King king_arthur@camelot.co.uk King, Camelot Österberg, Sven-Erik governor@norrbotten.co.se Governor, Norrbotten @sverik , Tim tim@killerrabbit.com Enchanter, Killer Rabbit Cave Carson, Ryan ryan@teamtreehouse.com (555) 555-5543 CEO, Treehouse @ryancarson Doctor, The doctor+companion@tardis.co.uk Time Lord, Gallifrey Exampleson, Example me@example.com 555-555-5552 Example, Example Co. @example Obama, Barack president.</description>
     </item>
     
     <item>
       <title>Intro to Python for newbie programmers</title>
-      <link>localhost/hugo-tldr/python/2014-09-21-python-intro/</link>
+      <link>/python/2014-09-21-python-intro/</link>
       <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/2014-09-21-python-intro/</guid>
+      <guid>/python/2014-09-21-python-intro/</guid>
       <description>video notes these notes accompany this video: A hands-on introduction to Python for beginning programmers
  You know it&amp;rsquo;s a string because of the quotes &amp;quot; &amp;quot;. You know it&amp;rsquo;s a function because of the parenthesis ( ). You know it&amp;rsquo;s a list because of the square brackets [ ].  Data Types:  Integers (1, 2, 9, 10) Floats (1.89, 2.75, 8.99) Boolean (True, False)  Comparisons:  == !</description>
     </item>
     
     <item>
       <title>Asset management in Flask</title>
-      <link>localhost/hugo-tldr/python/asset_management_flask_webassets/</link>
+      <link>/python/asset_management_flask_webassets/</link>
       <pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/asset_management_flask_webassets/</guid>
+      <guid>/python/asset_management_flask_webassets/</guid>
       <description>tags: css and javascript optimization
 How to merge, minify and compile the code of your web assets in Flask webassets is an asset management library for Python. Flask-Assets is an integration of webassets in your Flask application.
 While asset management in itself is pretty neat, the best part is that you can set it to automatically merge, minify, and compile your asset files like CSS and JavaScript.
@@ -103,19 +103,19 @@ For example, if you work with Sass, you can set webassets to watch the sass file
     
     <item>
       <title>Flask</title>
-      <link>localhost/hugo-tldr/python/flask/</link>
+      <link>/python/flask/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/flask/</guid>
+      <guid>/python/flask/</guid>
       <description>Sites Using Flask  Media Queries NPR - x MailChimp  Initializing an app Default directory structure Flask Blueprints Debug (watch) mode Debug mode is also watch mode, meaning that it keeps automatically reloading the site after every save. It also provides detailed outputs in case of an error pinpointing exactly where the error happened and possible reasons as to why it happened. Debug mode is highly recommended during active development.</description>
     </item>
     
     <item>
       <title>How to convert yaml data to python data</title>
-      <link>localhost/hugo-tldr/python/convert_yaml_to_python/</link>
+      <link>/python/convert_yaml_to_python/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/convert_yaml_to_python/</guid>
+      <guid>/python/convert_yaml_to_python/</guid>
       <description>This requires that you have PyYAML installed.
 sudo pip install pyyaml  YAML file Let&amp;rsquo;s assume your YAML file is called post.yml.
 --- author: aamnah date: 28-08-2014 slug: sample-post tags: sample, post, example categories: code  Code Let&amp;rsquo;s save our code in a file called convertyaml.py.
@@ -124,19 +124,19 @@ sudo pip install pyyaml  YAML file Let&amp;rsquo;s assume your YAML file is call
     
     <item>
       <title>virtualenv</title>
-      <link>localhost/hugo-tldr/python/2014-08-29-virtualenv/</link>
+      <link>/python/2014-08-29-virtualenv/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/2014-08-29-virtualenv/</guid>
+      <guid>/python/2014-08-29-virtualenv/</guid>
       <description>Why use virtualenv?  it lets you use a newer version of python () instead of using the system default (2.7.5 on Mac), without effecting the default. It is recommeneded that you start using Python 3 but at the same time it is not really all that feasible yet for several project. For example, Django still is not Python 3 ready. Virtualenv lets you work in different version of python at the same time.</description>
     </item>
     
     <item>
       <title>virtualenvwrapper</title>
-      <link>localhost/hugo-tldr/python/virtualenvwrapper/</link>
+      <link>/python/virtualenvwrapper/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/virtualenvwrapper/</guid>
+      <guid>/python/virtualenvwrapper/</guid>
       <description>Docs
 Features  Organizes all of your virtual environments in one place. Wrappers for managing your virtual environments (create, delete, copy). Use a single command to switch between environments. Tab completion for commands that take a virtual environment as argument. User-configurable hooks for all operations (see Per-User Customization). 6.Plugin system for more creating sharable extensions (see Extending Virtualenvwrapper).  install:
 pip install virtualenvwrapper  setting up We need to specify the directory that&amp;rsquo;ll be the home of all of our virtual environments.</description>
@@ -144,19 +144,19 @@ pip install virtualenvwrapper  setting up We need to specify the directory that&
     
     <item>
       <title>Creating and Viewing HTML Files with Python</title>
-      <link>localhost/hugo-tldr/python/create-view-html-files-with-in-python/</link>
+      <link>/python/create-view-html-files-with-in-python/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/create-view-html-files-with-in-python/</guid>
+      <guid>/python/create-view-html-files-with-in-python/</guid>
       <description> Resources  Creating and Viewing HTML Files with Python - Part 1 Output Data as an HTML File - Part 2  </description>
     </item>
     
     <item>
       <title>Running system commands from within Python scripts</title>
-      <link>localhost/hugo-tldr/python/running_system_commands_python_scripts/</link>
+      <link>/python/running_system_commands_python_scripts/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/running_system_commands_python_scripts/</guid>
+      <guid>/python/running_system_commands_python_scripts/</guid>
       <description>import os os.system(&#39;your command goes here&#39;)  The commands you can pass are operating system specific. For example, to clear the console screen in Windows, it&amp;rsquo;ll be
 os.system(&#39;cls&#39;)  and to clear the console screen in Mac it&amp;rsquo;ll be
 os.system(&#39;clear&#39;)  Both are OS specific commands for the same purpose.
@@ -165,10 +165,10 @@ You can read more about the os library in the Python documentation for os v15.1 
     
     <item>
       <title>Using urllib2 in Python to get content from web pages</title>
-      <link>localhost/hugo-tldr/python/2014-08-26-using-urllib2-in-python-to-get-content-from-web-pages/</link>
+      <link>/python/2014-08-26-using-urllib2-in-python-to-get-content-from-web-pages/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/2014-08-26-using-urllib2-in-python-to-get-content-from-web-pages/</guid>
+      <guid>/python/2014-08-26-using-urllib2-in-python-to-get-content-from-web-pages/</guid>
       <description>First of all, you&amp;rsquo;d need to import urllib2. Add import urllib2 at the beginning of your python file.
 Opening a URL import urllib2 myurl = urllib2.urlopen(&#39;http://aamnah.com&#39;)  The contents of the page http://aamnah.com are now stored in the variable &amp;lsquo;myurl&amp;rsquo;.
 At this point if you print myurl it&amp;rsquo;ll output &amp;lt;addinfourl at 4420156736 whose fp = &amp;lt;socket._fileobject object at 0x10759c7d0&amp;gt;&amp;gt; which basically tells you that the content exists instead of outputting the content.</description>
@@ -176,29 +176,29 @@ At this point if you print myurl it&amp;rsquo;ll output &amp;lt;addinfourl at 44
     
     <item>
       <title>Web scraping in Python to look up stock prices</title>
-      <link>localhost/hugo-tldr/python/2014-08-26-web-scraping-in-python-to-look-up-stock-prices/</link>
+      <link>/python/2014-08-26-web-scraping-in-python-to-look-up-stock-prices/</link>
       <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/2014-08-26-web-scraping-in-python-to-look-up-stock-prices/</guid>
+      <guid>/python/2014-08-26-web-scraping-in-python-to-look-up-stock-prices/</guid>
       <description>Objective We are going to scrape the FT.com website for current stock prices for selected stocks. You&amp;rsquo;ll learn:
  scraping web page fetching price/quote (with regex) presenting results error handling coloring the output  Step 1: Taking input, Opening URL and Grabbing data # import &#39;urllib2&#39; to open the url and &#39;sys&#39; so we could take input from console import urllib2, sys # take input from the console and save it as &#39;symbol&#39; symbol = sys.</description>
     </item>
     
     <item>
       <title>web scraping</title>
-      <link>localhost/hugo-tldr/python/web_scraping/</link>
+      <link>/python/web_scraping/</link>
       <pubDate>Mon, 18 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>localhost/hugo-tldr/python/web_scraping/</guid>
+      <guid>/python/web_scraping/</guid>
       <description> Links  Coding for Entrepreneurs video about web scraping with Python Web Scraping for Sales &amp;amp; Growth Hacking Data mining and Scraping for Beginners and Pros  </description>
     </item>
     
     <item>
       <title>The Zen of Python</title>
-      <link>localhost/hugo-tldr/python/zen-of-python/</link>
+      <link>/python/zen-of-python/</link>
       <pubDate>Sun, 15 Jun 2014 04:25:40 +0500</pubDate>
       
-      <guid>localhost/hugo-tldr/python/zen-of-python/</guid>
+      <guid>/python/zen-of-python/</guid>
       <description>Long time Pythoneer Tim Peters wrote this &amp;lsquo;Zen of Python&amp;rsquo;. It is considered like a summary manual of python&amp;rsquo;s philosophy.
  Beautiful is better than ugly.
 Explicit is better than implicit.
