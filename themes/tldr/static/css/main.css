@@ -48,37 +48,52 @@ code {
   font-size: .9em;
   padding: 0 .25em; }
 
+.container {
+  width: calc(100% - 200px);
+  margin: 0 auto; }
+
 #header {
   display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: "logo" "menu";
   background-color: #13B2A9;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); }
   @media (min-width: 786px) {
     #header {
-      grid-template-columns: 25vw 70vw; } }
+      grid-template-columns: 5% 25vw 1fr 5%;
+      grid-template-areas: ". logo menu ."; } }
   #header #logo,
   #header #main-nav {
     padding: .5em 1em; }
   #header #logo {
+    grid-area: logo;
     background: rgba(0, 0, 0, 0.05); }
+    #header #logo a {
+      text-decoration: none; }
   #header #logo h1 {
     margin-top: 0;
     color: white;
     text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.02); }
   #header #main-nav {
+    grid-area: menu;
     align-self: center; }
     #header #main-nav a {
       padding-right: .5em;
       color: white; }
 
-#sidebar,
 #main {
+  display: grid;
+  grid-template-columns: 5% 25vw 1fr 5%;
+  grid-template-areas: ". sidebar content ."; }
+
+#sidebar,
+#content {
   padding: 1em; }
 
 #sidebar {
-  float: left;
+  grid-area: sidebar;
   visibility: hidden;
   display: none;
-  width: 25vw;
   padding: 1em;
   font-size: calc(14px + .2vw);
   line-height: 1.8;
@@ -90,17 +105,14 @@ code {
   #sidebar #list-sections li {
     list-style: none; }
 
-#main {
-  float: left;
-  width: 100vw;
-  min-height: 100vh; }
+#content {
+  grid-area: content; }
   @media (min-width: 786px) {
-    #main {
-      width: 70vw;
+    #content {
       padding: 1em 3em; } }
-  #main .post_title {
+  #content .post_title {
     margin-top: 0; }
-  #main .post_meta {
+  #content .post_meta {
     color: #767676;
     font-size: calc(12px + .2vw);
     margin: 1em 0 2em 0; }

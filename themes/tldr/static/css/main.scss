@@ -64,16 +64,26 @@ code {
   padding: 0 .25em;
 }
 
-#header {
-  display: grid;
-  // grid-template-columns: 1fr;
+.container {
+  width: calc(100% - 200px);
+  margin: 0 auto;
+}
 
+#header { 
+  display: grid;
+  grid-template-columns: 100%; // mobile first
+  grid-template-areas: 
+    "logo"
+    "menu";
+  
   background-color: $color-brand-1;
   box-shadow: $box-shadow;
   // line-height: 1;
 
   @media (min-width: $breakpoint-tablet) {
-    grid-template-columns: $width-sidebar $width-main-tablet;
+    grid-template-columns: 5% $width-sidebar 1fr 5%;
+    grid-template-areas: 
+      ". logo menu .";  
   }
 
   #logo,
@@ -82,7 +92,12 @@ code {
   }
 
   #logo {
+    grid-area: logo;
     background: rgba(0,0,0,0.05);
+    
+    a {
+      text-decoration: none;
+    }
   }
 
   #logo h1 {
@@ -95,6 +110,7 @@ code {
     // display: flex;
     // align-items: center;
     // justify-content: center;
+    grid-area: menu;
     align-self: center;
     a {
       padding-right: .5em;
@@ -102,18 +118,23 @@ code {
     }
   }
 }
+#main { // this is the wrapper div for #sidebar and #content
+  display: grid;
+  grid-template-columns: 5% $width-sidebar 1fr 5%;
+  grid-template-areas: 
+    ". sidebar content .";
 
+}
 #sidebar,
-#main {
+#content {
   // position: absolute;
   padding: 1em;
 }
 
 #sidebar {
-  float: left;
+  grid-area: sidebar;
   visibility: hidden; // hidden by default on mobile, mobile first approach
   display: none;
-  width: $width-sidebar;
   padding: 1em;
 
   font-size: $font-normal;
@@ -133,13 +154,10 @@ code {
   }
 }
 
-#main {
-  float: left;
-  width: $width-main;
-  min-height: 100vh;
+#content {
+  grid-area: content;
 
   @media (min-width: $breakpoint-tablet) {
-    width: $width-main-tablet;
     padding: 1em 3em;
   }
 
