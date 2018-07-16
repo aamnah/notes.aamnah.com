@@ -36,7 +36,7 @@ browser-sync start --config 'config/browsersync.js'
 
 ```js
 module.exports = {
-  files: "[ './*/*.{html,htm,css,js}' ]",
+  files: [ './*.*', './*/*.{html,htm,css,js}' ],
   server: true
 }
 ```
