@@ -2,6 +2,7 @@
 title: Browsersync
 description: Automatically refresh your browser on multiple devices and see changes live
 date: 2018-07-15
+lastmod: 2017-07-16
 
 ---
 
@@ -33,10 +34,10 @@ browser-sync start --config 'config/browsersync.js'
 ```
 
 
-```json
-{ 
-  "files": "[ './**/*.{html,htm,css,js}' ]",
-  "server": true
+```js
+module.exports = {
+  files: "[ './*/*.{html,htm,css,js}' ]",
+  server: true
 }
 ```
 
@@ -46,6 +47,12 @@ is the same as running the following command:
 browser-sync --server --files './**/*.{html,htm,css,js}'
 ```
 
+You can also generate a config file contaiing all the default options with the following command:
+
+```bash
+browser-sync init
+```
+
 
 
 Links
@@ -53,3 +60,4 @@ Links
 
 - [Browsersync](https://browsersync.io/)
 - [Browsersync Command Line Usage](https://browsersync.io/docs/command-line)
+- [Browsersync Options](https://www.browsersync.io/docs/options/)
