@@ -5,7 +5,7 @@ description: Windows, Panes and Sessions. Keyboard shortcuts, and how to configu
 date: 2018-08-17
 lastmod: 2018-08-19
 tags: 
--tmux
+- tmux
 
 ---
 
