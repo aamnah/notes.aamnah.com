@@ -7,3 +7,5 @@ date: 2018-08-16
 sudo apt update
 sudo apt install -y snapd
 ```
+
+To be continued..
