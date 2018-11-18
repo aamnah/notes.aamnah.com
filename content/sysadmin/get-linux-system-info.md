@@ -139,34 +139,22 @@ The bash manpage says that the variable OSTYPE stores the name of the operation 
 
 ## python -mplatform
 
-Ubuntu
-
 ```bash
 python -mplatform
 ```
 
 ```
+# Ubuntu
 Linux-3.13.0-68-generic-x86_64-with-Ubuntu-14.04-trusty
-```
 
-CentOS
-
-```bash
-python -mplatform
-```
-
-```
+# CentOS
 Linux-2.6.32-042stab108.6-i686-with-centos-6.7-Final
-```
 
-Mac OS X
-
-```bash
-python -mplatform
-```
-
-```
+# Mac OS X
 Darwin-15.0.0-x86_64-i386-64bit
+
+# Armbian
+Linux-3.4.113-sun8i-armv7l-with-Ubuntu-16.04-xenial
 ```
 
 
