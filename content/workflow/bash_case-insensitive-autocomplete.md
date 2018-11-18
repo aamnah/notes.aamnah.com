@@ -1,8 +1,9 @@
 ---
 title: Case-insesnitive tab auto-complete in the Terminal
 date: 2018-11-18
-tags:
--bash
+tags: 
+- bash
+
 ---
 
 
