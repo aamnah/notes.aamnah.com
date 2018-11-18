@@ -3,6 +3,8 @@ title: SSH Keys
 slug: ssh-keys
 date: 2015-11-15
 lastmod: 2017-03-13
+tags: 
+- ssh
 ---
 
 - Generate a key pair locally
