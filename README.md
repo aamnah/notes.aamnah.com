@@ -28,6 +28,7 @@ TODO
 - [ ] Make the site look good
 - [ ] add 'Edit on Github' link
 - [ ] add Page/Post Titles
+- [ ] add _path_ to post meta to make it easeir to find the relevant file
 
 #### Features
 - [ ] Search
