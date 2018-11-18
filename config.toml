@@ -82,6 +82,7 @@ pluralizeListTitles = false
 [params.copyright]
 prefix = ""
 holder = "Aamnah"
+holder_url = 'https://aamnah.com'
 startYear = "2014"
 suffix = "All rights reserved."
 
