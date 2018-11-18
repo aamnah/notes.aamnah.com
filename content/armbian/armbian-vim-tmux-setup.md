@@ -6,30 +6,53 @@ date: 2018-08-16
 
 
 ```bash
+#!/bin/bash
+
 install_tmux () {
-sudo apt update 
-sudo apt install -y tmux
+	# install Tmux
+	sudo apt update 
+	sudo apt install -y tmux
+
+	# create a custom Tmux conf file (~/.tmux.conf)
+	touch $HOME/.tmux.conf
+	# macOS: ~/.tmux-osx.conf
+	
+# add config for 256 colors
+	echo -e "
+# 256 Colors
+set -g default-terminal \"screen-256color\"
+" >> $HOME/.tmux.conf
+	
+	# make an alias to `tmux -2` to force 256 color terminal
+	echo -e "alias tmux='tmux -2'" > $HOME/.bashrc
 }
 
-install_vimcolorscheme_sublimemonokai () {
-
-}
 configure_vim() {
 # cerate custom Vim config file
 touch $HOME/.vimrc
 
-# Turn on syntax highlighting + line numbers + cursor position
-echo 'syntax on \nset numbers \nset ruler' > $HOME/.vimrc
-
 # create custom dirs
 mkdir -p $HOME/.vim/colors
 
-# fetch and save the Sublime Monokai colorscheme
+# fetch and save Sublime Monokai colorscheme
 curl https://raw.githubusercontent.com/ErichDonGubler/vim-sublime-monokai/master/colors/sublimemonokai.vim > $HOME/.vim/colors/sublimemonokai.vim
 
-# Set Sublime Monokai theme in Vim config (.vimrc)
-echo 'colorscheme sublimemonokai' >> $HOME/.vimrc
+# fetch and save Tommorow Night colorscheme
+curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim > $HOME/.vim/colors/tomorrownight.vim
+
+# Set basic config in order for Sublime Monokai theme to work
+echo 't_Co=256 \nsyntax on \ncolorscheme sublimemonokai' >> $HOME/.vimrc
 }
+
+install_tmux
+configure_vim
+
+# TODO
+# fetch conf files from here: https://github.com/aamnah/dotfiles
+
+# REFERENCES
+# https://github.com/tmux/tmux/wiki/FAQ
+
 ```
 
 ### Colorscheme not showing up as expected
