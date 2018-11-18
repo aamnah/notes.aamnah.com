@@ -2,6 +2,9 @@
 
 title: Setup SSH Keys for Bitbucket on Mac/Linux
 slug: ssh-bitbucket-mac-linux
+date: 2015-01-18
+tags: 
+- ssh
 ---
 
 ### Generate an SSH Key Pair

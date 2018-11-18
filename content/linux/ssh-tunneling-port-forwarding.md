@@ -3,6 +3,8 @@ title: SSH Tunneling / Port Forwarding
 slug: ssh-tunnel-port-forward
 date: 2015-11-15
 lastmod: 2017-03-13
+tags:
+- ssh
 ---
 
 ```bash

@@ -3,6 +3,8 @@
 title: Generating an SSH Key and Copying it to Remote Server
 slug: generate_ssh_keys_copy_remote_server
 date: 2014-08-26
+tags: 
+- ssh
 ---
 
 
