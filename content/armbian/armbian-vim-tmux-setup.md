@@ -55,8 +55,6 @@ tmux -2
 
 - make `tmux` an alias to `tmux -2`
 - `echo $TERM` to see what Terminal you have 
-
-
 - `t_Co=256` let's Vim use 256 colors in Terminals that support it. Without it Vim will only show 8 or 16 different colors. I needed to add this on an Armbian setup in order for the Monokai theme to work.
 
 Links
