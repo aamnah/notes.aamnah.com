@@ -26,8 +26,8 @@ run-shell ~/file/path/flatui-theme.tmux
 This approch is safer as you are not editing your conf file directly and won't mess it up by chance. It is also good when you're testing multiple themes. You can just comment/uncomment the line that loads a theme instead of overwriting the entire `.tmux.conf` file every time
 
 ## reloading the changes
-- You can either load the file from inside `tmux`
 
+- You can either load the file from inside `tmux`
 - You can load the file from the Terinal
 
 ```bash
