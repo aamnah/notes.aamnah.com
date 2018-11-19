@@ -2,6 +2,7 @@
 title: An exhibit of Markdown
 date: 2014-08-25
 ---
+
 <p>A lead or excerpt should go here. two or three lines are good. About 320 chars is also fine.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, in dolores maxime eveniet saepe libero eum consequatur, commodi enim eos ab doloremque ratione illum quaerat voluptas ipsa explicabo corrupti laborum excepturi. Adipisci, dolores, recusandae! Sit tempora dolorum, ipsum cupiditate libero.</p>
 <!--more-->
@@ -67,8 +68,8 @@ heading isn't too big, and you want each size up to look noticeably larger and m
 URLs can be made in a handful of ways:
 
 * A named link to [MarkItDown][3]. The easiest way to do these is to select what you want to make a link and hit `Ctrl+L`.
-* Another named link to [MarkItDown](http://www.markitdown.net/)
-* Sometimes you just want a URL like <http://www.markitdown.net/>.
+* Another named link to [MarkItDown](https://www.markitdown.net/)
+* Sometimes you just want a URL like <https://www.markitdown.net/>.
 
 ## Horizontal rule
 
@@ -83,9 +84,9 @@ It's sometimes handy for breaking things up.
 Markdown can also contain images. I'll need to add something here sometime.
 ![local image](~/Sandbox/Python/python_colors.jpeg)
 
-![image from the web](http://lorempixel.com/200/200/nature)
+![image from the web](https://placeimg.com/400/400/arch)
 
-![alt text](http://)
+![alt text](https://)
 
 ## Finally
 
@@ -93,9 +94,9 @@ There's actually a lot more to Markdown than this. See the official [introductio
 this is not using the official implementation, and this might work subtly differently in some of the little things.
 
 
-  [1]: http://daringfireball.net/projects/markdown/
-  [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
-  [3]: http://www.markitdown.net/
-  [4]: http://daringfireball.net/projects/markdown/basics
-  [5]: http://daringfireball.net/projects/markdown/syntax
+  [1]: https://daringfireball.net/projects/markdown/
+  [2]: https://www.fileformat.info/info/unicode/char/2163/index.htm
+  [3]: https://www.markitdown.net/
+  [4]: https://daringfireball.net/projects/markdown/basics
+  [5]: https://daringfireball.net/projects/markdown/syntax
 
