@@ -1,0 +1,33 @@
+<div id="sidebar">
+  <h6>Sections</h6>
+  <!-- https://discourse.gohugo.io/t/how-to-list-sections/1606/2?u=aamnah -->
+  <ul id="list-sections">
+    {{ range .Site.Sections }}
+      <li><a href="{{ .Permalink }}">
+        <!-- the following is needed when the .Name doesn't exist for some reason (say empty _index.md file) In those cases it does not auto-generate a .Name, so use .Dir instead 
+        This is one of those 'bug turned to feature' things -->
+        {{ if .Name }}{{ .Name}}
+        {{ else }}{{ .Dir }} 
+        {{ end }}</a></li>
+    {{ end }}
+        </ul>
+
+  <section>
+    <h6>Most Used Tags</h6>
+    {{ range first 20 .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>,
+    {{ end }}
+  </section>
+  
+  <!-- https://gohugo.io/templates/taxonomy-templates/#example-list-all-site-tags -->
+  <section>
+    <h6>Tags</h6>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <a href="{{"/tags/" | relLangURL }}{{ $name | urlize}}">{{ $name }}</a>, 
+    {{ end }}
+  </section>
+
+
+
+
+</div><!-- END #sidebar-->

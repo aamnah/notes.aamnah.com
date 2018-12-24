@@ -1,0 +1,12 @@
+name = "TLDR"
+license = "MIT"
+licenselink = "https://github.com/aamnah/tldr/blob/master/LICENSE.md"
+description = "A simple, minimalistic, responsive theme created for TLDRDevNotes.com"
+homepage = "https://tldrdevnotes.com/"
+tags = ["blog", "personal", "purecss", "responsive"]
+features = ["blog", "personal", "purecss", "responsive"]
+min_version = 0.15
+
+[author]
+  name = "Aamnah"
+  homepage = "http://aamnah.com"

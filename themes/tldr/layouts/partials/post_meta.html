@@ -1,0 +1,51 @@
+<div class="post_meta">
+  
+    <!-- Draft Status -->
+    {{ if or (.Params.draft) (and (isset .Params "status") (eq .Params.status "draft")) }}
+      <div class="meta_status"><strong>Status: </strong>DRAFT</div>
+    {{ end }}
+  
+    
+    <!-- Last Modification Date -->
+    {{ if .Lastmod }}
+      <div class="meta_date"><strong>Last updated on:</strong> {{ .Lastmod.Format .Site.Params.dateFormat }}</div>
+    {{ else }}
+      <!-- Publish Date -->
+      <div class="meta_date">{{ .Date.Format .Site.Params.dateFormat }}</div>
+    {{ end }}
+  
+    
+    <!-- Section -->
+    <div class="meta_section"><strong>Section:</strong> 
+      {{ if .CurrentSection.Title }}
+        <a href="{{ .Section | relLangURL }}">{{ .CurrentSection.Title }}</a>
+      {{ else }}
+        <a href="{{ .Section | relLangURL }}">{{ .Section }}</a>
+      {{ end }}    
+    </div>
+
+
+    <!-- Tags -->
+    {{ if .Params.tags }} <!-- If i used `tags` (plural) in front matter -->
+      <div class="meta_tags">
+        <strong>Tags:</strong>
+        <!-- if array, meaning multiple tags -->
+        {{ if isset .Params.tags -1 }} 
+        <!-- `isset foo -1` serves as a check for arrays. 
+          -1 return true if array, false if anything else.
+          I need this check for when there's only one tag and the error 'range can't iterate over tag' needs to be resolved.
+          (One tag means .Params.tags value is string, multiple tags mean .Params.tags value is an array.)
+          https://discourse.gohugo.io/t/how-to-check-if-a-variable-is-string-or-array/7460/7 -->
+          {{ range .Params.tags}}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          {{ end }}
+        {{ else }} 
+          <!-- if string, meaning only one tag -->
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ .Params.tags }}</a>
+        {{ end }}
+      </div>
+    {{ else if .Params.tag }} <!-- If i used `tag` (singular) in front matter -->
+      <div class="meta_tag"><strong>Tag:</strong> {{ .Params.tag }}</div>
+    {{ end }}
+  
+  </div><!-- END .post_meta -->

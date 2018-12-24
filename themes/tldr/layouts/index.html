@@ -1,0 +1,33 @@
+<!-- Include header.html -->
+{{ partial "header" . }}
+
+<!-- List sections with all their posts 
+https://discourse.gohugo.io/t/adding-weights-to-sections-to-order-on-the-homepage/856/3?u=aamnah
+-->
+
+<section>
+  {{ range $section := .Site.Sections }}
+    <h3>{{ $section.Title }}</h3>
+    {{ range $section.Pages }}
+        <!-- Linked Titles -->
+        {{ if .Title }}
+        <!-- If draft:true or status:draft -->
+          {{ if .Params.draft }}
+            <li>DRAFT -- <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ else if (and (isset .Params "status") (eq .Params.status "draft")) }}
+            <li>Status: DRAFT -- <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ else }}
+            <!-- else just show the Title -->
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        {{ else }}
+        <!-- If a Page Title is not set, in cases where notes were taken in a hurry or ported, 
+            show which file to edit (path+filename) -->
+        <li><a href="{{ .Permalink }}">{{ .File.LogicalName }}</a></li>
+        {{ end }}
+    {{ end }}
+  {{ end }}
+</section>
+
+<!-- Include footer.html -->
+{{ partial "footer" . }}
