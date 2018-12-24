@@ -25,9 +25,9 @@ TODO
 
 - [x] Transfer/import posts from Jekyll
 - [x] Convert the site to use Hugo
-- [ ] Make the site look good
+- [x] Make the site look good
 - [ ] add 'Edit on Github' link
-- [ ] add Page/Post Titles
+- [x] add Page/Post Titles
 - [ ] add _path_ to post meta to make it easeir to find the relevant file
 
 #### Features
@@ -51,6 +51,11 @@ TODO
 - [ ] Compress and minify CSS/JS
 
 ### Git changelog
+
+Dec 25, 2018
+- moved site from Bitbucket to Github
+
+Jul 13, 2018
 - added metadata to posts (Redux, ReactJS)
 - Renamed files (removed dates)
 - Fixed syntax highlighting (removed pygments `{% highlight python %}` code)
