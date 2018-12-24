@@ -1,0 +1,17 @@
+---
+permalinks:
+  post: /:section/:title/:slug
+
+# Defaults
+# config file (default is path/config.yaml|json|toml)
+# config:                     "config.yaml"
+# contentDir:                 "content"
+# dataDir:                    "data"
+# defaultExtension:           "html"
+# defaultLayout:              "post"
+
+params: # The values nested under params: will populate the .Site.Params variable for use in templates:
+  github: "Aamnah"
+  twitter: "AamnahAkram"
+
+---

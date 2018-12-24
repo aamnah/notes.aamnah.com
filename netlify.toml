@@ -1,0 +1,25 @@
+[Settings]
+# this is API ID from Settings > General > Site Details
+ID = "d8023249-34f0-4899-946c-82ebfa593754" 
+
+# Global settings applied to the whole site.  
+# 
+# “publish” is the directory to publish (relative to root of your repo),
+# “command” is your build command,
+# “base” is directory to change to before starting build. if you set base:
+#    that is where we will look for package.json/.nvmrc/etc not repo root!
+
+# Settings in the [build] context are global and are applied to all contexts unless otherwise overridden by more specific contexts.  
+
+[build]
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "public"
+  # This will be your default build command
+  command = "hugo"
+
+
+[build.environment]
+  HUGO_VERISON = "0.44" # incompatible versions mean build fails
+
+[context.production.environment]
+  HUGO_VERSION = "0.44"

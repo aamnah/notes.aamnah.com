@@ -1,0 +1,193 @@
+@import "variables";
+@import "fonts";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: $font-body;
+  font-family: $font-family-sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  // text-shadow: $text-shadow;
+  color: $color-primary;
+  line-height: 1.8;
+
+  @media (min-width: $breakpoint-tablet) {
+    line-height: 1.4;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 2;
+  margin-top: 1.8em;
+}
+
+h6 {
+  text-transform: uppercase;
+}
+
+p,
+ul {
+  margin-bottom: 1em;
+}
+li {
+  list-style-position: inside;
+  padding-left: 1em;
+}
+
+.content li {
+  margin-left: 2em;
+}
+
+code, pre {
+  overflow: auto;
+}
+
+code {
+  font-family: $font-family-code;
+  font-weight: bold;
+  font-size: .9em;
+  padding: 0 .25em;
+}
+
+.container {
+  width: calc(100% - 200px);
+  margin: 0 auto;
+}
+
+#header { 
+  display: grid;
+  grid-template-columns: 100%; // mobile first
+  grid-template-areas: 
+    "logo"
+    "menu";
+  
+  background-color: $color-brand-1;
+  box-shadow: $box-shadow;
+  // line-height: 1;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: 5% $width-sidebar 1fr 5%;
+    grid-template-areas: 
+      ". logo menu .";  
+  }
+
+  #logo,
+  #main-nav {
+    padding: .5em 1em;
+  }
+
+  #logo {
+    grid-area: logo;
+    background: rgba(0,0,0,0.05);
+    
+    a {
+      text-decoration: none;
+    }
+  }
+
+  #logo h1 {
+    margin-top: 0;
+    color: white;
+    text-shadow: $text-shadow;
+  }
+
+  #main-nav {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    grid-area: menu;
+    align-self: center;
+    a {
+      padding-right: .5em;
+      color: white;
+    }
+  }
+}
+#main { // this is the wrapper div for #sidebar and #content
+  display: grid;
+  grid-template-areas: 
+    "content"; // mobile first
+
+  @media(min-width: $breakpoint-tablet) {
+    grid-template-columns: 5% $width-sidebar 1fr 5%;
+    grid-template-areas: 
+      ". sidebar content .";    
+  }
+
+}
+#sidebar,
+#content {
+  // position: absolute;
+  padding: 1em;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  visibility: hidden; // hidden by default on mobile, mobile first approach
+  display: none;
+  padding: 1em;
+
+  font-size: $font-normal;
+  line-height: 1.8; 
+
+  background: rgba(210, 210, 210, 0.1);
+
+  @media (min-width: $breakpoint-tablet) {
+    display: block;
+    visibility: visible;  
+  }
+
+  #list-sections {
+    li {
+      list-style: none;
+    }
+  }
+}
+
+#content {
+  grid-area: content;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 1em 3em;
+  }
+
+  .post_title {
+    margin-top: 0;
+  }
+
+  .post_meta {
+    color: $color-fade;
+    font-size: $font-small;
+    margin: 1em 0 2em 0;
+  }
+}
+
+#footer {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: $color-fade 1px dashed;
+
+  .note {
+    font-size: $font-small;
+  }
+  .copyright {
+    color: $color-fade;
+    font-size: $font-xs;
+  }
+}
+
