@@ -1,10 +1,14 @@
 <div class="post_meta">
-  
+    <!-- Edit on Github link -->
+    <div><a href="{{ .Site.Params.github_url }}/blob/master/content/{{ .File.Path }}">Edit on Github</a></div>
+
     <!-- Draft Status -->
     {{ if or (.Params.draft) (and (isset .Params "status") (eq .Params.status "draft")) }}
       <div class="meta_status"><strong>Status: </strong>DRAFT</div>
     {{ end }}
-  
+
+    <!-- File Path -->
+    <div><strong>File path: </strong>{{ .File.Path }}</div>
     
     <!-- Last Modification Date -->
     {{ if .Lastmod }}
