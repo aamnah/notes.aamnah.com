@@ -12,12 +12,6 @@
     {{ end }}
         </ul>
 
-    <div>
-      {{ range .Site.Sections }}
-        {{ .Dir }}
-      {{ end }}
-    </div>
-
   <section>
     <h6>Most Used Tags</h6>
     {{ range first 20 .Site.Taxonomies.tags.ByCount }}
