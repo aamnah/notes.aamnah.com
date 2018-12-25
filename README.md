@@ -3,14 +3,6 @@
 ## Current State
 In it's current state the site/project serves as my diary for all web development, system administration and web design notes. There may be some personal posts, but they are not meant to be public.
 
-
-## Committing Code
-
-- `git add -A` to add all files
-- `git commit -a -m 'update messgae'` to commit all files
-- `git push -u tldrbucket master` to push changes to the repo on bitbucket
-- `git remote` to show remotes, in case i forget the name of the remote repo
-
 The site was originally built using Jekyll, but Jekyll turned into a slow hell when the posts turned into hundreds and the build times turned to 5-10mins. Hugo came to the rescue, super fast build times. But switching meant learning another syntax and setup, which slowed down the launch time. In the meantime, i kept adding notes, but they didn't show up online because the new site was never launched. Up until now.
 
 Gatsby is another site generator that might be the next step for TLDRDevNotes.com
@@ -50,7 +42,7 @@ TODO
 - [ ] Optimize images
 - [ ] Compress and minify CSS/JS
 
-### Git changelog
+### Changelog
 
 Dec 25, 2018
 - moved site from Bitbucket to Github
