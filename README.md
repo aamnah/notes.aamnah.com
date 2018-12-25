@@ -45,6 +45,8 @@ TODO
 - [ ] make the bullet point on home page lighter in color
 - [x] add left padding to the sidebar/website
 - [ ] Update Prism.css styles (styles for `<code>` tags)
+- [ ] make code wrap so it doesn't overflow off the page
+- [ ] add fontawesome (or some other svg icons)
 
 #### Performance
 - [ ] Optimize images
