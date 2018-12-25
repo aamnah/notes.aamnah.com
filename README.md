@@ -45,19 +45,26 @@ TODO
 - [ ] make the bullet point on home page lighter in color
 - [x] add left padding to the sidebar/website
 - [ ] Update Prism.css styles (styles for `<code>` tags)
-- [ ] make code wrap so it doesn't overflow off the page
-- [ ] add fontawesome (or some other svg icons)
+- [x] make code wrap so it doesn't overflow off the page
+- [x] add fontawesome (or some other svg icons)
 
 #### Performance
 - [ ] Optimize images
 - [ ] Compress and minify CSS/JS
 
+#### SEO and Visibility
+- [ ] Generate a sitemap
+- [ ] robots.txt
+- [ ] add default meta info
+
 ### Changelog
 
 Dec 25, 2018
 - moved site from Bitbucket to Github
-- added *file path* (this makes my life easier when i have to find the file inside a folder in order to edit it)
-- added *Edit on Github* link (so if anyone wants to edit the page, it opens it up on Github)
+- added _file path_ (this makes my life easier when i have to find the file inside a folder in order to edit it)
+- added _Edit on Github_ link (so if anyone wants to edit the page, it opens it up on Github)
+- wrap code blocks using `white-space: pre-wrap;` in `prism.css`
+- removed _all tags_ from the sidebar, they were unnecessary
 
 Jul 13, 2018
 - added metadata to posts (Redux, ReactJS)
