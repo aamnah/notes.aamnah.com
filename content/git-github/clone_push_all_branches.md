@@ -36,6 +36,7 @@ git clone --mirror repo_url
 
 # change to the new dir and push with --mirror to the new remote URL
 ```
+
 This is a bare repo, which means your normal files won't be visible, but it is a full copy of the Git database of your repository
 
 # setup mirrored branches locally
