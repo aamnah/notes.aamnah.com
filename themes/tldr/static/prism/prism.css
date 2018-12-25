@@ -26,7 +26,9 @@ pre[class*="language-"] {
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
-	hyphens: none;
+  hyphens: none;
+  
+  white-space: pre-wrap; /* make code blocks wrap so they don't overflow and have horizontal scroll bars */
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
