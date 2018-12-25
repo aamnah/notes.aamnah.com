@@ -74,11 +74,6 @@ pluralizeListTitles = false
     pre = "<i class='fa fa-star fa-fw'></i>"
     weight = 4
     url = "/resources/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
 
 # BLACKBURN THEME SETTINGS
 [params.copyright]
