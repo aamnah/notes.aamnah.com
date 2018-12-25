@@ -1,6 +1,6 @@
 ---
 title: Delete files forever from a git repo on Github or Bitbucket
-description: 'delete personal/private files from a repo that is publicly available and you have accidentally pushed files that shouldn't be out there like SSH keys, passwords, configs etc. Do this using BFG Repo-Cleaner to alter the history of your Git repo'
+description: "delete personal/private files from a repo that is publicly available and you have accidentally pushed files that shouldn't be out there like SSH keys, passwords, configs etc. Do this using BFG Repo-Cleaner to alter the history of your Git repo"
 date: 2018-12-25
 ---
 
