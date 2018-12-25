@@ -67,7 +67,6 @@ pre {
 
 code {
   font-family: monospace;
-  font-weight: bold;
   font-size: .9em;
   padding: 0.25rem .5em;
 }
@@ -84,7 +83,7 @@ code {
     "logo"
     "menu";
   
-  background-color: $color-brand-1;
+  background-color: $color-primary;
   box-shadow: $box-shadow;
   // line-height: 1;
 

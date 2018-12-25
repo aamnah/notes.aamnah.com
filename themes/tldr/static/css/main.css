@@ -64,7 +64,6 @@ pre {
 
 code {
   font-family: monospace;
-  font-weight: bold;
   font-size: 0.9em;
   padding: 0.25rem 0.5em;
 }
@@ -159,7 +158,7 @@ code {
   margin-top: 0;
 }
 #content .post_meta {
-  color: #767676;
+  color: #828282;
   font-size: calc(12px + .2vw);
   margin: 1em 0 2em 0;
 }
@@ -167,12 +166,12 @@ code {
 #footer {
   margin-top: 2em;
   padding-top: 2em;
-  border-top: #767676 1px dashed;
+  border-top: #828282 1px dashed;
 }
 #footer .note {
   font-size: calc(12px + .2vw);
 }
 #footer .copyright {
-  color: #767676;
+  color: #828282;
   font-size: calc(11px + .1vw);
 }
