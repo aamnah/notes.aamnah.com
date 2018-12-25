@@ -65,6 +65,7 @@ Dec 25, 2018
 - added _Edit on Github_ link (so if anyone wants to edit the page, it opens it up on Github)
 - wrap code blocks using `white-space: pre-wrap;` in `prism.css`
 - removed _all tags_ from the sidebar, they were unnecessary
+- updated copyright to CC BY-SA 4.0 and ownership
 
 Jul 13, 2018
 - added metadata to posts (Redux, ReactJS)
