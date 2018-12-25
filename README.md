@@ -12,15 +12,23 @@ The theme used is built from scratch, following this nice [Youtube series by Gir
 
 The name of the theme being used is `tldr` and the path is `./themes/tldr`
 
+
+## Developing the site
+
+```bash
+brew install hugo
+hugo server -D --disableFastRender # -D, --buildDrafts, include content marked as draft
+```
+
 TODO
 ---
 
 - [x] Transfer/import posts from Jekyll
 - [x] Convert the site to use Hugo
 - [x] Make the site look good
-- [ ] add 'Edit on Github' link
+- [x] add 'Edit on Github' link
 - [x] add Page/Post Titles
-- [ ] add _path_ to post meta to make it easeir to find the relevant file
+- [x] add _path_ to post meta to make it easeir to find the relevant file
 
 #### Features
 - [ ] Search
@@ -33,9 +41,9 @@ TODO
 - [x] List all sections/notebooks/categories in the sidebar
 - [ ] Add an Urdu layout
 - [ ] add styles for block quotes and quotes
-- [ ] add spacing to footer
+- [x] add spacing to footer
 - [ ] make the bullet point on home page lighter in color
-- [ ] add left padding to the sidebar/website
+- [x] add left padding to the sidebar/website
 - [ ] Update Prism.css styles (styles for `<code>` tags)
 
 #### Performance
@@ -46,6 +54,8 @@ TODO
 
 Dec 25, 2018
 - moved site from Bitbucket to Github
+- added *file path* (this makes my life easier when i have to find the file inside a folder in order to edit it)
+- added *Edit on Github* link (so if anyone wants to edit the page, it opens it up on Github)
 
 Jul 13, 2018
 - added metadata to posts (Redux, ReactJS)
