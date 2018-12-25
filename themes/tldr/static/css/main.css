@@ -68,6 +68,10 @@ code {
   padding: 0.25rem 0.5em;
 }
 
+pre > code {
+  font-family: Consolas, Monaco, "Lucida Console", "Andale Mono", "Ubuntu Mono", monospace;
+}
+
 .container {
   width: calc(100% - 200px);
   margin: 0 auto;

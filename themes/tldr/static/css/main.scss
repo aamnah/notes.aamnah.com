@@ -66,9 +66,13 @@ pre {
 }
 
 code {
-  font-family: monospace;
+  font-family: monospace; // for inline code, use monospace for better readability and diferentiation from other text
   font-size: .9em;
   padding: 0.25rem .5em;
+}
+
+pre>code { // for code blocks, use Consolas, Monaco etc.
+  font-family: $font-family-code;
 }
 
 .container {
