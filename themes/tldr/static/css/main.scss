@@ -54,15 +54,22 @@ li {
 }
 
 code, pre {
+  background: #f5f2f0;
   overflow: auto;
   white-space: pre-wrap;
 }
 
+pre {
+  padding: 1em;
+  margin: .5em 0;
+  line-height: 1.5;
+}
+
 code {
-  font-family: $font-family-code;
+  font-family: monospace;
   font-weight: bold;
   font-size: .9em;
-  padding: 0 .25em;
+  padding: 0.25rem .5em;
 }
 
 .container {
