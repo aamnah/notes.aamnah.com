@@ -1,22 +1,27 @@
 <div class="post_meta">
-  
+    <!-- Edit on Github link -->
+    <div><a href="{{ .Site.Params.github_url }}/blob/master/content/{{ .File.Path }}"><i class="fab fa-github"></i> Edit on Github</a></div>
+
     <!-- Draft Status -->
     {{ if or (.Params.draft) (and (isset .Params "status") (eq .Params.status "draft")) }}
       <div class="meta_status"><strong>Status: </strong>DRAFT</div>
     {{ end }}
-  
+
+    <!-- File Path -->
+    <div><i class="fas fa-terminal"></i> {{ .File.Path }}</div>
     
     <!-- Last Modification Date -->
     {{ if .Lastmod }}
-      <div class="meta_date"><strong>Last updated on:</strong> {{ .Lastmod.Format .Site.Params.dateFormat }}</div>
+      <div class="meta_date"><i class="fas fa-history"></i> {{ .Lastmod.Format .Site.Params.dateFormat }}</div>
     {{ else }}
       <!-- Publish Date -->
-      <div class="meta_date">{{ .Date.Format .Site.Params.dateFormat }}</div>
+      <div class="meta_date"><i class="fas fa-calendar-alt"></i> {{ .Date.Format .Site.Params.dateFormat }}</div>
     {{ end }}
   
     
     <!-- Section -->
-    <div class="meta_section"><strong>Section:</strong> 
+    <div class="meta_section"><i class="fas fa-folder-open"></i> 
+      
       {{ if .CurrentSection.Title }}
         <a href="{{ .Section | relLangURL }}">{{ .CurrentSection.Title }}</a>
       {{ else }}
@@ -28,7 +33,7 @@
     <!-- Tags -->
     {{ if .Params.tags }} <!-- If i used `tags` (plural) in front matter -->
       <div class="meta_tags">
-        <strong>Tags:</strong>
+        <i class="fas fa-hashtag"></i>
         <!-- if array, meaning multiple tags -->
         {{ if isset .Params.tags -1 }} 
         <!-- `isset foo -1` serves as a check for arrays. 

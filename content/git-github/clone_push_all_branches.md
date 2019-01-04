@@ -37,6 +37,8 @@ git clone --mirror repo_url
 # change to the new dir and push with --mirror to the new remote URL
 ```
 
+This is a bare repo, which means your normal files won't be visible, but it is a full copy of the Git database of your repository
+
 # setup mirrored branches locally
 
 > Using the `--mirror` option seems to copy the `remote` tracking branches properly. However, it sets up the repository as a bare repository, so you have to turn it back into a normal repository afterwards.

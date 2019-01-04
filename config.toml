@@ -15,7 +15,7 @@ pluralizeListTitles = false
 [params] # The values nested under params: will populate the .Site.Params variable for use in templates:
   subtitle = "Too Long Didn’t Read (tl;dr) version of a Developer’s Notes"
   brand = "TLDR Dev Notes"
-  googleAnalytics = "Your Google Analytics tracking ID"
+  googleAnalytics = "UA-51214502-1"
   disqus = "Your Disqus shortname"
 
   # CSS name for highlight.js
@@ -26,6 +26,8 @@ pluralizeListTitles = false
   # (relative to /static folder)
   custom_css = ["css/custom.css"]
   # custom_js = ["js/my.js"]
+
+  github_url="https://github.com/29concepts/tldrdevnotes.com"
 
 [params.social]
   # Link your social networking accounts
@@ -72,11 +74,6 @@ pluralizeListTitles = false
     pre = "<i class='fa fa-star fa-fw'></i>"
     weight = 4
     url = "/resources/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
 
 # BLACKBURN THEME SETTINGS
 [params.copyright]

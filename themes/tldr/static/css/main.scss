@@ -54,14 +54,25 @@ li {
 }
 
 code, pre {
+  background: #f5f2f0;
   overflow: auto;
+  white-space: pre-wrap;
+}
+
+pre {
+  padding: 1em;
+  margin: .5em 0;
+  line-height: 1.5;
 }
 
 code {
-  font-family: $font-family-code;
-  font-weight: bold;
+  font-family: monospace; // for inline code, use monospace for better readability and diferentiation from other text
   font-size: .9em;
-  padding: 0 .25em;
+  padding: 0.25rem .5em;
+}
+
+pre>code { // for code blocks, use Consolas, Monaco etc.
+  font-family: $font-family-code;
 }
 
 .container {
@@ -76,7 +87,7 @@ code {
     "logo"
     "menu";
   
-  background-color: $color-brand-1;
+  background-color: $color-primary;
   box-shadow: $box-shadow;
   // line-height: 1;
 

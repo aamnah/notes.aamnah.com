@@ -3,14 +3,6 @@
 ## Current State
 In it's current state the site/project serves as my diary for all web development, system administration and web design notes. There may be some personal posts, but they are not meant to be public.
 
-
-## Committing Code
-
-- `git add -A` to add all files
-- `git commit -a -m 'update messgae'` to commit all files
-- `git push -u tldrbucket master` to push changes to the repo on bitbucket
-- `git remote` to show remotes, in case i forget the name of the remote repo
-
 The site was originally built using Jekyll, but Jekyll turned into a slow hell when the posts turned into hundreds and the build times turned to 5-10mins. Hugo came to the rescue, super fast build times. But switching meant learning another syntax and setup, which slowed down the launch time. In the meantime, i kept adding notes, but they didn't show up online because the new site was never launched. Up until now.
 
 Gatsby is another site generator that might be the next step for TLDRDevNotes.com
@@ -20,15 +12,23 @@ The theme used is built from scratch, following this nice [Youtube series by Gir
 
 The name of the theme being used is `tldr` and the path is `./themes/tldr`
 
+
+## Developing the site
+
+```bash
+brew install hugo
+hugo server -D --disableFastRender # -D, --buildDrafts, include content marked as draft
+```
+
 TODO
 ---
 
 - [x] Transfer/import posts from Jekyll
 - [x] Convert the site to use Hugo
-- [ ] Make the site look good
-- [ ] add 'Edit on Github' link
-- [ ] add Page/Post Titles
-- [ ] add _path_ to post meta to make it easeir to find the relevant file
+- [x] Make the site look good
+- [x] add 'Edit on Github' link
+- [x] add Page/Post Titles
+- [x] add _path_ to post meta to make it easeir to find the relevant file
 
 #### Features
 - [ ] Search
@@ -41,16 +41,33 @@ TODO
 - [x] List all sections/notebooks/categories in the sidebar
 - [ ] Add an Urdu layout
 - [ ] add styles for block quotes and quotes
-- [ ] add spacing to footer
+- [x] add spacing to footer
 - [ ] make the bullet point on home page lighter in color
-- [ ] add left padding to the sidebar/website
+- [x] add left padding to the sidebar/website
 - [ ] Update Prism.css styles (styles for `<code>` tags)
+- [x] make code wrap so it doesn't overflow off the page
+- [x] add fontawesome (or some other svg icons)
 
 #### Performance
 - [ ] Optimize images
 - [ ] Compress and minify CSS/JS
 
-### Git changelog
+#### SEO and Visibility
+- [ ] Generate a sitemap
+- [ ] robots.txt
+- [ ] add default meta info
+
+### Changelog
+
+Dec 25, 2018
+- moved site from Bitbucket to Github
+- added _file path_ (this makes my life easier when i have to find the file inside a folder in order to edit it)
+- added _Edit on Github_ link (so if anyone wants to edit the page, it opens it up on Github)
+- wrap code blocks using `white-space: pre-wrap;` in `prism.css`
+- removed _all tags_ from the sidebar, they were unnecessary
+- updated copyright to CC BY-SA 4.0 and ownership
+
+Jul 13, 2018
 - added metadata to posts (Redux, ReactJS)
 - Renamed files (removed dates)
 - Fixed syntax highlighting (removed pygments `{% highlight python %}` code)

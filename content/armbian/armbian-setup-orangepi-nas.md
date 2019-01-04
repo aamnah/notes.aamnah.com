@@ -51,3 +51,4 @@ sudo useradd bumblebee -m -G users
 sudo passwd bumblebee
 Set a password for your user in Samba
 sudo smbpasswd -a <username>
+```
