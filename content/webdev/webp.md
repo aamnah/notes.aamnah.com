@@ -51,7 +51,6 @@ find ./ -name "*.webp" -exec dwebp {} -o {}.png \;
 
 # convert all JPEGs to webp
 find ./ -name "*.jpg" -exec cwebp -q 70 {} -o {}.webp \;
-
 ```
 
 - For JPEGs, use `lossy`, for PNGs use `lossless`
@@ -59,8 +58,6 @@ find ./ -name "*.jpg" -exec cwebp -q 70 {} -o {}.webp \;
 - `cwebp` is for compressing an image file to a WebP file
 - `dwebp` is for decompressing a WebP file to an image file
 - `vwebp` is for decompressing a WebP file and displaying it in a window
-
-
 
 Links
 ---
