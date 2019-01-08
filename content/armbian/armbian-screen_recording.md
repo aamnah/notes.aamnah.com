@@ -1,7 +1,8 @@
 ---
 title: Screen recording on Armbian
 description: Setting up my Orange Pi Plus 2 for some screen recording so i could make mini tutorials
-date: 2018-08-12	
+date: 2018-08-12
+lastmod: 2019-01-08
 tags:
 - armbian
 ---
@@ -71,7 +72,6 @@ Editing the conf file directly was also in vain. Kazam resets the settings every
 
 - According to the author, framerates above 20fps are unlikely to work well because of software and hardware limitations.
 - Kazam seems to have been abandoned, the last release was in 2014
-
 - Errors when running `kazam`. Errors when compiling from source. Errors with `python3`
 
 ## Simple Screen Recorder
@@ -161,5 +161,7 @@ Goodbye!
 Links
 ---
 
+- [SimpleScreenRecorder](http://www.maartenbaert.be/simplescreenrecorder/)
 - [OBS Studio](https://obsproject.com)
 - [Gifine](https://github.com/leafo/gifine)
+- [Screen Recording on Orange Pi (Armbian) with SimpleScreenRecorder](https://www.youtube.com/watch?v=rz988rnwqUc)
