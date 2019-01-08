@@ -94,12 +94,13 @@ xrandr: Failed to get size of gamma for output default
 xrandr: specified screen 1280x720 not large enough for output default (1920x1080+0+0)
 ```
 
-Somewhere along the way i added a monitor profile for Asus 24" VX24AH in `/etc/X11/xorg.conf.d` and that seems to have messed up the dimensions Nope.
-
-I'll probably have to add a new monitor profile for the Sony Bravia 32" (KLV-32BX350) that i intend on using.. Nope. The issue was with TV's settings..
-
 ### Troubleshooting
 
 - Reducing the frequency from 60Hz might work. Try _40Hz_ or _33Hz_
 - Find all monitors with `xrandr --listmonitors`
 - Find current resolution details with `xrandr -q`
+
+Following are thoughts when i was getting overscan on my TV.. it had nothing to do with the confgurations though, fixed in the end by chnaging TV settings for picture
+
+- Somewhere along the way i added a monitor profile for Asus 24" VX24AH in `/etc/X11/xorg.conf.d` and that seems to have messed up the dimensions Nope.
+- I'll probably have to add a new monitor profile for the Sony Bravia 32" (KLV-32BX350) that i intend on using.. Nope. The issue was with TV's settings..
