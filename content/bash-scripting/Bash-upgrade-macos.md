@@ -22,5 +22,5 @@ chsh -s $(brew --prefix)/bin/bash
 ```
 
 - `sudo -i` let's you switch to `root` user
-- `brew --prefix` gives you the location of Homebrew install directory (/usr/local by default)
+- `brew --prefix` gives you the location of Homebrew install directory (`/usr/local` by default)
 - `cat /etc/shells` gives you the list of allowed shells
