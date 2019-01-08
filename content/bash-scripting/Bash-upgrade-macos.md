@@ -7,6 +7,9 @@ date: 2017-05-21
 ---
 
 ```bash
+# install Homebrew
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # install Bash via Homebrew
 brew update && brew install bash
 
