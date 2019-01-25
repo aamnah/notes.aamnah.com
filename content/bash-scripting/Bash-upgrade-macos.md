@@ -7,6 +7,9 @@ date: 2017-05-21
 ---
 
 ```bash
+# install Homebrew
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # install Bash via Homebrew
 brew update && brew install bash
 
@@ -19,5 +22,5 @@ chsh -s $(brew --prefix)/bin/bash
 ```
 
 - `sudo -i` let's you switch to `root` user
-- `brew --prefix` gives you the location of Homebrew install directory (/usr/local by default)
+- `brew --prefix` gives you the location of Homebrew install directory (`/usr/local` by default)
 - `cat /etc/shells` gives you the list of allowed shells
