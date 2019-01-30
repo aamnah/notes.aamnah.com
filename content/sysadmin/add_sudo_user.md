@@ -23,7 +23,18 @@ sudo usermod -aG sudo meowmeow
 
 ```bash
 # TEST sudo powers
-su aamnah # switch to aamnah
+su meowmeow # switch to meowmeow
 
 sudo apt update # try a sudo command
+```
+
+
+```bash
+# manually copying skel files
+sudo cp -r /etc/skel/.* /home/meowmeow 
+```
+
+```bash
+# remove the user and it's home dir
+sudo userdel -r meowmeow
 ```
