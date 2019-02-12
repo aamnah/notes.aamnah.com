@@ -5,6 +5,7 @@ date: 2018-12-10
 
 ```bash
 # install ntfs-3g
+# on Ubuntu 18.04 ntfs-3g is already installed
 sudo apt update && sudo apt install -y ntfs-3g
 
 # create a mount point for the drive ( /media/username/EXTRA )
