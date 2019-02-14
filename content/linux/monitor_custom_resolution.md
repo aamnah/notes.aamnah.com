@@ -37,6 +37,17 @@ xrandr --newmode "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 
 xrandr --addmode VGA-1 1368x768_60.00
 ```
 
+```bash
+# find the monitor identifier to set the mode for
+xrandr --listmonitors
+```
+
+```
+Monitors: 2
+ 0: +*LVDS-1 1366/344x768/194+0+0  LVDS-1
+ 1: +VGA-1 1024/271x768/203+1366+0  VGA-1
+```
+
 ## set output mode
 
 ```bash
