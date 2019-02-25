@@ -11,6 +11,12 @@ date: 2017-07-04
 sudo service mysql stop
 sudo mysqld_safe --skip-grant-tables &
 
+# get rid of can't connect errors
+sudo mkdir -p /var/run/mysqld
+sudo chown mysql:mysql /var/run/mysqld
+sudo touch /var/run/mysqld/mysqld.sock
+sudo chmod 777 /var/run/mysqld/mysqld.sock
+
 mysql -u root
 ```
 
