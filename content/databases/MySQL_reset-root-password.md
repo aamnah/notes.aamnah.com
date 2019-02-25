@@ -9,20 +9,25 @@ date: 2017-07-04
 
 ```bash
 sudo service mysql stop
-sudo mysqld_safe --skip-grant-tables &
 
 # get rid of can't connect errors
+# by creating socket file
 sudo mkdir -p /var/run/mysqld
 sudo chown mysql:mysql /var/run/mysqld
 sudo touch /var/run/mysqld/mysqld.sock
 sudo chmod 777 /var/run/mysqld/mysqld.sock
 
+# run mysql in safe mode
+sudo mysqld_safe --skip-grant-tables &
+
+# connect
 mysql -u root
 ```
 
 ```sql
 -- MySQL commands
-UPDATE mysql.user SET authentication_string=PASSWORD('XXXX') WHERE user = 'root';
+UPDATE mysql.user SET authentication_string=PASSWORD('1256fhsad12') WHERE user='root';
+UPDATE mysql.user SET plugin="mysql_native_password" WHERE user='root';
 FLUSH PRIVILEGES;
 exit;
 ```
@@ -178,6 +183,18 @@ In MySQL 5.7, the `password` field in `mysql.user` table field was removed, now 
 
 ```sql
 update user set authentication_string=password('XXXX') where user='root';
+```
+
+---
+
+```
+ #1524 - Plugin 'auth_socket' is not loaded
+```
+
+Load the `mysql_native_password` plugin when resetting the password
+
+```sql
+UPDATE mysql.user SET plugin="mysql_native_password" WHERE user='root';
 ```
 
 
