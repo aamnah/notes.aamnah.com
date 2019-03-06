@@ -13,6 +13,8 @@ mkdir /media/${HOME}/EXTRA
 
 # identify the NTFS drive
 sudo fdisk -l | grep NTFS
+# or
+lsblk -f
 
 # mount the drive ( /dev/sdb1 )
 sudo mount -t ntfs-3g /dev/sdb1 /media/${HOME}/EXTRA
