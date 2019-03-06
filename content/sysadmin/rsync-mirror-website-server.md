@@ -18,7 +18,7 @@ apt update && apt install rsync
 
 # Pull: sync remote with local
 rsync -vhaze ssh user@server.example.com:/var/www/ /var/www 
-rsync -vhaze "ssh -p 1234 -i /root/.ssh/id_rsa" root@server.example.com:/var/www/cakebox.me/public_html/ /var/www/cakebox.me/public_html
+rsync -vPhaze "ssh -p 1234 -i /root/.ssh/id_rsa" root@server.example.com:/var/www/cakebox.me/public_html/ /var/www/cakebox.me/public_html
 rsync -qaze "ssh -p 1234 -i /root/.ssh/id_rsa" root@server.example.com:/etc/letsencrypt/archive :/etc/letsencrypt/live :/etc/letsencrypt/renewal /etc/letsencrypt/
 ```
 
@@ -29,6 +29,8 @@ rsync -qaze "ssh -p 1234 -i /root/.ssh/id_rsa" root@server.example.com:/etc/lets
 -a, --archive               archive mode; equals -rlptgoD (no -H,-A,-X)
 -z, --compress              compress file data during the transfer
 -e, --rsh=COMMAND           specify the remote shell to use 
+    --progress              show progress during transfer
+-P                          same as --partial --progress
 ```
 
 - [explainshell][explainshell] for the rsync command. 
