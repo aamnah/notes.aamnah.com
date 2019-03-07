@@ -2,6 +2,9 @@
 title: Backing up and Restoring Databases
 slug: backup-restore-databases
 date: 2015-02-20
+lastmod: 2019-03-06
+tags:
+  - mysql
 
 ---
 
@@ -15,6 +18,22 @@ date: 2015-02-20
 ```bash
 # export all databases
 mysqldump -u root -p --all-databases > database_backups.sql
+```
+
+```bash
+# export to a remote server
+mysqldump --host servername dbname > dbname.sql
+```
+
+
+```bash
+# import database at remote server
+mysqldump --host 192.168.1.15 -P 3306 -u dev -pmjQ9Y mydb > mydb.sql
+```
+
+```bash
+# backup without locking the tables
+mysqldump -u username -p --single-transaction --quick --lock-tables=false -h ipaddress myDB > backup.sql
 ```
 
 ### Rename
@@ -36,3 +55,4 @@ USE `database_wp`;
 Links
 ---
 - [How to Back Up and Restore a MySQL Database](http://webcheatsheet.com/sql/mysql_backup_restore.php)
+tzdata
