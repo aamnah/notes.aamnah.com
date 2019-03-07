@@ -6,7 +6,7 @@ date: 2019-03-05
 tl;dr
 
 ```bash
-sudo apt install speedtest-cli
+sudo apt install -y speedtest-cli
 speedtest
 ```
 
@@ -16,7 +16,7 @@ speedtest
 
 ```bash
 sudo apt update
-sudo apt install speedtest-cli
+sudo apt install -y speedtest-cli
 
 # run
 speedtest

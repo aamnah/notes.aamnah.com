@@ -7,6 +7,8 @@ date: 2015-11-25
 lastmod: 2016-02-11
 ---
 
+NOTE: Use `rsync` instead of `scp`. `rsync` is faster and can give you the ability to see progress and pause/resume downloads with the `-P` flag. it also gives you compression with `-z`
+
 Basic syntax is this:
 
     scp fileToCopy user@remoteServer:Location
