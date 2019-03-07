@@ -84,17 +84,16 @@ CREATE DATABASE foo;
 mysql -uroot -p DBNAME > BAKFILE.sql
 
 # compressed .sql.gz file
-pv | gunzip | 
+pv mydump.sql.gz | gunzip | mysql -u root -p
 ```
+
+`pv` lets you monitor the progress of data through a pipe, meaning you'll see a progress bar!
 
 ```
 -- Open the console and start the interactive MySQL mode
 USE <name_of_your_database>;
 SOURCE <path_of_your_.sql>;
 ```
-
-pv - Shell pipeline element to meter data passing through
-pv - monitor the progress of data through a pipe
 
 
 Links
