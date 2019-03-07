@@ -81,7 +81,7 @@ CREATE DATABASE foo;
 
 ```bash
 # uncompressed .sql file
-mysql -uroot -p DBNAME > BAKFILE.sql
+mysql -uroot -p DBNAME < BAKFILE.sql
 
 # compressed .sql.gz file
 pv mydump.sql.gz | gunzip | mysql -u root -p
