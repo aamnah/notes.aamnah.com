@@ -4,8 +4,7 @@ date: 2019-03-06
 lastmod: 2019-03-07
 category: Databases
 tags:
-	- mysql
-
+- mysql
 ---
 
 ```sql
