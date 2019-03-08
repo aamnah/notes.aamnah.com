@@ -1,5 +1,5 @@
 ---
-title: Nottes on Moving up large databases
+title: Notes on Moving up large databases
 date: 2019-03-06
 ---
 
