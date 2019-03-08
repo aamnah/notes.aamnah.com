@@ -3,8 +3,8 @@ title: Notes on Moving from MySQL to MariaDB and Replication
 date: 2019-03-07
 category: databases
 tags:
-	- mysql
-	- mariadb
+- mysql
+- mariadb
 ---
 
 NOTTES
