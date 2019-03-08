@@ -53,7 +53,10 @@ It is recommended to add individual scripts in the cron directories instead of e
 Edits to a user's crontab and the cron jobs run are all logged by default to `/var/log/syslog` and that's the first place to check if things are not running as you expect.
 
 ```bash
-cat /var/log/syslog | grep cron
+# search the /var/log/syslog for 'CRON' or 'crontab'
+#cat /var/log/syslog | grep cron
+grep CRON /var/log/syslog
+grep -i CRON /var/log/syslog # will show results for both CRON and crontab
 ```
 
 ```
