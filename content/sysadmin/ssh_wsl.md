@@ -2,8 +2,8 @@
 title: Getting started with SSH on Windows Subsystem for Linux (WSL)
 date: 2019-02-25
 tags:
-	- wsl
-	- ssh
+- wsl
+- ssh
 ---
 
 ```bash
