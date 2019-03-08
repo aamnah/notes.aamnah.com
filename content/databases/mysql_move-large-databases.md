@@ -95,8 +95,28 @@ USE <name_of_your_database>;
 SOURCE <path_of_your_.sql>;
 ```
 
+### Moving `/var/lib/mysql`
+Another way of moving the databases (plus users and permissions), is to sync the entire MySQL data directory (default is `/var/lib/mysql` defined in `/etc/mysql/mysql.conf.d/mysqld.cnf`) to the new server.
+
+You can also find out what directory it is with 
+
+```sql
+SELECT @@datadir;
+```
+
+```bash
+rsync -vPhaze "ssh -i /root/.ssh/id_rsa -p ${REMOTE_PORT}" ${REMOTE_USER}@${REMOTE_HOST}:/var/lib/mysql/ /var/lib/mysql/ &>> ${LOGFILE}
+```
+
+Here's a [bash script][1] for achieving this that also logs the progress. Run this script via Cron so that you don't end up being stuck sitting in front of a Terminal
+
+```bash
+crontab -e
+```
 
 Links
 ---
 
 - [What Are Full, Incremental, and Differential Backups?](https://www.percona.com/blog/2012/01/23/what-are-full-incremental-and-differential-backups/)
+
+[1]: https://github.com/aamnah/bash-scripts/blob/master/copy_mysql_databases.sh
