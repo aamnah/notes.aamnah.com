@@ -31,6 +31,22 @@ mysql --user=username --password=password --host=host --port=3306 db_name
 
 Replace _db_name_ with the name of the database you want to connect to.
 
+##### Check if MySQl port is open on current server
+
+The default port is 3306
+
+```bash
+netstat -tln
+```
+
+```Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp6       0      0 :::22                   :::*                    LISTEN
+```
+
 CRUD Databases
 ---
 
