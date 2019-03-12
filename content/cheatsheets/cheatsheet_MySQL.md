@@ -98,6 +98,18 @@ mysql> DROP USER 'username'@'host' ;
 SELECT User,Host FROM mysql.user;
 ```
 
+```
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| debian-sys-maint | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+4 rows in set (0.00 sec)
+```
+
 ##### View Users and Permissions
 
 ```sql
