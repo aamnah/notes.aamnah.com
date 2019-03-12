@@ -112,8 +112,11 @@ SELECT User,Host FROM mysql.user;
 
 ##### View Privileges and Roles for a user
 
+```sql
+SHOW GRANTS;
 ```
-mysql> SHOW GRANTS;
+
+```
 +---------------------------------------------------------------------+
 | Grants for root@localhost                                           |
 +---------------------------------------------------------------------+
@@ -123,9 +126,11 @@ mysql> SHOW GRANTS;
 2 rows in set (0.00 sec)
 ```
 
+```sql
+SHOW GRANTS FOR 'jeffrey'@'localhost';
 ```
 
-mysql> SHOW GRANTS FOR 'jeffrey'@'localhost';
+```
 +------------------------------------------------------------------+
 | Grants for jeffrey@localhost                                     |
 +------------------------------------------------------------------+
