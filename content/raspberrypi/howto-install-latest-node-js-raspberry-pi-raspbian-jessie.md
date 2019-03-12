@@ -35,9 +35,9 @@ The Node.js version that comes pre-installed with Raspbian Jessie is old. If you
 Run the following commands one by one:
 
 ```shell
-sudo apt-get remove nodered -y
-sudo apt-get remove nodejs nodejs-legacy -y
-sudo apt-get remove npm -y
+sudo apt remove -y nodered
+sudo apt remove -y nodejs nodejs-legacy
+sudo apt remove -y npm
 ```
 
 ### Install latest Node.js ARM-release
@@ -61,7 +61,7 @@ That's it, you now have the latest Node.js version available for the Raspberry P
 We uninstalled Node-RED as part of removing Node. If you want to re-install it, you can do so by running the following command:
 
 ```bash
-sudo apt update && sudo apt install nodered -y
+sudo apt update && sudo apt install -y nodered
 ```
 
 [source](https://www.raspberrypi.org/forums/viewtopic.php?f=34&amp;t=140747)
