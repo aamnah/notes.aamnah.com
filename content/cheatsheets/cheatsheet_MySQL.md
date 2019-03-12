@@ -110,6 +110,30 @@ SELECT User,Host FROM mysql.user;
 4 rows in set (0.00 sec)
 ```
 
+##### View Privileges and Roles for a user
+
+```
+mysql> SHOW GRANTS;
++---------------------------------------------------------------------+
+| Grants for root@localhost                                           |
++---------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION |
+| GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION        |
++---------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+```
+
+```
+
+mysql> SHOW GRANTS FOR 'jeffrey'@'localhost';
++------------------------------------------------------------------+
+| Grants for jeffrey@localhost                                     |
++------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `jeffrey`@`localhost`                      |
+| GRANT SELECT, INSERT, UPDATE ON `db1`.* TO `jeffrey`@`localhost` |
++------------------------------------------------------------------+
+```
+
 ##### View Users and Permissions
 
 ```sql
