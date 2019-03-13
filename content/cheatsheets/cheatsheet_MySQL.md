@@ -257,4 +257,4 @@ Links
 
 - [MySQL Docs: Specifying Account Names](https://dev.mysql.com/doc/refman/5.1/en/account-names.html)
 - [How to Back Up and Restore a MySQL Database](http://webcheatsheet.com/sql/mysql_backup_restore.php)
-- https://www.tecmint.com/fix-error-2003-hy000-cant-connect-to-mysql-server-on-127-0-0-1-111/
+- [Fix: ERROR 2003 (HY000): Can’t connect to MySQL server on ‘127.0.0.1’ (111)](https://www.tecmint.com/fix-error-2003-hy000-cant-connect-to-mysql-server-on-127-0-0-1-111/)
