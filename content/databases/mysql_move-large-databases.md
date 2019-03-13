@@ -23,8 +23,8 @@ mysqldump --user=XXX --password=XXX --single-transaction --routines --triggers -
 - `--routines` copies stored procedures and functions
 - `--triggers` Include triggers for each dumped table
 - `--quick` forces mysqldump to retrieve rows for a table from the server a row at a time rather than retrieving the entire row set and buffering it in memory before writing it out.
-
-To dump large tables, combine the `--single-transaction` option with the `--quick` option
+- To dump large tables, combine the `--single-transaction` option with the `--quick` option
+- To include stored routines and events in a dump made using `--all-databases`, use the `--routines` and `--events` options explicitly.
 
 ### Sizes
 
