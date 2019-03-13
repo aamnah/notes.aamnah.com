@@ -13,6 +13,18 @@ date: 2019-03-06
 - use `rsync` instead of `scp`. `scp` gets stalled. `rsync` copies faster. use the `-P` flag to see progress and the ability to pause/resume file transfers
 - the server where these tests were done had the following specs: 2GB RAM, 2 vCPUs, 160GB HDD, 10MBps network link
 
+### Exporting
+
+```bash
+mysqldump --user=XXX --password=XXX --single-transaction --routines --triggers --quick --all-databases > XXX.sql
+```
+
+- `--single-transaction` only works with InnoDB, let's you backup data without blocking any applications. The `--single-transaction` option and the `--lock-tables` option are mutually exclusive
+- `--routines` copies stored procedures and functions
+- `--triggers` Include triggers for each dumped table
+- `--quick` forces mysqldump to retrieve rows for a table from the server a row at a time rather than retrieving the entire row set and buffering it in memory before writing it out.
+
+To dump large tables, combine the `--single-transaction` option with the `--quick` option
 
 ### Sizes
 
@@ -118,5 +130,7 @@ Links
 ---
 
 - [What Are Full, Incremental, and Differential Backups?](https://www.percona.com/blog/2012/01/23/what-are-full-incremental-and-differential-backups/)
+- [MySQL Docs: mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
+- [StackExchange: Safest way to perform mysqldump on a live system with active reads and writes?](https://dba.stackexchange.com/a/19533)
 
 [1]: https://github.com/aamnah/bash-scripts/blob/master/copy_mysql_databases.sh
