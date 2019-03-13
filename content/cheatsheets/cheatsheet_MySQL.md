@@ -47,6 +47,27 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
 tcp6       0      0 :::22                   :::*                    LISTEN
 ```
 
+If MySQL is running at host and the port is open and you still can't connect, 
+
+```bash
+nano /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+uncomment the `bind-address` line by adding a `#` at the beginning
+
+```
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+#bind-address           = 127.0.0.1
+```
+
+restart MySQL
+
+```
+sudo service mysql restart
+```
+
+
 CRUD Databases
 ---
 
@@ -236,3 +257,4 @@ Links
 
 - [MySQL Docs: Specifying Account Names](https://dev.mysql.com/doc/refman/5.1/en/account-names.html)
 - [How to Back Up and Restore a MySQL Database](http://webcheatsheet.com/sql/mysql_backup_restore.php)
+- https://www.tecmint.com/fix-error-2003-hy000-cant-connect-to-mysql-server-on-127-0-0-1-111/
