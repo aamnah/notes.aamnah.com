@@ -25,6 +25,8 @@ mysqldump --user=XXX --password=XXX --single-transaction --routines --triggers -
 - `--quick` forces mysqldump to retrieve rows for a table from the server a row at a time rather than retrieving the entire row set and buffering it in memory before writing it out.
 - To dump large tables, combine the `--single-transaction` option with the `--quick` option
 - To include stored routines and events in a dump made using `--all-databases`, use the `--routines` and `--events` options explicitly.
+- The `performance_schema` database, is not dumped even with the `--all-databases` option. You can mention it explicitly with the `--databases` option. 
+- By default, it'll lock tables when you dump, so be careful of using either `--single-transaction` or `--skip-lock-tables` option when moving live databases.
 
 ### Sizes
 
@@ -85,7 +87,7 @@ sys     0m12.850s
 ```
 
 ### Importing the backups
-The database you import should already exist. 
+The database you import should already exist. When using `--databases`, `CREATE DATABASE` and `USE` statements are included in the output before each new database.
 
 ```sql
 CREATE DATABASE foo;
