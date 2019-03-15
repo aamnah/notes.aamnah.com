@@ -12,6 +12,10 @@ The theme used is built from scratch, following this nice [Youtube series by Gir
 
 The name of the theme being used is `tldr` and the path is `./themes/tldr`
 
+## Static assets
+
+- Images directory is `./static/img/`
+- Use `/img/` before the file name when referencing the image in files.
 
 ## Developing the site
 
