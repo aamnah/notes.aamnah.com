@@ -37,7 +37,7 @@ The images will be saved in your `~/Pictures` folder. Holding `Ctrl` with above 
 
 The screencasts will be saved in your `~/Videos` folder.
 
-![Ubuntu Keybaord Shortcuts for Screenshots](img/ubuntu_screenshot_shortcuts.png)
+![Ubuntu Keybaord Shortcuts for Screenshots](/img/ubuntu_screenshot_shortcuts.png)
 
 
 Windows
