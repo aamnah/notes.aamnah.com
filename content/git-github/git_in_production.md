@@ -1,0 +1,103 @@
+---
+title: Git in Production
+date: 2019-03-27
+---
+
+## Pretty and concise logs
+add an alias
+
+```bash
+nano ~/.gitconfig
+```
+
+```
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+```
+
+You can now use `git lg` to see better logs
+
+## Change commit message of last commit
+
+```bash
+git commit --amend
+```
+It'll open the editor and you'll be able to update the last commit message. Only do this for **unpushed code**
+
+## Add a file i forgot in last commit
+
+```bash
+git commit --amend
+```
+
+When you run the command it'll automatically include the newly modified files. Only do this for **unpushed code**
+
+## Update `feature` with latest changes from `master`
+
+Get changes from the main development branch.
+
+```bash
+# switch to master and get latest changes
+git checkout master
+git pull
+
+# switch to feature and pull changes from master
+git checkout feature
+
+# merge is good when you have other devs working on the code 
+# and the changes have been committed and pushed
+git merge master
+
+# rebase is ok if you're the only dev and as long as you haven't pushed yet
+# beware of rebase changing commit hashes
+git rebase
+```
+- `git merge` is recommended when you have a shared branch and other developers are working on it as well
+- `git rebase` will get all changes from `master` and merge it on top of your feature branch. Doing so will change the commit hashes.
+- `git rebase` will _rewind head_ and _replay our work on top of it_.
+
+## Move _accidental_ commits from `master` to another branch
+
+```bash
+# Changes haven't been pushed yet, and NOT synced with remote
+# otherwise you'll mess up commit history
+
+# create a new branch from master 
+# since you have pushed your changes to master the new branch will have those changes
+git checkout master
+git checkout -b newBranch
+
+# go back to master and remove those accidental changes by going back
+# to the point where those commits weren't added
+git checkout master
+git reset --hard XXXXX
+```
+
+## Combine multiple commits into one
+
+```bash
+git rebase -i 
+
+# select the actions you want to take for every commit, close editor and continue
+```
+
+You'll get a summary of all the commits from `XXX` onwards
+
+- `-i` is for inetractive 
+- `XXX` is the commit from where you want to start and update commits that came after this point
+
+## See the changes in local commits
+
+```bash
+git diff # unstaged changes
+git diff --staged # staged changes
+git diff HEAD # both staged+unstaged changes
+git diff --stat # summary of what files changed, no. of line +/- etc.
+git diff --check # check for merge conflicts
+```
+
+Links
+---
+
+- [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history)
+- [egghead: Productive Git for Developers](https://egghead.io/courses/productive-git-for-developers)
