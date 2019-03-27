@@ -14,8 +14,7 @@ tags:
 - git
 ---
 
-Configuration
----
+## Configuration
 
 configure username  
 
@@ -35,8 +34,8 @@ check confgiuration
 git config --list
 ```
 
-Repositories
----
+## Repositories
+
 Start a git repo  
 
 
@@ -59,11 +58,9 @@ rm -r my_project/.git
 
 where *my_project* is the project folder you are removing git from.
 
-Adding Code
----
+## Adding Code
 
 Add files to track  
-
 
 ```bash
 git add filename.txt
@@ -71,13 +68,11 @@ git add filename.txt
 
 Add all files to track `-A`  
 
-
 ```bash
 git add -A
 ```
 
-Committing Code
----
+## Committing Code
 
 Adding a file  
 
@@ -105,8 +100,7 @@ Commit all code with a message `-m`
 git commit -a -m 'your commit message'
 ``` 
 
-Check Status
----
+## Check Status
 
 show git status
 
@@ -143,8 +137,8 @@ check difference between two commits
 git diff commit1 commit2
 ```
 
-Removing code
----
+## Removing code
+
 To remove files/folders from a git repo
 
 ```bash
@@ -159,14 +153,19 @@ git rm -r directory/cache
 
 Use `-f` flag if you have to force it. It is recommended to add files you don't want in the repo to .gitignore so they don't get added in the first place.
 
-delete branch 
+delete a branch locally 
 
 ```bash
-git branch -D branchName
+git branch --delete FOO
 ``` 
 
-`-D` flag will delete the branch. you can't delete the branch you are in, so switch before deleting.
+`-D` or `--delete` will delete the branch locally. you can't delete the branch you are in, so switch before deleting.
 
+delete a remote branch
+
+```bash
+git 
+```
 
 Branches
 ---
