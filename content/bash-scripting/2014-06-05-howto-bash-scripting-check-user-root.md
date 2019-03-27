@@ -33,7 +33,7 @@ owner=$(who am i | awk '{print $1}')
  
 if [ "$(whoami)" != 'root' ]; then
   	echo "You don't have permission to run $0 as non-root user. Use sudo"
-		exit 1;
+	exit 1;
 fi
 ```
 
