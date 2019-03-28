@@ -101,7 +101,11 @@ Create the Git branch as an _orphan_. That means it'll have no 'parent', hence n
 
 ```bash
 git checkout --orphan FOO
+
+# multiple ways of removing files.. 
 git rm -r --cached .
+git reset --hard
+git clean -fd
 ```
 
 Links
