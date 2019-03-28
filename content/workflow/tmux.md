@@ -54,8 +54,11 @@ tmux is controlled by a key combination of a prefix key, 'C-b’ `Ctrl-b` by def
 | Actions             | Key bindings |
 |---------------------|--------------|
 | kill current pane   | `<prefix> x` |
-| close pane          | `<prefix> D` |
-
+| close pane          | `<prefix> D` or `exit` |
+| split horizontally  | `<prefix> "` |
+| split vertically    | `<prefix> %` |
+| move to pane        | `<prefix> arrow-key` |
+| zoom in/out on active pane  | `<prefix> z` |
 
 
 
