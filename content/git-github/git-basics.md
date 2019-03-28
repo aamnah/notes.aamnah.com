@@ -153,18 +153,28 @@ git rm -r directory/cache
 
 Use `-f` flag if you have to force it. It is recommended to add files you don't want in the repo to .gitignore so they don't get added in the first place.
 
+## Delete branches
+
 delete a branch locally 
 
 ```bash
+git branch -d FOO
 git branch --delete FOO
+
+git branch -D FOO
+git branch --delete --force FOO
 ``` 
 
-`-D` or `--delete` will delete the branch locally. you can't delete the branch you are in, so switch before deleting.
+`-d` is the same as `--delete` and `-D` is the same as `--delete --force`
+
+`-D` or `--delete` will delete the branch locally. you can't delete the branch you are in, it'll ask you to switch before deleting.
 
 delete a remote branch
 
 ```bash
-git 
+git push <remote_name> --delete <branch_name>
+
+git push <remote_name> :<branch_name>
 ```
 
 Branches
