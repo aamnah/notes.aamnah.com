@@ -1,6 +1,6 @@
 ---
 title: Increasing performance on low-RAM
-date; 2018-10-26
+date: 2018-10-26
 description: Increase the performance of a low-RAM system by increasing swap space, swappiness and decreasing cache pressure. Basically, make it not hang.
 ---
 
