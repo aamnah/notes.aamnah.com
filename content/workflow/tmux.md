@@ -30,19 +30,23 @@ tmux is controlled by a key combination of a prefix key, 'C-b’ `Ctrl-b` by def
 
 ### Sessions
 
-| Actions                     | Key bindings |
-|-----------------------------|--------------|
-| list all tmux sessions      | `tmux ls`    |
-| name/rename current session | `<prefix> $` |
-| detach session              | `<prefix> d` or `tmux detach` |
+| Actions                         | Key bindings |
+|---------------------------------|--------------|
+| list all tmux sessions          | `tmux ls`    |
+| name/rename current session     | `<prefix> $` |
+| detach session                  | `<prefix> d` or `tmux detach` |
 | connect to the detached session | `tmux a` or `tmux attach` or `tmux attach -d`|
 
 ### Windows
 
-| Actions             | Key bindings |
-|---------------------|--------------|
-| create a new window | `<prefix> c` |
-| kill all windows    | `<prefix> &` |
+| Actions               | Key bindings |
+|-----------------------|--------------|
+| create a new window   | `<prefix> c` |
+| close window          | `exit` |
+| kill all windows      | `<prefix> &` |
+| switch to next window | `<prefix> n` |
+| switch to prev window | `<prefix> p` |
+| switch to window using index | `<prefix> 0-9` |
 
 
 ### Panes
