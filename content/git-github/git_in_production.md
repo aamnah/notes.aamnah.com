@@ -96,6 +96,14 @@ git diff --stat # summary of what files changed, no. of line +/- etc.
 git diff --check # check for merge conflicts
 ```
 
+## Create empty branches
+Create the Git branch as an _orphan_. That means it'll have no 'parent', hence no code. All the code that is there can be removed with `git rm --cahced -r .`
+
+```bash
+git checkout --orphan FOO
+git rm -r --cached .
+```
+
 Links
 ---
 
