@@ -86,7 +86,7 @@ You'll get a summary of all the commits from `XXX` onwards
 - `-i` is for inetractive 
 - `XXX` is the commit from where you want to start and update commits that came after this point
 
-## See the changes in local commits
+## See the changes in local commits (with `diff`)
 
 ```bash
 git diff # unstaged changes
@@ -107,6 +107,58 @@ git rm -r --cached .
 git reset --hard
 git clean -fd
 ```
+
+## Save _dirty_ copy of your work in progress
+
+```bash
+git add . # capture all 'Work In Progress' files
+git stash # put it away
+
+# la la la, go to other branches, make changes, commit etc.
+
+# go back to the branch you were working in
+git stash pop # get it back, remove it from stash
+```
+
+```bash
+git stash list
+git stash apply # get it back, keep the stashed copy as well
+git stash apply X # apply the number 'X' stash from your list (e.g. stash@{1})
+git stash save 'wip: fancy feature' # stash it with a name
+```
+
+- `pop` will take the stash out of `git stash list`, `apply` would not.
+- by default `apply` will get back the the most recent stash
+
+## See changes between your file and remote file (with `diff`)
+
+```bash
+git diff HEAD myFile.js
+```
+
+compare two different commits
+
+```bash
+git diff XXXX YYYY
+```
+
+## Wipe a commit from local
+
+```bash
+git reset --hard XXXX
+```
+
+- will jump back to the `XXXX` commit discarding all the ones that came after it
+- make sure you're getting rid of only local commits and that the cahnges haven't already been pushed
+
+## Undo commits that have already been pushed to remote (with `revert`)
+
+```bash
+git revert XXXX
+```
+
+- `reset` and `amend` will change the commit hash, which we don't want, as it'll cause conflicts since the code has already been pushed to remote and other people may have pulledit already. 
+- `revert` does not change the commit hash, which is why it is a good command for getting rid of changes that have already been pused to remote 
 
 Links
 ---
