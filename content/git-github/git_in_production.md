@@ -76,7 +76,7 @@ git reset --hard XXXXX
 ## Combine multiple commits into one
 
 ```bash
-git rebase -i 
+git rebase -i  XXX
 
 # select the actions you want to take for every commit, close editor and continue
 ```
