@@ -151,6 +151,22 @@ git reset --hard XXXX
 - will jump back to the `XXXX` commit discarding all the ones that came after it
 - make sure you're getting rid of only local commits and that the cahnges haven't already been pushed
 
+## Delete a commit from remote
+
+```bash
+# find your commit 
+git log --oneline 
+
+# reset will checkout the specified commit and remove everything that came after it
+git reset --hard XXX
+
+# push your changesto remote
+git push --force
+# git push origin +develop
+```
+
+- keep in mind that `--hard` throws away all your uncommitted changes. to use `--hard` first make sure the output of `git status` is clean
+
 ## Undo commits that have already been pushed to remote (with `revert`)
 
 ```bash
@@ -158,10 +174,11 @@ git revert XXXX
 ```
 
 - `reset` and `amend` will change the commit hash, which we don't want, as it'll cause conflicts since the code has already been pushed to remote and other people may have pulledit already. 
-- `revert` does not change the commit hash, which is why it is a good command for getting rid of changes that have already been pused to remote 
+- `revert` does not change the commit hash, which is why it is a good command for getting rid of changes that have already been pushed to remote 
 
 Links
 ---
 
 - [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history)
 - [egghead: Productive Git for Developers](https://egghead.io/courses/productive-git-for-developers)
+- [](https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket)
