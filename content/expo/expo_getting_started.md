@@ -1,8 +1,38 @@
 ---
 title: Getting started with Expo
 date: 2019-04-01
+lastmod: 2019-04-03
 
 ---
+
+```bash
+npx expo-cli init
+
+
+cd PROJECT_SLUG
+yarn start
+```
+
+Upload your project to Expo
+
+```bash
+expo login
+
+? Username/Email Address: aamnah
+? Password: [hidden]
+
+Success. You are now logged in as aamnah.
+```
+
+```bash
+expo publish
+```
+
+- `publish` will deploy your proh=ject to the Expo site and you'll be able to preview it with `https://expo.io/@USERNAME/PROJECT`. 
+- If you have _distributed_ your app to the app stores, that app will get automatically updated (Over The Air - OTA updates) when you publish changes to your Expo project URL.
+
+---
+
 
 ```bash
 # install CLI tool
@@ -54,4 +84,5 @@ exp build:ios
 Links
 ---
 
+- [Expo Docs](https://docs.expo.io/)
 - [Android Studio: Run apps on a hardware device](https://developer.android.com/studio/run/device.html#developer-device-options)
