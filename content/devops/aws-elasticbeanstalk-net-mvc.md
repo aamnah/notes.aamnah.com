@@ -27,8 +27,8 @@ The automatically created roles when using Visual Studio extension ends up with 
 ....upload complete
 ....creating application 'ForcesPenpalsWeb'
 ...created EC2 security group for allowing access to RDS instances 'ForcesPenpalsWeb-test-rds-associations'
-Caught AmazonIdentityManagementServiceException whilst setting up role: User: arn:aws:iam::848078208591:user/beanstalkDeploy is not authorized to perform: iam:GetInstanceProfile on resource: instance profile aws-elasticbeanstalk-ec2-role
-Caught Exception whilst setting up service role: User: arn:aws:iam::848078208591:user/beanstalkDeploy is not authorized to perform: iam:PutRolePolicy on resource: role aws-elasticbeanstalk-service-role
+Caught AmazonIdentityManagementServiceException whilst setting up role: User: arn:aws:iam:: 123458208591:user/beanstalkDeploy is not authorized to perform: iam:GetInstanceProfile on resource: instance profile aws-elasticbeanstalk-ec2-role
+Caught Exception whilst setting up service role: User: arn:aws:iam:: 123458208591:user/beanstalkDeploy is not authorized to perform: iam:PutRolePolicy on resource: role aws-elasticbeanstalk-service-role
 ....creating environment 'ForcesPenpalsWeb-test' with application version 'v20190408010801-test'
 ...Determining current configuration
 ...Saving configuration file to C:\Users\Aamnah\Downloads\aws-beanstalk-deploy.txt
@@ -61,8 +61,8 @@ In order to get rid of the errors, you need to add a customm policy to the user 
 
 If you have already created the roles, you can be more specific with your ARNs
 
-- `arn:aws:iam::848078208591:role/aws-elasticbeanstalk-service-role`
-- `arn:aws:iam::848078208591:instance-profile/aws-elasticbeanstalk-ec2-role`
+- `arn:aws:iam:: 123458208591:role/aws-elasticbeanstalk-service-role`
+- `arn:aws:iam:: 123458208591:instance-profile/aws-elasticbeanstalk-ec2-role`
 
 ### SSL
 
