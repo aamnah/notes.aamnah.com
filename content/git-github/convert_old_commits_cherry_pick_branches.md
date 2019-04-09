@@ -47,4 +47,5 @@ Links
 
 - [Git cherry pick from another branch](https://www.christianengvall.se/git-cherry-pick/)
 - [Learn to git cherry-pick a commit with this easy example](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Need-to-git-cherry-pick-a-commit-Heres-an-example-how)
+- [Intro to Cherry Picking with Git](https://www.previousnext.com.au/blog/intro-cherry-picking-git
 - [git manual: git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)
