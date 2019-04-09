@@ -38,6 +38,10 @@ git cherry-pick --abort
 
 - `--no-commit`, bring the changes but don't commit
 
+NOTES:
+
+- you should merge if you can. Cherry picking creates duplicates of original commits..
+
 Links
 ---
 
