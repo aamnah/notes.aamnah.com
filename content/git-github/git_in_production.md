@@ -1,6 +1,7 @@
 ---
 title: Git in Production
 date: 2019-03-27
+lastmod: 2019-04-18
 ---
 
 ## Pretty and concise logs
@@ -175,6 +176,30 @@ git revert XXXX
 
 - `reset` and `amend` will change the commit hash, which we don't want, as it'll cause conflicts since the code has already been pushed to remote and other people may have pulledit already. 
 - `revert` does not change the commit hash, which is why it is a good command for getting rid of changes that have already been pushed to remote 
+
+
+## See only local unpushed changes in current branch
+
+```bash
+git log origin/master..HEAD
+
+# you can view diff using the same syntax
+git diff origin/master..HEAD
+```
+
+## See all local merge conflicts
+
+```bash
+git status
+```
+
+## Squash all commits into one and merge to master
+
+```bash
+git checkout master
+git merge --squash fooBranch
+```
+
 
 Links
 ---

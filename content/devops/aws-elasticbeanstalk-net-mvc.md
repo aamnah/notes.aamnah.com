@@ -1,6 +1,7 @@
 ---
 title: Deploying a .NET MVC app on AWS Elastic Beanstalk
 date: 2019-04-08
+lastmod: 2019-04-19
 status: draft
 tags:
 - aws
@@ -72,6 +73,14 @@ If you have already created the roles, you can be more specific with your ARNs
 - To setup an SSL, you need to use a load balancer for your app instead of a single instance. _Configguration > Capacity > Modify > Instances_. Change `max` to `2` (or how many you prefer). Keep in mind that this will cost you in terms of resources.
 - ACM is only available in [certain regions][acm-regions]
 
+### HTTPS
+
+- For Listener port, type the incoming traffic port, typically `44300`.
+- For Listener protocol, choose `HTTPS`.
+- For Instance port, type `80`.
+- For Instance protocol, choose `HTTP`. (notice the lack of an S at the end)
+- For SSL certificate, choose your certificate.
+
 
 ### DNS
 
@@ -96,6 +105,9 @@ option_settings:
     SSLCertificateId: arn:aws:acm:us-east-2:1234567890123:certificate/####################################
     ListenerProtocol: HTTPS
     InstancePort: 80
+    InstanceProtocol: HTTP
+  aws:elb:listener:80:
+    ListenerEnabled: false
 ```
 
 ### Elastic Load Balancers (ELB)
@@ -104,6 +116,11 @@ option_settings:
 - Classic Load Balancers cost $0.028 per hour
 
 
+Migrating to a load balanced environment will replace all instances and recreate the environment
+
+```
+aws:elasticbeanstalk:environment:EnvironmentType "SingleInstance" => "LoadBalanced"
+```
 
 NOTES
 ---
@@ -113,8 +130,15 @@ NOTES
 - To make sure your app is available during the updates, enable [rolling updates][ebs-rolling-updates]
 - To deploy versions with zero downtime, look into [swapping environment URLs][ebs-cname-swap]
 - You need to add a _listener_ for port `44300` if you want to enable SSL and HTTPS. 44300 is the default SSL port of IIS. There is no way of updating the default port from the EBS Console (or atleast i couldn't find any). And hard coding the port in your .NET app's config files is not really a good idea. So you would end up setting up a load balancer and then adding a listener for port `44300` that'd go to the instance port `80` and protocol `HTTP` (note the absence of an S, it's insecure HTTP port).
+
+
 - Beware of Elastic Beanstalk also removing all the resource it cerated when you rebuild or terminate the environment. If you made any changes to any of the automatically created resources for the EBS environment, it'll fail to terminate. In my case it was migrating a CLB to an ALB.. In the end had to create a new CLB using the same name it was trying to find and then tried termination again. [stackoverflow ref](https://stackoverflow.com/a/50819873/890814)
 
+```
+2019-04-08 17:08:37 UTC+0500	INFO	terminateEnvironment is starting.
+2019-04-08 17:05:29 UTC+0500	ERROR	Stack deletion failed: The following resource(s) failed to delete: [AWSEBLoadBalancerSecurityGroup].
+2019-04-08 17:05:29 UTC+0500	ERROR	Deleting security group named: sg-0270b9c66a92bdeff failed Reason: resource sg-0270b9c66a92bdeff has a dependent object (Service: AmazonEC2; Status Code: 400; Error Code: DependencyViolation; Request ID: 404a8ca3-4ef8-4057-a255-b3be4c3762dc)
+```
 
 Links
 ---
