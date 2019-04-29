@@ -43,8 +43,11 @@ You can reference the key value using `ConfigurationManager.AppSettings["appVers
 <script>
 		let version = '@ConfigurationManager.AppSettings["appVersion"]';
 
-    console.info(`Application Version: ${version}`);
+    console.info(`Application Version: ${version}`); // Application version 6.5.10
 </script>
 ```
 
    
+Links
+---
+- [ASP.NET Web Configuration File](https://www.c-sharpcorner.com/UploadFile/puranindia/Asp-Net-web-configuration-file/)
