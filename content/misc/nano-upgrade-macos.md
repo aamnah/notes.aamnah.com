@@ -3,7 +3,7 @@ title: Upgrade nano to v4.3 on macOS
 date: 2019-06-25
 ---
 
-- macOS Mojave has v2.0.6 installed whereas the latest is 4.3 at the time of this writing.
+macOS Mojave has v2.0.6 installed whereas the latest is 4.3 at the time of this writing.
 
 ```bash
 nano --version
@@ -15,7 +15,7 @@ nano --version
  Compiled options: --disable-nls --enable-color --enable-extra --enable-multibuffer --enable-nanorc --enable-utf8
 ```
 
-- Use Homebrew to install nano
+### Use Homebrew to install nano
 
 ```bash
 # install Homebrew
@@ -39,7 +39,7 @@ If you check the version now, it'll still show 2.0.6 because by default it uses 
  Compiled options: --disable-libmagic --enable-utf8
 ```
 
-- Link to the right version
+### Link to the right version
 
 To make sure the Brew version of nano is run every time, you can:
 
