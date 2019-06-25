@@ -31,6 +31,43 @@ mysql --user=username --password=password --host=host --port=3306 db_name
 
 Replace _db_name_ with the name of the database you want to connect to.
 
+##### Check if MySQl port is open on current server
+
+The default port is 3306
+
+```bash
+netstat -tln
+```
+
+```Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp6       0      0 :::22                   :::*                    LISTEN
+```
+
+If MySQL is running at host and the port is open and you still can't connect, 
+
+```bash
+nano /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+uncomment the `bind-address` line by adding a `#` at the beginning
+
+```
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+#bind-address           = 127.0.0.1
+```
+
+restart MySQL
+
+```
+sudo service mysql restart
+```
+
+
 CRUD Databases
 ---
 
@@ -96,6 +133,47 @@ mysql> DROP USER 'username'@'host' ;
 
 ```sql
 SELECT User,Host FROM mysql.user;
+```
+
+```
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| debian-sys-maint | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+4 rows in set (0.00 sec)
+```
+
+##### View Privileges and Roles for a user
+
+```sql
+SHOW GRANTS;
+```
+
+```
++---------------------------------------------------------------------+
+| Grants for root@localhost                                           |
++---------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION |
+| GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION        |
++---------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+```
+
+```sql
+SHOW GRANTS FOR 'jeffrey'@'localhost';
+```
+
+```
++------------------------------------------------------------------+
+| Grants for jeffrey@localhost                                     |
++------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `jeffrey`@`localhost`                      |
+| GRANT SELECT, INSERT, UPDATE ON `db1`.* TO `jeffrey`@`localhost` |
++------------------------------------------------------------------+
 ```
 
 ##### View Users and Permissions
@@ -179,3 +257,4 @@ Links
 
 - [MySQL Docs: Specifying Account Names](https://dev.mysql.com/doc/refman/5.1/en/account-names.html)
 - [How to Back Up and Restore a MySQL Database](http://webcheatsheet.com/sql/mysql_backup_restore.php)
+- [Fix: ERROR 2003 (HY000): Can’t connect to MySQL server on ‘127.0.0.1’ (111)](https://www.tecmint.com/fix-error-2003-hy000-cant-connect-to-mysql-server-on-127-0-0-1-111/)

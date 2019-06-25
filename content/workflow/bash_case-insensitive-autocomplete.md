@@ -21,7 +21,11 @@ You may get a _Permission denied_ error. In that case just add it to the system-
 
 ### For the System
 
-Add the following at the end of `/etc/inputrc`
+```bash
+sudo nano /etc/inputrc
+```
+
+Add the following at the end of the file
 
 ```bash
 # Case-insensitive Tab auto-complete

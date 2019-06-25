@@ -17,7 +17,7 @@ sudo usermod -aG sudo meowmeow
 
 - `-m` or `--create-home` creates the user's home dircetory
 - `-p` let's you set the password
-- `-k` or `--skel` adds skeleton files to home dircetory (you need to pass an argument)
+- `-k` or `--skel` adds skeleton files to home dircetory (you need to pass an argument). e.g. `useradd meowmeow -m -k '/etc/skel/*'`
 - `-aG` will append the the user to (supplimentary) group(s)
 
 

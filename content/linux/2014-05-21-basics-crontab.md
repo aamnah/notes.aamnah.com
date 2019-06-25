@@ -91,7 +91,10 @@ MAILTO=my.offsite.email@example.org
 00 15 * * *  echo "Just testing if crond sends email"
 ```
 
-- You can set the cron to explicitly log output to a file by redirecting it (`> /var/log/myjob.log 2>&1` will append **all output** to /var/log/myjob.log, `2>&1` indicates that the standard error (2>) is redirected to the same file descriptor that is pointed by standard output (&1).)
+- You can set the cron to explicitly log output to a file by redirecting it (`> /var/log/myjob.log 2>&1` will append **all output** to /var/log/myjob.log, `2>&1` indicates that the standard error (2>) is redirected to the same file descriptor that is pointed by standard output (&1).) You can also use `&>>` for the same purpose. 
+- `&>>` works in Bash whereas `2>&1` works in normal shell.
+- You can specify the Shell in the crontab by adding `SHELL=/bin/bash` in the `crontab -e` file. It'll work for most but not all cron implemetations.
+
 - If you're not getting emails than check the system logs. Popular locations are `/var/log/cron`, `/var/log/messages` and `/var/log/syslog`. Use `grep` to get cron related stuff (`cat /var/log/syslog | grep cron`)
 
 

@@ -2,33 +2,40 @@
 
 title: Vim Basics
 slug: vim-basics
-tags: cheatsheet
-date: 2014-05-21
+date: 2014-05-21 16:27:11.000000000 +05:00
+lastmod: 2019-03-29
+type: post
+categories:
+- cheatsheet
+tags:
+- cheatsheet
+- commands
+- linux
+- editor
+
 ---
 
-Save file and exit in Vim
----
+## Save file and exit in Vim
 
-To go to insert mode: `a`  
+To go to insert mode: `i`  
 To save: `[Esc] and zz`  
-To quit: `[Esc] and :wq`  
+To **w**rite and **q**uit: `[Esc] and :wq`  
 
-Common Vi / Vim File Savings Related Commands (ex mode)
----
+## Common Vi / Vim File Savings Related Commands (ex mode)
 
 You need to press [`Esc`] key followed by the colon (`:`) before typing the following commands:
 
 `q` Quit  
 `q!` Quit without saving changes i.e. discard changes  
-`r` fileName Read data from file called fileName  
+`r fileName` Read data from file called fileName  
 `wq` Write and quit (save and exit)  
-`w` fileName Write to file called fileName (save as)  
-`w!` fileName Overwrite to file called fileName (save as forcefully)  
+`w fileName` Write to file called fileName (save as)  
+`w! fileName` Overwrite to file called fileName (save as forcefully)  
 
 `e filename.txt` open filename.txt. This could be a path to filename or just the filename.
 
-Movement
----
+## Movement
+
 `h`, `j`, `k`, `l` to move around. Or just use arrow keys.
 
 ##### `f`, `F`, `t`, `T`
@@ -54,8 +61,14 @@ Movement
 `{` Beginning of Paragraph
 `}` End of Paragraph
 
-Modes
----
+### Cut, copy and paste
+
+- Go to Visual/Default mode by pressing `esc` and `v`
+- `V` to select an entire line, `d` to cut it, `p` to paste it
+- `d` (aka delete) is for _cutting_ and `y` (aka yank) is _copying_
+
+## Modes
+
 ##### Normal 
 Defult mode. This is the mode for moving around files. You can always get to the normal mode by pressing the [`Esc`] key. 
 
@@ -65,8 +78,7 @@ This mode is for typing. Press `i` to go to **i**nsert mode.
 ##### Visual 
 This mode is for selecting things. Press `v` to go to **v**isual mode.
 
-Delete
----
+## Delete
 
 ##### `d`, `D`
 Delete lines
@@ -81,31 +93,31 @@ Delete a single character
 `x` Delete the character under the cursor
 `X` Delete the character before the cursor
 
-Case swapping
----
+## Case swapping
+
 `~` Swap the case of the character under the cursor
 `v` then `$` then `~` to change the case of the whole line
 
-Repeat, Undo, Redo
----
+## Repeat, Undo, Redo
+
 `.` Repeats the last action you did
 `u` Undo
 `ctrl`+`r` for Redo
 
 
+## Substitue (aka Search)
 
-Substitue (aka Search)
----
 `:s` followed by `/`, `?` or `&`
 
-Search and Replace
----
+## Search and Replace
+
 `:%s/amazing/awesome` Search this document for *amazing* and replace it with *awesome*
 `:%s/and/\&` Search this document for *and* and replace it with *&*. Notice that you need to escape *&*
 `:%s` Search this document
 `:%s/and/but/g` The `/g` in the end means change it globally (everywhere in the file), not just the first instance.
 
-Resources
+Links
 ---
+
 - [HowTo: Save File in Vi / Vim Text Editor](http://www.cyberciti.biz/faq/save-file-in-vi-vim-linux-apple-macos-unix-bsd/)
 - [Harnessing the power of Vim](https://teamtreehouse.com/library/harnessing-the-power-of-vim)
