@@ -82,9 +82,7 @@ function add_comment_count($data, $post, $context) {
 	);
 	$comments = get_comments( $args );
 
-	if ( $comments ) {
-		$data -> data['comment_count'] = $comments;
-	}
+	$data -> data['comment_count'] = $comments;
 
 	return $data;
 }
