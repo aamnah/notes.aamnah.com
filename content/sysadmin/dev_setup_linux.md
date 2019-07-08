@@ -18,7 +18,7 @@ sudo apt update && sudo apt install yarn
 
 - The install script does `apt update` so no need to do it separately.
 - `build-essential` includes `gcc`, `g++` and `make` as well as other packages.
-- If `yarn global` packages are not working, add Yarn to the `$PATH`. 
+- If `yarn global` packages are not working, add Yarn to the `$PATH`.
 
 ```bash
 echo -e "
@@ -26,13 +26,14 @@ echo -e "
 ## PATH - Yarn
 export PATH=$PATH:`yarn global bin`" >> ~/.bashrc
 ```
+
 #### Setting npm global defaults
 
 ```bash
 # check the entire config
 npm config ls -l
 
-# check init related defaults 
+# check init related defaults
 npm config ls -l | grep init
 ```
 
@@ -61,7 +62,7 @@ yarn config set -g init-version '0.0.1'
 ### Git
 
 ```bash
-sudo apt install -y git 
+sudo apt install -y git
 
 git config --global user.name 'Aamnah'
 git config --global user.email 'hello@aamnah.com'
@@ -93,5 +94,28 @@ sudo apt update && sudo apt install sublime-text
 yarn global add parcel-bundler
 ```
 
+### Snaps
+
+`--classic` is needed if you want the app to be able to access external mount drives
+
+```bash
+sudo snap install chromium
+sudo snap install opera --classic
+sudo snap install youtube-dl
+sudo snap install vlc
+sudo snap install insomnia
+sudo snap install ngrok
+sudo snap install vectr
+sudo snap install krita
+sudo snap install polar-bookshelf
+snap install code --classic
+sudo snap install node --classic --channel=edge # 8, 10 are other channel options
+sudo snap install android-studio --classic
+sudo snap install slack --classic
+sudo snap install sublime-text --classic
+sudo snap install gravit-designer --classic
+```
+
 ### Others
+
 - [Visual Studio Code](https://code.visualstudio.com/download)
