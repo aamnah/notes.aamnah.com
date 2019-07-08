@@ -64,7 +64,7 @@ setState(prevState => ({
 	...partialState
 }))
 
-<input onChange={e => mergeState({ text: e.target.value })}
+<input onChange={e => mergeState({ text: e.target.value })} />
 ```
 
 ## Linting
