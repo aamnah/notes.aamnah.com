@@ -3,15 +3,13 @@ title: Customizing WordPress API data
 date: 2019-07-08
 ---
 
-
 What i want:
 
 - remove unnecessary data from the response (e.g. `_links`)
 - add data from multiple endpoints to one response so that i don't have to call multiple endpoints (e.g. featured image size URLs)
 - customize the data that is sent back (e.g. excerpts)
 
-
-Notes: 
+Notes:
 
 - The complete REST response is filtered through `rest_prepare_post` filter. It allows modification of the post type data right before it is returned.
 - Action hooks look like this: `do_action( "hook_name" )`
@@ -26,13 +24,12 @@ Hooks a function or method to a specific filter action.
 add_filter( string $tag, callable $function_to_add, int $priority = 10, int $accepted_args = 1 )
 ```
 
-
 ## Examples
 
 ### Add featured image URLs
 
 ```php
-// Add Featured Image source URLs to the `/posts/` endpoint response 
+// Add Featured Image source URLs to the `/posts/` endpoint response
 
 function add_featured_image_url ($data, $post, $context) {
 	$featured_image_id = $data -> data['featured_media']; // get featured image ID from $data
@@ -73,7 +70,6 @@ featured_image_url: {
 - `image_get_intermediate_size` gets the image source URL by taking the attachment ID and the image size.
 - Standard image sizes are: `thumbnail`, `medium`, `medium_large`, `large`.
 
-
 ### Add Comment count
 
 ```php
@@ -83,7 +79,7 @@ function add_comment_count($data, $post, $context) {
 		'post_id' => $post -> ID, // Limit results affiliated with this post ID. Default 0.
 		'count' => true, // return only the count, not an array of comment objects
 		'status' => 'approve'
-	); 
+	);
 	$comments = get_comments( $args );
 
 	if ( $comments ) {
@@ -126,8 +122,8 @@ filter: "raw"
 ```
 
 ### Customize the excerpt
-Precisely, remove the read more link as it goes to the wrong URL. Remove the continue reading link from auto generated excerpts by defining our own custom excerpt if one hasn't been added by user
 
+Precisely, remove the read more link as it goes to the wrong URL. Remove the continue reading link from auto generated excerpts by defining our own custom excerpt if one hasn't been added by user
 
 ```php
 // Custom Excerpt
@@ -142,29 +138,29 @@ function custom_excerpt ($data, $post, $context) {
 	if ( ! has_excerpt($post -> ID)) {
 		// This post does not has a user defined excerpt
 		$data -> data['excerpt']['raw'] = wp_trim_words( $content, 55 , $more );
-	} 
+	}
 	return $data;
 }
 
 add_filter( 'rest_prepare_post', 'custom_excerpt', 10, 3);
 ```
+
 - `has_excerpt()` takes a post ID and returns true/false depending on whether a custom user-defined excerpt was added for the post.
 
 ### Troubleshooting
 
-See values in $post
+See values in \$post
 
 ```php
 function whothis ($data, $post, $context) {
 	$whothis = $post;
-	$data -> data['whothis'] = whothis;
+	$data -> data['whothis'] = $whothis;
 	return $data;
 }
 add_filter( 'rest_prepare_post', 'whothis', 10, 3);
 ```
 
-Links
----
+## Links
 
 - [REST API Handbook: Modifying ResponsesREST API Handbook: ](https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/)
 - [WP REST API: MODIFYING THE JSON RESPONSE](https://www.haselt.com/blog/wp-rest-api-modifying-the-json-response)
