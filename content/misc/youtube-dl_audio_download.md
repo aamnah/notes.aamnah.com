@@ -1,5 +1,5 @@
 ---
-tiitle: Download audio from YouTube with youtube-dl
+title: Download audio from YouTube with youtube-dl
 date: 2019-04-09
 
 ---
@@ -20,6 +20,8 @@ sudo apt install -y ffmpeg
 ```bash
 youtbe-dl -x https://www.youtube.com/watch?v=xvtBAXM-YZs -o ~/Music/%(title)s.%(ext)s
 ```
+
+You can also `sudo apt install youtube-dl -y` but that installs an outdated version. (Installed 2018.03.14 for me when the latest was 2019.07.02) on July 10, 2019.
 
 ### Saving config
 
