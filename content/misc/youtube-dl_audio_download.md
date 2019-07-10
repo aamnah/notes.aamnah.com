@@ -9,6 +9,7 @@ date: 2019-04-09
 # install youtube-dl
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
+source ~/.bashrc 
 
 # install ffmpeg to be able to convert video files to audio
 sudo apt install -y ffmpeg
