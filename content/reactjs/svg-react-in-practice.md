@@ -79,3 +79,8 @@ export default Icon
 **Cons**
 
 - No ability to edit SVG in JSX
+
+NOTES:
+- if you have a responsive SVG, one that uses `<symbol>` and `<use>` and `<style>` to show different version of the SVG, it'll only work as a `ReactComponent` and not as `<img src={filename} />`
+
+
