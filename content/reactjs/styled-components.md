@@ -6,7 +6,14 @@ date: 2019-07-22
 - how do i get started? `npm i styled-components` and `import styled from 'styled-components'`
 - how do i do media query mixins in styled-components that i used to do in Sass? Write them as a JS template literal instead and export/import that file.
 
+
+
+
 ### Basics
+
+- You can use `&` to reference the current selector, just like Sass
+- Nesting is supported
+- Since it's inside a template string, you can use JS expressions for CSS values
 
 ```js
 import React from 'react'
@@ -15,6 +22,54 @@ import styled from 'styled-components'
 function export default Button () {
 	const 
 
+}
+```
+
+### JS expressions and props
+
+```js
+const Button = styled.button`
+	background: ${props => (props.primary ? 'red' : 'green')};
+`;
+```
+
+### Theming
+
+Your theme would be a JS object
+
+```js
+const theme = {
+	primary: 'purple',
+	secondary: 'green'
+}
+```
+
+Wrap the app in `<ThemeProvider>` and pass it the theme you want to use (a JS object)
+
+```js
+<ThemeProvider theme={theme}>
+	// Code goes here
+</ThemeProvider>
+```
+
+```js
+import styled, { ThemeProvider } from 'styled-components'
+
+const theme = {
+	primary: 'purple',
+	secondary: 'green'
+}
+
+const Button = styled.button`
+	background: ${props => props.theme.primary};
+`;
+
+function App() {
+	return(
+		<ThemeProvider theme={theme}>
+			// Code goes here
+		</ThemeProvider>
+	)
 }
 ```
 
