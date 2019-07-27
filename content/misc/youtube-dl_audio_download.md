@@ -41,8 +41,11 @@ Add the following to it and save
 # Always save Audio in MP3 format
 --audio-format mp3
 
-# Save all files to this folder
--o /mnt/d/Music/%(title)s.%(ext)s
+# Save all files to a specific folder
+#-o /mnt/d/Music/%(title)s.%(ext)s
+
+# Save to the Linux User's Music dircetory
+-o /home/${USER}/Music/%(title)s.%(ext)s
 ```
 
 Now you only need tp pass the URL and that's it.
