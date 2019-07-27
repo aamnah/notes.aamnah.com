@@ -53,3 +53,17 @@ Now you only need tp pass the URL and that's it.
 ```bash
 youtbe-dl https://www.youtube.com/watch?v=xvtBAXM-YZs
 ```
+
+### Add an alias
+I got tired of typing the complete `youtube-dl` all the time so i added an alias for it.
+
+```bash
+# '~/.bash_aliases' on Ubuntu or '~/.bash_profile' on macOS
+alias ydl='youtube-dl'
+```
+
+the command now becomes
+
+```bash
+ydl https://www.youtube.com/watch?v=xvtBAXM-YZs
+```
