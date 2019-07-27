@@ -29,8 +29,10 @@ You can also `sudo apt install youtube-dl -y` but that installs an outdated vers
 
 ```bash
 # create conf file
-sudo touch /etc/youtube-dl.conf
+sudo nano /etc/youtube-dl.conf
 ```
+
+Add the following to it and save
 
 ```
 # Always extract audio (-x or --extract-audio)
