@@ -35,4 +35,6 @@ Jul 27 13:48:37 PandaU nm-dispatcher: req:1 'dhcp4-change' [wlo1]: start running
 Jul 27 13:48:37 PandaU dhclient[3143]: bound to 192.168.0.79 -- renewal in 243 seconds.
 ```
 
-Sure enough, the UUID it is trying to find (as it is listed in `/etc/fstab`) no longer exists. I ran `blkid`, got the new `UUID` of the `swap` partition and updated the `/etc/fstab` file
+Sure enough, the UUID it is trying to find (as it is listed in `/etc/fstab`) no longer exists. I ran `blkid`, got the new `UUID` of the `swap` partition and updated the `/etc/fstab` file. 
+
+Reduced boot time from `3m48s` to `34s`. You can check out how long boot took with the `systemd-analyze` command
