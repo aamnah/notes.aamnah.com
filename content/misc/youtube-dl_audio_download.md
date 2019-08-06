@@ -20,7 +20,7 @@ sudo apt install -y ffmpeg
 ```
 
 ```bash
-youtbe-dl -x https://www.youtube.com/watch?v=xvtBAXM-YZs -o ~/Music/%(title)s.%(ext)s
+youtube-dl -x https://www.youtube.com/watch?v=xvtBAXM-YZs -o ~/Music/%(title)s.%(ext)s
 ```
 
 You can also `sudo apt install youtube-dl -y` but that installs an outdated version. (Installed 2018.03.14 for me when the latest was 2019.07.02) on July 10, 2019.
@@ -51,7 +51,7 @@ Add the following to it and save
 Now you only need tp pass the URL and that's it.
 
 ```bash
-youtbe-dl https://www.youtube.com/watch?v=xvtBAXM-YZs
+youtube-dl https://www.youtube.com/watch?v=xvtBAXM-YZs
 ```
 
 ### Add an alias
