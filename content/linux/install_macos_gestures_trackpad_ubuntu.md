@@ -131,6 +131,7 @@ Links
 ---
 - [Github: libinput-gestures](https://github.com/bulletmark/libinput-gestures)
 - [libinput-gestures: Sample Configuration](https://github.com/bulletmark/libinput-gestures/blob/master/libinput-gestures.conf)
+- [libinput: Gestures](https://wayland.freedesktop.org/libinput/doc/latest/gestures.html)
 - [GitLab: gestures](https://gitlab.com/cunidev/gestures)
 - [Customize Linux Touchpad Gestures with ‘Gestures’ App](https://www.omgubuntu.co.uk/2018/09/linux-touchpad-gestures-app)
 - [xdotool Key codes list](https://gitlab.com/cunidev/gesturesswipe/wikis/xdotool-list-of-key-codes)
