@@ -89,6 +89,7 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
       - step:
           name: Deploy to Expo
           deployment: test
+          trigger: manual # don't automatically deploy all feature branches, save up on build minutes
           script:
             - apk add --no-cache bash
             - unset NPM_CONFIG_USER
@@ -102,7 +103,7 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
 
 Ended up troubleshooting quite a bit as the build kept failing. It's different running things in Docker containers..
 
-Sentry issues
+##### Sentry issues
 
 ```
 Bitbucket Pipeline: Error: EACCES: permission denied, mkdir '/root/.npm/sentry-cli' #47
@@ -110,7 +111,7 @@ Bitbucket Pipeline: Error: EACCES: permission denied, mkdir '/root/.npm/sentry-c
 
 resolved by adding `unset NPM_CONFIG_USER` before runnig any `npm` install commands
 
-Opencollective
+##### Opencollective
 
 ```
 sh: ./node_modules/.bin/opencollective: not found
