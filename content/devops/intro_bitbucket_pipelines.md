@@ -7,6 +7,8 @@ So far i have used pipelines in 2 different projects. One is a .NET Core API tha
 
 Here's the **tl;dr**
 
+> Basically, you can use custom yaml files to describe what happens after you push code to your repository. Bitbucket will lift some instance and allocate computing power for you, for running the code you describe in the yaml, and you’re paying for the time it takes to run. You can also use some caching techniques to make sure you don’t download large libraries over and over again.
+
 - Every build is run inside a Docker container. You can use any `image` you want, and you can have seperate `image`s for separate steps in your pipeline.
 - You get 50 mins per month with the free Bitbucket plan. Use caches and manual triggers to save up on build times.
 - While commands like `dotnet build` and `npm install` may not require installing your packages from scratch, it is recommended to run `dotnet restore` and `npm ci` to do fresh installs of packages in CI/CD pipelines
@@ -24,7 +26,7 @@ Here's a quick overview of most of the stuff i had to look up.
   - Run individual commands inside a `script` or you can run a pre-written script. For example `./cleanup.sh` 
   - It is possible to figure out if a `script` was [successful or not][after-script] by using `$BITBUCKET_EXIT_CODE` (0 = success, 1 = failed)  in the `after-script`
 
-- You save your configuration, written in YAML, in a file called `bitbucket-pipelines.yml` in the root of your repo. Pipelines, Deployments, and Repository variables will not work until you have that file in place. Bitbucket will automatically pick it up once it's there. Easiest way to get started is to generate a config file online by going to Pipelines in Bitbucket.
+- You save your configuration, written in YAML, in a file called `bitbucket-pipelines.yml` in the root of your repo's main branch (usually `master`). Pipelines, Deployments, and Repository variables will not work until you have that file in place. Bitbucket will automatically pick it up once it's there. Easiest way to get started is to generate a config file online by going to Pipelines in Bitbucket.
 - The [configuration][[configuration] page is elaborate and has examples for most of the stuff you need
 - You can have [variables][variables] in your pipelines. Those are saved under _Settings > Repository varaibles_, and referenced as `$SECRET_KEY` or `${SECRET_KEY}`.
 - You can [save dependency caches][caching] to speed up build times. There are a bunch of pre-defined caches available (e.g: `node`, `dotnetcore` etc.). You can also define custom caches under `definitions` (e.g. `node_modules`)
