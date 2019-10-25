@@ -39,11 +39,11 @@ Here's my `bitbucket-pipelines.yml` file:
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 ---
-image: node:alpine
+image: node:latest
 
 definitions:
   caches: # configure caches to speed up builds. more: https://confluence.atlassian.com/bitbucket/caching-dependencies-895552876.html
-    npm: ~/.npm
+    npm: '${HOME}/.npm'
     jest: .jest
 
 pipelines: # contains all your pipeline definitions. you can define multiple pipelines in the configuration file
@@ -55,7 +55,7 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
           - jest
         script: # a list of commands that are executed in sequence.
           - npm ci
-          - npx jest --ci
+          # - npx jest --ci
 
   branches:
     master: # This script runs only on commit to the master branch.
@@ -66,11 +66,11 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
             - npm # keep the npm cache around to speed up installs
           script:
             # Modify the commands below to build your Expo project
-            - apk add --no-cache bash # install Bash. Alpine docker image doesn't have bash installed by default.
             - unset NPM_CONFIG_USER # see: https://github.com/expo/sentry-expo/pull/26#issuecomment-453822980
             - npm ci # ci = clean install
-            - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD # Use variables defined in Repository Settings
-            - npx expo publish --non-interactive --release-channel production
+            - npm i -g --unsafe-perm expo-cli # install Expo globally cz npx wasn't working
+            - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD} # Use variables defined in Repository Settings
+            - expo publish --non-interactive --clear --release-channel production
 
     develop: # This script runs only on commits to develop branch
       - step:
@@ -79,25 +79,34 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
           caches:
             - npm
           script:
-            - apk add --no-cache bash
             - unset NPM_CONFIG_USER
             - npm ci
-            - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-            - npx expo publish --non-interactive --release-channel staging
+            - npm i -g --unsafe-perm expo-cli
+            - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
+            - expo publish --non-interactive --clear --release-channel staging
 
     feature/*: # This script runs only on commit to branches with names that match the feature/* pattern.
       - step:
           name: Deploy to Expo
           deployment: test
-          trigger: manual # don't automatically deploy all feature branches, save up on build minutes
+          caches:
+            - npm
           script:
-            - apk add --no-cache bash
             - unset NPM_CONFIG_USER
             - npm ci
-            - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-            - npx expo publish --non-interactive --release-channel test
+            - npm i -g --unsafe-perm expo-cli
+            - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
+            - expo publish --non-interactive --clear --release-channel test
 ```
 
+
+### Notes
+
+- Ended up using `latest` instead of `alpine` to get rid of common issues like git not being installed and such
+- Had to add `unset NPM_CONFIG_USER` because of Sentry's permission errors during install
+- Publishing to Expo with `--clear` to make sure it clears the bundler's cache and doesn't deploy cached stuff
+- Ended up instaling `expo-cli` globally and not running `npx` because of errors
+- The entire build takes `4m 09s` for me
 
 ### Trubleshooting
 
@@ -132,6 +141,16 @@ I ended up removing `react-native-router-flux` altogether from my project becaus
 - npm ads will be [banned](https://www.zdnet.com/article/npm-bans-terminal-ads/)
 - It's causing my build to fail!
 
+##### Expo
+
+Got the following error when trying to run Expo commands with `npx`. 
+
+```
+This command requires Expo CLI.
+Do you want to install it globally [Y/n]? 
+```
+
+Resolved this by not using `npx` and installing Expo globally
 
 ### NOTES
 
