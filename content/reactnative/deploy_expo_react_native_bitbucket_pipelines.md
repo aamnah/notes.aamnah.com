@@ -107,6 +107,7 @@ pipelines: # contains all your pipeline definitions. you can define multiple pip
 - Publishing to Expo with `--clear` to make sure it clears the bundler's cache and doesn't deploy cached stuff
 - Ended up instaling `expo-cli` globally and not running `npx` because of errors
 - The entire build takes `4m 09s` for me
+- If you have Gitflow setup and are used to creating `feature` branches, make sure you push (and edit) your `bitbucket-pipelines.yml` in the `master` branch. Otherwise you'll end up doing a lot of cherry-picking like me to get the changes back in master to see if the pipeline worked..
 
 ### Trubleshooting
 
