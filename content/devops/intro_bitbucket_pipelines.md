@@ -38,3 +38,8 @@ Here's a quick overview of most of the stuff i had to look up.
 [caching]: https://confluence.atlassian.com/bitbucket/caching-dependencies-895552876.html
 [deployments]: https://confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html
 [after-script]: (https://bitbucket.org/blog/after-scripts-now-available-for-bitbucket-pipelines)
+
+Links
+---
+
+- [Validate your bitbucket-pipelines.yml](https://bitbucket-pipelines.prod.public.atl-paas.net/validator)
