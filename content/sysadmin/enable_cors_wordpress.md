@@ -1,4 +1,4 @@
-----
+---
 title: Enable CORS for WordPress API on Apache
 date: 2019-10-31
 ---
