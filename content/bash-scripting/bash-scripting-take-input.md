@@ -2,7 +2,7 @@
 
 title: Bash Scripting - Taking input
 slug: bash-scripting-take-input
-date: 2014-06-05 12:08:00
+date: 2014-06-05
 ---
 
 
