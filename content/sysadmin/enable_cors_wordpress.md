@@ -65,3 +65,8 @@ Add the header inside the `<Directory>` section in the Apache virtual host files
 ```
 
 The side benefit of editing the `.conf` file and not `.htaccess` is that i can be sure that i don't have to worry about the _order_ of my redirects and what section goes before what
+
+
+---
+
+In the end none of these worked for my user case because i was also setting up redirection for the domain. When you redirect a domain, the origin gets changed to `null` which is not an acceptable `Origin`
