@@ -1,11 +1,13 @@
 ---
 title: How to use Redcarpet for syntax highlighting in Jekyll
 slug: /howto-use-redcarpet-jekyll-syntax-highlighting-fenced-code
+date: 2017-02-23
 tags: ['jekyll']
 status: publish
 ---
 
 why?
+
 - because i don't wanna use liquid tags. i want to keep my posts in pure markdown in case i need to switch platforms or use the _posts_ elsewhere
 - because Github uses Redcarpet for rendering `.md` content
 - because it supports fenced code blocks.
