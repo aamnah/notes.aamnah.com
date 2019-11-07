@@ -8,7 +8,7 @@ date: 2019-11-04
 - Install [React Native Debugger][RND-releases] for your system and [redux-devtools-extension][http://extension.remotedev.io/] for your app
 - Shake your app (device) and enable `Debug JS Remotely` from the menu.
 - Close all open debugger windows (e.g. the one that opens in the Browser when you enable Remote debugging)
-- Open a tab in React Native Debugger with the `port` your app's debugger is running on. For Expo it's usually `19001`. (RND is smart enough to automatically detect the port when you open a new tab..)
+- Open a tab in React Native Debugger with the `port` your app's debugger is running on. For Expo DevTools it's usually `19002`. (RND is smart enough to automatically detect the port when you open a new tab..)
 ---
 
 
