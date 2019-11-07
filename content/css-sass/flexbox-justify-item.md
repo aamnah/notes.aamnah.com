@@ -8,6 +8,7 @@ date: 2019-07-25
 - There is a CSS property called `justify-self` which can take values such as `start` and `end`, but it is ignored in flexbox and table cell layouts
 - You can't `float` inside a flex container because the property does not apply to flex boxes
 - If two flex items are on the same level, you can use `justify-content: space-between` to move one to the left and the other to the right
+- `justify-content: space-between` only works if there is enough space to move around items, meaning if it is not working for you, check the width of the parent container
 
 Links
 ---

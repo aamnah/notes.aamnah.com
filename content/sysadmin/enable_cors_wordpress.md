@@ -1,10 +1,9 @@
-----
+---
 title: Enable CORS for WordPress API on Apache
 date: 2019-10-31
 ---
 
 ### Try 1. Edit `.htaccess`
-NOTE: DIDN'T WORK
 
 ```bash
 sudo a2enmod headers
@@ -28,7 +27,6 @@ https://www.w3.org/wiki/CORS_Enabled
 
 
 ### Try 2. Edit `functions.php`
-NOTE: DIDN'T WORK
 
 Put this in `functions.php`
 
@@ -52,9 +50,8 @@ add_action( 'rest_api_init', 'my_customize_rest_cors', 15 );
 
 
 ### Try 3. Edit Appache virtual host `.conf` file
-NOTE: THIS WORKED!
 
-Add the header inside the `<Directory>` section
+Add the header inside the `<Directory>` section in the Apache virtual host files for the domain. (You may have 2 of them, one for SSL and one non-SSL)
 
 ```
 # Allow .htaccess and Rewrites
@@ -68,3 +65,8 @@ Add the header inside the `<Directory>` section
 ```
 
 The side benefit of editing the `.conf` file and not `.htaccess` is that i can be sure that i don't have to worry about the _order_ of my redirects and what section goes before what
+
+
+---
+
+In the end none of these worked for my user case because i was also setting up redirection for the domain. When you redirect a domain, the origin gets changed to `null` which is not an acceptable `Origin`

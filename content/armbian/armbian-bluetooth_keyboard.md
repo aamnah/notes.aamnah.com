@@ -2,7 +2,7 @@
 title: Pairing Bluetooth devices in Armbian, Orange Pi Plus2 
 description: How to pair bluettoth devices in general and the Logitech K480 bluetooth multi-device keyboard in particular on Armbian (Orange Pi Plus2)
 date: 2018-08-06
-lastmod: 201-11-14
+lastmod: 2018-11-14
 ---
 
 
