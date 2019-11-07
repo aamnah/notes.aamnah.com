@@ -3,6 +3,8 @@ title: Enable macOS like touchpad gestures on Ubuntu
 date: 2019-10-09
 ---
 
+NOTE: i ended up finally learning how to properly use Workspaces in Ubuntu and no longer use the swipe gesture. They were wonky anyway, middle click was still pasting things in the end.. The touchpad on a Lenove Thinkpad is good, better than any HP or Acer i have ever used, but still doesn't compare to one on a MacBook
+
 FYI: 
 - I'm using the touchpad of a Lenovo T450.
 - On my Mac, i use 3-finger swipe up for app Expose, and 3-finger left/right to switch between full-screen apps
