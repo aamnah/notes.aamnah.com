@@ -1,7 +1,10 @@
 ---
 
 title: syntax highlighting colors
+date: 2017-02-25
 ---
+
+this file is for testing syntax highlighting theme..
 
 ```javascript
 /* **********************************************
