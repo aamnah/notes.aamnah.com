@@ -153,12 +153,14 @@ const styles = StyleSheet.create({
   - `height` and `width` for `rect`
   - `loading: boolean` to decide whether to animate the background color or not
   - Default values have been added as fallbacks (`rx`, `height`, `width`, `loading`, `size`, `shape` and `fill`)
+- I originally had `height` and `width` for `circle` as well, with `size` as a complimentary value. But i ended up getting rid of those since it is a circle.. Common usage will always have the same `height` and `width`
 
-  Links
-  ---
 
-  - See the [Creating a placeholder loading Component in React Native using Animated]() post
-  - [MDN: <rect>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect)
-  - [MDN: <circle>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle)
-  - [createAnimatedComponent](https://animationbook.codedaily.io/animated-create-animated-component/)
-  - [Animated](https://facebook.github.io/react-native/docs/animated.html)
+Links
+---
+
+- See the [Creating a placeholder loading Component in React Native using Animated]() post
+- [MDN: <rect>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect)
+- [MDN: <circle>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle)
+- [createAnimatedComponent](https://animationbook.codedaily.io/animated-create-animated-component/)
+- [Animated](https://facebook.github.io/react-native/docs/animated.html)
