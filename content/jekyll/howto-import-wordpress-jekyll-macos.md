@@ -1,6 +1,8 @@
 ---
-title: How to import a WordPress blog in Jekyll (MacOS)
+title: How to import a WordPress blog in Jekyll (macOS)
 slug: /howto-import-wordpress-jekyll-macos
+date: 2017-02-23
+
 ---
 
 install `jekyll-import` and it's dependencies
