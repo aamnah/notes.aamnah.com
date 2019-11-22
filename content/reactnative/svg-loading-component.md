@@ -129,6 +129,7 @@ export default function App() {
       <Placeholder loading={false}/>
       <Placeholder shape='circle' size={150}/>
       <Placeholder shape='rect' width={200} />
+      <Placeholder loading={false} shape='circle' size={100}/>
     </View>
   );
 }
