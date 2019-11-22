@@ -118,8 +118,20 @@ const styles = StyleSheet.create({
 ## Notes
 
 - The above code is now in a good place to be used as a starting point. If you want to use `rgba` values, you may have to look into `hex-to-rgba`
-- The entire thing could just be a CSS animation as well, look into that. I mean, we're only changing the background color..
+- The entire thing could just be a CSS animation as well, look into that. I mean, we're only changing the background color? Answer: In vanilla React Native you can not use CSS animations. The `Stylesheet` properties in React Native are pretty limited. You can find a list of [all supported properties here](https://facebook.github.io/react-native/docs/layout-props.html)
+- But maybe we can do CSS animations using `styled-components`?
 
+### Animating SVGs
+Can i use SVGs as placeholder? Sure. you'd have to use another library (e.g. `react-native-svg`)to add SVG support to React Native, and then you'd have to create a custom animated components using [createAnimatedComponent](https://facebook.github.io/react-native/docs/animated.html#createanimatedcomponent) to be able to animate an `<Svg>` component
+
+See example [here](https://animationbook.codedaily.io/animated-create-animated-component/)
+
+```jsx
+import { Path } from "react-native-svg";
+const AnimatedPath = Animated.createAnimatedComponent(Path);
+```
+
+See [Animating SVG in React Native]()
 
 Links
 ---
