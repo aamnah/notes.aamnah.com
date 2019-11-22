@@ -147,6 +147,13 @@ const styles = StyleSheet.create({
 
 - SVG is not supported in react Native, using `react-native-svg` for that
 - Since SVG is not supported, it is also not supported by React Native `Animated`. So made the SVG a custom Animated component using `createAnimatedComponent()`
+- For example, to animate an SVG path, you'd make it an Animated component like so: 
+
+```jsx
+import { Path } from 'react-native-svg'
+const AnimatedPath = Animated.createAnimatedComponent(Path)
+```
+
 - The prop types are there because i'm using Typescript
 - The `<Placeholder>` component can take 
   - a `shape` prop, the two options are `circle` or `rect`
@@ -154,6 +161,7 @@ const styles = StyleSheet.create({
   - `height` and `width` for `rect`
   - `loading: boolean` to decide whether to animate the background color or not
   - Default values have been added as fallbacks (`rx`, `height`, `width`, `loading`, `size`, `shape` and `fill`)
+  
 - I originally had `height` and `width` for `circle` as well, with `size` as a complimentary value. But i ended up getting rid of those since it is a circle.. Common usage will always have the same `height` and `width`
 
 
