@@ -4,7 +4,6 @@ date: 2019-11-07
 
 ---
 
-
 Set header title in stack navigator
 
 ```js
@@ -12,14 +11,16 @@ Component.navigationOptions = {
   headerTitle: 'Conversations'
 }
 ```
+`headerTitle` is a property that is specific to _stack navigator_. The alternative is `title`. `headerTitle` will default to `title` in other navigators.
 
-or a callback function if you wanna use props
+or a callback function if you wanna use params (e.g. username in title)
 
 ```js
-Home.navigationOptions = () => {(
-    title:'Home'
+Home.navigationOptions = ({ navigation }) => {(
+    title: navigation.getParam('otherParam', 'A Nested Details Screen'),
 )}
 ```
+
 Links
 ---
 
