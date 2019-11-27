@@ -1,6 +1,8 @@
 ---
 title: Using workspaces like a  pro in Ubuntu
 date: 2019-11-07
+lastmod: 2019-11-27
+
 ---
 
 **tl;dr**
