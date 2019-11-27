@@ -6,9 +6,9 @@ lastmod: 2019-11-27
 ---
 
 ```bash
-yarn add @aspnet/signalr
+#yarn add @aspnet/signalr
 
-# npm i @aspnet/signalr
+npm i @aspnet/signalr
 ```
 
 Working code example
