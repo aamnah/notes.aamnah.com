@@ -9,6 +9,12 @@ With the keyboard shortcuts, i now `ctrl+alt+up/down` to move between workspaces
 
 ---
 
+The top thing i missed about macOS after switching to a Thinkpad with Ubuntu was the swipe gestures. I could three-finger swipe left/right to switch between full screen apps. 
+
+On Ubuntu, i tried to do the same thing by setting up gestures, but it wasn't as smooth as i wanted.
+
+Ever since i have figured out the shortcuts and started using them, i have felt more productive
+
 ### Managing Workspaces
 - <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>UP/DOWN</kbd> - move app to a Workspace above or below
 - <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>UP/DOWN</kbd> - move to Workspace up or below
@@ -38,11 +44,3 @@ You can also maximize, restore and split windows using keyboard shortcuts
 - <kbd>start</kbd> + <kbd>LEFT/RIGHT</kbd> - split View left/right
 - <kbd>start</kbd> + <kbd>LEFT/RIGHT</kbd> - split View left/right
 - <kbd>start</kbd> + <kbd>UP/DOWN</kbd> - Maximize/Restore window
-
----
-
-The top thing i missed about macOS after switching to a Thinkpad with Ubuntu was the swipe gestures. I could three-finger swipe left/right to switch between full screen apps. 
-
-On Ubuntu, i tried to do the same thing by setting up gestures, but it wasn't as smooth as i wanted.
-
-Ever since i have figured out the shortcuts and started using them, i have felt more productive
