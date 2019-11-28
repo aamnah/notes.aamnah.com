@@ -6,9 +6,12 @@ lastmod: 2019-11-28
 ---
 
 ```bash
+# .NET Core 2.2
+npm i @aspnet/signalr
 #yarn add @aspnet/signalr
 
-npm i @aspnet/signalr
+# .NET Core 3.0
+#npm install @microsoft/signalr
 ```
 
 Working code example
@@ -116,3 +119,9 @@ Notes
 - i have tried setting the `keepAliveIntervalInMilliseconds` and `serverTimeoutInMilliseconds` values on the frontend but that didn't work
 - The `{ accessTokenFactory: () => token }` bit alllows you to pass a token for authorization.
 - There are different `LogLevel`s. `Debug` will give you more details
+
+Links
+---
+
+- [ASP.NET Core SignalR JavaScript client](https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-2.2)
+- [@aspnet/signalr package](https://docs.microsoft.com/en-us/javascript/api/@aspnet/signalr/?view=signalr-js-latest)
