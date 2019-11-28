@@ -1,7 +1,7 @@
 ---
 title: .NET Core SignalR with React Native
 date: 2019-10-16
-lastmod: 2019-11-27
+lastmod: 2019-11-28
 
 ---
 
