@@ -67,6 +67,15 @@ export default function App() {
       console.error(`Disconnected with status code ${error.statusCode}`, JSON.stringify(error))
       await start()
     })
+    
+    // Listen for events
+    connection.on('messageReceived', (data) => {
+      console.log(`\n data: \n ${JSON.stringify(data, null, '\t')} \n`)
+    })
+
+    connection.on('notificationReceived', (data) => {
+      console.log(`\n data: \n ${JSON.stringify(data, null, '\t')} \n`)
+    })
   }
 
   
