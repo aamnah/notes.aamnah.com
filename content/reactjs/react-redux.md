@@ -27,7 +27,7 @@ This! This basically means **you are bound to use some third party library to ha
 
 3.
 
-- Redux will only give you _global_ _local_ state. It is local. It will not persist. You refresh the browser and the state is gone
+- Redux will only give you _global_ state that is still _local_. It will not persist. You refresh the browser and the state is gone
 
 ### Redux with React
 
