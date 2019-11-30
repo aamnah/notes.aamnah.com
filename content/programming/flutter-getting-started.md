@@ -5,22 +5,22 @@ date: 2019-11-24
 
 ### Setting up on Linux
 
-1. Download and extract the Flutter SDK
+#### Download and extract the Flutter SDK
   - Extract the tarball where you want, usual places are `/usr/local/` and `/opt`
   - Update `$PATH`
 
-2. Install VS Code extension `ext install ms-vscode.cpptools`
+#### Install VS Code extension `ext install ms-vscode.cpptools`
 
 At this point, if you run `flutter doctor` it'll look up your system for development capabilities. For example, it told me i didn't have the Android toolchain and Android studio not installed so couldn't develop for Android. Also, no connected devices.
 
-3. [Install Android Studio](https://developer.android.com/studio/install)
+#### [Install Android Studio](https://developer.android.com/studio/install)
 
   - Extract the tarball where you want, usual places are `/usr/local/` and `/opt`
   - InstallAndroid Studio  by running `./studio.sh` inside the `android-studio/bin` directory
   - Add Android Studio to `$PATH`
   - Add shortcut: _Tools > Create Desktop Entry_ from the Android Studio menu bar
 
-4. Setup Android device
+#### Setup Android device
 
   - Enable Developer Mode (Tap _System > About > Build number_ 7 times) and USB Debugging (_System > Developer options_) on Phone 
   - Install `adb` on my Linux system: `sudo apt install adb`
