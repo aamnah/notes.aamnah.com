@@ -71,7 +71,7 @@ We need `createStore()` from `redux` in order to cerate a store.
 ```jsx
 import { createStore } from 'redux`
 
-const store = createStore(reducer)
+const store = createStore(reducer, preLoadedState) // optional third arg is middleware (say sagas or thunk)
 ```
 
 #### Create a `reducer`. We need at least one to get started
