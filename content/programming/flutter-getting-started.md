@@ -13,6 +13,10 @@ date: 2019-11-24
 
 At this point, if you run `flutter doctor` it'll look up your system for development capabilities. For example, it told me i didn't have the Android toolchain and Android studio not installed so couldn't develop for Android. Also, no connected devices.
 
+- Install Android SDK separately to avoid issues with finding Android SDK later
+  - `apt install android-sdk` will install to `/usr/lib/android-sdk`
+- Tried installing Android SDK separately, Android Studio gave the _location not accesible_ error. Went back to installing in home directory.
+
 3. [Install Android Studio](https://developer.android.com/studio/install)
 
   - Extract the tarball where you want, usual places are `/usr/local/` and `/opt`
