@@ -32,7 +32,8 @@ function* foo () {
 
 > _Web Workers_ are a mechanism where you can spin up a whole separate thread for a part of a JS program to run in, totally in parallel to your main JS program thread. The reason this doesn't introduce multi-threaded complications into our programs is that the two threads can only communicate with each other through normal async events, which always abide by the event-loop _one-at-a-time_ behavior required by run-to-completion.
 
-
+- Generator functions produce an iterator instead of running when they are invoked. So we can use a `.next()` on them
+- Using `return` inside a generator is highly discouraged bad practice. Always `yield` inside a generator
 
 Links
 ---
