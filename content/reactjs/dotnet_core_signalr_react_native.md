@@ -14,7 +14,7 @@ lastmod: 2019-12-18
 npm install @microsoft/signalr
 ```
 
-`@microsoft/signalr` works with .NET Core 3.1 and has a `withAutomaticReconnect()` function that we can use for reconnecting if connection lost. This makes code simpler.
+`@microsoft/signalr` works with .NET Core 3.1 and has a `withAutomaticReconnect()` function that we can use for reconnecting if connection lost. This makes code simpler. And it works with `WebSocket` by default so we don't need the _heartbeat_ either.
 
 ```js
 const connection = new SignalR.HubConnectionBuilder()
