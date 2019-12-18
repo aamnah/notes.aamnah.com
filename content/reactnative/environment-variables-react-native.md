@@ -18,7 +18,7 @@ Add the preset in `babel.config.js`
 module.exports = {
   presets: [
     'babel-preset-expo', 
-    'react-native-dotenv'
+    'module:react-native-dotenv'
   ]
 }
 ```
