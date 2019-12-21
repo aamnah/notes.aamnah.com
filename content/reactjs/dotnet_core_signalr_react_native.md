@@ -1,20 +1,34 @@
 ---
 title: .NET Core SignalR with React Native
 date: 2019-10-16
-lastmod: 2019-11-28
+lastmod: 2019-12-18
 
 ---
 
 ```bash
 # .NET Core 2.2
-npm i @aspnet/signalr
+#npm i @aspnet/signalr
 #yarn add @aspnet/signalr
 
 # .NET Core 3.0
-#npm install @microsoft/signalr
+npm install @microsoft/signalr
 ```
 
-Working code example
+`@microsoft/signalr` works with .NET Core 3.1 and has a `withAutomaticReconnect()` function that we can use for reconnecting if connection lost. This makes code simpler. And it works with `WebSocket` by default so we don't need the _heartbeat_ either.
+
+```js
+const connection = new SignalR.HubConnectionBuilder()
+  .withUrl('https://api.mysite.com/signalhub', {
+    accessTokenFactory: () => TOKEN
+  })
+  .configureLogging(SignalR.LogLevel.Debug)
+  .withAutomaticReconnect() // this will reconnect if connection lost
+  .build()
+```
+
+
+
+Working code example (`@aspnet/signalr`)
 
 ```jsx
 // App.tsx
