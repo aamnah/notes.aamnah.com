@@ -67,7 +67,16 @@ flutter create myapp
 flutter run
 ```
 
-The app name needs to be `lowercase_with_underscore`
+- The app name needs to be `lowercase_with_underscore`
+- The first `run` would take a long time, i thought it got stuck on Gradle, and then it spent a bunch of time resolving dependencies.. It gets busy downloading stuff in the background..
+
+
+```
+Initializing gradle
+  176.6s (!) = 3mins
+Resolving dependencies
+  448.7s (!) = 7.5mins
+```
 
 #### Enable web apps
 
@@ -87,3 +96,13 @@ The app name needs to be `lowercase_with_underscore`
  # generate a release build
  flutter build web
  ```
+
+ ### No Prettier or ESLint needed
+
+ Just run `flutter format <filename>`
+
+ ### Notes
+
+ - If you're coding in VS Code, you'll have to press `r` manually in the terminal to hot reload the app. If you are using Android Studio, it will automatically reload on save.
+ - In Android Studio, if you add a comment with `TODO` in the beginnig, you'll be able to see all todo tasks in your project in the Todo tab at the bottom.
+ - Prefixing an identifier with an underscore (e.g. `_suggestions`) enforces privacy in the Dart language.

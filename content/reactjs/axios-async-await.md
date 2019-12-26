@@ -1,5 +1,5 @@
 ---
-title: Axios with asyn await in React
+title: Axios with async await in React
 date: 2019-12-17
 ---
 
