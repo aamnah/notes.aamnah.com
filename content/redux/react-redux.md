@@ -14,7 +14,7 @@ The plan:
 
 > You can not make API calls and routing transitions inside a `reducer`
 
-This! This basically means **you are bound to use some third party library to handle updating state with data returned by the API calls**, hello `middleware`! You must use something like `redux-thunk` or `redux-saga`, there is no two ways about it. Beccause:
+This! This basically means **you are bound to use some third party library to handle updating state with data returned by the API calls**, hello `middleware`! You must use something like `redux-thunk` or `redux-saga`, there is no two ways about it. Because:
 
 - i can't imagine a React app that doesn't make an API call. React is just the _View_. The data always comes in from somewhere else.
 - we can't make API calls in reducers, and reducers update state..
@@ -23,7 +23,7 @@ This! This basically means **you are bound to use some third party library to ha
 
 - State is an `{}`
 - Action is an `{}`
-- Reducer is a pure `()`
+- Reducer is a pure `function ()`
 
 3.
 
