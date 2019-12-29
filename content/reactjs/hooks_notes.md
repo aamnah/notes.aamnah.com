@@ -34,3 +34,12 @@ Hooks can only be used inside React function components and other hooks.
 > If a function’s name starts with ”use” and it calls other Hooks, we say it is a custom Hook.
 
 It's just a function (with the `useSomething` naming convention) that calls other Hooks
+
+
+Some examples of custom hooks are [`react-redux` hooks](https://react-redux.js.org/next/api/hooks):
+
+```js
+useSelector() // lets you extract data from the Redux store state, using a selector function
+useDispatch() // lets you dispatch Actions
+```
+
