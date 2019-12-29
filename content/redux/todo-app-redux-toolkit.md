@@ -11,7 +11,7 @@ category: 'Weekend Project'
 ```js
 configureStore() // wraps createStore() + DevTools + Middleware (redux-thunk)
 createAction() // Creates an Action creator by taking an action type. Generated function takes a single argument that becomes action.payload
-createReducer() //
+createReducer() // Creates a reducer function
 createSlice()
 ```
 
@@ -36,11 +36,11 @@ useEffect() // lifecycle events and side effects
 {
   todos : [
     {
-      id: v4(), // import v4 from 'uuid/v4'
-      createdAt: new Date().toISOString()
-      title: 'Create a React todo list app'
-      description: 'Use redux toolkit and react-redux hooks' // optional
-      status: 'In Progress' // 3 Statuses total: Done, In Progress, Pending
+      id: uuid(), // import * as uuid from 'uuid/v4'
+      createdAt: new Date().toISOString(),
+      title: 'Create a React todo list app',
+      description: 'Use redux toolkit and react-redux hooks', // optional
+      status: 'In Progress', // 3 Statuses total: Done, In Progress, Pending
       list: 'Dev'
     },
     {},
@@ -56,11 +56,7 @@ useEffect() // lifecycle events and side effects
     {},
     {}
   ],
-  filters: [ // ?
-    {
-      title: 'Done'
-    }
-  ]
+  filter: 'showAll'/'showDone'/'showPending'/'showInProgress'
 }
 ```
 

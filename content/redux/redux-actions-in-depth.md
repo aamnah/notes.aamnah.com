@@ -3,6 +3,22 @@ title: Redux Actions in Depth
 date: 2019-12-29
 ---
 
+
+## tl;dr
+
+Actions are objects that are _dispatched_ and tell reducers _what to do_. They contain a `type` - usually a string, and some `payload` - usually an object.
+
+```
+{
+  type: 'DO_SOMETHING',
+  payload: {
+    // some data
+  }
+}
+```
+
+---
+
 ## Actions
 
 > Actions are payloads of information that send data from your application to your store. They are the only source of information for the store. You send them to the store using `store.dispatch()`.
@@ -64,13 +80,13 @@ dispatch({
 dispatch(addTodo("Build my first Redux app"));
 ```
 
-| Vocabulary           | Type                                               |
-| -------------------- | -------------------------------------------------- |
-| Action               | Object                                             |
-| Action type          | String recommended, could be anything serializable |
-| Action type constant | type saved as const                                              |
-| Action payload       | Object usually, could be anything                  |
-| Action creator       | Function                                           |
+| Vocabulary             | Type                                               |
+| ---------------------- | -------------------------------------------------- |
+| Action                 | Object                                             |
+| Action type            | String recommended, could be anything serializable |
+| Action (type) constant | type saved as const                                |
+| Action payload         | Object usually, could be anything                  |
+| Action creator         | Function                                           |
 
 ```
 Action: {
@@ -88,7 +104,7 @@ On an Action object:
 
 ## Action Type (String literal)
 
-Every action must have a `type` property specifying what type of an action is being performed. The value must be a `String`.
+Every action must have a `type` property specifying what type of an action is being performed. The value should be a `String` (recommended).
 
 ```js
 // An example Action object
@@ -127,13 +143,38 @@ to avoid typos, to gather them all in one place and to easily import/export them
 
 Functions generating action objects (instead of writing action objects directly in the code at the time of `dispatch`).
 
+```js
+function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  };
+}
+```
+
+```js
+// Dispatch an Action (saved as an Action Creator function)
+dispatch(addTodo("Build my first Redux app"));
+```
+
 ### Why?
 
 Instead of creating the objects inline at the time of dispatch, you can save them before hand. The major benefit of doing that is that when you need to change an action object later, you'd only do it in one place instead of making inline changes where you dispatched that particular action
 
+## Bound Action Creator
+
+an function that also includes `dispatch()` alongwith the action creator, i.e. it is _bound_ to automatically dispatch when called:
+
+```js
+const boundAddTodo = text => dispatch(addTodo(text));
+const boundCompleteTodo = index => dispatch(completeTodo(index));
+```
+
+`bindActionCreators()` is there to automatically bind many action creators to a `dispatch()` function. Redux only.
+
 ## createAction()
 
-From the _recommended and opinionated_ `@redux/toolkit`, `createAction()` combines the process of creating an _action type_ (constant) and an _action creator_ (function) into a single step.
+From the _recommended and opinionated_ `@reduxjs/toolkit`, `createAction()` combines the process of creating an _action type_ (constant) and an _action creator_ (function) into a single step.
 
 Funnily enough, both _action constants_ and _action creators_ are listed under _reducing boilerplate_, when in fact they are responsible for adding more lines of code and more files and folders.. The toolkit's `createAction()` is the one that actually _reduces code and complexity_ and makes _Ducks_ (actions, reducers for one feature in one file) possible.
 
@@ -206,7 +247,7 @@ function counter(state = 0, action) {
 | foo.`type`           | Action type (string)                                                                                        |
 | foo.`toString()`     | Action type (string)                                                                                        |
 | foo.`payload`        | Action payload (could be anything)                                                                          |
-| foo.`match`          | determine if the passed action is of the same type as an action that would be created by the action creator |
+| foo.`match()`        | determine if the passed action is of the same type as an action that would be created by the action creator |
 
 `foo` is the generated action creator..
 
@@ -251,7 +292,6 @@ function todoApp(state = [], action) {
 ```
 
 When using `createAction()` you will use `addTodo.type` instead of `ADD_TODO` in your `CASE` statements
-
 
 ## Links
 

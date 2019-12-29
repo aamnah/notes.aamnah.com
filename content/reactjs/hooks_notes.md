@@ -9,10 +9,10 @@ Basically, they are just functions with a fancy name that can do _React stuff_, 
 
 Hooks can only be used inside React function components and other hooks.
 
-| Hooks     | Purpose                                                                                |
-| --------- | -------------------------------------------------------------------------------------- |
+| Hooks     | Purpose                                                                                                    |
+| --------- | ---------------------------------------------------------------------------------------------------------- |
 | useEffect | Add a life cycle event (componentDidMount, ComponentWillMount, ComponentWillUnmount, ComponentDidUpdate..) |
-| useState  | Add state                                                                              |
+| useState  | Add state                                                                                                  |
 
 - `useState()` does _NOT_ merge old and new state together (unlike `this.setState`). With the `useState` hook you basically overwrite the previous .
   - unlike `this.setState` in a class, updating a state variable always _replaces_ it instead of merging it.
@@ -35,11 +35,9 @@ Hooks can only be used inside React function components and other hooks.
 
 It's just a function (with the `useSomething` naming convention) that calls other Hooks
 
-
 Some examples of custom hooks are [`react-redux` hooks](https://react-redux.js.org/next/api/hooks):
 
 ```js
-useSelector() // lets you extract data from the Redux store state, using a selector function
-useDispatch() // lets you dispatch Actions
+useSelector(); // lets you extract data from the Redux store state, using a selector function
+useDispatch(); // lets you dispatch Actions
 ```
-
