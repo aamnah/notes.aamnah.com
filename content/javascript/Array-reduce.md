@@ -144,6 +144,25 @@ bigData: 31.489ms
 bigDataReduced: 51.182ms
 ```
 
+
+---
+
+Array.reduce  => returns single value
+Array.map => returns new Array
+
+Loop with memory.
+You need to provide it a reducer function
+
+Accumulator = previous state = the last value you returned from the reducer function
+Current = current element in the loop
+
+Start with many things and reduce it down to one thing
+
+
+https://www.youtube.com/watch?v=tVCYa_bnITg
+
+---
+
 Links
 ---
 - [Egghead.io: Introducing Reduce: Transforming Arrays Functionally](https://egghead.io/lessons/javascript-introducing-reduce-transforming-arrays-functionally?course=reduce-data-with-javascript)
