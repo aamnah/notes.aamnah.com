@@ -1,6 +1,7 @@
 ---
 title: Getting started with Redux Saga
 date: 2019-12-09
+lastmod: 2020-01-12
 ---
 
 You can not make API calls (or any other _side effects_) inside the reducers. For that you must use middleware. Redux Saga is one such middleware, which is good for
@@ -21,4 +22,46 @@ Redux Saga uses _Generator functions_, an ES6 feature.
 function* foo () {
   // code goes here
 }
+```
+
+### Concepts
+
+#### _Watcher_ and _worker_ sagas
+
+```js
+// Worker
+function* getUsers() {
+  try {
+
+  } catch(e) {
+
+  }
+}
+
+// Watcher
+function* watchGetUsers() {
+  yield takeEvery(users.actions.getUsers, getUsers) // when this action is dispatched, run this function
+}
+```
+
+#### Blocking and non-blocking sagas
+
+
+| Blocking | Non-blocking |
+|-|-|
+| takeEvery | |
+
+#### Common _effects_
+1. `call()`
+makes a function call. Could be another generator, or an API call, or a helper function imported from another file. We can yield a Promise directly,
+
+```js
+const products = yield Api.fetch('/products')
+```
+
+but that makes unit testing difficult. So we use `call()` instead
+
+```js
+// call(fn, ...args)
+const products = yield call(Api.fetch, '/products')
 ```
