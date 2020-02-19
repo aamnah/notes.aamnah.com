@@ -22,3 +22,22 @@ let containerStyles = {
 
 jQuery("#popularUsersContainer").css(containerStyles)
 ```
+
+If you want hover styles, you'll combine `.css()` with `.hover()`
+
+```js
+$("div.myclass").hover(function() {
+  $(this).css("background-color","red")
+});
+```
+
+```js
+$(".myclass, .myclass2").hover(function(e) {
+    $(this).css("background-color",e.type === "mouseenter"?"red":"transparent")
+})
+```
+
+Links
+---
+- [jQuery: .css()](https://api.jquery.com/css/)
+- [StackOverflow: How to define the css :hover state in a jQuery selector?](https://stackoverflow.com/a/21051467)
