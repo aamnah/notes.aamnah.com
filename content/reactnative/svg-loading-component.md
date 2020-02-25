@@ -169,7 +169,7 @@ Links
 ---
 
 - See the [Creating a placeholder loading Component in React Native using Animated]() post
-- [MDN: <rect>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect)
-- [MDN: <circle>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle)
+- [MDN: rect](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect)
+- [MDN: circle](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle)
 - [createAnimatedComponent](https://animationbook.codedaily.io/animated-create-animated-component/)
 - [Animated](https://facebook.github.io/react-native/docs/animated.html)
