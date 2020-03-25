@@ -1,5 +1,5 @@
 ---
-title: Setting up a WordPress Multisite Network
+title: Setting up a WordPress Multisite Network in Subfolders
 date: 2020-03-25
 ---
 
@@ -55,13 +55,13 @@ RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
 # add a trailing slash to /wp-admin
-RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
-RewriteRule ^(.*\.php)$ $1 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
 RewriteRule . index.php [L]
 </IfModule>
 # END WordPress
