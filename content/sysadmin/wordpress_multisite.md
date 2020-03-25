@@ -86,17 +86,56 @@ The above is all you need. You should now be able to go to https://mydomain.net/
 
 
 ## Troubleshooting
+You get too many redirects when going to the Admin of the new site you just created
 
 ```
 ERR_TOO_MANY_REDIRECTS
 ```
 
-You get too many redirects when going to the Admin of the new site you just created
+Check your `.htaccess` file. In my case i had added the code for _subdomains_ and had later switched to _subfolders_. The `.htaccess` snippet for both is different.
 
-Maybe check file permissions or the config in `.htaccess`?
+
+#### Subfolder Example
+
+```conf
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
+RewriteRule . index.php [L]
+```
+
+#### SubDomain Example
+
+```conf
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
+RewriteRule ^(.*\.php)$ $1 [L]
+RewriteRule . index.php [L]
+```
 
 Links
 ---
 
 - [Before You Create A Network](https://wordpress.org/support/article/before-you-create-a-network/)
 - [Create A Network](https://wordpress.org/support/article/create-a-network/)
+- [htaccess: Multisite](https://wordpress.org/support/article/htaccess/#multisite)
+
+https://wetopi.com/how-to-setup-wordpress-multisite-with-subdirectories/
