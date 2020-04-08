@@ -83,7 +83,7 @@ The above is all you need. You should now be able to go to https://mydomain.net/
 ### Management
 
 - You should configure plugins like _JetPack_ from the Network Admin
-
+- I can install plugins from the Network Admin or from the _Main site_
 
 ## Troubleshooting
 You get too many redirects when going to the Admin of the new site you just created
