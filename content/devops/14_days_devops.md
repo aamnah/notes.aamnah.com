@@ -27,3 +27,4 @@ Started the [DevOps Essentials](https://linuxacademy.com/cp/modules/view/id/192)
 
 ## DevOps Day 2, 3, 4
 - did nothing devopsy
+ 
