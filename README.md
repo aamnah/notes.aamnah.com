@@ -1,4 +1,11 @@
-# TLDR Dev Notes
+# Aamnah's Dev Notes
+
+update 2020-04-30
+
+- The domain is being changed from http://tldrdevnotes.com to http://notes.aamnah.com. Will eventually become aamnah.com/notes (for SEO reasons)
+- The site maybe migrated from Hugo to WordPress or Gatsby
+
+---
 
 ## Current State
 In it's current state the site/project serves as my diary for all web development, system administration and web design notes. There may be some personal posts, but they are not meant to be public.
