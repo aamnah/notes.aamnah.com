@@ -1,5 +1,8 @@
 # Aamnah's Dev Notes
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8023249-34f0-4899-946c-82ebfa593754/deploy-status)](https://app.netlify.com/sites/notes-aamnah/deploys)
+
+
 update 2020-04-30
 
 - The domain is being changed from http://tldrdevnotes.com to http://notes.aamnah.com. Will eventually become aamnah.com/notes (for SEO reasons)
