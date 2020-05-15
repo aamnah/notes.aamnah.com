@@ -2,7 +2,7 @@
 
 title: '[grep, sed] Find and Replace string in multiple files'
 date: 2016-01-06
-lastmod: 2017-03-16
+lastmod: 2020-05-16
 ---
 
 ```bash
