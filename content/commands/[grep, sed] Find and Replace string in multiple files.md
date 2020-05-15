@@ -6,6 +6,11 @@ lastmod: 2017-03-16
 ---
 
 ```bash
+# replace all htttp://link to https://link in all files
+grep -rl 'http://' ./ | xargs sed -i 's|http://|https://|g'
+```
+
+```bash
 grep -rl --null mangoes/ . | xargs -0 sed -i '' 's/mangoes/oranges/g'
 ```
 
@@ -85,3 +90,4 @@ Links
 - [manual: xargs](https://linux.die.net/man/1/xargs)
 - [manual: grep](https://www.gnu.org/software/grep/manual/grep.html)
 - [Using different delimiters in sed](http://backreference.org/2010/02/20/using-different-delimiters-in-sed/)
+- [sed, replace in linux http://cdn1 with https://cdn1](https://serverfault.com/a/625834)
