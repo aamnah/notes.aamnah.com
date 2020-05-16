@@ -68,7 +68,7 @@ pluralizeListTitles = false
     name = "What i did"
     pre = "<i class='fa fa-history fa-fw'></i>"
     weight = 4
-    url = "/progress/"
+    url = "https://blog.aamnah.com/personal/what-i-did"
   [[menu.main]]
     name = "Resources"
     pre = "<i class='fa fa-star fa-fw'></i>"
