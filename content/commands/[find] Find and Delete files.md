@@ -33,6 +33,7 @@ find . -type d -name cache -exec chmod 777 {} \;
 
 ### More about find
 
+- Run `find --help` and `man find` to read help docs and find out the possibilities
 - By default is searches in the current directory, recursively.
 - You can run a variety of _tests_
 
@@ -48,29 +49,9 @@ tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N
 ```
 
 - `-mtime` is for modification time, `-ctime` is for creation time, `atime` is for access time.
-- `-type [bcdpflsD]`
-
-```
--type c
-      File is of type c:
-
-      b      block (buffered) special
-
-      c      character (unbuffered) special
-
-      d      directory
-
-      p      named pipe (FIFO)
-
-      f      regular file
-
-      l      symbolic link; this is never true if the -L option or the -follow option is in effect, unless the  symbolic
-             link is broken.  If you want to search for symbolic links when -L is in effect, use -xtype.
-
-      s      socket
-
-      D      door (Solaris)
-
-      To  search  for  more than one type at once, you can supply the combined list of type letters separated by a comma
-      `,' (GNU extension).
-```
+- Common types you can pass with `-type` are 
+      - `f` for regular files
+      - `d` for directory
+      - `l` for symbolic link
+      - `s` for scoket file
+- You can pass multiple types as a comma separated list, for example: `-type f,d,l`
