@@ -30,36 +30,22 @@ Here's the simplest SVG, a box
 viewBox = <min-x> <min-y> <width> <height>
 ```
 
-```html
+```xml
 <!-- RESPONSIVE SVG -->
 <svg viewBox="0 0 460 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Simple rectangle -->
   <rect width="100" height="100" fill="lightseagreen"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="120" width="100" height="100" rx="15" fill="salmon"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="240" width="100" height="100" rx="15" fill="plum"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="360" width="100" height="100" rx="15" fill="palevioletred"/>
 </svg>
 ```
 
-```html
+```xml
 <!-- FIXED SIZE SVG -->
 <svg viewBox="0 0 460 100" width="460" height="100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Simple rectangle -->
   <rect width="100" height="100" fill="lightseagreen"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="120" width="100" height="100" rx="15" fill="salmon"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="240" width="100" height="100" rx="15" fill="plum"/>
-
-  <!-- Rounded corner rectangle -->
   <rect x="360" width="100" height="100" rx="15" fill="palevioletred"/>
 </svg>
 ```
