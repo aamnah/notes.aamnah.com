@@ -3,7 +3,7 @@ title: SFTP Users for Website directory
 subtitle: Create an SFTP User/Group for /var/www
 slug: sftp-www
 date: 2017-08-09
-lastmod: 2020-04-04
+lastmod: 2020-05-17
 ---
 
 tl;dr
@@ -66,13 +66,14 @@ sudo usermod -aG www-data ${USER}
 # PERMISSIONS
 # chroot dir has to be owned by root
 sudo chown root:root ${CHROOT}
+
 # chroot directory also needs 755 in order to avoid: Server unexpectedly closed network connection
 sudo chmod 755 ${CHROOT}
-# web directories have to be owned by www-data (assuming you're creating sftp users for websites)
-sudo chown -R www-data:www-data /var/www/*
 
+# web directories have to be owned by www-data (assuming you're creating sftp users for websites)
 # Change group ownership for `/var/www` to `www-data`
 sudo chgrp -R www-data /var/www/*
+
 # Give write permission to the group
 sudo chmod -R g+w /var/www/*
 
