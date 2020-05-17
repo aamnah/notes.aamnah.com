@@ -1,9 +1,9 @@
 ---
-ttitle: SVG Icon System in React
+title: SVG Icon System in React
 date: 2019-06-27
 ---
 
-## SVG as SVG
+## SVG as Image
 
 ```js
 import React from 'react'
