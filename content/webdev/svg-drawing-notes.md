@@ -1,6 +1,7 @@
 ---
 title: Drawing SVGs
 date: 2019-07-23
+lastmod: 2020-05-17
 ---
 
 ###  Notes on keeping SVGs crisp
