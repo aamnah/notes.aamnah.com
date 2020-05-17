@@ -4,7 +4,7 @@ languageCode = "en-us"
 title = "Aamnah's Dev Notes"
 author = "Aamnah"
 theme = "tldr"
-copyright = "TOML &copy; 2017. All rights reserved."
+copyright = "TOML &copy; 2020. All rights reserved."
 canonifyurls = true
 paginate = 10
 
