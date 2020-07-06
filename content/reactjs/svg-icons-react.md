@@ -1,6 +1,7 @@
 ---
 title: SVG Icon System in React
 date: 2019-06-27
+lastmod: 2020-05-17
 ---
 
 ## SVG as Image
@@ -66,6 +67,26 @@ A `ReactComponent` SVG will show as inline `<svg>` when rendered. You can now us
 
 To be continued.. Will probably have to leave the `.svg` files and add the paths in a `.jsx` file so we could use `props`
 
+Case for converting SVGs into React components
+
+- Theming. You can change the color of all icons when you change the theme. But i'd argue you can do that with CSS as well
+
+```jsx
+// wrapping SVGs in theme-able components
+import styled from 'styled-components';
+import theme from 'styled-theming';
+
+export const backgroundColor = theme('mode', {
+   light: '#fafafa',
+   dark: '#0e0f11'
+});
+const LogoWrapper = styled.div`
+   svg {
+      fill: ${backgroundColor};
+   }
+`;
+```
+
 ## Links
 
 - [Consider importing SVGs as React components #1388 Closed ](https://github.com/facebook/create-react-app/issues/1388)
@@ -74,3 +95,4 @@ To be continued.. Will probably have to leave the `.svg` files and add the paths
 - [Using SVG Icons Components in React](https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91)
 - [How to Optimize and Export SVGs in Adobe Illustrator](https://www.sitepoint.com/crash-course-optimizing-and-exporting-svgs-in-adobe-illustrator/)
 - [Creating an SVG Icon System with React](https://css-tricks.com/creating-svg-icon-system-react/)
+- [Working with SVGs in React](https://medium.com/@rossbulat/working-with-svgs-in-react-d09d1602a219)
