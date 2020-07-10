@@ -47,4 +47,3 @@ Link
 ---
 - [sedutil: Building sedutil](https://github.com/Drive-Trust-Alliance/sedutil/wiki/Building-sedutil)
 - [How do you build on Linux?](https://github.com/Drive-Trust-Alliance/sedutil/issues/168)
-- [](http://jorgenmodin.net/index_html/how-to-encrypt-your-linux-machine-and-session-with-a-self-encrypting%20disk)
