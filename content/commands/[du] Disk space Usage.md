@@ -4,6 +4,8 @@ category:
   - Commands
   - SysAdmin
 date: 2015-11-21
+lastmod: 2020-07-08
+
 ---
 
 ## Examples
@@ -108,6 +110,10 @@ alias ds='du -ks *|sort -n'
 ## Common files that take up a lot of space
 
 **TIP**: The `-S` flag for the `ls` command lists files sorted by size
+
+#### outdated apt packages
+
+You can remove outdate packages that were installed but are no longer required with `sudo apt autoremove -y`. This freed up 1.5Gb of storage for me
 
 #### WordPress Diff
 If on wordpress, delete diff files. `/wp-includes/Text/Diff/Engine/cache`. 
