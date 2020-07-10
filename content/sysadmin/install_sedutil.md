@@ -23,7 +23,7 @@ make
 Enable TPM `libata.allow_tpm=1` by editing the GRUB config
 
 ```bash
-sudo nano etc/default/grub
+sudo nano /etc/default/grub
 ```
 
 ```
