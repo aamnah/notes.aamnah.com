@@ -15,15 +15,17 @@ date: 2018-10-18
 
 ### Getting started
 
-```bash
-yarn global add parcel-bundler
-# OR
-mp install -g parcel-bundler
-```
+With Yarn
 
 ```bash
+yarn global add parcel-bundler
 yarn init -y
-# OR
+```
+
+or with NPM
+
+```bash
+npm install -g parcel-bundler
 npm init -y
 ```
 
