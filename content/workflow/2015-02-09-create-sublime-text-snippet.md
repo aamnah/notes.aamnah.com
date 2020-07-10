@@ -11,7 +11,7 @@ tags:
 
 Basics
 ---
-- The file name should end in **.subime-snippet**. 
+- The file name should end in **.sublime-snippet**. 
 - It should be saved in (Mac) **/Users/yourname/Library/Application Support/Sublime Text 3/Packages/User** See [this page](http://sublimetext.info/docs/en/basic_concepts.html) for the data folder on other OS.
 - The code must ve wrapped in a **<![CDATA[ ]]>** tag.
 - You can use **$1** to indicate where to place the cursor after inserting the template. For example, for an HTML5 template you can place it between `<title>` tags like so:  `<title>$1</title>` and this is where the cursor will be after the snippet is inserted.
