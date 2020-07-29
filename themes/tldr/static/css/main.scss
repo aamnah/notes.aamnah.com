@@ -75,6 +75,11 @@ pre>code { // for code blocks, use Consolas, Monaco etc.
   font-family: $font-family-code;
 }
 
+blockquote {
+  border-left: 2px solid lightgray;
+  padding-left: 1em;
+}
+
 .container {
   width: calc(100% - 200px);
   margin: 0 auto;
