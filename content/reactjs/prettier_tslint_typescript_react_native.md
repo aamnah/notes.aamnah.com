@@ -4,6 +4,28 @@ date: 2019-10-11
 
 ---
 
+### UPDATE
+
+React Native projects now come with `@react-native-community` setup by default. It [includes support](https://github.com/facebook/react-native/blob/master/packages/eslint-config-react-native-community/index.js) for Prettier, Typescript and React hooks by default
+
+```js
+// config from @react-native-community
+
+  extends: [
+    'plugin:prettier/recommended', // https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
+    'prettier/react',
+  ],
+
+  plugins: [
+    'eslint-comments',
+    'react',
+    'react-hooks',
+    'react-native',
+    '@react-native-community',
+    'jest',
+  ],
+```
+
 #### NOTE
 
 After deciding on TSLint and implementing it, i find out that Palantir, the maintainers of TSLint actually plan to deprecate TSLint and move to ESLint, so i re-did the setup with ESLint
