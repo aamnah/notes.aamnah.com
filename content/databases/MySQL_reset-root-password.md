@@ -32,6 +32,14 @@ FLUSH PRIVILEGES;
 exit;
 ```
 
+```sql
+-- MySQL 8 commands
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+-- UPDATE mysql.user SET plugin="mysql_native_password" WHERE user='root';
+FLUSH PRIVILEGES;
+exit;
+```
+
 ---
 
 stop mysql
@@ -104,6 +112,16 @@ mysql -u root
 mysql> FLUSH PRIVILEDGES;
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';
 ```
+
+### Root user login and PhpMyAdmin
+
+```sql
+-- Create a new super user for phpMyAdmin
+CREATE USER 'pmauser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'tyuY12HPEBsY04Y12HPEf3Sx';
+GRANT ALL PRIVILEGES ON *.* TO 'pmauser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
 
 Troubleshooting
 ---
@@ -204,3 +222,4 @@ Links
 - [GoDaddy: Reset your root MySQL password - Linux](https://pk.godaddy.com/help/reset-your-root-mysql-password-linux-17548)
 - [StackOverflow: mysqld_safe Directory '/var/run/mysqld' for UNIX socket file don't exists](https://stackoverflow.com/questions/42153059/mysqld-safe-directory-var-run-mysqld-for-unix-socket-file-dont-exists)
 - [StackOverflow: Table 'mysql.user' doesn't exist:ERROR](https://stackoverflow.com/questions/17780630/table-mysql-user-doesnt-existerror)
+- [Can’t log into phpMyAdmin: mysqli_real_connect(): (HY000/1698): Access denied for user ‘root’@’localhost’](https://devanswers.co/phpmyadmin-access-denied-for-user-root-localhost/)
