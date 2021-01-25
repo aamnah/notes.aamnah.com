@@ -2,7 +2,7 @@
 title: SSH Keys
 slug: ssh-keys
 date: 2015-11-15
-lastmod: 2017-03-13
+lastmod: 2021-01-25
 tags: 
 - ssh
 ---
@@ -14,13 +14,18 @@ tags:
 ## Generate key
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t ed25519
 ```
+Previously, i used to use `rsa` as the type, but i have since moved on to `ed25519`. Ed25519 is a newer public-key algorithm which is faster (and safer) than RSA. Ed25519 public-key is also more compact, containing only 68 characters as compared to RSA 3072 that has 544 characters. Ed25519 is supported by OpenSSH so you should be good in almost all cases. 
+
+Github recommends passing it your email with -C which is then uses as a label.
+
+cd ~/.ssh && ssh-keygen -t ed25519 -C "hello@example.com"
 
 ## Copy .pub file to remote
 
 ```bash
-scp id_rsa.pub user@remoteserver:location
+scp id_ed25519.pub user@remoteserver:location
 ```
 
 On linux you can do 
@@ -74,14 +79,20 @@ If you don't know what the service name for ssh is, you can list all of the serv
 service --status-all
 ```
 
-## aliases
-To avoid having to type the ssh command everytime, you can create an alias
+## .ssh/config (local system)
+
+You can create an SSH config file at `~/.ssh/config` and save all your SSH connection settings there. You will then be able to run `ssh FOO` and connect with all the settings defined for the host _FOO_.
 
 ```bash
-alias se3='ssh root@remoteServer'
+# My settings for connecting to FOO server
+Host foo
+  #HostName www.myfooserver.com
+  HostName 123.456.789.123
+  User USERNAME
+  Port 22
+  IdentityFile ~/.ssh/MY_SSH_KEY
 ```
 
-The alias goes in you `~/.bash_profile` file.
 
 ## Start the `ssh-agent` and load your keys
 See if ssh-agent is running:
@@ -102,10 +113,16 @@ OR
 ssh-agent bash
 ```
 
+OR 
+
+```bash
+eval $(ssh-agent)
+```
+
 Load ssh key:
 
 ```bash
-ssh-add ~/.ssh/id_rsa 
+ssh-add ~/.ssh/id_ed25519 
 ```
 
 List loaded ssh keys:
@@ -118,7 +135,7 @@ ssh-add -l
 Copy your key to your clipboard with (Linux only): 
 
 ```bash
-cat ~/.ssh/id_rsa.pub | pbcopy
+cat ~/.ssh/id_ed25519.pub | pbcopy
 ```
 
 ## Troubleshhoting
@@ -135,4 +152,6 @@ Simple as that. Though troubleshooting might be needed.
 
 Resources
 ---
-[YouTube: Setting Up an SSH Key](https://www.youtube.com/watch?v=-J9wUW5NhOQ)
+
+- [YouTube: Setting Up an SSH Key](https://www.youtube.com/watch?v=-J9wUW5NhOQ)
+- [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
