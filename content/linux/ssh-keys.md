@@ -20,7 +20,9 @@ Previously, i used to use `rsa` as the type, but i have since moved on to `ed255
 
 Github recommends passing it your email with -C which is then uses as a label.
 
+```bash
 cd ~/.ssh && ssh-keygen -t ed25519 -C "hello@example.com"
+```
 
 ## Copy .pub file to remote
 
