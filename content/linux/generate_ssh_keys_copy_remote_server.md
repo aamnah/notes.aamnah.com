@@ -59,10 +59,10 @@ sudo chmod go-w ~/ && sudo chmod 700 ~/.ssh && sudo chmod 600 ~/.ssh/authorized_
 ### Copying SSH Public Key from Local to Remote Server
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh username@example.com "cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_ed25519.pub | ssh username@example.com "cat >> ~/.ssh/authorized_keys"
 ```
 
-replace `id_rsa.pub` with your generated key.
+replace `id_ed25519.pub` with your generated key.
 
 
 Troubleshooting
