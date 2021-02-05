@@ -19,7 +19,7 @@ uname -p # Processor type (usually unknown on modern Unix)
 uname -a
 ```
 
-```
+```bash
 # Ubuntu 20.04 inside WSL2 on a Windows machine - 64bit
 Linux Panda 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
