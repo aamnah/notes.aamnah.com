@@ -14,6 +14,15 @@ uname -p # Processor type (usually unknown on modern Unix)
 - `i686` or `i386` is **32-bit** 
 - `x86_64` is **64-bit**
 
+```bash
+uname -a
+```
+
+```
+# Ubuntu 20.04 inside WSL2 on a Windows machine - 64bit
+Linux Panda 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 ### ARM
 
 ```bash
