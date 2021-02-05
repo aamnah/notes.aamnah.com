@@ -1,6 +1,7 @@
 ---
 title: '[uname] Find out system Architecture (32-bit vs. 64-bit)'
 date: 2018-08-17
+lastmod: 2021-02-05
 ---
 
 
