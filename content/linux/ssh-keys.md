@@ -34,6 +34,8 @@ On linux you can do
 
 ```bash
 ssh-copy-id user@123.456.789.123
+
+# ssh-copy-id -i ~/.ssh/mykey -p 1234 user@host
 ```
 
 ## Permissions
