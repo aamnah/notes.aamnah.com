@@ -6,9 +6,9 @@ https://discourse.gohugo.io/t/adding-weights-to-sections-to-order-on-the-homepag
 -->
 
 <section>
-  {{ range $section := .Site.Sections }}
-    <h3>{{ $section.Title }}</h3>
-    {{ range $section.Pages }}
+  {{ range .Site.Sections.ByTitle }}
+    <h3>{{ .Title }}</h3>
+    {{ range .Pages }}
         <!-- Linked Titles -->
         {{ if .Title }}
         <!-- If draft:true or status:draft -->
