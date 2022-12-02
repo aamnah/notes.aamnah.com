@@ -4,19 +4,23 @@ slug: how-to-make-websites-in-urdu-use-custom-fonts
 category: "Web Dev"
 author: aamnah
 date: 2014-08-09
+lastmod: 2022-12-02
 ---
 
 In this post you'll learn how to make web pages in Urdu, how to type in Urdu, how to use custom Urdu fonts on your website and how to configure and style a website in Urdu.
 
 ### Finding a font
-First things first, find an Urdu font that you like. I decided to use [Nafees Nastaleeq](). Other good fonts are:
-[Nazanin]()
-[Nazanin Bold]()
-[Farhood]()
+First things first, find an Urdu font that you like. I decided to use [Nafees Nastaleeq]().
+
+Other good fonts are:
+
+- [Nazanin]()
+- [Nazanin Bold]()
+- [Farhood]()
 
 If you are having difficulty finding good Urdu fonts (type faces), try Persian. Persian is written very similar to Urdu (both are written in Nastaleeq script) and will do nicely for our use.
 
-After Persian, Arabic comes at a close second in similarity. While it's easier to find arabic fonts,  using it for Urdu has caveats: some alphabets (like chay and gaaf) will be missing. 
+After Persian, Arabic comes at a close second in similarity. While it's easier to find arabic fonts, using it for Urdu has caveats: some alphabets (like chay and gaaf) will be missing. 
 
 Make sure you have the right to use the font.
 
@@ -31,7 +35,19 @@ Urdu is a Right To Left (rtl) language. You start writing from the right side an
 
 **NOTE: The `dir` tag is deprecated, it is not supported in HTML5. Use CSS instead.**
 
-### CSS `@font-face`, `font-family` and `direction` ###
+
+### HTML `lang` tag
+
+`lang` is a global attribute which means it can be applied to all HTML elements. Normally you'd see it specified on `<html>`, but you can also specify it on `<p>` tags.
+
+`lang` takes an ISO 639-1 defined language abbreviation as value. For example, `ur` is for Urdu, `ar` is for Arabic, `fr` is for French and so on..
+
+
+```html
+<p lang="ur">آؤ اردو میں تحریر کریں</p>
+```
+
+### CSS `@font-face`, `font-family` and `direction`
 Since our website is going to be bilingual, i.e. it will have both English and Urdu posts, we will add a CSS class `.urdu` to the content whenever the content is going to be in Urdu. Our custom font and any specific styling will also be mentioned in the `.urdu` CSS class and applied when needed.
 
 The direction can also be mentioned in the CSS. 
@@ -54,14 +70,14 @@ The direction can also be mentioned in the CSS.
 }
 ```
 
-### Using custom fonts ###
+### Using custom fonts
 Once we have found a font, we will use the Webfont Generator to convert our fonts in formats for use on website and get the **@font-face kit**.
 
 we are going to generate our magical fonts for use on the web with support for all browsers.
 
 Font faces are defined in the css stylesheet. So we'll take the code from the @font-face kit and add it to our stylesheet.
 
-### [Demo]({{site.url}}/lets_write_in_urdu/) ### 
+### [Demo]({{site.url}}/lets_write_in_urdu/) 
 
 Links
 ---
@@ -72,3 +88,4 @@ Links
 - [Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator)
 - [Arabic Web Fonts](http://www.fonts.com/search/web-fonts?SortColumn=relevancy&searchtext=arabic&ShowAllFonts=Desktop&SearchType=WebFonts#product_top)
 - [What are my “web font” choices for Arabic?](http://stackoverflow.com/questions/7185106/what-are-my-web-font-choices-for-arabic)
+- [MDN: lang global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang)
