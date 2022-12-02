@@ -1,6 +1,7 @@
 ---
 title: '[uname] Find out system Architecture (32-bit vs. 64-bit)'
 date: 2018-08-17
+lastmod: 2021-02-05
 ---
 
 
@@ -13,6 +14,15 @@ uname -p # Processor type (usually unknown on modern Unix)
 
 - `i686` or `i386` is **32-bit** 
 - `x86_64` is **64-bit**
+
+```bash
+uname -a
+```
+
+```bash
+# Ubuntu 20.04 inside WSL2 on a Windows machine - 64bit
+Linux Panda 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+```
 
 ### ARM
 

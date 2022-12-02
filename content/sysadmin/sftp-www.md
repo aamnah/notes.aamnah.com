@@ -3,6 +3,7 @@ title: SFTP Users for Website directory
 subtitle: Create an SFTP User/Group for /var/www
 slug: sftp-www
 date: 2017-08-09
+lastmod: 2020-05-17
 ---
 
 tl;dr
@@ -65,10 +66,16 @@ sudo usermod -aG www-data ${USER}
 # PERMISSIONS
 # chroot dir has to be owned by root
 sudo chown root:root ${CHROOT}
+
 # chroot directory also needs 755 in order to avoid: Server unexpectedly closed network connection
 sudo chmod 755 ${CHROOT}
+
 # web directories have to be owned by www-data (assuming you're creating sftp users for websites)
-sudo chown -R www-data:www-data /var/www/*
+# Change group ownership for `/var/www` to `www-data`
+sudo chgrp -R www-data /var/www/*
+
+# Give write permission to the group
+sudo chmod -R g+w /var/www/*
 
 # chmod g+s forces new files and dirs to pick up the group owner (www-data), 
 # making sure that permissions change propagates 
@@ -85,7 +92,10 @@ Troubleshooting
 Permissions error: 
 
 ```bash
+# Change group ownership for `/var/www` to `www-data`
 sudo chgrp -R www-data /var/www/*
+
+# Give write permission to the group
 sudo chmod -R g+w /var/www/*
 ```
 
@@ -104,6 +114,15 @@ This could mean any of the following
 sudo chown root:root /var/www/
 sudo chmod 755 /var/www/
 ```
+
+Authentication error:
+
+The password is probably wrong. Reset it with this command
+
+```bash
+passwd sftpuser SECUREPASS
+```
+
 Links
 ---
 - [How To Enable SFTP Without Shell Access on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-enable-sftp-without-shell-access-on-ubuntu-16-04)

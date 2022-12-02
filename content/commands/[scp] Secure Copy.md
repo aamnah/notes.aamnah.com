@@ -34,6 +34,13 @@ If you have saved ssh keys already and there is only one key for the server you 
 
 you can pass all ssh options to scp as well.
 
+## Copy file from remote server to local
+
+```bash
+# scp -i ~/.ssh/SSH_KEY REMOTE_USER@REMOTE_SERVER:REMOTE_FILE_PATH LOCAL_SAVE_LOCATION
+scp -i ~/.ssh/id_rsa root@myserver.com:home/root/filefoobar.tar.gz ~/Downloads
+```
+
 Resources
 ---
 - http://www.hypexr.org/linux_scp_help.php

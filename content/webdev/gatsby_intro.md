@@ -1,13 +1,13 @@
 ---
 title: Getting started with Gatsby
 date: 2018-05-09
-lastmod: 2018-07-06
+lastmod: 2020-03-20
 ---
- 
+
 ```bash
 npm install --global gatsby-cli
 # or
-yarn global add gatsby-cli 
+yarn global add gatsby-cli
 ```
 
 ```bash
@@ -29,6 +29,16 @@ gatsby --help
 gatsby COMMAND_NAME --help
 ```
 
+```bash
+npx gatsby new blog.aamnah.com
+cd blog.aamnah.com
+npm run develop # start dev server http://localhost:8000
+npm run build # build production site
+npm run serve # serve production site you built, http://localhost:9000
+
+npx gatsby help # show available commands
+npx gatsby new help # show help for a specific command
+```
 
 ### Directory Structure
 

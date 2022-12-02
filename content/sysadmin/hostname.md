@@ -33,7 +33,7 @@ hostnamectl
 ```
 
 ```
-   Static hostname: news.mydomain.com
+   Static hostname: new.mydomain.com
          Icon name: computer-vm
            Chassis: vm
         Machine ID: 23f62493fbfe41359cc6b4f409570ac1

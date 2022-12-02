@@ -38,3 +38,4 @@ Links
 ---
 
 - [How to Create Responsive SVG Images](https://webdesign.tutsplus.com/tutorials/how-to-create-responsive-svg-images--cms-32140)
+- [Adding Images, Fonts, and Files](https://create-react-app.dev/docs/adding-images-fonts-and-files/)

@@ -104,6 +104,10 @@ If you are changing your own password and not of another user, you can omit the 
 SET PASSWORD = PASSWORD('mypass');
 ```
 
+```sql
+alter user 'user'@'host' identified with mysql_native_password by 'PASSWORD';
+```
+
 ##### Allowing User to Connect
     
 ```sql

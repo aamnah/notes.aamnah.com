@@ -1,5 +1,5 @@
 {
-    "name": "TLDR Dev Notes",
+    "name": "Aamnah's Developer Notes",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -12,7 +12,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#7e57c4",
-    "background_color": "#7e57c4",
+    "theme_color": "#13B2A9",
+    "background_color": "#13B2A9",
     "display": "standalone"
 }

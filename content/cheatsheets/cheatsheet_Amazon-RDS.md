@@ -50,6 +50,12 @@ CHECK if you can connect to the created database with the user you crteated<br /
 mysql -uusername -p --host=mysql.hostmarkaz.com databasename
 ```
 
+Change password
+
+```sql
+alter user 'user'@'host' identified with mysql_native_password by 'PASSWORD';
+```
+
 Deleting MySQL User<br />
 
 ```sql
