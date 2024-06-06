@@ -27,17 +27,17 @@ Here's a quick overview of most of the stuff i had to look up.
   - It is possible to figure out if a `script` was [successful or not][after-script] by using `$BITBUCKET_EXIT_CODE` (0 = success, 1 = failed)  in the `after-script`
 
 - You save your configuration, written in YAML, in a file called `bitbucket-pipelines.yml` in the root of your repo's main branch (usually `master`). Pipelines, Deployments, and Repository variables will not work until you have that file in place. Bitbucket will automatically pick it up once it's there. Easiest way to get started is to generate a config file online by going to Pipelines in Bitbucket.
-- The [configuration][[configuration] page is elaborate and has examples for most of the stuff you need
+- The [configuration][configuration] page is elaborate and has examples for most of the stuff you need
 - You can have [variables][variables] in your pipelines. Those are saved under _Settings > Repository varaibles_, and referenced as `$SECRET_KEY` or `${SECRET_KEY}`.
 - You can [save dependency caches][caching] to speed up build times. There are a bunch of pre-defined caches available (e.g: `node`, `dotnetcore` etc.). You can also define custom caches under `definitions` (e.g. `node_modules`)
-- If you provide a `deployment` value, the builds will show on the [Deployments][deployments] page for that enviornment. You can setup custom deployment environments under _Settings > Deployments_. By default `production`, `staging` and `test` are available
+- If you provide a `deployment` value, the builds will show on the [Deployments][deployments] page for that environment. You can setup custom deployment environments under _Settings > Deployments_. By default `production`, `staging` and `test` are available
 
 
 [configuration]: https://confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html
 [variables]: https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html
 [caching]: https://confluence.atlassian.com/bitbucket/caching-dependencies-895552876.html
 [deployments]: https://confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html
-[after-script]: (https://bitbucket.org/blog/after-scripts-now-available-for-bitbucket-pipelines)
+[after-script]: https://bitbucket.org/blog/after-scripts-now-available-for-bitbucket-pipelines
 
 Links
 ---
