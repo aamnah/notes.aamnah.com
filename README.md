@@ -3,7 +3,10 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d8023249-34f0-4899-946c-82ebfa593754/deploy-status)](https://app.netlify.com/sites/notes-aamnah/deploys)
 
 update 2024-06-06
+
 new [Aamnah.com](https://aamnah.com) based on Hugo was launched yesterday. That site shows all the [up to date notes](https://aamnah.com/notes) and takes them from a separate [notes repo](https://github.com/aamnah/notes). This notes repo is longer updated. It is only here for archival reasons.
+
+https://notes.aamnah.com will be taken down so that it is no longer crawled or indexed. You can still see a live deployment of this project at: https://notes-aamnah.netlify.app/
 
 ---
 
